@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgw557ttv6noe"]
+
+[ext_resource type="Script" path="res://scenes/t_computer.gd" id="1_swrb7"]
+[ext_resource type="Texture2D" uid="uid://dajex7cpt7k4p" path="res://assets/images/bg/background.png" id="2_u0da7"]
+
+[node name="computerShrilow" type="Node2D"]
+script = ExtResource("1_swrb7")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(281, 55)
+motion_mirroring = Vector2(600, 557)
+
+[node name="background" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource("2_u0da7")

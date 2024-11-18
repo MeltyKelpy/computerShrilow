@@ -1,0 +1,78 @@
+[gd_scene load_steps=7 format=3 uid="uid://c6toq5a3ihyny"]
+
+[ext_resource type="Script" path="res://technical/events/event_indicator.gd" id="1_a2766"]
+[ext_resource type="Texture2D" uid="uid://wpciqec4n52g" path="res://assets/images/ui/warning.png" id="1_dpthf"]
+[ext_resource type="Theme" uid="uid://dr1wna4c2ab2h" path="res://technical/textStyle.tres" id="2_hswlr"]
+
+[sub_resource type="Animation" id="Animation_404bo"]
+resource_name = "POPUP"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("eventer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.766667, 2.2, 3),
+"transitions": PackedFloat32Array(0.353553, 1, 3.36358, 1),
+"update": 0,
+"values": [Vector2(576, 624), Vector2(576, 324), Vector2(576, 324), Vector2(576, 649)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_kill"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_nh8jk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("eventer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(576, 624)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nrdsi"]
+_data = {
+"POPUP": SubResource("Animation_404bo"),
+"RESET": SubResource("Animation_nh8jk")
+}
+
+[node name="EventIndicator" type="Node2D"]
+script = ExtResource("1_a2766")
+
+[node name="eventer" type="Sprite2D" parent="."]
+position = Vector2(576, 624)
+texture = ExtResource("1_dpthf")
+
+[node name="Warning" type="Label" parent="eventer"]
+offset_left = -480.0
+offset_top = 233.0
+offset_right = -202.0
+offset_bottom = 303.0
+scale = Vector2(1, 0.6)
+theme = ExtResource("2_hswlr")
+theme_override_font_sizes/font_size = 50
+text = "WARNING MESSAGE"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_nrdsi")
+}

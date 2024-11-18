@@ -1,0 +1,55 @@
+[gd_scene load_steps=15 format=3 uid="uid://ba8nj0cum4qjy"]
+
+[ext_resource type="Texture2D" uid="uid://yaivbhdq4dxn" path="res://assets/images/areas/melanies/itemBox.png" id="1_62cu0"]
+[ext_resource type="Texture2D" uid="uid://d1axlhq1ks2ra" path="res://assets/images/areas/melanies/items/autoclick0.png" id="2_6fgyq"]
+[ext_resource type="Script" path="res://technical/melanies_item.gd" id="2_ymu2o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eor5s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g3emj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_khs6m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a2axq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u8yfr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6hy64"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6un6t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2o8yh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2qakg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i1vdf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8ukai"]
+
+[node name="MelaniesItem" type="TextureRect"]
+texture = ExtResource("1_62cu0")
+script = ExtResource("2_ymu2o")
+
+[node name="ItemIcon" type="Sprite2D" parent="."]
+position = Vector2(87, 79)
+texture = ExtResource("2_6fgyq")
+
+[node name="button" type="Button" parent="."]
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 173.0
+offset_bottom = 157.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_eor5s")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_g3emj")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_khs6m")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_a2axq")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_u8yfr")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_6hy64")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_6un6t")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_2o8yh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_2qakg")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_i1vdf")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8ukai")
+
+[connection signal="mouse_entered" from="button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="button" to="." method="_on_button_mouse_exited"]

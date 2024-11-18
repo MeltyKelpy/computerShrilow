@@ -1,0 +1,488 @@
+[gd_scene load_steps=31 format=3 uid="uid://bgw557ttv6noe"]
+
+[ext_resource type="Script" path="res://scenes/t_computer.gd" id="1_swrb7"]
+[ext_resource type="Texture2D" uid="uid://dajex7cpt7k4p" path="res://assets/images/bg/background.png" id="2_u0da7"]
+[ext_resource type="Texture2D" uid="uid://b8y35swxyqxen" path="res://assets/images/bg/fade.png" id="3_x0lxa"]
+[ext_resource type="Texture2D" uid="uid://d3b1qb3i07urm" path="res://assets/images/computershrilows/shrilowBases/shrilowBase.png" id="4_v8f27"]
+[ext_resource type="PackedScene" uid="uid://dctfcin0koae7" path="res://technical/shrilowFace.tscn" id="5_d5to6"]
+[ext_resource type="AudioStream" uid="uid://o0fq5njk38ru" path="res://assets/sounds/squeak.ogg" id="6_g3mo2"]
+[ext_resource type="Texture2D" uid="uid://bls5d01dest6c" path="res://assets/images/ui/usd.png" id="7_0u6ge"]
+[ext_resource type="Texture2D" uid="uid://ddsp35hv5mq4k" path="res://assets/images/ui/shop.png" id="8_kysej"]
+[ext_resource type="Theme" uid="uid://dr1wna4c2ab2h" path="res://technical/textStyle.tres" id="8_oskpf"]
+[ext_resource type="Texture2D" uid="uid://brs8k5prrtxmq" path="res://assets/images/ui/wardrobe.png" id="9_0gok5"]
+[ext_resource type="Texture2D" uid="uid://bags5dre2kqgg" path="res://assets/images/ui/trophies.png" id="10_4g76h"]
+[ext_resource type="Texture2D" uid="uid://4x7uae8v4qm2" path="res://assets/images/areas/melanies/melImage.png" id="12_24rl0"]
+[ext_resource type="PackedScene" uid="uid://ba8nj0cum4qjy" path="res://technical/MelaniesItem.tscn" id="12_o8ln1"]
+[ext_resource type="Texture2D" uid="uid://dpvj0h8nv5awc" path="res://assets/images/areas/melanies/descriptionBox.png" id="13_m021q"]
+[ext_resource type="Texture2D" uid="uid://cc7uegt46vf3d" path="res://assets/images/ui/back.png" id="14_88vde"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p6f28"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w4xu3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uj6cr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0meto"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rmwiu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o3afr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_amgep"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e3kvh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kvmat"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iq0t2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vhex2"]
+
+[sub_resource type="Animation" id="Animation_m2dy7"]
+resource_name = "toShop"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shop:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(0.31864, 1),
+"update": 0,
+"values": [Vector2(1152, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ShrilowScreen:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(0.31864, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-1152, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Shrilow:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(0.31864, 1),
+"update": 0,
+"values": [Vector2(586, 649), Vector2(-566, 649)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ParallaxBackground/ParallaxLayer/background:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.96652, 0.574433, 0.745684, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("fade:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.96652, 0.574433, 0.745684, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_5fubl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shop:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1152, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ShrilowScreen:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Shrilow:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(586, 649)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ParallaxBackground/ParallaxLayer/background:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("fade:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_s3t8e"]
+resource_name = "leaveShop"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shop:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(0.31864, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1152, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ShrilowScreen:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(0.31864, 1),
+"update": 0,
+"values": [Vector2(-1152, 0), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Shrilow:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(0.31864, 1),
+"update": 0,
+"values": [Vector2(-566, 649), Vector2(586, 649)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ParallaxBackground/ParallaxLayer/background:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.96652, 0.574433, 0.745684, 1), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("fade:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.96652, 0.574433, 0.745684, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vs8hy"]
+_data = {
+"RESET": SubResource("Animation_5fubl"),
+"leaveShop": SubResource("Animation_s3t8e"),
+"toShop": SubResource("Animation_m2dy7")
+}
+
+[node name="computerShrilow" type="Node2D"]
+script = ExtResource("1_swrb7")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+offset = Vector2(300, 300)
+scale = Vector2(1.15, 1.15)
+transform = Transform2D(1.15, 0, 0, 1.15, 300, 300)
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(600, 557)
+
+[node name="background" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource("2_u0da7")
+
+[node name="fade" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+texture = ExtResource("3_x0lxa")
+
+[node name="Shrilow" type="Node2D" parent="."]
+position = Vector2(586, 649)
+
+[node name="Shrilow" type="Sprite2D" parent="Shrilow"]
+position = Vector2(-3.75002, -212.5)
+texture = ExtResource("4_v8f27")
+
+[node name="ShrilowFace" parent="Shrilow/Shrilow" instance=ExtResource("5_d5to6")]
+position = Vector2(-212, -216)
+
+[node name="StillFace" type="Sprite2D" parent="Shrilow/Shrilow"]
+
+[node name="Squeak" type="AudioStreamPlayer" parent="Shrilow"]
+stream = ExtResource("6_g3mo2")
+volume_db = -25.753
+
+[node name="ShrilowSqueak" type="Button" parent="Shrilow"]
+offset_left = -158.75
+offset_top = -421.25
+offset_right = 153.25
+offset_bottom = -0.25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p6f28")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_w4xu3")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_uj6cr")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0meto")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_rmwiu")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_o3afr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_amgep")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_e3kvh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_kvmat")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iq0t2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
+
+[node name="ShrilowScreen" type="Node2D" parent="."]
+
+[node name="USD" type="Sprite2D" parent="ShrilowScreen"]
+position = Vector2(51, 70)
+texture = ExtResource("7_0u6ge")
+
+[node name="Shop" type="Sprite2D" parent="ShrilowScreen"]
+position = Vector2(1065, 141)
+texture = ExtResource("8_kysej")
+
+[node name="ShopButton" type="Button" parent="ShrilowScreen"]
+offset_left = 996.0
+offset_top = 66.0
+offset_right = 1130.0
+offset_bottom = 210.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p6f28")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_w4xu3")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_uj6cr")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0meto")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_rmwiu")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_o3afr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_amgep")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_e3kvh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_kvmat")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iq0t2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
+
+[node name="Wardrobe" type="Sprite2D" parent="ShrilowScreen"]
+position = Vector2(1063, 499)
+texture = ExtResource("9_0gok5")
+
+[node name="WardrobeButton" type="Button" parent="ShrilowScreen"]
+offset_left = 979.0
+offset_top = 425.0
+offset_right = 1147.0
+offset_bottom = 574.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p6f28")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_w4xu3")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_uj6cr")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0meto")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_rmwiu")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_o3afr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_amgep")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_e3kvh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_kvmat")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iq0t2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
+
+[node name="Trophies" type="Sprite2D" parent="ShrilowScreen"]
+position = Vector2(1063, 319)
+texture = ExtResource("10_4g76h")
+
+[node name="TrophiesButton" type="Button" parent="ShrilowScreen"]
+offset_left = 983.0
+offset_top = 229.0
+offset_right = 1143.0
+offset_bottom = 401.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p6f28")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_w4xu3")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_uj6cr")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0meto")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_rmwiu")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_o3afr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_amgep")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_e3kvh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_kvmat")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iq0t2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
+
+[node name="Clicks" type="Label" parent="ShrilowScreen"]
+offset_left = 10.0
+offset_top = 598.0
+offset_right = 154.0
+offset_bottom = 668.0
+scale = Vector2(1, 0.6)
+theme = ExtResource("8_oskpf")
+text = "CLICKS:"
+
+[node name="USDText" type="Label" parent="ShrilowScreen"]
+offset_left = 108.0
+offset_top = 46.0
+offset_right = 252.0
+offset_bottom = 116.0
+scale = Vector2(1, 0.6)
+theme = ExtResource("8_oskpf")
+theme_override_font_sizes/font_size = 50
+text = "MONEY"
+
+[node name="Shop" type="Node2D" parent="."]
+position = Vector2(1152, 0)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Shop"]
+offset_left = 68.0
+offset_top = 112.0
+offset_right = 598.0
+offset_bottom = 461.0
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
+
+[node name="GridContainer" type="GridContainer" parent="Shop/ScrollContainer"]
+layout_mode = 2
+columns = 3
+
+[node name="MelaniesItem" parent="Shop/ScrollContainer/GridContainer" instance=ExtResource("12_o8ln1")]
+layout_mode = 2
+
+[node name="Mel" type="Sprite2D" parent="Shop"]
+position = Vector2(576, 324)
+texture = ExtResource("12_24rl0")
+
+[node name="Description" type="Sprite2D" parent="Shop"]
+position = Vector2(576, 324)
+texture = ExtResource("13_m021q")
+
+[node name="ItemName" type="Label" parent="Shop"]
+offset_left = 48.0
+offset_top = 487.0
+offset_right = 192.0
+offset_bottom = 557.0
+scale = Vector2(1, 0.6)
+theme = ExtResource("8_oskpf")
+theme_override_font_sizes/font_size = 50
+text = "ITEMNAME"
+
+[node name="ItemDescription" type="Label" parent="Shop"]
+offset_left = 48.0
+offset_top = 516.0
+offset_right = 599.0
+offset_bottom = 618.0
+scale = Vector2(1, 0.6)
+theme = ExtResource("8_oskpf")
+theme_override_font_sizes/font_size = 35
+text = "ITEMDESC"
+autowrap_mode = 3
+
+[node name="ItemExtra" type="Label" parent="Shop"]
+offset_left = 47.0
+offset_top = 588.0
+offset_right = 598.0
+offset_bottom = 635.0
+scale = Vector2(1, 0.6)
+theme = ExtResource("8_oskpf")
+theme_override_font_sizes/font_size = 30
+text = "ITEMDESC"
+autowrap_mode = 3
+
+[node name="BackSHOP" type="Sprite2D" parent="Shop"]
+position = Vector2(91, 48)
+texture = ExtResource("14_88vde")
+
+[node name="BackButtonSHOP" type="Button" parent="Shop"]
+offset_left = 2.0
+offset_top = 8.0
+offset_right = 174.0
+offset_bottom = 92.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p6f28")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_w4xu3")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_uj6cr")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0meto")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_rmwiu")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_o3afr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_amgep")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_e3kvh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_kvmat")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iq0t2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
+
+[node name="faceRevert" type="Timer" parent="."]
+wait_time = 0.7
+one_shot = true
+
+[node name="sectionTransitions" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vs8hy")
+}
+
+[node name="WardrobeButton" type="Button" parent="."]
+offset_left = 906.25
+offset_top = -280.25
+offset_right = 1218.25
+offset_bottom = 140.75
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p6f28")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_w4xu3")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_uj6cr")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0meto")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_rmwiu")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_o3afr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_amgep")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_e3kvh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_kvmat")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iq0t2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
+
+[connection signal="pressed" from="Shrilow/ShrilowSqueak" to="." method="_on_shrilow_squeak_pressed"]
+[connection signal="pressed" from="ShrilowScreen/ShopButton" to="." method="_on_shop_button_pressed"]
+[connection signal="pressed" from="ShrilowScreen/WardrobeButton" to="." method="_on_wardrobe_button_pressed"]
+[connection signal="pressed" from="ShrilowScreen/TrophiesButton" to="." method="_on_trophies_button_pressed"]
+[connection signal="pressed" from="Shop/BackButtonSHOP" to="." method="_on_back_button_shop_pressed"]
+[connection signal="timeout" from="faceRevert" to="." method="_on_face_revert_timeout"]

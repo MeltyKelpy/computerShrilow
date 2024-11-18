@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://dctfcin0koae7"]
+
+[ext_resource type="Texture2D" uid="uid://di8h4juh75e8l" path="res://assets/images/computershrilows/shrilowFaces/baseEyes/pupilCove.png" id="1_dkyb7"]
+[ext_resource type="Script" path="res://technical/mouseFollow.gd" id="1_l4jf7"]
+[ext_resource type="Texture2D" uid="uid://8ga8ho0io2kb" path="res://assets/images/computershrilows/shrilowFaces/baseEyes/pupil.png" id="1_uq362"]
+
+[node name="ShrilowFace" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+clip_contents = true
+custom_minimum_size = Vector2(145, 20)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 140.0
+offset_top = 165.0
+offset_right = 240.0
+offset_bottom = 205.0
+
+[node name="leftOrigin" type="Node2D" parent="Control"]
+position = Vector2(33, 27)
+script = ExtResource("1_l4jf7")
+
+[node name="Pupil1" type="Sprite2D" parent="Control/leftOrigin"]
+texture = ExtResource("1_uq362")
+
+[node name="rightOrigin" type="Node2D" parent="Control"]
+position = Vector2(117, 25)
+script = ExtResource("1_l4jf7")
+
+[node name="Pupil2" type="Sprite2D" parent="Control/rightOrigin"]
+texture = ExtResource("1_uq362")
+
+[node name="Cove" type="Sprite2D" parent="."]
+position = Vector2(211, 211)
+texture = ExtResource("1_dkyb7")
