@@ -38,7 +38,7 @@ func _process(_delta : float) -> void:
 		var cacapoopyGOD3 = preload("res://technical/events/eventIndicator.tscn")
 		var caca2 = cacapoopyGOD3.instantiate()
 		add_child(caca2)
-		caca2.warn("OH NO MR.PRESIDENT, WATCH OUT! THEY'RE GONNA ASSASSINATE YOU!")
+		caca2.warn("OH NO MR.PRESIDENT, WATCH OUT! THEY'RE GONNA ASSASSINATE YOU! MOVE THAT FREAKING HITMARKER BEFORE HE GETS SHOT!!")
 		caca.reparent($Shrilow)
 		$Shrilow/Hitmarker.position.x = -29
 		$Shrilow/Hitmarker.position.y = -303

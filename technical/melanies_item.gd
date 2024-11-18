@@ -49,7 +49,7 @@ func _on_button_mouse_exited() -> void:
 
 func _on_button_pressed() -> void:
 	if ItemValues.money >= ItemValues.itemInfomation[ItemID]["Cost"] and MaxedOut == false:
-		if ItemValues.itemInfomation[ItemID]["Owned"] == false:
+		if ItemValues.itemInfomation[ItemID]["Owned"] == false and ItemValues.itemInfomation[ItemID]["ScenePath"] != null:
 			var cacapoopyGOD = load(ItemValues.itemInfomation[ItemID]["ScenePath"])
 			var caca = cacapoopyGOD.instantiate()
 			add_child(caca)

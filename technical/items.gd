@@ -27,7 +27,7 @@ var itemInfomation = [
 	"UpgradeIncrease":0,
 	"Owned":false,
 	"Cost":25,
-	"ScenePath":"res://technical/items/autoclicker.tscn"
+	"ScenePath":null
 	}
 	]
 

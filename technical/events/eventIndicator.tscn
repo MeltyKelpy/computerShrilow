@@ -6,7 +6,7 @@
 
 [sub_resource type="Animation" id="Animation_404bo"]
 resource_name = "POPUP"
-length = 3.0
+length = 4.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -14,7 +14,7 @@ tracks/0/path = NodePath("eventer:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.766667, 2.2, 3),
+"times": PackedFloat32Array(0, 0.766667, 3.2, 4),
 "transitions": PackedFloat32Array(0.353553, 1, 3.36358, 1),
 "update": 0,
 "values": [Vector2(576, 624), Vector2(576, 324), Vector2(576, 324), Vector2(576, 649)]
@@ -26,7 +26,7 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(3),
+"times": PackedFloat32Array(4),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -63,14 +63,15 @@ position = Vector2(576, 624)
 texture = ExtResource("1_dpthf")
 
 [node name="Warning" type="Label" parent="eventer"]
-offset_left = -480.0
-offset_top = 233.0
-offset_right = -202.0
-offset_bottom = 303.0
+offset_left = -486.0
+offset_top = 221.0
+offset_right = 528.0
+offset_bottom = 319.0
 scale = Vector2(1, 0.6)
 theme = ExtResource("2_hswlr")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 45
 text = "WARNING MESSAGE"
+autowrap_mode = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
