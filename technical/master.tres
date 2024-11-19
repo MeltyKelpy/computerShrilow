@@ -1,0 +1,4 @@
+[gd_resource type="AudioBusLayout" format=3 uid="uid://b20hrcc7k7qu"]
+
+[resource]
+bus/0/send = &"Master Copy"

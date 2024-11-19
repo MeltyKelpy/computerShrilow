@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bgw557ttv6noe"]
+[gd_scene load_steps=48 format=3 uid="uid://bgw557ttv6noe"]
 
 [ext_resource type="Script" path="res://scenes/t_computer.gd" id="1_swrb7"]
 [ext_resource type="Texture2D" uid="uid://dajex7cpt7k4p" path="res://assets/images/bg/background.png" id="2_u0da7"]
@@ -11,12 +11,35 @@
 [ext_resource type="Theme" uid="uid://dr1wna4c2ab2h" path="res://technical/textStyle.tres" id="8_oskpf"]
 [ext_resource type="Texture2D" uid="uid://brs8k5prrtxmq" path="res://assets/images/ui/wardrobe.png" id="9_0gok5"]
 [ext_resource type="Texture2D" uid="uid://bags5dre2kqgg" path="res://assets/images/ui/trophies.png" id="10_4g76h"]
+[ext_resource type="Texture2D" uid="uid://8e0gyo2yjajj" path="res://assets/images/ui/mines.png" id="11_2lflx"]
 [ext_resource type="Texture2D" uid="uid://4x7uae8v4qm2" path="res://assets/images/areas/melanies/melImage.png" id="12_24rl0"]
 [ext_resource type="Texture2D" uid="uid://dpvj0h8nv5awc" path="res://assets/images/areas/melanies/descriptionBox.png" id="13_m021q"]
 [ext_resource type="Texture2D" uid="uid://cc7uegt46vf3d" path="res://assets/images/ui/back.png" id="14_88vde"]
+[ext_resource type="AudioStream" uid="uid://dbybnubpmhwx3" path="res://assets/music/melanieShop.ogg" id="15_kk7gt"]
+[ext_resource type="Texture2D" uid="uid://w4aga5clxbjf" path="res://assets/images/areas/wardrobe/wardrobe.png" id="16_ptxs8"]
+[ext_resource type="Texture2D" uid="uid://msvb6jrm45iv" path="res://assets/images/ui/backUp.png" id="17_obgyp"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sq2lm"]
-size = Vector2(233, 405)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_714v8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l4fde"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b1ngq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bnx5p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m4q2a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6g67g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cbusq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5hpjx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jaggv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7e2gc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v5e17"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p6f28"]
 
@@ -39,6 +62,9 @@ size = Vector2(233, 405)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iq0t2"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vhex2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sq2lm"]
+size = Vector2(233, 405)
 
 [sub_resource type="Animation" id="Animation_m2dy7"]
 resource_name = "toShop"
@@ -103,6 +129,54 @@ tracks/4/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(0.96652, 0.574433, 0.745684, 1)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Shop/ShopMusic:volume_db")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-80.0, -23.729]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("USD:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(0.31864, 1),
+"update": 0,
+"values": [Vector2(51, 70), Vector2(580, 60)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("USDText:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(0.329877, 1),
+"update": 0,
+"values": [Vector2(108, 46), Vector2(430, 41)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("USDText:horizontal_alignment")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.329877, 1),
+"update": 1,
+"values": [0, 2]
+}
 
 [sub_resource type="Animation" id="Animation_5fubl"]
 length = 0.001
@@ -165,6 +239,66 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Shop/ShopMusic:volume_db")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-80.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("USD:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(51, 70)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("USDText:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(108, 46)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("USDText:horizontal_alignment")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Wardrobe:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -648)]
 }
 
 [sub_resource type="Animation" id="Animation_s3t8e"]
@@ -230,21 +364,199 @@ tracks/4/keys = {
 "update": 0,
 "values": [Color(0.96652, 0.574433, 0.745684, 1), Color(1, 1, 1, 1)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Shop/ShopMusic:volume_db")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-23.729, -80.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("USD:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(0.31864, 1),
+"update": 0,
+"values": [Vector2(580, 60), Vector2(51, 70)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("USDText:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(0.31864, 1),
+"update": 0,
+"values": [Vector2(430, 41), Vector2(108, 46)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("USDText:horizontal_alignment")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.166667, 0.266667),
+"transitions": PackedFloat32Array(1, 0.329877),
+"update": 1,
+"values": [1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_ok3bo"]
+resource_name = "toWard"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShrilowScreen:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(0.31864, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 648)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Shrilow:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(0.31864, 1),
+"update": 0,
+"values": [Vector2(586, 649), Vector2(200, 649)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ParallaxBackground/ParallaxLayer/background:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.780392, 0.45098, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("fade:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.780392, 0.45098, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Wardrobe:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(0.31864, 1),
+"update": 0,
+"values": [Vector2(0, -648), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_eejxq"]
+resource_name = "leaveWard"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShrilowScreen:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(0.31864, 1),
+"update": 0,
+"values": [Vector2(0, 648), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Shrilow:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(0.31864, 1),
+"update": 0,
+"values": [Vector2(200, 649), Vector2(586, 649)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ParallaxBackground/ParallaxLayer/background:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0.780392, 0.45098, 1), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("fade:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0.780392, 0.45098, 1), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Wardrobe:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(0.31864, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -648)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vs8hy"]
 _data = {
 "RESET": SubResource("Animation_5fubl"),
 "leaveShop": SubResource("Animation_s3t8e"),
-"toShop": SubResource("Animation_m2dy7")
+"leaveWard": SubResource("Animation_eejxq"),
+"toShop": SubResource("Animation_m2dy7"),
+"toWard": SubResource("Animation_ok3bo")
 }
 
 [node name="computerShrilow" type="Node2D"]
 script = ExtResource("1_swrb7")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-offset = Vector2(300, 300)
+offset = Vector2(300, 320)
 scale = Vector2(1.15, 1.15)
-transform = Transform2D(1.15, 0, 0, 1.15, 300, 300)
+transform = Transform2D(1.15, 0, 0, 1.15, 300, 320)
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_mirroring = Vector2(600, 557)
@@ -255,6 +567,101 @@ texture = ExtResource("2_u0da7")
 [node name="fade" type="Sprite2D" parent="."]
 position = Vector2(576, 324)
 texture = ExtResource("3_x0lxa")
+
+[node name="ShrilowScreen" type="Node2D" parent="."]
+
+[node name="Shop" type="Sprite2D" parent="ShrilowScreen"]
+position = Vector2(1065, 93)
+texture = ExtResource("8_kysej")
+
+[node name="ShopButton" type="Button" parent="ShrilowScreen"]
+offset_left = 980.0
+offset_top = 3.0
+offset_right = 1150.0
+offset_bottom = 167.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_714v8")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_l4fde")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_b1ngq")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_bnx5p")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_m4q2a")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_6g67g")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_cbusq")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_5hpjx")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_jaggv")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_7e2gc")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_v5e17")
+
+[node name="Wardrobe" type="Sprite2D" parent="ShrilowScreen"]
+position = Vector2(1063, 419)
+texture = ExtResource("9_0gok5")
+
+[node name="WardrobeButton" type="Button" parent="ShrilowScreen"]
+offset_left = 979.0
+offset_top = 342.0
+offset_right = 1147.0
+offset_bottom = 491.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p6f28")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_w4xu3")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_uj6cr")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0meto")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_rmwiu")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_o3afr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_amgep")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_e3kvh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_kvmat")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iq0t2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
+
+[node name="Trophies" type="Sprite2D" parent="ShrilowScreen"]
+position = Vector2(1063, 255)
+texture = ExtResource("10_4g76h")
+
+[node name="TrophiesButton" type="Button" parent="ShrilowScreen"]
+offset_left = 983.0
+offset_top = 179.0
+offset_right = 1143.0
+offset_bottom = 330.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p6f28")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_w4xu3")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_uj6cr")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0meto")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_rmwiu")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_o3afr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_amgep")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_e3kvh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_kvmat")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iq0t2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
+
+[node name="Mines" type="Sprite2D" parent="ShrilowScreen"]
+position = Vector2(1063, 568)
+texture = ExtResource("11_2lflx")
+
+[node name="MinesButton" type="Button" parent="ShrilowScreen"]
+offset_left = 983.0
+offset_top = 494.0
+offset_right = 1143.0
+offset_bottom = 633.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p6f28")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_w4xu3")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_uj6cr")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0meto")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_rmwiu")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_o3afr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_amgep")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_e3kvh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_kvmat")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iq0t2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
+
+[node name="Clicks" type="Label" parent="ShrilowScreen"]
+offset_left = 10.0
+offset_top = 598.0
+offset_right = 154.0
+offset_bottom = 668.0
+scale = Vector2(1, 0.6)
+theme = ExtResource("8_oskpf")
+text = "CLICKS:"
 
 [node name="Shrilow" type="Node2D" parent="."]
 position = Vector2(586, 649)
@@ -298,94 +705,6 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_e3kvh")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_kvmat")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iq0t2")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
-
-[node name="ShrilowScreen" type="Node2D" parent="."]
-
-[node name="USD" type="Sprite2D" parent="ShrilowScreen"]
-position = Vector2(51, 70)
-texture = ExtResource("7_0u6ge")
-
-[node name="Shop" type="Sprite2D" parent="ShrilowScreen"]
-position = Vector2(1065, 141)
-texture = ExtResource("8_kysej")
-
-[node name="ShopButton" type="Button" parent="ShrilowScreen"]
-offset_left = 996.0
-offset_top = 66.0
-offset_right = 1130.0
-offset_bottom = 210.0
-theme_override_styles/focus = SubResource("StyleBoxEmpty_p6f28")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_w4xu3")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_uj6cr")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0meto")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_rmwiu")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_o3afr")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_amgep")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_e3kvh")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_kvmat")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iq0t2")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
-
-[node name="Wardrobe" type="Sprite2D" parent="ShrilowScreen"]
-position = Vector2(1063, 499)
-texture = ExtResource("9_0gok5")
-
-[node name="WardrobeButton" type="Button" parent="ShrilowScreen"]
-offset_left = 979.0
-offset_top = 425.0
-offset_right = 1147.0
-offset_bottom = 574.0
-theme_override_styles/focus = SubResource("StyleBoxEmpty_p6f28")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_w4xu3")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_uj6cr")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0meto")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_rmwiu")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_o3afr")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_amgep")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_e3kvh")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_kvmat")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iq0t2")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
-
-[node name="Trophies" type="Sprite2D" parent="ShrilowScreen"]
-position = Vector2(1063, 319)
-texture = ExtResource("10_4g76h")
-
-[node name="TrophiesButton" type="Button" parent="ShrilowScreen"]
-offset_left = 983.0
-offset_top = 229.0
-offset_right = 1143.0
-offset_bottom = 401.0
-theme_override_styles/focus = SubResource("StyleBoxEmpty_p6f28")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_w4xu3")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_uj6cr")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0meto")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_rmwiu")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_o3afr")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_amgep")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_e3kvh")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_kvmat")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iq0t2")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
-
-[node name="Clicks" type="Label" parent="ShrilowScreen"]
-offset_left = 10.0
-offset_top = 598.0
-offset_right = 154.0
-offset_bottom = 668.0
-scale = Vector2(1, 0.6)
-theme = ExtResource("8_oskpf")
-text = "CLICKS:"
-
-[node name="USDText" type="Label" parent="ShrilowScreen"]
-offset_left = 108.0
-offset_top = 46.0
-offset_right = 252.0
-offset_bottom = 116.0
-scale = Vector2(1, 0.6)
-theme = ExtResource("8_oskpf")
-theme_override_font_sizes/font_size = 50
-text = "MONEY"
 
 [node name="Shop" type="Node2D" parent="."]
 position = Vector2(1152, 0)
@@ -463,20 +782,63 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_kvmat")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iq0t2")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
 
-[node name="faceRevert" type="Timer" parent="."]
-wait_time = 0.7
-one_shot = true
+[node name="ShopMusic" type="AudioStreamPlayer" parent="Shop"]
+stream = ExtResource("15_kk7gt")
+volume_db = -80.0
+autoplay = true
+parameters/looping = true
 
-[node name="sectionTransitions" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_vs8hy")
-}
+[node name="Wardrobe" type="Node2D" parent="."]
+position = Vector2(0, -648)
 
-[node name="WardrobeButton" type="Button" parent="."]
-offset_left = 906.25
-offset_top = -280.25
-offset_right = 1218.25
-offset_bottom = 140.75
+[node name="Wardrobe" type="Sprite2D" parent="Wardrobe"]
+position = Vector2(576, 324)
+texture = ExtResource("16_ptxs8")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Wardrobe"]
+offset_left = 533.0
+offset_top = 138.0
+offset_right = 1012.0
+offset_bottom = 459.0
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
+
+[node name="GridContainer" type="GridContainer" parent="Wardrobe/ScrollContainer"]
+layout_mode = 2
+columns = 3
+
+[node name="ItemName" type="Label" parent="Wardrobe"]
+offset_left = 501.0
+offset_top = 512.0
+offset_right = 1015.0
+offset_bottom = 582.0
+scale = Vector2(1, 0.6)
+theme = ExtResource("8_oskpf")
+theme_override_font_sizes/font_size = 50
+text = "ITEMNAME"
+horizontal_alignment = 1
+
+[node name="ItemDescription" type="Label" parent="Wardrobe"]
+offset_left = 499.0
+offset_top = 542.0
+offset_right = 1015.0
+offset_bottom = 665.0
+scale = Vector2(1, 0.6)
+theme = ExtResource("8_oskpf")
+theme_override_font_sizes/font_size = 35
+text = "ITEMDESC"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="BackWARD" type="Sprite2D" parent="Wardrobe"]
+position = Vector2(767, 63)
+texture = ExtResource("17_obgyp")
+
+[node name="BackButtonWARD" type="Button" parent="Wardrobe"]
+offset_left = 693.0
+offset_top = 1.0
+offset_right = 836.0
+offset_bottom = 129.0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_p6f28")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_w4xu3")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_uj6cr")
@@ -489,9 +851,94 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_kvmat")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iq0t2")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
 
-[connection signal="pressed" from="Shrilow/ShrilowSqueak" to="." method="_on_shrilow_squeak_pressed"]
+[node name="ShopMusic" type="AudioStreamPlayer" parent="Wardrobe"]
+stream = ExtResource("15_kk7gt")
+volume_db = -80.0
+autoplay = true
+parameters/looping = true
+
+[node name="USD" type="Sprite2D" parent="."]
+position = Vector2(51, 70)
+texture = ExtResource("7_0u6ge")
+
+[node name="USDText" type="Label" parent="."]
+offset_left = 108.0
+offset_top = 46.0
+offset_right = 212.0
+offset_bottom = 116.0
+scale = Vector2(1, 0.6)
+theme = ExtResource("8_oskpf")
+theme_override_font_sizes/font_size = 50
+text = "MONEY"
+
+[node name="sectionTransitions" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vs8hy")
+}
+
+[node name="EventTimer" type="Timer" parent="."]
+wait_time = 300.0
+autostart = true
+
+[node name="DEBUGVALUES" type="Node2D" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="DEBUGVALUES"]
+process_priority = -1
+offset_top = 132.0
+offset_right = 293.0
+offset_bottom = 590.0
+color = Color(0, 0, 0, 0.701961)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="DEBUGVALUES"]
+offset_top = 132.0
+offset_right = 293.0
+offset_bottom = 590.0
+
+[node name="Control" type="Control" parent="DEBUGVALUES/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="faceRevert" type="Timer" parent="DEBUGVALUES/ScrollContainer/Control"]
+wait_time = 0.7
+one_shot = true
+
+[node name="Label" type="Label" parent="DEBUGVALUES/ScrollContainer/Control"]
+process_priority = -1
+layout_mode = 2
+offset_right = 301.0
+offset_bottom = 71.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/font_size = 24
+text = "DEBUG MODE
+================"
+horizontal_alignment = 1
+clip_text = true
+
+[node name="faceRevert" type="Timer" parent="."]
+
+[node name="Label" type="Label" parent="."]
+offset_left = -1133.0
+offset_top = 159.0
+offset_right = -155.0
+offset_bottom = 516.0
+theme_override_font_sizes/font_size = 50
+text = "THE GAMBLING UPDATE WILL COME........
+AND IT'LL BE OVER HERE.........
+- Mel :3
+
+blame ghost."
+
 [connection signal="pressed" from="ShrilowScreen/ShopButton" to="." method="_on_shop_button_pressed"]
 [connection signal="pressed" from="ShrilowScreen/WardrobeButton" to="." method="_on_wardrobe_button_pressed"]
 [connection signal="pressed" from="ShrilowScreen/TrophiesButton" to="." method="_on_trophies_button_pressed"]
+[connection signal="pressed" from="ShrilowScreen/MinesButton" to="." method="_on_mines_button_pressed"]
+[connection signal="pressed" from="Shrilow/ShrilowSqueak" to="." method="_on_shrilow_squeak_pressed"]
 [connection signal="pressed" from="Shop/BackButtonSHOP" to="." method="_on_back_button_shop_pressed"]
+[connection signal="pressed" from="Wardrobe/BackButtonWARD" to="." method="_on_back_button_ward_pressed"]
+[connection signal="timeout" from="EventTimer" to="." method="_event"]
+[connection signal="timeout" from="DEBUGVALUES/ScrollContainer/Control/faceRevert" to="." method="_on_face_revert_timeout"]
 [connection signal="timeout" from="faceRevert" to="." method="_on_face_revert_timeout"]

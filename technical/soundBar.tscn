@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3 uid="uid://cm0838w037eww"]
+
+[ext_resource type="Script" path="res://technical/sound_bar.gd" id="1_qn2c0"]
+[ext_resource type="Texture2D" uid="uid://c68hte2xguyjp" path="res://assets/images/ui/0.png" id="2_ea56m"]
+
+[sub_resource type="Animation" id="Animation_nmnng"]
+resource_name = "drop"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VolumeBar:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(96, 66), Vector2(96, -70)]
+}
+
+[sub_resource type="Animation" id="Animation_nqw5m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VolumeBar:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(96, -70)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rp7e2"]
+_data = {
+"RESET": SubResource("Animation_nqw5m"),
+"drop": SubResource("Animation_nmnng")
+}
+
+[node name="SoundBar" type="CanvasLayer"]
+layer = 128
+script = ExtResource("1_qn2c0")
+
+[node name="VolumeBar" type="Sprite2D" parent="."]
+position = Vector2(96, -70)
+texture = ExtResource("2_ea56m")
+
+[node name="retractTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_rp7e2")
+}
+
+[connection signal="timeout" from="retractTimer" to="." method="_on_retract_timer_timeout"]

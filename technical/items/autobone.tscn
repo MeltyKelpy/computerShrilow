@@ -1,12 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://c6toq5a3ihyny"]
+[gd_scene load_steps=7 format=3 uid="uid://bfjnl78rblpwj"]
 
-[ext_resource type="Script" path="res://technical/events/event_indicator.gd" id="1_a2766"]
-[ext_resource type="Texture2D" uid="uid://wpciqec4n52g" path="res://assets/images/ui/warning.png" id="1_dpthf"]
-[ext_resource type="Theme" uid="uid://dr1wna4c2ab2h" path="res://technical/textStyle.tres" id="2_hswlr"]
+[ext_resource type="Script" path="res://technical/items/autobone.gd" id="1_37h3y"]
+[ext_resource type="Texture2D" uid="uid://wpciqec4n52g" path="res://assets/images/ui/warning.png" id="2_nl64h"]
+[ext_resource type="Theme" uid="uid://dr1wna4c2ab2h" path="res://technical/textStyle.tres" id="3_k36vt"]
 
-[sub_resource type="Animation" id="Animation_4vel4"]
+[sub_resource type="Animation" id="Animation_ac2ff"]
 resource_name = "POPUP"
-length = 4.0
+length = 34.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -26,21 +26,18 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(4, 30, 34),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(30.1, 34),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
-"method": &"_kill"
-}, {
-"args": [0.0],
 "method": &"_endEffect"
 }, {
-"args": [0.0],
+"args": [],
 "method": &"_kill"
 }]
 }
 
-[sub_resource type="Animation" id="Animation_wlti7"]
+[sub_resource type="Animation" id="Animation_esff7"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -55,32 +52,34 @@ tracks/0/keys = {
 "values": [Vector2(576, 624)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_hso7e"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ag34p"]
 _data = {
-"POPUP": SubResource("Animation_4vel4"),
-"RESET": SubResource("Animation_wlti7")
+"POPUP": SubResource("Animation_ac2ff"),
+"RESET": SubResource("Animation_esff7")
 }
 
-[node name="EventIndicator" type="Node2D"]
-script = ExtResource("1_a2766")
+[node name="Autobone" type="Node2D"]
+z_index = 100
+script = ExtResource("1_37h3y")
 
 [node name="eventer" type="Sprite2D" parent="."]
 position = Vector2(576, 624)
-texture = ExtResource("1_dpthf")
+texture = ExtResource("2_nl64h")
 
 [node name="Warning" type="Label" parent="eventer"]
+z_index = 1
 offset_left = -486.0
 offset_top = 221.0
 offset_right = 528.0
 offset_bottom = 319.0
 scale = Vector2(1, 0.6)
-theme = ExtResource("2_hswlr")
+theme = ExtResource("3_k36vt")
 theme_override_font_sizes/font_size = 45
-text = "WARNING MESSAGE"
+text = "MESSAGE"
 autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_hso7e")
+"": SubResource("AnimationLibrary_ag34p")
 }
