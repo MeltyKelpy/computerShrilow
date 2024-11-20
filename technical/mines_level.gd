@@ -185,15 +185,15 @@ func _on_buy_button_mouse_exited() -> void:
 	$VisualCodeSpaghetti/BuyIcon.modulate = Color(1,1,1)
 
 func _on_buy_button_pressed() -> void:
-	var cacapoopyGOD = preload("res://technical/character.tscn")
-	var caca = cacapoopyGOD.instantiate()
-	caca.Name = characterInfos[selected]["Name"]
-	caca.MoneyGain = characterInfos[selected]["MoneyGain"]
-	caca.BasePrice = characterInfos[selected]["BasePrice"]
-	caca.Speed = characterInfos[selected]["Speed"]
-	caca.Swings = characterInfos[selected]["Swings"]
-	add_child(caca)
-	caca.position.x = 401+(101*amountOfDwellers)
-	caca.position.y = 213+(213*caveNumber)
 	if amountOfDwellers != 7:
+		var cacapoopyGOD = preload("res://technical/character.tscn")
+		var caca = cacapoopyGOD.instantiate()
+		caca.Name = characterInfos[selected]["Name"]
+		caca.MoneyGain = characterInfos[selected]["MoneyGain"]
+		caca.BasePrice = characterInfos[selected]["BasePrice"]
+		caca.Speed = characterInfos[selected]["Speed"]
+		caca.Swings = characterInfos[selected]["Swings"]
+		add_child(caca)
+		caca.position.x = 401+(101*amountOfDwellers)
+		caca.position.y = 213+(213*caveNumber)
 		amountOfDwellers += 1
