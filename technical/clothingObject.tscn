@@ -50,6 +50,7 @@ horizontal_alignment = 1
 clip_text = true
 
 [node name="button" type="Button" parent="."]
+layout_mode = 0
 offset_left = 1.0
 offset_top = 1.0
 offset_right = 173.0

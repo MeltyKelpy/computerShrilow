@@ -1,0 +1,68 @@
+[gd_scene load_steps=15 format=3 uid="uid://canvc8if52ase"]
+
+[ext_resource type="Texture2D" uid="uid://iu3eruu7vpxl" path="res://assets/images/areas/mines/Shrilow0.png" id="1_cglsy"]
+[ext_resource type="Script" path="res://technical/character.gd" id="1_lwkwd"]
+[ext_resource type="Theme" uid="uid://dr1wna4c2ab2h" path="res://technical/textStyle.tres" id="2_fmgmx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sib3x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iyt32"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dkifa"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8u77p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_py871"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3o4dv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2y56m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bc22l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jby3e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vvd3u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vy6mc"]
+
+[node name="Character" type="Node2D"]
+script = ExtResource("1_lwkwd")
+
+[node name="CharacterSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_cglsy")
+
+[node name="CharName" type="Label" parent="."]
+z_index = 1
+offset_left = -59.0
+offset_top = -139.0
+offset_right = 31.0
+offset_bottom = -29.0
+scale = Vector2(1, 0.6)
+theme = ExtResource("2_fmgmx")
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 22
+text = "Shrilow"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Selection" type="Button" parent="."]
+offset_left = -62.0
+offset_top = -79.0
+offset_right = 38.0
+offset_bottom = 72.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sib3x")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_iyt32")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_dkifa")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_8u77p")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_py871")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_3o4dv")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_2y56m")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_bc22l")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_jby3e")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_vvd3u")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vy6mc")
+
+[connection signal="mouse_entered" from="Selection" to="." method="_on_selection_mouse_entered"]
+[connection signal="mouse_exited" from="Selection" to="." method="_on_selection_mouse_exited"]

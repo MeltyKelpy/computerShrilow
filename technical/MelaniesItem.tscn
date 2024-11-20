@@ -38,6 +38,7 @@ position = Vector2(87, 79)
 texture = ExtResource("2_6fgyq")
 
 [node name="Cost" type="Label" parent="."]
+layout_mode = 0
 offset_left = 3.0
 offset_top = 146.0
 offset_right = 173.0
@@ -50,6 +51,7 @@ horizontal_alignment = 1
 clip_text = true
 
 [node name="INFO" type="Label" parent="."]
+layout_mode = 0
 offset_left = 3.0
 offset_top = 130.0
 offset_right = 170.0
@@ -62,6 +64,7 @@ horizontal_alignment = 1
 clip_text = true
 
 [node name="button" type="Button" parent="."]
+layout_mode = 0
 offset_left = 1.0
 offset_top = 1.0
 offset_right = 173.0

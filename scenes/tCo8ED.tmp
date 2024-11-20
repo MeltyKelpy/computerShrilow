@@ -1042,13 +1042,12 @@ position = Vector2(0, 0.5)
 texture = ExtResource("3_8qufc")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Mines"]
-offset_right = 1160.0
+offset_right = 1152.0
 offset_bottom = 648.0
 horizontal_scroll_mode = 0
-vertical_scroll_mode = 2
+vertical_scroll_mode = 0
 
 [node name="Control" type="Control" parent="Mines/ScrollContainer"]
-custom_minimum_size = Vector2(1152, 0)
 layout_mode = 2
 
 [node name="BackWARD" type="Sprite2D" parent="Mines/ScrollContainer/Control"]
@@ -1056,7 +1055,6 @@ position = Vector2(991, 68)
 texture = ExtResource("19_tht4w")
 
 [node name="BackButtonWARD" type="Button" parent="Mines/ScrollContainer/Control"]
-layout_mode = 0
 offset_left = 917.0
 offset_top = 3.0
 offset_right = 1060.0

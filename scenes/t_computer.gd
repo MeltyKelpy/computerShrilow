@@ -20,6 +20,7 @@ func generateHoes():
 		caca.reparent($Wardrobe/ScrollContainer/GridContainer)
 
 func _ready():
+	$Mines.position.y = 648
 	generateHoes()
 
 func _process(_delta : float) -> void:
@@ -95,11 +96,15 @@ func _on_wardrobe_button_pressed() -> void:
 func _on_back_button_ward_pressed() -> void:
 	$sectionTransitions.play("leaveWard")
 
+func _on_back_button_ward2_pressed() -> void:
+	$sectionTransitions.play("leaveMines")
+
 func _on_trophies_button_pressed() -> void:
 	print("trophies")
 
 func _on_mines_button_pressed() -> void:
 	print("mines")
+	$sectionTransitions.play("toMines")
 
 func _event() -> void:
 	var num = rng.randi_range(0, Events.eventList.size()-1)
