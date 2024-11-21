@@ -1,14 +1,21 @@
 extends Node
 
 var eventList = [
-	{
-	"Event":"Sniper",
-	"AttachedScene":"res://technical/events/hitmarker.tscn",
-	"WarningMessage":"MR.PRESIDENT, GET DOWN! THEY'RE GONNA ASSASSINATE YOU! MOVE THAT FREAKING HITMARKER BEFORE HE GETS SHOT!!"
-	},
+	#{
+	#"Event":"Sniper",
+	#"AttachedScene":"res://technical/events/hitmarker.tscn",
+	#"WarningMessage":"MR.PRESIDENT, GET DOWN! THEY'RE GONNA ASSASSINATE YOU! MOVE THAT FREAKING HITMARKER BEFORE HE GETS SHOT!!"
+	#},
 	{
 	"Event":"Golden Shrilow",
 	"AttachedScene":"res://technical/events/goldenShrilow.tscn",
-	"WarningMessage":"HE HAS TURN GOLD.. WOAW.............."
-	}
+	"WarningMessage":"HE HAS TURN GOLD.. WOAW..............",
+	"Type":"Generic",
+	},
+	{
+	"Event":"Mario",
+	"AttachedScene":"res://technical/events/mario.tscn",
+	"WarningMessage":"Just like that one game",
+	"Type":"Minigame",
+	},
 	]

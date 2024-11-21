@@ -1,0 +1,408 @@
+[gd_scene load_steps=12 format=3 uid="uid://5qulgg6uej06"]
+
+[ext_resource type="Script" path="res://technical/results_screen_minigame.gd" id="1_3pk8j"]
+[ext_resource type="Texture2D" uid="uid://c1h37ug6tx8fl" path="res://assets/images/events/shrilowReactionWait.png" id="1_seyua"]
+[ext_resource type="Texture2D" uid="uid://dhonydbc85x7v" path="res://assets/images/events/minigameResultsLogo.png" id="2_3agxk"]
+[ext_resource type="FontFile" uid="uid://brn7smfq0l6ao" path="res://assets/fonts/TwCen.ttf" id="3_jkv3a"]
+[ext_resource type="AudioStream" uid="uid://bt2k1exuodb08" path="res://assets/sounds/glass.ogg" id="5_lo4l3"]
+
+[sub_resource type="Animation" id="Animation_8qc2a"]
+resource_name = "animation"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("resultsscreen:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(0.466516, 1),
+"update": 0,
+"values": [Vector2(-4.74955, 1006), Vector2(-4.75, -32)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_killMiniGame"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_etcqs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("resultsscreen:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-4.74955, 1006)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("resultsscreen/RESULT:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("resultsscreen/RESULT:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("resultsscreen/RESULT:text")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["WIN"]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("resultsscreen/ColorRect:color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("resultsscreen/broke:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_l6qv8"]
+resource_name = "choose"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("resultsscreen/RESULT:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["YOU...."]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("resultsscreen/RESULT:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("resultsscreen/RESULT:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0333333, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_resultsStart"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_87hia"]
+resource_name = "leave"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("resultsscreen:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(0.466516, 1),
+"update": 0,
+"values": [Vector2(-4.75, -32), Vector2(-4.74955, 1006)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333334, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_kill"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_ek4wq"]
+resource_name = "die"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("resultsscreen/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("resultsscreen/broke:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x03b3"]
+_data = {
+"RESET": SubResource("Animation_etcqs"),
+"animation": SubResource("Animation_8qc2a"),
+"choose": SubResource("Animation_l6qv8"),
+"die": SubResource("Animation_ek4wq"),
+"leave": SubResource("Animation_87hia")
+}
+
+[node name="ResultsScreenMinigame" type="Node2D"]
+process_mode = 3
+z_index = 100
+script = ExtResource("1_3pk8j")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -43.0
+offset_top = -10.0
+offset_right = 1269.0
+offset_bottom = 663.0
+color = Color(0, 0, 0, 1)
+
+[node name="resultsscreen" type="Node2D" parent="."]
+position = Vector2(-4.74955, 1006)
+
+[node name="Logo" type="Sprite2D" parent="resultsscreen"]
+position = Vector2(576, 356)
+texture = ExtResource("2_3agxk")
+
+[node name="INFO" type="Label" parent="resultsscreen"]
+visible = false
+offset_left = 55.0
+offset_top = 264.0
+offset_right = 470.0
+offset_bottom = 653.0
+scale = Vector2(1, 0.7)
+theme_override_fonts/font = ExtResource("3_jkv3a")
+theme_override_font_sizes/font_size = 47
+text = "
+
+
+Stars
+5/5
+
+Money Earned:"
+
+[node name="INFO2" type="Label" parent="resultsscreen"]
+visible = false
+offset_left = 55.0
+offset_top = 523.0
+offset_right = 354.0
+offset_bottom = 588.0
+scale = Vector2(1, 0.7)
+theme_override_fonts/font = ExtResource("3_jkv3a")
+theme_override_font_sizes/font_size = 47
+text = "1000"
+
+[node name="INFO3" type="Label" parent="resultsscreen"]
+visible = false
+offset_left = 55.0
+offset_top = 523.0
+offset_right = 354.0
+offset_bottom = 588.0
+scale = Vector2(1, 0.7)
+theme_override_fonts/font = ExtResource("3_jkv3a")
+theme_override_font_sizes/font_size = 47
+text = "1000"
+
+[node name="EXIT" type="Label" parent="resultsscreen"]
+visible = false
+offset_left = 55.0
+offset_top = 562.0
+offset_right = 554.0
+offset_bottom = 613.0
+scale = Vector2(1, 0.7)
+theme_override_fonts/font = ExtResource("3_jkv3a")
+theme_override_font_sizes/font_size = 47
+text = "click anywhere to exit this screen !!!"
+
+[node name="RESULT" type="Label" parent="resultsscreen"]
+visible = false
+offset_left = 48.0
+offset_top = 264.0
+offset_right = 463.0
+offset_bottom = 361.0
+scale = Vector2(1, 0.7)
+theme_override_fonts/font = ExtResource("3_jkv3a")
+theme_override_font_sizes/font_size = 90
+text = "WIN"
+
+[node name="ColorRect" type="ColorRect" parent="resultsscreen"]
+offset_left = -38.25
+offset_top = 22.0
+offset_right = 1273.75
+offset_bottom = 695.0
+color = Color(0, 0, 0, 0)
+
+[node name="broke" type="Label" parent="resultsscreen"]
+visible = false
+offset_left = 55.0
+offset_top = 264.0
+offset_right = 695.0
+offset_bottom = 315.0
+scale = Vector2(1, 0.7)
+theme_override_fonts/font = ExtResource("3_jkv3a")
+theme_override_font_sizes/font_size = 60
+text = "YOU'RE A FUCKING BROKIEEEEEEEEEEEEEEEEEEE
+
+this is game over, loser.
+
+click anywhere to restart the game"
+
+[node name="Shrilow" type="Sprite2D" parent="resultsscreen"]
+position = Vector2(609, 356)
+texture = ExtResource("1_seyua")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_x03b3")
+}
+autoplay = "animation"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_lo4l3")

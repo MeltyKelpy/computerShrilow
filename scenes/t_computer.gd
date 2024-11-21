@@ -1,6 +1,6 @@
 extends Node2D
 
-var clicks = 0
+var clicks = 0.0
 var curClicks = 0
 var rng = RandomNumberGenerator.new()
 
@@ -24,6 +24,10 @@ func _ready():
 	generateHoes()
 
 func _process(_delta : float) -> void:
+	
+	$Mines/ScrollContainer/Control.custom_minimum_size.y = (648 * FizzyDrink.minesLength) + 100
+	
+	#$Mines/MinesBackground.position.y = $Mines/ScrollContainer.scroll_vertical
 	
 	$Shrilow/Shrilow.texture = load(ClothingObjects.clothes[ClothingObjects.equippedClothing]["Image"])
 	
@@ -54,6 +58,8 @@ func _process(_delta : float) -> void:
 		$DEBUGVALUES/ScrollContainer/Control/Label.text = "DEBUG MODE\n================\n"
 	
 func _on_shrilow_squeak_autoclick() -> void:
+	$faceRevert.stop()
+	$faceRevert.start()
 	$Shrilow.scale.x = 1.2
 	$Shrilow.scale.y = 0.85
 	$Shrilow/Shrilow/ShrilowFace.visible = false
@@ -62,7 +68,7 @@ func _on_shrilow_squeak_autoclick() -> void:
 	$Shrilow/Squeak2.play()
 
 func _on_shrilow_squeak_pressed() -> void:
-	$faceRevert.stop()
+	
 	$faceRevert.start()
 	$Shrilow.scale.x = 1.2
 	$Shrilow.scale.y = 0.85
@@ -114,12 +120,16 @@ func _startEvent(numberPicked) -> void:
 	var cacapoopyGOD2 = load(Events.eventList[numberPicked]["AttachedScene"])
 	var caca = cacapoopyGOD2.instantiate()
 	add_child(caca)
-	caca.reparent($Shrilow)
 	caca._ready()
 	var cacapoopyGOD3 = preload("res://technical/events/eventIndicator.tscn")
 	var caca2 = cacapoopyGOD3.instantiate()
 	add_child(caca2)
 	caca2.warn(Events.eventList[numberPicked]["WarningMessage"])
+	if Events.eventList[numberPicked]["Type"] == "Minigame":
+		get_tree().paused = true
+		caca.reparent($/root)
+	if Events.eventList[numberPicked]["Type"] == "Generic":
+		caca.reparent($Shrilow)
 
 func shrilowColor(color) -> void:
 	if color == "base":

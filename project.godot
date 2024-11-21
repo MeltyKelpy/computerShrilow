@@ -28,9 +28,14 @@ SoundBar="*res://technical/soundBar.tscn"
 FizzyDrink="*res://technical/fizzydrink.gd"
 ClothingObjects="*res://technical/clothingObjects.gd"
 
+[debug]
+
+gdscript/warnings/integer_division=0
+
 [display]
 
 window/stretch/mode="viewport"
+window/warnings/integer_division=1
 
 [input]
 

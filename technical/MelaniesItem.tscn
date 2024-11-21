@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ba8nj0cum4qjy"]
+[gd_scene load_steps=16 format=3 uid="uid://def0l02rf35l5"]
 
 [ext_resource type="Texture2D" uid="uid://yaivbhdq4dxn" path="res://assets/images/areas/melanies/itemBox.png" id="1_62cu0"]
 [ext_resource type="Texture2D" uid="uid://d1axlhq1ks2ra" path="res://assets/images/areas/melanies/items/autoclick0.png" id="2_6fgyq"]

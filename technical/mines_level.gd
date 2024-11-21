@@ -5,43 +5,43 @@ extends Node2D
 var characterInfos = [
 	{
 		"Name":"Shrilow",
-		"Desc":"1$ per 3 pickaxe swings.\nBase Speed: 2 a second",
-		"BasePrice":100,
+		"Desc":"1$ per 3 pickaxe swings.\nBase Speed: 1 a second",
+		"BasePrice":150,
 		"MoneyGain":1,
-		"Swings":1,
-		"Speed":2,
+		"Swings":3,
+		"Speed":1.000,
 	},
 	{
 		"Name":"Moka",
-		"Desc":"2$ per 6 pickaxe swings.\nBase Speed: 3 a second",
+		"Desc":"2$ per 4 pickaxe swings.\nBase Speed: 1.2 a second",
 		"BasePrice":300,
-		"MoneyGain":1,
-		"Swings":2,
-		"Speed":2,
+		"MoneyGain":2,
+		"Swings":4,
+		"Speed":1.200,
 	},
 	{
 		"Name":"Mel",
-		"Desc":"10$ per 10 pickaxe swings.\nBase Speed: 2 a second",
+		"Desc":"5$ per 8 pickaxe swings.\nBase Speed: 1.5 a second",
 		"BasePrice":450,
-		"MoneyGain":10,
-		"Swings":10,
-		"Speed":2,
+		"MoneyGain":5,
+		"Swings":8,
+		"Speed":1.500,
 	},
 	{
 		"Name":"Blair",
-		"Desc":"1$ per 4 pickaxe swings.\nBase Speed: 8 a second",
+		"Desc":"2$ per 3 pickaxe swings.\nBase Speed: 2 a second",
 		"BasePrice":600,
 		"MoneyGain":1,
-		"Swings":4,
-		"Speed":8,
+		"Swings":3,
+		"Speed":2.50,
 	},
 	{
 		"Name":"Charlotte",
-		"Desc":"6$ per 6 pickaxe swings.\nBase Speed: 2 a second",
-		"BasePrice":750,
+		"Desc":"6$ per 6 pickaxe swings.\nBase Speed: 1.5 a second",
+		"BasePrice":800,
 		"MoneyGain":6,
 		"Swings":6,
-		"Speed":2,
+		"Speed":1.800,
 	},
 	]
 
@@ -51,24 +51,31 @@ var caveNumber = 0
 var selected = null
 var hoverSelected = null
 
-var shrilowCost = 150
-var mokaCost = 300
-var melCost = 450
-var blairCost = 600
-var charlotteCost = 750
+var moneyValues = [
+	150,
+	300,
+	450,
+	600,
+	750,
+	]
 
-func _process(delta: float) -> void:
+var newMineExists = true
+
+func getMineLevel(num):
+	caveNumber = num
+
+func _process(_delta: float) -> void:
 	if amountOfDwellers != 7:
-		$VisualCodeSpaghetti/ShrilowCost.text = str(shrilowCost)+"$"
-		$VisualCodeSpaghetti/MokaCost.text = str(mokaCost)+"$"
-		$VisualCodeSpaghetti/MelCost.text = str(melCost)+"$"
-		$VisualCodeSpaghetti/BlairCost.text = str(blairCost)+"$"
-		$VisualCodeSpaghetti/CharlotteCost.text = str(charlotteCost)+"$"
-		shrilowCost = 150 + ((150 / 2)*(amountOfDwellers))
-		mokaCost = 300 + ((300 / 2)*(amountOfDwellers))
-		melCost = 450 + ((450 / 2)*(amountOfDwellers))
-		blairCost = 600 + ((600 / 2)*(amountOfDwellers))
-		charlotteCost = 750 + ((750 / 2)*(amountOfDwellers))
+		$VisualCodeSpaghetti/ShrilowCost.text = str(moneyValues[0])+"$"
+		$VisualCodeSpaghetti/MokaCost.text = str(moneyValues[1])+"$"
+		$VisualCodeSpaghetti/MelCost.text = str(moneyValues[2])+"$"
+		$VisualCodeSpaghetti/BlairCost.text = str(moneyValues[3])+"$"
+		$VisualCodeSpaghetti/CharlotteCost.text = str(moneyValues[4])+"$"
+		moneyValues[0] = 150 + ((150 / 2)*(amountOfDwellers))
+		moneyValues[1] = 300 + ((300 / 2)*(amountOfDwellers))
+		moneyValues[2] = 450 + ((450 / 2)*(amountOfDwellers))
+		moneyValues[3] = 600 + ((600 / 2)*(amountOfDwellers))
+		moneyValues[4] = 800 + ((800 / 2)*(amountOfDwellers))
 		if selected == 0:
 			$VisualCodeSpaghetti/ShrilowIcon.modulate = Color(1,1,0)
 		elif hoverSelected == 0:
@@ -125,7 +132,8 @@ func _process(delta: float) -> void:
 		$CharName.text = "CHARACTER LIMIT REACHED"
 		$CharDesc.text = "Buy a new mine, or sell someone, to add more to this mine."
 	
-	$NewLevelCost.text = str(500+(1000*caveNumber))+"$"
+	if newMineExists == true:
+		$newMine/NewLevelCost.text = str(500+(1000*caveNumber))+"$"
 
 # STUPID FUCKING SPAGHETTI CODE
 
@@ -185,7 +193,7 @@ func _on_buy_button_mouse_exited() -> void:
 	$VisualCodeSpaghetti/BuyIcon.modulate = Color(1,1,1)
 
 func _on_buy_button_pressed() -> void:
-	if amountOfDwellers != 7:
+	if amountOfDwellers != 7 and ItemValues.money >= moneyValues[selected]:
 		var cacapoopyGOD = preload("res://technical/character.tscn")
 		var caca = cacapoopyGOD.instantiate()
 		caca.Name = characterInfos[selected]["Name"]
@@ -194,6 +202,25 @@ func _on_buy_button_pressed() -> void:
 		caca.Speed = characterInfos[selected]["Speed"]
 		caca.Swings = characterInfos[selected]["Swings"]
 		add_child(caca)
+		ItemValues.money -= moneyValues[selected]
 		caca.position.x = 401+(101*amountOfDwellers)
-		caca.position.y = 213+(213*caveNumber)
+		caca.position.y = 213
 		amountOfDwellers += 1
+
+
+func _on_button_mouse_entered() -> void:
+	$newMine/NewLevelCost.add_theme_color_override("font_color", Color(1,1,0))
+
+func _on_button_mouse_exited() -> void:
+	$newMine/NewLevelCost.add_theme_color_override("font_color", Color(0,1,0))
+
+func _on_button_pressed() -> void:
+	if ItemValues.money >= 500+(1000*caveNumber):
+		var cacapoopyGOD = preload("res://technical/minesLevel.tscn")
+		var caca = cacapoopyGOD.instantiate()
+		add_child(caca)
+		FizzyDrink.minesLength = caveNumber+2
+		caca.getMineLevel(caveNumber+1)
+		caca.position.y = ((602/2)*(1))
+		newMineExists = false
+		$newMine.queue_free()

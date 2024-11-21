@@ -8,6 +8,8 @@ var AUTOclickPower = 1
 var AUTOclickPowerAdditions = 0
 var AUTOclickPowerClothingBuffs = 0
 
+var minesLength = 1
+
 func updateClothes() -> void:
 	clickPowerClothingBuffs = 0
 	AUTOclickPowerClothingBuffs = 0

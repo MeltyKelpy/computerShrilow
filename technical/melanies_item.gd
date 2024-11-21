@@ -3,11 +3,16 @@ extends TextureRect
 var ItemID : int
 var MaxedOut = false
 var ItemSpecificString = ""
+var lastWorkingNumber = 0
 
 func _process(_delta: float) -> void:
 	
 	if ItemValues.itemInfomation[ItemID]["Upgradeable?"] == true:
-		$ItemIcon.texture = load(ItemValues.itemInfomation[ItemID]["Image"]+str(ItemValues.itemInfomation[ItemID]["CurUpgrade"])+".png")
+		if ResourceLoader.exists(ItemValues.itemInfomation[ItemID]["Image"]+str(ItemValues.itemInfomation[ItemID]["CurUpgrade"])+".png"):
+			$ItemIcon.texture = load(ItemValues.itemInfomation[ItemID]["Image"]+str(ItemValues.itemInfomation[ItemID]["CurUpgrade"])+".png")
+			lastWorkingNumber = ItemValues.itemInfomation[ItemID]["CurUpgrade"]
+		else:
+			$ItemIcon.texture = load(ItemValues.itemInfomation[ItemID]["Image"]+str(lastWorkingNumber)+".png")
 
 		if ItemValues.itemInfomation[ItemID]["CurUpgrade"] != ItemValues.itemInfomation[ItemID]["MaxUpgrade"]:
 			$INFO.text = "Next Level: "+str(ItemValues.itemInfomation[ItemID]["CurUpgrade"]+1)

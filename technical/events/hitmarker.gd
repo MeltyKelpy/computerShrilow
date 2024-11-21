@@ -1,6 +1,6 @@
 extends Node2D
 
-var mouseOver = true
+var mouseOver = false
 var mousePos : Vector2 = Vector2.ZERO
 var difference : Vector2
 var dead : bool
@@ -12,7 +12,7 @@ func _ready():
 func _process(_delta: float) -> void:
 	difference = mousePos - get_local_mouse_position()
 	
-	if Input.is_action_pressed("Click") and mouseOver == true:
+	if Input.is_action_pressed("Click") and $/root/computerShrilow/ShrilowScreen.position.y == 0 and $/root/computerShrilow/ShrilowScreen.position.x == 0:
 		global_position -= difference
 
 func _on_area_2d_mouse_entered() -> void:

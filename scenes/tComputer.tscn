@@ -1048,7 +1048,7 @@ horizontal_scroll_mode = 0
 vertical_scroll_mode = 2
 
 [node name="Control" type="Control" parent="Mines/ScrollContainer"]
-custom_minimum_size = Vector2(1152, 0)
+custom_minimum_size = Vector2(1152, 2000)
 layout_mode = 2
 
 [node name="BackWARD" type="Sprite2D" parent="Mines/ScrollContainer/Control"]

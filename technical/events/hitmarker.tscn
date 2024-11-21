@@ -47,12 +47,6 @@ _data = {
 [node name="Hitmarker" type="Node2D"]
 script = ExtResource("1_ojnhw")
 
-[node name="Area2D" type="Area2D" parent="."]
-position = Vector2(27, 24)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_f86p2")
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(26.75, 24)
 scale = Vector2(0.315029, 0.303797)
@@ -83,12 +77,18 @@ offset_right = 1168.0
 offset_bottom = 666.0
 color = Color(0, 0, 0, 1)
 
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(27, 24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_f86p2")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_m2x33")
 }
 
-[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

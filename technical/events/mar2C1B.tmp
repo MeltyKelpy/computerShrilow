@@ -1,0 +1,206 @@
+[gd_scene load_steps=15 format=3 uid="uid://cktn1eudx7kue"]
+
+[ext_resource type="Texture2D" path="res://assets/images/events/goombakillbg.png" id="1_edhcp"]
+[ext_resource type="Script" path="res://technical/events/catmario.gd" id="1_fjaou"]
+[ext_resource type="Script" path="res://technical/events/mario.gd" id="1_qi5sk"]
+[ext_resource type="Texture2D" path="res://assets/images/events/catrio.png" id="2_kdlog"]
+[ext_resource type="Texture2D" path="res://assets/images/events/minigameTitle.png" id="3_e3j0o"]
+[ext_resource type="Texture2D" path="res://assets/images/events/goomba.png" id="4_wul8t"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o5f5n"]
+radius = 167.443
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ek4uc"]
+size = Vector2(946.75, 232)
+
+[sub_resource type="Animation" id="Animation_e3o1v"]
+resource_name = "pop"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("minigameLogo:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(0.420448, 1, 2, 1),
+"update": 0,
+"values": [Vector2(565, 993), Vector2(565, 324), Vector2(565, 324), Vector2(565, -345)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0.607843)]
+}
+
+[sub_resource type="Animation" id="Animation_djedu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("minigameLogo:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(565, 993)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-9, 900)]
+}
+
+[sub_resource type="Animation" id="Animation_fcjxb"]
+resource_name = "title"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(0.450625, 1, 0.420448, 1),
+"update": 0,
+"values": [Vector2(-9, 900), Vector2(-9, 285), Vector2(-9, 285), Vector2(-9, 20)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.63333, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.607843), Color(0, 0, 0, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_introOver"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iiqyl"]
+_data = {
+"RESET": SubResource("Animation_djedu"),
+"pop": SubResource("Animation_e3o1v"),
+"title": SubResource("Animation_fcjxb")
+}
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gbbob"]
+friction = 0.2
+bounce = 0.08
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5dik2"]
+radius = 115.527
+
+[node name="Mario" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_qi5sk")
+
+[node name="bg" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+texture = ExtResource("1_edhcp")
+
+[node name="catmario" type="CharacterBody2D" parent="."]
+position = Vector2(880, 305)
+script = ExtResource("1_fjaou")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="catmario"]
+position = Vector2(2, -4.5)
+shape = SubResource("CircleShape2D_o5f5n")
+
+[node name="cart" type="Sprite2D" parent="catmario"]
+texture = ExtResource("2_kdlog")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-2, -57)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(707.375, 658)
+shape = SubResource("RectangleShape2D_ek4uc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_iiqyl")
+}
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(240, 405)
+mass = 0.009
+physics_material_override = SubResource("PhysicsMaterial_gbbob")
+gravity_scale = 0.543
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+texture = ExtResource("4_wul8t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(-4, -39)
+shape = SubResource("CircleShape2D_5dik2")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="RigidBody2D"]
+position = Vector2(-52, -16)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1162.0
+offset_bottom = 652.0
+color = Color(0, 0, 0, 1)
+
+[node name="minigameLogo" type="Sprite2D" parent="."]
+position = Vector2(565, 993)
+texture = ExtResource("3_e3j0o")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -9.0
+offset_top = 900.0
+offset_right = 1168.0
+offset_bottom = 969.0
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 30
+text = "you have GOT to kill this motherfucki ng goomba"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
