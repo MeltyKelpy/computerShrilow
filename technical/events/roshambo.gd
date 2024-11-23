@@ -137,9 +137,9 @@ func runRoChoice():
 		roChoiceWeight[0][2] = playerLastPlay
 		roChoiceWeight[0][1] = counters[0][playerLastPlay]
 	elif lastWinner == "you":
-		roChoiceWeight[0][3] = playerLastPlay
+		roChoiceWeight[0][3] = counters[0][playerLastPlay]
 		roChoiceWeight[0][2] = counters[0][counters[0][playerLastPlay]]
-		roChoiceWeight[0][1] = counters[0][playerLastPlay]
+		roChoiceWeight[0][1] = playerLastPlay
 	
 	roState = "ponder"
 	$PonderTime.start()

@@ -104,7 +104,7 @@ func _on_speed_up_button_pressed() -> void:
 	if ItemValues.money >= speedCost and upTokens > 0:
 		Level += 1
 		upTokens -= 1
-		ItemValues.money -= moneyCost
+		ItemValues.money -= speedCost
 		Speed = Speed + (BaseSpeed * 2)
 
 func _on_speed_up_button_mouse_entered() -> void:
