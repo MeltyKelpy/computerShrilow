@@ -44,15 +44,6 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vhex2"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sq2lm"]
-size = Vector2(233, 405)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rwaqc"]
-bg_color = Color(1, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ilv6"]
-bg_color = Color(0, 1, 0, 1)
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_714v8"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l4fde"]
@@ -74,6 +65,15 @@ bg_color = Color(0, 1, 0, 1)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7e2gc"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v5e17"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sq2lm"]
+size = Vector2(233, 405)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rwaqc"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ilv6"]
+bg_color = Color(0, 1, 0, 1)
 
 [sub_resource type="Animation" id="Animation_5fubl"]
 length = 0.001
@@ -808,59 +808,6 @@ theme = ExtResource("8_oskpf")
 theme_override_font_sizes/font_size = 50
 text = "MONEY"
 
-[node name="Shrilow" type="Node2D" parent="."]
-position = Vector2(586, 649)
-
-[node name="Hitspot" type="Area2D" parent="Shrilow"]
-
-[node name="Colli" type="CollisionShape2D" parent="Shrilow/Hitspot"]
-position = Vector2(-1.5, -203.5)
-shape = SubResource("RectangleShape2D_sq2lm")
-
-[node name="Shrilow" type="Sprite2D" parent="Shrilow"]
-position = Vector2(-3.75002, -212.5)
-texture = ExtResource("4_v8f27")
-
-[node name="ShrilowFace" parent="Shrilow/Shrilow" instance=ExtResource("5_d5to6")]
-position = Vector2(-212, -216)
-
-[node name="StillFace" type="Sprite2D" parent="Shrilow/Shrilow"]
-
-[node name="Squeak" type="AudioStreamPlayer" parent="Shrilow"]
-stream = ExtResource("6_g3mo2")
-volume_db = -25.753
-
-[node name="Squeak2" type="AudioStreamPlayer" parent="Shrilow"]
-stream = ExtResource("6_g3mo2")
-volume_db = -48.239
-
-[node name="ShrilowSqueak" type="Button" parent="Shrilow"]
-offset_left = -158.75
-offset_top = -421.25
-offset_right = 153.25
-offset_bottom = -0.25
-theme_override_styles/focus = SubResource("StyleBoxEmpty_p6f28")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_w4xu3")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_uj6cr")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0meto")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_rmwiu")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_o3afr")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_amgep")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_e3kvh")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_kvmat")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iq0t2")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
-
-[node name="ProgressBar" type="ProgressBar" parent="Shrilow"]
-offset_left = -118.0
-offset_top = -445.0
-offset_right = 115.0
-offset_bottom = -418.0
-theme_override_styles/background = SubResource("StyleBoxFlat_rwaqc")
-theme_override_styles/fill = SubResource("StyleBoxFlat_3ilv6")
-value = 50.0
-show_percentage = false
-
 [node name="ShrilowScreen" type="Node2D" parent="."]
 
 [node name="Control" type="Control" parent="ShrilowScreen"]
@@ -963,6 +910,59 @@ offset_bottom = 668.0
 scale = Vector2(1, 0.6)
 theme = ExtResource("8_oskpf")
 text = "CLICKS:"
+
+[node name="Shrilow" type="Node2D" parent="."]
+position = Vector2(586, 649)
+
+[node name="Hitspot" type="Area2D" parent="Shrilow"]
+
+[node name="Colli" type="CollisionShape2D" parent="Shrilow/Hitspot"]
+position = Vector2(-1.5, -203.5)
+shape = SubResource("RectangleShape2D_sq2lm")
+
+[node name="Shrilow" type="Sprite2D" parent="Shrilow"]
+position = Vector2(-3.75002, -212.5)
+texture = ExtResource("4_v8f27")
+
+[node name="ShrilowFace" parent="Shrilow/Shrilow" instance=ExtResource("5_d5to6")]
+position = Vector2(-212, -216)
+
+[node name="StillFace" type="Sprite2D" parent="Shrilow/Shrilow"]
+
+[node name="Squeak" type="AudioStreamPlayer" parent="Shrilow"]
+stream = ExtResource("6_g3mo2")
+volume_db = -25.753
+
+[node name="Squeak2" type="AudioStreamPlayer" parent="Shrilow"]
+stream = ExtResource("6_g3mo2")
+volume_db = -48.239
+
+[node name="ShrilowSqueak" type="Button" parent="Shrilow"]
+offset_left = -158.75
+offset_top = -421.25
+offset_right = 153.25
+offset_bottom = -0.25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p6f28")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_w4xu3")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_uj6cr")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0meto")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_rmwiu")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_o3afr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_amgep")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_e3kvh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_kvmat")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iq0t2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
+
+[node name="ProgressBar" type="ProgressBar" parent="Shrilow"]
+offset_left = -118.0
+offset_top = -445.0
+offset_right = 115.0
+offset_bottom = -418.0
+theme_override_styles/background = SubResource("StyleBoxFlat_rwaqc")
+theme_override_styles/fill = SubResource("StyleBoxFlat_3ilv6")
+value = 50.0
+show_percentage = false
 
 [node name="Shop" type="Node2D" parent="."]
 position = Vector2(1152, 0)
@@ -1178,11 +1178,11 @@ blame ghost."
 one_shot = true
 
 [connection signal="pressed" from="Mines/ScrollContainer/Control/BackButtonWARD" to="." method="_on_back_button_ward2_pressed"]
-[connection signal="pressed" from="Shrilow/ShrilowSqueak" to="." method="_on_shrilow_squeak_pressed"]
 [connection signal="pressed" from="ShrilowScreen/ShopButton" to="." method="_on_shop_button_pressed"]
 [connection signal="pressed" from="ShrilowScreen/WardrobeButton" to="." method="_on_wardrobe_button_pressed"]
 [connection signal="pressed" from="ShrilowScreen/TrophiesButton" to="." method="_on_trophies_button_pressed"]
 [connection signal="pressed" from="ShrilowScreen/MinesButton" to="." method="_on_mines_button_pressed"]
+[connection signal="pressed" from="Shrilow/ShrilowSqueak" to="." method="_on_shrilow_squeak_pressed"]
 [connection signal="pressed" from="Shop/BackButtonSHOP" to="." method="_on_back_button_shop_pressed"]
 [connection signal="pressed" from="Wardrobe/BackButtonWARD" to="." method="_on_back_button_ward_pressed"]
 [connection signal="timeout" from="EventTimer" to="." method="_event"]

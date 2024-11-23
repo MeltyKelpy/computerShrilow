@@ -32,12 +32,23 @@ func _process(_delta: float) -> void:
 	elif (ItemValues.itemInfomation[ItemID]["Type"] == "Generic" and ItemValues.itemInfomation[ItemID]["CurUpgrade"] == 0 and MaxedOut == false) or ItemValues.itemInfomation[ItemID]["Type"] == "Consumable":
 		$Cost.text = str(ItemValues.itemInfomation[ItemID]["Cost"])+"$"
 
-	if ItemID == 0:
-		var second = str(ItemValues.itemInfomation[0]["BaseValue"]+(ItemValues.itemInfomation[0]["CurUpgrade"]*ItemValues.itemInfomation[0]["UpgradeIncrease"]))
+	if Input.is_action_just_pressed("increaseMoney"):
+		ItemValues.money += 1000
+
+	if ItemValues.itemName == "Autoclick":
+		var second = str(ItemValues.itemInfomation[ItemID]["BaseValue"]+(ItemValues.itemInfomation[0]["CurUpgrade"]*ItemValues.itemInfomation[0]["UpgradeIncrease"]))
 		if second != "1":
 			ItemSpecificString = "Clicks Shrilow every "+second+" Seconds"
 		else:
 			ItemSpecificString = "Clicks Shrilow every "+second+" Second"
+	elif ItemValues.itemName == "Plus One":
+		var clicks = str(ItemValues.itemInfomation[ItemID]["BaseValue"]+(ItemValues.itemInfomation[0]["CurUpgrade"]*ItemValues.itemInfomation[0]["UpgradeIncrease"]))
+		if clicks != "1":
+			ItemSpecificString = "Clicks Shrilow every "+clicks+" Seconds"
+		else:
+			ItemSpecificString = "Clicks Shrilow every "+clicks+" Second"
+	elif ItemValues.itemName == "Jelly!":
+		ItemSpecificString = "You have " + str(FizzyDrink.jellys+1) + " Jellys"
 	
 	if MaxedOut == true:
 		modulate = Color(1,1,0)
@@ -62,15 +73,23 @@ func _on_button_pressed() -> void:
 				calculate()
 
 func calculate():
+	var cacapoopyGOD
+	var caca
 	if ItemValues.itemInfomation[ItemID]["ScenePath"] != null:
-		var cacapoopyGOD = load(ItemValues.itemInfomation[ItemID]["ScenePath"])
-		var caca = cacapoopyGOD.instantiate()
-		add_child(caca)
-		ItemValues.itemInfomation[ItemID]["Owned"] = true
-		caca.getID(ItemID)
-		if ItemValues.itemInfomation[ItemID]["Name"] == "Jelly!":
-			FizzyDrink.jellys += 1
-			caca.getJelly(FizzyDrink.jellys)
+		if ItemValues.itemInfomation[ItemID]["Upgradeable?"] == true:
+			if ItemValues.itemInfomation[ItemID]["CurUpgrade"] == 0:
+				cacapoopyGOD = load(ItemValues.itemInfomation[ItemID]["ScenePath"])
+				caca = cacapoopyGOD.instantiate()
+				add_child(caca)
+		else:
+			cacapoopyGOD = load(ItemValues.itemInfomation[ItemID]["ScenePath"])
+			caca = cacapoopyGOD.instantiate()
+			add_child(caca)
+	ItemValues.itemInfomation[ItemID]["Owned"] = true
+	caca.getID(ItemID)
+	if ItemValues.itemInfomation[ItemID]["Name"] == "Jelly!":
+		FizzyDrink.jellys += 1
+		caca.getJelly(FizzyDrink.jellys)
 	if ItemValues.itemInfomation[ItemID]["CurUpgrade"] != 0:
 		ItemValues.money -= ItemValues.itemInfomation[ItemID]["Cost"]*(ItemValues.itemInfomation[ItemID]["CurUpgrade"]+1)
 	if ItemValues.itemInfomation[ItemID]["CurUpgrade"] == 0:

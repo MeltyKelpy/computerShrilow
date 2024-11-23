@@ -14,7 +14,10 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	
+	$Control/cork/text.text = clicks - curClicks
+	
 	if shake == true:
+		$Control/cork/text.visible = false
 		$Control/cork.position.x = 97 + rng.randf_range(-2.0, 2.0)
 	
 	if curClicks >= clicks and flooding == true:
@@ -45,4 +48,3 @@ func _on_button_pressed() -> void:
 
 func _on_shake_timer_timeout() -> void:
 	shake = false
-	curClicks = 0

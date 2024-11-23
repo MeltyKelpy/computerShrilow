@@ -10,7 +10,7 @@ script = ExtResource("1_3rnah")
 texture = ExtResource("1_ml5ht")
 
 [node name="FirstTimer" type="Timer" parent="."]
-wait_time = 1.8
+wait_time = 2.8
 one_shot = true
 autostart = true
 

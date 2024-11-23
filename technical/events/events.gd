@@ -21,7 +21,7 @@ var eventList = [
 	{
 	"Event":"Flood",
 	"AttachedScene":"res://technical/events/flood.tscn",
-	"WarningMessage":"Oh, thats shrilow's area flooding. GO PULL OUT THE PLUG BEFORE HE DROOOWWNNNSSS",
+	"WarningMessage":"Oh, thats shrilow's area flooding. GO PULL OUT THE PLUG BEFORE HE DROOOWWNNNSSS.",
 	"Type":"Generic",
 	},
 	{

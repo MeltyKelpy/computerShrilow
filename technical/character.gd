@@ -47,7 +47,7 @@ func _process(_delta: float) -> void:
 		$CharName.visible = false
 	
 	speedCost = ((Speed / 2) * 500) * Level
-	moneyCost = ((MoneyGain / 2) * 200) * Level
+	moneyCost = (MoneyGain * 200) * Level
 	$ManageMenu/speedUp.text = str(speedCost)
 	$ManageMenu/moneyUp.text = str(moneyCost)
 	
@@ -71,7 +71,7 @@ func _swingTimerEnd():
 	state = 1
 	curSwing += 1
 	if curSwing == Swings:
-		var cacapoopyGOD = preload("res://technical/MoneyGet.tscn")
+		var cacapoopyGOD = load("res://technical/MoneyGet.tscn")
 		var caca = cacapoopyGOD.instantiate()
 		add_child(caca)
 		caca.determine(MoneyGain)

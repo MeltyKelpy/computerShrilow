@@ -1,9 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://chppt2ubov3ef"]
+[gd_scene load_steps=21 format=3 uid="uid://chppt2ubov3ef"]
 
 [ext_resource type="Script" path="res://technical/events/flood.gd" id="1_smg77"]
 [ext_resource type="Texture2D" uid="uid://cc8d36kidwr3g" path="res://assets/images/events/water.png" id="2_iv0pk"]
 [ext_resource type="Texture2D" uid="uid://bwov2ibax0r6m" path="res://assets/images/events/cork.png" id="3_xhyjr"]
 [ext_resource type="AudioStream" uid="uid://cw08acrv3nycy" path="res://assets/sounds/water.ogg" id="4_k7ewg"]
+[ext_resource type="Theme" uid="uid://dr1wna4c2ab2h" path="res://technical/textStyle.tres" id="4_qr04g"]
 [ext_resource type="AudioStream" uid="uid://d1dlckvhixnn2" path="res://assets/sounds/corkPop.ogg" id="5_telml"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sch8t"]
@@ -148,6 +149,17 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_xra6o")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_hwush")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_anefo")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_nd7sv")
+
+[node name="text" type="Label" parent="Control/cork"]
+offset_left = -52.0
+offset_top = -90.0
+offset_right = 52.0
+offset_bottom = -20.0
+scale = Vector2(1, 0.6)
+theme = ExtResource("4_qr04g")
+theme_override_font_sizes/font_size = 50
+text = "MONEY"
+horizontal_alignment = 1
 
 [node name="shakeTimer" type="Timer" parent="Control"]
 wait_time = 0.2
