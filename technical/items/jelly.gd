@@ -15,6 +15,7 @@ func _ready() -> void:
 	reparent($/root/computerShrilow/ShrilowScreen/Control)
 
 func _on_timer_timeout() -> void:
+	$Squeak.play()
 	$jelly.texture = load("res://assets/images/items/jelly1.png")
 	ItemValues.money += 1
 	$SecondTimer.start()

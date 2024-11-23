@@ -71,7 +71,7 @@ func _swingTimerEnd():
 	state = 1
 	curSwing += 1
 	if curSwing == Swings:
-		var cacapoopyGOD = load("res://technical/MoneyGet.tscn")
+		var cacapoopyGOD = load("res://technical/moneyGet.tscn")
 		var caca = cacapoopyGOD.instantiate()
 		add_child(caca)
 		caca.determine(MoneyGain)

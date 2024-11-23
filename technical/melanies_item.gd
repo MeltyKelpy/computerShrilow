@@ -29,26 +29,17 @@ func _process(_delta: float) -> void:
 	
 	if (ItemValues.itemInfomation[ItemID]["Type"] == "Generic" and ItemValues.itemInfomation[ItemID]["CurUpgrade"] != 0 and MaxedOut == false) or ItemValues.itemInfomation[ItemID]["Type"] == "Consumable":
 		$Cost.text = str(ItemValues.itemInfomation[ItemID]["Cost"]*(ItemValues.itemInfomation[ItemID]["CurUpgrade"]+1))+"$"
+		if ItemValues.itemInfomation[ItemID]["Name"] == "Jelly!":
+			var multi = FizzyDrink.jellys - 4
+			if multi < 0:
+				multi = 0
+			$Cost.text = str(ItemValues.itemInfomation[ItemID]["Cost"] + ((ItemValues.itemInfomation[ItemID]["Cost"] * 2) * multi))+"$"
 	elif (ItemValues.itemInfomation[ItemID]["Type"] == "Generic" and ItemValues.itemInfomation[ItemID]["CurUpgrade"] == 0 and MaxedOut == false) or ItemValues.itemInfomation[ItemID]["Type"] == "Consumable":
 		$Cost.text = str(ItemValues.itemInfomation[ItemID]["Cost"])+"$"
 
 	if Input.is_action_just_pressed("increaseMoney"):
 		ItemValues.money += 1000
-
-	if ItemValues.itemName == "Autoclick":
-		var second = str(ItemValues.itemInfomation[ItemID]["BaseValue"]+(ItemValues.itemInfomation[0]["CurUpgrade"]*ItemValues.itemInfomation[0]["UpgradeIncrease"]))
-		if second != "1":
-			ItemSpecificString = "Clicks Shrilow every "+second+" Seconds"
-		else:
-			ItemSpecificString = "Clicks Shrilow every "+second+" Second"
-	elif ItemValues.itemName == "Plus One":
-		var clicks = str(ItemValues.itemInfomation[ItemID]["BaseValue"]+(ItemValues.itemInfomation[0]["CurUpgrade"]*ItemValues.itemInfomation[0]["UpgradeIncrease"]))
-		if clicks != "1":
-			ItemSpecificString = "Clicks Shrilow every "+clicks+" Seconds"
-		else:
-			ItemSpecificString = "Clicks Shrilow every "+clicks+" Second"
-	elif ItemValues.itemName == "Jelly!":
-		ItemSpecificString = "You have " + str(FizzyDrink.jellys+1) + " Jellys"
+	
 	
 	if MaxedOut == true:
 		modulate = Color(1,1,0)
@@ -56,6 +47,21 @@ func _process(_delta: float) -> void:
 func _on_button_mouse_entered() -> void:
 	ItemValues.itemName = ItemValues.itemInfomation[ItemID]["Name"]
 	ItemValues.itemDesc = ItemValues.itemInfomation[ItemID]["Desc"]
+	ItemSpecificString = ""
+	if ItemValues.itemName == "Autoclick":
+		var second = str(ItemValues.itemInfomation[ItemID]["BaseValue"]+(ItemValues.itemInfomation[0]["CurUpgrade"]*ItemValues.itemInfomation[0]["UpgradeIncrease"]))
+		if second != "1":
+			ItemSpecificString = "Clicks Shrilow every "+second+" Seconds"
+		else:
+			ItemSpecificString = "Clicks Shrilow every "+second+" Second"
+	if ItemValues.itemName == "Plus One":
+		var clicks = str(ItemValues.itemInfomation[ItemID]["BaseValue"]+(ItemValues.itemInfomation[0]["CurUpgrade"]*ItemValues.itemInfomation[0]["UpgradeIncrease"]))
+		ItemSpecificString = "Base clicks value increased by "+clicks
+	if ItemValues.itemName == "Plus One Auto":
+		var clicks = str(ItemValues.itemInfomation[ItemID]["BaseValue"]+(ItemValues.itemInfomation[0]["CurUpgrade"]*ItemValues.itemInfomation[0]["UpgradeIncrease"]))
+		ItemSpecificString = "Autoclick clicks value increased by "+clicks
+	if ItemValues.itemName == "Jelly!":
+		ItemSpecificString = "You have " + str(FizzyDrink.jellys+1) + " Jellys"
 	ItemValues.itemExtra = ItemSpecificString
 
 func _on_button_mouse_exited() -> void:
@@ -75,18 +81,19 @@ func _on_button_pressed() -> void:
 func calculate():
 	var cacapoopyGOD
 	var caca
+	ItemValues.itemInfomation[ItemID]["Owned"] = true
 	if ItemValues.itemInfomation[ItemID]["ScenePath"] != null:
 		if ItemValues.itemInfomation[ItemID]["Upgradeable?"] == true:
 			if ItemValues.itemInfomation[ItemID]["CurUpgrade"] == 0:
 				cacapoopyGOD = load(ItemValues.itemInfomation[ItemID]["ScenePath"])
 				caca = cacapoopyGOD.instantiate()
 				add_child(caca)
+				caca.getID(ItemID)
 		else:
 			cacapoopyGOD = load(ItemValues.itemInfomation[ItemID]["ScenePath"])
 			caca = cacapoopyGOD.instantiate()
 			add_child(caca)
-	ItemValues.itemInfomation[ItemID]["Owned"] = true
-	caca.getID(ItemID)
+			caca.getID(ItemID)
 	if ItemValues.itemInfomation[ItemID]["Name"] == "Jelly!":
 		FizzyDrink.jellys += 1
 		caca.getJelly(FizzyDrink.jellys)

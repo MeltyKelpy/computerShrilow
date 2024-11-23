@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://djee5wfyrd0xc"]
+
+[ext_resource type="Script" path="res://technical/items/plusoneauto.gd" id="1_386cr"]
+
+[node name="Plusone" type="Node2D"]
+script = ExtResource("1_386cr")

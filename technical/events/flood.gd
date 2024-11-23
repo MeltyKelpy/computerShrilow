@@ -14,14 +14,21 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	
-	$Control/cork/text.text = clicks - curClicks
+	$Control/cork/text.text = str(clicks - curClicks)
 	
 	if shake == true:
-		$Control/cork/text.visible = false
 		$Control/cork.position.x = 97 + rng.randf_range(-2.0, 2.0)
 	
 	if curClicks >= clicks and flooding == true:
 		flooding = false
+		$Control/cork/text.visible = false
+		var cacapoopyGOD = load("res://technical/moneyGet.tscn")
+		var caca = cacapoopyGOD.instantiate()
+		add_child(caca)
+		caca.determine(100)
+		caca.position.x = 84
+		caca.position.y = 30
+		caca.reparent($/root/computerShrilow/USD)
 		$Control/cork2.play()
 		$Control/AnimationPlayer.play("cork")
 	
