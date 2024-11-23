@@ -46,8 +46,8 @@ func _process(_delta: float) -> void:
 		managing = true
 		$CharName.visible = false
 	
-	speedCost = (Speed * 500) * Level
-	moneyCost = (MoneyGain * 200) * Level
+	speedCost = ((Speed / 2) * 500) * Level
+	moneyCost = ((MoneyGain / 2) * 200) * Level
 	$ManageMenu/speedUp.text = str(speedCost)
 	$ManageMenu/moneyUp.text = str(moneyCost)
 	

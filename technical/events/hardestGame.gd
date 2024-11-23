@@ -72,7 +72,7 @@ func _endEvent():
 	var caca = cacapoopyGOD.instantiate()
 	if stars > 0:
 		winOrLose = true
-		money = 200 * stars
+		money = 50 * stars
 		add_child(caca)
 	if stars <= 0:
 		winOrLose = false

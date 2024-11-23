@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cktn1eudx7kue"]
+[gd_scene load_steps=20 format=3 uid="uid://cktn1eudx7kue"]
 
 [ext_resource type="Texture2D" uid="uid://cpl6wlfso3dua" path="res://assets/images/events/goombakillbg.png" id="1_edhcp"]
 [ext_resource type="Script" path="res://technical/catmario.gd" id="1_fjaou"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://dy571d4x471o4" path="res://assets/sounds/scream.ogg" id="6_r1c8t"]
 [ext_resource type="AudioStream" uid="uid://doov5lqi3y5cd" path="res://assets/sounds/fuckyeah.ogg" id="8_syitp"]
 [ext_resource type="Texture2D" uid="uid://6nno2cik65i4" path="res://assets/images/events/fuckYeah.png" id="9_n2y8x"]
+[ext_resource type="AudioStream" uid="uid://cyokqucofnbvt" path="res://assets/music/partyrockers.ogg" id="10_85137"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o5f5n"]
 radius = 167.443
@@ -282,5 +283,10 @@ stream = ExtResource("8_syitp")
 [node name="fuckYeah" type="Sprite2D" parent="opening"]
 position = Vector2(576, 900)
 texture = ExtResource("9_n2y8x")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_85137")
+volume_db = -16.865
+autoplay = true
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

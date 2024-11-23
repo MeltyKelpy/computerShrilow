@@ -68,6 +68,9 @@ func calculate():
 		add_child(caca)
 		ItemValues.itemInfomation[ItemID]["Owned"] = true
 		caca.getID(ItemID)
+		if ItemValues.itemInfomation[ItemID]["Name"] == "Jelly!":
+			FizzyDrink.jellys += 1
+			caca.getJelly(FizzyDrink.jellys)
 	if ItemValues.itemInfomation[ItemID]["CurUpgrade"] != 0:
 		ItemValues.money -= ItemValues.itemInfomation[ItemID]["Cost"]*(ItemValues.itemInfomation[ItemID]["CurUpgrade"]+1)
 	if ItemValues.itemInfomation[ItemID]["CurUpgrade"] == 0:

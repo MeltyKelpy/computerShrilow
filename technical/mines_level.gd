@@ -6,7 +6,7 @@ var characterInfos = [
 	{
 		"Name":"Shrilow",
 		"Desc":"1$ per 3 pickaxe swings.\nBase Speed: 1 a second",
-		"BasePrice":150,
+		"BasePrice":400,
 		"MoneyGain":1,
 		"Swings":3,
 		"Speed":1.000,
@@ -14,7 +14,7 @@ var characterInfos = [
 	{
 		"Name":"Moka",
 		"Desc":"2$ per 4 pickaxe swings.\nBase Speed: 1.2 a second",
-		"BasePrice":300,
+		"BasePrice":600,
 		"MoneyGain":2,
 		"Swings":4,
 		"Speed":1.200,
@@ -22,15 +22,15 @@ var characterInfos = [
 	{
 		"Name":"Mel",
 		"Desc":"5$ per 8 pickaxe swings.\nBase Speed: 1.5 a second",
-		"BasePrice":450,
+		"BasePrice":750,
 		"MoneyGain":5,
 		"Swings":8,
 		"Speed":1.500,
 	},
 	{
 		"Name":"Blair",
-		"Desc":"2$ per 3 pickaxe swings.\nBase Speed: 2 a second",
-		"BasePrice":600,
+		"Desc":"2$ per 3 pickaxe swings.\nBase Speed: 2.5 a second",
+		"BasePrice":900,
 		"MoneyGain":2,
 		"Swings":3,
 		"Speed":2.50,
@@ -38,7 +38,7 @@ var characterInfos = [
 	{
 		"Name":"Charlotte",
 		"Desc":"6$ per 6 pickaxe swings.\nBase Speed: 1.5 a second",
-		"BasePrice":800,
+		"BasePrice":1050,
 		"MoneyGain":6,
 		"Swings":6,
 		"Speed":1.800,
@@ -71,11 +71,11 @@ func _process(_delta: float) -> void:
 		$VisualCodeSpaghetti/MelCost.text = str(moneyValues[2])+"$"
 		$VisualCodeSpaghetti/BlairCost.text = str(moneyValues[3])+"$"
 		$VisualCodeSpaghetti/CharlotteCost.text = str(moneyValues[4])+"$"
-		moneyValues[0] = 150 + ((150 / 2)*(amountOfDwellers))
-		moneyValues[1] = 300 + ((300 / 2)*(amountOfDwellers))
-		moneyValues[2] = 450 + ((450 / 2)*(amountOfDwellers))
-		moneyValues[3] = 600 + ((600 / 2)*(amountOfDwellers))
-		moneyValues[4] = 800 + ((800 / 2)*(amountOfDwellers))
+		moneyValues[0] = characterInfos[0]["BasePrice"] + ((characterInfos[0]["BasePrice"] / 2)*(amountOfDwellers))
+		moneyValues[1] = characterInfos[1]["BasePrice"] + ((characterInfos[1]["BasePrice"] / 2)*(amountOfDwellers))
+		moneyValues[2] = characterInfos[2]["BasePrice"] + ((characterInfos[2]["BasePrice"] / 2)*(amountOfDwellers))
+		moneyValues[3] = characterInfos[3]["BasePrice"] + ((characterInfos[3]["BasePrice"] / 2)*(amountOfDwellers))
+		moneyValues[4] = characterInfos[4]["BasePrice"] + ((characterInfos[4]["BasePrice"] / 2)*(amountOfDwellers))
 		if selected == 0:
 			$VisualCodeSpaghetti/ShrilowIcon.modulate = Color(1,1,0)
 		elif hoverSelected == 0:

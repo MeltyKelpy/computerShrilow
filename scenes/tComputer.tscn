@@ -863,6 +863,14 @@ show_percentage = false
 
 [node name="ShrilowScreen" type="Node2D" parent="."]
 
+[node name="Control" type="Control" parent="ShrilowScreen"]
+clip_contents = true
+custom_minimum_size = Vector2(1152, 648)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="Shop" type="Sprite2D" parent="ShrilowScreen"]
 position = Vector2(1065, 93)
 texture = ExtResource("8_kysej")

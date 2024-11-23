@@ -12,7 +12,7 @@ var itemInfomation = [
 	"BaseValue":2,
 	"UpgradeIncrease":(-0.4),
 	"Owned":false,
-	"Cost":400,
+	"Cost":300,
 	"ScenePath":"res://technical/items/autoclicker.tscn",
 	"Type":"Generic",
 	},
@@ -106,12 +106,27 @@ var itemInfomation = [
 	"ScenePath":"res://technical/items/blockOutEvents.tscn",
 	"Type":"Consumable",
 	},
+	{
+	# JELLY
+	"Image":"res://assets/images/areas/melanies/items/jelly.png",
+	"Name":"Jelly!",
+	"Desc":'"Little Goober who produces $1 every 2 seconds, while not alot, you can buy as many as you want!" -Mel ',
+	"Upgradeable?":false,
+	"MaxUpgrade":1,
+	"CurUpgrade":0,
+	"BaseValue":0,
+	"UpgradeIncrease":1,
+	"Owned":false,
+	"Cost":250,
+	"ScenePath":"res://technical/items/jelly.tscn",
+	"Type":"Consumable",
+	},
 	]
 
 var itemName = "Item Name will show up Here"
 var itemDesc = "Right here, an Item's description will show up."
 var itemExtra = ""
-var money = 1000000
+var money = 90000
 var maxMoney = 0
 
 func _process(_delta: float) -> void:

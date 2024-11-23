@@ -12,10 +12,10 @@ var minesLength = 1
 var health = 100
 
 var stopTheCount = 0
+var jellys = (-1)
 
 func updateClothes() -> void:
 	clickPowerClothingBuffs = 0
 	AUTOclickPowerClothingBuffs = 0
-	if ClothingObjects.clothes[ClothingObjects.equippedClothing]["Name"] == "Very Real Different Suit":
+	if ClothingObjects.clothes[ClothingObjects.equippedClothing]["Name"] == "Date Night":
 		clickPowerClothingBuffs = 1
-		AUTOclickPowerClothingBuffs = 1

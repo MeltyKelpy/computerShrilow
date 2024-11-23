@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvxn7n144a812"]
+
+[ext_resource type="Script" path="res://technical/items/jelly.gd" id="1_3rnah"]
+[ext_resource type="Texture2D" uid="uid://b28r5cl4pode8" path="res://assets/images/items/jelly0.png" id="1_ml5ht"]
+
+[node name="Jelly" type="Node2D"]
+script = ExtResource("1_3rnah")
+
+[node name="jelly" type="Sprite2D" parent="."]
+texture = ExtResource("1_ml5ht")
+
+[node name="FirstTimer" type="Timer" parent="."]
+wait_time = 1.8
+one_shot = true
+autostart = true
+
+[node name="SecondTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="FirstTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="SecondTimer" to="." method="_on_second_timer_timeout"]

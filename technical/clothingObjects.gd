@@ -22,13 +22,13 @@ var clothes = [
 	"Cost":0
 	},
 	{
-	# SUIT // 2
-	"Name":"Very Real Different Suit",
-	"Desc":"testing",
+	# DATE NIGHT
+	"Name":"Date Night",
+	"Desc":"Everyone needs a fancy outfit for their date night! or, atleast i think they do? idk i show up in jeans usually lol",
 	"Owned":false,
-	"IconKey":"res://assets/images/areas/wardrobe/clothing/suit.png",
-	"Image":"res://assets/images/computershrilows/shrilowBases/shrilowPresident.png",
-	"Cost":50
+	"IconKey":"res://assets/images/areas/wardrobe/clothing/datenight.png",
+	"Image":"res://assets/images/computershrilows/shrilowBases/shrilowDate Night.png",
+	"Cost":100
 	},
 ]
 var itemName = "Clothing name will show up here"
