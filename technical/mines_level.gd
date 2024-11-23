@@ -31,7 +31,7 @@ var characterInfos = [
 		"Name":"Blair",
 		"Desc":"2$ per 3 pickaxe swings.\nBase Speed: 2 a second",
 		"BasePrice":600,
-		"MoneyGain":1,
+		"MoneyGain":2,
 		"Swings":3,
 		"Speed":2.50,
 	},
@@ -210,9 +210,11 @@ func _on_buy_button_pressed() -> void:
 
 func _on_button_mouse_entered() -> void:
 	$newMine/NewLevelCost.add_theme_color_override("font_color", Color(1,1,0))
+	$newMine/NewMines.modulate = Color(1,1,0)
 
 func _on_button_mouse_exited() -> void:
 	$newMine/NewLevelCost.add_theme_color_override("font_color", Color(0,1,0))
+	$newMine/NewMines.modulate = Color(0,1,0)
 
 func _on_button_pressed() -> void:
 	if ItemValues.money >= 500+(1000*caveNumber):

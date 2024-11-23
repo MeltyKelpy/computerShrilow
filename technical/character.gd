@@ -51,7 +51,7 @@ func _process(_delta: float) -> void:
 	$ManageMenu/speedUp.text = str(speedCost)
 	$ManageMenu/moneyUp.text = str(moneyCost)
 	
-	$ManageMenu/UpgradeInfo.text = "Speed: "+str(Speed)+"\nMoney: "+str(MoneyGain)+"\nLevel: "+str(Level)+"\n\nUpTokens: "+str(upTokens)
+	$ManageMenu/UpgradeInfo.text = "Speed:"+str(Speed)+"\nMoney:"+str(MoneyGain)+"\nLevel:"+str(Level)+"\n\nUpTokens:"+str(upTokens)
 	
 	$ManageMenu.visible = managing
 	
@@ -71,6 +71,12 @@ func _swingTimerEnd():
 	state = 1
 	curSwing += 1
 	if curSwing == Swings:
+		var cacapoopyGOD = preload("res://technical/MoneyGet.tscn")
+		var caca = cacapoopyGOD.instantiate()
+		add_child(caca)
+		caca.determine(MoneyGain)
+		caca.position.x = -30
+		caca.position.y = -70
 		ItemValues.money += MoneyGain
 		curSwing = 0
 	timer2.start()
@@ -98,6 +104,7 @@ func _on_speed_up_button_pressed() -> void:
 	if ItemValues.money >= speedCost and upTokens > 0:
 		Level += 1
 		upTokens -= 1
+		ItemValues.money -= moneyCost
 		Speed = Speed + (BaseSpeed * 2)
 
 func _on_speed_up_button_mouse_entered() -> void:

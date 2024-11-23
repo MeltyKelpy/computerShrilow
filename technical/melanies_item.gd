@@ -66,8 +66,8 @@ func calculate():
 		var cacapoopyGOD = load(ItemValues.itemInfomation[ItemID]["ScenePath"])
 		var caca = cacapoopyGOD.instantiate()
 		add_child(caca)
+		ItemValues.itemInfomation[ItemID]["Owned"] = true
 		caca.getID(ItemID)
-	ItemValues.itemInfomation[ItemID]["Owned"] = true
 	if ItemValues.itemInfomation[ItemID]["CurUpgrade"] != 0:
 		ItemValues.money -= ItemValues.itemInfomation[ItemID]["Cost"]*(ItemValues.itemInfomation[ItemID]["CurUpgrade"]+1)
 	if ItemValues.itemInfomation[ItemID]["CurUpgrade"] == 0:

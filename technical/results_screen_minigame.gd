@@ -8,6 +8,9 @@ var allowExiting = false
 var countingMoney = false
 var toCountTo = 0
 
+func _ready():
+	$AnimationPlayer.play("animation")
+
 func determineResult(result : bool, stars : int, cash : int):
 	cashh = cash
 	starr = stars
@@ -17,49 +20,47 @@ func determineResult(result : bool, stars : int, cash : int):
 		resultt = "LOSE."
 
 func _process(_delta: float) -> void:
-	if resultt == "WIN!":
-		$resultsscreen/INFO.text = "\n\n\nSTARS:\n"+str(starr)+"/5\n\nMONEY EARNED:\n"
-	if resultt == "LOSE.":
-		$resultsscreen/INFO.text = "\n\n\nSTARS:\n"+str(starr)+"/5\n\nMONEY LOST:\n"
 	if allowExiting == true and Input.is_action_just_pressed("Click"):
-		if ItemValues.money >= 0:
-			get_tree().paused = false
-			$AnimationPlayer.play("leave")
-		else:
-			ItemValues.money = 0
-			get_tree().quit()
+		get_tree().paused = false
+		$AnimationPlayer.play("leave")
 	if countingMoney == true:
 		if resultt == "WIN!":
+			if cashh <= 20:
+				cashh2 = toCountTo
+				cashh = 0
+				allowExit()
 			if cashh2 < toCountTo:
-				$resultsscreen/INFO2.text = str(cashh)+" + "+str(cashh2)
-				cashh2 += 100
-				cashh -= 100
-			elif cashh == 0:
+				$resultsscreen/INFO2.text = str(int(cashh2))+" + "+str(int(cashh))
+				cashh2 += 15
+				cashh -= 15
+			else:
 				allowExit()
 		elif resultt == "LOSE.":
+			if cashh <= 20:
+				cashh2 = toCountTo
+				cashh = 0
+				allowExit()
 			if cashh2 > toCountTo:
-				$resultsscreen/INFO2.text = str(cashh)+" - "+str(cashh2)
-				cashh2 -= 100
-				cashh -= 100
-			elif cashh == 0:
-				ItemValues.money = toCountTo
-				print(ItemValues.money)
-				countingMoney = false
-				var timer = Timer.new()
-				timer.wait_time = 0.2
-				timer.one_shot = true
-				timer.autostart = true
-				timer.connect("timeout", allowExit)
-				add_child(timer)
+				$resultsscreen/INFO2.text = str(int(cashh2))+" - "+str(int(cashh))
+				cashh2 -= 15
+				cashh -= 15
 
 func _kill():
 	queue_free()
 
 func _killMiniGame():
-	$/root/minigame.queue_free()
+	$resultsscreen/AudioStreamPlayer.play()
 	$AnimationPlayer.play("choose")
+	$/root/minigame.queue_free()
 
 func _resultsStart():
+	if resultt == "WIN!":
+		$resultsscreen/cheer.play()
+		$resultsscreen/popper.play()
+		$resultsscreen/INFO.text = "\n\n\nSTARS:\n"+str(starr)+"/5\n\nMONEY EARNED:\n"
+	if resultt == "LOSE.":
+		$resultsscreen/lose.play()
+		$resultsscreen/INFO.text = "\n\n\nSTARS:\n"+str(starr)+"/5\n\nMONEY LOST:\n"
 	$resultsscreen/RESULT.text = resultt
 	var timer = Timer.new()
 	timer.wait_time = 1
@@ -86,7 +87,7 @@ func infoDisplay():
 func countMoney():
 	if resultt == "WIN!":
 		toCountTo = ItemValues.money + cashh
-	else:
+	if resultt == "LOSE.":
 		toCountTo = ItemValues.money - cashh
 	countingMoney = true
 
@@ -94,10 +95,15 @@ func allowExit():
 	if resultt == "LOSE.":
 		countingMoney = false
 		allowExiting = true
+		ItemValues.money = toCountTo
+		$resultsscreen/INFO2.visible = false
+		$resultsscreen/INFO3.visible = true
+		$resultsscreen/INFO3.text = str(ItemValues.money)
+		$resultsscreen/EXIT.visible = true
 		if ItemValues.money < 0:
 			$resultsscreen/Shrilow.texture = load("res://assets/images/events/shrilowDead.png")
 			$AnimationPlayer.play("die")
-			$resultsscreen/broke.text = "YOU'RE A FUCKING BROKIEEEEEEEEEEEEEEEEEEE\n\nthis is game over, loser.\n\nclick anywhere to CLOSE THE GAME. LOSER.\n\nyour DEBT: "+str(ItemValues.money)
+			$resultsscreen/broke.text = "YOU'RE A FUCKING BROKIEEEEEEEEEEEEEEEEEEE\nclick to go back to your DEBT FILLED LIFE.\n\nloser.\n\nyour DEBT: "+str(ItemValues.money)
 	if resultt == "WIN!":
 		countingMoney = false
 		ItemValues.money = toCountTo

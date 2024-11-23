@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://behy1pqgknont"]
+
+[ext_resource type="Script" path="res://technical/items/blockOutEvents.gd" id="1_edpcf"]
+
+[node name="BlockOutEvents" type="Node2D"]
+script = ExtResource("1_edpcf")

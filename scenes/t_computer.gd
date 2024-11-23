@@ -1,7 +1,7 @@
 extends Node2D
 
 var clicks = 0.0
-var curClicks = 0
+var curClicks = 0.0
 var rng = RandomNumberGenerator.new()
 
 var cacapoopyGOD = preload("res://technical/MelaniesItem.tscn")
@@ -24,6 +24,23 @@ func _ready():
 	generateHoes()
 
 func _process(_delta : float) -> void:
+	if FizzyDrink.stopTheCount != 0:
+		$noEventsTimer.wait_time = FizzyDrink.stopTheCount
+		$noEventsTimer.start($noEventsTimer.time_left + FizzyDrink.stopTheCount)
+		FizzyDrink.stopTheCount = 0
+		$EventTimer.paused = true
+	if $noEventsTimer.time_left == 0:
+		$EventTimer.paused = false
+	
+	if FizzyDrink.health >= 100:
+		$Shrilow/ProgressBar.visible = false
+	else:
+		$Shrilow/ProgressBar.visible = true
+	$Shrilow/ProgressBar.value = FizzyDrink.health
+	if FizzyDrink.health <= 0:
+		var cacapoopyGOD2 = load("res://technical/death.tscn")
+		var caca = cacapoopyGOD2.instantiate()
+		add_child(caca)
 	
 	$Mines/ScrollContainer/Control.custom_minimum_size.y = (648 * FizzyDrink.minesLength) + 100
 	
@@ -55,7 +72,7 @@ func _process(_delta : float) -> void:
 		$DEBUGVALUES.visible = !$DEBUGVALUES.visible
 	
 	if $DEBUGVALUES.visible == true:
-		$DEBUGVALUES/ScrollContainer/Control/Label.text = "DEBUG MODE\n================\n"
+		$DEBUGVALUES/ScrollContainer/Control/Label.text = "DEBUG MODE\n================\nEvent Timer: "+str($EventTimer.time_left)+"\nStop Events Timer: "+str($noEventsTimer.time_left)
 	
 func _on_shrilow_squeak_autoclick() -> void:
 	$faceRevert.stop()
@@ -68,7 +85,7 @@ func _on_shrilow_squeak_autoclick() -> void:
 	$Shrilow/Squeak2.play()
 
 func _on_shrilow_squeak_pressed() -> void:
-	
+	$faceRevert.stop()
 	$faceRevert.start()
 	$Shrilow.scale.x = 1.2
 	$Shrilow.scale.y = 0.85
@@ -120,16 +137,18 @@ func _startEvent(numberPicked) -> void:
 	var cacapoopyGOD2 = load(Events.eventList[numberPicked]["AttachedScene"])
 	var caca = cacapoopyGOD2.instantiate()
 	add_child(caca)
-	caca._ready()
 	var cacapoopyGOD3 = preload("res://technical/events/eventIndicator.tscn")
 	var caca2 = cacapoopyGOD3.instantiate()
 	add_child(caca2)
 	caca2.warn(Events.eventList[numberPicked]["WarningMessage"])
 	if Events.eventList[numberPicked]["Type"] == "Minigame":
+		Events.eventList[numberPicked]["Played?"] = true
 		get_tree().paused = true
 		caca.reparent($/root)
 	if Events.eventList[numberPicked]["Type"] == "Generic":
-		caca.reparent($Shrilow)
+		caca.reparent($ShrilowScreen)
+		caca.position.y = caca.position.y + $ShrilowScreen.position.y
+		caca.position.x = caca.position.x + $ShrilowScreen.position.x
 
 func shrilowColor(color) -> void:
 	if color == "base":

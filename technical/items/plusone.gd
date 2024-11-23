@@ -5,5 +5,5 @@ var number : int
 func getID(num):
 	number = num
 
-func _process(delta: float):
+func _process(_delta: float):
 	FizzyDrink.clickPower = 1 + (ItemValues.itemInfomation[number]["CurUpgrade"])

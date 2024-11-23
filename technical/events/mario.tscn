@@ -1,12 +1,14 @@
-[gd_scene load_steps=17 format=3 uid="uid://cktn1eudx7kue"]
+[gd_scene load_steps=19 format=3 uid="uid://cktn1eudx7kue"]
 
 [ext_resource type="Texture2D" uid="uid://cpl6wlfso3dua" path="res://assets/images/events/goombakillbg.png" id="1_edhcp"]
-[ext_resource type="Script" path="res://technical/events/catmario.gd" id="1_fjaou"]
+[ext_resource type="Script" path="res://technical/catmario.gd" id="1_fjaou"]
 [ext_resource type="Script" path="res://technical/events/mario.gd" id="1_qi5sk"]
 [ext_resource type="Texture2D" uid="uid://cr7ixcq48tcy" path="res://assets/images/events/catrio.png" id="2_kdlog"]
 [ext_resource type="Texture2D" uid="uid://bucepb3oy8gmh" path="res://assets/images/events/minigameTitle.png" id="3_e3j0o"]
 [ext_resource type="Texture2D" uid="uid://bvgy0ufj2nm1n" path="res://assets/images/events/goomba.png" id="4_wul8t"]
 [ext_resource type="AudioStream" uid="uid://dy571d4x471o4" path="res://assets/sounds/scream.ogg" id="6_r1c8t"]
+[ext_resource type="AudioStream" uid="uid://doov5lqi3y5cd" path="res://assets/sounds/fuckyeah.ogg" id="8_syitp"]
+[ext_resource type="Texture2D" uid="uid://6nno2cik65i4" path="res://assets/images/events/fuckYeah.png" id="9_n2y8x"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o5f5n"]
 radius = 167.443
@@ -63,6 +65,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": ["you have GOT to kill this motherfucki ng goomba"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("opening/fuckYeah:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(576, 900)]
 }
 
 [sub_resource type="Animation" id="Animation_e3o1v"]
@@ -127,7 +141,7 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(2.5),
+"times": PackedFloat32Array(2.53333),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -163,6 +177,18 @@ tracks/1/keys = {
 "args": [],
 "method": &"_endEvent"
 }]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("opening/fuckYeah:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.46667),
+"transitions": PackedFloat32Array(0.353553, 1),
+"update": 0,
+"values": [Vector2(576, 900), Vector2(576, 324)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_iiqyl"]
@@ -213,7 +239,7 @@ libraries = {
 }
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
-position = Vector2(240, 405)
+position = Vector2(240, 391)
 mass = 0.009
 physics_material_override = SubResource("PhysicsMaterial_gbbob")
 gravity_scale = 0.543
@@ -249,5 +275,12 @@ theme_override_font_sizes/font_size = 30
 text = "you have GOT to kill this motherfucki ng goomba"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="opening"]
+stream = ExtResource("8_syitp")
+
+[node name="fuckYeah" type="Sprite2D" parent="opening"]
+position = Vector2(576, 900)
+texture = ExtResource("9_n2y8x")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

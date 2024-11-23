@@ -9,6 +9,9 @@ var AUTOclickPowerAdditions = 0
 var AUTOclickPowerClothingBuffs = 0
 
 var minesLength = 1
+var health = 100
+
+var stopTheCount = 0
 
 func updateClothes() -> void:
 	clickPowerClothingBuffs = 0

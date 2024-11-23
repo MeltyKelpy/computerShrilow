@@ -100,7 +100,7 @@ UpTokens: 4"
 
 [node name="speedUp" type="Label" parent="ManageMenu"]
 z_index = 2
-offset_left = -6.0
+offset_left = -4.0
 offset_top = -161.0
 offset_right = 40.0
 offset_bottom = -139.0
@@ -132,7 +132,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_p2cjr")
 
 [node name="moneyUp" type="Label" parent="ManageMenu"]
 z_index = 2
-offset_left = -6.0
+offset_left = -4.0
 offset_top = -146.0
 offset_right = 40.0
 offset_bottom = -124.0

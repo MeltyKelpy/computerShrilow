@@ -11,7 +11,7 @@ func _ready() -> void:
 func getID(num):
 	ItemID = num
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	self.position.x = 0
 	self.position.y = 0
 

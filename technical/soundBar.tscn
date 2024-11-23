@@ -40,6 +40,7 @@ _data = {
 }
 
 [node name="SoundBar" type="CanvasLayer"]
+process_mode = 3
 layer = 128
 script = ExtResource("1_qn2c0")
 

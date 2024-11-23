@@ -63,7 +63,7 @@ _data = {
 
 [node name="EventIndicator" type="Node2D"]
 process_mode = 3
-z_index = 101
+z_index = 1000
 script = ExtResource("1_a2766")
 
 [node name="eventer" type="Sprite2D" parent="."]

@@ -5,14 +5,14 @@ var itemInfomation = [
 	# AUTOCLICK
 	"Image":"res://assets/images/areas/melanies/items/autoclick",
 	"Name":"Autoclick",
-	"Desc":"It's as simple as it sounds. autoclicks Shrilow every once in awhile, increasing for every upgrade you get.",
+	"Desc":'"Its as simple as it sounds. autoclicks Shrilow every once in awhile, increasing for every upgrade you get." -Mel ',
 	"Upgradeable?":true,
 	"MaxUpgrade":5,
 	"CurUpgrade":0,
 	"BaseValue":2,
 	"UpgradeIncrease":(-0.4),
 	"Owned":false,
-	"Cost":200,
+	"Cost":400,
 	"ScenePath":"res://technical/items/autoclicker.tscn",
 	"Type":"Generic",
 	},
@@ -20,7 +20,7 @@ var itemInfomation = [
 	# Bone
 	"Image":"res://assets/images/areas/melanies/items/bone.png",
 	"Name":"Bone",
-	"Desc":"Doubles your base money per click for 30 seconds.",
+	"Desc":'"Doubles your base money per click for 30 seconds." -Mel ',
 	"Upgradeable?":false,
 	"MaxUpgrade":1,
 	"CurUpgrade":0,
@@ -35,7 +35,7 @@ var itemInfomation = [
 	# Auto-Bone
 	"Image":"res://assets/images/areas/melanies/items/bone.png",
 	"Name":"Auto-Bone",
-	"Desc":"Doubles your auto clicker's base money per click for 10 seconds.",
+	"Desc":'"Doubles your auto clickers base money per click for 10 seconds." -Mel ',
 	"Upgradeable?":false,
 	"MaxUpgrade":1,
 	"CurUpgrade":0,
@@ -50,7 +50,7 @@ var itemInfomation = [
 	# Plus One
 	"Image":"res://assets/images/areas/melanies/items/plus1",
 	"Name":"Plus One",
-	"Desc":"Adds one to your Base Money-Per-Click value.",
+	"Desc":'"Adds one to your Base Money-Per-Click value." -Mel ',
 	"Upgradeable?":true,
 	"MaxUpgrade":100,
 	"CurUpgrade":0,
@@ -61,14 +61,59 @@ var itemInfomation = [
 	"ScenePath":"res://technical/items/plusone.tscn",
 	"Type":"Generic",
 	},
+	{
+	# IMEDIATE EVENT
+	"Image":"res://assets/images/areas/melanies/items/floppydisk.png",
+	"Name":"Floppy Disk",
+	"Desc":'"Immediately starts a minigame event, useful if you want to get some more coins fast." -Mel ',
+	"Upgradeable?":false,
+	"MaxUpgrade":1,
+	"CurUpgrade":0,
+	"BaseValue":0,
+	"UpgradeIncrease":1,
+	"Owned":false,
+	"Cost":150,
+	"ScenePath":"res://technical/items/floppydiskevent.tscn",
+	"Type":"Consumable",
+	},
+	{
+	# IMEDIATE EVENT
+	"Image":"res://assets/images/areas/melanies/items/floppydisk.png",
+	"Name":"Notably Shinier Floppy Disk",
+	"Desc":'"Immediately starts a minigame event you havent played yet, useful if you want to unlock all the minigames. you completionist whore." -Mel ',
+	"Upgradeable?":false,
+	"MaxUpgrade":1,
+	"CurUpgrade":0,
+	"BaseValue":0,
+	"UpgradeIncrease":1,
+	"Owned":false,
+	"Cost":300,
+	"ScenePath":"res://technical/items/shinyfloppydiskevent.tscn",
+	"Type":"Consumable",
+	},
+	{
+	# ANTIVIRUS
+	"Image":"res://assets/images/areas/melanies/items/antivirus.png",
+	"Name":"Antivirus",
+	"Desc":'"Blocks out events for 30 minutes, everytime you buy it, it adds 30 more minutes to the event restriction timer. Not something i recommend, but to each their own." -Mel ',
+	"Upgradeable?":false,
+	"MaxUpgrade":1,
+	"CurUpgrade":0,
+	"BaseValue":0,
+	"UpgradeIncrease":1,
+	"Owned":false,
+	"Cost":200,
+	"ScenePath":"res://technical/items/blockOutEvents.tscn",
+	"Type":"Consumable",
+	},
 	]
 
 var itemName = "Item Name will show up Here"
 var itemDesc = "Right here, an Item's description will show up."
 var itemExtra = ""
-var money = 0
+var money = 1000000
 var maxMoney = 0
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if money > maxMoney:
 		maxMoney = money

@@ -1,7 +1,6 @@
 extends Node
 
 var timer = Timer.new()
-signal interact
 var ItemID : int
 
 func _ready() -> void:
@@ -14,8 +13,8 @@ func _ready() -> void:
 func getID(num):
 	ItemID = num
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var time = float(ItemValues.itemInfomation[ItemID]["BaseValue"]+(ItemValues.itemInfomation[0]["CurUpgrade"]*ItemValues.itemInfomation[0]["UpgradeIncrease"]))
-	if time < 0:
-		time = 0.1
+	if time <= 0:
+		time = 0.2
 	timer.wait_time = time
