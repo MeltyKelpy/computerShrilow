@@ -126,7 +126,7 @@ var itemInfomation = [
 var itemName = "Item Name will show up Here"
 var itemDesc = "Right here, an Item's description will show up."
 var itemExtra = ""
-var money = 90000
+var money = 0
 var maxMoney = 0
 
 func _process(_delta: float) -> void:

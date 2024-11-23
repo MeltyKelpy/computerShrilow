@@ -14,7 +14,7 @@ config/name="Computer Shrilow"
 config/version="1.0.0"
 run/main_scene="res://scenes/tComputer.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://assets/gameIcon.png"
+config/icon="res://assets/gameIcon64.png"
 config/windows_native_icon="res://assets/images/gameIcon.ico"
 
 [audio]
