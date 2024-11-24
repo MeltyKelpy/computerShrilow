@@ -49,16 +49,16 @@ func _on_button_mouse_entered() -> void:
 	ItemValues.itemDesc = ItemValues.itemInfomation[ItemID]["Desc"]
 	ItemSpecificString = ""
 	if ItemValues.itemName == "Autoclick":
-		var second = str(ItemValues.itemInfomation[ItemID]["BaseValue"]+(ItemValues.itemInfomation[0]["CurUpgrade"]*ItemValues.itemInfomation[0]["UpgradeIncrease"]))
+		var second = str(ItemValues.itemInfomation[ItemID]["BaseValue"]+(ItemValues.itemInfomation[ItemID]["CurUpgrade"]*ItemValues.itemInfomation[ItemID]["UpgradeIncrease"]))
 		if second != "1":
 			ItemSpecificString = "Clicks Shrilow every "+second+" Seconds"
 		else:
 			ItemSpecificString = "Clicks Shrilow every "+second+" Second"
 	if ItemValues.itemName == "Plus One":
-		var clicks = str(ItemValues.itemInfomation[ItemID]["BaseValue"]+(ItemValues.itemInfomation[0]["CurUpgrade"]*ItemValues.itemInfomation[0]["UpgradeIncrease"]))
+		var clicks = str(ItemValues.itemInfomation[ItemID]["BaseValue"]+(ItemValues.itemInfomation[ItemID]["CurUpgrade"]*ItemValues.itemInfomation[ItemID]["UpgradeIncrease"]))
 		ItemSpecificString = "Base clicks value increased by "+clicks
 	if ItemValues.itemName == "Plus One Auto":
-		var clicks = str(ItemValues.itemInfomation[ItemID]["BaseValue"]+(ItemValues.itemInfomation[0]["CurUpgrade"]*ItemValues.itemInfomation[0]["UpgradeIncrease"]))
+		var clicks = str(ItemValues.itemInfomation[ItemID]["BaseValue"]+(ItemValues.itemInfomation[ItemID]["CurUpgrade"]*ItemValues.itemInfomation[ItemID]["UpgradeIncrease"]))
 		ItemSpecificString = "Autoclick clicks value increased by "+clicks
 	if ItemValues.itemName == "Jelly!":
 		ItemSpecificString = "You have " + str(FizzyDrink.jellys+1) + " Jellys"
@@ -71,10 +71,16 @@ func _on_button_mouse_exited() -> void:
 
 func _on_button_pressed() -> void:
 	if ItemValues.itemInfomation[ItemID]["Type"] == "Generic" or (ItemValues.itemInfomation[ItemID]["Type"] == "Consumable" and ItemValues.itemInfomation[ItemID]["Owned"] == false):
-		if ItemValues.itemInfomation[ItemID]["CurUpgrade"] != 0:
+		if ItemValues.itemInfomation[ItemID]["Name"] == "Jelly!":
+			var multi = FizzyDrink.jellys - 4
+			if multi < 0:
+				multi = 0
+			if (ItemValues.money >= ItemValues.itemInfomation[ItemID]["Cost"] + (ItemValues.itemInfomation[ItemID]["Cost"] * 2) * multi):
+				calculate()
+		elif ItemValues.itemInfomation[ItemID]["CurUpgrade"] != 0:
 			if (ItemValues.money >= ItemValues.itemInfomation[ItemID]["Cost"]*(ItemValues.itemInfomation[ItemID]["CurUpgrade"]+1)) and MaxedOut == false:
 				calculate()
-		if ItemValues.itemInfomation[ItemID]["CurUpgrade"] == 0:
+		elif ItemValues.itemInfomation[ItemID]["CurUpgrade"] == 0:
 			if (ItemValues.money >= ItemValues.itemInfomation[ItemID]["Cost"]) and MaxedOut == false:
 				calculate()
 
@@ -100,7 +106,13 @@ func calculate():
 	if ItemValues.itemInfomation[ItemID]["CurUpgrade"] != 0:
 		ItemValues.money -= ItemValues.itemInfomation[ItemID]["Cost"]*(ItemValues.itemInfomation[ItemID]["CurUpgrade"]+1)
 	if ItemValues.itemInfomation[ItemID]["CurUpgrade"] == 0:
-		ItemValues.money -= ItemValues.itemInfomation[ItemID]["Cost"]
+		if ItemValues.itemInfomation[ItemID]["Name"] == "Jelly!":
+			var multi = FizzyDrink.jellys - 4
+			if multi < 0:
+				multi = 0
+			ItemValues.money -= ItemValues.itemInfomation[ItemID]["Cost"] + (ItemValues.itemInfomation[ItemID]["Cost"] * 2) * multi
+		else:
+			ItemValues.money -= ItemValues.itemInfomation[ItemID]["Cost"]
 	if ItemValues.itemInfomation[ItemID]["Type"] == "Generic":
 		ItemValues.itemInfomation[ItemID]["CurUpgrade"] += 1
 	ItemValues.itemExtra = ItemSpecificString
