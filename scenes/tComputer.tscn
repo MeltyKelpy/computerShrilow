@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://bgw557ttv6noe"]
+[gd_scene load_steps=56 format=3 uid="uid://bgw557ttv6noe"]
 
 [ext_resource type="Script" path="res://scenes/t_computer.gd" id="1_swrb7"]
 [ext_resource type="Texture2D" uid="uid://dajex7cpt7k4p" path="res://assets/images/bg/background.png" id="2_u0da7"]
@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://ddsp35hv5mq4k" path="res://assets/images/ui/shop.png" id="8_kysej"]
 [ext_resource type="Theme" uid="uid://dr1wna4c2ab2h" path="res://technical/textStyle.tres" id="8_oskpf"]
 [ext_resource type="Texture2D" uid="uid://brs8k5prrtxmq" path="res://assets/images/ui/wardrobe.png" id="9_0gok5"]
-[ext_resource type="PackedScene" uid="uid://bvxn7n144a812" path="res://technical/items/jelly.tscn" id="9_xsj3a"]
 [ext_resource type="Texture2D" uid="uid://bags5dre2kqgg" path="res://assets/images/ui/trophies.png" id="10_4g76h"]
 [ext_resource type="Texture2D" uid="uid://8e0gyo2yjajj" path="res://assets/images/ui/mines.png" id="11_2lflx"]
 [ext_resource type="Texture2D" uid="uid://4x7uae8v4qm2" path="res://assets/images/areas/melanies/melImage.png" id="12_24rl0"]
@@ -901,9 +900,6 @@ shape = SubResource("RectangleShape2D_wj0jc")
 position = Vector2(1150.01, -326.522)
 scale = Vector2(-0.0589678, 9.1975)
 shape = SubResource("RectangleShape2D_wj0jc")
-
-[node name="Jelly" parent="ShrilowScreen/Control" instance=ExtResource("9_xsj3a")]
-position = Vector2(204, -249)
 
 [node name="Shop" type="Sprite2D" parent="ShrilowScreen"]
 position = Vector2(1065, 93)

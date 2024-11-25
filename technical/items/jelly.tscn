@@ -15,7 +15,7 @@ size = Vector2(102, 55)
 script = ExtResource("1_3rnah")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
-position = Vector2(608, 527)
+position = Vector2(866, 332)
 
 [node name="jelly" type="Sprite2D" parent="RigidBody2D"]
 texture = ExtResource("1_ml5ht")
@@ -29,7 +29,7 @@ position = Vector2(0, 39.5)
 shape = SubResource("RectangleShape2D_edxbq")
 
 [node name="MousePin" type="PinJoint2D" parent="."]
-position = Vector2(608, 527)
+position = Vector2(866, 332)
 
 [node name="FakeBody" type="StaticBody2D" parent="MousePin"]
 

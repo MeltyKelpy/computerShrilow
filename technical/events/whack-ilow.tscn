@@ -462,57 +462,57 @@ texture = ExtResource("16_2r3w4")
 
 [node name="WhackilowHole1" parent="." instance=ExtResource("10_66mh6")]
 offset_left = 259.0
-offset_top = 101.0
+offset_top = 88.0
 offset_right = 435.0
-offset_bottom = 243.0
+offset_bottom = 230.0
 
 [node name="WhackilowHole2" parent="." instance=ExtResource("10_66mh6")]
 offset_left = 486.0
-offset_top = 101.0
+offset_top = 88.0
 offset_right = 662.0
-offset_bottom = 243.0
+offset_bottom = 230.0
 
 [node name="WhackilowHole3" parent="." instance=ExtResource("10_66mh6")]
 offset_left = 711.0
-offset_top = 101.0
+offset_top = 88.0
 offset_right = 887.0
-offset_bottom = 243.0
+offset_bottom = 230.0
 
 [node name="WhackilowHole4" parent="." instance=ExtResource("10_66mh6")]
 offset_left = 244.0
-offset_top = 258.0
+offset_top = 245.0
 offset_right = 420.0
-offset_bottom = 400.0
+offset_bottom = 387.0
 
 [node name="WhackilowHole5" parent="." instance=ExtResource("10_66mh6")]
 offset_left = 486.0
-offset_top = 258.0
+offset_top = 245.0
 offset_right = 662.0
-offset_bottom = 400.0
+offset_bottom = 387.0
 
 [node name="WhackilowHole6" parent="." instance=ExtResource("10_66mh6")]
 offset_left = 723.0
-offset_top = 258.0
+offset_top = 245.0
 offset_right = 899.0
-offset_bottom = 400.0
+offset_bottom = 387.0
 
 [node name="WhackilowHole7" parent="." instance=ExtResource("10_66mh6")]
 offset_left = 219.0
-offset_top = 421.0
+offset_top = 408.0
 offset_right = 395.0
-offset_bottom = 563.0
+offset_bottom = 550.0
 
 [node name="WhackilowHole8" parent="." instance=ExtResource("10_66mh6")]
 offset_left = 486.0
-offset_top = 421.0
+offset_top = 408.0
 offset_right = 662.0
-offset_bottom = 563.0
+offset_bottom = 550.0
 
 [node name="WhackilowHole9" parent="." instance=ExtResource("10_66mh6")]
 offset_left = 763.0
-offset_top = 421.0
+offset_top = 408.0
 offset_right = 939.0
-offset_bottom = 563.0
+offset_bottom = 550.0
 
 [node name="gameTimer" type="Timer" parent="."]
 wait_time = 60.0
