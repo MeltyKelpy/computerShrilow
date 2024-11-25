@@ -130,12 +130,12 @@ func _endEvent():
 func runRoChoice():
 	if turn == 1:
 		roChoiceWeight[0][3] = "scissoers"
-		roChoiceWeight[0][2] = "paper"
-		roChoiceWeight[0][1] = "rock"
+		roChoiceWeight[0][2] = "rock"
+		roChoiceWeight[0][1] = "paper"
 	elif lastWinner == "ro":
-		roChoiceWeight[0][3] = counters[0][counters[0][playerLastPlay]]
+		roChoiceWeight[0][3] = counters[0][playerLastPlay]
 		roChoiceWeight[0][2] = playerLastPlay
-		roChoiceWeight[0][1] = counters[0][playerLastPlay]
+		roChoiceWeight[0][1] = counters[0][counters[0][playerLastPlay]]
 	elif lastWinner == "you":
 		roChoiceWeight[0][3] = counters[0][playerLastPlay]
 		roChoiceWeight[0][2] = counters[0][counters[0][playerLastPlay]]

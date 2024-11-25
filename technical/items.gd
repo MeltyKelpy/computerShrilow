@@ -22,7 +22,7 @@ var itemInfomation = [
 	"Name":"Plus One",
 	"Desc":'"Adds one to your Base Money-Per-Click value." -Mel ',
 	"Upgradeable?":true,
-	"MaxUpgrade":100,
+	"MaxUpgrade":1000,
 	"CurUpgrade":0,
 	"BaseValue":0,
 	"UpgradeIncrease":1,
@@ -37,7 +37,7 @@ var itemInfomation = [
 	"Name":"Plus One Auto",
 	"Desc":'"Adds one to your Base Money-Per-Click for the autoclicker." -Mel ',
 	"Upgradeable?":true,
-	"MaxUpgrade":100,
+	"MaxUpgrade":1000,
 	"CurUpgrade":0,
 	"BaseValue":0,
 	"UpgradeIncrease":1,
@@ -141,7 +141,7 @@ var itemInfomation = [
 var itemName = "Item Name will show up Here"
 var itemDesc = "Right here, an Item's description will show up."
 var itemExtra = ""
-var money = 10000000000
+var money = 0
 var maxMoney = 0
 
 func _process(_delta: float) -> void:

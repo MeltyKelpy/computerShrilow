@@ -24,9 +24,10 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _on_sphere_body_shape_entered() -> void:
-	can = false
-	alive = false
-	$AnimationPlayer.play("die")
+	if can == true:
+		can = false
+		alive = false
+		$AnimationPlayer.play("die")
 
 func part2():
 	$AnimationPlayer.play("die2")

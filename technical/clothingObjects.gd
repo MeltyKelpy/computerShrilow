@@ -24,7 +24,7 @@ var clothes = [
 	{
 	# DATE NIGHT
 	"Name":"Date Night",
-	"Desc":"Everyone needs a fancy outfit for their date night! or, atleast i think they do? idk i show up in jeans usually lol",
+	"Desc":"Everyone needs a fancy outfit for their date night! or, atleast i think they do? idk i show up in jeans usually lol\nincreases your click power by 1",
 	"Owned":false,
 	"IconKey":"res://assets/images/areas/wardrobe/clothing/datenight.png",
 	"Image":"res://assets/images/computershrilows/shrilowBases/shrilowDate Night.png",

@@ -4,8 +4,9 @@
 [ext_resource type="Script" path="res://technical/death.gd" id="1_bcwag"]
 [ext_resource type="Texture2D" uid="uid://wm1bqudbbgtp" path="res://assets/images/events/shrilowDead.png" id="2_bncsy"]
 
-[node name="Death" type="Node2D"]
+[node name="Death" type="CanvasLayer"]
 process_mode = 3
+layer = 128
 script = ExtResource("1_bcwag")
 
 [node name="ColorRect" type="ColorRect" parent="."]

@@ -3,6 +3,7 @@ extends Node2D
 var clicks = 0.0
 var curClicks = 0.0
 var rng = RandomNumberGenerator.new()
+var held_object = false
 
 var cacapoopyGOD = preload("res://technical/MelaniesItem.tscn")
 
@@ -87,6 +88,8 @@ func _on_shrilow_squeak_autoclick() -> void:
 func _on_shrilow_squeak_pressed() -> void:
 	$faceRevert.stop()
 	$faceRevert.start()
+	$faceRevert2.stop()
+	$faceRevert2.start()
 	$Shrilow.scale.x = 1.2
 	$Shrilow.scale.y = 0.85
 	$Shrilow/Shrilow/ShrilowFace.visible = false
@@ -103,7 +106,6 @@ func _on_shrilow_squeak_pressed() -> void:
 func _on_face_revert_timeout() -> void:
 	$Shrilow/Shrilow/ShrilowFace.visible = true
 	$Shrilow/Shrilow/StillFace.visible = false
-	curClicks = 0
 
 func _on_shop_button_pressed() -> void:
 	print("shop")
@@ -157,3 +159,6 @@ func shrilowColor(color) -> void:
 	if color == "yellow":
 		$Shrilow/Shrilow.modulate = Color(1,1,0)
 		$Shrilow/Shrilow/ShrilowFace.modulate = Color(1,1,0)
+
+func _on_face_revert_2_timeout() -> void:
+	curClicks = 0

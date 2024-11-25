@@ -21,28 +21,38 @@ var characterInfos = [
 	},
 	{
 		"Name":"Mel",
-		"Desc":"5$ per 8 pickaxe swings.\nBase Speed: 1.5 a second",
+		"Desc":"5$ per 7 pickaxe swings.\nBase Speed: 1.6 a second",
 		"BasePrice":750,
 		"MoneyGain":5,
-		"Swings":8,
-		"Speed":1.500,
+		"Swings":7,
+		"Speed":1.600,
 	},
 	{
 		"Name":"Blair",
-		"Desc":"2$ per 3 pickaxe swings.\nBase Speed: 2.5 a second",
-		"BasePrice":900,
+		"Desc":"2$ per 4 pickaxe swings.\nBase Speed: 2.5 a second",
+		"BasePrice":850,
 		"MoneyGain":2,
-		"Swings":3,
+		"Swings":4,
 		"Speed":2.50,
 	},
 	{
 		"Name":"Charlotte",
-		"Desc":"6$ per 6 pickaxe swings.\nBase Speed: 1.5 a second",
-		"BasePrice":1050,
-		"MoneyGain":6,
+		"Desc":"5$ per 6 pickaxe swings.\nBase Speed: 1.5 a second",
+		"BasePrice":1000,
+		"MoneyGain":5,
 		"Swings":6,
-		"Speed":1.800,
+		"Speed":1.500,
 	},
+	]
+
+var miners = [
+	null,
+	null,
+	null,
+	null,
+	null,
+	null,
+	null,
 	]
 
 var amountOfDwellers = 0
@@ -194,19 +204,23 @@ func _on_buy_button_mouse_exited() -> void:
 
 func _on_buy_button_pressed() -> void:
 	if amountOfDwellers != 7 and ItemValues.money >= moneyValues[selected]:
-		var cacapoopyGOD = preload("res://technical/character.tscn")
-		var caca = cacapoopyGOD.instantiate()
-		caca.Name = characterInfos[selected]["Name"]
-		caca.MoneyGain = characterInfos[selected]["MoneyGain"]
-		caca.BasePrice = characterInfos[selected]["BasePrice"]
-		caca.Speed = characterInfos[selected]["Speed"]
-		caca.Swings = characterInfos[selected]["Swings"]
-		add_child(caca)
-		ItemValues.money -= moneyValues[selected]
-		caca.position.x = 401+(101*amountOfDwellers)
-		caca.position.y = 213
-		amountOfDwellers += 1
-
+		var itsTime = false
+		for i in range(0, 6):
+			if miners[i] == null and itsTime == false:
+				itsTime = true
+				var cacapoopyGOD = preload("res://technical/character.tscn")
+				var caca = cacapoopyGOD.instantiate()
+				caca.Name = characterInfos[selected]["Name"]
+				caca.MoneyGain = characterInfos[selected]["MoneyGain"]
+				caca.BasePrice = characterInfos[selected]["BasePrice"]
+				caca.Speed = characterInfos[selected]["Speed"]
+				caca.Swings = characterInfos[selected]["Swings"]
+				add_child(caca)
+				miners[i] = caca
+				caca.listPlacement(i)
+				ItemValues.money -= moneyValues[selected]
+				caca.position.x = 401+(101*i)
+				caca.position.y = 213
 
 func _on_button_mouse_entered() -> void:
 	$newMine/NewLevelCost.add_theme_color_override("font_color", Color(1,1,0))
@@ -218,6 +232,7 @@ func _on_button_mouse_exited() -> void:
 
 func _on_button_pressed() -> void:
 	if ItemValues.money >= 500+(1000*caveNumber):
+		ItemValues.money -= 500+(1000*caveNumber)
 		var cacapoopyGOD = preload("res://technical/minesLevel.tscn")
 		var caca = cacapoopyGOD.instantiate()
 		add_child(caca)

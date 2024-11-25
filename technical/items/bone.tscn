@@ -67,7 +67,6 @@ position = Vector2(576, 624)
 texture = ExtResource("1_ogonq")
 
 [node name="Warning" type="Label" parent="eventer"]
-z_index = 1
 offset_left = -486.0
 offset_top = 221.0
 offset_right = 528.0

@@ -1,14 +1,37 @@
-[gd_scene load_steps=4 format=3 uid="uid://bvxn7n144a812"]
+[gd_scene load_steps=6 format=3 uid="uid://bvxn7n144a812"]
 
 [ext_resource type="Script" path="res://technical/items/jelly.gd" id="1_3rnah"]
 [ext_resource type="Texture2D" uid="uid://b28r5cl4pode8" path="res://assets/images/items/jelly0.png" id="1_ml5ht"]
 [ext_resource type="AudioStream" uid="uid://o0fq5njk38ru" path="res://assets/sounds/squeak.ogg" id="3_howpp"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b8wjh"]
+radius = 51.0
+height = 116.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_edxbq"]
+size = Vector2(102, 55)
+
 [node name="Jelly" type="Node2D"]
 script = ExtResource("1_3rnah")
 
-[node name="jelly" type="Sprite2D" parent="."]
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(608, 527)
+
+[node name="jelly" type="Sprite2D" parent="RigidBody2D"]
 texture = ExtResource("1_ml5ht")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(0, 4)
+shape = SubResource("CapsuleShape2D_b8wjh")
+
+[node name="Stand" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(0, 39.5)
+shape = SubResource("RectangleShape2D_edxbq")
+
+[node name="MousePin" type="PinJoint2D" parent="."]
+position = Vector2(608, 527)
+
+[node name="FakeBody" type="StaticBody2D" parent="MousePin"]
 
 [node name="FirstTimer" type="Timer" parent="."]
 wait_time = 2.8

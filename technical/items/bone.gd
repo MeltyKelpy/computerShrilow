@@ -19,6 +19,7 @@ func _endEffect() -> void:
 	ItemValues.itemInfomation[ItemID]["Owned"] = false
 	$eventer/Warning.text = "The BONE Effect has ended."
 	FizzyDrink.clickPowerAdditions -= (FizzyDrink.clickPower+FizzyDrink.clickPowerClothingBuffs) * 2
+	print(FizzyDrink.clickPower)
 
 func _kill() -> void:
 	queue_free()

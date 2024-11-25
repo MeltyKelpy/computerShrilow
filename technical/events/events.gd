@@ -42,6 +42,13 @@ var eventList = [
 	"WarningMessage":"ITS NOT CALLED ROCK PAPER SCISSOERS, IDIOT! ITS ROSHAMBO! IDIOT!",
 	"Type":"Minigame",
 	},
+	{
+	"Event":"Whack-ilow",
+	"AttachedScene":"res://technical/events/whack-ilow.tscn",
+	"WarningMessage":"Boink! right on the head! bet that'll leave a cartoonish bump on your head. heh. yup.",
+	"Type":"Minigame",
+	"Played?":false,
+	},
 	]
 var justMinigames = [
 	{
@@ -62,6 +69,13 @@ var justMinigames = [
 	"Event":"Roshambo",
 	"AttachedScene":"res://technical/events/roshambo.tscn",
 	"WarningMessage":"ITS NOT CALLED ROCK PAPER SCISSOERS, IDIOT! ITS ROSHAMBO! IDIOT!",
+	"Type":"Minigame",
+	"Played?":false,
+	},
+	{
+	"Event":"Whack-ilow",
+	"AttachedScene":"res://technical/events/whack-ilow.tscn",
+	"WarningMessage":"Boink! right on the head! bet that'll leave a cartoonish bump on your head. heh. yup.",
 	"Type":"Minigame",
 	"Played?":false,
 	},

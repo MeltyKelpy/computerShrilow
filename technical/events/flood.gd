@@ -26,8 +26,8 @@ func _process(delta: float) -> void:
 		var caca = cacapoopyGOD.instantiate()
 		add_child(caca)
 		caca.determine(100)
-		caca.position.x = 84
-		caca.position.y = 30
+		caca.position.x = 120
+		caca.position.y = 100
 		caca.reparent($/root/computerShrilow/USD)
 		$Control/cork2.play()
 		$Control/AnimationPlayer.play("cork")

@@ -763,9 +763,9 @@ texture = ExtResource("7_j82wi")
 
 [node name="Label" type="Label" parent="opening"]
 offset_left = -9.0
-offset_top = 900.0
+offset_top = 20.0
 offset_right = 1152.0
-offset_bottom = 969.0
+offset_bottom = 89.0
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 30
 text = "you cannot beat this game."

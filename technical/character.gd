@@ -8,7 +8,6 @@ var BaseSpeed = Speed
 var Level = 1
 var Swings = 3
 var BasePrice = 150
-var sellPath : NodePath
 var state = 0
 var timer = Timer.new()
 var timer2 = Timer.new()
@@ -17,10 +16,13 @@ var waitTime = 0.000
 var waitTime2 = 0.000
 var managing = false
 var upTokens = 4
+var ID = 0
 
 var speedCost = 0.0
 var moneyCost = 0.0
 
+func listPlacement(num):
+	ID = num
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	BaseMoneyGain = MoneyGain
@@ -117,4 +119,7 @@ func _on_cancel_button_pressed() -> void:
 	managing = false
 
 func _on_sell_button_2_pressed() -> void:
-	pass # Replace with function body.
+	var hey = get_parent()
+	ItemValues.money += BasePrice + (BasePrice * (Level / 2))
+	hey.miners[ID] = null
+	queue_free()

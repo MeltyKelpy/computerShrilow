@@ -25,7 +25,7 @@ func _process(_delta: float) -> void:
 		$AnimationPlayer.play("leave")
 	if countingMoney == true:
 		if resultt == "WIN!":
-			if cashh <= 20:
+			if cashh <= 20 or Input.is_action_just_pressed("Click"):
 				cashh2 = toCountTo
 				cashh = 0
 				allowExit()
@@ -36,7 +36,7 @@ func _process(_delta: float) -> void:
 			else:
 				allowExit()
 		elif resultt == "LOSE.":
-			if cashh <= 20:
+			if cashh <= 20 or Input.is_action_just_pressed("Click"):
 				cashh2 = toCountTo
 				cashh = 0
 				allowExit()

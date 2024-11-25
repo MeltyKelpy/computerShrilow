@@ -1,0 +1,219 @@
+[gd_scene load_steps=29 format=3 uid="uid://b3br2qvlsk0m4"]
+
+[ext_resource type="Script" path="res://technical/events/whackilow_hole.gd" id="1_31bfp"]
+[ext_resource type="Texture2D" uid="uid://p7dpc7vlfrbi" path="res://assets/images/events/whack-a-low/hole.png" id="1_fvsap"]
+[ext_resource type="Texture2D" uid="uid://bum732avadukr" path="res://assets/images/events/whack-a-low/chars/mel.png" id="2_45jly"]
+[ext_resource type="Texture2D" uid="uid://dm5bcwxu7fp5b" path="res://assets/images/events/whack-a-low/holeBove.png" id="2_q87pp"]
+[ext_resource type="Texture2D" uid="uid://c8p5mhprdqlsk" path="res://assets/images/events/whack-a-low/chars/melWhack1.png" id="3_h3444"]
+[ext_resource type="Texture2D" uid="uid://dqw2rqgxmlq55" path="res://assets/images/events/whack-a-low/chars/melWhack2.png" id="4_fdfdr"]
+[ext_resource type="Texture2D" uid="uid://cmupgocot0xno" path="res://assets/images/events/whack-a-low/chars/melWhack3.png" id="5_osri7"]
+[ext_resource type="Texture2D" uid="uid://bae1nh721xme4" path="res://assets/images/events/whack-a-low/chars/shrilow.png" id="6_e2dk2"]
+[ext_resource type="Texture2D" uid="uid://bmlvy00gy7kf7" path="res://assets/images/events/whack-a-low/chars/shrilowWhack1.png" id="7_tqvy0"]
+[ext_resource type="Texture2D" uid="uid://b1ym4m0tfw5ji" path="res://assets/images/events/whack-a-low/chars/shrilowWhack2.png" id="8_u4s8w"]
+[ext_resource type="Texture2D" uid="uid://bwepd74dn4h0j" path="res://assets/images/events/whack-a-low/chars/shrilowWhack3.png" id="9_f61sc"]
+[ext_resource type="AudioStream" uid="uid://o0fq5njk38ru" path="res://assets/sounds/squeak.ogg" id="12_im25w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0cxoq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4ma45"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iljfh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4f85p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xa8g1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m6i2k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_52ps3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qwgv0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l31ox"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oxvnv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tmqo6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_no8e7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_45jly")
+}],
+"loop": true,
+"name": &"mel",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_h3444")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_fdfdr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_osri7")
+}],
+"loop": false,
+"name": &"melBonk",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"none",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_e2dk2")
+}],
+"loop": true,
+"name": &"shrilow",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_tqvy0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_u4s8w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_f61sc")
+}],
+"loop": false,
+"name": &"shrilowBonk",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_ujljh"]
+resource_name = "showUp"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/Control/char:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.378929, 1),
+"update": 0,
+"values": [Vector2(107, 290), Vector2(107, 120)]
+}
+
+[sub_resource type="Animation" id="Animation_yknti"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/Control/char:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(81, 290)]
+}
+
+[sub_resource type="Animation" id="Animation_lajfa"]
+resource_name = "goDown"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/Control/char:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(0.176777, 0.378929, 1),
+"update": 0,
+"values": [Vector2(107, 115), Vector2(107, 120), Vector2(107, 290)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"resetShit"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hquhk"]
+_data = {
+"RESET": SubResource("Animation_yknti"),
+"goDown": SubResource("Animation_lajfa"),
+"showUp": SubResource("Animation_ujljh")
+}
+
+[node name="WhackilowHole" type="Button"]
+process_priority = 5
+offset_left = -89.0
+offset_top = -33.0
+offset_right = 87.0
+offset_bottom = 109.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0cxoq")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_4ma45")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_iljfh")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_4f85p")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_xa8g1")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_m6i2k")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_52ps3")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_qwgv0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_l31ox")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_oxvnv")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_tmqo6")
+script = ExtResource("1_31bfp")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(0, -8)
+
+[node name="hole" type="Sprite2D" parent="Node2D"]
+position = Vector2(81, 99)
+texture = ExtResource("1_fvsap")
+
+[node name="Control" type="Control" parent="Node2D"]
+process_priority = -1
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -26.0
+offset_top = -6.0
+offset_right = 189.0
+offset_bottom = 179.0
+mouse_filter = 2
+
+[node name="char" type="AnimatedSprite2D" parent="Node2D/Control"]
+position = Vector2(81, 290)
+sprite_frames = SubResource("SpriteFrames_no8e7")
+animation = &"melBonk"
+frame = 2
+frame_progress = 1.0
+
+[node name="holeBove" type="Sprite2D" parent="Node2D"]
+position = Vector2(81, 99)
+texture = ExtResource("2_q87pp")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hquhk")
+}
+
+[node name="appearTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="Squeak" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_im25w")
+volume_db = -14.476
+
+[connection signal="pressed" from="." to="." method="killChar"]
+[connection signal="timeout" from="appearTimer" to="." method="_on_appear_timer_timeout"]

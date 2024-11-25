@@ -33,7 +33,7 @@ func _process(_delta: float) -> void:
 			var multi = FizzyDrink.jellys - 4
 			if multi < 0:
 				multi = 0
-			$Cost.text = str(ItemValues.itemInfomation[ItemID]["Cost"] + ((ItemValues.itemInfomation[ItemID]["Cost"] * 2) * multi))+"$"
+			$Cost.text = str(ItemValues.itemInfomation[ItemID]["Cost"] + ((ItemValues.itemInfomation[ItemID]["Cost"] * 1.2) * multi))+"$"
 	elif (ItemValues.itemInfomation[ItemID]["Type"] == "Generic" and ItemValues.itemInfomation[ItemID]["CurUpgrade"] == 0 and MaxedOut == false) or ItemValues.itemInfomation[ItemID]["Type"] == "Consumable":
 		$Cost.text = str(ItemValues.itemInfomation[ItemID]["Cost"])+"$"
 
@@ -55,7 +55,7 @@ func _on_button_mouse_entered() -> void:
 		else:
 			ItemSpecificString = "Clicks Shrilow every "+second+" Second"
 	if ItemValues.itemName == "Plus One":
-		var clicks = str(ItemValues.itemInfomation[ItemID]["BaseValue"]+(ItemValues.itemInfomation[ItemID]["CurUpgrade"]*ItemValues.itemInfomation[ItemID]["UpgradeIncrease"]))
+		var clicks = str((ItemValues.itemInfomation[ItemID]["BaseValue"]+(ItemValues.itemInfomation[ItemID]["CurUpgrade"]*ItemValues.itemInfomation[ItemID]["UpgradeIncrease"]))+1)
 		ItemSpecificString = "Base clicks value increased by "+clicks
 	if ItemValues.itemName == "Plus One Auto":
 		var clicks = str(ItemValues.itemInfomation[ItemID]["BaseValue"]+(ItemValues.itemInfomation[ItemID]["CurUpgrade"]*ItemValues.itemInfomation[ItemID]["UpgradeIncrease"]))
@@ -75,7 +75,7 @@ func _on_button_pressed() -> void:
 			var multi = FizzyDrink.jellys - 4
 			if multi < 0:
 				multi = 0
-			if (ItemValues.money >= ItemValues.itemInfomation[ItemID]["Cost"] + (ItemValues.itemInfomation[ItemID]["Cost"] * 2) * multi):
+			if (ItemValues.money >= ItemValues.itemInfomation[ItemID]["Cost"] + (ItemValues.itemInfomation[ItemID]["Cost"] * 1.2) * multi):
 				calculate()
 		elif ItemValues.itemInfomation[ItemID]["CurUpgrade"] != 0:
 			if (ItemValues.money >= ItemValues.itemInfomation[ItemID]["Cost"]*(ItemValues.itemInfomation[ItemID]["CurUpgrade"]+1)) and MaxedOut == false:
@@ -110,7 +110,7 @@ func calculate():
 			var multi = FizzyDrink.jellys - 4
 			if multi < 0:
 				multi = 0
-			ItemValues.money -= ItemValues.itemInfomation[ItemID]["Cost"] + (ItemValues.itemInfomation[ItemID]["Cost"] * 2) * multi
+			ItemValues.money -= ItemValues.itemInfomation[ItemID]["Cost"] + (ItemValues.itemInfomation[ItemID]["Cost"] * 1.2) * multi
 		else:
 			ItemValues.money -= ItemValues.itemInfomation[ItemID]["Cost"]
 	if ItemValues.itemInfomation[ItemID]["Type"] == "Generic":

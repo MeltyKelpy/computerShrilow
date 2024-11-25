@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cktn1eudx7kue"]
+[gd_scene load_steps=21 format=3 uid="uid://cktn1eudx7kue"]
 
 [ext_resource type="Texture2D" uid="uid://cpl6wlfso3dua" path="res://assets/images/events/goombakillbg.png" id="1_edhcp"]
 [ext_resource type="Script" path="res://technical/catmario.gd" id="1_fjaou"]
@@ -16,6 +16,9 @@ radius = 167.443
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ek4uc"]
 size = Vector2(946.75, 232)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3bnkc"]
+size = Vector2(138, 729)
 
 [sub_resource type="Animation" id="Animation_djedu"]
 length = 0.001
@@ -233,6 +236,10 @@ position = Vector2(-2, -57)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(707.375, 658)
 shape = SubResource("RectangleShape2D_ek4uc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1207, 407.5)
+shape = SubResource("RectangleShape2D_3bnkc")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
