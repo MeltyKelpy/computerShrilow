@@ -21,10 +21,24 @@ func generateHoes():
 		caca.reparent($Wardrobe/ScrollContainer/GridContainer)
 
 func _ready():
+	var cacapoopyGOD = load(ItemValues.itemInfomation[3]["ScenePath"])
+	var caca = cacapoopyGOD.instantiate()
+	add_child(caca)
+	caca.reparent($/root/computerShrilow/Jelly/Control)
+	caca.rigid_body_2d.transform = Transform2D(0.0, Vector2(-100, 100))
+	caca.getID(3)
 	$Mines.position.y = 648
 	generateHoes()
 
 func _process(_delta : float) -> void:
+	
+	if FizzyDrink.jellys > (-1):
+		$ShrilowScreen/Jellies.visible = true
+		$ShrilowScreen/JelliesButton.disabled = false
+	else:
+		$ShrilowScreen/Jellies.visible = false
+		$ShrilowScreen/JelliesButton.disabled = true
+	
 	if FizzyDrink.stopTheCount != 0:
 		$noEventsTimer.wait_time = FizzyDrink.stopTheCount
 		$noEventsTimer.start($noEventsTimer.time_left + FizzyDrink.stopTheCount)
@@ -59,7 +73,7 @@ func _process(_delta : float) -> void:
 	$ShrilowScreen/Clicks.text = "CLICKS: "+str(clicks)
 	$USDText.text = str(ItemValues.money)
 	
-	$ParallaxBackground.scroll_offset.y -= 10 * _delta/0.5
+	$ParallaxBackground.scroll_base_offset.y -= 10 * _delta/0.5
 	
 	if $Shrilow.scale.x > 1:
 		$Shrilow.scale.x -= 0.05
@@ -162,3 +176,9 @@ func shrilowColor(color) -> void:
 
 func _on_face_revert_2_timeout() -> void:
 	curClicks = 0
+
+func _on_back_button_jelly_pressed() -> void:
+	$sectionTransitions.play("leaveJellies")
+
+func _on_jellies_button_pressed() -> void:
+	$sectionTransitions.play("toJellies")

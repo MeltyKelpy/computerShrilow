@@ -12,13 +12,13 @@ func _ready() -> void:
 	mouse_pin.node_a = mouse_pin.get_path_to(fake_body)
 	rigid_body_2d.input_pickable = true
 	rigid_body_2d.input_event.connect(_on_input_event)
-	var cacapoopyGOD3 = preload("res://technical/events/eventIndicator.tscn")
-	var caca2 = cacapoopyGOD3.instantiate()
-	add_child(caca2)
-	caca2.reparent($/root)
-	caca2.position.x = 0
-	caca2.position.y = 0
-	caca2.warn("You bought a Jelly! you now have "+str(FizzyDrink.jellys + 2))
+	#var cacapoopyGOD3 = preload("res://technical/events/eventIndicator.tscn")
+	#var caca2 = cacapoopyGOD3.instantiate()
+	#add_child(caca2)
+	#caca2.reparent($/root)
+	#caca2.position.x = 0
+	#caca2.position.y = 0
+	#caca2.warn("You bought a Jelly! you now have "+str(FizzyDrink.jellys + 2))
 
 func _physics_process(delta: float) -> void:
 	mouse_pin.global_position = get_global_mouse_position()

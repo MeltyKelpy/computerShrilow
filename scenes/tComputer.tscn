@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://bgw557ttv6noe"]
+[gd_scene load_steps=62 format=3 uid="uid://bgw557ttv6noe"]
 
 [ext_resource type="Script" path="res://scenes/t_computer.gd" id="1_swrb7"]
 [ext_resource type="Texture2D" uid="uid://dajex7cpt7k4p" path="res://assets/images/bg/background.png" id="2_u0da7"]
@@ -14,10 +14,13 @@
 [ext_resource type="Texture2D" uid="uid://bags5dre2kqgg" path="res://assets/images/ui/trophies.png" id="10_4g76h"]
 [ext_resource type="Texture2D" uid="uid://8e0gyo2yjajj" path="res://assets/images/ui/mines.png" id="11_2lflx"]
 [ext_resource type="Texture2D" uid="uid://4x7uae8v4qm2" path="res://assets/images/areas/melanies/melImage.png" id="12_24rl0"]
+[ext_resource type="Texture2D" uid="uid://jlc36tcyv84" path="res://assets/images/ui/jellies.png" id="13_irs6y"]
 [ext_resource type="Texture2D" uid="uid://dpvj0h8nv5awc" path="res://assets/images/areas/melanies/descriptionBox.png" id="13_m021q"]
 [ext_resource type="Texture2D" uid="uid://cc7uegt46vf3d" path="res://assets/images/ui/back.png" id="14_88vde"]
 [ext_resource type="AudioStream" uid="uid://dbybnubpmhwx3" path="res://assets/music/melanieShop.ogg" id="15_kk7gt"]
 [ext_resource type="Texture2D" uid="uid://w4aga5clxbjf" path="res://assets/images/areas/wardrobe/wardrobe.png" id="16_ptxs8"]
+[ext_resource type="Texture2D" uid="uid://cwu2wn7rcpjyd" path="res://assets/images/areas/melanies/items/jelly.png" id="17_c83sx"]
+[ext_resource type="Texture2D" uid="uid://cb65qvgh6u74n" path="res://assets/images/ui/backFlip.png" id="17_jpsse"]
 [ext_resource type="Texture2D" uid="uid://msvb6jrm45iv" path="res://assets/images/ui/backUp.png" id="17_obgyp"]
 [ext_resource type="PackedScene" uid="uid://cbtrsg4a3b386" path="res://technical/minesLevel.tscn" id="18_6bagw"]
 [ext_resource type="Texture2D" uid="uid://cwladsljiqill" path="res://assets/images/ui/backDown.png" id="19_tht4w"]
@@ -53,9 +56,6 @@ bg_color = Color(1, 0, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ilv6"]
 bg_color = Color(0, 1, 0, 1)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wj0jc"]
-size = Vector2(1196.01, 77)
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_714v8"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l4fde"]
@@ -77,6 +77,12 @@ size = Vector2(1196.01, 77)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7e2gc"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v5e17"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c61rj"]
+size = Vector2(3913.02, 27.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lx8mx"]
+size = Vector2(41, 659)
 
 [sub_resource type="Animation" id="Animation_5fubl"]
 length = 0.001
@@ -227,14 +233,26 @@ tracks/11/keys = {
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("Mines/MinesBackground/ParallaxLayer:position")
+tracks/12/path = NodePath("Camera2D:position")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-177.391, 608.696)]
+"values": [Vector2(577, 324)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("ParallaxBackground:offset")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(300, 320)]
 }
 
 [sub_resource type="Animation" id="Animation_xn1b5"]
@@ -287,18 +305,6 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(0.31864, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, 648)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Mines/MinesBackground/ParallaxLayer:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(0.31864, 1),
-"update": 0,
-"values": [Vector2(315.15, 45), Vector2(315.15, 608.696)]
 }
 
 [sub_resource type="Animation" id="Animation_s3t8e"]
@@ -528,18 +534,6 @@ tracks/3/keys = {
 "update": 0,
 "values": [Vector2(0, 648), Vector2(0, 0)]
 }
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Mines/MinesBackground/ParallaxLayer:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(0.31864, 1),
-"update": 0,
-"values": [Vector2(315.15, 608.696), Vector2(315.15, 45)]
-}
 
 [sub_resource type="Animation" id="Animation_m2dy7"]
 resource_name = "toShop"
@@ -717,12 +711,118 @@ tracks/4/keys = {
 "values": [Vector2(0, -648), Vector2(0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_2rn2d"]
+resource_name = "toJellies"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ParallaxBackground/ParallaxLayer/background:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0.356863, 0.745098, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("fade:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0.356863, 0.745098, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(0.31864, 1),
+"update": 0,
+"values": [Vector2(577, 324), Vector2(-575, 324)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ParallaxBackground:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.0333333, 1.5),
+"transitions": PackedFloat32Array(0.31864, 1),
+"update": 0,
+"values": [Vector2(300, 320), Vector2(-852, 320)]
+}
+
+[sub_resource type="Animation" id="Animation_niq0t"]
+resource_name = "leaveJellies"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ParallaxBackground/ParallaxLayer/background:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0.356863, 0.745098, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("fade:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0.356863, 0.745098, 1), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(0.31864, 1),
+"update": 0,
+"values": [Vector2(-575, 324), Vector2(577, 324)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ParallaxBackground:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.0333333, 1.46667),
+"transitions": PackedFloat32Array(0.31864, 1),
+"update": 0,
+"values": [Vector2(-852, 320), Vector2(300, 320)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vs8hy"]
 _data = {
 "RESET": SubResource("Animation_5fubl"),
+"leaveJellies": SubResource("Animation_niq0t"),
 "leaveMines": SubResource("Animation_xn1b5"),
 "leaveShop": SubResource("Animation_s3t8e"),
 "leaveWard": SubResource("Animation_eejxq"),
+"toJellies": SubResource("Animation_2rn2d"),
 "toMines": SubResource("Animation_msj8d"),
 "toShop": SubResource("Animation_m2dy7"),
 "toWard": SubResource("Animation_ok3bo")
@@ -735,6 +835,7 @@ script = ExtResource("1_swrb7")
 offset = Vector2(300, 320)
 scale = Vector2(1.15, 1.15)
 transform = Transform2D(1.15, 0, 0, 1.15, 300, 320)
+follow_viewport_enabled = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_mirroring = Vector2(600, 557)
@@ -749,17 +850,8 @@ texture = ExtResource("3_x0lxa")
 [node name="Mines" type="Node2D" parent="."]
 position = Vector2(0, 648)
 
-[node name="MinesBackground" type="ParallaxBackground" parent="Mines"]
-offset = Vector2(300, 320)
-scale = Vector2(1.15, 1.15)
-transform = Transform2D(1.15, 0, 0, 1.15, 300, 320)
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="Mines/MinesBackground"]
-position = Vector2(-177.391, 608.696)
-motion_mirroring = Vector2(1152, 648)
-
-[node name="background" type="Sprite2D" parent="Mines/MinesBackground/ParallaxLayer"]
-position = Vector2(0, 0.5)
+[node name="dirt" type="Sprite2D" parent="Mines"]
+position = Vector2(576, 324)
 texture = ExtResource("3_8qufc")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Mines"]
@@ -868,39 +960,6 @@ show_percentage = false
 
 [node name="ShrilowScreen" type="Node2D" parent="."]
 
-[node name="Control" type="Control" parent="ShrilowScreen"]
-clip_contents = true
-custom_minimum_size = Vector2(1152, 648)
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-mouse_filter = 2
-
-[node name="StaticBody2D" type="StaticBody2D" parent="ShrilowScreen/Control"]
-position = Vector2(-29, 647)
-rotation = 0.003061
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ShrilowScreen/Control/StaticBody2D"]
-position = Vector2(593.883, -37.9996)
-scale = Vector2(1, 1)
-shape = SubResource("RectangleShape2D_wj0jc")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="ShrilowScreen/Control/StaticBody2D"]
-position = Vector2(594.115, -616.822)
-scale = Vector2(1, 1)
-shape = SubResource("RectangleShape2D_wj0jc")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="ShrilowScreen/Control/StaticBody2D"]
-position = Vector2(59.0018, -326.182)
-scale = Vector2(-0.0589678, 9.1975)
-shape = SubResource("RectangleShape2D_wj0jc")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="ShrilowScreen/Control/StaticBody2D"]
-position = Vector2(1150.01, -326.522)
-scale = Vector2(-0.0589678, 9.1975)
-shape = SubResource("RectangleShape2D_wj0jc")
-
 [node name="Shop" type="Sprite2D" parent="ShrilowScreen"]
 position = Vector2(1065, 93)
 texture = ExtResource("8_kysej")
@@ -910,6 +969,27 @@ offset_left = 980.0
 offset_top = 3.0
 offset_right = 1150.0
 offset_bottom = 167.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_714v8")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_l4fde")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_b1ngq")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_bnx5p")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_m4q2a")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_6g67g")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_cbusq")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_5hpjx")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_jaggv")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_7e2gc")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_v5e17")
+
+[node name="Jellies" type="Sprite2D" parent="ShrilowScreen"]
+position = Vector2(88, 515)
+texture = ExtResource("13_irs6y")
+
+[node name="JelliesButton" type="Button" parent="ShrilowScreen"]
+offset_left = 13.0
+offset_top = 438.0
+offset_right = 169.0
+offset_bottom = 589.0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_714v8")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_l4fde")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_b1ngq")
@@ -993,6 +1073,66 @@ offset_bottom = 668.0
 scale = Vector2(1, 0.6)
 theme = ExtResource("8_oskpf")
 text = "CLICKS:"
+
+[node name="Jelly" type="Node2D" parent="."]
+position = Vector2(-1152, 0)
+
+[node name="Control" type="Control" parent="Jelly"]
+custom_minimum_size = Vector2(3000, 648)
+layout_direction = 3
+layout_mode = 3
+anchors_preset = 0
+offset_left = -1152.0
+offset_right = 1848.0
+offset_bottom = 648.0
+mouse_filter = 2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Jelly/Control"]
+position = Vector2(1848, -9.53674e-07)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jelly/Control/StaticBody2D"]
+position = Vector2(-806, 5.25)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_c61rj")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Jelly/Control/StaticBody2D"]
+position = Vector2(-812, 632)
+rotation = -3.14159
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_c61rj")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Jelly/Control/StaticBody2D"]
+position = Vector2(1132, 319)
+shape = SubResource("RectangleShape2D_lx8mx")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Jelly/Control/StaticBody2D"]
+position = Vector2(-2748, 319)
+shape = SubResource("RectangleShape2D_lx8mx")
+
+[node name="hi" type="Sprite2D" parent="Jelly/Control"]
+position = Vector2(2397, 303)
+texture = ExtResource("17_c83sx")
+
+[node name="BackJELLY" type="Sprite2D" parent="Jelly"]
+position = Vector2(1067, 80)
+texture = ExtResource("17_jpsse")
+
+[node name="BackButtonJELLY" type="Button" parent="Jelly"]
+offset_left = 978.0
+offset_top = 40.0
+offset_right = 1150.0
+offset_bottom = 124.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p6f28")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_w4xu3")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_uj6cr")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0meto")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_rmwiu")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_o3afr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_amgep")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_e3kvh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_kvmat")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iq0t2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
 
 [node name="Shop" type="Node2D" parent="."]
 position = Vector2(1152, 0)
@@ -1195,10 +1335,10 @@ clip_text = true
 [node name="faceRevert2" type="Timer" parent="."]
 
 [node name="Label" type="Label" parent="."]
-offset_left = -1133.0
-offset_top = 159.0
-offset_right = -155.0
-offset_bottom = 516.0
+offset_left = -1162.0
+offset_top = -418.0
+offset_right = -184.0
+offset_bottom = -61.0
 theme_override_font_sizes/font_size = 50
 text = "THE GAMBLING UPDATE WILL COME........
 AND IT'LL BE OVER HERE.........
@@ -1209,12 +1349,17 @@ blame ghost."
 [node name="noEventsTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(577, 324)
+
 [connection signal="pressed" from="Mines/ScrollContainer/Control/BackButtonWARD" to="." method="_on_back_button_ward2_pressed"]
 [connection signal="pressed" from="Shrilow/ShrilowSqueak" to="." method="_on_shrilow_squeak_pressed"]
 [connection signal="pressed" from="ShrilowScreen/ShopButton" to="." method="_on_shop_button_pressed"]
+[connection signal="pressed" from="ShrilowScreen/JelliesButton" to="." method="_on_jellies_button_pressed"]
 [connection signal="pressed" from="ShrilowScreen/WardrobeButton" to="." method="_on_wardrobe_button_pressed"]
 [connection signal="pressed" from="ShrilowScreen/TrophiesButton" to="." method="_on_trophies_button_pressed"]
 [connection signal="pressed" from="ShrilowScreen/MinesButton" to="." method="_on_mines_button_pressed"]
+[connection signal="pressed" from="Jelly/BackButtonJELLY" to="." method="_on_back_button_jelly_pressed"]
 [connection signal="pressed" from="Shop/BackButtonSHOP" to="." method="_on_back_button_shop_pressed"]
 [connection signal="pressed" from="Wardrobe/BackButtonWARD" to="." method="_on_back_button_ward_pressed"]
 [connection signal="timeout" from="EventTimer" to="." method="_event"]
