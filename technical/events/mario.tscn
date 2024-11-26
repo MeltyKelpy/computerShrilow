@@ -216,8 +216,13 @@ z_index = 100
 script = ExtResource("1_qi5sk")
 
 [node name="bg" type="Sprite2D" parent="."]
-position = Vector2(576, 324)
+position = Vector2(688, 324)
 texture = ExtResource("1_edhcp")
+
+[node name="bg2" type="Sprite2D" parent="."]
+position = Vector2(-378, 324)
+texture = ExtResource("1_edhcp")
+flip_h = true
 
 [node name="catmario" type="CharacterBody2D" parent="."]
 position = Vector2(880, 305)
@@ -231,10 +236,10 @@ shape = SubResource("CircleShape2D_o5f5n")
 texture = ExtResource("2_kdlog")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(-2, -57)
+position = Vector2(44, -57)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(707.375, 658)
+position = Vector2(772, 658)
 shape = SubResource("RectangleShape2D_ek4uc")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
@@ -247,7 +252,7 @@ libraries = {
 }
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
-position = Vector2(240, 391)
+position = Vector2(347, 408)
 mass = 0.009
 physics_material_override = SubResource("PhysicsMaterial_gbbob")
 gravity_scale = 0.543

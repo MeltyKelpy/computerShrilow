@@ -7,7 +7,6 @@ var gameOver = false
 var animPlayed = false
 
 func _ready() -> void:
-	Events.justMinigames[1]["Played?"] = true
 	$opening/Label.position.y = 5000
 	$AnimationPlayer.play("pop")
 	$opening/Star1.modulate = Color(1,1,1,0)

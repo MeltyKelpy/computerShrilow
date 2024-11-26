@@ -27,7 +27,6 @@ var lastWinner = "ro"
 var playerLastPlay = "scissoers"
 
 func _ready() -> void:
-	Events.justMinigames[2]["Played?"] = true
 	$opening/Label.position.y = 5000
 	$AnimationPlayer.play("pop")
 	$opening/Star1.modulate = Color(1,1,1,0)

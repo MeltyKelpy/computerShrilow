@@ -155,25 +155,38 @@ func _on_mines_button_pressed() -> void:
 	$sectionTransitions.play("toMines")
 
 func _event() -> void:
-	var num = rng.randi_range(0, Events.eventList.size()-1)
-	_startEvent(num)
+	var type = rng.randi_range(0, 1)
+	var num
+	if type == 0:
+		num = rng.randi_range(0, Events.justMinigames.size()-1)
+	if type == 1:
+		num = rng.randi_range(0, Events.eventList.size()-1)
+	_startEvent(num, type)
 
-func _startEvent(numberPicked) -> void:
-	var cacapoopyGOD2 = load(Events.eventList[numberPicked]["AttachedScene"])
+func _startEvent(numberPicked, type) -> void:
+	var cacapoopyGOD2 
+	if type == 1:
+		cacapoopyGOD2 = load(Events.eventList[numberPicked]["AttachedScene"])
+	if type == 0:
+		cacapoopyGOD2 = load(Events.justMinigames[numberPicked]["AttachedScene"])
 	var caca = cacapoopyGOD2.instantiate()
 	add_child(caca)
 	var cacapoopyGOD3 = preload("res://technical/events/eventIndicator.tscn")
 	var caca2 = cacapoopyGOD3.instantiate()
 	add_child(caca2)
-	caca2.warn(Events.eventList[numberPicked]["WarningMessage"])
-	if Events.eventList[numberPicked]["Type"] == "Minigame":
+	if type == 0:
+		caca2.warn(Events.justMinigames[numberPicked]["WarningMessage"])
+	if type == 1:
+		caca2.warn(Events.eventList[numberPicked]["WarningMessage"])
+	if type == 0:
 		get_tree().paused = true
+		Events.justMinigames[numberPicked]["Played?"] = true
 		returnPosCamX = $Camera2D.position.x
 		returnPosCamY = $Camera2D.position.y
-		$Camera2D.position.x = 577
+		$Camera2D.position.x = 576
 		$Camera2D.position.y = 324
 		caca.reparent($/root)
-	if Events.eventList[numberPicked]["Type"] == "Generic":
+	if type == 1:
 		caca.reparent($ShrilowScreen)
 		caca.position.y = caca.position.y + $ShrilowScreen.position.y
 		caca.position.x = caca.position.x + $ShrilowScreen.position.x

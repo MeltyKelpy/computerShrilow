@@ -3,10 +3,7 @@ extends Node2D
 var animPlayed = false
 
 func _ready() -> void:
-	Events.justMinigames[0]["Played?"] = true
 	$AnimationPlayer.play("pop")
-	$/root/computerShrilow/Jelly/StaticBody2D/CollisionShape2D.disabled = true
-	$/root/computerShrilow/Jelly/StaticBody2D/CollisionShape2D2.disabled = true
 
 func _introOver():
 	$catmario.movingEnabled()

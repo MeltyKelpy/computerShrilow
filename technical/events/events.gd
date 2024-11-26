@@ -24,32 +24,8 @@ var eventList = [
 	"WarningMessage":"Oh, thats shrilow's area flooding. GO PULL OUT THE PLUG BEFORE HE DROOOWWNNNSSS.",
 	"Type":"Generic",
 	},
-	{
-	"Event":"Mario",
-	"AttachedScene":"res://technical/events/mario.tscn",
-	"WarningMessage":"It's just like that one game",
-	"Type":"Minigame",
-	},
-	{
-	"Event":"Hardest Game Ever",
-	"AttachedScene":"res://technical/events/hardestGame.tscn",
-	"WarningMessage":"Dude... you're never gonna beat this... trust me....",
-	"Type":"Minigame",
-	},
-	{
-	"Event":"Roshambo",
-	"AttachedScene":"res://technical/events/roshambo.tscn",
-	"WarningMessage":"ITS NOT CALLED ROCK PAPER SCISSOERS, IDIOT! ITS ROSHAMBO! IDIOT!",
-	"Type":"Minigame",
-	},
-	{
-	"Event":"Whack-ilow",
-	"AttachedScene":"res://technical/events/whack-ilow.tscn",
-	"WarningMessage":"Boink! right on the head! bet that'll leave a cartoonish bump on your head. heh. yup.",
-	"Type":"Minigame",
-	"Played?":false,
-	},
 	]
+
 var justMinigames = [
 	{
 	"Event":"Mario",
