@@ -6,6 +6,8 @@ var rng = RandomNumberGenerator.new()
 var held_object = false
 var cameraMoveDir = "center"
 var area = "notJellies"
+var returnPosCamX = 0
+var returnPosCamY = 0
 
 var cacapoopyGOD = preload("res://technical/MelaniesItem.tscn")
 
@@ -166,8 +168,10 @@ func _startEvent(numberPicked) -> void:
 	caca2.warn(Events.eventList[numberPicked]["WarningMessage"])
 	if Events.eventList[numberPicked]["Type"] == "Minigame":
 		get_tree().paused = true
-		caca.position.x = $Camera2D.position.x - 576
-		caca.position.y = $Camera2D.position.y - 324
+		returnPosCamX = $Camera2D.position.x
+		returnPosCamY = $Camera2D.position.y
+		$Camera2D.position.x = 577
+		$Camera2D.position.y = 324
 		caca.reparent($/root)
 	if Events.eventList[numberPicked]["Type"] == "Generic":
 		caca.reparent($ShrilowScreen)

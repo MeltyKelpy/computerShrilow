@@ -5,6 +5,8 @@ var animPlayed = false
 func _ready() -> void:
 	Events.justMinigames[0]["Played?"] = true
 	$AnimationPlayer.play("pop")
+	$/root/computerShrilow/Jelly/StaticBody2D/CollisionShape2D.disabled = true
+	$/root/computerShrilow/Jelly/StaticBody2D/CollisionShape2D2.disabled = true
 
 func _introOver():
 	$catmario.movingEnabled()
@@ -29,6 +31,8 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		$AnimationPlayer.play("title")
 
 func _endEvent():
+	$/root/computerShrilow/Jelly/StaticBody2D/CollisionShape2D.disabled = false
+	$/root/computerShrilow/Jelly/StaticBody2D/CollisionShape2D2.disabled = false
 	var money = 150
 	var _money2 = ItemValues.maxMoney * 0.1
 	money = money #+ money2

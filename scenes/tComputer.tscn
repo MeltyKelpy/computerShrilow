@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://bgw557ttv6noe"]
+[gd_scene load_steps=66 format=3 uid="uid://bgw557ttv6noe"]
 
 [ext_resource type="Script" path="res://scenes/t_computer.gd" id="1_swrb7"]
 [ext_resource type="Texture2D" uid="uid://dajex7cpt7k4p" path="res://assets/images/bg/background.png" id="2_u0da7"]
@@ -82,6 +82,9 @@ bg_color = Color(0, 1, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c61rj"]
 size = Vector2(1771.75, 44.7499)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8o1fv"]
+size = Vector2(66.0613, 1156.31)
 
 [sub_resource type="Animation" id="Animation_5fubl"]
 length = 0.001
@@ -815,16 +818,16 @@ gradient = SubResource("Gradient_2dxcp")
 script = ExtResource("1_swrb7")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-offset = Vector2(-852, 320)
+offset = Vector2(400, 320)
 scale = Vector2(1.15, 1.15)
-transform = Transform2D(1.15, 0, 0, 1.15, -852, 320)
-follow_viewport_enabled = true
+transform = Transform2D(1.15, 0, 0, 1.15, 400, 320)
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(1033.91, 0)
+position = Vector2(-76.5217, -93.913)
 motion_mirroring = Vector2(600, 557)
 
 [node name="background" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(2.6087, 61.7391)
 texture = ExtResource("2_u0da7")
 
 [node name="fade" type="Sprite2D" parent="."]
@@ -1080,6 +1083,16 @@ position = Vector2(0, -9.53674e-07)
 position = Vector2(265.877, 626.625)
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_c61rj")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Jelly/StaticBody2D"]
+position = Vector2(266, -523)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_c61rj")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Jelly/StaticBody2D"]
+position = Vector2(1119.03, 28.1563)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_8o1fv")
 
 [node name="Control" type="Control" parent="Jelly"]
 custom_minimum_size = Vector2(3000, 648)
