@@ -1,8 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://bvxn7n144a812"]
+[gd_scene load_steps=7 format=3 uid="uid://bvxn7n144a812"]
 
 [ext_resource type="Script" path="res://technical/items/jelly.gd" id="1_3rnah"]
 [ext_resource type="Texture2D" uid="uid://b28r5cl4pode8" path="res://assets/images/items/jelly0.png" id="1_ml5ht"]
 [ext_resource type="AudioStream" uid="uid://o0fq5njk38ru" path="res://assets/sounds/squeak.ogg" id="3_howpp"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qn6m5"]
+friction = 0.91
+bounce = 0.68
+absorbent = true
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b8wjh"]
 radius = 51.0
@@ -16,6 +21,7 @@ script = ExtResource("1_3rnah")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 position = Vector2(866, 332)
+physics_material_override = SubResource("PhysicsMaterial_qn6m5")
 
 [node name="jelly" type="Sprite2D" parent="RigidBody2D"]
 texture = ExtResource("1_ml5ht")
@@ -47,5 +53,11 @@ autostart = true
 stream = ExtResource("3_howpp")
 volume_db = -48.239
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+autostart = true
+
 [connection signal="timeout" from="FirstTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="SecondTimer" to="." method="_on_second_timer_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_jelly_spawn"]

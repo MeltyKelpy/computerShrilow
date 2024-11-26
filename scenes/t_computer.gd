@@ -4,6 +4,8 @@ var clicks = 0.0
 var curClicks = 0.0
 var rng = RandomNumberGenerator.new()
 var held_object = false
+var cameraMoveDir = "center"
+var area = "notJellies"
 
 var cacapoopyGOD = preload("res://technical/MelaniesItem.tscn")
 
@@ -21,23 +23,28 @@ func generateHoes():
 		caca.reparent($Wardrobe/ScrollContainer/GridContainer)
 
 func _ready():
-	var cacapoopyGOD = load(ItemValues.itemInfomation[3]["ScenePath"])
-	var caca = cacapoopyGOD.instantiate()
-	add_child(caca)
-	caca.reparent($/root/computerShrilow/Jelly/Control)
-	caca.rigid_body_2d.transform = Transform2D(0.0, Vector2(-100, 100))
-	caca.getID(3)
 	$Mines.position.y = 648
 	generateHoes()
 
 func _process(_delta : float) -> void:
 	
-	if FizzyDrink.jellys > (-1):
-		$ShrilowScreen/Jellies.visible = true
-		$ShrilowScreen/JelliesButton.disabled = false
+	if $Camera2D.position.x < (-576):
+		$Camera2D/leftMove.set_mouse_filter(1)
+		$Camera2D/rightMove.set_mouse_filter(1)
+	elif $Camera2D.position.x == (-576):
+		$Camera2D/leftMove.set_mouse_filter(1)
+		$Camera2D/rightMove.set_mouse_filter(2)
 	else:
-		$ShrilowScreen/Jellies.visible = false
-		$ShrilowScreen/JelliesButton.disabled = true
+		$Camera2D/leftMove.set_mouse_filter(2)
+		$Camera2D/rightMove.set_mouse_filter(2)
+	
+	if cameraMoveDir == "left":
+		$Camera2D.position.x -= 10
+	if cameraMoveDir == "right":
+		$Camera2D.position.x += 10
+	
+	if area == "Jellies" and $Camera2D.position.x > (-576):
+		$Camera2D.position.x = (-576)
 	
 	if FizzyDrink.stopTheCount != 0:
 		$noEventsTimer.wait_time = FizzyDrink.stopTheCount
@@ -158,8 +165,9 @@ func _startEvent(numberPicked) -> void:
 	add_child(caca2)
 	caca2.warn(Events.eventList[numberPicked]["WarningMessage"])
 	if Events.eventList[numberPicked]["Type"] == "Minigame":
-		Events.eventList[numberPicked]["Played?"] = true
 		get_tree().paused = true
+		caca.position.x = $Camera2D.position.x - 576
+		caca.position.y = $Camera2D.position.y - 324
 		caca.reparent($/root)
 	if Events.eventList[numberPicked]["Type"] == "Generic":
 		caca.reparent($ShrilowScreen)
@@ -178,7 +186,25 @@ func _on_face_revert_2_timeout() -> void:
 	curClicks = 0
 
 func _on_back_button_jelly_pressed() -> void:
+	area = "notJellies"
 	$sectionTransitions.play("leaveJellies")
 
 func _on_jellies_button_pressed() -> void:
 	$sectionTransitions.play("toJellies")
+
+func _on_right_move_mouse_entered() -> void:
+	if $Camera2D.position.x < (-576):
+		cameraMoveDir = "right"
+
+func _on_left_move_mouse_entered() -> void:
+	cameraMoveDir = "left"
+	print("hi")
+
+func _on_right_move_mouse_exited() -> void:
+	cameraMoveDir = "center"
+
+func _on_left_move_mouse_exited() -> void:
+	cameraMoveDir = "center"
+
+func _signal_jelly():
+	area = "Jellies"

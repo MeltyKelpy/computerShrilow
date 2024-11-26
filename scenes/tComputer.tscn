@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://bgw557ttv6noe"]
+[gd_scene load_steps=65 format=3 uid="uid://bgw557ttv6noe"]
 
 [ext_resource type="Script" path="res://scenes/t_computer.gd" id="1_swrb7"]
 [ext_resource type="Texture2D" uid="uid://dajex7cpt7k4p" path="res://assets/images/bg/background.png" id="2_u0da7"]
@@ -19,10 +19,12 @@
 [ext_resource type="Texture2D" uid="uid://cc7uegt46vf3d" path="res://assets/images/ui/back.png" id="14_88vde"]
 [ext_resource type="AudioStream" uid="uid://dbybnubpmhwx3" path="res://assets/music/melanieShop.ogg" id="15_kk7gt"]
 [ext_resource type="Texture2D" uid="uid://w4aga5clxbjf" path="res://assets/images/areas/wardrobe/wardrobe.png" id="16_ptxs8"]
-[ext_resource type="Texture2D" uid="uid://cwu2wn7rcpjyd" path="res://assets/images/areas/melanies/items/jelly.png" id="17_c83sx"]
 [ext_resource type="Texture2D" uid="uid://cb65qvgh6u74n" path="res://assets/images/ui/backFlip.png" id="17_jpsse"]
+[ext_resource type="Texture2D" uid="uid://dtses6hed07fv" path="res://assets/images/areas/jellies/reception.png" id="17_km8e8"]
 [ext_resource type="Texture2D" uid="uid://msvb6jrm45iv" path="res://assets/images/ui/backUp.png" id="17_obgyp"]
 [ext_resource type="PackedScene" uid="uid://cbtrsg4a3b386" path="res://technical/minesLevel.tscn" id="18_6bagw"]
+[ext_resource type="Texture2D" uid="uid://bdb32kjljwqn4" path="res://assets/images/areas/jellies/JELLYDAYCARE.png" id="18_w041t"]
+[ext_resource type="Texture2D" uid="uid://bymsocpxxxn4o" path="res://assets/images/areas/jellies/receptionDesk.png" id="19_4v3d6"]
 [ext_resource type="Texture2D" uid="uid://cwladsljiqill" path="res://assets/images/ui/backDown.png" id="19_tht4w"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p6f28"]
@@ -79,10 +81,7 @@ bg_color = Color(0, 1, 0, 1)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v5e17"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c61rj"]
-size = Vector2(3913.02, 27.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lx8mx"]
-size = Vector2(41, 659)
+size = Vector2(1771.75, 44.7499)
 
 [sub_resource type="Animation" id="Animation_5fubl"]
 length = 0.001
@@ -241,18 +240,6 @@ tracks/12/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(577, 324)]
-}
-tracks/13/type = "value"
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/path = NodePath("ParallaxBackground:offset")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(300, 320)]
 }
 
 [sub_resource type="Animation" id="Animation_xn1b5"]
@@ -745,22 +732,24 @@ tracks/2/path = NodePath("Camera2D:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 1.5),
+"times": PackedFloat32Array(0, 1.46667),
 "transitions": PackedFloat32Array(0.31864, 1),
 "update": 0,
-"values": [Vector2(577, 324), Vector2(-575, 324)]
+"values": [Vector2(576, 324), Vector2(-576, 324)]
 }
-tracks/3/type = "value"
+tracks/3/type = "method"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("ParallaxBackground:offset")
+tracks/3/path = NodePath(".")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.0333333, 1.5),
-"transitions": PackedFloat32Array(0.31864, 1),
-"update": 0,
-"values": [Vector2(300, 320), Vector2(-852, 320)]
+"times": PackedFloat32Array(1.46667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_signal_jelly"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_niq0t"]
@@ -800,19 +789,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 1.5),
 "transitions": PackedFloat32Array(0.31864, 1),
 "update": 0,
-"values": [Vector2(-575, 324), Vector2(577, 324)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("ParallaxBackground:offset")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.0333333, 1.46667),
-"transitions": PackedFloat32Array(0.31864, 1),
-"update": 0,
-"values": [Vector2(-852, 320), Vector2(300, 320)]
+"values": [Vector2(-576, 324), Vector2(576, 324)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vs8hy"]
@@ -828,16 +805,23 @@ _data = {
 "toWard": SubResource("Animation_ok3bo")
 }
 
+[sub_resource type="Gradient" id="Gradient_2dxcp"]
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gikbf"]
+gradient = SubResource("Gradient_2dxcp")
+
 [node name="computerShrilow" type="Node2D"]
 script = ExtResource("1_swrb7")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-offset = Vector2(300, 320)
+offset = Vector2(-852, 320)
 scale = Vector2(1.15, 1.15)
-transform = Transform2D(1.15, 0, 0, 1.15, 300, 320)
+transform = Transform2D(1.15, 0, 0, 1.15, -852, 320)
 follow_viewport_enabled = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(1033.91, 0)
 motion_mirroring = Vector2(600, 557)
 
 [node name="background" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
@@ -1077,6 +1061,26 @@ text = "CLICKS:"
 [node name="Jelly" type="Node2D" parent="."]
 position = Vector2(-1152, 0)
 
+[node name="repcetionBG" type="Sprite2D" parent="Jelly"]
+position = Vector2(266, 324)
+texture = ExtResource("17_km8e8")
+
+[node name="lgo" type="Sprite2D" parent="Jelly"]
+position = Vector2(266, 324)
+texture = ExtResource("18_w041t")
+
+[node name="desk" type="Sprite2D" parent="Jelly"]
+position = Vector2(266, 324)
+texture = ExtResource("19_4v3d6")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Jelly"]
+position = Vector2(0, -9.53674e-07)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jelly/StaticBody2D"]
+position = Vector2(265.877, 626.625)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_c61rj")
+
 [node name="Control" type="Control" parent="Jelly"]
 custom_minimum_size = Vector2(3000, 648)
 layout_direction = 3
@@ -1087,41 +1091,16 @@ offset_right = 1848.0
 offset_bottom = 648.0
 mouse_filter = 2
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Jelly/Control"]
-position = Vector2(1848, -9.53674e-07)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Jelly/Control/StaticBody2D"]
-position = Vector2(-806, 5.25)
-scale = Vector2(1, 1)
-shape = SubResource("RectangleShape2D_c61rj")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Jelly/Control/StaticBody2D"]
-position = Vector2(-812, 632)
-rotation = -3.14159
-scale = Vector2(1, 1)
-shape = SubResource("RectangleShape2D_c61rj")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Jelly/Control/StaticBody2D"]
-position = Vector2(1132, 319)
-shape = SubResource("RectangleShape2D_lx8mx")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Jelly/Control/StaticBody2D"]
-position = Vector2(-2748, 319)
-shape = SubResource("RectangleShape2D_lx8mx")
-
-[node name="hi" type="Sprite2D" parent="Jelly/Control"]
-position = Vector2(2397, 303)
-texture = ExtResource("17_c83sx")
-
-[node name="BackJELLY" type="Sprite2D" parent="Jelly"]
-position = Vector2(1067, 80)
+[node name="back" type="Sprite2D" parent="Jelly"]
+position = Vector2(1089, 359)
+scale = Vector2(0.607639, 0.514252)
 texture = ExtResource("17_jpsse")
 
 [node name="BackButtonJELLY" type="Button" parent="Jelly"]
-offset_left = 978.0
-offset_top = 40.0
-offset_right = 1150.0
-offset_bottom = 124.0
+offset_left = 1037.0
+offset_top = 338.0
+offset_right = 1141.0
+offset_bottom = 382.0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_p6f28")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_w4xu3")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_uj6cr")
@@ -1352,6 +1331,22 @@ one_shot = true
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(577, 324)
 
+[node name="leftMove" type="TextureRect" parent="Camera2D"]
+offset_left = -576.0
+offset_top = -324.0
+offset_right = -398.0
+offset_bottom = 324.0
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_gikbf")
+
+[node name="rightMove" type="TextureRect" parent="Camera2D"]
+offset_left = 398.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_gikbf")
+
 [connection signal="pressed" from="Mines/ScrollContainer/Control/BackButtonWARD" to="." method="_on_back_button_ward2_pressed"]
 [connection signal="pressed" from="Shrilow/ShrilowSqueak" to="." method="_on_shrilow_squeak_pressed"]
 [connection signal="pressed" from="ShrilowScreen/ShopButton" to="." method="_on_shop_button_pressed"]
@@ -1365,3 +1360,7 @@ position = Vector2(577, 324)
 [connection signal="timeout" from="EventTimer" to="." method="_event"]
 [connection signal="timeout" from="faceRevert" to="." method="_on_face_revert_timeout"]
 [connection signal="timeout" from="faceRevert2" to="." method="_on_face_revert_2_timeout"]
+[connection signal="mouse_entered" from="Camera2D/leftMove" to="." method="_on_left_move_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/leftMove" to="." method="_on_left_move_mouse_exited"]
+[connection signal="mouse_entered" from="Camera2D/rightMove" to="." method="_on_right_move_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/rightMove" to="." method="_on_right_move_mouse_exited"]

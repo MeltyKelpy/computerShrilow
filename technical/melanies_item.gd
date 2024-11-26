@@ -99,9 +99,6 @@ func calculate():
 			cacapoopyGOD = load(ItemValues.itemInfomation[ItemID]["ScenePath"])
 			caca = cacapoopyGOD.instantiate()
 			add_child(caca)
-			if ItemValues.itemInfomation[ItemID]["Name"] == "Jelly!":
-				caca.reparent($/root/computerShrilow/Jelly/Control)
-				caca.rigid_body_2d.transform = Transform2D(0.0, Vector2(100, 100))
 			caca.getID(ItemID)
 	if ItemValues.itemInfomation[ItemID]["Name"] == "Jelly!":
 		FizzyDrink.jellys += 1
