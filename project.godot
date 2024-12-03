@@ -27,6 +27,7 @@ Events="*res://technical/events/events.gd"
 SoundBar="*res://technical/soundBar.tscn"
 FizzyDrink="*res://technical/fizzydrink.gd"
 ClothingObjects="*res://technical/clothingObjects.gd"
+Jelly="*res://technical/jellyHandling.gd"
 
 [debug]
 

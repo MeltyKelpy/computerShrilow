@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b28r5cl4pode8"
-path="res://.godot/imported/jelly0.png-fb0fcb949ad5c7efc2b9cdecc6b09d3d.ctex"
+uid="uid://dlv2lvq84fuho"
+path="res://.godot/imported/jelly0.png-6b36498f4af7d086699cab6dad6ad1a3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/items/jelly0.png"
-dest_files=["res://.godot/imported/jelly0.png-fb0fcb949ad5c7efc2b9cdecc6b09d3d.ctex"]
+source_file="res://assets/images/jellies/Retarded Gambler Jelly/jelly0.png"
+dest_files=["res://.godot/imported/jelly0.png-6b36498f4af7d086699cab6dad6ad1a3.ctex"]
 
 [params]
 

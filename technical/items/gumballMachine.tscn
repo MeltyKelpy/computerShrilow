@@ -1,0 +1,51 @@
+[gd_scene load_steps=14 format=3 uid="uid://ctkrk05lsjbrs"]
+
+[ext_resource type="Script" path="res://technical/items/gumballMachine.gd" id="1_pof3q"]
+[ext_resource type="Texture2D" uid="uid://c3ehplshjo8fq" path="res://assets/images/areas/jellies/gumballMachine.png" id="1_srasr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s2f0u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t7yhy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8wcum"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tp14k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_55bhx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s5fk3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ych1t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n57ry"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uwjoy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wtyp4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6bwfi"]
+
+[node name="GumballMachine" type="Node2D"]
+script = ExtResource("1_pof3q")
+
+[node name="gumballMachine" type="Sprite2D" parent="."]
+texture = ExtResource("1_srasr")
+
+[node name="Button" type="Button" parent="."]
+offset_left = -46.0
+offset_top = -97.0
+offset_right = 46.0
+offset_bottom = 95.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_s2f0u")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_t7yhy")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8wcum")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_tp14k")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_55bhx")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_s5fk3")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ych1t")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_n57ry")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_uwjoy")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_wtyp4")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6bwfi")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

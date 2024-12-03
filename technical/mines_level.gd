@@ -205,7 +205,7 @@ func _on_buy_button_mouse_exited() -> void:
 func _on_buy_button_pressed() -> void:
 	if amountOfDwellers != 7 and ItemValues.money >= moneyValues[selected]:
 		var itsTime = false
-		for i in range(0, 6):
+		for i in range(0, 7):
 			if miners[i] == null and itsTime == false:
 				itsTime = true
 				var cacapoopyGOD = preload("res://technical/character.tscn")
@@ -217,6 +217,7 @@ func _on_buy_button_pressed() -> void:
 				caca.Swings = characterInfos[selected]["Swings"]
 				add_child(caca)
 				miners[i] = caca
+				amountOfDwellers += 1
 				caca.listPlacement(i)
 				ItemValues.money -= moneyValues[selected]
 				caca.position.x = 401+(101*i)

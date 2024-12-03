@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcg2ggf511sjf"
-path="res://.godot/imported/jelly1.png-18c3bd135578cf6753ead4fb2b598e39.ctex"
+uid="uid://bv6uhll5n8ku1"
+path="res://.godot/imported/jelly1.png-ea78509ec347b2641fb19b4905b29e44.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/items/jelly1.png"
-dest_files=["res://.godot/imported/jelly1.png-18c3bd135578cf6753ead4fb2b598e39.ctex"]
+source_file="res://assets/images/jellies/Gardener Jelly/jelly1.png"
+dest_files=["res://.godot/imported/jelly1.png-ea78509ec347b2641fb19b4905b29e44.ctex"]
 
 [params]
 

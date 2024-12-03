@@ -30,9 +30,10 @@ func _process(delta: float) -> void:
 				var cacapoopyGOD3 = preload("res://technical/events/eventIndicator.tscn")
 				var caca2 = cacapoopyGOD3.instantiate()
 				add_child(caca2)
+				caca2.reparent($/root/computerShrilow/ShrilowScreen)
 				caca2.warn("Revenge of the Seinfeld....")
-				caca.position.y = caca.position.y + $ShrilowScreen.position.y
-				caca.position.x = caca.position.x + $ShrilowScreen.position.x
+				caca.position.y = caca.position.y + $/root/computerShrilow/ShrilowScreen.position.y
+				caca.position.x = caca.position.x + $/root/computerShrilow/ShrilowScreen.position.x
 			ranCheck = true
 		if $jerry.position.y >= 725:
 			queue_free()

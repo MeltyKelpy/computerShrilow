@@ -9,6 +9,88 @@ var area = "notJellies"
 var returnPosCamX = 0
 var returnPosCamY = 0
 
+var AnimPosCamX = 0
+var AnimPosCamY = 0
+
+var gumballSelection = 0
+var gumballInfo = [
+	{
+	"Name":"Common Coin",
+	"Desc":"The Common Coin, basic coin for getting jellies.\n\nCommon Chance: 98%\nUncommon Chance: 1.5%\nRare Chance: 0.5%\nAwesome Chance: 0%\nQueer Chance: 0%",
+	"Cost":200,
+	"1STOrder":"CommonChance", 
+	"2NDOrder":"UncommonChance", 
+	"3RDOrder":"RareChance", 
+	"4THOrder":"AwesomeChance", 
+	"5THOrder":"QueerChance",
+	"CommonChance":98.0,
+	"UncommonChance":1.5,
+	"RareChance":0.5,
+	"AwesomeChance":0.0,
+	"QueerChance":0.0,
+	},
+	{
+	"Name":"Uncommon Coin",
+	"Desc":"The Uncommon Coin, allows you to get uncommons alot more easily, but with added price.\n\nCommon Chance: 15%\nUncommon Chance: 80%\nRare Chance: 4%\nAwesome Chance: 1%\nQueer Chance: 0%",
+	"Cost":400,
+	"1STOrder":"UncommonChance", 
+	"2NDOrder":"CommonChance", 
+	"3RDOrder":"RareChance", 
+	"4THOrder":"AwesomeChance", 
+	"5THOrder":"QueerChance",
+	"CommonChance":15.0,
+	"UncommonChance":80.0,
+	"RareChance":4.0,
+	"AwesomeChance":1.0,
+	"QueerChance":0.0,
+	},
+	{
+	"Name":"Rare Coin",
+	"Desc":"The Rare Coin, allows you to get rares alot more easily, but for ALOT more money.\n\nCommon Chance: 4%\nUncommon Chance: 30%\nRare Chance: 60%\nAwesome Chance: 18%\nQueer Chance: 1%",
+	"Cost":800,
+	"1STOrder":"RareChance", 
+	"2NDOrder":"UncommonChance", 
+	"3RDOrder":"AwesomeChance", 
+	"4THOrder":"CommonChance", 
+	"5THOrder":"QueerChance",
+	"CommonChance":4.0,
+	"UncommonChance":30.0,
+	"RareChance":60.0,
+	"AwesomeChance":15.0,
+	"QueerChance":1.0,
+	},
+	{
+	"Name":"Awesome Coin",
+	"Desc":"The Awesome Coin, allows you to get awesomes abit more easily, but for NOTABLY more money.\n\nCommon Chance: 0%\nUncommon Chance: 19%\nRare Chance: 40%\nAwesome Chance: 40%\nQueer Chance: 1%",
+	"Cost":4500,
+	"1STOrder":"RareChance", 
+	"2NDOrder":"AwesomeChance", 
+	"3RDOrder":"UncommonChance", 
+	"4THOrder":"QueerChance", 
+	"5THOrder":"CommonChance",
+	"CommonChance":0.0,
+	"UncommonChance":19.0,
+	"RareChance":40.0,
+	"AwesomeChance":40.0,
+	"QueerChance":1.0,
+	},
+	{
+	"Name":"Queer Coin",
+	"Desc":"The Queer Coin, allows you to get queers abit more easily, but for INSANELY more money.\n\nCommon Chance: 0%\nUncommon Chance: 10%\nRare Chance: 35%\nAwesome Chance: 55%\nQueer Chance: 5%",
+	"Cost":10000,
+	"1STOrder":"AwesomeChance", 
+	"2NDOrder":"RareChance", 
+	"3RDOrder":"UncommonChance", 
+	"4THOrder":"QueerChance", 
+	"5THOrder":"CommonChance",
+	"CommonChance":0.0,
+	"UncommonChance":15.0,
+	"RareChance":35.0,
+	"AwesomeChance":50.0,
+	"QueerChance":5.0,
+	},
+	]
+
 var cacapoopyGOD = preload("res://technical/MelaniesItem.tscn")
 
 func generateHoes():
@@ -23,6 +105,46 @@ func generateHoes():
 		caca.ItemID = i
 		add_child(caca)
 		caca.reparent($Wardrobe/ScrollContainer/GridContainer)
+	for i in Jelly.commonJellies.size():
+		var cacapoopyGOD2 = preload("res://technical/jellies/storageJelly.tscn")
+		var caca = cacapoopyGOD2.instantiate()
+		caca.jelly = Jelly.commonJellies[i]["Name"]
+		caca.jellyNum = i
+		caca.rarity = "Common"
+		add_child(caca)
+		caca.reparent($Journal/ScrollContainer/GridContainer)
+	for i in Jelly.uncommonJellies.size():
+		var cacapoopyGOD2 = preload("res://technical/jellies/storageJelly.tscn")
+		var caca = cacapoopyGOD2.instantiate()
+		caca.jelly = Jelly.uncommonJellies[i]["Name"]
+		caca.jellyNum = i
+		caca.rarity = "Uncommon"
+		add_child(caca)
+		caca.reparent($Journal/ScrollContainer/GridContainer)
+	for i in Jelly.rareJellies.size():
+		var cacapoopyGOD2 = preload("res://technical/jellies/storageJelly.tscn")
+		var caca = cacapoopyGOD2.instantiate()
+		caca.jelly = Jelly.rareJellies[i]["Name"]
+		caca.jellyNum = i
+		caca.rarity = "Rare"
+		add_child(caca)
+		caca.reparent($Journal/ScrollContainer/GridContainer)
+	for i in Jelly.awesomeJellies.size():
+		var cacapoopyGOD2 = preload("res://technical/jellies/storageJelly.tscn")
+		var caca = cacapoopyGOD2.instantiate()
+		caca.jelly = Jelly.awesomeJellies[i]["Name"]
+		caca.jellyNum = i
+		caca.rarity = "Awesome"
+		add_child(caca)
+		caca.reparent($Journal/ScrollContainer/GridContainer)
+	for i in Jelly.queerJellies.size():
+		var cacapoopyGOD2 = preload("res://technical/jellies/storageJelly.tscn")
+		var caca = cacapoopyGOD2.instantiate()
+		caca.jelly = Jelly.queerJellies[i]["Name"]
+		caca.jellyNum = i
+		caca.rarity = "Queer"
+		add_child(caca)
+		caca.reparent($Journal/ScrollContainer/GridContainer)
 
 func _ready():
 	$Mines.position.y = 648
@@ -30,19 +152,19 @@ func _ready():
 
 func _process(_delta : float) -> void:
 	
-	if $Camera2D.position.x < (-576):
+	if $Camera2D.position.x < (-576) and area == "Jellies":
 		$Camera2D/leftMove.set_mouse_filter(1)
 		$Camera2D/rightMove.set_mouse_filter(1)
-	elif $Camera2D.position.x == (-576):
+	elif $Camera2D.position.x == (-576) and area == "Jellies":
 		$Camera2D/leftMove.set_mouse_filter(1)
 		$Camera2D/rightMove.set_mouse_filter(2)
 	else:
 		$Camera2D/leftMove.set_mouse_filter(2)
 		$Camera2D/rightMove.set_mouse_filter(2)
 	
-	if cameraMoveDir == "left":
+	if cameraMoveDir == "left" and area == "Jellies":
 		$Camera2D.position.x -= 10
-	if cameraMoveDir == "right":
+	if cameraMoveDir == "right" and area == "Jellies":
 		$Camera2D.position.x += 10
 	
 	if area == "Jellies" and $Camera2D.position.x > (-576):
@@ -65,6 +187,25 @@ func _process(_delta : float) -> void:
 		var cacapoopyGOD2 = load("res://technical/death.tscn")
 		var caca = cacapoopyGOD2.instantiate()
 		add_child(caca)
+	
+	$Gumball/coinName.text = gumballInfo[gumballSelection]["Name"]
+	$Gumball/stuff.text = gumballInfo[gumballSelection]["Desc"]
+	$Gumball/priceTag.text = str(gumballInfo[gumballSelection]["Cost"])
+	
+	#elif gumballSelection == 1:
+		#$Gumball/coinName.text = "Uncommon Coin"
+		#$Gumball/stuff.text = "The Uncommon Coin, allows you to get uncommons alot more easily, but with added price.\n\nCommon Chance: 15%\nUncommon Chance: 80%\nRare Chance: 4%\nAwesome Chance: 1%\nQueer Chance: 0%"
+	#elif gumballSelection == 2:
+		#$Gumball/coinName.text = "Rare Coin"
+		#$Gumball/stuff.text = "The Rare Coin, allows you to get rares alot more easily, but for ALOT more money.\n\nCommon Chance: 1%\nUncommon Chance: 40%\nRare Chance: 80%\nAwesome Chance: 18%\nQueer Chance: 1%"
+	#elif gumballSelection == 3:
+		#$Gumball/coinName.text = "Awesome Coin"
+		#$Gumball/stuff.text = "The Awesome Coin, allows you to get awesomes abit more easily, but for NOTABLY more money.\n\nCommon Chance: 0%\nUncommon Chance: 24%\nRare Chance: 40%\nAwesome Chance: 40%\nQueer Chance: 1%"
+	#elif gumballSelection == 4:
+		#$Gumball/coinName.text = "Queer Coin"
+		#$Gumball/stuff.text = "The Queer Coin, allows you to get queers abit more easily, but for INSANELY more money.\n\nCommon Chance: 0%\nUncommon Chance: 10%\nRare Chance: 35%\nAwesome Chance: 55%\nQueer Chance: 5%"
+	
+	
 	
 	$Mines/ScrollContainer/Control.custom_minimum_size.y = (648 * FizzyDrink.minesLength) + 100
 	
@@ -90,7 +231,11 @@ func _process(_delta : float) -> void:
 		$Shrilow.scale.y += 0.05
 	
 	if Input.is_action_just_pressed("eventText"):
-		_event()
+		#_event()
+		if $Camera2D.position.x != -1221:
+			cameraAnimation("journal", -1221, -791)
+		if $Camera2D.position.x == -1221:
+			cameraAnimation("journal", 576, 324)
 	
 	if Input.is_action_just_pressed("DebugMode"):
 		$DEBUGVALUES.visible = !$DEBUGVALUES.visible
@@ -186,10 +331,6 @@ func _startEvent(numberPicked, type) -> void:
 		$Camera2D.position.x = 576
 		$Camera2D.position.y = 324
 		caca.reparent($/root)
-	if type == 1:
-		caca.reparent($ShrilowScreen)
-		caca.position.y = caca.position.y + $ShrilowScreen.position.y
-		caca.position.x = caca.position.x + $ShrilowScreen.position.x
 
 func shrilowColor(color) -> void:
 	if color == "base":
@@ -215,7 +356,6 @@ func _on_right_move_mouse_entered() -> void:
 
 func _on_left_move_mouse_entered() -> void:
 	cameraMoveDir = "left"
-	print("hi")
 
 func _on_right_move_mouse_exited() -> void:
 	cameraMoveDir = "center"
@@ -225,3 +365,113 @@ func _on_left_move_mouse_exited() -> void:
 
 func _signal_jelly():
 	area = "Jellies"
+
+func cameraAnimation(Varea, positionX, positionY):
+	area = "notJellies"
+	$EventTimer.paused = true
+	$Camera2D/bg/icon.texture = load("res://assets/images/ui/transitions/"+Varea+".png")
+	AnimPosCamX = positionX
+	AnimPosCamY = positionY
+	$Camera2D/AnimationPlayer.play("open")
+	print(area)
+
+func moveCam():
+	print(area)
+	$Camera2D.position.x = AnimPosCamX
+	$Camera2D.position.y = AnimPosCamY
+	print(AnimPosCamY)
+	if AnimPosCamY == 324:
+		area = "Jellies"
+
+func coinSelectionChange(toAdd: int) -> void:
+	gumballSelection += toAdd
+	if gumballSelection < 0:
+		gumballSelection = 4
+	if gumballSelection > 4:
+		gumballSelection = 0
+
+func _buyGumball_pressed() -> void:
+	if ItemValues.money >= gumballInfo[gumballSelection]["Cost"]:
+		var type = 0.0
+		var rarityGotten = "Common"
+		type = float((rng.randi_range(1, 200)) / 2)
+		print(type)
+		var jellyTypeToBe
+		
+		if type <= (gumballInfo[gumballSelection][gumballInfo[gumballSelection]["5THOrder"]]) * 2:
+			jellyTypeToBe = gumballInfo[gumballSelection]["5THOrder"]
+		elif type <= (gumballInfo[gumballSelection][gumballInfo[gumballSelection]["4THOrder"]]) * 2:
+			jellyTypeToBe = gumballInfo[gumballSelection]["4THOrder"]
+		elif type <= (gumballInfo[gumballSelection][gumballInfo[gumballSelection]["3RDOrder"]]) * 2:
+			jellyTypeToBe = gumballInfo[gumballSelection]["3RDOrder"]
+		elif type <= (gumballInfo[gumballSelection][gumballInfo[gumballSelection]["2NDOrder"]]) * 2:
+			jellyTypeToBe = gumballInfo[gumballSelection]["2NDOrder"]
+		else:
+			jellyTypeToBe = gumballInfo[gumballSelection]["1STOrder"]
+		
+		print(jellyTypeToBe)
+		
+		var goatedVar
+		var caca
+		
+		if jellyTypeToBe == "CommonChance":
+			rarityGotten = "Common"
+			goatedVar = rng.randi_range(0, Jelly.commonJellies.size()-1)
+			var cacapoopyGOD2 = load("res://technical/items/jelly.tscn")
+			caca = cacapoopyGOD2.instantiate()
+			Jelly.queerJellies[goatedVar]["Discovered"] = true
+			caca.jelly = Jelly.commonJellies[goatedVar]["Name"]
+			caca.rarity = rarityGotten
+			caca.seconds = Jelly.commonJellies[goatedVar]["Seconds"]
+			caca.money = Jelly.commonJellies[goatedVar]["MoneyGain"]
+		elif jellyTypeToBe == "UncommonChance":
+			rarityGotten = "Uncommon"
+			goatedVar = rng.randi_range(0, Jelly.uncommonJellies.size()-1)
+			var cacapoopyGOD2 = load("res://technical/items/jelly.tscn")
+			caca = cacapoopyGOD2.instantiate()
+			Jelly.queerJellies[goatedVar]["Discovered"] = true
+			caca.jelly = Jelly.uncommonJellies[goatedVar]["Name"]
+			caca.rarity = rarityGotten
+			caca.seconds = Jelly.uncommonJellies[goatedVar]["Seconds"]
+			caca.money = Jelly.uncommonJellies[goatedVar]["MoneyGain"]
+		elif jellyTypeToBe == "RareChance":
+			rarityGotten = "Rare"
+			goatedVar = rng.randi_range(0, Jelly.rareJellies.size()-1)
+			var cacapoopyGOD2 = load("res://technical/items/jelly.tscn")
+			caca = cacapoopyGOD2.instantiate()
+			Jelly.queerJellies[goatedVar]["Discovered"] = true
+			caca.jelly = Jelly.rareJellies[goatedVar]["Name"]
+			caca.rarity = rarityGotten
+			caca.seconds = Jelly.rareJellies[goatedVar]["Seconds"]
+			caca.money = Jelly.rareJellies[goatedVar]["MoneyGain"]
+		elif jellyTypeToBe == "AwesomeChance":
+			rarityGotten = "Awesome"
+			goatedVar = rng.randi_range(0, Jelly.awesomeJellies.size()-1)
+			var cacapoopyGOD2 = load("res://technical/items/jelly.tscn")
+			caca = cacapoopyGOD2.instantiate()
+			Jelly.queerJellies[goatedVar]["Discovered"] = true
+			caca.jelly = Jelly.awesomeJellies[goatedVar]["Name"]
+			caca.rarity = rarityGotten
+			caca.seconds = Jelly.awesomeJellies[goatedVar]["Seconds"]
+			caca.money = Jelly.awesomeJellies[goatedVar]["MoneyGain"]
+		elif jellyTypeToBe == "QueerChance":
+			rarityGotten = "Queer"
+			goatedVar = rng.randi_range(0, Jelly.queerJellies.size()-1)
+			var cacapoopyGOD2 = load("res://technical/items/jelly.tscn")
+			caca = cacapoopyGOD2.instantiate()
+			Jelly.queerJellies[goatedVar]["Discovered"] = true
+			caca.jelly = Jelly.queerJellies[goatedVar]["Name"]
+			caca.rarity = rarityGotten
+			caca.seconds = Jelly.queerJellies[goatedVar]["Seconds"]
+			caca.money = Jelly.queerJellies[goatedVar]["MoneyGain"]
+		
+		add_child(caca)
+		caca.getID(0)
+		
+		ItemValues.money -= gumballInfo[gumballSelection]["Cost"]
+		
+		#var num
+		#if type == 0:
+			#num = rng.randi_range(0, Events.justMinigames.size()-1)
+		#if type == 1:
+			#num = rng.randi_range(0, Events.eventList.size()-1)

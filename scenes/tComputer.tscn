@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://bgw557ttv6noe"]
+[gd_scene load_steps=77 format=3 uid="uid://bgw557ttv6noe"]
 
 [ext_resource type="Script" path="res://scenes/t_computer.gd" id="1_swrb7"]
 [ext_resource type="Texture2D" uid="uid://dajex7cpt7k4p" path="res://assets/images/bg/background.png" id="2_u0da7"]
@@ -26,6 +26,12 @@
 [ext_resource type="Texture2D" uid="uid://bdb32kjljwqn4" path="res://assets/images/areas/jellies/JELLYDAYCARE.png" id="18_w041t"]
 [ext_resource type="Texture2D" uid="uid://bymsocpxxxn4o" path="res://assets/images/areas/jellies/receptionDesk.png" id="19_4v3d6"]
 [ext_resource type="Texture2D" uid="uid://cwladsljiqill" path="res://assets/images/ui/backDown.png" id="19_tht4w"]
+[ext_resource type="PackedScene" uid="uid://ctkrk05lsjbrs" path="res://technical/items/gumballMachine.tscn" id="20_i56yc"]
+[ext_resource type="Texture2D" uid="uid://c28v3hc42ws8t" path="res://assets/images/areas/gumball/bg.png" id="27_881ad"]
+[ext_resource type="Texture2D" uid="uid://dv1knrxoff866" path="res://assets/images/ui/transitions/bg.png" id="27_e5v8d"]
+[ext_resource type="Texture2D" uid="uid://bdw3hhmd7j3l2" path="res://assets/images/ui/transitions/gumballMachine.png" id="28_0uaqb"]
+[ext_resource type="Texture2D" uid="uid://dfld85b2v0ee4" path="res://assets/images/areas/gumball/templatecoinSelection.png" id="28_dwnud"]
+[ext_resource type="Texture2D" uid="uid://dxtsllx7emny1" path="res://assets/images/areas/journal/placeholderBG.png" id="30_fpw03"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p6f28"]
 
@@ -80,11 +86,17 @@ bg_color = Color(0, 1, 0, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v5e17"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ugy5"]
+size = Vector2(1774, 62)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c61rj"]
 size = Vector2(1771.75, 44.7499)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8o1fv"]
 size = Vector2(66.0613, 1156.31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ficg7"]
+size = Vector2(52, 535)
 
 [sub_resource type="Animation" id="Animation_5fubl"]
 length = 0.001
@@ -227,7 +239,7 @@ tracks/11/path = NodePath("Mines:position")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(-0.0333333),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, 648)]
@@ -814,13 +826,64 @@ colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 0)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_gikbf"]
 gradient = SubResource("Gradient_2dxcp")
 
+[sub_resource type="Animation" id="Animation_p5fj6"]
+resource_name = "open"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("bg:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2.03333, 3),
+"transitions": PackedFloat32Array(0.307786, 1, 3.36358, 1),
+"update": 0,
+"values": [Vector2(0, 1152), Vector2(0, 0), Vector2(0, 0), Vector2(0, -1152)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"moveCam"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_4bxwk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("bg:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 1152)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y6pyl"]
+_data = {
+"RESET": SubResource("Animation_4bxwk"),
+"open": SubResource("Animation_p5fj6")
+}
+
 [node name="computerShrilow" type="Node2D"]
 script = ExtResource("1_swrb7")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-offset = Vector2(400, 250)
+offset = Vector2(400, 265)
 scale = Vector2(1.15, 1.15)
-transform = Transform2D(1.15, 0, 0, 1.15, 400, 250)
+transform = Transform2D(1.15, 0, 0, 1.15, 400, 265)
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(-76.5217, -93.913)
@@ -839,13 +902,13 @@ position = Vector2(0, 648)
 
 [node name="dirt" type="Sprite2D" parent="Mines"]
 position = Vector2(576, 324)
+scale = Vector2(1.04023, 1)
 texture = ExtResource("3_8qufc")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Mines"]
-offset_right = 1160.0
+offset_right = 1167.0
 offset_bottom = 648.0
 horizontal_scroll_mode = 0
-vertical_scroll_mode = 2
 
 [node name="Control" type="Control" parent="Mines/ScrollContainer"]
 custom_minimum_size = Vector2(1152, 2000)
@@ -1077,12 +1140,15 @@ texture = ExtResource("18_w041t")
 position = Vector2(266, 324)
 texture = ExtResource("19_4v3d6")
 
+[node name="GumballMachine" parent="Jelly" instance=ExtResource("20_i56yc")]
+position = Vector2(795, 478)
+
 [node name="StaticBody2D" type="StaticBody2D" parent="Jelly"]
 position = Vector2(0, -9.53674e-07)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Jelly/StaticBody2D"]
-position = Vector2(265.877, 626.625)
-shape = SubResource("RectangleShape2D_c61rj")
+position = Vector2(267, 639)
+shape = SubResource("RectangleShape2D_0ugy5")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Jelly/StaticBody2D"]
 position = Vector2(266, -523)
@@ -1091,6 +1157,10 @@ shape = SubResource("RectangleShape2D_c61rj")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Jelly/StaticBody2D"]
 position = Vector2(1119.03, 28.1563)
 shape = SubResource("RectangleShape2D_8o1fv")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Jelly/StaticBody2D"]
+position = Vector2(-596, -267.5)
+shape = SubResource("RectangleShape2D_ficg7")
 
 [node name="Control" type="Control" parent="Jelly"]
 custom_minimum_size = Vector2(3000, 648)
@@ -1275,6 +1345,141 @@ volume_db = -80.0
 autoplay = true
 parameters/looping = true
 
+[node name="Gumball" type="Node2D" parent="."]
+position = Vector2(-1367, -2308)
+
+[node name="bg" type="Sprite2D" parent="Gumball"]
+position = Vector2(576, 324)
+texture = ExtResource("27_881ad")
+
+[node name="coin" type="Sprite2D" parent="Gumball"]
+position = Vector2(576, 324)
+texture = ExtResource("28_dwnud")
+
+[node name="coinName" type="Label" parent="Gumball"]
+offset_left = 906.0
+offset_top = 468.0
+offset_right = 1102.0
+offset_bottom = 529.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "COMMON COIN"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Gumball"]
+offset_left = 478.0
+offset_top = 120.0
+offset_right = 864.0
+offset_bottom = 600.0
+color = Color(0, 0, 0, 0.513726)
+
+[node name="stuff" type="Label" parent="Gumball"]
+offset_left = 490.0
+offset_top = 130.0
+offset_right = 855.0
+offset_bottom = 589.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "COMMON COIN"
+autowrap_mode = 3
+
+[node name="back" type="Sprite2D" parent="Gumball"]
+position = Vector2(89, 565)
+texture = ExtResource("17_obgyp")
+
+[node name="BackButton" type="Button" parent="Gumball"]
+offset_left = 20.0
+offset_top = 489.0
+offset_right = 158.0
+offset_bottom = 641.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p6f28")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_w4xu3")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_uj6cr")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0meto")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_rmwiu")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_o3afr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_amgep")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_e3kvh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_kvmat")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iq0t2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
+
+[node name="NextCoin" type="Button" parent="Gumball"]
+offset_left = 949.0
+offset_top = 538.0
+offset_right = 1055.0
+offset_bottom = 594.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p6f28")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_w4xu3")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_uj6cr")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0meto")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_rmwiu")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_o3afr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_amgep")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_e3kvh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_kvmat")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iq0t2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
+
+[node name="LastCoin" type="Button" parent="Gumball"]
+offset_left = 949.0
+offset_top = 117.0
+offset_right = 1055.0
+offset_bottom = 173.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p6f28")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_w4xu3")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_uj6cr")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0meto")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_rmwiu")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_o3afr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_amgep")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_e3kvh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_kvmat")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iq0t2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
+
+[node name="priceTag" type="Label" parent="Gumball"]
+offset_left = 97.0
+offset_top = 343.0
+offset_right = 441.0
+offset_bottom = 444.0
+scale = Vector2(1, 0.7)
+theme = ExtResource("8_oskpf")
+text = "moneyCostHere"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="Gumball/priceTag"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 96.0
+offset_right = 328.0
+offset_bottom = 200.0
+theme_override_font_sizes/font_size = 28
+text = "placehedolwrr buy button"
+autowrap_mode = 2
+
+[node name="Journal" type="Node2D" parent="."]
+position = Vector2(-1367, -1545)
+
+[node name="bg" type="Sprite2D" parent="Journal"]
+position = Vector2(576, 324)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("30_fpw03")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Journal/bg"]
+offset_left = -542.0
+offset_top = -103.0
+offset_right = 654.0
+offset_bottom = 326.0
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="Journal/bg/ScrollContainer"]
+layout_mode = 2
+columns = 4
+
 [node name="sectionTransitions" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_vs8hy")
@@ -1358,6 +1563,19 @@ offset_bottom = 324.0
 mouse_filter = 2
 texture = SubResource("GradientTexture2D_gikbf")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D"]
+libraries = {
+"": SubResource("AnimationLibrary_y6pyl")
+}
+
+[node name="bg" type="Sprite2D" parent="Camera2D"]
+z_index = 4096
+position = Vector2(0, 1152)
+texture = ExtResource("27_e5v8d")
+
+[node name="icon" type="Sprite2D" parent="Camera2D/bg"]
+texture = ExtResource("28_0uaqb")
+
 [connection signal="pressed" from="Mines/ScrollContainer/Control/BackButtonWARD" to="." method="_on_back_button_ward2_pressed"]
 [connection signal="pressed" from="Shrilow/ShrilowSqueak" to="." method="_on_shrilow_squeak_pressed"]
 [connection signal="pressed" from="ShrilowScreen/ShopButton" to="." method="_on_shop_button_pressed"]
@@ -1368,6 +1586,10 @@ texture = SubResource("GradientTexture2D_gikbf")
 [connection signal="pressed" from="Jelly/BackButtonJELLY" to="." method="_on_back_button_jelly_pressed"]
 [connection signal="pressed" from="Shop/BackButtonSHOP" to="." method="_on_back_button_shop_pressed"]
 [connection signal="pressed" from="Wardrobe/BackButtonWARD" to="." method="_on_back_button_ward_pressed"]
+[connection signal="pressed" from="Gumball/BackButton" to="." method="cameraAnimation" binds= ["gumballMachine", -576, 324]]
+[connection signal="pressed" from="Gumball/NextCoin" to="." method="coinSelectionChange" binds= [1]]
+[connection signal="pressed" from="Gumball/LastCoin" to="." method="coinSelectionChange" binds= [-1]]
+[connection signal="pressed" from="Gumball/priceTag/Button" to="." method="_buyGumball_pressed"]
 [connection signal="timeout" from="EventTimer" to="." method="_event"]
 [connection signal="timeout" from="faceRevert" to="." method="_on_face_revert_timeout"]
 [connection signal="timeout" from="faceRevert2" to="." method="_on_face_revert_2_timeout"]
