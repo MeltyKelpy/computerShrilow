@@ -75,7 +75,7 @@ func _endEvent():
 		add_child(caca)
 	if stars <= 0:
 		winOrLose = false
-		money = 600 + (ItemValues.maxMoney / 10000)
+		money = 300 + (ItemValues.maxMoney / 10000)
 		add_child(caca)
 	caca.determineResult(winOrLose, stars, money)
 	caca.reparent($/root)

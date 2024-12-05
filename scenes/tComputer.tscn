@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://bgw557ttv6noe"]
+[gd_scene load_steps=85 format=3 uid="uid://bgw557ttv6noe"]
 
 [ext_resource type="Script" path="res://scenes/t_computer.gd" id="1_swrb7"]
 [ext_resource type="Texture2D" uid="uid://dajex7cpt7k4p" path="res://assets/images/bg/background.png" id="2_u0da7"]
@@ -27,11 +27,17 @@
 [ext_resource type="Texture2D" uid="uid://bymsocpxxxn4o" path="res://assets/images/areas/jellies/receptionDesk.png" id="19_4v3d6"]
 [ext_resource type="Texture2D" uid="uid://cwladsljiqill" path="res://assets/images/ui/backDown.png" id="19_tht4w"]
 [ext_resource type="PackedScene" uid="uid://ctkrk05lsjbrs" path="res://technical/items/gumballMachine.tscn" id="20_i56yc"]
+[ext_resource type="PackedScene" uid="uid://cr7xl87ndl5xc" path="res://technical/items/journal.tscn" id="21_dxr3w"]
 [ext_resource type="Texture2D" uid="uid://c28v3hc42ws8t" path="res://assets/images/areas/gumball/bg.png" id="27_881ad"]
 [ext_resource type="Texture2D" uid="uid://dv1knrxoff866" path="res://assets/images/ui/transitions/bg.png" id="27_e5v8d"]
-[ext_resource type="Texture2D" uid="uid://bdw3hhmd7j3l2" path="res://assets/images/ui/transitions/gumballMachine.png" id="28_0uaqb"]
 [ext_resource type="Texture2D" uid="uid://dfld85b2v0ee4" path="res://assets/images/areas/gumball/templatecoinSelection.png" id="28_dwnud"]
-[ext_resource type="Texture2D" uid="uid://dxtsllx7emny1" path="res://assets/images/areas/journal/placeholderBG.png" id="30_fpw03"]
+[ext_resource type="Texture2D" uid="uid://6gdisqedcy4y" path="res://assets/images/areas/journal/bg.png" id="30_a6r5c"]
+[ext_resource type="Texture2D" uid="uid://cyl5tq8jp5j0t" path="res://assets/images/ui/transitions/gumball0.png" id="33_ltk4g"]
+[ext_resource type="Texture2D" uid="uid://bkbjihpsh2jer" path="res://assets/images/ui/transitions/gumball1.png" id="34_81w35"]
+[ext_resource type="Texture2D" uid="uid://b3tp13r2ykpby" path="res://assets/images/ui/transitions/journal0.png" id="35_a0leu"]
+[ext_resource type="Texture2D" uid="uid://qhintyosqus" path="res://assets/images/ui/transitions/journal1.png" id="36_s2fg5"]
+[ext_resource type="Texture2D" uid="uid://kpdgjt7sf3f1" path="res://assets/images/ui/transitions/storage0.png" id="37_minta"]
+[ext_resource type="Texture2D" uid="uid://ba21ncyajao5t" path="res://assets/images/ui/transitions/storage1.png" id="38_1n5wc"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p6f28"]
 
@@ -96,7 +102,9 @@ size = Vector2(1771.75, 44.7499)
 size = Vector2(66.0613, 1156.31)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ficg7"]
-size = Vector2(52, 535)
+size = Vector2(292, 1164)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0bpyy"]
 
 [sub_resource type="Animation" id="Animation_5fubl"]
 length = 0.001
@@ -826,6 +834,21 @@ colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 0)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_gikbf"]
 gradient = SubResource("Gradient_2dxcp")
 
+[sub_resource type="Animation" id="Animation_4bxwk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("bg:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 1152)]
+}
+
 [sub_resource type="Animation" id="Animation_p5fj6"]
 resource_name = "open"
 length = 3.0
@@ -856,38 +879,59 @@ tracks/1/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_4bxwk"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("bg:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 1152)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_y6pyl"]
 _data = {
 "RESET": SubResource("Animation_4bxwk"),
 "open": SubResource("Animation_p5fj6")
 }
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_2w07w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("33_ltk4g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_81w35")
+}],
+"loop": true,
+"name": &"gumballMachine",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("35_a0leu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_s2fg5")
+}],
+"loop": true,
+"name": &"journal",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("37_minta")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_1n5wc")
+}],
+"loop": true,
+"name": &"storage",
+"speed": 4.0
+}]
+
 [node name="computerShrilow" type="Node2D"]
 script = ExtResource("1_swrb7")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-offset = Vector2(400, 265)
+offset = Vector2(500, 325)
 scale = Vector2(1.15, 1.15)
-transform = Transform2D(1.15, 0, 0, 1.15, 400, 265)
+transform = Transform2D(1.15, 0, 0, 1.15, 500, 325)
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(-76.5217, -93.913)
-motion_mirroring = Vector2(600, 557)
+position = Vector2(1000, 0)
+motion_mirroring = Vector2(1152, 800)
 
 [node name="background" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2(-36.5218, 48.6956)
@@ -1143,6 +1187,9 @@ texture = ExtResource("19_4v3d6")
 [node name="GumballMachine" parent="Jelly" instance=ExtResource("20_i56yc")]
 position = Vector2(795, 478)
 
+[node name="Journal" parent="Jelly" instance=ExtResource("21_dxr3w")]
+position = Vector2(619, 477)
+
 [node name="StaticBody2D" type="StaticBody2D" parent="Jelly"]
 position = Vector2(0, -9.53674e-07)
 
@@ -1159,7 +1206,7 @@ position = Vector2(1119.03, 28.1563)
 shape = SubResource("RectangleShape2D_8o1fv")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Jelly/StaticBody2D"]
-position = Vector2(-596, -267.5)
+position = Vector2(-476, 47)
 shape = SubResource("RectangleShape2D_ficg7")
 
 [node name="Control" type="Control" parent="Jelly"]
@@ -1460,25 +1507,88 @@ theme_override_font_sizes/font_size = 28
 text = "placehedolwrr buy button"
 autowrap_mode = 2
 
+[node name="USD" type="Sprite2D" parent="Gumball"]
+z_index = 8
+position = Vector2(47.5, 66.5)
+texture = ExtResource("7_0u6ge")
+
+[node name="USDText" type="Label" parent="Gumball"]
+z_index = 8
+offset_left = 16.0
+offset_top = 124.0
+offset_right = 120.0
+offset_bottom = 194.0
+scale = Vector2(1, 0.6)
+theme = ExtResource("8_oskpf")
+theme_override_font_sizes/font_size = 50
+text = "MONEY"
+
 [node name="Journal" type="Node2D" parent="."]
 position = Vector2(-1367, -1545)
 
 [node name="bg" type="Sprite2D" parent="Journal"]
 position = Vector2(576, 324)
 scale = Vector2(0.9, 0.9)
-texture = ExtResource("30_fpw03")
+texture = ExtResource("30_a6r5c")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Journal/bg"]
-offset_left = -542.0
-offset_top = -103.0
-offset_right = 654.0
-offset_bottom = 326.0
+[node name="ScrollContainer" type="ScrollContainer" parent="Journal"]
+offset_left = 17.0
+offset_top = 183.0
+offset_right = 572.0
+offset_bottom = 615.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_0bpyy")
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 2
 
-[node name="GridContainer" type="GridContainer" parent="Journal/bg/ScrollContainer"]
+[node name="GridContainer" type="GridContainer" parent="Journal/ScrollContainer"]
 layout_mode = 2
-columns = 4
+columns = 2
+
+[node name="jellyName" type="Label" parent="Journal"]
+offset_left = 594.0
+offset_top = 197.0
+offset_right = 1102.0
+offset_bottom = 246.0
+theme = ExtResource("8_oskpf")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Jelly"
+horizontal_alignment = 2
+vertical_alignment = 1
+clip_text = true
+
+[node name="jellyDesc" type="Label" parent="Journal"]
+offset_left = 594.0
+offset_top = 245.0
+offset_right = 1102.0
+offset_bottom = 613.0
+theme = ExtResource("8_oskpf")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "this is the uhmhmdm jelly"
+horizontal_alignment = 2
+autowrap_mode = 2
+
+[node name="back" type="Sprite2D" parent="."]
+position = Vector2(-795.5, -1453)
+texture = ExtResource("19_tht4w")
+
+[node name="BackJOURNAL" type="Button" parent="."]
+offset_left = -864.5
+offset_top = -1529.0
+offset_right = -726.5
+offset_bottom = -1377.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p6f28")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_w4xu3")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_uj6cr")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0meto")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_rmwiu")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_o3afr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_amgep")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_e3kvh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_kvmat")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iq0t2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
 
 [node name="sectionTransitions" type="AnimationPlayer" parent="."]
 libraries = {
@@ -1573,8 +1683,11 @@ z_index = 4096
 position = Vector2(0, 1152)
 texture = ExtResource("27_e5v8d")
 
-[node name="icon" type="Sprite2D" parent="Camera2D/bg"]
-texture = ExtResource("28_0uaqb")
+[node name="icon" type="AnimatedSprite2D" parent="Camera2D/bg"]
+sprite_frames = SubResource("SpriteFrames_2w07w")
+animation = &"storage"
+frame = 1
+frame_progress = 0.684997
 
 [connection signal="pressed" from="Mines/ScrollContainer/Control/BackButtonWARD" to="." method="_on_back_button_ward2_pressed"]
 [connection signal="pressed" from="Shrilow/ShrilowSqueak" to="." method="_on_shrilow_squeak_pressed"]
@@ -1590,6 +1703,7 @@ texture = ExtResource("28_0uaqb")
 [connection signal="pressed" from="Gumball/NextCoin" to="." method="coinSelectionChange" binds= [1]]
 [connection signal="pressed" from="Gumball/LastCoin" to="." method="coinSelectionChange" binds= [-1]]
 [connection signal="pressed" from="Gumball/priceTag/Button" to="." method="_buyGumball_pressed"]
+[connection signal="pressed" from="BackJOURNAL" to="." method="cameraAnimation" binds= ["journal", -576, 324]]
 [connection signal="timeout" from="EventTimer" to="." method="_event"]
 [connection signal="timeout" from="faceRevert" to="." method="_on_face_revert_timeout"]
 [connection signal="timeout" from="faceRevert2" to="." method="_on_face_revert_2_timeout"]

@@ -28,6 +28,10 @@ material = SubResource("ShaderMaterial_i58en")
 position = Vector2(138, 61)
 texture = ExtResource("3_uwgp5")
 
+[node name="jellyCover" type="Sprite2D" parent="."]
+position = Vector2(138, 61)
+texture = ExtResource("3_uwgp5")
+
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
 offset_left = 29.0
@@ -42,3 +46,6 @@ text = "JELLY"
 horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

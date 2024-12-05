@@ -109,6 +109,7 @@ func generateHoes():
 		var cacapoopyGOD2 = preload("res://technical/jellies/storageJelly.tscn")
 		var caca = cacapoopyGOD2.instantiate()
 		caca.jelly = Jelly.commonJellies[i]["Name"]
+		caca.desc = Jelly.commonJellies[i]["Desc"]
 		caca.jellyNum = i
 		caca.rarity = "Common"
 		add_child(caca)
@@ -117,6 +118,7 @@ func generateHoes():
 		var cacapoopyGOD2 = preload("res://technical/jellies/storageJelly.tscn")
 		var caca = cacapoopyGOD2.instantiate()
 		caca.jelly = Jelly.uncommonJellies[i]["Name"]
+		caca.desc = Jelly.uncommonJellies[i]["Desc"]
 		caca.jellyNum = i
 		caca.rarity = "Uncommon"
 		add_child(caca)
@@ -125,6 +127,7 @@ func generateHoes():
 		var cacapoopyGOD2 = preload("res://technical/jellies/storageJelly.tscn")
 		var caca = cacapoopyGOD2.instantiate()
 		caca.jelly = Jelly.rareJellies[i]["Name"]
+		caca.desc = Jelly.rareJellies[i]["Desc"]
 		caca.jellyNum = i
 		caca.rarity = "Rare"
 		add_child(caca)
@@ -133,6 +136,7 @@ func generateHoes():
 		var cacapoopyGOD2 = preload("res://technical/jellies/storageJelly.tscn")
 		var caca = cacapoopyGOD2.instantiate()
 		caca.jelly = Jelly.awesomeJellies[i]["Name"]
+		caca.desc = Jelly.awesomeJellies[i]["Desc"]
 		caca.jellyNum = i
 		caca.rarity = "Awesome"
 		add_child(caca)
@@ -141,6 +145,7 @@ func generateHoes():
 		var cacapoopyGOD2 = preload("res://technical/jellies/storageJelly.tscn")
 		var caca = cacapoopyGOD2.instantiate()
 		caca.jelly = Jelly.queerJellies[i]["Name"]
+		caca.desc = Jelly.queerJellies[i]["Desc"]
 		caca.jellyNum = i
 		caca.rarity = "Queer"
 		add_child(caca)
@@ -152,12 +157,23 @@ func _ready():
 
 func _process(_delta : float) -> void:
 	
-	if $Camera2D.position.x < (-576) and area == "Jellies":
+	$Journal/jellyName.text = Jelly.jellyName
+	$Journal/jellyDesc.text = Jelly.jellyDesc
+	
+	if get_tree().paused == false:
+		$Camera2D/bg.visible = true
+	else:
+		$Camera2D/bg.visible = false
+	
+	if $Camera2D.position.x < (-576) and $Camera2D.position.x > (-1196) and area == "Jellies":
 		$Camera2D/leftMove.set_mouse_filter(1)
 		$Camera2D/rightMove.set_mouse_filter(1)
 	elif $Camera2D.position.x == (-576) and area == "Jellies":
 		$Camera2D/leftMove.set_mouse_filter(1)
 		$Camera2D/rightMove.set_mouse_filter(2)
+	elif $Camera2D.position.x == (-1196) and area == "Jellies":
+		$Camera2D/leftMove.set_mouse_filter(2)
+		$Camera2D/rightMove.set_mouse_filter(1)
 	else:
 		$Camera2D/leftMove.set_mouse_filter(2)
 		$Camera2D/rightMove.set_mouse_filter(2)
@@ -169,6 +185,8 @@ func _process(_delta : float) -> void:
 	
 	if area == "Jellies" and $Camera2D.position.x > (-576):
 		$Camera2D.position.x = (-576)
+	if area == "Jellies" and $Camera2D.position.x < (-1196):
+		$Camera2D.position.x = (-1196)
 	
 	if FizzyDrink.stopTheCount != 0:
 		$noEventsTimer.wait_time = FizzyDrink.stopTheCount
@@ -222,6 +240,7 @@ func _process(_delta : float) -> void:
 	
 	$ShrilowScreen/Clicks.text = "CLICKS: "+str(clicks)
 	$USDText.text = str(ItemValues.money)
+	$Gumball/USDText.text = str(ItemValues.money)
 	
 	$ParallaxBackground.scroll_base_offset.y -= 10 * _delta/0.5
 	
@@ -231,11 +250,11 @@ func _process(_delta : float) -> void:
 		$Shrilow.scale.y += 0.05
 	
 	if Input.is_action_just_pressed("eventText"):
-		#_event()
-		if $Camera2D.position.x != -1221:
-			cameraAnimation("journal", -1221, -791)
-		if $Camera2D.position.x == -1221:
-			cameraAnimation("journal", 576, 324)
+		_event()
+		#if $Camera2D.position.x != -1221:
+			#cameraAnimation("journal", -791, -1221)
+		#if $Camera2D.position.x == -791:
+			#cameraAnimation("journal", 576, 324)
 	
 	if Input.is_action_just_pressed("DebugMode"):
 		$DEBUGVALUES.visible = !$DEBUGVALUES.visible
@@ -300,6 +319,7 @@ func _on_mines_button_pressed() -> void:
 	$sectionTransitions.play("toMines")
 
 func _event() -> void:
+	$Camera2D/bg.visible = false
 	var type = rng.randi_range(0, 1)
 	var num
 	if type == 0:
@@ -355,7 +375,8 @@ func _on_right_move_mouse_entered() -> void:
 		cameraMoveDir = "right"
 
 func _on_left_move_mouse_entered() -> void:
-	cameraMoveDir = "left"
+	if $Camera2D.position.x > (-1196):
+		cameraMoveDir = "left"
 
 func _on_right_move_mouse_exited() -> void:
 	cameraMoveDir = "center"
@@ -369,14 +390,12 @@ func _signal_jelly():
 func cameraAnimation(Varea, positionX, positionY):
 	area = "notJellies"
 	$EventTimer.paused = true
-	$Camera2D/bg/icon.texture = load("res://assets/images/ui/transitions/"+Varea+".png")
+	$Camera2D/bg/icon.play(Varea)
 	AnimPosCamX = positionX
 	AnimPosCamY = positionY
 	$Camera2D/AnimationPlayer.play("open")
-	print(area)
 
 func moveCam():
-	print(area)
 	$Camera2D.position.x = AnimPosCamX
 	$Camera2D.position.y = AnimPosCamY
 	print(AnimPosCamY)
@@ -394,7 +413,7 @@ func _buyGumball_pressed() -> void:
 	if ItemValues.money >= gumballInfo[gumballSelection]["Cost"]:
 		var type = 0.0
 		var rarityGotten = "Common"
-		type = float((rng.randi_range(1, 200)) / 2)
+		type = (rng.randi_range(1, 200))
 		print(type)
 		var jellyTypeToBe
 		
@@ -419,7 +438,7 @@ func _buyGumball_pressed() -> void:
 			goatedVar = rng.randi_range(0, Jelly.commonJellies.size()-1)
 			var cacapoopyGOD2 = load("res://technical/items/jelly.tscn")
 			caca = cacapoopyGOD2.instantiate()
-			Jelly.queerJellies[goatedVar]["Discovered"] = true
+			Jelly.commonJellies[goatedVar]["Discovered"] = true
 			caca.jelly = Jelly.commonJellies[goatedVar]["Name"]
 			caca.rarity = rarityGotten
 			caca.seconds = Jelly.commonJellies[goatedVar]["Seconds"]
@@ -429,7 +448,7 @@ func _buyGumball_pressed() -> void:
 			goatedVar = rng.randi_range(0, Jelly.uncommonJellies.size()-1)
 			var cacapoopyGOD2 = load("res://technical/items/jelly.tscn")
 			caca = cacapoopyGOD2.instantiate()
-			Jelly.queerJellies[goatedVar]["Discovered"] = true
+			Jelly.uncommonJellies[goatedVar]["Discovered"] = true
 			caca.jelly = Jelly.uncommonJellies[goatedVar]["Name"]
 			caca.rarity = rarityGotten
 			caca.seconds = Jelly.uncommonJellies[goatedVar]["Seconds"]
@@ -439,7 +458,7 @@ func _buyGumball_pressed() -> void:
 			goatedVar = rng.randi_range(0, Jelly.rareJellies.size()-1)
 			var cacapoopyGOD2 = load("res://technical/items/jelly.tscn")
 			caca = cacapoopyGOD2.instantiate()
-			Jelly.queerJellies[goatedVar]["Discovered"] = true
+			Jelly.rareJellies[goatedVar]["Discovered"] = true
 			caca.jelly = Jelly.rareJellies[goatedVar]["Name"]
 			caca.rarity = rarityGotten
 			caca.seconds = Jelly.rareJellies[goatedVar]["Seconds"]
@@ -449,7 +468,7 @@ func _buyGumball_pressed() -> void:
 			goatedVar = rng.randi_range(0, Jelly.awesomeJellies.size()-1)
 			var cacapoopyGOD2 = load("res://technical/items/jelly.tscn")
 			caca = cacapoopyGOD2.instantiate()
-			Jelly.queerJellies[goatedVar]["Discovered"] = true
+			Jelly.awesomeJellies[goatedVar]["Discovered"] = true
 			caca.jelly = Jelly.awesomeJellies[goatedVar]["Name"]
 			caca.rarity = rarityGotten
 			caca.seconds = Jelly.awesomeJellies[goatedVar]["Seconds"]

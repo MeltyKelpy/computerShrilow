@@ -7,6 +7,7 @@ var curClicks = 0
 var shake = false
 
 func _ready() -> void:
+	reparent($/root/computerShrilow/ShrilowScreen)
 	flooding = true
 	clicks = rng.randi_range(3, 6)
 	print(clicks)
@@ -39,6 +40,8 @@ func _process(delta: float) -> void:
 	
 	if $Control/water.position.y <= 572 and flooding == true:
 		FizzyDrink.health -= 0.1
+		if FizzyDrink.health == 0:
+			queue_free()
 	elif $Control/water.position.y > 572 and flooding == false:
 		FizzyDrink.health += 0.5
 		$Control/AudioStreamPlayer.volume_db -= 0.1

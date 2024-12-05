@@ -46,21 +46,21 @@ var itemInfomation = [
 	"ScenePath":"res://technical/items/plusoneauto.tscn",
 	"Type":"Generic",
 	},
-	{
-	# JELLY
-	"Image":"res://assets/images/areas/melanies/items/jelly.png",
-	"Name":"Jelly!",
-	"Desc":'"Little Goober who produces $1 every 3 seconds, while not alot, you can buy as many as you want!" -Mel ',
-	"Upgradeable?":false,
-	"MaxUpgrade":1,
-	"CurUpgrade":0,
-	"BaseValue":0,
-	"UpgradeIncrease":1,
-	"Owned":false,
-	"Cost":150,
-	"ScenePath":"res://technical/items/jelly.tscn",
-	"Type":"Consumable",
-	},
+	#{
+	## JELLY
+	#"Image":"res://assets/images/areas/melanies/items/jelly.png",
+	#"Name":"Jelly!",
+	#"Desc":'"Little Goober who produces $1 every 3 seconds, while not alot, you can buy as many as you want!" -Mel ',
+	#"Upgradeable?":false,
+	#"MaxUpgrade":1,
+	#"CurUpgrade":0,
+	#"BaseValue":0,
+	#"UpgradeIncrease":1,
+	#"Owned":false,
+	#"Cost":150,
+	#"ScenePath":"res://technical/items/jelly.tscn",
+	#"Type":"Consumable",
+	#},
 	{
 	# Bone
 	"Image":"res://assets/images/areas/melanies/items/bone.png",

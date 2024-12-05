@@ -1,12 +1,26 @@
 extends CanvasLayer
 
+var moneyLost
+var exitAllowed = false
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	reparent($/root)
 	get_tree().paused = true
+	moneyLost = 600 + (ItemValues.maxMoney / 1000)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if Input.is_action_just_pressed("ui_accept") and exitAllowed == true:
+		FizzyDrink.health = 100
+		get_tree().paused = false
+		ItemValues.money -= moneyLost
+		$AnimationPlayer.play("new_animation_2")
+
+func calcCost():
+	$Label2.text = "Revive Cost:\n"+str(moneyLost)
+	$lose.play()
+
+func allowExit():
+	exitAllowed = true
+
+func kill():
+	queue_free()

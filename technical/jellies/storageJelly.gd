@@ -2,7 +2,9 @@ extends TextureRect
 
 var jellyNum = 0
 var jelly = "Gardener Jelly"
+var desc = "Hi"
 var rarity = "Rare"
+var selfDiscoveredVar = false
 
 var is_dragging = false
 
@@ -22,31 +24,68 @@ func _ready() -> void:
 	else:
 		$jelly.material.set_shader_parameter("rainbow", true)
 	$jelly.texture = load("res://assets/images/jellies/"+jelly+"/jelly0.png")
+	$jellyCover.texture = load("res://assets/images/jellies/"+jelly+"/jelly0.png")
 
-func _process(delta: float) -> void:
-	$Label.text = jelly
+func _process(_delta: float) -> void:
+	
 	if rarity == "Queer":
 		if Jelly.queerJellies[jellyNum]["Discovered"] == false:
-			$jelly.modulate = Color(0,0,0,1)
+			$jellyCover.modulate = Color(0,0,0,1)
+			$Label.text = "???"
+			selfDiscoveredVar = false
 		else:
-			$jelly.modulate = Color(1,1,1,1)
+			$jellyCover.modulate = Color(1,1,1,0)
+			$Label.text = jelly
+			selfDiscoveredVar = true
+	
 	if rarity == "Awesome":
 		if Jelly.awesomeJellies[jellyNum]["Discovered"] == false:
-			$jelly.modulate = Color(0,0,0,1)
+			$jellyCover.modulate = Color(0,0,0,1)
+			$Label.text = "???"
+			selfDiscoveredVar = false
 		else:
-			$jelly.modulate = Color(1,1,1,1)
+			$jellyCover.modulate = Color(1,1,1,0)
+			$Label.text = jelly
+			selfDiscoveredVar = true
+	
 	if rarity == "Rare":
 		if Jelly.rareJellies[jellyNum]["Discovered"] == false:
-			$jelly.modulate = Color(0,0,0,1)
+			$jellyCover.modulate = Color(0,0,0,1)
+			$Label.text = "???"
+			selfDiscoveredVar = false
 		else:
-			$jelly.modulate = Color(1,1,1,1)
+			$jellyCover.modulate = Color(1,1,1,0)
+			$Label.text = jelly
+			selfDiscoveredVar = true
+	
 	if rarity == "Uncommon":
 		if Jelly.uncommonJellies[jellyNum]["Discovered"] == false:
-			$jelly.modulate = Color(0,0,0,1)
+			$jellyCover.modulate = Color(0,0,0,1)
+			$Label.text = "???"
+			selfDiscoveredVar = false
 		else:
-			$jelly.modulate = Color(1,1,1,1)
+			$jellyCover.modulate = Color(1,1,1,0)
+			$Label.text = jelly
+			selfDiscoveredVar = true
+	
 	if rarity == "Common":
 		if Jelly.commonJellies[jellyNum]["Discovered"] == false:
-			$jelly.modulate = Color(0,0,0,1)
+			$jellyCover.modulate = Color(0,0,0,1)
+			$Label.text = "???"
+			selfDiscoveredVar = false
 		else:
-			$jelly.modulate = Color(1,1,1,1)
+			$jellyCover.modulate = Color(1,1,1,0)
+			$Label.text = jelly
+			selfDiscoveredVar = true
+
+func _on_mouse_entered() -> void:
+	if selfDiscoveredVar == false:
+		Jelly.jellyName = "???"
+		Jelly.jellyDesc = "???"
+	else:
+		Jelly.jellyName = jelly
+		Jelly.jellyDesc = desc
+
+func _on_mouse_exited() -> void:
+	Jelly.jellyName = "Hover over a jelly to see its description!"
+	Jelly.jellyDesc = "if you have said jelly, of course."

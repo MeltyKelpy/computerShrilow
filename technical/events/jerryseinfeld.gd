@@ -10,6 +10,7 @@ var ranCheck = false
 func _ready() -> void:
 	clicks = rng.randi_range(5, 10)
 	print(clicks)
+	reparent($/root/computerShrilow/ShrilowScreen)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

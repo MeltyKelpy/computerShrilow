@@ -49,7 +49,8 @@ shape = SubResource("RectangleShape2D_edxbq")
 
 [node name="Squeak" type="AudioStreamPlayer2D" parent="RigidBody2D"]
 stream = ExtResource("3_howpp")
-volume_db = -36.353
+volume_db = -35.362
+max_distance = 750.0
 
 [node name="MousePin" type="PinJoint2D" parent="."]
 

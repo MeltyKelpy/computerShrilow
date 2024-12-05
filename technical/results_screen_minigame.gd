@@ -92,6 +92,7 @@ func countMoney():
 	countingMoney = true
 
 func allowExit():
+	$resultsscreen/INFO.text = "\n\n\nSTARS:\n"+str(starr)+"/5\n\nTOTAL MONEY:\n"
 	$/root/computerShrilow/Camera2D.position.x = $/root/computerShrilow.returnPosCamX
 	$/root/computerShrilow/Camera2D.position.y = $/root/computerShrilow.returnPosCamY
 	position.x = $/root/computerShrilow.returnPosCamX - 576
