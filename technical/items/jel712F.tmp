@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bvxn7n144a812"]
+[gd_scene load_steps=12 format=3 uid="uid://bvxn7n144a812"]
 
 [ext_resource type="Script" path="res://technical/items/jelly.gd" id="1_3rnah"]
 [ext_resource type="Shader" path="res://technical/jellyOutline.gdshader" id="2_lc331"]
@@ -27,6 +27,12 @@ height = 116.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_edxbq"]
 size = Vector2(102, 55)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_owyot"]
+size = Vector2(104, 750)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lr3ph"]
+size = Vector2(1399.5, 83)
 
 [node name="Jelly" type="Node2D"]
 script = ExtResource("1_3rnah")
@@ -100,10 +106,24 @@ wait_time = 0.2
 one_shot = true
 autostart = true
 
-[node name="deathTime" type="Timer" parent="."]
-wait_time = 2.5
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-147, 249)
+shape = SubResource("RectangleShape2D_owyot")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1160, 249)
+shape = SubResource("RectangleShape2D_owyot")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(500.25, 647.5)
+shape = SubResource("RectangleShape2D_lr3ph")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(500.25, -156)
+shape = SubResource("RectangleShape2D_lr3ph")
 
 [connection signal="timeout" from="FirstTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="SecondTimer" to="." method="_on_second_timer_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_jelly_spawn"]
-[connection signal="timeout" from="deathTime" to="." method="_on_death_time_timeout"]

@@ -438,51 +438,56 @@ func _buyGumball_pressed() -> void:
 			goatedVar = rng.randi_range(0, Jelly.commonJellies.size()-1)
 			var cacapoopyGOD2 = load("res://technical/items/jelly.tscn")
 			caca = cacapoopyGOD2.instantiate()
-			Jelly.commonJellies[goatedVar]["Discovered"] = true
 			caca.jelly = Jelly.commonJellies[goatedVar]["Name"]
 			caca.rarity = rarityGotten
 			caca.seconds = Jelly.commonJellies[goatedVar]["Seconds"]
 			caca.money = Jelly.commonJellies[goatedVar]["MoneyGain"]
+			caca.selfDiscoveredVar = Jelly.commonJellies[goatedVar]["Discovered"]
+			Jelly.commonJellies[goatedVar]["Discovered"] = true
 		elif jellyTypeToBe == "UncommonChance":
 			rarityGotten = "Uncommon"
 			goatedVar = rng.randi_range(0, Jelly.uncommonJellies.size()-1)
 			var cacapoopyGOD2 = load("res://technical/items/jelly.tscn")
 			caca = cacapoopyGOD2.instantiate()
-			Jelly.uncommonJellies[goatedVar]["Discovered"] = true
 			caca.jelly = Jelly.uncommonJellies[goatedVar]["Name"]
 			caca.rarity = rarityGotten
 			caca.seconds = Jelly.uncommonJellies[goatedVar]["Seconds"]
 			caca.money = Jelly.uncommonJellies[goatedVar]["MoneyGain"]
+			caca.selfDiscoveredVar = Jelly.uncommonJellies[goatedVar]["Discovered"]
+			Jelly.uncommonJellies[goatedVar]["Discovered"] = true
 		elif jellyTypeToBe == "RareChance":
 			rarityGotten = "Rare"
 			goatedVar = rng.randi_range(0, Jelly.rareJellies.size()-1)
 			var cacapoopyGOD2 = load("res://technical/items/jelly.tscn")
 			caca = cacapoopyGOD2.instantiate()
-			Jelly.rareJellies[goatedVar]["Discovered"] = true
 			caca.jelly = Jelly.rareJellies[goatedVar]["Name"]
 			caca.rarity = rarityGotten
 			caca.seconds = Jelly.rareJellies[goatedVar]["Seconds"]
 			caca.money = Jelly.rareJellies[goatedVar]["MoneyGain"]
+			caca.selfDiscoveredVar = Jelly.rareJellies[goatedVar]["Discovered"]
+			Jelly.rareJellies[goatedVar]["Discovered"] = true
 		elif jellyTypeToBe == "AwesomeChance":
 			rarityGotten = "Awesome"
 			goatedVar = rng.randi_range(0, Jelly.awesomeJellies.size()-1)
 			var cacapoopyGOD2 = load("res://technical/items/jelly.tscn")
 			caca = cacapoopyGOD2.instantiate()
-			Jelly.awesomeJellies[goatedVar]["Discovered"] = true
 			caca.jelly = Jelly.awesomeJellies[goatedVar]["Name"]
 			caca.rarity = rarityGotten
 			caca.seconds = Jelly.awesomeJellies[goatedVar]["Seconds"]
 			caca.money = Jelly.awesomeJellies[goatedVar]["MoneyGain"]
+			caca.selfDiscoveredVar = Jelly.awesomeJellies[goatedVar]["Discovered"]
+			Jelly.awesomeJellies[goatedVar]["Discovered"] = true
 		elif jellyTypeToBe == "QueerChance":
 			rarityGotten = "Queer"
 			goatedVar = rng.randi_range(0, Jelly.queerJellies.size()-1)
 			var cacapoopyGOD2 = load("res://technical/items/jelly.tscn")
 			caca = cacapoopyGOD2.instantiate()
-			Jelly.queerJellies[goatedVar]["Discovered"] = true
 			caca.jelly = Jelly.queerJellies[goatedVar]["Name"]
 			caca.rarity = rarityGotten
 			caca.seconds = Jelly.queerJellies[goatedVar]["Seconds"]
 			caca.money = Jelly.queerJellies[goatedVar]["MoneyGain"]
+			caca.selfDiscoveredVar = Jelly.queerJellies[goatedVar]["Discovered"]
+			Jelly.queerJellies[goatedVar]["Discovered"] = true
 		
 		add_child(caca)
 		caca.getID(0)

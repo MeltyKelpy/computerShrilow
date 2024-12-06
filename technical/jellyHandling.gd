@@ -88,6 +88,13 @@ var rareJellies = [
 	"Seconds":6,
 	"Discovered":false,
 	},
+	{
+	"Name":"Captain Jelly",
+	"Desc":"Somehow still alive, surprisingly\n(Based on Curly from mouthwashing)",
+	"MoneyGain":2,
+	"Seconds":6,
+	"Discovered":false,
+	},
 	]
 var awesomeJellies = [
 	{
@@ -111,6 +118,13 @@ var awesomeJellies = [
 	"Seconds":5,
 	"Discovered":false,
 	},
+	{
+	"Name":"Blue Jelly",
+	"Desc":"Visit my bouncy castle in the outskirts of JellyTown",
+	"MoneyGain":2,
+	"Seconds":4,
+	"Discovered":false,
+	},
 	]
 var queerJellies = [
 	{
@@ -132,6 +146,13 @@ var queerJellies = [
 	"Desc":"angelthe boib thengalge the boi THEBOI BASKEKKETTHBALL",
 	"MoneyGain":3,
 	"Seconds":2,
+	"Discovered":false,
+	},
+	{
+	"Name":"Peanut Butter",
+	"Desc":"hey, wait a minute. you're not supposed to be here.\n(jelly's best friend)",
+	"MoneyGain":3,
+	"Seconds":3,
 	"Discovered":false,
 	},
 	]

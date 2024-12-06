@@ -5,6 +5,7 @@ var jelly = "Retarded Gambler Jelly"
 var rarity = "Uncommon"
 var money = 3
 var seconds = 6
+var selfDiscoveredVar = false
 
 @onready var mouse_pin: PinJoint2D = $MousePin
 @onready var fake_body: StaticBody2D = $MousePin/FakeBody
@@ -36,7 +37,10 @@ func _ready() -> void:
 	var caca2 = cacapoopyGOD3.instantiate()
 	add_child(caca2)
 	caca2.reparent($/root)
-	caca2.warn("You bought a Gumball, and you got a "+rarity+" Jelly!")
+	if selfDiscoveredVar == true:
+		caca2.warn("You bought a Gumball, and you got a "+rarity+" Jelly!")
+	else:
+		caca2.warn("You bought a Gumball, and you got a "+rarity+" Jelly, and its one you havent seen before!")
 	$nameShit/Name.text = jelly
 	$nameShit/Stats.text = rarity+"\n"+str(money)+"$ per "+str(seconds)+" Seconds"
 	if rarity != "Queer":
@@ -53,19 +57,23 @@ func _physics_process(delta: float) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if is_dragging and event is InputEventMouseButton and not event.is_pressed():
-		mouse_pin.node_b = NodePath()
-		is_dragging = false
-		rigid_body_2d.angular_damp = 0
-		$nameShit/Name.visible = false
-		$nameShit/Stats.visible = false
+		if event.get_button_index() == 1:
+			mouse_pin.node_b = NodePath()
+			is_dragging = false
+			rigid_body_2d.angular_damp = 0
+			$nameShit/Name.visible = false
+			$nameShit/Stats.visible = false
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if not is_dragging and event is InputEventMouseButton and event.is_pressed():
-		mouse_pin.node_b = mouse_pin.get_path_to(rigid_body_2d)
-		is_dragging = true
-		rigid_body_2d.angular_damp = 10
-		$nameShit/Name.visible = true
-		$nameShit/Stats.visible = true
+		if event.get_button_index() == 1:
+			mouse_pin.node_b = mouse_pin.get_path_to(rigid_body_2d)
+			is_dragging = true
+			rigid_body_2d.angular_damp = 10
+			$nameShit/Name.visible = true
+			$nameShit/Stats.visible = true
+		if event.get_button_index() == 2:
+			_on_kill_pressed()
 
 func getID(num):
 	ItemValues.itemInfomation[num]["Owned"] = false
@@ -88,3 +96,30 @@ func _on_second_timer_timeout() -> void:
 
 func _jelly_spawn() -> void:
 	visible = true
+
+func _on_kill_pressed() -> void:
+	$RigidBody2D.visible = false
+	$nameShit.visible = false
+	$RigidBody2D/Squeak.volume_db = -80
+	var moneyTo = 0
+	if rarity == "Common":
+		moneyTo = 200
+	if rarity == "Uncommon":
+		moneyTo = 400
+	if rarity == "Rare":
+		moneyTo = 800
+	if rarity == "Awesome":
+		moneyTo = 4500
+	if rarity == "Queer":
+		moneyTo = 10000
+	var cacapoopyGOD = load("res://technical/moneyGet.tscn")
+	var caca = cacapoopyGOD.instantiate()
+	add_child(caca)
+	caca.determine(moneyTo)
+	caca.position.x = rigid_body_2d.position.x
+	caca.position.y = rigid_body_2d.position.y
+	ItemValues.money += moneyTo
+	$deathTime.start()
+
+func _on_death_time_timeout() -> void:
+	queue_free()

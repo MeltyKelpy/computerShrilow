@@ -15,6 +15,9 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	
+	position.x = $/root/computerShrilow/ShrilowScreen.position.x
+	position.y = $/root/computerShrilow/ShrilowScreen.position.y
+	
 	$Control/cork/text.text = str(clicks - curClicks)
 	
 	if shake == true:
