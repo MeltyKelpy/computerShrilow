@@ -61,6 +61,13 @@ var rareJellies = [
 	"Discovered":false,
 	},
 	{
+	"Name":"Winter Jelly",
+	"Desc":"brrr... so cold!\nHopefully you'll warm up soon!",
+	"MoneyGain":2,
+	"Seconds":5,
+	"Discovered":false,
+	},
+	{
 	"Name":"JellyBricks",
 	"Desc":"Double sunglasses, double the AWESOME\n(Based on the sona of GhostyBricks)",
 	"MoneyGain":2,
@@ -95,6 +102,13 @@ var rareJellies = [
 	"Seconds":6,
 	"Discovered":false,
 	},
+	{
+	"Name":"Nurse Jelly",
+	"Desc":"Take your meds! <3\n(Based on Anya from mouthwashing)",
+	"MoneyGain":2,
+	"Seconds":6,
+	"Discovered":false,
+	},
 	]
 var awesomeJellies = [
 	{
@@ -107,6 +121,34 @@ var awesomeJellies = [
 	{
 	"Name":"Plinker Jelly",
 	"Desc":"Beep bop uhm im a robot BITCH\n(Based on the sona of Saayo)",
+	"MoneyGain":2,
+	"Seconds":5,
+	"Discovered":false,
+	},
+	{
+	"Name":"Singer Jelly",
+	"Desc":"she's hiding in your wifi, keep watch..\n(Based on Hatsune Miku)",
+	"MoneyGain":2,
+	"Seconds":4,
+	"Discovered":false,
+	},
+	{
+	"Name":"Tasty Jelly",
+	"Desc":"bet you expected this one to be called singer jelly huh?\n(Based on FlavourText Bee from MeltyKelpy mods)",
+	"MoneyGain":2,
+	"Seconds":4,
+	"Discovered":false,
+	},
+	{
+	"Name":"Weird Jelly",
+	"Desc":"Huh.. this jelly looks a little strange.. probably nothing!",
+	"MoneyGain":2,
+	"Seconds":4,
+	"Discovered":false,
+	},
+	{
+	"Name":"Weird Peanut Butter",
+	"Desc":"Hey! What are you doing here? This isn't the right rarity for you!",
 	"MoneyGain":2,
 	"Seconds":5,
 	"Discovered":false,
@@ -152,6 +194,13 @@ var queerJellies = [
 	"Name":"Peanut Butter",
 	"Desc":"hey, wait a minute. you're not supposed to be here.\n(jelly's best friend)",
 	"MoneyGain":3,
+	"Seconds":3,
+	"Discovered":false,
+	},
+	{
+	"Name":"Evil Jelly",
+	"Desc":"dude why you so fuckin angry chill out man",
+	"MoneyGain":4,
 	"Seconds":3,
 	"Discovered":false,
 	},
