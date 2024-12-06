@@ -134,7 +134,7 @@ var awesomeJellies = [
 	},
 	{
 	"Name":"Tasty Jelly",
-	"Desc":"bet you expected this one to be called singer jelly huh?\n(Based on FlavourText Bee from MeltyKelpy mods)",
+	"Desc":"bet you expected this one to be called singer jelly huh?\n(Based on Bee from FlavourText)",
 	"MoneyGain":2,
 	"Seconds":4,
 	"Discovered":false,
