@@ -51,6 +51,13 @@ var uncommonJellies = [
 	"Seconds":9,
 	"Discovered":false,
 	},
+	{
+	"Name":"Evil Jelly",
+	"Desc":"dude why you so fuckin angry chill out man",
+	"MoneyGain":1,
+	"Seconds":8,
+	"Discovered":false,
+	},
 	]
 var rareJellies = [
 	{
@@ -194,13 +201,6 @@ var queerJellies = [
 	"Name":"Peanut Butter",
 	"Desc":"hey, wait a minute. you're not supposed to be here.\n(jelly's best friend)",
 	"MoneyGain":3,
-	"Seconds":3,
-	"Discovered":false,
-	},
-	{
-	"Name":"Evil Jelly",
-	"Desc":"dude why you so fuckin angry chill out man",
-	"MoneyGain":4,
 	"Seconds":3,
 	"Discovered":false,
 	},
