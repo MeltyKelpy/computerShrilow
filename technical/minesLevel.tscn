@@ -1,10 +1,13 @@
-[gd_scene load_steps=33 format=3 uid="uid://cbtrsg4a3b386"]
+[gd_scene load_steps=36 format=3 uid="uid://cbtrsg4a3b386"]
 
 [ext_resource type="Script" path="res://technical/mines_level.gd" id="1_2a0p1"]
+[ext_resource type="Texture2D" uid="uid://xk5uw86f11md" path="res://assets/images/areas/mines/upgradr/upGrade.png" id="2_5qis4"]
 [ext_resource type="Texture2D" uid="uid://b17wod7uw7ut5" path="res://assets/images/areas/mines/minesLevel.png" id="2_vic5o"]
 [ext_resource type="Texture2D" uid="uid://bms33udjyr7di" path="res://assets/images/areas/mines/addLevel.png" id="3_0neni"]
+[ext_resource type="Texture2D" uid="uid://bc00bpgr4qo5r" path="res://assets/images/areas/mines/upgradr/arrows.png" id="3_7lt18"]
 [ext_resource type="Texture2D" uid="uid://dp68kkpdlgp1w" path="res://assets/images/areas/mines/shrilowIcon.png" id="3_qjye1"]
 [ext_resource type="Theme" uid="uid://dr1wna4c2ab2h" path="res://technical/textStyle.tres" id="4_2fpvo"]
+[ext_resource type="Texture2D" uid="uid://ceefhi2tqq5x" path="res://assets/images/areas/mines/upgradr/box.png" id="4_ikwrw"]
 [ext_resource type="Texture2D" uid="uid://bnylukq57uy35" path="res://assets/images/areas/mines/mokaIcon.png" id="5_b43hs"]
 [ext_resource type="Texture2D" uid="uid://dgdqkghonjxbv" path="res://assets/images/areas/mines/melIcon.png" id="6_ekpkl"]
 [ext_resource type="Texture2D" uid="uid://bccwqwg7dfctb" path="res://assets/images/areas/mines/blairIcon.png" id="7_drkbm"]
@@ -59,6 +62,36 @@
 script = ExtResource("1_2a0p1")
 
 [node name="VisualCodeSpaghetti" type="Node2D" parent="."]
+
+[node name="Upgrade" type="Node2D" parent="VisualCodeSpaghetti"]
+position = Vector2(1028, 40)
+
+[node name="upGrade" type="Sprite2D" parent="VisualCodeSpaghetti/Upgrade"]
+position = Vector2(57, 143)
+texture = ExtResource("2_5qis4")
+
+[node name="arrows" type="Sprite2D" parent="VisualCodeSpaghetti/Upgrade"]
+position = Vector2(57, 143)
+texture = ExtResource("3_7lt18")
+
+[node name="Box" type="Sprite2D" parent="VisualCodeSpaghetti/Upgrade"]
+position = Vector2(57, 143)
+texture = ExtResource("4_ikwrw")
+
+[node name="Label" type="Label" parent="VisualCodeSpaghetti/Upgrade"]
+offset_left = 1.0
+offset_top = 145.0
+offset_right = 112.0
+offset_bottom = 189.0
+scale = Vector2(1, 0.7)
+theme = ExtResource("4_2fpvo")
+theme_override_colors/font_color = Color(1, 0.905882, 0.85098, 1)
+theme_override_colors/font_outline_color = Color(0.0862745, 0.00392157, 0, 1)
+theme_override_font_sizes/font_size = 21
+text = "SPEED INCREASE"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="MinesLevel" type="Sprite2D" parent="VisualCodeSpaghetti"]
 position = Vector2(576, 324)

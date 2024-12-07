@@ -203,9 +203,9 @@ func _on_buy_button_mouse_exited() -> void:
 	$VisualCodeSpaghetti/BuyIcon.modulate = Color(1,1,1)
 
 func _on_buy_button_pressed() -> void:
-	if amountOfDwellers != 7 and ItemValues.money >= moneyValues[selected]:
+	if amountOfDwellers != 6 and ItemValues.money >= moneyValues[selected]:
 		var itsTime = false
-		for i in range(0, 7):
+		for i in range(0, 6):
 			if miners[i] == null and itsTime == false:
 				itsTime = true
 				var cacapoopyGOD = preload("res://technical/character.tscn")

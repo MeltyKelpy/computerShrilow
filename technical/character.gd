@@ -122,4 +122,5 @@ func _on_sell_button_2_pressed() -> void:
 	var hey = get_parent()
 	ItemValues.money += BasePrice + (BasePrice * (Level / 2))
 	hey.miners[ID] = null
+	hey.amountOfDwellers -= 1
 	queue_free()

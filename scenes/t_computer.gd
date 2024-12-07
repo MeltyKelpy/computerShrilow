@@ -16,8 +16,9 @@ var gumballSelection = 0
 var gumballInfo = [
 	{
 	"Name":"Common Coin",
-	"Desc":"The Common Coin, basic coin for getting jellies.\n\nCommon Chance: 98%\nUncommon Chance: 1.5%\nRare Chance: 0.5%\nAwesome Chance: 0%\nQueer Chance: 0%",
+	"Desc":"The Common Coin - 200$\nbasic coin for getting jellies.\n\nCommon Chance: 98%\nUncommon Chance: 1.5%\nRare Chance: 0.5%\nAwesome Chance: 0%\nQueer Chance: 0%",
 	"Cost":200,
+	"imagePath":"res://assets/images/areas/gumball/coins/common.png",
 	"1STOrder":"CommonChance", 
 	"2NDOrder":"UncommonChance", 
 	"3RDOrder":"RareChance", 
@@ -31,8 +32,9 @@ var gumballInfo = [
 	},
 	{
 	"Name":"Uncommon Coin",
-	"Desc":"The Uncommon Coin, allows you to get uncommons alot more easily, but with added price.\n\nCommon Chance: 15%\nUncommon Chance: 80%\nRare Chance: 4%\nAwesome Chance: 1%\nQueer Chance: 0%",
+	"Desc":"The Uncommon Coin - 400$\nallows you to get uncommons alot more easily, but with added price.\n\nCommon Chance: 15%\nUncommon Chance: 80%\nRare Chance: 4%\nAwesome Chance: 1%\nQueer Chance: 0%",
 	"Cost":400,
+	"imagePath":"res://assets/images/areas/gumball/coins/uncommon.png",
 	"1STOrder":"UncommonChance", 
 	"2NDOrder":"CommonChance", 
 	"3RDOrder":"RareChance", 
@@ -46,8 +48,9 @@ var gumballInfo = [
 	},
 	{
 	"Name":"Rare Coin",
-	"Desc":"The Rare Coin, allows you to get rares alot more easily, but for ALOT more money.\n\nCommon Chance: 4%\nUncommon Chance: 30%\nRare Chance: 60%\nAwesome Chance: 18%\nQueer Chance: 1%",
+	"Desc":"The Rare Coin - 800$\nallows you to get rares alot more easily, but for ALOT more money.\n\nCommon Chance: 4%\nUncommon Chance: 30%\nRare Chance: 60%\nAwesome Chance: 18%\nQueer Chance: 1%",
 	"Cost":800,
+	"imagePath":"res://assets/images/areas/gumball/coins/rare.png",
 	"1STOrder":"RareChance", 
 	"2NDOrder":"UncommonChance", 
 	"3RDOrder":"AwesomeChance", 
@@ -61,8 +64,9 @@ var gumballInfo = [
 	},
 	{
 	"Name":"Awesome Coin",
-	"Desc":"The Awesome Coin, allows you to get awesomes abit more easily, but for NOTABLY more money.\n\nCommon Chance: 0%\nUncommon Chance: 19%\nRare Chance: 40%\nAwesome Chance: 40%\nQueer Chance: 1%",
+	"Desc":"The Awesome Coin - 4500$\nallows you to get awesomes abit more easily, but for NOTABLY more money.\n\nCommon Chance: 0%\nUncommon Chance: 19%\nRare Chance: 40%\nAwesome Chance: 40%\nQueer Chance: 1%",
 	"Cost":4500,
+	"imagePath":"res://assets/images/areas/gumball/coins/awesome.png",
 	"1STOrder":"RareChance", 
 	"2NDOrder":"AwesomeChance", 
 	"3RDOrder":"UncommonChance", 
@@ -76,8 +80,9 @@ var gumballInfo = [
 	},
 	{
 	"Name":"Queer Coin",
-	"Desc":"The Queer Coin, allows you to get queers abit more easily, but for INSANELY more money.\n\nCommon Chance: 0%\nUncommon Chance: 10%\nRare Chance: 35%\nAwesome Chance: 55%\nQueer Chance: 5%",
+	"Desc":"The Queer Coin - $10000\nallows you to get queers abit more easily, but for INSANELY more money.\n\nCommon Chance: 0%\nUncommon Chance: 10%\nRare Chance: 35%\nAwesome Chance: 55%\nQueer Chance: 5%",
 	"Cost":10000,
+	"imagePath":"res://assets/images/areas/gumball/coins/queer.png",
 	"1STOrder":"AwesomeChance", 
 	"2NDOrder":"RareChance", 
 	"3RDOrder":"UncommonChance", 
@@ -206,9 +211,8 @@ func _process(_delta : float) -> void:
 		var caca = cacapoopyGOD2.instantiate()
 		add_child(caca)
 	
-	$Gumball/coinName.text = gumballInfo[gumballSelection]["Name"]
 	$Gumball/stuff.text = gumballInfo[gumballSelection]["Desc"]
-	$Gumball/priceTag.text = str(gumballInfo[gumballSelection]["Cost"])
+	$Gumball/coin.texture = load(gumballInfo[gumballSelection]["imagePath"])
 	
 	#elif gumballSelection == 1:
 		#$Gumball/coinName.text = "Uncommon Coin"
