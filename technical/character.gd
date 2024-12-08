@@ -90,7 +90,7 @@ func _on_selection_mouse_exited() -> void:
 
 func _swingTimerEnd():
 	var hey = get_parent()
-	if hey.selectedPath == 1:
+	if hey.selectedPath == 0:
 		waitTime = (1.0 / (Speed+((mineLevel)*Speed))) - ((1.0 / (Speed+((mineLevel)*Speed))) / 4.0)
 	else:
 		waitTime = (1.0 / Speed) - ((1.0 / Speed) / 4.0)
@@ -114,10 +114,10 @@ func _swingTimerEnd():
 
 func _swingTimerRestart():
 	var hey = get_parent()
-	if hey.selectedPath == 1:
-		waitTime2 = (1.0 / (Speed+(((mineLevel) / 2)*Speed))) / 4.0
+	if hey.selectedPath == 0:
+		waitTime2 = (1.0 / (Speed+((mineLevel)*Speed))) / 4.0
 	else:
-		waitTime2 = (1.0 / (Speed+(((mineLevel) / 2)*Speed))) / 4.0
+		waitTime2 = (1.0 / (Speed+((mineLevel)*Speed))) / 4.0
 	timer2.wait_time = waitTime2
 	state = 0
 	timer.start()
