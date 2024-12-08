@@ -62,9 +62,11 @@ func _init() -> void:
 	create_command(_quit, "quit", "Quits the game.")
 	create_command(_spawn_jelly, "spawnJelly", "spawns a specific jelly, first value is rarity, second is rarity ID. for example: 'spawnJelly common 0' for the basic jelly.")
 	create_command(_give_money, "giveMoney", "what do you think? ex: giveMoney 10000")
+	#create_command(_update_status, "updateStatus", "updates the rich presence status to say you're working on the game, just a neat little feature i added for funsies!")
 
-	print_line("Hello, World!")
+	print_bold("COMPUTER SHRILOW DEBUG CONSOLE")
 	print_line("Use 'help' to see list of available commands.")
+	print_warning("'help commandName' to see a description of a command.")
 
 
 func _input(p_event: InputEvent) -> void:
@@ -401,54 +403,88 @@ func _quit() -> void:
 func _spawn_jelly(jellyTypeToBe : String, goatedVar : int) -> void:
 	var caca
 	if jellyTypeToBe == "common":
-		var cacapoopyGOD2 = load("res://technical/items/jelly.tscn")
-		caca = cacapoopyGOD2.instantiate()
-		caca.jelly = Jelly.commonJellies[goatedVar]["Name"]
-		caca.rarity = "Common"
-		caca.seconds = Jelly.commonJellies[goatedVar]["Seconds"]
-		caca.money = Jelly.commonJellies[goatedVar]["MoneyGain"]
-		caca.selfDiscoveredVar = Jelly.commonJellies[goatedVar]["Discovered"]
-		Jelly.commonJellies[goatedVar]["Discovered"] = true
+		if goatedVar <= Jelly.commonJellies.size()-1:
+			var cacapoopyGOD2 = load("res://technical/items/jelly.tscn")
+			caca = cacapoopyGOD2.instantiate()
+			caca.jelly = Jelly.commonJellies[goatedVar]["Name"]
+			caca.rarity = "Common"
+			caca.seconds = Jelly.commonJellies[goatedVar]["Seconds"]
+			caca.money = Jelly.commonJellies[goatedVar]["MoneyGain"]
+			caca.selfDiscoveredVar = Jelly.commonJellies[goatedVar]["Discovered"]
+			Jelly.commonJellies[goatedVar]["Discovered"] = true
+			add_child(caca)
+			caca.getID(0)
+		else:
+			print_error("that jelly doesnt exist, the amount of jellies in your choice rarity is only up to 0, as common only has Jelly")
 	elif jellyTypeToBe == "uncommon":
-		var cacapoopyGOD2 = load("res://technical/items/jelly.tscn")
-		caca = cacapoopyGOD2.instantiate()
-		caca.jelly = Jelly.uncommonJellies[goatedVar]["Name"]
-		caca.rarity = "Uncommon"
-		caca.seconds = Jelly.uncommonJellies[goatedVar]["Seconds"]
-		caca.money = Jelly.uncommonJellies[goatedVar]["MoneyGain"]
-		caca.selfDiscoveredVar = Jelly.uncommonJellies[goatedVar]["Discovered"]
-		Jelly.uncommonJellies[goatedVar]["Discovered"] = true
+		if goatedVar <= Jelly.uncommonJellies.size()-1:
+			var cacapoopyGOD2 = load("res://technical/items/jelly.tscn")
+			caca = cacapoopyGOD2.instantiate()
+			caca.jelly = Jelly.uncommonJellies[goatedVar]["Name"]
+			caca.rarity = "Uncommon"
+			caca.seconds = Jelly.uncommonJellies[goatedVar]["Seconds"]
+			caca.money = Jelly.uncommonJellies[goatedVar]["MoneyGain"]
+			caca.selfDiscoveredVar = Jelly.uncommonJellies[goatedVar]["Discovered"]
+			Jelly.uncommonJellies[goatedVar]["Discovered"] = true
+			add_child(caca)
+			caca.getID(0)
+		else:
+			print_error("that jelly doesnt exist, the amount of jellies in your choice rarity is from 0 to "+str(Jelly.uncommonJellies.size()-1))
 	elif jellyTypeToBe == "rare":
-		var cacapoopyGOD2 = load("res://technical/items/jelly.tscn")
-		caca = cacapoopyGOD2.instantiate()
-		caca.jelly = Jelly.rareJellies[goatedVar]["Name"]
-		caca.rarity = "Rare"
-		caca.seconds = Jelly.rareJellies[goatedVar]["Seconds"]
-		caca.money = Jelly.rareJellies[goatedVar]["MoneyGain"]
-		caca.selfDiscoveredVar = Jelly.rareJellies[goatedVar]["Discovered"]
-		Jelly.rareJellies[goatedVar]["Discovered"] = true
+		if goatedVar <= Jelly.rareJellies.size()-1:
+			var cacapoopyGOD2 = load("res://technical/items/jelly.tscn")
+			caca = cacapoopyGOD2.instantiate()
+			caca.jelly = Jelly.rareJellies[goatedVar]["Name"]
+			caca.rarity = "Rare"
+			caca.seconds = Jelly.rareJellies[goatedVar]["Seconds"]
+			caca.money = Jelly.rareJellies[goatedVar]["MoneyGain"]
+			caca.selfDiscoveredVar = Jelly.rareJellies[goatedVar]["Discovered"]
+			Jelly.rareJellies[goatedVar]["Discovered"] = true
+			add_child(caca)
+			caca.getID(0)
+		else:
+			print_error("that jelly doesnt exist, the amount of jellies in your choice rarity is from 0 to "+str(Jelly.uncommonJellies.size()-1))
 	elif jellyTypeToBe == "awesome":
-		var cacapoopyGOD2 = load("res://technical/items/jelly.tscn")
-		caca = cacapoopyGOD2.instantiate()
-		caca.jelly = Jelly.awesomeJellies[goatedVar]["Name"]
-		caca.rarity = "Awesome"
-		caca.seconds = Jelly.awesomeJellies[goatedVar]["Seconds"]
-		caca.money = Jelly.awesomeJellies[goatedVar]["MoneyGain"]
-		caca.selfDiscoveredVar = Jelly.awesomeJellies[goatedVar]["Discovered"]
-		Jelly.awesomeJellies[goatedVar]["Discovered"] = true
+		if goatedVar <= Jelly.awesomeJellies.size()-1:
+			var cacapoopyGOD2 = load("res://technical/items/jelly.tscn")
+			caca = cacapoopyGOD2.instantiate()
+			caca.jelly = Jelly.awesomeJellies[goatedVar]["Name"]
+			caca.rarity = "Awesome"
+			caca.seconds = Jelly.awesomeJellies[goatedVar]["Seconds"]
+			caca.money = Jelly.awesomeJellies[goatedVar]["MoneyGain"]
+			caca.selfDiscoveredVar = Jelly.awesomeJellies[goatedVar]["Discovered"]
+			Jelly.awesomeJellies[goatedVar]["Discovered"] = true
+			add_child(caca)
+			caca.getID(0)
+		else:
+			print_error("that jelly doesnt exist, the amount of jellies in your choice rarity is from 0 to "+str(Jelly.awesomeJellies.size()-1))
 	elif jellyTypeToBe == "queer":
-		var cacapoopyGOD2 = load("res://technical/items/jelly.tscn")
-		caca = cacapoopyGOD2.instantiate()
-		caca.jelly = Jelly.queerJellies[goatedVar]["Name"]
-		caca.rarity = "Queer"
-		caca.seconds = Jelly.queerJellies[goatedVar]["Seconds"]
-		caca.money = Jelly.queerJellies[goatedVar]["MoneyGain"]
-		caca.selfDiscoveredVar = Jelly.queerJellies[goatedVar]["Discovered"]
-		Jelly.queerJellies[goatedVar]["Discovered"] = true
-		
-	add_child(caca)
-	caca.getID(0)
+		if goatedVar <= Jelly.queerJellies.size()-1:
+			var cacapoopyGOD2 = load("res://technical/items/jelly.tscn")
+			caca = cacapoopyGOD2.instantiate()
+			caca.jelly = Jelly.queerJellies[goatedVar]["Name"]
+			caca.rarity = "Queer"
+			caca.seconds = Jelly.queerJellies[goatedVar]["Seconds"]
+			caca.money = Jelly.queerJellies[goatedVar]["MoneyGain"]
+			caca.selfDiscoveredVar = Jelly.queerJellies[goatedVar]["Discovered"]
+			Jelly.queerJellies[goatedVar]["Discovered"] = true
+			add_child(caca)
+			caca.getID(0)
+		else:
+			print_error("that jelly doesnt exist, the amount of jellies in your choice rarity is from 0 to "+str(Jelly.queerJellies.size()-1))
+	else:
+		print_error("your chosen rarity doesnt exist. the options are common, uncommon, rare, awesome, and queer.")
+	
 	
 
 func _give_money(toGive : int) -> void:
 	ItemValues.money += toGive
+
+#func _update_status() -> void:
+	#pass
+	##DiscordRPC.app_id = 1160342090039971850
+	##DiscordRPC.details = "A Computer Game about a Computer Boy"
+	##DiscordRPC.state = "Developing the game"
+	##DiscordRPC.large_image = "developing"
+	##DiscordRPC.start_timestamp = int(Time.get_unix_time_from_system())
+	##DiscordRPC.refresh()
