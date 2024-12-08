@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://42o2se8l8d3m"
-path="res://.godot/imported/jelly0.png-0661a242c5679912248d11fa56aa5992.ctex"
+uid="uid://bben6t0xagp4a"
+path="res://.godot/imported/jelly1.png-93ee8791d3048ce8e453d967b297d394.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/jellies/Chainsaw Jelly/jelly0.png"
-dest_files=["res://.godot/imported/jelly0.png-0661a242c5679912248d11fa56aa5992.ctex"]
+source_file="res://assets/images/jellies/Chainsaw Peanut Butter/jelly1.png"
+dest_files=["res://.godot/imported/jelly1.png-93ee8791d3048ce8e453d967b297d394.ctex"]
 
 [params]
 
