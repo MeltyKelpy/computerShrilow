@@ -62,7 +62,7 @@ func _init() -> void:
 	create_command(_quit, "quit", "Quits the game.")
 	create_command(_spawn_jelly, "spawnJelly", "spawns a specific jelly, first value is rarity, second is rarity ID. for example: 'spawnJelly common 0' for the basic jelly.")
 	create_command(_give_money, "giveMoney", "what do you think? ex: giveMoney 10000")
-	#create_command(_update_status, "updateStatus", "updates the rich presence status to say you're working on the game, just a neat little feature i added for funsies!")
+	create_command(_update_status, "updateStatus", "updates the rich presence status to say you're working on the game, just a neat little feature i added for funsies!")
 
 	print_bold("COMPUTER SHRILOW DEBUG CONSOLE")
 	print_line("Use 'help' to see list of available commands.")
@@ -480,11 +480,10 @@ func _spawn_jelly(jellyTypeToBe : String, goatedVar : int) -> void:
 func _give_money(toGive : int) -> void:
 	ItemValues.money += toGive
 
-#func _update_status() -> void:
-	#pass
-	##DiscordRPC.app_id = 1160342090039971850
-	##DiscordRPC.details = "A Computer Game about a Computer Boy"
-	##DiscordRPC.state = "Developing the game"
-	##DiscordRPC.large_image = "developing"
-	##DiscordRPC.start_timestamp = int(Time.get_unix_time_from_system())
-	##DiscordRPC.refresh()
+func _update_status() -> void:
+	DiscordRPC.app_id = 1160342090039971850
+	DiscordRPC.details = "A Computer Game about a Computer Boy"
+	DiscordRPC.state = "Developing the game"
+	DiscordRPC.large_image = "developing"
+	DiscordRPC.start_timestamp = int(Time.get_unix_time_from_system())
+	DiscordRPC.refresh()
