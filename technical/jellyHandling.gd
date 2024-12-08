@@ -31,6 +31,13 @@ var uncommonJellies = [
 	"Discovered":false,
 	},
 	{
+	"Name":"Speedy Jelly",
+	"Desc":"Aw yeah! This is happenin'!",
+	"MoneyGain":1,
+	"Seconds":6,
+	"Discovered":false,
+	},
+	{
 	"Name":"Dress Jelly",
 	"Desc":"Jelly in a fancy lil dress! you think shes going to see someone special?\n(Based on the alt design of game creator, MeltyKelpy's sona)",
 	"MoneyGain":1,
@@ -65,6 +72,20 @@ var uncommonJellies = [
 	"Seconds":8,
 	"Discovered":false,
 	},
+	{
+	"Name":"Septic Jelly",
+	"Desc":"buy my coffee\n(Based on JackSepticEye)",
+	"MoneyGain":1,
+	"Seconds":8,
+	"Discovered":false,
+	},
+	{
+	"Name":"Diamond Peanut Butter",
+	"Desc":"ride my minecart\n(Based on DanTDM)",
+	"MoneyGain":1,
+	"Seconds":8,
+	"Discovered":false,
+	},
 	]
 var rareJellies = [
 	{
@@ -93,6 +114,13 @@ var rareJellies = [
 	"Desc":"Double sunglasses, double the AWESOME\n(Based on the sona of GhostyBricks)",
 	"MoneyGain":2,
 	"Seconds":6,
+	"Discovered":false,
+	},
+	{
+	"Name":"Chainsaw Peanut Butter",
+	"Desc":"oh yeah lets, chainsaw it out.. thats his line right\n(Based on Denji from Chainsaw Man)",
+	"MoneyGain":2,
+	"Seconds":5,
 	"Discovered":false,
 	},
 	{
@@ -179,6 +207,13 @@ var awesomeJellies = [
 	"Desc":"Silly alien creature! where'd you come from, lil guy??\n(Based on the sona of KlutzyBugzy)",
 	"MoneyGain":2,
 	"Seconds":5,
+	"Discovered":false,
+	},
+	{
+	"Name":"Skibidi Jelly",
+	"Desc":"skibidi skibidi dop dop yes yes",
+	"MoneyGain":2,
+	"Seconds":6,
 	"Discovered":false,
 	},
 	{
