@@ -243,8 +243,8 @@ func _process(_delta : float) -> void:
 	$Wardrobe/ItemDescription.text = ClothingObjects.itemDesc
 	
 	$ShrilowScreen/Clicks.text = "CLICKS: "+str(clicks)
-	$USDText.text = str(ItemValues.money)
-	$Gumball/USDText.text = str(ItemValues.money)
+	$USDText.text = str(round(ItemValues.money))
+	$Gumball/USDText.text = str(round(ItemValues.money))
 	
 	$ParallaxBackground.scroll_base_offset.y -= 10 * _delta/0.5
 	
