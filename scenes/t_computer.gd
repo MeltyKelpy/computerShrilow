@@ -8,6 +8,7 @@ var cameraMoveDir = "center"
 var area = "notJellies"
 var returnPosCamX = 0
 var returnPosCamY = 0
+var can = true
 
 var AnimPosCamX = 0
 var AnimPosCamY = 0
@@ -159,8 +160,16 @@ func generateHoes():
 func _ready():
 	$Mines.position.y = 648
 	generateHoes()
+	DiscordRPC.app_id = 1160342090039971850
+	DiscordRPC.details = "A Computer Game about a Computer Boy"
+	DiscordRPC.state = "Clicking, probably"
+	DiscordRPC.large_image = "icon"
+	DiscordRPC.start_timestamp = int(Time.get_unix_time_from_system())
+	DiscordRPC.refresh()
+	print("rpc working: " + str(DiscordRPC.get_is_discord_working()))
 
 func _process(_delta : float) -> void:
+	
 	
 	$Journal/jellyName.text = Jelly.jellyName
 	$Journal/jellyDesc.text = Jelly.jellyDesc
@@ -184,9 +193,9 @@ func _process(_delta : float) -> void:
 		$Camera2D/rightMove.set_mouse_filter(2)
 	
 	if cameraMoveDir == "left" and area == "Jellies":
-		$Camera2D.position.x -= 10
+		$Camera2D.position.x -= 270 * _delta/0.5
 	if cameraMoveDir == "right" and area == "Jellies":
-		$Camera2D.position.x += 10
+		$Camera2D.position.x += 270 * _delta/0.5
 	
 	if area == "Jellies" and $Camera2D.position.x > (-576):
 		$Camera2D.position.x = (-576)
@@ -254,7 +263,8 @@ func _process(_delta : float) -> void:
 		$Shrilow.scale.y += 0.05
 	
 	if Input.is_action_just_pressed("eventText"):
-		_event()
+		pass
+		#_event()
 		#if $Camera2D.position.x != -1221:
 			#cameraAnimation("journal", -791, -1221)
 		#if $Camera2D.position.x == -791:
@@ -405,6 +415,8 @@ func moveCam():
 	print(AnimPosCamY)
 	if AnimPosCamY == 324:
 		area = "Jellies"
+	else:
+		area = "notJellies"
 
 func coinSelectionChange(toAdd: int) -> void:
 	gumballSelection += toAdd

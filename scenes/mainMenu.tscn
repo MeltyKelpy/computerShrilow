@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://ba4g00sxw1ioe"]
+
+[ext_resource type="Texture2D" uid="uid://d3b1qb3i07urm" path="res://assets/images/computershrilows/shrilowBases/shrilowBase.png" id="1_m2o4i"]
+[ext_resource type="PackedScene" uid="uid://dctfcin0koae7" path="res://technical/shrilowFace.tscn" id="2_kbufo"]
+[ext_resource type="Texture2D" uid="uid://dhml6kkc1kfmj" path="res://assets/images/logo.png" id="3_d2eh3"]
+
+[node name="MainMenu" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(1, 0.909804, 0.854902, 1)
+
+[node name="Shrilow" type="Node2D" parent="."]
+position = Vector2(957, 649)
+
+[node name="Shrilow" type="Sprite2D" parent="Shrilow"]
+position = Vector2(-3.75002, -212.5)
+texture = ExtResource("1_m2o4i")
+
+[node name="ShrilowFace" parent="Shrilow/Shrilow" instance=ExtResource("2_kbufo")]
+position = Vector2(-212, -216)
+
+[node name="StillFace" type="Sprite2D" parent="Shrilow/Shrilow"]
+
+[node name="Logo" type="Sprite2D" parent="."]
+position = Vector2(261, 206)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_d2eh3")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+offset_left = 150.0
+offset_top = 376.0
+offset_right = 382.0
+offset_bottom = 635.0
+
+[node name="Button" type="Button" parent="GridContainer"]
+custom_minimum_size = Vector2(232, 67)
+layout_mode = 2
+text = "START GAME"
+
+[node name="Button2" type="Button" parent="GridContainer"]
+custom_minimum_size = Vector2(232, 67)
+layout_mode = 2
+text = "MINIGAMES"
+
+[node name="Button3" type="Button" parent="GridContainer"]
+custom_minimum_size = Vector2(232, 67)
+layout_mode = 2
+text = "COOL INFO"

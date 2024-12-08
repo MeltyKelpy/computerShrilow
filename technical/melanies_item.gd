@@ -36,9 +36,6 @@ func _process(_delta: float) -> void:
 			$Cost.text = str(ItemValues.itemInfomation[ItemID]["Cost"] + ((ItemValues.itemInfomation[ItemID]["Cost"] * 1.2) * multi))+"$"
 	elif (ItemValues.itemInfomation[ItemID]["Type"] == "Generic" and ItemValues.itemInfomation[ItemID]["CurUpgrade"] == 0 and MaxedOut == false) or ItemValues.itemInfomation[ItemID]["Type"] == "Consumable":
 		$Cost.text = str(ItemValues.itemInfomation[ItemID]["Cost"])+"$"
-
-	if Input.is_action_just_pressed("increaseMoney"):
-		ItemValues.money += 1000
 	
 	
 	if MaxedOut == true:

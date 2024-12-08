@@ -37,12 +37,12 @@ func _process(delta: float) -> void:
 		$Control/AnimationPlayer.play("cork")
 	
 	if $Control/water.position.y > 324 and flooding == true:
-		$Control/water.position.y -= 1
+		$Control/water.position.y -= 200 * delta/0.5
 	elif $Control/water.position.y < 972 and flooding == false:
-		$Control/water.position.y += 1
+		$Control/water.position.y += 200 * delta/0.5
 	
 	if $Control/water.position.y <= 572 and flooding == true:
-		FizzyDrink.health -= 0.1
+		FizzyDrink.health -= 0.1 * delta/0.5
 		if FizzyDrink.health == 0:
 			queue_free()
 	elif $Control/water.position.y > 572 and flooding == false:

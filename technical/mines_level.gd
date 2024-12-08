@@ -6,7 +6,7 @@ var characterInfos = [
 	{
 		"Name":"Shrilow",
 		"Desc":"1$ per 3 pickaxe swings.\nBase Speed: 1 a second",
-		"BasePrice":400,
+		"BasePrice":200,
 		"MoneyGain":1,
 		"Swings":3,
 		"Speed":1.000,
@@ -14,7 +14,7 @@ var characterInfos = [
 	{
 		"Name":"Moka",
 		"Desc":"2$ per 4 pickaxe swings.\nBase Speed: 1.2 a second",
-		"BasePrice":600,
+		"BasePrice":400,
 		"MoneyGain":2,
 		"Swings":4,
 		"Speed":1.200,
@@ -22,7 +22,7 @@ var characterInfos = [
 	{
 		"Name":"Mel",
 		"Desc":"5$ per 7 pickaxe swings.\nBase Speed: 1.6 a second",
-		"BasePrice":750,
+		"BasePrice":550,
 		"MoneyGain":5,
 		"Swings":7,
 		"Speed":1.600,
@@ -30,7 +30,7 @@ var characterInfos = [
 	{
 		"Name":"Blair",
 		"Desc":"2$ per 4 pickaxe swings.\nBase Speed: 2.5 a second",
-		"BasePrice":850,
+		"BasePrice":650,
 		"MoneyGain":2,
 		"Swings":4,
 		"Speed":2.50,
@@ -38,7 +38,7 @@ var characterInfos = [
 	{
 		"Name":"Charlotte",
 		"Desc":"5$ per 6 pickaxe swings.\nBase Speed: 1.5 a second",
-		"BasePrice":1000,
+		"BasePrice":800,
 		"MoneyGain":5,
 		"Swings":6,
 		"Speed":1.500,
