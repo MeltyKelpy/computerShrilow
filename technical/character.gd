@@ -21,6 +21,8 @@ var ID = 0
 var speedCost = 0.0
 var moneyCost = 0.0
 
+var mineLevel = 0.0
+
 func listPlacement(num):
 	ID = num
 # Called when the node enters the scene tree for the first time.
@@ -43,6 +45,12 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	var hey = get_parent()
+	
+	if hey.mineLevel == 1:
+		mineLevel = 0.5
+	if hey.mineLevel == 2:
+		mineLevel = 1
 	
 	if $CharName.visible == true and Input.is_action_just_pressed("Click"):
 		managing = true
@@ -52,13 +60,26 @@ func _process(_delta: float) -> void:
 	moneyCost = (MoneyGain * 200) * Level
 	$ManageMenu/speedUp.text = str(speedCost)
 	$ManageMenu/moneyUp.text = str(moneyCost)
+	if hey.mineLevel +1 != 0:
+		if hey.selectedPath == 0:
+			$ManageMenu/UpgradeInfo.text = "Speed:"+str(float(Speed+((mineLevel)*Speed)))+"\nMoney:"+str(MoneyGain)+"\nLevel:"+str(Level)+"\n\nUpTokens:"+str(upTokens)
+		if hey.selectedPath == 1:
+			$ManageMenu/UpgradeInfo.text = "Speed:"+str(Speed)+"\nMoney:"+str(float(MoneyGain+((mineLevel)*MoneyGain)))+"\nLevel:"+str(Level)+"\n\nUpTokens:"+str(upTokens)
+		$ManageMenu.visible = managing
+	else:
+		$ManageMenu/UpgradeInfo.text = "Speed:"+str(Speed)+"\nMoney:"+str(MoneyGain)+"\nLevel:"+str(Level)+"\n\nUpTokens:"+str(upTokens)
 	
-	$ManageMenu/UpgradeInfo.text = "Speed:"+str(Speed)+"\nMoney:"+str(MoneyGain)+"\nLevel:"+str(Level)+"\n\nUpTokens:"+str(upTokens)
+	$CharacterSprite.texture = load("res://assets/images/areas/mines/"+Name+str(state)+".png")
 	
 	$ManageMenu.visible = managing
 	
-	$CharacterSprite.texture = load("res://assets/images/areas/mines/"+Name+str(state)+".png")
-	$CharName.text = Name+"\n"+str(MoneyGain)+"$ per "+str(Swings)+" Swings\nSpeed: "+str(Speed)+"\nLevel: "+str(Level)+"\nL-Click to Manage"
+	if hey.mineLevel + 1 != 0:
+		if hey.selectedPath == 0:
+			$CharName.text = Name+"\n"+str(MoneyGain)+"$ per "+str(Swings)+" Swings\nSpeed: "+str(float(Speed+((mineLevel)*Speed)))+"\nLevel: "+str(Level)+"\nL-Click to Manage"
+		if hey.selectedPath == 1:
+			$CharName.text = Name+"\n"+str(float(MoneyGain+((mineLevel)*MoneyGain)))+"$ per "+str(Swings)+" Swings\nSpeed: "+str(Speed)+"\nLevel: "+str(Level)+"\nL-Click to Manage"
+	else:
+		$CharName.text = Name+"\n"+str(MoneyGain)+"$ per "+str(Swings)+" Swings\nSpeed: "+str(Speed)+"\nLevel: "+str(Level)+"\nL-Click to Manage"
 
 func _on_selection_mouse_entered() -> void:
 	if managing == false:
@@ -68,7 +89,11 @@ func _on_selection_mouse_exited() -> void:
 	$CharName.visible = false
 
 func _swingTimerEnd():
-	waitTime = (1.0 / Speed) - ((1.0 / Speed) / 4.0)
+	var hey = get_parent()
+	if hey.selectedPath == 0:
+		waitTime = (1.0 / (Speed+((mineLevel)*Speed))) - ((1.0 / (Speed+((mineLevel)*Speed))) / 4.0)
+	else:
+		waitTime = (1.0 / Speed) - ((1.0 / Speed) / 4.0)
 	timer.wait_time = waitTime
 	state = 1
 	curSwing += 1
@@ -76,15 +101,23 @@ func _swingTimerEnd():
 		var cacapoopyGOD = load("res://technical/moneyGet.tscn")
 		var caca = cacapoopyGOD.instantiate()
 		add_child(caca)
-		caca.determine(MoneyGain)
+		if hey.selectedPath == 1:
+			caca.determine(MoneyGain+(((mineLevel))*MoneyGain))
+			ItemValues.money += MoneyGain+(((mineLevel))*MoneyGain)
+		else:
+			caca.determine(MoneyGain)
+			ItemValues.money += MoneyGain
 		caca.position.x = -30
 		caca.position.y = -70
-		ItemValues.money += MoneyGain
 		curSwing = 0
 	timer2.start()
 
 func _swingTimerRestart():
-	waitTime2 = (1.0 / Speed) / 4.0
+	var hey = get_parent()
+	if hey.selectedPath == 0:
+		waitTime2 = (1.0 / (Speed+((mineLevel)*Speed))) / 4.0
+	else:
+		waitTime2 = (1.0 / (Speed+((mineLevel)*Speed))) / 4.0
 	timer2.wait_time = waitTime2
 	state = 0
 	timer.start()
@@ -123,4 +156,5 @@ func _on_sell_button_2_pressed() -> void:
 	ItemValues.money += BasePrice + (BasePrice * (Level / 2))
 	hey.miners[ID] = null
 	hey.amountOfDwellers -= 1
+	hey._on_buy_button_mouse_exited()
 	queue_free()

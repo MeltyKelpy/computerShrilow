@@ -61,6 +61,9 @@ var caveNumber = 0
 var selected = null
 var hoverSelected = null
 
+var selectedPath = 0
+var mineLevel = 0
+
 var moneyValues = [
 	150,
 	300,
@@ -75,7 +78,7 @@ func getMineLevel(num):
 	caveNumber = num
 
 func _process(_delta: float) -> void:
-	if amountOfDwellers != 7:
+	if amountOfDwellers != 6:
 		$VisualCodeSpaghetti/ShrilowCost.text = str(moneyValues[0])+"$"
 		$VisualCodeSpaghetti/MokaCost.text = str(moneyValues[1])+"$"
 		$VisualCodeSpaghetti/MelCost.text = str(moneyValues[2])+"$"
@@ -242,3 +245,37 @@ func _on_button_pressed() -> void:
 		caca.position.y = ((602/2)*(1))
 		newMineExists = false
 		$newMine.queue_free()
+
+func _changeSelection(toChange: int) -> void:
+	if mineLevel < 1:
+		selectedPath += toChange
+		
+		if selectedPath < 0:
+			selectedPath = 1
+		if selectedPath > 1:
+			selectedPath = 0
+		
+		if selectedPath == 0:
+			$VisualCodeSpaghetti/Upgrade/Label.text = "SPEED INCREASE"
+			$VisualCodeSpaghetti/Upgrade/Box.texture = load("res://assets/images/areas/mines/upgradr/speed.png")
+		if selectedPath == 1:
+			$VisualCodeSpaghetti/Upgrade/Label.text = "MONEY INCREASE"
+			$VisualCodeSpaghetti/Upgrade/Box.texture = load("res://assets/images/areas/mines/upgradr/money.png")
+
+func _on_up_grade_button_pressed() -> void:
+	if ItemValues.money >= 5000 * (mineLevel + 1) and mineLevel < 2:
+		var texturer
+		if selectedPath == 1:
+			texturer = load("res://assets/images/areas/mines/upgradr/money/"+str(mineLevel+1)+".png")
+		if selectedPath == 0:
+			texturer = load("res://assets/images/areas/mines/upgradr/speed/"+str(mineLevel+1)+".png")
+		$VisualCodeSpaghetti/MinesLevel.texture = texturer
+		mineLevel += 1
+		$VisualCodeSpaghetti/Upgrade/arrows.modulate = Color(0.47,0.47,0.47)
+		ItemValues.money -= 5000 * mineLevel
+	if mineLevel == 2:
+		$VisualCodeSpaghetti/Upgrade/upGrade.modulate = Color(0.47,0.47,0.47)
+		$VisualCodeSpaghetti/Upgrade/Box.modulate = Color(0.47,0.47,0.47)
+		$VisualCodeSpaghetti/Upgrade/Label.text = "MAXED OUT"
+		$VisualCodeSpaghetti/Upgrade/moneyLabel.visible = false
+	$VisualCodeSpaghetti/Upgrade/moneyLabel.text = str("$"+str(5000 * (mineLevel + 1)))

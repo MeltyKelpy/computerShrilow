@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://bms33udjyr7di" path="res://assets/images/areas/mines/addLevel.png" id="3_0neni"]
 [ext_resource type="Texture2D" uid="uid://bc00bpgr4qo5r" path="res://assets/images/areas/mines/upgradr/arrows.png" id="3_7lt18"]
 [ext_resource type="Texture2D" uid="uid://dp68kkpdlgp1w" path="res://assets/images/areas/mines/shrilowIcon.png" id="3_qjye1"]
+[ext_resource type="Texture2D" uid="uid://wxkrek8gr4gu" path="res://assets/images/areas/mines/upgradr/speed.png" id="4_1nh1a"]
 [ext_resource type="Theme" uid="uid://dr1wna4c2ab2h" path="res://technical/textStyle.tres" id="4_2fpvo"]
-[ext_resource type="Texture2D" uid="uid://ceefhi2tqq5x" path="res://assets/images/areas/mines/upgradr/box.png" id="4_ikwrw"]
 [ext_resource type="Texture2D" uid="uid://bnylukq57uy35" path="res://assets/images/areas/mines/mokaIcon.png" id="5_b43hs"]
 [ext_resource type="Texture2D" uid="uid://dgdqkghonjxbv" path="res://assets/images/areas/mines/melIcon.png" id="6_ekpkl"]
 [ext_resource type="Texture2D" uid="uid://bccwqwg7dfctb" path="res://assets/images/areas/mines/blairIcon.png" id="7_drkbm"]
@@ -76,19 +76,85 @@ texture = ExtResource("3_7lt18")
 
 [node name="Box" type="Sprite2D" parent="VisualCodeSpaghetti/Upgrade"]
 position = Vector2(57, 143)
-texture = ExtResource("4_ikwrw")
+texture = ExtResource("4_1nh1a")
+
+[node name="downButton" type="Button" parent="VisualCodeSpaghetti/Upgrade"]
+offset_left = 40.0
+offset_top = 175.0
+offset_right = 72.0
+offset_bottom = 203.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_14jd1")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_a7opj")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_wvyei")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_iuugl")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_o3g2s")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_mudre")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_rl562")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_mmlvi")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_mxpb3")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_n3ntu")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_yepir")
+
+[node name="upGradeButton" type="Button" parent="VisualCodeSpaghetti/Upgrade"]
+offset_left = -2.0
+offset_top = 203.0
+offset_right = 116.0
+offset_bottom = 270.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_14jd1")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_a7opj")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_wvyei")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_iuugl")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_o3g2s")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_mudre")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_rl562")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_mmlvi")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_mxpb3")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_n3ntu")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_yepir")
+
+[node name="upButton" type="Button" parent="VisualCodeSpaghetti/Upgrade"]
+offset_left = 40.0
+offset_top = -1.0
+offset_right = 72.0
+offset_bottom = 27.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_14jd1")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_a7opj")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_wvyei")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_iuugl")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_o3g2s")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_mudre")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_rl562")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_mmlvi")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_mxpb3")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_n3ntu")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_yepir")
 
 [node name="Label" type="Label" parent="VisualCodeSpaghetti/Upgrade"]
 offset_left = 1.0
 offset_top = 145.0
-offset_right = 112.0
+offset_right = 109.0
 offset_bottom = 189.0
 scale = Vector2(1, 0.7)
 theme = ExtResource("4_2fpvo")
 theme_override_colors/font_color = Color(1, 0.905882, 0.85098, 1)
 theme_override_colors/font_outline_color = Color(0.0862745, 0.00392157, 0, 1)
-theme_override_font_sizes/font_size = 21
+theme_override_font_sizes/font_size = 20
 text = "SPEED INCREASE"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="moneyLabel" type="Label" parent="VisualCodeSpaghetti/Upgrade"]
+offset_left = 2.0
+offset_top = 245.0
+offset_right = 110.0
+offset_bottom = 284.0
+theme = ExtResource("4_2fpvo")
+theme_override_colors/font_color = Color(0, 0.184314, 0.00784314, 1)
+theme_override_colors/font_outline_color = Color(0, 1, 0.0627451, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 36
+text = "$5000"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -358,6 +424,9 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_lruy1")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_fui1t")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_s67tf")
 
+[connection signal="pressed" from="VisualCodeSpaghetti/Upgrade/downButton" to="." method="_changeSelection" binds= [1]]
+[connection signal="pressed" from="VisualCodeSpaghetti/Upgrade/upGradeButton" to="." method="_on_up_grade_button_pressed"]
+[connection signal="pressed" from="VisualCodeSpaghetti/Upgrade/upButton" to="." method="_changeSelection" binds= [-1]]
 [connection signal="mouse_entered" from="VisualCodeSpaghetti/ShrilowButton" to="." method="_on_shrilow_button_mouse_entered"]
 [connection signal="mouse_exited" from="VisualCodeSpaghetti/ShrilowButton" to="." method="_on_shrilow_button_mouse_exited"]
 [connection signal="pressed" from="VisualCodeSpaghetti/ShrilowButton" to="." method="_on_shrilow_button_pressed"]
