@@ -24,6 +24,13 @@ var uncommonJellies = [
 	"Discovered":false,
 	},
 	{
+	"Name":"School Jelly",
+	"Desc":"I gently open the door..\n(Based on the outfits in DDLC+)",
+	"MoneyGain":1,
+	"Seconds":8,
+	"Discovered":false,
+	},
+	{
 	"Name":"Dress Jelly",
 	"Desc":"Jelly in a fancy lil dress! you think shes going to see someone special?\n(Based on the alt design of game creator, MeltyKelpy's sona)",
 	"MoneyGain":1,
@@ -65,6 +72,13 @@ var rareJellies = [
 	"Desc":"Cutiepie! go plant some little strawberry seeds, love\n(This is my favorite jelly.)",
 	"MoneyGain":2,
 	"Seconds":5,
+	"Discovered":false,
+	},
+	{
+	"Name":"Pup Jelly",
+	"Desc":"got that dog in her\n(Based on a character from a comic called Pinky and Pepper Forever)",
+	"MoneyGain":2,
+	"Seconds":6,
 	"Discovered":false,
 	},
 	{
