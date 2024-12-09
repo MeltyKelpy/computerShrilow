@@ -86,6 +86,13 @@ var uncommonJellies = [
 	"Seconds":8,
 	"Discovered":false,
 	},
+	{
+	"Name":"Untrustworthy Jelly",
+	"Desc":"I don't know guys I don't FUCKING trust this FUCKING guy at FUCKING all.",
+	"MoneyGain":1,
+	"Seconds":9,
+	"Discovered":false,
+	},
 	]
 var rareJellies = [
 	{
@@ -114,6 +121,13 @@ var rareJellies = [
 	"Desc":"Double sunglasses, double the AWESOME\n(Based on the sona of GhostyBricks)",
 	"MoneyGain":2,
 	"Seconds":6,
+	"Discovered":false,
+	},
+	{
+	"Name":"Blindfold Jelly",
+	"Desc":"I don't even LIKE girls, I have a boyfriend\n(Based on Gojo from JJK)",
+	"MoneyGain":2,
+	"Seconds":5,
 	"Discovered":false,
 	},
 	{
@@ -165,6 +179,13 @@ var awesomeJellies = [
 	"Desc":"Do NOT search up Kiwami in the discord gif search.",
 	"MoneyGain":2,
 	"Seconds":4,
+	"Discovered":false,
+	},
+	{
+	"Name":"Super Senior Jelly",
+	"Desc":"I NEED those freshman gyatts\n(Based on more injured Gojo from JJK)\n(those who gojo)",
+	"MoneyGain":2,
+	"Seconds":5,
 	"Discovered":false,
 	},
 	{
