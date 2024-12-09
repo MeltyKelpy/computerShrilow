@@ -13,6 +13,7 @@ var health = 100
 
 var stopTheCount = 0
 var jellys = (-1)
+var greasepuppies = (-1)
 
 func updateClothes() -> void:
 	clickPowerClothingBuffs = 0

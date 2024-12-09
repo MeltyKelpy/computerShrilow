@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhdm4jyfl2ijc"]
+
+[ext_resource type="Script" path="res://technical/rpc_change.gd" id="1_wltam"]
+
+[node name="RpcChange" type="Node2D"]
+script = ExtResource("1_wltam")

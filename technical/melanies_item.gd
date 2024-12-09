@@ -29,8 +29,8 @@ func _process(_delta: float) -> void:
 	
 	if (ItemValues.itemInfomation[ItemID]["Type"] == "Generic" and ItemValues.itemInfomation[ItemID]["CurUpgrade"] != 0 and MaxedOut == false) or ItemValues.itemInfomation[ItemID]["Type"] == "Consumable":
 		$Cost.text = str(ItemValues.itemInfomation[ItemID]["Cost"]*(ItemValues.itemInfomation[ItemID]["CurUpgrade"]+1))+"$"
-		if ItemValues.itemInfomation[ItemID]["Name"] == "Jelly!":
-			var multi = FizzyDrink.jellys - 4
+		if ItemValues.itemInfomation[ItemID]["Name"] == "Greasepuppy":
+			var multi = FizzyDrink.greasepuppies - 4
 			if multi < 0:
 				multi = 0
 			$Cost.text = str(ItemValues.itemInfomation[ItemID]["Cost"] + ((ItemValues.itemInfomation[ItemID]["Cost"] * 1.2) * multi))+"$"
@@ -57,8 +57,8 @@ func _on_button_mouse_entered() -> void:
 	if ItemValues.itemName == "Plus One Auto":
 		var clicks = str(ItemValues.itemInfomation[ItemID]["BaseValue"]+(ItemValues.itemInfomation[ItemID]["CurUpgrade"]*ItemValues.itemInfomation[ItemID]["UpgradeIncrease"]))
 		ItemSpecificString = "Autoclick clicks value increased by "+clicks
-	if ItemValues.itemName == "Jelly!":
-		ItemSpecificString = "You have " + str(FizzyDrink.jellys+1) + " Jellys"
+	if ItemValues.itemName == "Greasepuppy":
+		ItemSpecificString = "You have " + str(FizzyDrink.greasepuppies+1) + " Greasepuppies"
 	ItemValues.itemExtra = ItemSpecificString
 
 func _on_button_mouse_exited() -> void:
@@ -68,8 +68,8 @@ func _on_button_mouse_exited() -> void:
 
 func _on_button_pressed() -> void:
 	if ItemValues.itemInfomation[ItemID]["Type"] == "Generic" or (ItemValues.itemInfomation[ItemID]["Type"] == "Consumable" and ItemValues.itemInfomation[ItemID]["Owned"] == false):
-		if ItemValues.itemInfomation[ItemID]["Name"] == "Jelly!":
-			var multi = FizzyDrink.jellys - 4
+		if ItemValues.itemInfomation[ItemID]["Name"] == "Greasepuppy":
+			var multi = FizzyDrink.greasepuppies - 4
 			if multi < 0:
 				multi = 0
 			if (ItemValues.money >= ItemValues.itemInfomation[ItemID]["Cost"] + (ItemValues.itemInfomation[ItemID]["Cost"] * 1.2) * multi):
@@ -97,14 +97,14 @@ func calculate():
 			caca = cacapoopyGOD.instantiate()
 			add_child(caca)
 			caca.getID(ItemID)
-	if ItemValues.itemInfomation[ItemID]["Name"] == "Jelly!":
-		FizzyDrink.jellys += 1
-		caca.getJelly(FizzyDrink.jellys)
+	if ItemValues.itemInfomation[ItemID]["Name"] == "Greasepuppy":
+		FizzyDrink.greasepuppies += 1
+		caca.getPuppy(FizzyDrink.greasepuppies)
 	if ItemValues.itemInfomation[ItemID]["CurUpgrade"] != 0:
 		ItemValues.money -= ItemValues.itemInfomation[ItemID]["Cost"]*(ItemValues.itemInfomation[ItemID]["CurUpgrade"]+1)
 	if ItemValues.itemInfomation[ItemID]["CurUpgrade"] == 0:
-		if ItemValues.itemInfomation[ItemID]["Name"] == "Jelly!":
-			var multi = FizzyDrink.jellys - 4
+		if ItemValues.itemInfomation[ItemID]["Name"] == "Greasepuppy":
+			var multi = FizzyDrink.greasepuppies - 4
 			if multi < 0:
 				multi = 0
 			ItemValues.money -= ItemValues.itemInfomation[ItemID]["Cost"] + (ItemValues.itemInfomation[ItemID]["Cost"] * 1.2) * multi

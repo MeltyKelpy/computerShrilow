@@ -1,10 +1,10 @@
 extends CanvasLayer
 
-var volume = 4
+var volume = 8
 
 func _process(_delta: float) -> void:
 	var sfx_index= AudioServer.get_bus_index("Master")
-	AudioServer.set_bus_volume_db(sfx_index, ((volume-4)*5)-22)
+	AudioServer.set_bus_volume_db(sfx_index, ((volume-4)*5)-30)
 	if volume == 0:
 		AudioServer.set_bus_volume_db(sfx_index, -80)
 	

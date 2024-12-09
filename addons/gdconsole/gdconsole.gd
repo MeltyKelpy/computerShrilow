@@ -481,9 +481,6 @@ func _give_money(toGive : int) -> void:
 	ItemValues.money += toGive
 
 func _update_status() -> void:
-	DiscordRPC.app_id = 1160342090039971850
-	DiscordRPC.details = "A Computer Game about a Computer Boy"
-	DiscordRPC.state = "Developing the game"
-	DiscordRPC.large_image = "developing"
-	DiscordRPC.start_timestamp = int(Time.get_unix_time_from_system())
-	DiscordRPC.refresh()
+	var cacapoopyGOD2 = load("res://technical/RPCChange.tscn")
+	var caca = cacapoopyGOD2.instantiate()
+	add_child(caca)
