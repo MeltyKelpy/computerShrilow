@@ -19,6 +19,7 @@ var colorsIgLOL = [
 	"Uncommon":Color(0.462745098, 0.9529411765, 0.5411764706),
 	"Rare":Color(0.9333333333, 0.4196078431, 0.4980392157),
 	"Awesome":Color(0.5921568627, 0.4196078431, 0.9333333333),
+	"Blue":Color(0.2941176471, 0.4509803922, 1),
 	},
 	]
 
@@ -112,6 +113,8 @@ func _on_kill_pressed() -> void:
 		moneyTo = 4500
 	if rarity == "Queer":
 		moneyTo = 10000
+	if rarity == "Blue":
+		moneyTo = 1000000
 	var cacapoopyGOD = load("res://technical/moneyGet.tscn")
 	var caca = cacapoopyGOD.instantiate()
 	add_child(caca)

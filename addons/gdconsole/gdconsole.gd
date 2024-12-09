@@ -63,6 +63,8 @@ func _init() -> void:
 	create_command(_spawn_jelly, "spawnJelly", "spawns a specific jelly, first value is rarity, second is rarity ID. for example: 'spawnJelly common 0' for the basic jelly.")
 	create_command(_give_money, "giveMoney", "what do you think? ex: giveMoney 10000")
 	create_command(_update_status, "updateStatus", "updates the rich presence status to say you're working on the game, just a neat little feature i added for funsies!")
+	create_command(_minigame, "startMinigame", "starts a minigame. put the ID for the minigame after the function. ex: startMinigame 0 for cat mario")
+	create_command(_screenEvent, "startScreenEvent", "starts a screen event. put the ID for the screen event after the function. ex: startScreenEvent 0 for golden shrilow")
 
 	print_bold("COMPUTER SHRILOW DEBUG CONSOLE")
 	print_line("Use 'help' to see list of available commands.")
@@ -472,6 +474,20 @@ func _spawn_jelly(jellyTypeToBe : String, goatedVar : int) -> void:
 			caca.getID(0)
 		else:
 			print_error("that jelly doesnt exist, the amount of jellies in your choice rarity is from 0 to "+str(Jelly.queerJellies.size()-1))
+	elif jellyTypeToBe == "blue":
+		if goatedVar <= Jelly.queerJellies.size()-1:
+			var cacapoopyGOD2 = load("res://technical/items/jelly.tscn")
+			caca = cacapoopyGOD2.instantiate()
+			caca.jelly = Jelly.blueJellies[goatedVar]["Name"]
+			caca.rarity = "Blue"
+			caca.seconds = Jelly.blueJellies[goatedVar]["Seconds"]
+			caca.money = Jelly.blueJellies[goatedVar]["MoneyGain"]
+			caca.selfDiscoveredVar = Jelly.blueJellies[goatedVar]["Discovered"]
+			Jelly.blueJellies[goatedVar]["Discovered"] = true
+			add_child(caca)
+			caca.getID(0)
+		else:
+			print_error("that jelly doesnt exist, the amount of jellies in your choice rarity is from 0 to "+str(Jelly.blueJellies.size()-1))
 	else:
 		print_error("your chosen rarity doesnt exist. the options are common, uncommon, rare, awesome, and queer.")
 	
@@ -484,3 +500,19 @@ func _update_status() -> void:
 	var cacapoopyGOD2 = load("res://technical/RPCChange.tscn")
 	var caca = cacapoopyGOD2.instantiate()
 	add_child(caca)
+
+func _screenEvent(ID : int):
+	if ID <= Events.eventList.size()-1:
+		var cacapoopyGOD2 = load(Events.eventList[ID]["AttachedScene"])
+		var caca = cacapoopyGOD2.instantiate()
+		add_child(caca)
+	else:
+		print_error("that event doesnt exist, the amount of event in your choice is from 0 to "+str(Events.eventList.size()-1))
+
+func _minigame(ID : int):
+	if ID <= Events.justMinigames.size()-1:
+		var cacapoopyGOD2 = load(Events.justMinigames[ID]["AttachedScene"])
+		var caca = cacapoopyGOD2.instantiate()
+		add_child(caca)
+	else:
+		print_error("that event doesnt exist, the amount of event in your choice is from 0 to "+str(Events.justMinigames.size()-1))

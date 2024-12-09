@@ -14,6 +14,7 @@ var colorsIgLOL = [
 	"Uncommon":Color(0.462745098, 0.9529411765, 0.5411764706),
 	"Rare":Color(0.9333333333, 0.4196078431, 0.4980392157),
 	"Awesome":Color(0.5921568627, 0.4196078431, 0.9333333333),
+	"Blue":Color(0.2941176471, 0.4509803922, 1),
 	},
 	]
 
@@ -27,6 +28,17 @@ func _ready() -> void:
 	$jellyCover.texture = load("res://assets/images/jellies/"+jelly+"/jelly0.png")
 
 func _process(_delta: float) -> void:
+	
+	if rarity == "Blue":
+		if Jelly.blueJellies[jellyNum]["Discovered"] == false:
+			modulate = Color(0,0,0,0)
+			$Label.text = "???"
+			selfDiscoveredVar = false
+		else:
+			modulate = Color(1,1,1,1)
+			$jellyCover.modulate = Color(1,1,1,0)
+			$Label.text = jelly
+			selfDiscoveredVar = true
 	
 	if rarity == "Queer":
 		if Jelly.queerJellies[jellyNum]["Discovered"] == false:

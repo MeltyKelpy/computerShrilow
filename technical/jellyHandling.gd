@@ -254,6 +254,29 @@ var queerJellies = [
 	"Discovered":false,
 	},
 	]
+var blueJellies = [
+	{
+	"Name":"Ao Oni",
+	"Desc":"hes blue",
+	"MoneyGain":4,
+	"Seconds":1,
+	"Discovered":false,
+	},
+	{
+	"Name":"Monkey D. Luffy",
+	"Desc":"the one piece...././../..,.,..,",
+	"MoneyGain":4,
+	"Seconds":1,
+	"Discovered":false,
+	},
+	{
+	"Name":"Those who Jelly",
+	"Desc":"brazilian phonk",
+	"MoneyGain":4,
+	"Seconds":1,
+	"Discovered":false,
+	},
+	]
 
 var jellyName = "Hover over a jelly to see its description!"
 var jellyDesc = "if you have said jelly, of course."

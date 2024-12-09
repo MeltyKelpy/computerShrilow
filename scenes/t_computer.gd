@@ -156,6 +156,15 @@ func generateHoes():
 		caca.rarity = "Queer"
 		add_child(caca)
 		caca.reparent($Journal/ScrollContainer/GridContainer)
+	for i in Jelly.blueJellies.size():
+		var cacapoopyGOD2 = preload("res://technical/jellies/storageJelly.tscn")
+		var caca = cacapoopyGOD2.instantiate()
+		caca.jelly = Jelly.blueJellies[i]["Name"]
+		caca.desc = Jelly.blueJellies[i]["Desc"]
+		caca.jellyNum = i
+		caca.rarity = "Blue"
+		add_child(caca)
+		caca.reparent($Journal/ScrollContainer/GridContainer)
 
 func _ready():
 	$Mines.position.y = 648
@@ -433,7 +442,9 @@ func _buyGumball_pressed() -> void:
 		print(type)
 		var jellyTypeToBe
 		
-		if type <= (gumballInfo[gumballSelection][gumballInfo[gumballSelection]["5THOrder"]]) * 2:
+		if type <= 1 and gumballInfo[gumballSelection]["Name"] == "Queer Coin":
+			jellyTypeToBe = "BlueChance"
+		elif type <= (gumballInfo[gumballSelection][gumballInfo[gumballSelection]["5THOrder"]]) * 2:
 			jellyTypeToBe = gumballInfo[gumballSelection]["5THOrder"]
 		elif type <= (gumballInfo[gumballSelection][gumballInfo[gumballSelection]["4THOrder"]]) * 2:
 			jellyTypeToBe = gumballInfo[gumballSelection]["4THOrder"]
@@ -503,6 +514,17 @@ func _buyGumball_pressed() -> void:
 			caca.seconds = Jelly.queerJellies[goatedVar]["Seconds"]
 			caca.money = Jelly.queerJellies[goatedVar]["MoneyGain"]
 			caca.selfDiscoveredVar = Jelly.queerJellies[goatedVar]["Discovered"]
+			Jelly.queerJellies[goatedVar]["Discovered"] = true
+		elif jellyTypeToBe == "BlueChance":
+			rarityGotten = "Blue"
+			goatedVar = rng.randi_range(0, Jelly.blueJellies.size()-1)
+			var cacapoopyGOD2 = load("res://technical/items/jelly.tscn")
+			caca = cacapoopyGOD2.instantiate()
+			caca.jelly = Jelly.blueJellies[goatedVar]["Name"]
+			caca.rarity = rarityGotten
+			caca.seconds = Jelly.blueJellies[goatedVar]["Seconds"]
+			caca.money = Jelly.blueJellies[goatedVar]["MoneyGain"]
+			caca.selfDiscoveredVar = Jelly.blueJellies[goatedVar]["Discovered"]
 			Jelly.queerJellies[goatedVar]["Discovered"] = true
 		
 		add_child(caca)
