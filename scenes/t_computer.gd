@@ -95,6 +95,22 @@ var gumballInfo = [
 	"AwesomeChance":50.0,
 	"QueerChance":5.0,
 	},
+	{
+	"Name":"Platinum Coin",
+	"Desc":"The Platinum Coin - $1000000\nallows you to get queers alot more easily, but for ABYSMALLY more money.\n\nCommon Chance: 0%\nUncommon Chance: 0%\nRare Chance: 5%\nAwesome Chance: 80%\nQueer Chance: 15%",
+	"Cost":1000000,
+	"imagePath":"res://assets/images/areas/gumball/coins/platinum.png",
+	"1STOrder":"AwesomeChance", 
+	"2NDOrder":"RareChance", 
+	"3RDOrder":"UncommonChance", 
+	"4THOrder":"QueerChance", 
+	"5THOrder":"CommonChance",
+	"CommonChance":0.0,
+	"UncommonChance":0.0,
+	"RareChance":5.0,
+	"AwesomeChance":80.0,
+	"QueerChance":15.0,
+	},
 	]
 
 var cacapoopyGOD = preload("res://technical/MelaniesItem.tscn")
@@ -430,8 +446,8 @@ func moveCam():
 func coinSelectionChange(toAdd: int) -> void:
 	gumballSelection += toAdd
 	if gumballSelection < 0:
-		gumballSelection = 4
-	if gumballSelection > 4:
+		gumballSelection = 5
+	if gumballSelection > 5:
 		gumballSelection = 0
 
 func _buyGumball_pressed() -> void:
@@ -442,7 +458,7 @@ func _buyGumball_pressed() -> void:
 		print(type)
 		var jellyTypeToBe
 		
-		if type <= 1 and gumballInfo[gumballSelection]["Name"] == "Queer Coin":
+		if (type <= 1 and gumballInfo[gumballSelection]["Name"] == "Queer Coin") or (type <= 1 and gumballInfo[gumballSelection]["Name"] == "Platinum Coin"):
 			jellyTypeToBe = "BlueChance"
 		elif type <= (gumballInfo[gumballSelection][gumballInfo[gumballSelection]["5THOrder"]]) * 2:
 			jellyTypeToBe = gumballInfo[gumballSelection]["5THOrder"]
