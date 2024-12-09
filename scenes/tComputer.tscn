@@ -1355,6 +1355,7 @@ position = Vector2(576, 324)
 texture = ExtResource("16_ptxs8")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Wardrobe"]
+z_index = 1000
 offset_left = 533.0
 offset_top = 138.0
 offset_right = 1012.0
@@ -1390,6 +1391,7 @@ horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="BackWARD" type="Sprite2D" parent="Wardrobe"]
+z_index = 101
 position = Vector2(767, 63)
 texture = ExtResource("17_obgyp")
 
