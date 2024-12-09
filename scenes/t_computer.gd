@@ -525,7 +525,7 @@ func _buyGumball_pressed() -> void:
 			caca.seconds = Jelly.blueJellies[goatedVar]["Seconds"]
 			caca.money = Jelly.blueJellies[goatedVar]["MoneyGain"]
 			caca.selfDiscoveredVar = Jelly.blueJellies[goatedVar]["Discovered"]
-			Jelly.queerJellies[goatedVar]["Discovered"] = true
+			Jelly.blueJellies[goatedVar]["Discovered"] = true
 		
 		add_child(caca)
 		caca.getID(0)
