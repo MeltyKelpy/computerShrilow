@@ -20,26 +20,61 @@ var melDialogue = [
 	"present":"About you",
 	"dialogKey":"ABTYOU",
 	"unlocked":true,
+	"interacted":false,
+	},
+	{
+	"present":"Interests?",
+	"dialogKey":"INTERESTS",
+	"unlocked":true,
+	"interacted":false,
+	},
+	{
+	"present":"Coding?",
+	"dialogKey":"CODING",
+	"unlocked":false,
+	"interacted":false,
+	},
+	{
+	"present":"Smoking Weed?",
+	"dialogKey":"WEED",
+	"unlocked":false,
+	"interacted":false,
+	},
+	{
+	"present":"My Little Pony?",
+	"dialogKey":"MLP",
+	"unlocked":false,
+	"interacted":false,
+	},
+	{
+	"present":"Still Wakes the Deep?",
+	"dialogKey":"STILLWAKES",
+	"unlocked":false,
+	"interacted":false,
 	},
 	{
 	"present":"Jerry Seinfeld",
 	"dialogKey":"JERRY",
 	"unlocked":true,
+	"interacted":false,
 	},
 	{
 	"present":"Melvin?",
 	"dialogKey":"MELVIN",
 	"unlocked":true,
+	"interacted":false,
 	},
 	{
 	"present":"Do u fw Skibidi Toilet",
 	"dialogKey":"SKIBIDI",
 	"unlocked":true,
+	"interacted":false,
 	},
 	{
 	"present":"What's up with the jellies?",
 	"dialogKey":"JELLIES",
 	"unlocked":false,
+	"interacted":false,
 	},
 	]
 

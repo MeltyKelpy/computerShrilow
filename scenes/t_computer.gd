@@ -161,6 +161,60 @@ func manageScenes():
 				$Shop/ItemDescription.text = "also my pronouns are she/it, if thats smth u care abt"
 			if alongTheDialogue == 4:
 				endDialogue()
+		"INTERESTS":
+			if alongTheDialogue == 0:
+				$Shop/ItemDescription.text = "i really like drawing, and also coding, and listening to music, and getting high"
+				for i in FizzyDrink.melDialogue.size():
+					if FizzyDrink.melDialogue[i]["dialogKey"] == "CODING" or FizzyDrink.melDialogue[i]["dialogKey"] == "MLP" or FizzyDrink.melDialogue[i]["dialogKey"] == "STILLWAKES" or FizzyDrink.melDialogue[i]["dialogKey"] == "WEED":
+						FizzyDrink.melDialogue[i]["unlocked"] = true
+			if alongTheDialogue == 1:
+				$Shop/ItemDescription.text = "and also girls, and also boys, one very specific alien boy to be exact"
+			if alongTheDialogue == 2:
+				$Shop/ItemDescription.text = "i also really like my little pony gen 4, SPECIFICALLY gen 4"
+			if alongTheDialogue == 3:
+				$Shop/ItemDescription.text = "and also Still Wakes the Deep, thats a really good game and you should check it out i think"
+			if alongTheDialogue == 4:
+				endDialogue()
+		"CODING":
+			if alongTheDialogue == 0:
+				$Shop/ItemDescription.text = "coding is like. 10x easier than people make it seem"
+			if alongTheDialogue == 1:
+				$Shop/ItemDescription.text = "i've been coding for about 2 years now, and it's been real fun"
+			if alongTheDialogue == 2:
+				$Shop/ItemDescription.text = "except for when its not."
+			if alongTheDialogue == 3:
+				$Shop/ItemDescription.text = "like the one time i sobbed while coding Enemy AI"
+			if alongTheDialogue == 4:
+				endDialogue()
+		"MLP":
+			if alongTheDialogue == 0:
+				$Shop/ItemDescription.text = "i like MLP Gen 4 alot, been a fan for awhile now"
+			if alongTheDialogue == 1:
+				$Shop/ItemDescription.text = "pinkie pie is my favorite, maybe thats generic but i really enjoy her silly personality, its comforting to watch for me"
+			if alongTheDialogue == 2:
+				endDialogue()
+		"WEED":
+			if alongTheDialogue == 0:
+				$Shop/ItemDescription.text = "what's there to say? i like smoking weed"
+			if alongTheDialogue == 1:
+				$Shop/ItemDescription.text = "im high off my mind as we speak, actually"
+			if alongTheDialogue == 2:
+				$Shop/ItemDescription.text = "you tryna get some? i know a guy"
+			if alongTheDialogue == 3:
+				$Shop/ItemDescription.text = "offers there, just saying"
+			if alongTheDialogue == 4:
+				endDialogue()
+		"STILLWAKES":
+			if alongTheDialogue == 0:
+				$Shop/ItemDescription.text = "genuinely the best game of 2024, no competition"
+			if alongTheDialogue == 1:
+				$Shop/ItemDescription.text = "beautiful sound design, genuinely scary, and visually beautiful aswell, what more could you want?"
+			if alongTheDialogue == 2:
+				$Shop/ItemDescription.text = "it's pretty linear, though. so it depends if thats something you fuck with or not"
+			if alongTheDialogue == 3:
+				$Shop/ItemDescription.text = "its kind of on the more expensive side, i suppose. if you dont got 50ish bucks laying around then i personally recommend jacksepticeye's playthrough of it, i really enjoyed that one"
+			if alongTheDialogue == 4:
+				endDialogue()
 		"JERRY":
 			if alongTheDialogue == 0:
 				$Shop/ItemDescription.text = "oh. yeah. that guy."
