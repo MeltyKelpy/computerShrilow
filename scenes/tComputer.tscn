@@ -1432,7 +1432,7 @@ parameters/looping = true
 
 [node name="type" type="AudioStreamPlayer" parent="Shop"]
 stream = ExtResource("30_av4u0")
-volume_db = -5.012
+volume_db = -10.633
 
 [node name="Wardrobe" type="Node2D" parent="."]
 position = Vector2(0, -648)
@@ -1676,6 +1676,10 @@ autowrap_mode = 2
 position = Vector2(-795.5, -1453)
 texture = ExtResource("19_tht4w")
 
+[node name="talkTimer" type="Timer" parent="."]
+wait_time = 0.01
+one_shot = true
+
 [node name="BackJOURNAL" type="Button" parent="."]
 offset_left = -864.5
 offset_top = -1529.0
@@ -1808,6 +1812,7 @@ frame_progress = 0.684997
 [connection signal="pressed" from="Gumball/NextCoin" to="." method="coinSelectionChange" binds= [1]]
 [connection signal="pressed" from="Gumball/LastCoin" to="." method="coinSelectionChange" binds= [-1]]
 [connection signal="pressed" from="Gumball/Button" to="." method="_buyGumball_pressed"]
+[connection signal="timeout" from="talkTimer" to="." method="_on_talk_timer_timeout"]
 [connection signal="pressed" from="BackJOURNAL" to="." method="cameraAnimation" binds= ["journal", -576, 324]]
 [connection signal="timeout" from="EventTimer" to="." method="_event"]
 [connection signal="timeout" from="faceRevert" to="." method="_on_face_revert_timeout"]

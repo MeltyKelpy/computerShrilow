@@ -198,6 +198,7 @@ func manageScenes():
 func endDialogue():
 	$Shop/ItemDescription.visible_ratio = 0
 	dialougeMode = false
+	dialogKey = "none"
 	alongTheDialogue = 0
 	spawnDialogueOptionsMelanie()
 	setShopBase()
@@ -290,9 +291,8 @@ func _process(_delta : float) -> void:
 		if $Shop/ItemDescription.visible_ratio > 1:
 			$Shop/ItemDescription.visible_ratio = 1
 		if $Shop/ItemDescription.visible_ratio < 1:
-			if $Shop/type.playing == false:
-				$Shop/type.play()
-			$Shop/ItemDescription.visible_characters += 35 * _delta/0.5
+			if $talkTimer.is_stopped() == true:
+				$talkTimer.start()
 	
 	if dialougeMode == true:
 		$Shop/BackButtonSHOP.disabled = true
@@ -722,3 +722,7 @@ func melShopToggle() -> void:
 func dialogueGoAway() -> void:
 	var tween = create_tween()
 	tween.tween_property($Shrilow/textBox, "scale", Vector2(0,0), 1).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+
+func _on_talk_timer_timeout() -> void:
+	$Shop/type.play()
+	$Shop/ItemDescription.visible_characters += 1

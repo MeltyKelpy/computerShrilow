@@ -3,15 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://4x7uae8v4qm2"
-path="res://.godot/imported/melImage.png-bb06aa061d6d0ad1d821c7ab5016d121.ctex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
 source_file="res://assets/images/areas/melanies/melImage.png"
-dest_files=["res://.godot/imported/melImage.png-bb06aa061d6d0ad1d821c7ab5016d121.ctex"]
 
 [params]
 
