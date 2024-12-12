@@ -1,0 +1,63 @@
+[gd_scene load_steps=15 format=3 uid="uid://c77xpd023xrdn"]
+
+[ext_resource type="Texture2D" uid="uid://cah60govrbwal" path="res://assets/images/areas/melanies/talk/choice.png" id="1_cmp3d"]
+[ext_resource type="Theme" uid="uid://dr1wna4c2ab2h" path="res://technical/textStyle.tres" id="2_amch1"]
+[ext_resource type="Script" path="res://technical/dialogOption.gd" id="2_x4lmq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ljk5j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i8tl2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_atmst"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1btuk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e3px8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pjxmj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dj3sk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o62aa"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1xdfk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t4u1y"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j3ja6"]
+
+[node name="DialogOption" type="TextureRect"]
+texture = ExtResource("1_cmp3d")
+script = ExtResource("2_x4lmq")
+
+[node name="button" type="Button" parent="."]
+offset_left = 4.0
+offset_top = 6.0
+offset_right = 283.0
+offset_bottom = 82.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ljk5j")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_i8tl2")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_atmst")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_1btuk")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_e3px8")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_pjxmj")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_dj3sk")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_o62aa")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_1xdfk")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_t4u1y")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_j3ja6")
+
+[node name="ItemName" type="Label" parent="."]
+offset_left = 16.0
+offset_top = 18.0
+offset_right = 274.0
+offset_bottom = 103.0
+scale = Vector2(1, 0.6)
+theme = ExtResource("2_amch1")
+theme_override_font_sizes/font_size = 35
+text = "PLACEHOLDER TEXT"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[connection signal="pressed" from="button" to="." method="_on_button_pressed"]

@@ -9,9 +9,15 @@ var area = "notJellies"
 var returnPosCamX = 0
 var returnPosCamY = 0
 var can = true
+var melShopState = true
+var dialougeMode = false
+var dialogKey = "none"
+var alongTheDialogue = 0
 
 var AnimPosCamX = 0
 var AnimPosCamY = 0
+
+var dialogueOptionsMelanie = []
 
 var gumballSelection = 0
 var gumballInfo = [
@@ -113,7 +119,88 @@ var gumballInfo = [
 	},
 	]
 
+var shitShrilowCanSay = [
+	"Whos leg do i gotta hump to get a dry martini around here?",
+	"FAGGOT. FAGGOT. FAGGOT.",
+	"I wouldnt have missed",
+	"I hope everyone who dies goes to hell no matter what",
+	"I love moka dot coka",
+	"I'm a real person",
+	"you should go get an autism diagnosis",
+	]
+
 var cacapoopyGOD = preload("res://technical/MelaniesItem.tscn")
+
+func manageScenes():
+	dialougeMode = true
+	$Shop/ItemDescription.visible_ratio = 0
+	clearDialogItems()
+	match dialogKey:
+		"none":
+			if alongTheDialogue == 0:
+				$Shop/ItemDescription.text = "u should NOT be seeing this."
+			if alongTheDialogue == 1:
+				$Shop/ItemDescription.text = "this also worked as a test, which is cool"
+			if alongTheDialogue == 2:
+				endDialogue()
+		"MELVIN":
+			if alongTheDialogue == 0:
+				$Shop/ItemDescription.text = "woah haha uhm whatareyou talking about idk who that is haha"
+			if alongTheDialogue == 1:
+				$Shop/ItemDescription.text = "ha!... haha....... ha... SHUT UP"
+			if alongTheDialogue == 2:
+				endDialogue()
+		"ABTYOU":
+			if alongTheDialogue == 0:
+				$Shop/ItemDescription.text = "Sure, im Melanie"
+			if alongTheDialogue == 1:
+				$Shop/ItemDescription.text = "average shopkeeper around the computer, its all i really do now that im here"
+			if alongTheDialogue == 2:
+				$Shop/ItemDescription.text = "i hope to do something more than just this someday, but if i dont then whatever"
+			if alongTheDialogue == 3:
+				$Shop/ItemDescription.text = "also my pronouns are she/it, if thats smth u care abt"
+			if alongTheDialogue == 4:
+				endDialogue()
+		"JERRY":
+			if alongTheDialogue == 0:
+				$Shop/ItemDescription.text = "oh. yeah. that guy."
+			if alongTheDialogue == 1:
+				$Shop/ItemDescription.text = "nobody likes him around here, espesically shoprunners."
+			if alongTheDialogue == 2:
+				$Shop/ItemDescription.text = "its almost like he exists PURELY to steal all our money ( its all he does anyway, might as well be. )"
+			if alongTheDialogue == 3:
+				$Shop/ItemDescription.text = "i can say for CERTAIN that anyone around here fucking hates that guy. fact check me if you want, or dont. i dont rly care"
+			if alongTheDialogue == 4:
+				endDialogue()
+		"SKIBIDI":
+			if alongTheDialogue == 0:
+				$Shop/ItemDescription.text = "...."
+			if alongTheDialogue == 1:
+				$Shop/ItemDescription.text = "consider jumping off a building, maybe ?"
+			if alongTheDialogue == 2:
+				endDialogue()
+		"JELLIES":
+			if alongTheDialogue == 0:
+				$Shop/ItemDescription.text = "oh, yeah those things"
+			if alongTheDialogue == 1:
+				$Shop/ItemDescription.text = "i have no goddamn clue why they look like me, they just do."
+			if alongTheDialogue == 2:
+				$Shop/ItemDescription.text = "but, because of that fact; when they seen me for the first time they declared me as their fucking QUEEN?!??!"
+			if alongTheDialogue == 3:
+				$Shop/ItemDescription.text = "so yeah idk i've been hiding from them ever since"
+			if alongTheDialogue == 4:
+				$Shop/ItemDescription.text = "theres so fucking many of them, and they're alot more evil than they seem dude."
+			if alongTheDialogue == 5:
+				$Shop/ItemDescription.text = "they tried to give me a dead bird as a royal offering. where are they finding birds in the computer ??"
+			if alongTheDialogue == 6:
+				endDialogue()
+
+func endDialogue():
+	$Shop/ItemDescription.visible_ratio = 0
+	dialougeMode = false
+	alongTheDialogue = 0
+	spawnDialogueOptionsMelanie()
+	setShopBase()
 
 func generateHoes():
 	for i in ItemValues.itemInfomation.size():
@@ -195,6 +282,24 @@ func _ready():
 
 func _process(_delta : float) -> void:
 	
+	if dialougeMode == true and Input.is_action_just_pressed("Click"):
+		alongTheDialogue += 1
+		manageScenes()
+	
+	if melShopState == false:
+		if $Shop/ItemDescription.visible_ratio > 1:
+			$Shop/ItemDescription.visible_ratio = 1
+		if $Shop/ItemDescription.visible_ratio < 1:
+			if $Shop/type.playing == false:
+				$Shop/type.play()
+			$Shop/ItemDescription.visible_characters += 35 * _delta/0.5
+	
+	if dialougeMode == true:
+		$Shop/BackButtonSHOP.disabled = true
+		$Shop/BackSHOP.visible = false
+	if dialougeMode == false:
+		$Shop/BackButtonSHOP.disabled = false
+		$Shop/BackSHOP.visible = true
 	
 	$Journal/jellyName.text = Jelly.jellyName
 	$Journal/jellyDesc.text = Jelly.jellyDesc
@@ -269,9 +374,10 @@ func _process(_delta : float) -> void:
 	
 	$Shrilow/Shrilow.texture = load(ClothingObjects.clothes[ClothingObjects.equippedClothing]["Image"])
 	
-	$Shop/ItemName.text = ItemValues.itemName
-	$Shop/ItemDescription.text = ItemValues.itemDesc
-	$Shop/ItemExtra.text = ItemValues.itemExtra
+	if melShopState == true:
+		$Shop/ItemName.text = ItemValues.itemName
+		$Shop/ItemDescription.text = ItemValues.itemDesc
+		$Shop/ItemExtra.text = ItemValues.itemExtra
 	
 	$Wardrobe/ItemName.text = ClothingObjects.itemName
 	$Wardrobe/ItemDescription.text = ClothingObjects.itemDesc
@@ -312,22 +418,28 @@ func _on_shrilow_squeak_autoclick() -> void:
 	$Shrilow/Squeak2.play()
 
 func _on_shrilow_squeak_pressed() -> void:
-	$faceRevert.stop()
-	$faceRevert.start()
-	$faceRevert2.stop()
-	$faceRevert2.start()
-	$Shrilow.scale.x = 1.2
-	$Shrilow.scale.y = 0.85
-	$Shrilow/Shrilow/ShrilowFace.visible = false
-	$Shrilow/Shrilow/StillFace.visible = true
-	if curClicks < 150:
-		$Shrilow/Shrilow/StillFace.texture = load("res://assets/images/computershrilows/shrilowFaces/click.png")
-	if curClicks >= 150:
-		$Shrilow/Shrilow/StillFace.texture = load("res://assets/images/computershrilows/shrilowFaces/dizzy.png")
-	$Shrilow/Squeak.play()
-	ItemValues.money += FizzyDrink.clickPower+FizzyDrink.clickPowerAdditions+FizzyDrink.clickPowerClothingBuffs
-	clicks += 1
-	curClicks += 1
+	if Input.is_action_just_pressed("Click"):
+		$faceRevert.stop()
+		$faceRevert.start()
+		$faceRevert2.stop()
+		$faceRevert2.start()
+		$Shrilow.scale.x = 1.2
+		$Shrilow.scale.y = 0.85
+		$Shrilow/Shrilow/ShrilowFace.visible = false
+		$Shrilow/Shrilow/StillFace.visible = true
+		if curClicks < 150:
+			$Shrilow/Shrilow/StillFace.texture = load("res://assets/images/computershrilows/shrilowFaces/click.png")
+		if curClicks >= 150:
+			$Shrilow/Shrilow/StillFace.texture = load("res://assets/images/computershrilows/shrilowFaces/dizzy.png")
+		$Shrilow/Squeak.play()
+		ItemValues.money += FizzyDrink.clickPower+FizzyDrink.clickPowerAdditions+FizzyDrink.clickPowerClothingBuffs
+		clicks += 1
+		curClicks += 1
+	if Input.is_action_just_pressed("rightClick"):
+		$Shrilow/textBox/box/dialog.text = str(shitShrilowCanSay[rng.randi_range(0, shitShrilowCanSay.size()-1)])
+		var tween = create_tween()
+		tween.tween_property($Shrilow/textBox, "scale", Vector2(1,1), 1).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+		$Shrilow/Timer.start()
 
 func _on_face_revert_timeout() -> void:
 	$Shrilow/Shrilow/ShrilowFace.visible = true
@@ -338,6 +450,8 @@ func _on_shop_button_pressed() -> void:
 	$sectionTransitions.play("toShop")
 
 func _on_back_button_shop_pressed() -> void:
+	if melShopState != true:
+		melShopToggle()
 	$sectionTransitions.play("leaveShop")
 
 func _on_wardrobe_button_pressed() -> void:
@@ -553,3 +667,58 @@ func _buyGumball_pressed() -> void:
 			#num = rng.randi_range(0, Events.justMinigames.size()-1)
 		#if type == 1:
 			#num = rng.randi_range(0, Events.eventList.size()-1)
+
+func spawnDialogueOptionsMelanie():
+	for i in FizzyDrink.melDialogue.size():
+		if FizzyDrink.melDialogue[i]["unlocked"] == true:
+			var cacapoopyGOD2 = load("res://technical/dialogOption.tscn")
+			var caca = cacapoopyGOD2.instantiate()
+			caca.present = FizzyDrink.melDialogue[i]["present"]
+			caca.dialogKey = FizzyDrink.melDialogue[i]["dialogKey"]
+			add_child(caca)
+			caca.reparent($Shop/talkOptions/GridContainer)
+			dialogueOptionsMelanie.append(caca)
+
+func clearDialogItems():
+	for i in dialogueOptionsMelanie.size():
+		dialogueOptionsMelanie[i].queue_free()
+	dialogueOptionsMelanie.resize(0)
+
+func setShopBase():
+	$Shop/Mel.play("talkBase")
+	var openingMessages = [
+		"Oh, yeah sure, i got nothing else to do",
+		"Normally i couldnt do this, but its not like im selling anyone anything anyway",
+		"Hm? need smth?",
+		"Ask away, i guess",
+		]
+	$Shop/ItemName.text = "MELANIE:"
+	$Shop/ItemDescription.text = openingMessages[rng.randi_range(0, openingMessages.size()-1)]
+	$Shop/ItemExtra.text = ""
+
+func melShopToggle() -> void:
+	if dialogKey == "none":
+		$Shop/ItemDescription.visible_characters = -1
+		$Shop/ItemDescription.visible_ratio = 1
+		melShopState = !melShopState
+		if melShopState == false:
+			$Shop/ItemDescription.visible_ratio = 0
+			spawnDialogueOptionsMelanie()
+			$Shop/ScrollContainer.position.y = 872
+			$Shop/talkOptions.position.y = 112
+			setShopBase()
+			$USD.visible = false
+			$USDText.visible = false
+		if melShopState == true:
+			clearDialogItems()
+			$Shop/talkOptions.position.y = 872
+			$Shop/ScrollContainer.position.y = 112
+			$Shop/Mel.play("default")
+			$USD.visible = true
+			$USDText.visible = true
+			$Shop/ItemDescription.visible_characters = -1
+			$Shop/ItemDescription.visible_ratio = 1
+
+func dialogueGoAway() -> void:
+	var tween = create_tween()
+	tween.tween_property($Shrilow/textBox, "scale", Vector2(0,0), 1).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)

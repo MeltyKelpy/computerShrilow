@@ -15,6 +15,34 @@ var stopTheCount = 0
 var jellys = (-1)
 var greasepuppies = (-1)
 
+var melDialogue = [
+	{
+	"present":"About you",
+	"dialogKey":"ABTYOU",
+	"unlocked":true,
+	},
+	{
+	"present":"Jerry Seinfeld",
+	"dialogKey":"JERRY",
+	"unlocked":true,
+	},
+	{
+	"present":"Melvin?",
+	"dialogKey":"MELVIN",
+	"unlocked":true,
+	},
+	{
+	"present":"Do u fw Skibidi Toilet",
+	"dialogKey":"SKIBIDI",
+	"unlocked":true,
+	},
+	{
+	"present":"What's up with the jellies?",
+	"dialogKey":"JELLIES",
+	"unlocked":false,
+	},
+	]
+
 func updateClothes() -> void:
 	clickPowerClothingBuffs = 0
 	AUTOclickPowerClothingBuffs = 0

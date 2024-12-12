@@ -38,6 +38,7 @@ func _ready() -> void:
 	var caca2 = cacapoopyGOD3.instantiate()
 	add_child(caca2)
 	caca2.reparent($/root)
+	FizzyDrink.melDialogue[4]["unlocked"] = true
 	if selfDiscoveredVar == true:
 		caca2.warn("You bought a Gumball, and you got a "+rarity+" Jelly!")
 	else:
