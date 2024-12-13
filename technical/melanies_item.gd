@@ -3,59 +3,64 @@ extends TextureRect
 var ItemID : int
 var MaxedOut = false
 var ItemSpecificString = ""
+var type = "melanie"
 var lastWorkingNumber = 0
 
-func _process(_delta: float) -> void:
-	
-	if ItemValues.itemInfomation[ItemID]["Upgradeable?"] == true:
-		if ResourceLoader.exists(ItemValues.itemInfomation[ItemID]["Image"]+str(ItemValues.itemInfomation[ItemID]["CurUpgrade"])+".png"):
-			$ItemIcon.texture = load(ItemValues.itemInfomation[ItemID]["Image"]+str(ItemValues.itemInfomation[ItemID]["CurUpgrade"])+".png")
-			lastWorkingNumber = ItemValues.itemInfomation[ItemID]["CurUpgrade"]
-		else:
-			$ItemIcon.texture = load(ItemValues.itemInfomation[ItemID]["Image"]+str(lastWorkingNumber)+".png")
+var hearMeOut = [{
+	"melanie":ItemValues.itemInfomation,
+	"melvin":ItemValues.melvinItems,
+	}]
 
-		if ItemValues.itemInfomation[ItemID]["CurUpgrade"] != ItemValues.itemInfomation[ItemID]["MaxUpgrade"]:
-			$INFO.text = "Next Level: "+str(ItemValues.itemInfomation[ItemID]["CurUpgrade"]+1)
+func _process(_delta: float) -> void:
+	if hearMeOut[0][type][ItemID]["Upgradeable?"] == true:
+		if ResourceLoader.exists(hearMeOut[0][type][ItemID]["Image"]+str(hearMeOut[0][type][ItemID]["CurUpgrade"])+".png"):
+			$ItemIcon.texture = load(hearMeOut[0][type][ItemID]["Image"]+str(hearMeOut[0][type][ItemID]["CurUpgrade"])+".png")
+			lastWorkingNumber = hearMeOut[0][type][ItemID]["CurUpgrade"]
 		else:
-			$Cost.text = "Level: "+str(ItemValues.itemInfomation[ItemID]["CurUpgrade"])
+			$ItemIcon.texture = load(hearMeOut[0][type][ItemID]["Image"]+str(lastWorkingNumber)+".png")
+
+		if hearMeOut[0][type][ItemID]["CurUpgrade"] != hearMeOut[0][type][ItemID]["MaxUpgrade"]:
+			$INFO.text = "Next Level: "+str(hearMeOut[0][type][ItemID]["CurUpgrade"]+1)
+		else:
+			$Cost.text = "Level: "+str(hearMeOut[0][type][ItemID]["CurUpgrade"])
 			$INFO.text = "MAXED OUT"
 			MaxedOut = true
 	else:
-		$ItemIcon.texture = load(ItemValues.itemInfomation[ItemID]["Image"])
+		$ItemIcon.texture = load(hearMeOut[0][type][ItemID]["Image"])
 		$INFO.text = ""
-		if ItemValues.itemInfomation[ItemID]["CurUpgrade"] == ItemValues.itemInfomation[ItemID]["MaxUpgrade"]:
+		if hearMeOut[0][type][ItemID]["CurUpgrade"] == hearMeOut[0][type][ItemID]["MaxUpgrade"]:
 			$Cost.text = "SOLD OUT"
 			MaxedOut = true
 	
-	if (ItemValues.itemInfomation[ItemID]["Type"] == "Generic" and ItemValues.itemInfomation[ItemID]["CurUpgrade"] != 0 and MaxedOut == false) or ItemValues.itemInfomation[ItemID]["Type"] == "Consumable":
-		$Cost.text = str(ItemValues.itemInfomation[ItemID]["Cost"]*(ItemValues.itemInfomation[ItemID]["CurUpgrade"]+1))+"$"
-		if ItemValues.itemInfomation[ItemID]["Name"] == "Greasepuppy":
+	if (hearMeOut[0][type][ItemID]["Type"] == "Generic" and hearMeOut[0][type][ItemID]["CurUpgrade"] != 0 and MaxedOut == false) or hearMeOut[0][type][ItemID]["Type"] == "Consumable":
+		$Cost.text = str(hearMeOut[0][type][ItemID]["Cost"]*(hearMeOut[0][type][ItemID]["CurUpgrade"]+1))+"$"
+		if hearMeOut[0][type][ItemID]["Name"] == "Greasepuppy":
 			var multi = FizzyDrink.greasepuppies - 4
 			if multi < 0:
 				multi = 0
-			$Cost.text = str(ItemValues.itemInfomation[ItemID]["Cost"] + ((ItemValues.itemInfomation[ItemID]["Cost"] * 1.2) * multi))+"$"
-	elif (ItemValues.itemInfomation[ItemID]["Type"] == "Generic" and ItemValues.itemInfomation[ItemID]["CurUpgrade"] == 0 and MaxedOut == false) or ItemValues.itemInfomation[ItemID]["Type"] == "Consumable":
-		$Cost.text = str(ItemValues.itemInfomation[ItemID]["Cost"])+"$"
+			$Cost.text = str(hearMeOut[0][type][ItemID]["Cost"] + ((hearMeOut[0][type][ItemID]["Cost"] * 1.2) * multi))+"$"
+	elif (hearMeOut[0][type][ItemID]["Type"] == "Generic" and hearMeOut[0][type][ItemID]["CurUpgrade"] == 0 and MaxedOut == false) or hearMeOut[0][type][ItemID]["Type"] == "Consumable":
+		$Cost.text = str(hearMeOut[0][type][ItemID]["Cost"])+"$"
 	
 	
 	if MaxedOut == true:
 		modulate = Color(1,1,0)
 
 func _on_button_mouse_entered() -> void:
-	ItemValues.itemName = ItemValues.itemInfomation[ItemID]["Name"]
-	ItemValues.itemDesc = ItemValues.itemInfomation[ItemID]["Desc"]
+	ItemValues.itemName = hearMeOut[0][type][ItemID]["Name"]
+	ItemValues.itemDesc = hearMeOut[0][type][ItemID]["Desc"]
 	ItemSpecificString = ""
 	if ItemValues.itemName == "Autoclick":
-		var second = str(ItemValues.itemInfomation[ItemID]["BaseValue"]+(ItemValues.itemInfomation[ItemID]["CurUpgrade"]*ItemValues.itemInfomation[ItemID]["UpgradeIncrease"]))
+		var second = str(hearMeOut[0][type][ItemID]["BaseValue"]+(hearMeOut[0][type][ItemID]["CurUpgrade"]*hearMeOut[0][type][ItemID]["UpgradeIncrease"]))
 		if second != "1":
 			ItemSpecificString = "Clicks Shrilow every "+second+" Seconds"
 		else:
 			ItemSpecificString = "Clicks Shrilow every "+second+" Second"
 	if ItemValues.itemName == "Plus One":
-		var clicks = str((ItemValues.itemInfomation[ItemID]["BaseValue"]+(ItemValues.itemInfomation[ItemID]["CurUpgrade"]*ItemValues.itemInfomation[ItemID]["UpgradeIncrease"]))+1)
+		var clicks = str((hearMeOut[0][type][ItemID]["BaseValue"]+(hearMeOut[0][type][ItemID]["CurUpgrade"]*hearMeOut[0][type][ItemID]["UpgradeIncrease"]))+1)
 		ItemSpecificString = "Base clicks value increased by "+clicks
 	if ItemValues.itemName == "Plus One Auto":
-		var clicks = str(ItemValues.itemInfomation[ItemID]["BaseValue"]+(ItemValues.itemInfomation[ItemID]["CurUpgrade"]*ItemValues.itemInfomation[ItemID]["UpgradeIncrease"]))
+		var clicks = str(hearMeOut[0][type][ItemID]["BaseValue"]+(hearMeOut[0][type][ItemID]["CurUpgrade"]*hearMeOut[0][type][ItemID]["UpgradeIncrease"]))
 		ItemSpecificString = "Autoclick clicks value increased by "+clicks
 	if ItemValues.itemName == "Greasepuppy":
 		ItemSpecificString = "You have " + str(FizzyDrink.greasepuppies+1) + " Greasepuppies"
@@ -67,49 +72,49 @@ func _on_button_mouse_exited() -> void:
 	ItemValues.itemExtra = ""
 
 func _on_button_pressed() -> void:
-	if ItemValues.itemInfomation[ItemID]["Type"] == "Generic" or (ItemValues.itemInfomation[ItemID]["Type"] == "Consumable" and ItemValues.itemInfomation[ItemID]["Owned"] == false):
-		if ItemValues.itemInfomation[ItemID]["Name"] == "Greasepuppy":
+	if hearMeOut[0][type][ItemID]["Type"] == "Generic" or (hearMeOut[0][type][ItemID]["Type"] == "Consumable" and hearMeOut[0][type][ItemID]["Owned"] == false):
+		if hearMeOut[0][type][ItemID]["Name"] == "Greasepuppy":
 			var multi = FizzyDrink.greasepuppies - 4
 			if multi < 0:
 				multi = 0
-			if (ItemValues.money >= ItemValues.itemInfomation[ItemID]["Cost"] + (ItemValues.itemInfomation[ItemID]["Cost"] * 1.2) * multi):
+			if (ItemValues.money >= hearMeOut[0][type][ItemID]["Cost"] + (hearMeOut[0][type][ItemID]["Cost"] * 1.2) * multi):
 				calculate()
-		elif ItemValues.itemInfomation[ItemID]["CurUpgrade"] != 0:
-			if (ItemValues.money >= ItemValues.itemInfomation[ItemID]["Cost"]*(ItemValues.itemInfomation[ItemID]["CurUpgrade"]+1)) and MaxedOut == false:
+		elif hearMeOut[0][type][ItemID]["CurUpgrade"] != 0:
+			if (ItemValues.money >= hearMeOut[0][type][ItemID]["Cost"]*(hearMeOut[0][type][ItemID]["CurUpgrade"]+1)) and MaxedOut == false:
 				calculate()
-		elif ItemValues.itemInfomation[ItemID]["CurUpgrade"] == 0:
-			if (ItemValues.money >= ItemValues.itemInfomation[ItemID]["Cost"]) and MaxedOut == false:
+		elif hearMeOut[0][type][ItemID]["CurUpgrade"] == 0:
+			if (ItemValues.money >= hearMeOut[0][type][ItemID]["Cost"]) and MaxedOut == false:
 				calculate()
 
 func calculate():
 	var cacapoopyGOD
 	var caca
-	ItemValues.itemInfomation[ItemID]["Owned"] = true
-	if ItemValues.itemInfomation[ItemID]["ScenePath"] != null:
-		if ItemValues.itemInfomation[ItemID]["Upgradeable?"] == true:
-			if ItemValues.itemInfomation[ItemID]["CurUpgrade"] == 0:
-				cacapoopyGOD = load(ItemValues.itemInfomation[ItemID]["ScenePath"])
+	hearMeOut[0][type][ItemID]["Owned"] = true
+	if hearMeOut[0][type][ItemID]["ScenePath"] != null:
+		if hearMeOut[0][type][ItemID]["Upgradeable?"] == true:
+			if hearMeOut[0][type][ItemID]["CurUpgrade"] == 0:
+				cacapoopyGOD = load(hearMeOut[0][type][ItemID]["ScenePath"])
 				caca = cacapoopyGOD.instantiate()
 				add_child(caca)
 				caca.getID(ItemID)
 		else:
-			cacapoopyGOD = load(ItemValues.itemInfomation[ItemID]["ScenePath"])
+			cacapoopyGOD = load(hearMeOut[0][type][ItemID]["ScenePath"])
 			caca = cacapoopyGOD.instantiate()
 			add_child(caca)
 			caca.getID(ItemID)
-	if ItemValues.itemInfomation[ItemID]["Name"] == "Greasepuppy":
+	if hearMeOut[0][type][ItemID]["Name"] == "Greasepuppy":
 		FizzyDrink.greasepuppies += 1
 		caca.getPuppy(FizzyDrink.greasepuppies)
-	if ItemValues.itemInfomation[ItemID]["CurUpgrade"] != 0:
-		ItemValues.money -= ItemValues.itemInfomation[ItemID]["Cost"]*(ItemValues.itemInfomation[ItemID]["CurUpgrade"]+1)
-	if ItemValues.itemInfomation[ItemID]["CurUpgrade"] == 0:
-		if ItemValues.itemInfomation[ItemID]["Name"] == "Greasepuppy":
+	if hearMeOut[0][type][ItemID]["CurUpgrade"] != 0:
+		ItemValues.money -= hearMeOut[0][type][ItemID]["Cost"]*(hearMeOut[0][type][ItemID]["CurUpgrade"]+1)
+	if hearMeOut[0][type][ItemID]["CurUpgrade"] == 0:
+		if hearMeOut[0][type][ItemID]["Name"] == "Greasepuppy":
 			var multi = FizzyDrink.greasepuppies - 4
 			if multi < 0:
 				multi = 0
-			ItemValues.money -= ItemValues.itemInfomation[ItemID]["Cost"] + (ItemValues.itemInfomation[ItemID]["Cost"] * 1.2) * multi
+			ItemValues.money -= hearMeOut[0][type][ItemID]["Cost"] + (hearMeOut[0][type][ItemID]["Cost"] * 1.2) * multi
 		else:
-			ItemValues.money -= ItemValues.itemInfomation[ItemID]["Cost"]
-	if ItemValues.itemInfomation[ItemID]["Type"] == "Generic":
-		ItemValues.itemInfomation[ItemID]["CurUpgrade"] += 1
+			ItemValues.money -= hearMeOut[0][type][ItemID]["Cost"]
+	if hearMeOut[0][type][ItemID]["Type"] == "Generic":
+		hearMeOut[0][type][ItemID]["CurUpgrade"] += 1
 	ItemValues.itemExtra = ItemSpecificString

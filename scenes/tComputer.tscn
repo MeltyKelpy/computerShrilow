@@ -1685,9 +1685,9 @@ layout_mode = 2
 columns = 3
 
 [node name="talkOptions" type="ScrollContainer" parent="Melvin"]
-offset_left = 529.0
+offset_left = 1405.0
 offset_top = 116.0
-offset_right = 1117.0
+offset_right = 1993.0
 offset_bottom = 465.0
 horizontal_scroll_mode = 3
 vertical_scroll_mode = 3

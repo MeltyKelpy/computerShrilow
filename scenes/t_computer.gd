@@ -262,11 +262,13 @@ func generateHoes():
 	for i in ItemValues.itemInfomation.size():
 		var caca = cacapoopyGOD.instantiate()
 		caca.ItemID = i
+		caca.type = "melanie"
 		add_child(caca)
 		caca.reparent($Shop/ScrollContainer/GridContainer)
-	for i in ItemValues.itemInfomation.size():
+	for i in ItemValues.melvinItems.size():
 		var caca = cacapoopyGOD.instantiate()
 		caca.ItemID = i
+		caca.type = "melvin"
 		add_child(caca)
 		caca.reparent($Melvin/ScrollContainer/GridContainer)
 	for i in ClothingObjects.clothes.size():
@@ -612,6 +614,10 @@ func _signal_jelly():
 
 func cameraAnimation(Varea, positionX, positionY):
 	area = "notJellies"
+	if Varea == "bell":
+		for i in FizzyDrink.melDialogue.size():
+			if FizzyDrink.melDialogue[i]["dialogKey"] == "MELVIN":
+				FizzyDrink.melDialogue[i]["unlocked"] = true
 	$EventTimer.paused = true
 	$Camera2D/bg/icon.play(Varea)
 	AnimPosCamX = positionX
@@ -745,6 +751,8 @@ func spawnDialogueOptionsMelanie():
 			var caca = cacapoopyGOD2.instantiate()
 			caca.present = FizzyDrink.melDialogue[i]["present"]
 			caca.dialogKey = FizzyDrink.melDialogue[i]["dialogKey"]
+			caca.interacted = FizzyDrink.melDialogue[i]["interacted"]
+			caca.arrayToUse = "melanie"
 			add_child(caca)
 			caca.reparent($Shop/talkOptions/GridContainer)
 			dialogueOptionsMelanie.append(caca)

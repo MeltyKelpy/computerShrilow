@@ -61,7 +61,7 @@ var melDialogue = [
 	{
 	"present":"Melvin?",
 	"dialogKey":"MELVIN",
-	"unlocked":true,
+	"unlocked":false,
 	"interacted":false,
 	},
 	{
