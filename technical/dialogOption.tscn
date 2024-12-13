@@ -31,6 +31,7 @@ texture = ExtResource("1_cmp3d")
 script = ExtResource("2_x4lmq")
 
 [node name="button" type="Button" parent="."]
+layout_mode = 0
 offset_left = 4.0
 offset_top = 6.0
 offset_right = 283.0
@@ -48,6 +49,7 @@ theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_t4u1y")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_j3ja6")
 
 [node name="ItemName" type="Label" parent="."]
+layout_mode = 0
 offset_left = 16.0
 offset_top = 18.0
 offset_right = 274.0

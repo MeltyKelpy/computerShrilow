@@ -1,7 +1,7 @@
 extends Node2D
 
 func _on_button_pressed() -> void:
-	$/root/computerShrilow.cameraAnimation("gumballMachine", -791, -1984)
+	$/root/computerShrilow.cameraAnimation("bell", -791, -2705)
 
 func _on_button_mouse_entered() -> void:
 	$TITLE.visible = true

@@ -10,6 +10,7 @@ var returnPosCamX = 0
 var returnPosCamY = 0
 var can = true
 var melShopState = true
+var melvinShopState = true
 var dialougeMode = false
 var dialogKey = "none"
 var alongTheDialogue = 0
@@ -263,6 +264,11 @@ func generateHoes():
 		caca.ItemID = i
 		add_child(caca)
 		caca.reparent($Shop/ScrollContainer/GridContainer)
+	for i in ItemValues.itemInfomation.size():
+		var caca = cacapoopyGOD.instantiate()
+		caca.ItemID = i
+		add_child(caca)
+		caca.reparent($Melvin/ScrollContainer/GridContainer)
 	for i in ClothingObjects.clothes.size():
 		var cacapoopyGOD2 = preload("res://technical/clothingObject.tscn")
 		var caca = cacapoopyGOD2.instantiate()
@@ -345,6 +351,12 @@ func _process(_delta : float) -> void:
 		if $Shop/ItemDescription.visible_ratio > 1:
 			$Shop/ItemDescription.visible_ratio = 1
 		if $Shop/ItemDescription.visible_ratio < 1:
+			if $talkTimer.is_stopped() == true:
+				$talkTimer.start()
+	if melvinShopState == false:
+		if $Melvin/ItemDescription.visible_ratio > 1:
+			$Melvin/ItemDescription.visible_ratio = 1
+		if $Melvin/ItemDescription.visible_ratio < 1:
 			if $talkTimer.is_stopped() == true:
 				$talkTimer.start()
 	
@@ -432,6 +444,9 @@ func _process(_delta : float) -> void:
 		$Shop/ItemName.text = ItemValues.itemName
 		$Shop/ItemDescription.text = ItemValues.itemDesc
 		$Shop/ItemExtra.text = ItemValues.itemExtra
+	if melvinShopState == true:
+		$Melvin/ItemName.text = ItemValues.itemName
+		$Melvin/ItemDescription.text = ItemValues.itemDesc
 	
 	$Wardrobe/ItemName.text = ClothingObjects.itemName
 	$Wardrobe/ItemDescription.text = ClothingObjects.itemDesc
@@ -439,6 +454,7 @@ func _process(_delta : float) -> void:
 	$ShrilowScreen/Clicks.text = "CLICKS: "+str(clicks)
 	$USDText.text = str(round(ItemValues.money))
 	$Gumball/USDText.text = str(round(ItemValues.money))
+	$Melvin/USDText.text = str(round(ItemValues.money))
 	
 	$ParallaxBackground.scroll_base_offset.y -= 10 * _delta/0.5
 	
@@ -778,5 +794,9 @@ func dialogueGoAway() -> void:
 	tween.tween_property($Shrilow/textBox, "scale", Vector2(0,0), 1).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
 
 func _on_talk_timer_timeout() -> void:
-	$Shop/type.play()
-	$Shop/ItemDescription.visible_characters += 1
+	if melShopState == false:
+		$Shop/type.play()
+		$Shop/ItemDescription.visible_characters += 1
+	if melvinShopState == false:
+		$Shop/type.play()
+		$Melvin/ItemDescription.visible_characters += 1

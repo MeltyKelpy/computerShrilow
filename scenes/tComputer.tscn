@@ -1,4 +1,4 @@
-[gd_scene load_steps=105 format=3 uid="uid://bgw557ttv6noe"]
+[gd_scene load_steps=110 format=3 uid="uid://bgw557ttv6noe"]
 
 [ext_resource type="Script" path="res://scenes/t_computer.gd" id="1_swrb7"]
 [ext_resource type="Texture2D" uid="uid://dajex7cpt7k4p" path="res://assets/images/bg/background.png" id="2_u0da7"]
@@ -46,6 +46,10 @@
 [ext_resource type="Texture2D" uid="uid://qhintyosqus" path="res://assets/images/ui/transitions/journal1.png" id="36_s2fg5"]
 [ext_resource type="Texture2D" uid="uid://kpdgjt7sf3f1" path="res://assets/images/ui/transitions/storage0.png" id="37_minta"]
 [ext_resource type="Texture2D" uid="uid://ba21ncyajao5t" path="res://assets/images/ui/transitions/storage1.png" id="38_1n5wc"]
+[ext_resource type="Texture2D" uid="uid://3tokm7bka706" path="res://assets/images/areas/jellies/melvin/bg.png" id="39_xk82v"]
+[ext_resource type="Texture2D" uid="uid://dxvslfuybm4qv" path="res://assets/images/areas/jellies/melvin/melvs/base.png" id="40_2pbfm"]
+[ext_resource type="Texture2D" uid="uid://c3rsesgxto2nt" path="res://assets/images/ui/transitions/bell0.png" id="41_boae4"]
+[ext_resource type="Texture2D" uid="uid://dqdfjx7jj56ii" path="res://assets/images/ui/transitions/bell1.png" id="42_pcusv"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p6f28"]
 
@@ -152,6 +156,17 @@ animations = [{
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ehj2i"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fh8os"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1f25w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("40_2pbfm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0bpyy"]
 
@@ -938,6 +953,17 @@ _data = {
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("41_boae4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_pcusv")
+}],
+"loop": true,
+"name": &"bell",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("33_ltk4g")
 }, {
 "duration": 1.0,
@@ -1635,6 +1661,108 @@ theme = ExtResource("8_oskpf")
 theme_override_font_sizes/font_size = 50
 text = "MONEY"
 
+[node name="Melvin" type="Node2D" parent="."]
+position = Vector2(-1367, -3029)
+
+[node name="bg2" type="Sprite2D" parent="Melvin"]
+position = Vector2(758, 324)
+texture = ExtResource("39_xk82v")
+
+[node name="bg" type="Sprite2D" parent="Melvin"]
+position = Vector2(576, 324)
+texture = ExtResource("39_xk82v")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Melvin"]
+offset_left = 558.0
+offset_top = 116.0
+offset_right = 1088.0
+offset_bottom = 465.0
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
+
+[node name="GridContainer" type="GridContainer" parent="Melvin/ScrollContainer"]
+layout_mode = 2
+columns = 3
+
+[node name="talkOptions" type="ScrollContainer" parent="Melvin"]
+offset_left = 529.0
+offset_top = 116.0
+offset_right = 1117.0
+offset_bottom = 465.0
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
+
+[node name="GridContainer" type="GridContainer" parent="Melvin/talkOptions"]
+layout_mode = 2
+columns = 2
+
+[node name="back" type="Sprite2D" parent="Melvin"]
+position = Vector2(89, 82)
+texture = ExtResource("17_obgyp")
+
+[node name="melvin" type="AnimatedSprite2D" parent="Melvin"]
+position = Vector2(576, 392)
+sprite_frames = SubResource("SpriteFrames_1f25w")
+
+[node name="BackButton" type="Button" parent="Melvin"]
+offset_left = 20.0
+offset_top = 6.0
+offset_right = 158.0
+offset_bottom = 158.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p6f28")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_w4xu3")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_uj6cr")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0meto")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_rmwiu")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_o3afr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_amgep")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_e3kvh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_kvmat")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iq0t2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
+
+[node name="USD" type="Sprite2D" parent="Melvin"]
+z_index = 8
+position = Vector2(1029, 60.5)
+texture = ExtResource("7_0u6ge")
+
+[node name="USDText" type="Label" parent="Melvin"]
+z_index = 8
+offset_left = 540.0
+offset_top = 43.5
+offset_right = 980.0
+offset_bottom = 113.5
+scale = Vector2(1, 0.6)
+theme = ExtResource("8_oskpf")
+theme_override_font_sizes/font_size = 50
+text = "MONEY"
+horizontal_alignment = 2
+
+[node name="Description" type="Sprite2D" parent="Melvin"]
+position = Vector2(1067, 324)
+texture = ExtResource("13_m021q")
+
+[node name="ItemName" type="Label" parent="Melvin"]
+offset_left = 539.0
+offset_top = 487.0
+offset_right = 683.0
+offset_bottom = 557.0
+scale = Vector2(1, 0.6)
+theme = ExtResource("8_oskpf")
+theme_override_font_sizes/font_size = 50
+text = "MELANIE:"
+
+[node name="ItemDescription" type="Label" parent="Melvin"]
+offset_left = 539.0
+offset_top = 516.0
+offset_right = 1090.0
+offset_bottom = 676.0
+scale = Vector2(1, 0.6)
+theme = ExtResource("8_oskpf")
+theme_override_font_sizes/font_size = 35
+text = "oh, sure i got nothing else to do anyways lmao"
+autowrap_mode = 3
+
 [node name="Journal" type="Node2D" parent="."]
 position = Vector2(-1367, -1545)
 
@@ -1756,10 +1884,10 @@ clip_text = true
 [node name="faceRevert2" type="Timer" parent="."]
 
 [node name="Label" type="Label" parent="."]
-offset_left = -1162.0
-offset_top = -418.0
-offset_right = -184.0
-offset_bottom = -61.0
+offset_left = 2245.0
+offset_top = -2325.0
+offset_right = 3223.0
+offset_bottom = -1968.0
 theme_override_font_sizes/font_size = 50
 text = "THE GAMBLING UPDATE WILL COME........
 AND IT'LL BE OVER HERE.........
@@ -1801,9 +1929,8 @@ texture = ExtResource("27_e5v8d")
 
 [node name="icon" type="AnimatedSprite2D" parent="Camera2D/bg"]
 sprite_frames = SubResource("SpriteFrames_2w07w")
-animation = &"storage"
-frame = 1
-frame_progress = 0.684997
+animation = &"bell"
+frame_progress = 0.547985
 
 [connection signal="pressed" from="Mines/ScrollContainer/Control/BackButtonWARD" to="." method="_on_back_button_ward2_pressed"]
 [connection signal="pressed" from="Shrilow/ShrilowSqueak" to="." method="_on_shrilow_squeak_pressed"]
@@ -1817,8 +1944,11 @@ frame_progress = 0.684997
 [connection signal="pressed" from="Shop/melinteract" to="." method="melShopToggle"]
 [connection signal="pressed" from="Shop/BackButtonSHOP" to="." method="_on_back_button_shop_pressed"]
 [connection signal="pressed" from="Wardrobe/BackButtonWARD" to="." method="_on_back_button_ward_pressed"]
+[connection signal="pressed" from="Gumball/BackButton" to="." method="cameraAnimation" binds= ["gumballMachine", -576, 324]]
 [connection signal="pressed" from="Gumball/Button" to="." method="_buyGumball_pressed"]
+[connection signal="pressed" from="Melvin/BackButton" to="." method="cameraAnimation" binds= ["bell", -576, 324]]
 [connection signal="timeout" from="talkTimer" to="." method="_on_talk_timer_timeout"]
+[connection signal="pressed" from="BackJOURNAL" to="." method="cameraAnimation" binds= ["journal", -576, 324]]
 [connection signal="timeout" from="EventTimer" to="." method="_event"]
 [connection signal="timeout" from="faceRevert" to="." method="_on_face_revert_timeout"]
 [connection signal="timeout" from="faceRevert2" to="." method="_on_face_revert_2_timeout"]
