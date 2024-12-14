@@ -9,6 +9,8 @@ var streamTo = ""
 
 func _ready() -> void:
 	reparent($/root/computerShrilow/Camera2D)
+	position.x = $/root/computerShrilow/Camera2D.position.x - 1152
+	position.y = $/root/computerShrilow/Camera2D.position.y - 648
 
 func _process(delta: float) -> void:
 	if second < 10:
@@ -20,8 +22,6 @@ func _process(delta: float) -> void:
 		manageSubtitles()
 	if $phonecall.volume_db > 0:
 		$phonecall.volume_db = 0
-	position.x = $/root/computerShrilow/Camera2D.position.x - 1152
-	position.y = $/root/computerShrilow/Camera2D.position.y - 648
 
 func manageSubtitles():
 	var time = $minerKid.get_playback_position()
