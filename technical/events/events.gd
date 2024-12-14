@@ -24,6 +24,12 @@ var eventList = [
 	"WarningMessage":"Oh, thats shrilow's area flooding. GO PULL OUT THE PLUG BEFORE HE DROOOWWNNNSSS.",
 	"Type":"Generic",
 	},
+	{
+	"Event":"Miner Kid",
+	"AttachedScene":"res://technical/events/minerkid.tscn",
+	"WarningMessage":"Oh.. i think you're getting a call.. you should check that..",
+	"Type":"Generic",
+	},
 	]
 
 var justMinigames = [

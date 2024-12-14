@@ -1,0 +1,259 @@
+[gd_scene load_steps=22 format=3 uid="uid://b27r2f8uoxva5"]
+
+[ext_resource type="Script" path="res://technical/events/minerkid.gd" id="1_cfsla"]
+[ext_resource type="Texture2D" uid="uid://b6hgn2orh4jaw" path="res://assets/images/events/theminerkid/isCalling.png" id="2_4wqpm"]
+[ext_resource type="AudioStream" uid="uid://73eawo8dkfqg" path="res://assets/music/phonecall.ogg" id="3_tscpx"]
+[ext_resource type="FontFile" uid="uid://cpx5bbh068e1y" path="res://assets/fonts/ARIAL.TTF" id="3_yefqt"]
+[ext_resource type="Theme" uid="uid://dr1wna4c2ab2h" path="res://technical/textStyle.tres" id="4_skn8a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tp5j3"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0u084"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_blfmf"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n2v3j"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gu67s"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ixmou"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nui3r"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eubfm"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_80q5u"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gwc53"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kfi12"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="Gradient" id="Gradient_eti8s"]
+colors = PackedColorArray(0, 0, 0, 0.709804, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_p8ujd"]
+gradient = SubResource("Gradient_eti8s")
+
+[sub_resource type="Animation" id="Animation_4cxcc"]
+resource_name = "pop"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("miner:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.392292, 1),
+"update": 0,
+"values": [Vector2(83, 828), Vector2(83, 485)]
+}
+
+[sub_resource type="Animation" id="Animation_1qa5b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("miner:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(83, 828)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h14wy"]
+_data = {
+"RESET": SubResource("Animation_1qa5b"),
+"pop": SubResource("Animation_4cxcc")
+}
+
+[node name="minerKid" type="Node2D"]
+process_mode = 3
+z_index = 4096
+script = ExtResource("1_cfsla")
+
+[node name="miner" type="Sprite2D" parent="."]
+position = Vector2(83, 828)
+texture = ExtResource("2_4wqpm")
+
+[node name="call" type="Button" parent="miner"]
+offset_left = -58.0
+offset_top = 61.0
+offset_right = -8.0
+offset_bottom = 112.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tp5j3")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_0u084")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_blfmf")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_n2v3j")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_gu67s")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_ixmou")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_nui3r")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_eubfm")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_80q5u")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_gwc53")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_kfi12")
+
+[node name="decline" type="Button" parent="miner"]
+offset_left = 10.0
+offset_top = 61.0
+offset_right = 60.0
+offset_bottom = 112.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tp5j3")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_0u084")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_blfmf")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_n2v3j")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_gu67s")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_ixmou")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_nui3r")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_eubfm")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_80q5u")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_gwc53")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_kfi12")
+
+[node name="time" type="Label" parent="miner"]
+visible = false
+offset_left = -68.0
+offset_top = -54.0
+offset_right = 68.0
+offset_bottom = -29.0
+theme_override_fonts/font = ExtResource("3_yefqt")
+theme_override_font_sizes/font_size = 21
+text = "0:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="thing" type="TextureRect" parent="miner"]
+visible = false
+offset_left = 80.0
+offset_top = -156.0
+offset_right = 424.0
+offset_bottom = 156.0
+texture = SubResource("GradientTexture1D_p8ujd")
+
+[node name="transcript" type="Label" parent="miner/thing"]
+offset_left = 13.0
+offset_top = 94.0
+offset_right = 341.0
+offset_bottom = 439.0
+scale = Vector2(1, 0.6)
+theme = ExtResource("4_skn8a")
+theme_override_font_sizes/font_size = 35
+text = "PLACEHOLDER TEXT"
+autowrap_mode = 3
+
+[node name="onCall" type="Label" parent="miner/thing"]
+offset_left = 13.0
+offset_top = 4.0
+offset_right = 344.0
+offset_bottom = 149.0
+scale = Vector2(1, 0.6)
+theme = ExtResource("4_skn8a")
+theme_override_font_sizes/font_size = 35
+text = "ON CALL WITH:
+THE MINER KID"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="countTheWays" type="Timer" parent="."]
+one_shot = true
+
+[node name="theminerkid" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+autostart = true
+
+[node name="kill" type="Timer" parent="."]
+one_shot = true
+
+[node name="phonecall" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_tscpx")
+volume_db = -80.0
+parameters/looping = true
+
+[node name="minerKid" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_tscpx")
+parameters/looping = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_h14wy")
+}
+
+[node name="actualAnims" type="AnimationPlayer" parent="."]
+
+[connection signal="pressed" from="miner/call" to="." method="accept"]
+[connection signal="pressed" from="miner/decline" to="." method="decline"]
+[connection signal="timeout" from="countTheWays" to="." method="addSecond"]
+[connection signal="timeout" from="theminerkid" to="." method="_on_theminerkid_timeout"]
+[connection signal="timeout" from="kill" to="." method="kill"]
+[connection signal="finished" from="minerKid" to="." method="audioEnded"]
