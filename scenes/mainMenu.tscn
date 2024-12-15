@@ -1,50 +1,313 @@
-[gd_scene load_steps=4 format=3 uid="uid://ba4g00sxw1ioe"]
+[gd_scene load_steps=25 format=3 uid="uid://ba4g00sxw1ioe"]
 
-[ext_resource type="Texture2D" uid="uid://d3b1qb3i07urm" path="res://assets/images/computershrilows/shrilowBases/shrilowBase.png" id="1_m2o4i"]
-[ext_resource type="PackedScene" uid="uid://dctfcin0koae7" path="res://technical/shrilowFace.tscn" id="2_kbufo"]
+[ext_resource type="Texture2D" uid="uid://dajex7cpt7k4p" path="res://assets/images/bg/background.png" id="1_i2qlv"]
+[ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_ihte6"]
+[ext_resource type="Texture2D" uid="uid://dmejwlv6huvgn" path="res://assets/images/mainMenu/menuThing.png" id="2_nwupt"]
 [ext_resource type="Texture2D" uid="uid://dhml6kkc1kfmj" path="res://assets/images/logo.png" id="3_d2eh3"]
+[ext_resource type="Texture2D" uid="uid://lkr43upikbvy" path="res://assets/images/mainMenu/menulow.png" id="3_h3k78"]
+[ext_resource type="FontFile" uid="uid://brn7smfq0l6ao" path="res://assets/fonts/TwCen.ttf" id="6_fvg6h"]
+[ext_resource type="Texture2D" uid="uid://brkdf8hawsefn" path="res://assets/images/mainMenu/pressedHover.png" id="6_qkmjp"]
+[ext_resource type="Texture2D" uid="uid://b3xebwynw0fcw" path="res://assets/images/mainMenu/button.png" id="7_3dr8n"]
+[ext_resource type="Texture2D" uid="uid://cp81860qk7d68" path="res://assets/images/mainMenu/hover.png" id="7_kemul"]
+[ext_resource type="Texture2D" uid="uid://6jl2v3awijit" path="res://assets/images/mainMenu/pressed.png" id="7_wjw70"]
+[ext_resource type="Texture2D" uid="uid://bf5nxu26qx66x" path="res://assets/images/loadingLow.png" id="11_0hksq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b1kt2"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xxf8v"]
+texture = ExtResource("6_qkmjp")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o1vg1"]
+texture = ExtResource("7_kemul")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_30h8g"]
+texture = ExtResource("7_wjw70")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u1a3i"]
+texture = ExtResource("7_3dr8n")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y6bw4"]
+bg_color = Color(0.0781743, 0.0241387, 4.51226e-09, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e1453"]
+bg_color = Color(1, 0.905882, 0.85098, 1)
+
+[sub_resource type="Animation" id="Animation_fvmxd"]
+resource_name = "guy"
+length = 1.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("loadlow:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.4, 0.9, 1.4),
+"transitions": PackedFloat32Array(0.353553, 4.59479, 1),
+"update": 0,
+"values": [Vector2(39, 557), Vector2(39, 530), Vector2(39, 557)]
+}
+
+[sub_resource type="Animation" id="Animation_r28nj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("loadlow:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(39, 557)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pvitt"]
+_data = {
+"RESET": SubResource("Animation_r28nj"),
+"guy": SubResource("Animation_fvmxd")
+}
+
+[sub_resource type="Animation" id="Animation_o07pd"]
+resource_name = "loading"
+length = 19.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ProgressBar:value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2, 2.9, 4, 5.2, 5.6, 5.63333, 9.86667, 12.1667, 12.2, 17),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 6.07, 6.07, 14.68, 14.68, 18.0, 48.41, 48.41, 90.0, 100.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("cover:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(17.0333, 19),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(19),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"endMenu"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.0333333, 2),
+"transitions": PackedFloat32Array(0.225313, 1),
+"update": 0,
+"values": [Vector2(0, -648), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_bcgxs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ProgressBar:value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("cover:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -648)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_25i17"]
+_data = {
+"RESET": SubResource("Animation_bcgxs"),
+"loading": SubResource("Animation_o07pd")
+}
 
 [node name="MainMenu" type="Node2D"]
+script = ExtResource("1_ihte6")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 1152.0
-offset_bottom = 648.0
-color = Color(1, 0.909804, 0.854902, 1)
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+offset = Vector2(500, 325)
+scale = Vector2(1.15, 1.15)
+transform = Transform2D(1.15, 0, 0, 1.15, 500, 325)
 
-[node name="Shrilow" type="Node2D" parent="."]
-position = Vector2(957, 649)
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(150.435, 36.5217)
+motion_mirroring = Vector2(1152, 800)
 
-[node name="Shrilow" type="Sprite2D" parent="Shrilow"]
-position = Vector2(-3.75002, -212.5)
-texture = ExtResource("1_m2o4i")
+[node name="background" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(-36.5218, 48.6956)
+texture = ExtResource("1_i2qlv")
 
-[node name="ShrilowFace" parent="Shrilow/Shrilow" instance=ExtResource("2_kbufo")]
-position = Vector2(-212, -216)
+[node name="Thing" type="Sprite2D" parent="."]
+position = Vector2(614, 325)
+texture = ExtResource("2_nwupt")
 
-[node name="StillFace" type="Sprite2D" parent="Shrilow/Shrilow"]
+[node name="Shrilow" type="Sprite2D" parent="."]
+position = Vector2(1332, 341)
+texture = ExtResource("3_h3k78")
 
 [node name="Logo" type="Sprite2D" parent="."]
-position = Vector2(261, 206)
+position = Vector2(231, 200)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_d2eh3")
 
-[node name="GridContainer" type="GridContainer" parent="."]
-offset_left = 150.0
-offset_top = 376.0
-offset_right = 382.0
-offset_bottom = 635.0
-
-[node name="Button" type="Button" parent="GridContainer"]
+[node name="start" type="Button" parent="."]
 custom_minimum_size = Vector2(232, 67)
-layout_mode = 2
+offset_left = 121.0
+offset_top = 369.0
+offset_right = 353.0
+offset_bottom = 453.0
+theme_override_colors/font_hover_pressed_color = Color(0.0352941, 0.333333, 0.356863, 1)
+theme_override_colors/font_hover_color = Color(0.0352941, 0.333333, 0.356863, 1)
+theme_override_colors/font_pressed_color = Color(0.0392157, 0.027451, 0.360784, 1)
+theme_override_colors/font_focus_color = Color(0.0352941, 0.333333, 0.356863, 1)
+theme_override_colors/font_color = Color(0.0627451, 0.333333, 0.290196, 1)
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("6_fvg6h")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/focus = SubResource("StyleBoxEmpty_b1kt2")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_xxf8v")
+theme_override_styles/hover = SubResource("StyleBoxTexture_o1vg1")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_30h8g")
+theme_override_styles/normal = SubResource("StyleBoxTexture_u1a3i")
 text = "START GAME"
 
-[node name="Button2" type="Button" parent="GridContainer"]
+[node name="settings" type="Button" parent="."]
 custom_minimum_size = Vector2(232, 67)
-layout_mode = 2
-text = "MINIGAMES"
+offset_left = 121.0
+offset_top = 457.0
+offset_right = 353.0
+offset_bottom = 541.0
+theme_override_colors/font_hover_pressed_color = Color(0.0352941, 0.333333, 0.356863, 1)
+theme_override_colors/font_hover_color = Color(0.0352941, 0.333333, 0.356863, 1)
+theme_override_colors/font_pressed_color = Color(0.0392157, 0.027451, 0.360784, 1)
+theme_override_colors/font_focus_color = Color(0.0352941, 0.333333, 0.356863, 1)
+theme_override_colors/font_color = Color(0.0627451, 0.333333, 0.290196, 1)
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("6_fvg6h")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/focus = SubResource("StyleBoxEmpty_b1kt2")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_xxf8v")
+theme_override_styles/hover = SubResource("StyleBoxTexture_o1vg1")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_30h8g")
+theme_override_styles/normal = SubResource("StyleBoxTexture_u1a3i")
+text = "SETTINGS"
 
-[node name="Button3" type="Button" parent="GridContainer"]
+[node name="credits" type="Button" parent="."]
 custom_minimum_size = Vector2(232, 67)
-layout_mode = 2
-text = "COOL INFO"
+offset_left = 121.0
+offset_top = 547.0
+offset_right = 353.0
+offset_bottom = 631.0
+theme_override_colors/font_hover_pressed_color = Color(0.0352941, 0.333333, 0.356863, 1)
+theme_override_colors/font_hover_color = Color(0.0352941, 0.333333, 0.356863, 1)
+theme_override_colors/font_pressed_color = Color(0.0392157, 0.027451, 0.360784, 1)
+theme_override_colors/font_focus_color = Color(0.0352941, 0.333333, 0.356863, 1)
+theme_override_colors/font_color = Color(0.0627451, 0.333333, 0.290196, 1)
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("6_fvg6h")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/focus = SubResource("StyleBoxEmpty_b1kt2")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_xxf8v")
+theme_override_styles/hover = SubResource("StyleBoxTexture_o1vg1")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_30h8g")
+theme_override_styles/normal = SubResource("StyleBoxTexture_u1a3i")
+text = "CREDITS"
+
+[node name="loadingScreen" type="Node2D" parent="."]
+position = Vector2(0, -648)
+
+[node name="ColorRect" type="ColorRect" parent="loadingScreen"]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.121569, 0.0470588, 0, 1)
+
+[node name="ProgressBar" type="ProgressBar" parent="loadingScreen"]
+offset_left = 8.0
+offset_top = 611.0
+offset_right = 1144.0
+offset_bottom = 638.0
+theme_override_styles/background = SubResource("StyleBoxFlat_y6bw4")
+theme_override_styles/fill = SubResource("StyleBoxFlat_e1453")
+show_percentage = false
+
+[node name="loadlow" type="Sprite2D" parent="loadingScreen"]
+position = Vector2(39, 557)
+texture = ExtResource("11_0hksq")
+
+[node name="logo" type="Sprite2D" parent="loadingScreen"]
+position = Vector2(1058, 90)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_d2eh3")
+
+[node name="littleGuy" type="AnimationPlayer" parent="loadingScreen"]
+libraries = {
+"": SubResource("AnimationLibrary_pvitt")
+}
+autoplay = "guy"
+
+[node name="loading" type="AnimationPlayer" parent="loadingScreen"]
+libraries = {
+"": SubResource("AnimationLibrary_25i17")
+}
+
+[node name="cover" type="ColorRect" parent="loadingScreen"]
+modulate = Color(1, 1, 1, 0)
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.121569, 0.0470588, 0, 1)
+
+[connection signal="pressed" from="start" to="." method="_on_start_pressed"]

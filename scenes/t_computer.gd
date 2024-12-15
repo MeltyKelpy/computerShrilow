@@ -488,7 +488,10 @@ func _process(_delta : float) -> void:
 	
 	if $DEBUGVALUES.visible == true:
 		$DEBUGVALUES/ScrollContainer/Control/Label.text = "DEBUG MODE\n================\nEvent Timer: "+str($EventTimer.time_left)+"\nStop Events Timer: "+str($noEventsTimer.time_left)
-	
+
+func killIntro():
+	$Camera2D/intro.queue_free()
+
 func _on_shrilow_squeak_autoclick() -> void:
 	$faceRevert.stop()
 	$faceRevert.start()

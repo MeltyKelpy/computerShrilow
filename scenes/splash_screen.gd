@@ -7,4 +7,4 @@ func _ready() -> void:
 	$AudioStreamPlayer.play()
 
 func _end():
-	get_tree().change_scene_to_file("res://scenes/tComputer.tscn")
+	get_tree().change_scene_to_file("res://scenes/mainMenu.tscn")
