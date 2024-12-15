@@ -77,7 +77,7 @@ func _on_button_pressed() -> void:
 			var multi = FizzyDrink.greasepuppies - 4
 			if multi < 0:
 				multi = 0
-			if (ItemValues.money >= hearMeOut[0][type][ItemID]["Cost"] + (hearMeOut[0][type][ItemID]["Cost"] * 1.2) * multi):
+			if (ItemValues.money >= (hearMeOut[0][type][ItemID]["Cost"] + (hearMeOut[0][type][ItemID]["Cost"] * 1.2) * multi)):
 				calculate()
 		elif hearMeOut[0][type][ItemID]["CurUpgrade"] != 0:
 			if (ItemValues.money >= hearMeOut[0][type][ItemID]["Cost"]*(hearMeOut[0][type][ItemID]["CurUpgrade"]+1)) and MaxedOut == false:
