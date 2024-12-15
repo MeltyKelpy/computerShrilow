@@ -17,6 +17,7 @@ var alongTheDialogue = 0
 
 var AnimPosCamX = 0
 var AnimPosCamY = 0
+var allowing = false
 
 var dialogueOptionsMelanie = []
 
@@ -377,13 +378,13 @@ func _process(_delta : float) -> void:
 	else:
 		$Camera2D/bg.visible = false
 	
-	if $Camera2D.position.x < (-576) and $Camera2D.position.x > (-1196) and area == "Jellies":
+	if $Camera2D.position.x < (-576) and $Camera2D.position.x > (-1324) and area == "Jellies":
 		$Camera2D/leftMove.set_mouse_filter(1)
 		$Camera2D/rightMove.set_mouse_filter(1)
 	elif $Camera2D.position.x == (-576) and area == "Jellies":
 		$Camera2D/leftMove.set_mouse_filter(1)
 		$Camera2D/rightMove.set_mouse_filter(2)
-	elif $Camera2D.position.x == (-1196) and area == "Jellies":
+	elif $Camera2D.position.x == (-1324) and area == "Jellies":
 		$Camera2D/leftMove.set_mouse_filter(2)
 		$Camera2D/rightMove.set_mouse_filter(1)
 	else:
@@ -397,8 +398,8 @@ func _process(_delta : float) -> void:
 	
 	if area == "Jellies" and $Camera2D.position.x > (-576):
 		$Camera2D.position.x = (-576)
-	if area == "Jellies" and $Camera2D.position.x < (-1196):
-		$Camera2D.position.x = (-1196)
+	if area == "Jellies" and $Camera2D.position.x < (-1324):
+		$Camera2D.position.x = (-1324)
 	
 	if FizzyDrink.stopTheCount != 0:
 		$noEventsTimer.wait_time = FizzyDrink.stopTheCount
@@ -466,7 +467,7 @@ func _process(_delta : float) -> void:
 		$Shrilow.scale.y += 0.05
 	
 	if Input.is_action_just_pressed("eventText"):
-		pass
+		$Camera2D.position.y = 324
 		#_event()
 		#if $Camera2D.position.x != -1221:
 			#cameraAnimation("journal", -791, -1221)
@@ -600,7 +601,7 @@ func _on_right_move_mouse_entered() -> void:
 		cameraMoveDir = "right"
 
 func _on_left_move_mouse_entered() -> void:
-	if $Camera2D.position.x > (-1196):
+	if $Camera2D.position.x > (-1324):
 		cameraMoveDir = "left"
 
 func _on_right_move_mouse_exited() -> void:
@@ -612,8 +613,7 @@ func _on_left_move_mouse_exited() -> void:
 func _signal_jelly():
 	area = "Jellies"
 
-func cameraAnimation(Varea, positionX, positionY):
-	area = "notJellies"
+func cameraAnimation(Varea, positionX, positionY, allowMove):
 	if Varea == "bell":
 		for i in FizzyDrink.melDialogue.size():
 			if FizzyDrink.melDialogue[i]["dialogKey"] == "MELVIN":
@@ -623,15 +623,16 @@ func cameraAnimation(Varea, positionX, positionY):
 	AnimPosCamX = positionX
 	AnimPosCamY = positionY
 	$Camera2D/AnimationPlayer.play("open")
+	allowing = allowMove
 
 func moveCam():
 	$Camera2D.position.x = AnimPosCamX
 	$Camera2D.position.y = AnimPosCamY
 	print(AnimPosCamY)
-	if AnimPosCamY == 324:
-		area = "Jellies"
-	else:
+	if allowing == false:
 		area = "notJellies"
+	if allowing == true:
+		area = "Jellies"
 
 func coinSelectionChange(toAdd: int) -> void:
 	gumballSelection += toAdd

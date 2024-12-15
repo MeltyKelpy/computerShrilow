@@ -1,4 +1,4 @@
-[gd_scene load_steps=110 format=3 uid="uid://bgw557ttv6noe"]
+[gd_scene load_steps=113 format=3 uid="uid://bgw557ttv6noe"]
 
 [ext_resource type="Script" path="res://scenes/t_computer.gd" id="1_swrb7"]
 [ext_resource type="Texture2D" uid="uid://dajex7cpt7k4p" path="res://assets/images/bg/background.png" id="2_u0da7"]
@@ -33,6 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://cs21yt57gfegw" path="res://assets/images/areas/melanies/sign.png" id="23_1b4os"]
 [ext_resource type="Texture2D" uid="uid://i56e4q3q5h8" path="res://assets/images/areas/melanies/melanie/base.png" id="24_umbwu"]
 [ext_resource type="Texture2D" uid="uid://bi8cjj45fwhyo" path="res://assets/images/areas/melanies/melanie/talkBase.png" id="25_ndj4q"]
+[ext_resource type="PackedScene" uid="uid://bei2i10a0juyl" path="res://technical/jellies/elevator.tscn" id="25_y45oj"]
 [ext_resource type="Texture2D" uid="uid://dv1knrxoff866" path="res://assets/images/ui/transitions/bg.png" id="27_e5v8d"]
 [ext_resource type="Texture2D" uid="uid://bb0hqhdgonp44" path="res://assets/images/areas/gumball/realBg.png" id="29_50vaf"]
 [ext_resource type="Texture2D" uid="uid://dkxpmi3v4ilpw" path="res://assets/images/areas/gumball/coins/common.png" id="30_1fn55"]
@@ -50,6 +51,8 @@
 [ext_resource type="Texture2D" uid="uid://dxvslfuybm4qv" path="res://assets/images/areas/jellies/melvin/melvs/base.png" id="40_2pbfm"]
 [ext_resource type="Texture2D" uid="uid://c3rsesgxto2nt" path="res://assets/images/ui/transitions/bell0.png" id="41_boae4"]
 [ext_resource type="Texture2D" uid="uid://dqdfjx7jj56ii" path="res://assets/images/ui/transitions/bell1.png" id="42_pcusv"]
+[ext_resource type="Texture2D" uid="uid://b4sehpse6a35m" path="res://assets/images/ui/transitions/elevator0.png" id="45_wo732"]
+[ext_resource type="Texture2D" uid="uid://cg4s4o4vbdqyc" path="res://assets/images/ui/transitions/elevator1.png" id="46_p35b6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p6f28"]
 resource_local_to_scene = false
@@ -1097,7 +1100,7 @@ _data = {
 }
 
 [sub_resource type="Gradient" id="Gradient_2dxcp"]
-colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 0)
+colors = PackedColorArray(0.520269, 1.49807e-06, 3.36915e-07, 0, 1, 0, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_gikbf"]
 gradient = SubResource("Gradient_2dxcp")
@@ -1168,6 +1171,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("45_wo732")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_p35b6")
+}],
+"loop": true,
+"name": &"elevator",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("33_ltk4g")
 }, {
 "duration": 1.0,
@@ -1224,7 +1238,7 @@ texture = ExtResource("3_x0lxa")
 position = Vector2(0, 648)
 
 [node name="dirt" type="Sprite2D" parent="Mines"]
-position = Vector2(576, 324)
+position = Vector2(599, 324)
 scale = Vector2(1.04023, 1)
 texture = ExtResource("3_8qufc")
 
@@ -1479,7 +1493,7 @@ text = "CLICKS:"
 position = Vector2(-1152, 0)
 
 [node name="repcetionBG" type="Sprite2D" parent="Jelly"]
-position = Vector2(266, 324)
+position = Vector2(202, 324)
 texture = ExtResource("17_km8e8")
 
 [node name="lgo" type="Sprite2D" parent="Jelly"]
@@ -1502,6 +1516,9 @@ position = Vector2(795, 478)
 
 [node name="Journal" parent="Jelly" instance=ExtResource("21_dxr3w")]
 position = Vector2(619, 477)
+
+[node name="Elevator" parent="Jelly" instance=ExtResource("25_y45oj")]
+position = Vector2(-333, 506)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Jelly"]
 position = Vector2(0, -9.53674e-07)
@@ -1526,8 +1543,8 @@ shape = SubResource("RectangleShape2D_ficg7")
 layout_direction = 3
 layout_mode = 3
 anchors_preset = 0
-offset_left = -1152.0
-offset_right = 598.0
+offset_left = -1066.0
+offset_right = 684.0
 offset_bottom = 648.0
 mouse_filter = 2
 
@@ -1552,6 +1569,14 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_e3kvh")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_kvmat")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iq0t2")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
+
+[node name="rooms" type="Control" parent="Jelly"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -684.0
+offset_right = -683.0
+offset_bottom = 1.0
+mouse_filter = 2
 
 [node name="Shop" type="Node2D" parent="."]
 position = Vector2(1152, 0)
@@ -1694,6 +1719,7 @@ layout_mode = 2
 columns = 3
 
 [node name="ItemName" type="Label" parent="Wardrobe"]
+z_index = 1000
 offset_left = 501.0
 offset_top = 512.0
 offset_right = 1015.0
@@ -1705,6 +1731,7 @@ text = "ITEMNAME"
 horizontal_alignment = 1
 
 [node name="ItemDescription" type="Label" parent="Wardrobe"]
+z_index = 1000
 offset_left = 499.0
 offset_top = 542.0
 offset_right = 1015.0
@@ -2018,7 +2045,7 @@ position = Vector2(-795.5, -1453)
 texture = ExtResource("19_tht4w")
 
 [node name="talkTimer" type="Timer" parent="."]
-wait_time = 0.01
+wait_time = 0.05
 one_shot = true
 
 [node name="BackJOURNAL" type="Button" parent="."]
@@ -2134,7 +2161,6 @@ texture = ExtResource("27_e5v8d")
 [node name="icon" type="AnimatedSprite2D" parent="Camera2D/bg"]
 sprite_frames = SubResource("SpriteFrames_2w07w")
 animation = &"bell"
-frame_progress = 0.547985
 
 [connection signal="pressed" from="Mines/ScrollContainer/Control/BackButtonWARD" to="." method="_on_back_button_ward2_pressed"]
 [connection signal="pressed" from="Shrilow/ShrilowSqueak" to="." method="_on_shrilow_squeak_pressed"]
@@ -2148,11 +2174,13 @@ frame_progress = 0.547985
 [connection signal="pressed" from="Shop/melinteract" to="." method="melShopToggle"]
 [connection signal="pressed" from="Shop/BackButtonSHOP" to="." method="_on_back_button_shop_pressed"]
 [connection signal="pressed" from="Wardrobe/BackButtonWARD" to="." method="_on_back_button_ward_pressed"]
-[connection signal="pressed" from="Gumball/BackButton" to="." method="cameraAnimation" binds= ["gumballMachine", -576, 324]]
+[connection signal="pressed" from="Gumball/BackButton" to="." method="cameraAnimation" binds= ["gumballMachine", -576, 324, true]]
+[connection signal="pressed" from="Gumball/NextCoin" to="." method="coinSelectionChange" binds= [1]]
+[connection signal="pressed" from="Gumball/LastCoin" to="." method="coinSelectionChange" binds= [-1]]
 [connection signal="pressed" from="Gumball/Button" to="." method="_buyGumball_pressed"]
-[connection signal="pressed" from="Melvin/BackButton" to="." method="cameraAnimation" binds= ["bell", -576, 324]]
+[connection signal="pressed" from="Melvin/BackButton" to="." method="cameraAnimation" binds= ["bell", -576, 324, true]]
 [connection signal="timeout" from="talkTimer" to="." method="_on_talk_timer_timeout"]
-[connection signal="pressed" from="BackJOURNAL" to="." method="cameraAnimation" binds= ["journal", -576, 324]]
+[connection signal="pressed" from="BackJOURNAL" to="." method="cameraAnimation" binds= ["journal", -576, 324, true]]
 [connection signal="timeout" from="EventTimer" to="." method="_event"]
 [connection signal="timeout" from="faceRevert" to="." method="_on_face_revert_timeout"]
 [connection signal="timeout" from="faceRevert2" to="." method="_on_face_revert_2_timeout"]

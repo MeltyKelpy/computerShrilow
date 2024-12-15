@@ -52,6 +52,40 @@ stream = ExtResource("3_howpp")
 volume_db = -35.362
 max_distance = 750.0
 
+[node name="mange" type="Node2D" parent="RigidBody2D"]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="RigidBody2D/mange"]
+offset_left = -98.0
+offset_top = -151.0
+offset_right = 93.0
+offset_bottom = -91.0
+color = Color(0, 0, 0, 1)
+
+[node name="Storage" type="Button" parent="RigidBody2D/mange/ColorRect"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 61.0
+offset_bottom = 58.0
+text = "storg"
+
+[node name="ChangeFloor" type="Button" parent="RigidBody2D/mange/ColorRect"]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 2.0
+offset_right = 125.0
+offset_bottom = 58.0
+text = "chang"
+
+[node name="Sell" type="Button" parent="RigidBody2D/mange/ColorRect"]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 2.0
+offset_right = 188.0
+offset_bottom = 58.0
+text = "sell"
+
 [node name="MousePin" type="PinJoint2D" parent="."]
 
 [node name="FakeBody" type="StaticBody2D" parent="MousePin"]
@@ -103,6 +137,7 @@ autostart = true
 [node name="deathTime" type="Timer" parent="."]
 wait_time = 2.5
 
+[connection signal="pressed" from="RigidBody2D/mange/ColorRect/Sell" to="." method="_on_kill_pressed"]
 [connection signal="timeout" from="FirstTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="SecondTimer" to="." method="_on_second_timer_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_jelly_spawn"]

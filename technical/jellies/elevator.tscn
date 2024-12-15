@@ -1,0 +1,147 @@
+[gd_scene load_steps=15 format=3 uid="uid://bei2i10a0juyl"]
+
+[ext_resource type="Script" path="res://technical/jellies/elevator.gd" id="1_bc1dj"]
+[ext_resource type="Texture2D" uid="uid://bwbx2j1d11lbj" path="res://assets/images/areas/jellies/elevator.png" id="2_240xc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6p2fe"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_20nmq"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_co3en"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nkuiw"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h8nel"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8bahw"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4c335"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fv5yt"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_am6iv"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rsyfi"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sbm43"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a8kxp"]
+size = Vector2(372, 648)
+
+[node name="Elevator" type="Node2D"]
+script = ExtResource("1_bc1dj")
+
+[node name="elevator" type="Sprite2D" parent="."]
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("2_240xc")
+
+[node name="Button" type="Button" parent="."]
+offset_left = -69.0
+offset_top = -165.0
+offset_right = 70.0
+offset_bottom = 150.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6p2fe")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_20nmq")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_co3en")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_nkuiw")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_h8nel")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_8bahw")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_4c335")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_fv5yt")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_am6iv")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_rsyfi")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_sbm43")
+
+[node name="bg" type="ColorRect" parent="."]
+visible = false
+offset_left = -72.0
+offset_top = -426.0
+offset_right = 70.0
+offset_bottom = -167.0
+color = Color(0, 0, 0, 0.529412)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+offset_left = -68.0
+offset_top = -421.0
+offset_right = 78.0
+offset_bottom = -171.0
+
+[node name="GridContainer" type="GridContainer" parent="ScrollContainer"]
+layout_direction = 1
+layout_mode = 2
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(4, -164)
+shape = SubResource("RectangleShape2D_a8kxp")
+
+[connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_entered"]

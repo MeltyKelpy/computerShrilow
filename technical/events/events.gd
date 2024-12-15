@@ -30,6 +30,12 @@ var eventList = [
 	"WarningMessage":"Oh.. i think you're getting a call.. you should check that..",
 	"Type":"Generic",
 	},
+	{
+	"Event":"Popup Windows",
+	"AttachedScene":"res://technical/events/startMyWindwosComputer.tscn",
+	"WarningMessage":"get an adblocker already",
+	"Type":"Generic",
+	},
 	]
 
 var justMinigames = [

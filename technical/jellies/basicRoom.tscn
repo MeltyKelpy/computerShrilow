@@ -1,3 +1,47 @@
-[gd_scene format=3 uid="uid://bylwk1otht6du"]
+[gd_scene load_steps=8 format=3 uid="uid://bylwk1otht6du"]
+
+[ext_resource type="Script" path="res://technical/jellies/basic_room.gd" id="1_b4876"]
+[ext_resource type="Texture2D" uid="uid://xkcjaapvasvr" path="res://assets/images/areas/jellies/rooms/basicRoom/bg.png" id="1_txxv0"]
+[ext_resource type="PackedScene" uid="uid://bei2i10a0juyl" path="res://technical/jellies/elevator.tscn" id="3_x6anf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fd18s"]
+size = Vector2(1774, 62)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_df35r"]
+size = Vector2(1771.75, 44.7499)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j6het"]
+size = Vector2(66.0613, 1156.31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7bwgo"]
+size = Vector2(292, 1164)
 
 [node name="BasicRoom" type="Node2D"]
+position = Vector2(-64, 0)
+script = ExtResource("1_b4876")
+
+[node name="basicRoom" type="Sprite2D" parent="."]
+position = Vector2(950, 324)
+texture = ExtResource("1_txxv0")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="basicRoom"]
+position = Vector2(-268, -337)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="basicRoom/StaticBody2D"]
+position = Vector2(267, 639)
+shape = SubResource("RectangleShape2D_fd18s")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="basicRoom/StaticBody2D"]
+position = Vector2(266, -523)
+shape = SubResource("RectangleShape2D_df35r")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="basicRoom/StaticBody2D"]
+position = Vector2(1119.03, 28.1563)
+shape = SubResource("RectangleShape2D_j6het")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="basicRoom/StaticBody2D"]
+position = Vector2(-476, 47)
+shape = SubResource("RectangleShape2D_7bwgo")
+
+[node name="Elevator" parent="." instance=ExtResource("3_x6anf")]
+position = Vector2(439, 494)

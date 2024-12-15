@@ -55,6 +55,7 @@ func _ready() -> void:
 		$RigidBody2D/jelly.material.set_shader_parameter("rainbow", true)
 
 func _physics_process(delta: float) -> void:
+	$RigidBody2D/mange.rotation = (-1) * $RigidBody2D.rotation
 	mouse_pin.global_position = get_global_mouse_position()
 	$nameShit.global_position = get_global_mouse_position()
 	$nameShit/Name.rotation = 0
@@ -78,6 +79,8 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			$nameShit/Name.visible = true
 			$nameShit/Stats.visible = true
 		if event.get_button_index() == 2:
+			$RigidBody2D/mange.visible = !$RigidBody2D/mange.visible
+		if Input.is_action_pressed("SellHOTKEY"):
 			_on_kill_pressed()
 
 func getID(num):
