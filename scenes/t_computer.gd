@@ -137,6 +137,7 @@ var shitShrilowCanSay = [
 	"hear me out",
 	"the bible? i hardly know her!",
 	"who are you.",
+	"IVE BEEN FUCKING PETRIFIED HELP ME",
 	]
 
 var cacapoopyGOD = preload("res://technical/MelaniesItem.tscn")
