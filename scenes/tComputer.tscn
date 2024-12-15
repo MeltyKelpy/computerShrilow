@@ -2045,7 +2045,7 @@ position = Vector2(-795.5, -1453)
 texture = ExtResource("19_tht4w")
 
 [node name="talkTimer" type="Timer" parent="."]
-wait_time = 0.05
+wait_time = 0.01
 one_shot = true
 
 [node name="BackJOURNAL" type="Button" parent="."]
