@@ -129,6 +129,14 @@ var shitShrilowCanSay = [
 	"I love moka dot coka",
 	"I'm a real person",
 	"you should go get an autism diagnosis",
+	"play my game",
+	"men",
+	"ooo you wanna click me! ooo u wanna do it!",
+	"pickle",
+	"i turned myself into a pickle once, funniest thing ive ever done",
+	"hear me out",
+	"the bible? i hardly know her!",
+	"who are you.",
 	]
 
 var cacapoopyGOD = preload("res://technical/MelaniesItem.tscn")
