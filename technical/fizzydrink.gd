@@ -79,6 +79,8 @@ var melDialogue = [
 	},
 	]
 
+var descriptionSetting = ""
+
 func updateClothes() -> void:
 	clickPowerClothingBuffs = 0
 	AUTOclickPowerClothingBuffs = 0

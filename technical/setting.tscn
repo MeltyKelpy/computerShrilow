@@ -1,0 +1,133 @@
+[gd_scene load_steps=18 format=3 uid="uid://c7hvbsx14we3r"]
+
+[ext_resource type="Theme" uid="uid://dr1wna4c2ab2h" path="res://technical/textStyle.tres" id="1_7wps4"]
+[ext_resource type="Script" path="res://technical/setting.gd" id="1_75gym"]
+[ext_resource type="Texture2D" uid="uid://05spg1mrnb8t" path="res://assets/images/mainMenu/settings/on.png" id="2_kdtf8"]
+[ext_resource type="Texture2D" uid="uid://dvv3ormn0ovho" path="res://assets/images/mainMenu/settings/off.png" id="3_uvxre"]
+
+[sub_resource type="Gradient" id="Gradient_wdcrb"]
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_m2pdy"]
+gradient = SubResource("Gradient_wdcrb")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d65tp"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_47amg"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_82kqw"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8wtat"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_35ian"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_php3c"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3humm"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oymv2"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_apqc0"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c5jey"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p1p73"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+
+[node name="Setting" type="TextureRect"]
+offset_right = 267.0
+offset_bottom = 92.0
+texture = SubResource("GradientTexture2D_m2pdy")
+script = ExtResource("1_75gym")
+
+[node name="button" type="CheckButton" parent="."]
+offset_right = 260.0
+offset_bottom = 57.0
+theme = ExtResource("1_7wps4")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/h_separation = 0
+theme_override_constants/align_to_largest_stylebox = 0
+theme_override_font_sizes/font_size = 42
+theme_override_styles/focus = SubResource("StyleBoxEmpty_d65tp")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_47amg")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_82kqw")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_8wtat")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_35ian")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_php3c")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_3humm")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_oymv2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_apqc0")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_c5jey")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_p1p73")
+theme_override_constants/check_v_offset = 0
+theme_override_icons/checked = ExtResource("2_kdtf8")
+theme_override_icons/unchecked = ExtResource("3_uvxre")
+text = "Kiwami Mode"
+
+[connection signal="mouse_entered" from="button" to="." method="_on_kiwami_mode_mouse_entered"]
+[connection signal="mouse_exited" from="button" to="." method="_on_kiwami_mode_mouse_exited"]

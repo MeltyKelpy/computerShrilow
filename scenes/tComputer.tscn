@@ -1,4 +1,4 @@
-[gd_scene load_steps=117 format=3 uid="uid://bgw557ttv6noe"]
+[gd_scene load_steps=118 format=3 uid="uid://bgw557ttv6noe"]
 
 [ext_resource type="Script" path="res://scenes/t_computer.gd" id="1_swrb7"]
 [ext_resource type="Texture2D" uid="uid://dajex7cpt7k4p" path="res://assets/images/bg/background.png" id="2_u0da7"]
@@ -41,6 +41,7 @@
 [ext_resource type="AudioStream" uid="uid://cquw41xvj2yne" path="res://assets/sounds/typeSFX.ogg" id="30_av4u0"]
 [ext_resource type="Texture2D" uid="uid://bxgq31xls5ffr" path="res://assets/images/areas/gumball/selArrows.png" id="31_1xbpg"]
 [ext_resource type="Texture2D" uid="uid://cm3clkbxuthio" path="res://assets/images/areas/gumball/buyButton.png" id="32_6505f"]
+[ext_resource type="AudioStream" uid="uid://b8er53yeuc5lq" path="res://assets/music/skate.ogg" id="32_rrknt"]
 [ext_resource type="Texture2D" uid="uid://cyl5tq8jp5j0t" path="res://assets/images/ui/transitions/gumball0.png" id="33_ltk4g"]
 [ext_resource type="Texture2D" uid="uid://bkbjihpsh2jer" path="res://assets/images/ui/transitions/gumball1.png" id="34_81w35"]
 [ext_resource type="Texture2D" uid="uid://b3tp13r2ykpby" path="res://assets/images/ui/transitions/journal0.png" id="35_a0leu"]
@@ -702,7 +703,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0, 1.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [-23.729, -80.0]
+"values": [-9.675, -80.0]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -984,7 +985,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0, 1.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [-80.0, -23.729]
+"values": [-80.0, -9.675]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -1765,7 +1766,7 @@ theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iq0t2")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
 
 [node name="ShopMusic" type="AudioStreamPlayer" parent="Shop"]
-stream = ExtResource("15_kk7gt")
+stream = ExtResource("32_rrknt")
 volume_db = -80.0
 autoplay = true
 parameters/looping = true
@@ -2244,6 +2245,7 @@ z_index = 4096
 mouse_filter = 2
 
 [node name="cover" type="ColorRect" parent="Camera2D/intro"]
+layout_mode = 0
 offset_left = -576.0
 offset_top = -324.0
 offset_right = 576.0
@@ -2259,6 +2261,17 @@ libraries = {
 "": SubResource("AnimationLibrary_46cp3")
 }
 autoplay = "intro"
+
+[node name="kiwami" type="ColorRect" parent="Camera2D"]
+visible = false
+modulate = Color(1, 1, 1, 0.384314)
+z_index = 4096
+offset_left = -590.0
+offset_top = -340.0
+offset_right = 589.0
+offset_bottom = 335.0
+mouse_filter = 2
+color = Color(0, 1, 0, 1)
 
 [connection signal="pressed" from="Mines/ScrollContainer/Control/BackButtonWARD" to="." method="_on_back_button_ward2_pressed"]
 [connection signal="pressed" from="Shrilow/ShrilowSqueak" to="." method="_on_shrilow_squeak_pressed"]

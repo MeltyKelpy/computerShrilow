@@ -355,6 +355,18 @@ func _ready():
 
 func _process(_delta : float) -> void:
 	
+	if Input.is_action_just_pressed("ui_cancel"):
+		var cacapoopyGOD2 = preload("res://technical/pauseMenu.tscn")
+		var caca = cacapoopyGOD2.instantiate()
+		add_child(caca)
+		caca.reparent($/root)
+		get_tree().paused = true
+	
+	if Settings.settings[0]["enabled?"] == true:
+		$Camera2D/kiwami.visible = true
+	if Settings.settings[0]["enabled?"] == false:
+		$Camera2D/kiwami.visible = false
+	
 	if dialougeMode == true and Input.is_action_just_pressed("Click"):
 		alongTheDialogue += 1
 		manageScenes()

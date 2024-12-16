@@ -13,6 +13,8 @@ config_version=5
 config/name="Computer Shrilow"
 config/version="1.0.0"
 run/main_scene="res://scenes/splashScreen.tscn"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="ComputerShrilow"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://assets/gameIcon64.png"
 
@@ -30,6 +32,7 @@ ClothingObjects="*res://technical/clothingObjects.gd"
 Jelly="*res://technical/jellyHandling.gd"
 GDConsole="*res://addons/gdconsole/gdconsole.gd"
 DiscordRPCLoader="*res://addons/discord-rpc-gd/nodes/discord_autoload.gd"
+Settings="*res://technical/settings.gd"
 
 [debug]
 

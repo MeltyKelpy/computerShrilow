@@ -1,0 +1,602 @@
+[gd_scene load_steps=42 format=3 uid="uid://dpv5yh8fb86a5"]
+
+[ext_resource type="Script" path="res://technical/pauseMenu.gd" id="1_0pw43"]
+[ext_resource type="FontFile" uid="uid://brn7smfq0l6ao" path="res://assets/fonts/TwCen.ttf" id="1_wqogi"]
+[ext_resource type="Texture2D" uid="uid://brkdf8hawsefn" path="res://assets/images/mainMenu/pressedHover.png" id="2_a47d5"]
+[ext_resource type="Texture2D" uid="uid://cp81860qk7d68" path="res://assets/images/mainMenu/hover.png" id="3_ouyqr"]
+[ext_resource type="Texture2D" uid="uid://6jl2v3awijit" path="res://assets/images/mainMenu/pressed.png" id="4_twrxj"]
+[ext_resource type="Texture2D" uid="uid://b3xebwynw0fcw" path="res://assets/images/mainMenu/button.png" id="5_r4oq7"]
+[ext_resource type="Texture2D" uid="uid://b2ybgdfw8q766" path="res://assets/images/mainMenu/disabled.png" id="6_5bkqc"]
+[ext_resource type="PackedScene" uid="uid://vpt87r2yvndr" path="res://technical/settingsScene.tscn" id="8_6xb0h"]
+[ext_resource type="Texture2D" uid="uid://cwladsljiqill" path="res://assets/images/ui/backDown.png" id="9_avaki"]
+[ext_resource type="Texture2D" uid="uid://bf5nxu26qx66x" path="res://assets/images/loadingLow.png" id="9_ue280"]
+[ext_resource type="Texture2D" uid="uid://dhml6kkc1kfmj" path="res://assets/images/logo.png" id="10_1d8aj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f6onq"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7xvt7"]
+texture = ExtResource("2_a47d5")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lrkdh"]
+texture = ExtResource("3_ouyqr")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_434sn"]
+texture = ExtResource("4_twrxj")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3s1nu"]
+texture = ExtResource("5_r4oq7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7j3ox"]
+texture = ExtResource("6_5bkqc")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7yltu"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cmjw1"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3auq8"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bu7sj"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_biuwv"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cgank"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tl6xg"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_27ba2"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r7e5k"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j4qwl"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tttvw"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7m85b"]
+bg_color = Color(0.0781743, 0.0241387, 4.51226e-09, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3r88o"]
+bg_color = Color(1, 0.905882, 0.85098, 1)
+
+[sub_resource type="Animation" id="Animation_fvmxd"]
+resource_name = "guy"
+length = 1.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("loadlow:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.4, 0.9, 1.4),
+"transitions": PackedFloat32Array(0.353553, 4.59479, 1),
+"update": 0,
+"values": [Vector2(39, 557), Vector2(39, 530), Vector2(39, 557)]
+}
+
+[sub_resource type="Animation" id="Animation_r28nj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("loadlow:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(39, 557)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pvitt"]
+_data = {
+"RESET": SubResource("Animation_r28nj"),
+"guy": SubResource("Animation_fvmxd")
+}
+
+[sub_resource type="Animation" id="Animation_o07pd"]
+resource_name = "loading"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ProgressBar:value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2, 2.9, 5.96667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 6.07, 100.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("cover:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(6.1, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(0, 0, 0, 1)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"endMenu"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(0.225313, 1),
+"update": 0,
+"values": [Vector2(0, -648), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_bcgxs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ProgressBar:value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("cover:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -648)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_25i17"]
+_data = {
+"RESET": SubResource("Animation_bcgxs"),
+"loading": SubResource("Animation_o07pd")
+}
+
+[sub_resource type="Animation" id="Animation_y1tn1"]
+resource_name = "settings"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SettingsScene:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 668), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SettingsScene:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_otjrg"]
+resource_name = "resume"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.466517, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"killMenu"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_gyidq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SettingsScene:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 668)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SettingsScene:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_wlqpg"]
+resource_name = "settingsLeabe"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SettingsScene:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.966667, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 668)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SettingsScene:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.966667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g53so"]
+_data = {
+"RESET": SubResource("Animation_gyidq"),
+"resume": SubResource("Animation_otjrg"),
+"settings": SubResource("Animation_y1tn1"),
+"settingsLeabe": SubResource("Animation_wlqpg")
+}
+
+[node name="PauseMenu" type="Node2D"]
+process_mode = 3
+top_level = true
+z_index = 4096
+script = ExtResource("1_0pw43")
+
+[node name="bg" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 0.513726)
+
+[node name="resume" type="Button" parent="."]
+custom_minimum_size = Vector2(232, 67)
+offset_left = 459.0
+offset_top = 259.0
+offset_right = 691.0
+offset_bottom = 326.0
+theme_override_colors/font_hover_pressed_color = Color(0.0352941, 0.333333, 0.356863, 1)
+theme_override_colors/font_hover_color = Color(0.0352941, 0.333333, 0.356863, 1)
+theme_override_colors/font_pressed_color = Color(0.0392157, 0.027451, 0.360784, 1)
+theme_override_colors/font_focus_color = Color(0.0352941, 0.333333, 0.356863, 1)
+theme_override_colors/font_color = Color(0.0627451, 0.333333, 0.290196, 1)
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("1_wqogi")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/focus = SubResource("StyleBoxEmpty_f6onq")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_7xvt7")
+theme_override_styles/hover = SubResource("StyleBoxTexture_lrkdh")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_434sn")
+theme_override_styles/normal = SubResource("StyleBoxTexture_3s1nu")
+text = "RESUME"
+
+[node name="save" type="Button" parent="."]
+custom_minimum_size = Vector2(232, 67)
+offset_left = 459.0
+offset_top = 331.0
+offset_right = 691.0
+offset_bottom = 398.0
+theme_override_colors/font_hover_pressed_color = Color(0.0352941, 0.333333, 0.356863, 1)
+theme_override_colors/font_hover_color = Color(0.0352941, 0.333333, 0.356863, 1)
+theme_override_colors/font_pressed_color = Color(0.0392157, 0.027451, 0.360784, 1)
+theme_override_colors/font_focus_color = Color(0.0352941, 0.333333, 0.356863, 1)
+theme_override_colors/font_color = Color(0.0627451, 0.333333, 0.290196, 1)
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("1_wqogi")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/focus = SubResource("StyleBoxEmpty_f6onq")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_7j3ox")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_7xvt7")
+theme_override_styles/hover = SubResource("StyleBoxTexture_lrkdh")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_434sn")
+theme_override_styles/normal = SubResource("StyleBoxTexture_3s1nu")
+disabled = true
+text = "SAVE (DISABLED)"
+
+[node name="settings" type="Button" parent="."]
+custom_minimum_size = Vector2(232, 67)
+offset_left = 459.0
+offset_top = 403.0
+offset_right = 691.0
+offset_bottom = 470.0
+theme_override_colors/font_hover_pressed_color = Color(0.0352941, 0.333333, 0.356863, 1)
+theme_override_colors/font_hover_color = Color(0.0352941, 0.333333, 0.356863, 1)
+theme_override_colors/font_pressed_color = Color(0.0392157, 0.027451, 0.360784, 1)
+theme_override_colors/font_focus_color = Color(0.0352941, 0.333333, 0.356863, 1)
+theme_override_colors/font_color = Color(0.0627451, 0.333333, 0.290196, 1)
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("1_wqogi")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/focus = SubResource("StyleBoxEmpty_f6onq")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_7xvt7")
+theme_override_styles/hover = SubResource("StyleBoxTexture_lrkdh")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_434sn")
+theme_override_styles/normal = SubResource("StyleBoxTexture_3s1nu")
+text = "SETTINGS"
+
+[node name="menu" type="Button" parent="."]
+custom_minimum_size = Vector2(232, 67)
+offset_left = 459.0
+offset_top = 479.0
+offset_right = 691.0
+offset_bottom = 546.0
+theme_override_colors/font_hover_pressed_color = Color(0.0352941, 0.333333, 0.356863, 1)
+theme_override_colors/font_hover_color = Color(0.0352941, 0.333333, 0.356863, 1)
+theme_override_colors/font_pressed_color = Color(0.0392157, 0.027451, 0.360784, 1)
+theme_override_colors/font_focus_color = Color(0.0352941, 0.333333, 0.356863, 1)
+theme_override_colors/font_color = Color(0.0627451, 0.333333, 0.290196, 1)
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("1_wqogi")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/focus = SubResource("StyleBoxEmpty_f6onq")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_7xvt7")
+theme_override_styles/hover = SubResource("StyleBoxTexture_lrkdh")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_434sn")
+theme_override_styles/normal = SubResource("StyleBoxTexture_3s1nu")
+text = "QUIT TO MENU"
+
+[node name="pasued" type="Label" parent="."]
+offset_top = 68.0
+offset_right = 1153.0
+offset_bottom = 176.0
+theme_override_colors/font_color = Color(0.827451, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0.0627451, 0.333333, 0.290196, 1)
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("1_wqogi")
+theme_override_font_sizes/font_size = 100
+text = "PAUSED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="tool" type="Label" parent="."]
+offset_top = 169.0
+offset_right = 1153.0
+offset_bottom = 197.0
+theme_override_colors/font_color = Color(0.827451, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0.0627451, 0.333333, 0.290196, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("1_wqogi")
+theme_override_font_sizes/font_size = 25
+text = "this is a pause menu, if you didnt notice"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SettingsScene" parent="." instance=ExtResource("8_6xb0h")]
+position = Vector2(0, 668)
+
+[node name="back2" type="Button" parent="SettingsScene"]
+offset_left = 995.5
+offset_top = 16.5
+offset_right = 1105.5
+offset_bottom = 143.5
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7yltu")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_cmjw1")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3auq8")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_bu7sj")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_biuwv")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_cgank")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_tl6xg")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_27ba2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_r7e5k")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_j4qwl")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_tttvw")
+
+[node name="back" type="Sprite2D" parent="SettingsScene"]
+position = Vector2(1051.5, 84.5)
+texture = ExtResource("9_avaki")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[node name="loadingScreen" type="Node2D" parent="."]
+position = Vector2(0, -648)
+
+[node name="ColorRect" type="ColorRect" parent="loadingScreen"]
+offset_right = 1233.0
+offset_bottom = 648.0
+color = Color(0.121569, 0.0470588, 0, 1)
+
+[node name="ProgressBar" type="ProgressBar" parent="loadingScreen"]
+offset_left = 8.0
+offset_top = 611.0
+offset_right = 1144.0
+offset_bottom = 638.0
+theme_override_styles/background = SubResource("StyleBoxFlat_7m85b")
+theme_override_styles/fill = SubResource("StyleBoxFlat_3r88o")
+show_percentage = false
+
+[node name="loadlow" type="Sprite2D" parent="loadingScreen"]
+position = Vector2(39, 557)
+texture = ExtResource("9_ue280")
+
+[node name="logo" type="Sprite2D" parent="loadingScreen"]
+position = Vector2(1058, 90)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("10_1d8aj")
+
+[node name="littleGuy" type="AnimationPlayer" parent="loadingScreen"]
+libraries = {
+"": SubResource("AnimationLibrary_pvitt")
+}
+autoplay = "guy"
+
+[node name="loading" type="AnimationPlayer" parent="loadingScreen"]
+libraries = {
+"": SubResource("AnimationLibrary_25i17")
+}
+
+[node name="cover" type="ColorRect" parent="loadingScreen"]
+modulate = Color(1, 1, 1, 0)
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.121569, 0.0470588, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_g53so")
+}
+
+[connection signal="pressed" from="resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="SettingsScene/back2" to="." method="_on_back_2_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
