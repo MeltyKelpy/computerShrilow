@@ -326,10 +326,6 @@ tracks/3/keys = {
 [sub_resource type="Animation" id="Animation_i4gyx"]
 length = 0.001
 
-[sub_resource type="Animation" id="Animation_6vpko"]
-resource_name = "leaveCredits"
-length = 1.7
-
 [sub_resource type="Animation" id="Animation_eckxe"]
 resource_name = "toSettings"
 length = 1.5
@@ -434,10 +430,62 @@ tracks/3/keys = {
 "values": [Vector2(0, 0), Vector2(-1148, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_u6qta"]
+resource_name = "leaveCredits"
+length = 1.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Credits:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 1.7),
+"transitions": PackedFloat32Array(0.366021, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 648)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Credits/fade:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("stuff/Left:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2, 1.7),
+"transitions": PackedFloat32Array(0.450625, 1),
+"update": 0,
+"values": [Vector2(-1000, 0), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("stuff/Shrilow:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2, 1.7),
+"transitions": PackedFloat32Array(0.450625, 1),
+"update": 0,
+"values": [Vector2(2331, 341), Vector2(1332, 341)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2r10b"]
 _data = {
 "RESET": SubResource("Animation_i4gyx"),
-"leaveCredits": SubResource("Animation_6vpko"),
+"leaveCredits": SubResource("Animation_u6qta"),
 "leaveSettings": SubResource("Animation_n2jhl"),
 "toCredits": SubResource("Animation_1pfkw"),
 "toSettings": SubResource("Animation_eckxe")
@@ -753,6 +801,10 @@ texture = ExtResource("16_cjgcw")
 position = Vector2(914, 133)
 texture = ExtResource("16_cjgcw")
 
+[node name="back" type="Sprite2D" parent="Credits"]
+position = Vector2(83, 79)
+texture = ExtResource("17_q8ob8")
+
 [node name="back2" type="Button" parent="Credits"]
 offset_left = 27.0
 offset_top = 11.0
@@ -770,10 +822,6 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_6ccgn")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_31qhe")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_nncs3")
 
-[node name="back" type="Sprite2D" parent="Credits"]
-position = Vector2(83, 79)
-texture = ExtResource("17_q8ob8")
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_2r10b")
@@ -783,5 +831,7 @@ libraries = {
 [connection signal="pressed" from="stuff/Left/shit/settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="stuff/Left/shit/credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="settings/back2" to="." method="_on_backSettings"]
+[connection signal="pressed" from="Credits/left" to="." method="changeSelection" binds= [-1]]
+[connection signal="pressed" from="Credits/right" to="." method="changeSelection" binds= [1]]
 [connection signal="pressed" from="Credits/back2" to="." method="_on_backCredit_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

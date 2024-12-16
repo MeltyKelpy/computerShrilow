@@ -6,7 +6,7 @@ var creditors = [
 	"Image":"res://assets/images/mainMenu/credits/ppl/mel.png",
 	"Pronouns":"It/Star",
 	"Roles":"Game Creator -\nMain Artist -\nMain Coder -",
-	"Commits":57,
+	"Commits":59,
 	"Quote":"jesus = false",
 	},
 	{
@@ -44,7 +44,7 @@ var creditors = [
 	]
 
 var selectedCredit = 0
-var commits = 63
+var commits = 65
 
 var evil = []
 
@@ -91,10 +91,6 @@ func changeSelection(toChange):
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	can = true
-	if evil.size() != 0 and anim_name != "toSettings":
-		for i in evil.size():
-			evil[i].queue_free()
-		evil.resize(0)
 
 func _on_credits_pressed() -> void:
 	if can == true:
