@@ -7,6 +7,8 @@ var toolText = [
 	]
 
 func _process(delta: float) -> void:
+	position.x = $/root/computerShrilow/Camera2D.position.x - 576
+	position.y = $/root/computerShrilow/Camera2D.position.y - 324
 	z_index = 4096
 	if Input.is_action_just_pressed("ui_cancel"):
 		$AnimationPlayer.play("resume")
@@ -38,3 +40,6 @@ func _on_menu_pressed() -> void:
 
 func _on_resume_pressed() -> void:
 	$AnimationPlayer.play("resume")
+
+func _on_save_pressed() -> void:
+	Game.saveData()

@@ -7,180 +7,48 @@
 [ext_resource type="Texture2D" uid="uid://dk0yfw0xb5wi8" path="res://assets/images/areas/mines/sell.png" id="5_hfuui"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d11r2"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tnect"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_beur5"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_txhol"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a3aeu"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h4yrg"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m6a2x"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_du6rl"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_racww"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vw6yr"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p2cjr"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sib3x"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iyt32"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dkifa"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8u77p"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_py871"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3o4dv"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2y56m"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bc22l"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jby3e"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vvd3u"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vy6mc"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [node name="character0" type="Node2D"]
 script = ExtResource("1_lwkwd")

@@ -46,6 +46,7 @@ func _ready() -> void:
 		caca2.warn("You bought a Gumball, and you got a "+rarity+" Jelly!")
 	else:
 		caca2.warn("You bought a Gumball, and you got a "+rarity+" Jelly, and its one you havent seen before!")
+		Game.jellies += 1
 	$nameShit/Name.text = jelly
 	$nameShit/Stats.text = rarity+"\n"+str(money)+"$ per "+str(seconds)+" Seconds"
 	if rarity != "Queer":

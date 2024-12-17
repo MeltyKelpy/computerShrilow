@@ -4,92 +4,26 @@
 [ext_resource type="Texture2D" uid="uid://bwbx2j1d11lbj" path="res://assets/images/areas/jellies/elevator.png" id="2_240xc"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6p2fe"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_20nmq"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_co3en"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nkuiw"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h8nel"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8bahw"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4c335"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fv5yt"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_am6iv"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rsyfi"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sbm43"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a8kxp"]
 size = Vector2(372, 648)

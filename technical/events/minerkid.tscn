@@ -7,113 +7,32 @@
 [ext_resource type="Theme" uid="uid://dr1wna4c2ab2h" path="res://technical/textStyle.tres" id="4_skn8a"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tp5j3"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0u084"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_blfmf"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n2v3j"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gu67s"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ixmou"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nui3r"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eubfm"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_80q5u"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gwc53"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kfi12"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="Gradient" id="Gradient_eti8s"]
 colors = PackedColorArray(0, 0, 0, 0.709804, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_p8ujd"]
 gradient = SubResource("Gradient_eti8s")
-
-[sub_resource type="Animation" id="Animation_4cxcc"]
-resource_name = "pop"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("miner:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(0.392292, 1),
-"update": 0,
-"values": [Vector2(83, 828), Vector2(83, 485)]
-}
 
 [sub_resource type="Animation" id="Animation_1qa5b"]
 length = 0.001
@@ -128,6 +47,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(83, 828)]
+}
+
+[sub_resource type="Animation" id="Animation_4cxcc"]
+resource_name = "pop"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("miner:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.392292, 1),
+"update": 0,
+"values": [Vector2(83, 828), Vector2(83, 485)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_h14wy"]
@@ -201,6 +135,7 @@ offset_bottom = 156.0
 texture = SubResource("GradientTexture1D_p8ujd")
 
 [node name="transcript" type="Label" parent="miner/thing"]
+layout_mode = 0
 offset_left = 13.0
 offset_top = 94.0
 offset_right = 341.0
@@ -212,6 +147,7 @@ text = "PLACEHOLDER TEXT"
 autowrap_mode = 3
 
 [node name="onCall" type="Label" parent="miner/thing"]
+layout_mode = 0
 offset_left = 13.0
 offset_top = 4.0
 offset_right = 344.0

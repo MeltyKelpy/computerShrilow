@@ -5,92 +5,26 @@
 [ext_resource type="Theme" uid="uid://dr1wna4c2ab2h" path="res://technical/textStyle.tres" id="3_0cjfs"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s2f0u"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t7yhy"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8wcum"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tp14k"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_55bhx"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s5fk3"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ych1t"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n57ry"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uwjoy"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wtyp4"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6bwfi"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [node name="Bell" type="Node2D"]
 script = ExtResource("1_xpcqr")

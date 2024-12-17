@@ -6,7 +6,7 @@ var creditors = [
 	"Image":"res://assets/images/mainMenu/credits/ppl/mel.png",
 	"Pronouns":"It/Star",
 	"Roles":"Game Creator -\nMain Artist -\nMain Coder -",
-	"Commits":59,
+	"Commits":60,
 	"Quote":"jesus = false",
 	},
 	{
@@ -31,7 +31,7 @@ var creditors = [
 	"Pronouns":"She/Her",
 	"Roles":"Artist -",
 	"Commits":6,
-	"Quote":"",
+	"Quote":"kill melty",
 	},
 	{
 	"Name":"GhostyBricks",
@@ -41,10 +41,26 @@ var creditors = [
 	"Commits":0,
 	"Quote":"",
 	},
+	{
+	"Name":"Shrilow",
+	"Image":"res://assets/images/mainMenu/credits/ppl/shrilow.png",
+	"Pronouns":"He/Him",
+	"Roles":"Punching Bag -\nAwesome Friend whos in the game -",
+	"Commits":0,
+	"Quote":"i hope that everyone who dies goes to hell no matter what",
+	},
+	{
+	"Name":"JuiceBoxFactory",
+	"Image":"res://assets/images/mainMenu/credits/ppl/juicebox.png",
+	"Pronouns":"The Team!",
+	"Roles":"",
+	"Commits":0,
+	"Quote":"",
+	},
 	]
 
 var selectedCredit = 0
-var commits = 65
+var commits = 66
 
 var evil = []
 
@@ -58,10 +74,19 @@ var config = ConfigFile.new()
 	$Credits/dot3,
 	$Credits/dot4,
 	$Credits/dot5,
+	$Credits/dot6,
+	$Credits/dot7,
 	]
 
 func _ready() -> void:
 	Settings.loadData()
+	for i in range(0,3):
+		var cacapoopyFUCK = load("res://technical/saveBox.tscn")
+		var caca = cacapoopyFUCK.instantiate()
+		caca.ID = i
+		caca.position.x = 109
+		caca.position.y = 204 + (163 * i)
+		$SaveFiles.add_child(caca)
 
 func _process(delta: float) -> void:
 	for i in dots.size():
@@ -72,18 +97,29 @@ func _process(delta: float) -> void:
 		selectedCredit = creditors.size()-1
 	dots[selectedCredit].modulate = Color(1,1,1,1)
 	$ParallaxBackground.scroll_base_offset.y -= 10 * delta/0.5
-	$Credits/Name.text = creditors[selectedCredit]["Name"]
-	$Credits/Pronouns.text = creditors[selectedCredit]["Pronouns"]
-	$Credits/Jobs.text = creditors[selectedCredit]["Roles"]+"\nGithub Commits: "+str(creditors[selectedCredit]["Commits"])+"/"+str(commits)+" -"
-	$Credits/Quote.text = '"'+creditors[selectedCredit]["Quote"]+'"'
-	$Credits/person.texture = load(creditors[selectedCredit]["Image"])
+	
+	if creditors[selectedCredit]["Name"] != "JuiceBoxFactory":
+		$Credits/JBF.position.y = 1200
+		$Credits/Name.text = creditors[selectedCredit]["Name"]
+		$Credits/Pronouns.text = creditors[selectedCredit]["Pronouns"]
+		$Credits/Jobs.text = creditors[selectedCredit]["Roles"]+"\nGithub Commits: "+str(creditors[selectedCredit]["Commits"])+"/"+str(commits)+" -"
+		$Credits/Quote.text = '"'+creditors[selectedCredit]["Quote"]+'"'
+		$Credits/person.texture = load(creditors[selectedCredit]["Image"])
+	else:
+		$Credits/JBF.position.y = 257
+		$Credits/Name.text = creditors[selectedCredit]["Name"]
+		$Credits/Pronouns.text = creditors[selectedCredit]["Pronouns"]
+		$Credits/Jobs.text = ""
+		$Credits/Quote.text = ""
+		$Credits/person.texture = load(creditors[selectedCredit]["Image"])
 
 func endMenu():
 	get_tree().change_scene_to_file("res://scenes/tComputer.tscn")
 
 func _on_start_pressed() -> void:
 	if can == true:
-		$loadingScreen/loading.play("loading")
+		Settings.loadData()
+		$AnimationPlayer.play("toFiles")
 		can = false
 
 func changeSelection(toChange):
@@ -91,6 +127,9 @@ func changeSelection(toChange):
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	can = true
+	print(anim_name)
+	if anim_name == "leaveSettings":
+		$settings/SettingsScene.kill()
 
 func _on_credits_pressed() -> void:
 	if can == true:
@@ -110,6 +149,25 @@ func _on_settings_pressed() -> void:
 
 func _on_backSettings() -> void:
 	if can == true:
-		Settings.saveData()
 		$AnimationPlayer.play("leaveSettings")
+		can = false
+
+func _on_backFiles() -> void:
+	if can == true:
+		$AnimationPlayer.play("leaveFiles")
+		can = false
+
+func openLink(site : String) -> void:
+	if site == "BlueSky":
+		OS.shell_open("https://bsky.app/profile/juiceboxfactory.bsky.social")
+	if site == "Twitter":
+		OS.shell_open("https://x.com/JuiceBoxFactory")
+	if site == "YouTube":
+		OS.shell_open("https://www.youtube.com/@juiceboxfactoryReal")
+	if site == "Our Website":
+		OS.shell_open("https://bsky.app/profile/juiceboxfactory.bsky.social")
+
+func _on_button_pressed() -> void:
+	if can == true:
+		$loadingScreen/loading.play("loading")
 		can = false

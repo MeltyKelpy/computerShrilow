@@ -1,4 +1,4 @@
-[gd_scene load_steps=118 format=3 uid="uid://bgw557ttv6noe"]
+[gd_scene load_steps=119 format=3 uid="uid://bgw557ttv6noe"]
 
 [ext_resource type="Script" path="res://scenes/t_computer.gd" id="1_swrb7"]
 [ext_resource type="Texture2D" uid="uid://dajex7cpt7k4p" path="res://assets/images/bg/background.png" id="2_u0da7"]
@@ -52,97 +52,32 @@
 [ext_resource type="Texture2D" uid="uid://dxvslfuybm4qv" path="res://assets/images/areas/jellies/melvin/melvs/base.png" id="40_2pbfm"]
 [ext_resource type="Texture2D" uid="uid://c3rsesgxto2nt" path="res://assets/images/ui/transitions/bell0.png" id="41_boae4"]
 [ext_resource type="Texture2D" uid="uid://dqdfjx7jj56ii" path="res://assets/images/ui/transitions/bell1.png" id="42_pcusv"]
+[ext_resource type="AudioStream" uid="uid://bwqy4bdtncyqd" path="res://assets/music/melvin.ogg" id="43_sou4k"]
 [ext_resource type="Texture2D" uid="uid://b4sehpse6a35m" path="res://assets/images/ui/transitions/elevator0.png" id="45_wo732"]
 [ext_resource type="Texture2D" uid="uid://cg4s4o4vbdqyc" path="res://assets/images/ui/transitions/elevator1.png" id="46_p35b6"]
 [ext_resource type="Texture2D" uid="uid://owu8rr2pxppu" path="res://assets/images/ui/theComputerLogo.png" id="54_dab5r"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p6f28"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w4xu3"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uj6cr"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0meto"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rmwiu"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o3afr"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_amgep"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e3kvh"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kvmat"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iq0t2"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vhex2"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sq2lm"]
 size = Vector2(233, 405)
@@ -154,92 +89,26 @@ bg_color = Color(1, 0, 0, 1)
 bg_color = Color(0, 1, 0, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_714v8"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l4fde"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b1ngq"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bnx5p"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m4q2a"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6g67g"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cbusq"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5hpjx"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jaggv"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7e2gc"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v5e17"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ugy5"]
 size = Vector2(1774, 62)
@@ -273,92 +142,26 @@ animations = [{
 }]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e17ue"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qs8ly"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_spsft"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xxilq"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_56s0b"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_01kl8"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_modlm"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_57qnw"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1neu3"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ehj2i"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fh8os"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1f25w"]
 animations = [{
@@ -372,12 +175,6 @@ animations = [{
 }]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0bpyy"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
 
 [sub_resource type="Animation" id="Animation_5fubl"]
 length = 0.001
@@ -444,94 +241,82 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Shop/ShopMusic:volume_db")
+tracks/5/path = NodePath("USD:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [-80.0]
+"values": [Vector2(51, 70)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("USD:position")
+tracks/6/path = NodePath("USDText:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(51, 70)]
+"values": [Vector2(108, 46)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("USDText:position")
+tracks/7/path = NodePath("USDText:horizontal_alignment")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(108, 46)]
+"update": 1,
+"values": [0]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("USDText:horizontal_alignment")
+tracks/8/path = NodePath("Wardrobe:position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
+"update": 0,
+"values": [Vector2(0, -648)]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Wardrobe:position")
+tracks/9/path = NodePath("fade:position")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, -648)]
+"values": [Vector2(576, 324)]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("fade:position")
+tracks/10/path = NodePath("Mines:position")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(576, 324)]
+"values": [Vector2(0, 648)]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("Mines:position")
+tracks/11/path = NodePath("Camera2D:position")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 648)]
-}
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("Camera2D:position")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -696,46 +481,34 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Shop/ShopMusic:volume_db")
+tracks/5/path = NodePath("USD:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(1, 1),
+"transitions": PackedFloat32Array(0.31864, 1),
 "update": 0,
-"values": [-9.675, -80.0]
+"values": [Vector2(580, 60), Vector2(51, 70)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("USD:position")
+tracks/6/path = NodePath("USDText:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0, 1.5),
 "transitions": PackedFloat32Array(0.31864, 1),
 "update": 0,
-"values": [Vector2(580, 60), Vector2(51, 70)]
+"values": [Vector2(430, 41), Vector2(108, 46)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("USDText:position")
+tracks/7/path = NodePath("USDText:horizontal_alignment")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(0.31864, 1),
-"update": 0,
-"values": [Vector2(430, 41), Vector2(108, 46)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("USDText:horizontal_alignment")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
 "times": PackedFloat32Array(0.166667, 0.266667),
 "transitions": PackedFloat32Array(1, 0.329877),
 "update": 1,
@@ -978,46 +751,34 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Shop/ShopMusic:volume_db")
+tracks/5/path = NodePath("USD:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-80.0, -9.675]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("USD:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
 "times": PackedFloat32Array(0, 1.5),
 "transitions": PackedFloat32Array(0.31864, 1),
 "update": 0,
 "values": [Vector2(51, 70), Vector2(580, 60)]
 }
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("USDText:position")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("USDText:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
 "times": PackedFloat32Array(0, 1.5),
 "transitions": PackedFloat32Array(0.329877, 1),
 "update": 0,
 "values": [Vector2(108, 46), Vector2(430, 41)]
 }
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("USDText:horizontal_alignment")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("USDText:horizontal_alignment")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(0.329877, 1),
 "update": 1,
@@ -1216,6 +977,33 @@ animations = [{
 "speed": 4.0
 }]
 
+[sub_resource type="Animation" id="Animation_tjk11"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("cover:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("logo:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_hvvfl"]
 resource_name = "intro"
 length = 5.0
@@ -1256,33 +1044,6 @@ tracks/2/keys = {
 "args": [],
 "method": &"killIntro"
 }]
-}
-
-[sub_resource type="Animation" id="Animation_tjk11"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("cover:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("logo:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_46cp3"]
@@ -1783,7 +1544,7 @@ position = Vector2(576, 324)
 texture = ExtResource("16_ptxs8")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Wardrobe"]
-z_index = 1000
+z_index = 100
 offset_left = 533.0
 offset_top = 138.0
 offset_right = 1012.0
@@ -1796,7 +1557,7 @@ layout_mode = 2
 columns = 3
 
 [node name="ItemName" type="Label" parent="Wardrobe"]
-z_index = 1000
+z_index = 100
 offset_left = 501.0
 offset_top = 512.0
 offset_right = 1015.0
@@ -1808,7 +1569,7 @@ text = "ITEMNAME"
 horizontal_alignment = 1
 
 [node name="ItemDescription" type="Label" parent="Wardrobe"]
-z_index = 1000
+z_index = 100
 offset_left = 499.0
 offset_top = 542.0
 offset_right = 1015.0
@@ -1821,7 +1582,7 @@ horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="BackWARD" type="Sprite2D" parent="Wardrobe"]
-z_index = 101
+z_index = 100
 position = Vector2(767, 63)
 texture = ExtResource("17_obgyp")
 
@@ -2071,6 +1832,12 @@ theme_override_font_sizes/font_size = 35
 text = "oh, sure i got nothing else to do anyways lmao"
 autowrap_mode = 3
 
+[node name="ShopMusic" type="AudioStreamPlayer" parent="Melvin"]
+stream = ExtResource("43_sou4k")
+volume_db = -80.0
+autoplay = true
+parameters/looping = true
+
 [node name="Journal" type="Node2D" parent="."]
 position = Vector2(-1367, -1545)
 
@@ -2292,6 +2059,7 @@ color = Color(0, 1, 0, 1)
 [connection signal="pressed" from="Melvin/BackButton" to="." method="cameraAnimation" binds= ["bell", -576, 324, true]]
 [connection signal="timeout" from="talkTimer" to="." method="_on_talk_timer_timeout"]
 [connection signal="pressed" from="BackJOURNAL" to="." method="cameraAnimation" binds= ["journal", -576, 324, true]]
+[connection signal="animation_finished" from="sectionTransitions" to="." method="_on_section_transitions_animation_finished"]
 [connection signal="timeout" from="EventTimer" to="." method="_event"]
 [connection signal="timeout" from="faceRevert" to="." method="_on_face_revert_timeout"]
 [connection signal="timeout" from="faceRevert2" to="." method="_on_face_revert_2_timeout"]

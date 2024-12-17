@@ -33,6 +33,7 @@ Jelly="*res://technical/jellyHandling.gd"
 GDConsole="*res://addons/gdconsole/gdconsole.gd"
 DiscordRPCLoader="*res://addons/discord-rpc-gd/nodes/discord_autoload.gd"
 Settings="*res://technical/settings.gd"
+Game="*res://technical/Game.gd"
 
 [debug]
 

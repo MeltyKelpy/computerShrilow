@@ -345,13 +345,6 @@ func generateHoes():
 func _ready():
 	$Mines.position.y = 648
 	generateHoes()
-	DiscordRPC.app_id = 1160342090039971850
-	DiscordRPC.details = "A Computer Game about a Computer Boy"
-	DiscordRPC.state = "Clicking, probably"
-	DiscordRPC.large_image = "icon"
-	DiscordRPC.start_timestamp = int(Time.get_unix_time_from_system())
-	DiscordRPC.refresh()
-	print("rpc working: " + str(DiscordRPC.get_is_discord_working()))
 
 func _process(_delta : float) -> void:
 	
@@ -456,7 +449,15 @@ func _process(_delta : float) -> void:
 		#$Gumball/coinName.text = "Queer Coin"
 		#$Gumball/stuff.text = "The Queer Coin, allows you to get queers abit more easily, but for INSANELY more money.\n\nCommon Chance: 0%\nUncommon Chance: 10%\nRare Chance: 35%\nAwesome Chance: 55%\nQueer Chance: 5%"
 	
+	if $Melvin/ShopMusic.volume_db < 7 and area == "melvin":
+		$Melvin/ShopMusic.volume_db += 0.5 + (0.5 * _delta)
+	if $Melvin/ShopMusic.volume_db > -100 and area != "melvin":
+		$Melvin/ShopMusic.volume_db -= 1 + (1 * _delta)
 	
+	if $Shop/ShopMusic.volume_db < 0 and area == "melanie":
+		$Shop/ShopMusic.volume_db += 1 + (1 * _delta)
+	if $Shop/ShopMusic.volume_db > -100 and area != "melanie":
+		$Shop/ShopMusic.volume_db -= 1 + (1 * _delta)
 	
 	$Mines/ScrollContainer/Control.custom_minimum_size.y = (648 * FizzyDrink.minesLength) + 100
 	
@@ -543,30 +544,46 @@ func _on_face_revert_timeout() -> void:
 	$Shrilow/Shrilow/StillFace.visible = false
 
 func _on_shop_button_pressed() -> void:
-	print("shop")
-	$sectionTransitions.play("toShop")
+	if can == true:
+		can = false
+		print("shop")
+		area = "melanie"
+		$sectionTransitions.play("toShop")
 
 func _on_back_button_shop_pressed() -> void:
-	if melShopState != true:
-		melShopToggle()
-	$sectionTransitions.play("leaveShop")
+	if can == true:
+		can = false
+		if melShopState != true:
+			melShopToggle()
+		area = "notJellies"
+		$sectionTransitions.play("leaveShop")
 
 func _on_wardrobe_button_pressed() -> void:
-	print("wardrobe")
-	$sectionTransitions.play("toWard")
+	if can == true:
+		can = false
+		print("wardrobe")
+		$sectionTransitions.play("toWard")
 
 func _on_back_button_ward_pressed() -> void:
-	$sectionTransitions.play("leaveWard")
+	if can == true:
+		can = false
+		$sectionTransitions.play("leaveWard")
 
 func _on_back_button_ward2_pressed() -> void:
-	$sectionTransitions.play("leaveMines")
+	if can == true:
+		can = false
+		$sectionTransitions.play("leaveMines")
 
 func _on_trophies_button_pressed() -> void:
-	print("trophies")
+	if can == true:
+		can = false
+		print("trophies")
 
 func _on_mines_button_pressed() -> void:
-	print("mines")
-	$sectionTransitions.play("toMines")
+	if can == true:
+		can = false
+		print("mines")
+		$sectionTransitions.play("toMines")
 
 func _event() -> void:
 	$Camera2D/bg.visible = false
@@ -615,10 +632,14 @@ func _on_face_revert_2_timeout() -> void:
 
 func _on_back_button_jelly_pressed() -> void:
 	area = "notJellies"
-	$sectionTransitions.play("leaveJellies")
+	if can == true:
+		can = false
+		$sectionTransitions.play("leaveJellies")
 
 func _on_jellies_button_pressed() -> void:
-	$sectionTransitions.play("toJellies")
+	if can == true:
+		can = false
+		$sectionTransitions.play("toJellies")
 
 func _on_right_move_mouse_entered() -> void:
 	if $Camera2D.position.x < (-576):
@@ -639,9 +660,15 @@ func _signal_jelly():
 
 func cameraAnimation(Varea, positionX, positionY, allowMove):
 	if Varea == "bell":
+		if area == "melvin":
+			area = "notJellies"
+		else:
+			area = "melvin"
 		for i in FizzyDrink.melDialogue.size():
 			if FizzyDrink.melDialogue[i]["dialogKey"] == "MELVIN":
 				FizzyDrink.melDialogue[i]["unlocked"] = true
+	if area != "melvin":
+		area = "notJellies"
 	$EventTimer.paused = true
 	$Camera2D/bg/icon.play(Varea)
 	AnimPosCamX = positionX
@@ -653,7 +680,7 @@ func moveCam():
 	$Camera2D.position.x = AnimPosCamX
 	$Camera2D.position.y = AnimPosCamY
 	print(AnimPosCamY)
-	if allowing == false:
+	if allowing == false and area == "Jellies":
 		area = "notJellies"
 	if allowing == true:
 		area = "Jellies"
@@ -833,3 +860,6 @@ func _on_talk_timer_timeout() -> void:
 	if melvinShopState == false:
 		$Shop/type.play()
 		$Melvin/ItemDescription.visible_characters += 1
+
+func _on_section_transitions_animation_finished(anim_name: StringName) -> void:
+	can = true

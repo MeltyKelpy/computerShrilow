@@ -13,6 +13,9 @@ func spawnSettings():
 		evil.append(caca)
 		caca.reparent($ScrollContainer/Control)
 
+func _process(_delta : float):
+	$Description.text = FizzyDrink.descriptionSetting
+
 func kill():
 	for i in evil.size():
 		evil[i].queue_free()

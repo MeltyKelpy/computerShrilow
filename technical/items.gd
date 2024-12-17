@@ -125,7 +125,7 @@ var itemInfomation = [
 	# IMEDIATE EVENT
 	"Image":"res://assets/images/areas/melanies/items/floppydisk.png",
 	"Name":"Notably Shinier Floppy Disk",
-	"Desc":'"Immediately starts a minigame event you havent played yet, useful if you want to unlock all the minigames. you completionist whore." -Mel ',
+	"Desc":'"Immediately starts a minigame event you havent played yet on the current run, useful if you want to unlock all the minigames. you completionist whore." -Mel ',
 	"Upgradeable?":false,
 	"MaxUpgrade":1,
 	"CurUpgrade":0,

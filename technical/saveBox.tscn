@@ -1,0 +1,120 @@
+[gd_scene load_steps=23 format=3 uid="uid://b27whf8e32gjj"]
+
+[ext_resource type="Texture2D" uid="uid://yaivbhdq4dxn" path="res://assets/images/areas/melanies/itemBox.png" id="1_lgb1h"]
+[ext_resource type="Script" path="res://technical/saveBox.gd" id="2_pyrv6"]
+[ext_resource type="Theme" uid="uid://dr1wna4c2ab2h" path="res://technical/textStyle.tres" id="2_q66pj"]
+[ext_resource type="Texture2D" uid="uid://dqiq8amo2cred" path="res://assets/images/mainMenu/files/loadClick.png" id="3_62okq"]
+[ext_resource type="Texture2D" uid="uid://bcydf1nqnnqcn" path="res://assets/images/mainMenu/files/deleteClick.png" id="3_rnt4l"]
+[ext_resource type="Texture2D" uid="uid://cbrnihwot4hc7" path="res://assets/images/mainMenu/files/load.png" id="4_iy23l"]
+[ext_resource type="Texture2D" uid="uid://c1b533idj5bt1" path="res://assets/images/mainMenu/files/loadHover.png" id="4_kyfok"]
+[ext_resource type="Texture2D" uid="uid://b7aygs45tmycv" path="res://assets/images/mainMenu/files/deleteHover.png" id="4_vpp2j"]
+[ext_resource type="Texture2D" uid="uid://dyj2cvm45pn86" path="res://assets/images/mainMenu/files/delete.png" id="5_y4yb4"]
+[ext_resource type="Texture2D" uid="uid://cdi4tcc76faq8" path="res://assets/images/areas/melanies/items/floppydisk.png" id="10_y2m8g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pmqkl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f1th1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l2nj8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6l1dl"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sjptp"]
+texture = ExtResource("3_62okq")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_su1qn"]
+texture = ExtResource("4_kyfok")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1lslq"]
+texture = ExtResource("3_62okq")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_41x8s"]
+texture = ExtResource("4_iy23l")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nqekw"]
+texture = ExtResource("3_rnt4l")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_musig"]
+texture = ExtResource("4_vpp2j")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_psmjq"]
+texture = ExtResource("3_rnt4l")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mxkmm"]
+texture = ExtResource("5_y4yb4")
+
+[node name="SaveBox" type="Sprite2D"]
+texture = ExtResource("1_lgb1h")
+script = ExtResource("2_pyrv6")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+offset_left = -77.0
+offset_top = -72.0
+offset_right = 746.0
+offset_bottom = 69.0
+color = Color(1, 0.909804, 0.854902, 1)
+
+[node name="FileName" type="LineEdit" parent="."]
+offset_left = 91.0
+offset_top = -68.0
+offset_right = 303.0
+offset_bottom = -12.0
+scale = Vector2(1, 0.7)
+theme = ExtResource("2_q66pj")
+theme_override_colors/caret_color = Color(0.121569, 0.0470588, 0, 1)
+theme_override_colors/font_color = Color(0.121569, 0.0470588, 0, 1)
+theme_override_font_sizes/font_size = 44
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pmqkl")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_f1th1")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_l2nj8")
+text = "Melanie"
+max_length = 12
+caret_blink = true
+
+[node name="Desc" type="Label" parent="."]
+offset_left = 92.0
+offset_top = -36.0
+offset_right = 295.0
+offset_bottom = 97.0
+scale = Vector2(1, 0.7)
+theme = ExtResource("2_q66pj")
+theme_override_font_sizes/font_size = 28
+text = "Load me pls"
+autowrap_mode = 3
+
+[node name="Load" type="Button" parent="."]
+offset_left = 568.0
+offset_top = -65.0
+offset_right = 735.0
+offset_bottom = -5.0
+theme_override_colors/font_focus_color = Color(0.121569, 0.0470588, 0, 1)
+theme_override_colors/font_color = Color(0.121569, 0.0470588, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6l1dl")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_sjptp")
+theme_override_styles/hover = SubResource("StyleBoxTexture_su1qn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_1lslq")
+theme_override_styles/normal = SubResource("StyleBoxTexture_41x8s")
+text = "LOAD"
+
+[node name="Delete" type="Button" parent="."]
+offset_left = 568.0
+offset_top = 2.0
+offset_right = 735.0
+offset_bottom = 62.0
+theme_override_colors/font_focus_color = Color(0.121569, 0.0470588, 0, 1)
+theme_override_colors/font_color = Color(0.121569, 0.0470588, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6l1dl")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_nqekw")
+theme_override_styles/hover = SubResource("StyleBoxTexture_musig")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_psmjq")
+theme_override_styles/normal = SubResource("StyleBoxTexture_mxkmm")
+text = "DELETE"
+
+[node name="Icon" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("10_y2m8g")
+
+[connection signal="text_changed" from="FileName" to="." method="_on_file_name_text_changed"]
+[connection signal="pressed" from="Load" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="Delete" to="." method="_on_delete_pressed"]
