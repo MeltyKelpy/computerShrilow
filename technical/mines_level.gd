@@ -45,7 +45,7 @@ var characterInfos = [
 	},
 	]
 
-var miners = [
+@export var miners = [
 	null,
 	null,
 	null,
@@ -55,14 +55,14 @@ var miners = [
 	null,
 	]
 
-var amountOfDwellers = 0
-var caveNumber = 0
+@export var amountOfDwellers = 0
+@export var caveNumber = 0
 
 var selected = null
 var hoverSelected = null
 
-var selectedPath = 0
-var mineLevel = 0
+@export var selectedPath = 0
+@export var mineLevel = 0
 
 var moneyValues = [
 	150,
@@ -72,7 +72,7 @@ var moneyValues = [
 	750,
 	]
 
-var newMineExists = true
+@export var newMineExists = true
 
 func getMineLevel(num):
 	caveNumber = num

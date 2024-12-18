@@ -2,12 +2,16 @@ extends Node2D
 
 var ID = 0
 
-func _ready():
-	reparent($/root/computerShrilow/ShrilowScreen)
+func buy():
+	reparent($/root/computerShrilow/ShrilowScreen/puppies)
 
 func getPuppy(hi):
 	position.x = 850
 	position.y = 544 + (-199 * hi)
+
+func _process(delta: float) -> void:
+	if $Timer.time_left == 0 and $Timer2.time_left == 0:
+		$Timer.start()
 
 func getID(num):
 	ID = num

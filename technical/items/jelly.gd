@@ -1,11 +1,12 @@
 extends Node2D
 
-var jellyNum = 0
-var jelly = "Retarded Gambler Jelly"
-var rarity = "Uncommon"
-var money = 3
-var seconds = 6
-var selfDiscoveredVar = false
+@export var jellyNum = 0
+@export var jelly = "Retarded Gambler Jelly"
+@export var rarity = "Uncommon"
+@export var money = 3
+@export var seconds = 6
+@export var selfDiscoveredVar = false
+@export var new = true
 
 @onready var mouse_pin: PinJoint2D = $MousePin
 @onready var fake_body: StaticBody2D = $MousePin/FakeBody
@@ -23,6 +24,9 @@ var colorsIgLOL = [
 	},
 	]
 
+func buy():
+	reparent($/root/computerShrilow/Jelly/Control)
+
 func _ready() -> void:
 	$FirstTimer.wait_time = seconds - 0.2
 	$SecondTimer.wait_time = 0.2
@@ -32,7 +36,6 @@ func _ready() -> void:
 	mouse_pin.node_a = mouse_pin.get_path_to(fake_body)
 	rigid_body_2d.input_pickable = true
 	rigid_body_2d.input_event.connect(_on_input_event)
-	reparent($/root/computerShrilow/Jelly/Control)
 	rigid_body_2d.transform = Transform2D(0.0, Vector2(-600, 100))
 	var cacapoopyGOD3 = preload("res://technical/events/eventIndicator.tscn")
 	var caca2 = cacapoopyGOD3.instantiate()
@@ -41,12 +44,14 @@ func _ready() -> void:
 	for i in FizzyDrink.melDialogue.size():
 		if FizzyDrink.melDialogue[i]["dialogKey"] == "JELLIES":
 			FizzyDrink.melDialogue[i]["unlocked"] = true
-	
-	if selfDiscoveredVar == true:
-		caca2.warn("You bought a Gumball, and you got a "+rarity+" Jelly!")
-	else:
-		caca2.warn("You bought a Gumball, and you got a "+rarity+" Jelly, and its one you havent seen before!")
-		Game.jellies += 1
+	if new == true:
+		if selfDiscoveredVar == true:
+			caca2.warn("You bought a Gumball, and you got a "+rarity+" Jelly!")
+		else:
+			caca2.warn("You bought a Gumball, and you got a "+rarity+" Jelly, and its one you havent seen before!")
+			Game.jellies += 1
+			selfDiscoveredVar = true
+		new = false
 	$nameShit/Name.text = jelly
 	$nameShit/Stats.text = rarity+"\n"+str(money)+"$ per "+str(seconds)+" Seconds"
 	if rarity != "Queer":
@@ -54,6 +59,7 @@ func _ready() -> void:
 		$RigidBody2D/jelly.material.set_shader_parameter("rainbow", false)
 	else:
 		$RigidBody2D/jelly.material.set_shader_parameter("rainbow", true)
+	visible = true
 
 func _physics_process(delta: float) -> void:
 	$RigidBody2D/mange.rotation = (-1) * $RigidBody2D.rotation

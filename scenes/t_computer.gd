@@ -142,6 +142,10 @@ var shitShrilowCanSay = [
 
 var cacapoopyGOD = preload("res://technical/MelaniesItem.tscn")
 
+var jellies
+var mines
+var puppies
+
 func manageScenes():
 	dialougeMode = true
 	$Shop/ItemDescription.visible_ratio = 0
@@ -345,6 +349,43 @@ func generateHoes():
 func _ready():
 	$Mines.position.y = 648
 	generateHoes()
+	
+	var config = ConfigFile.new()
+	
+	var err = config.load(Game.files[Game.curFile])
+	
+	# AWFUL CASE OF SPAGHETTI CODE IM JUST TOO LAZY TO WRITE THIS WELL LMAO
+	if err == OK:
+		for i in ["autoclicker", "plusone", "plusoneauto"]:
+			if i == "autoclicker":
+				if config.get_value("Shop", "autoClickerUpgrade") > 0:
+					var cacaFUCK = load("res://technical/items/"+i+".tscn").instantiate()
+					add_child(cacaFUCK)
+			elif i == "plusone":
+				if config.get_value("Shop", "PlusOneUpgrade") > 0:
+					var cacaFUCK = load("res://technical/items/"+i+".tscn").instantiate()
+					add_child(cacaFUCK)
+			elif i == "plusoneauto":
+				if config.get_value("Shop", "PlusOneAUTOUpgrade") > 0:
+					var cacaFUCK = load("res://technical/items/"+i+".tscn").instantiate()
+					add_child(cacaFUCK)
+	
+	if DirAccess.dir_exists_absolute("user://saveData/nodeSaves/file"+str(Game.curFile+1)) == true:
+		jellies = load("user://saveData/nodeSaves/file"+str(Game.curFile+1)+"/Jellies.tscn").instantiate()
+		$Jelly/Control.queue_free()
+		$Jelly.add_child(jellies)
+		
+		mines = load("user://saveData/nodeSaves/file"+str(Game.curFile+1)+"/Mines.tscn").instantiate()
+		$Mines/ScrollContainer/Control/MinesLevel.queue_free()
+		$Mines/ScrollContainer/Control.add_child(mines)
+		
+		puppies = load("user://saveData/nodeSaves/file"+str(Game.curFile+1)+"/Puppies.tscn").instantiate()
+		$ShrilowScreen/puppies.queue_free()
+		$ShrilowScreen.add_child(puppies)
+		
+		$setNames.start()
+	
+	Game.saveData()
 
 func _process(_delta : float) -> void:
 	
@@ -512,6 +553,10 @@ func _on_shrilow_squeak_autoclick() -> void:
 	$Shrilow.scale.y = 0.85
 	$Shrilow/Shrilow/ShrilowFace.visible = false
 	$Shrilow/Shrilow/StillFace.visible = true
+	if curClicks < 150:
+		$Shrilow/Shrilow/StillFace.texture = load("res://assets/images/computershrilows/shrilowFaces/click.png")
+	if curClicks >= 150:
+		$Shrilow/Shrilow/StillFace.texture = load("res://assets/images/computershrilows/shrilowFaces/dizzy.png")
 	ItemValues.money += FizzyDrink.AUTOclickPower+FizzyDrink.AUTOclickPowerAdditions+FizzyDrink.AUTOclickPowerClothingBuffs
 	$Shrilow/Squeak2.play()
 
@@ -786,6 +831,7 @@ func _buyGumball_pressed() -> void:
 			Jelly.blueJellies[goatedVar]["Discovered"] = true
 		
 		add_child(caca)
+		caca.buy()
 		caca.getID(0)
 		
 		ItemValues.money -= gumballInfo[gumballSelection]["Cost"]
@@ -863,3 +909,36 @@ func _on_talk_timer_timeout() -> void:
 
 func _on_section_transitions_animation_finished(anim_name: StringName) -> void:
 	can = true
+
+func urWelcomeSaayo():
+	for i in ["Jellies", "Mines", "Puppies"]:
+		var scene = PackedScene.new()
+		var scene_root
+		if i == "Jellies":
+			scene_root = $Jelly/Control
+		if i == "Mines":
+			scene_root = $Mines/ScrollContainer/Control/MinesLevel
+		if i == "Puppies":
+			scene_root = $ShrilowScreen/puppies
+		_set_owner(scene_root, scene_root)
+		scene.pack(scene_root)
+		var path = "user://saveData/nodeSaves/file"+str(Game.curFile+1)+"/"+i+".tscn"
+		ResourceSaver.save(scene, path)
+	
+func _set_owner(node, root):
+	if node != root:
+		node.owner = root
+	for child in node.get_children():
+		_set_owner(child, root)
+
+func _on_set_names_timeout() -> void:
+	if mines.name != "MinesLevel":
+		mines.name = "MinesLevel"
+	if jellies.name != "Control":
+		jellies.name = "Control"
+	if puppies.name != "puppies":
+		puppies.name = "puppies"
+
+
+func _on_timer_timeout() -> void:
+	Game.gameTime += 1.0

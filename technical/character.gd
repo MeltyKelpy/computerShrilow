@@ -1,32 +1,34 @@
 extends Node2D
 
-var Name = "Shrilow"
-var MoneyGain = 1
-var Speed = 2.0
-var BaseMoneyGain = MoneyGain
-var BaseSpeed = Speed
-var Level = 1
-var Swings = 3
-var BasePrice = 150
-var state = 0
-var timer = Timer.new()
-var timer2 = Timer.new()
-var curSwing = 0
-var waitTime = 0.000
-var waitTime2 = 0.000
-var managing = false
-var upTokens = 4
-var ID = 0
+@export var Name = "Shrilow"
+@export var MoneyGain = 1
+@export var Speed = 2.0
+@export var BaseMoneyGain = MoneyGain
+@export var BaseSpeed = Speed
+@export var Level = 1
+@export var Swings = 3
+@export var BasePrice = 150
+@export var state = 0
+@export var timer = Timer.new()
+@export var timer2 = Timer.new()
+@export var curSwing = 0
+@export var waitTime = 0.000
+@export var waitTime2 = 0.000
+@export var managing = false
+@export var upTokens = 4
+@export var ID = 0
 
-var speedCost = 0.0
-var moneyCost = 0.0
+@export var speedCost = 0.0
+@export var moneyCost = 0.0
 
-var mineLevel = 0.0
+@export var mineLevel = 0.0
 
 func listPlacement(num):
 	ID = num
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
+	remove_child(timer)
+	remove_child(timer2)
 	BaseMoneyGain = MoneyGain
 	BaseSpeed = Speed
 	$CharName.visible = false
@@ -35,16 +37,19 @@ func _ready() -> void:
 	timer.one_shot = true
 	timer.autostart = true
 	timer.connect("timeout", _swingTimerEnd)
-	add_child(timer)
 	waitTime2 = (1.0 / Speed) / 4.0
 	timer2.wait_time = waitTime2
 	timer2.one_shot = true
-	timer2.autostart = false
+	timer2.autostart = true
 	timer2.connect("timeout", _swingTimerRestart)
+	add_child(timer)
 	add_child(timer2)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	if timer.time_left == 0 and timer2.time_left == 0:
+		timer.start()
+	
 	var hey = get_parent()
 	
 	if hey.mineLevel == 1:
@@ -58,8 +63,8 @@ func _process(_delta: float) -> void:
 	
 	speedCost = ((Speed / 2) * 500) * Level
 	moneyCost = (MoneyGain * 200) * Level
-	$ManageMenu/speedUp.text = str(speedCost)
-	$ManageMenu/moneyUp.text = str(moneyCost)
+	$ManageMenu/speedUp.text = str(round(speedCost))
+	$ManageMenu/moneyUp.text = str(round(moneyCost))
 	if hey.mineLevel +1 != 0:
 		if hey.selectedPath == 0:
 			$ManageMenu/UpgradeInfo.text = "Speed:"+str(float(Speed+((mineLevel)*Speed)))+"\nMoney:"+str(MoneyGain)+"\nLevel:"+str(Level)+"\n\nUpTokens:"+str(upTokens)

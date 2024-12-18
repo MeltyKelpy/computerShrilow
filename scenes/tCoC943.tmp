@@ -1379,7 +1379,14 @@ shape = SubResource("RectangleShape2D_8o1fv")
 position = Vector2(-476, 47)
 shape = SubResource("RectangleShape2D_ficg7")
 
-[node name="Control" type="Node2D" parent="Jelly"]
+[node name="Control" type="Control" parent="Jelly"]
+layout_direction = 3
+layout_mode = 3
+anchors_preset = 0
+offset_left = -1066.0
+offset_right = 684.0
+offset_bottom = 648.0
+mouse_filter = 2
 
 [node name="back" type="Sprite2D" parent="Jelly"]
 position = Vector2(1089, 359)
@@ -2035,12 +2042,6 @@ offset_bottom = 335.0
 mouse_filter = 2
 color = Color(0, 1, 0, 1)
 
-[node name="setNames" type="Timer" parent="."]
-wait_time = 0.05
-
-[node name="Timer" type="Timer" parent="."]
-autostart = true
-
 [connection signal="pressed" from="Mines/ScrollContainer/Control/BackButtonWARD" to="." method="_on_back_button_ward2_pressed"]
 [connection signal="pressed" from="Shrilow/ShrilowSqueak" to="." method="_on_shrilow_squeak_pressed"]
 [connection signal="timeout" from="Shrilow/Timer" to="." method="dialogueGoAway"]
@@ -2068,5 +2069,3 @@ autostart = true
 [connection signal="mouse_exited" from="Camera2D/leftMove" to="." method="_on_left_move_mouse_exited"]
 [connection signal="mouse_entered" from="Camera2D/rightMove" to="." method="_on_right_move_mouse_entered"]
 [connection signal="mouse_exited" from="Camera2D/rightMove" to="." method="_on_right_move_mouse_exited"]
-[connection signal="timeout" from="setNames" to="." method="_on_set_names_timeout"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

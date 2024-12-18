@@ -43,3 +43,5 @@ func _on_resume_pressed() -> void:
 
 func _on_save_pressed() -> void:
 	Game.saveData()
+	DirAccess.make_dir_absolute(Game.scenePaths[Game.curFile])
+	$/root/computerShrilow.urWelcomeSaayo()

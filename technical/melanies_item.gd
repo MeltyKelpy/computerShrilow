@@ -103,7 +103,7 @@ func calculate():
 			add_child(caca)
 			caca.getID(ItemID)
 	if hearMeOut[0][type][ItemID]["Name"] == "Greasepuppy":
-		FizzyDrink.greasepuppies += 1
+		caca.buy()
 		caca.getPuppy(FizzyDrink.greasepuppies)
 	if hearMeOut[0][type][ItemID]["CurUpgrade"] != 0:
 		ItemValues.money -= hearMeOut[0][type][ItemID]["Cost"]*(hearMeOut[0][type][ItemID]["CurUpgrade"]+1)
@@ -113,6 +113,7 @@ func calculate():
 			if multi < 0:
 				multi = 0
 			ItemValues.money -= hearMeOut[0][type][ItemID]["Cost"] + (hearMeOut[0][type][ItemID]["Cost"] * 1.2) * multi
+			FizzyDrink.greasepuppies += 1
 		else:
 			ItemValues.money -= hearMeOut[0][type][ItemID]["Cost"]
 	if hearMeOut[0][type][ItemID]["Type"] == "Generic":
