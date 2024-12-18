@@ -13,7 +13,7 @@ var health = 100
 
 var stopTheCount = 0
 var jellys = (-1)
-var greasepuppies = (-1)
+var greasepuppies = 0
 var amountOfRooms = 0
 
 var melDialogue = [
