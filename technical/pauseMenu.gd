@@ -21,9 +21,9 @@ func killMenu():
 	queue_free()
 
 func endMenu():
-	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/mainMenu.tscn")
 	queue_free()
+	get_tree().paused = false
 
 func _on_back_2_pressed() -> void:
 	$AnimationPlayer.play("settingsLeabe")

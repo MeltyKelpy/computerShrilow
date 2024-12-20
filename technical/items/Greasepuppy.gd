@@ -4,6 +4,11 @@ var ID = 0
 
 func buy():
 	reparent($/root/computerShrilow/ShrilowScreen/puppies)
+	var cacapoopyGOD3 = preload("res://technical/events/eventIndicator.tscn")
+	var caca2 = cacapoopyGOD3.instantiate()
+	add_child(caca2)
+	caca2.reparent($/root)
+	caca2.warn("You bought a Greasepuppy! you now have "+FizzyDrink.greasepuppies)
 
 func getPuppy(hi):
 	position.x = 850

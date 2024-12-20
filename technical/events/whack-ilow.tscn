@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://biklq8137667j"]
+[gd_scene load_steps=18 format=3 uid="uid://bb468p2jh4a7n"]
 
 [ext_resource type="Script" path="res://technical/events/whack-ilow.gd" id="1_3ab8d"]
 [ext_resource type="Texture2D" uid="uid://bhlkdyjwexyik" path="res://assets/images/events/whack-a-low/bg.png" id="2_i18ow"]
@@ -525,5 +525,6 @@ one_shot = true
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("26_4atho")
 autoplay = true
+parameters/looping = true
 
 [connection signal="timeout" from="charTimer" to="." method="_on_char_timer_timeout"]

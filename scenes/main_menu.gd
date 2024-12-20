@@ -6,7 +6,7 @@ var creditors = [
 	"Image":"res://assets/images/mainMenu/credits/ppl/mel.png",
 	"Pronouns":"It/Star",
 	"Roles":"Game Creator -\nMain Artist -\nMain Coder -",
-	"Commits":62,
+	"Commits":63,
 	"Quote":"jesus = false",
 	},
 	{
@@ -60,7 +60,7 @@ var creditors = [
 	]
 
 var selectedCredit = 0
-var commits = 68
+var commits = 69
 
 var evil = []
 

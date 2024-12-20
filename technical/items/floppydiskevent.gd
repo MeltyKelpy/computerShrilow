@@ -7,7 +7,7 @@ func getID(num) -> void:
 	loadMinigame()
 
 func loadMinigame():
-	var num = rng.randi_range(0, Events.justMinigames.size())
+	var num = rng.randi_range(0, Events.justMinigames.size()-1)
 	var cacapoopyGOD2 = load(Events.justMinigames[num]["AttachedScene"])
 	var caca = cacapoopyGOD2.instantiate()
 	add_child(caca)

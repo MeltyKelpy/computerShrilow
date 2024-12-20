@@ -38,7 +38,7 @@ func _process(_delta: float) -> void:
 			var multi = FizzyDrink.greasepuppies - 4
 			if multi < 0:
 				multi = 0
-			$Cost.text = str(hearMeOut[0][type][ItemID]["Cost"] + ((hearMeOut[0][type][ItemID]["Cost"] * 1.2) * multi))+"$"
+			$Cost.text = str(hearMeOut[0][type][ItemID]["Cost"] + ((hearMeOut[0][type][ItemID]["Cost"] * 0.5) * multi))+"$"
 	elif (hearMeOut[0][type][ItemID]["Type"] == "Generic" and hearMeOut[0][type][ItemID]["CurUpgrade"] == 0 and MaxedOut == false) or hearMeOut[0][type][ItemID]["Type"] == "Consumable":
 		$Cost.text = str(hearMeOut[0][type][ItemID]["Cost"])+"$"
 	
@@ -77,7 +77,7 @@ func _on_button_pressed() -> void:
 			var multi = FizzyDrink.greasepuppies - 4
 			if multi < 0:
 				multi = 0
-			if (ItemValues.money >= (hearMeOut[0][type][ItemID]["Cost"] + (hearMeOut[0][type][ItemID]["Cost"] * 1.2) * multi)):
+			if (ItemValues.money >= (hearMeOut[0][type][ItemID]["Cost"] + (hearMeOut[0][type][ItemID]["Cost"] * 0.5) * multi)):
 				calculate()
 		elif hearMeOut[0][type][ItemID]["CurUpgrade"] != 0:
 			if (ItemValues.money >= hearMeOut[0][type][ItemID]["Cost"]*(hearMeOut[0][type][ItemID]["CurUpgrade"]+1)) and MaxedOut == false:
@@ -112,7 +112,7 @@ func calculate():
 			var multi = FizzyDrink.greasepuppies - 4
 			if multi < 0:
 				multi = 0
-			ItemValues.money -= hearMeOut[0][type][ItemID]["Cost"] + (hearMeOut[0][type][ItemID]["Cost"] * 1.2) * multi
+			ItemValues.money -= hearMeOut[0][type][ItemID]["Cost"] + (hearMeOut[0][type][ItemID]["Cost"] * 0.5) * multi
 			FizzyDrink.greasepuppies += 1
 		else:
 			ItemValues.money -= hearMeOut[0][type][ItemID]["Cost"]

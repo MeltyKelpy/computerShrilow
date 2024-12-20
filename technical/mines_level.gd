@@ -61,8 +61,8 @@ var characterInfos = [
 var selected = null
 var hoverSelected = null
 
-@export var selectedPath = 0
 @export var mineLevel = 0
+@export var maxMineLevel = 4
 
 var moneyValues = [
 	150,
@@ -78,6 +78,19 @@ func getMineLevel(num):
 	caveNumber = num
 
 func _process(_delta: float) -> void:
+	var config = ConfigFile.new()
+	
+	var err = config.load(Game.files[0])
+	
+	if err == OK:
+		var awesome = config.get_value("Rebirth", "EvilMinesAvaliable")
+		if awesome == false:
+			maxMineLevel = 8
+		else:
+			maxMineLevel = 4
+	else:
+		maxMineLevel = 4
+	
 	if amountOfDwellers != 6:
 		$VisualCodeSpaghetti/ShrilowCost.text = str(moneyValues[0])+"$"
 		$VisualCodeSpaghetti/MokaCost.text = str(moneyValues[1])+"$"
@@ -146,7 +159,7 @@ func _process(_delta: float) -> void:
 		$CharDesc.text = "Buy a new mine, or sell someone, to add more to this mine."
 	
 	if newMineExists == true:
-		$newMine/NewLevelCost.text = str(500+(1000*caveNumber))+"$"
+		$newMine/NewLevelCost.text = str(1000+(1000*caveNumber))+"$"
 
 # STUPID FUCKING SPAGHETTI CODE
 
@@ -235,8 +248,8 @@ func _on_button_mouse_exited() -> void:
 	$newMine/NewMines.modulate = Color(0,1,0)
 
 func _on_button_pressed() -> void:
-	if ItemValues.money >= 500+(1000*caveNumber):
-		ItemValues.money -= 500+(1000*caveNumber)
+	if ItemValues.money >= 1000+(1000*caveNumber):
+		ItemValues.money -= 1000+(1000*caveNumber)
 		var cacapoopyGOD = preload("res://technical/minesLevel.tscn")
 		var caca = cacapoopyGOD.instantiate()
 		add_child(caca)
@@ -246,36 +259,22 @@ func _on_button_pressed() -> void:
 		newMineExists = false
 		$newMine.queue_free()
 
-func _changeSelection(toChange: int) -> void:
-	if mineLevel < 1:
-		selectedPath += toChange
-		
-		if selectedPath < 0:
-			selectedPath = 1
-		if selectedPath > 1:
-			selectedPath = 0
-		
-		if selectedPath == 0:
-			$VisualCodeSpaghetti/Upgrade/Label.text = "SPEED INCREASE"
-			$VisualCodeSpaghetti/Upgrade/Box.texture = load("res://assets/images/areas/mines/upgradr/speed.png")
-		if selectedPath == 1:
-			$VisualCodeSpaghetti/Upgrade/Label.text = "MONEY INCREASE"
-			$VisualCodeSpaghetti/Upgrade/Box.texture = load("res://assets/images/areas/mines/upgradr/money.png")
-
 func _on_up_grade_button_pressed() -> void:
-	if ItemValues.money >= 5000 * (mineLevel + 1) and mineLevel < 2:
-		var texturer
-		if selectedPath == 1:
-			texturer = load("res://assets/images/areas/mines/upgradr/money/"+str(mineLevel+1)+".png")
-		if selectedPath == 0:
-			texturer = load("res://assets/images/areas/mines/upgradr/speed/"+str(mineLevel+1)+".png")
-		$VisualCodeSpaghetti/MinesLevel.texture = texturer
+	if ItemValues.money >= 5000 * (mineLevel + 1) and (mineLevel < maxMineLevel):
+		#var texturer
 		mineLevel += 1
-		$VisualCodeSpaghetti/Upgrade/arrows.modulate = Color(0.47,0.47,0.47)
+		#texturer = load("res://assets/images/areas/mines/upgradr/level"+str(mineLevel)+".png")
+		#$VisualCodeSpaghetti/MinesLevel.texture = texturer
 		ItemValues.money -= 5000 * mineLevel
-	if mineLevel == 2:
-		$VisualCodeSpaghetti/Upgrade/upGrade.modulate = Color(0.47,0.47,0.47)
-		$VisualCodeSpaghetti/Upgrade/Box.modulate = Color(0.47,0.47,0.47)
-		$VisualCodeSpaghetti/Upgrade/Label.text = "MAXED OUT"
-		$VisualCodeSpaghetti/Upgrade/moneyLabel.visible = false
-	$VisualCodeSpaghetti/Upgrade/moneyLabel.text = str("$"+str(5000 * (mineLevel + 1)))
+		if maxMineLevel == 8 and mineLevel < maxMineLevel and mineLevel >= 4:
+			$VisualCodeSpaghetti/Upgrade/Box.texture = load("res://assets/images/areas/mines/upgradr/upgradeEvil.png")
+			$VisualCodeSpaghetti/Upgrade/Label.text = "NEXT LEVEL:"+str(mineLevel+1)
+			$VisualCodeSpaghetti/Upgrade/moneyLabel.text = str("$"+str(5000 * (mineLevel + 1)))
+		elif mineLevel == maxMineLevel:
+			$VisualCodeSpaghetti/Upgrade/upGrade.modulate = Color(0.47,0.47,0.47)
+			$VisualCodeSpaghetti/Upgrade/Box.modulate = Color(0.47,0.47,0.47)
+			$VisualCodeSpaghetti/Upgrade/Label.text = "MAXED OUT"
+			$VisualCodeSpaghetti/Upgrade/moneyLabel.visible = false
+		else:
+			$VisualCodeSpaghetti/Upgrade/Label.text = "NEXT LEVEL:"+str(mineLevel+1)
+			$VisualCodeSpaghetti/Upgrade/moneyLabel.text = str("$"+str(5000 * (mineLevel + 1)))

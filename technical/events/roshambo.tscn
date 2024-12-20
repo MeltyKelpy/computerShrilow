@@ -730,9 +730,9 @@ texture = ExtResource("6_k83l3")
 
 [node name="Label" type="Label" parent="opening"]
 offset_left = -9.0
-offset_top = 20.0
+offset_top = 900.0
 offset_right = 1152.0
-offset_bottom = 89.0
+offset_bottom = 969.0
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 30
 text = "the classic game. that i made. because i am the roshambo demon."
@@ -793,7 +793,6 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_sw2i2")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_52lax")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_iuk4g")
 action_mode = 0
-button_mask = 2
 
 [node name="pickButton" type="Button" parent="."]
 offset_left = 804.0

@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://djuw4qj4pliuj"]
+
+[ext_resource type="Texture2D" uid="uid://1gwacl7qcqd0" path="res://assets/images/jellies/storedBox.png" id="1_5hl41"]
+[ext_resource type="Script" path="res://technical/jellies/storedJelly.gd" id="2_sbvgx"]
+[ext_resource type="Shader" path="res://technical/jellyOutline.gdshader" id="3_8tqhk"]
+[ext_resource type="Texture2D" uid="uid://b2hc0jmvf0qfi" path="res://assets/images/jellies/Jelly/jelly0.png" id="4_u67t6"]
+[ext_resource type="Theme" uid="uid://dr1wna4c2ab2h" path="res://technical/textStyle.tres" id="5_d11je"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i58en"]
+resource_local_to_scene = true
+shader = ExtResource("3_8tqhk")
+shader_parameter/rainbow = true
+shader_parameter/line_color = Color(1, 0.905882, 0.85098, 1)
+shader_parameter/line_scale = 1.874
+shader_parameter/frequency = 0.096
+shader_parameter/light_offset = 0.5
+shader_parameter/alpha = 1.0
+
+[node name="Jelly" type="TextureRect"]
+clip_contents = true
+offset_right = 255.0
+offset_bottom = 350.0
+texture = ExtResource("1_5hl41")
+script = ExtResource("2_sbvgx")
+
+[node name="jelly" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_i58en")
+position = Vector2(130, 61)
+texture = ExtResource("4_u67t6")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 172.0
+offset_right = 235.0
+offset_bottom = 203.0
+theme = ExtResource("5_d11je")
+theme_override_colors/font_outline_color = Color(0.121569, 0.0470588, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 26
+text = "JELLY
+RARE
+WHATEVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

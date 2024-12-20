@@ -1,14 +1,14 @@
 extends Node2D
 
-var ID
-var Aname = "Basic Room"
+@export var ID : int
+@export var Aname = "Basic Room"
 @onready var parent = $/root/computerShrilow/Jelly/rooms
-var camYpos = 0
-var camXpos = 0
-var jellyCount = 0
+@export var camYpos = 0
+@export var camXpos = 0
+@export var jellyCount = 0
 
 func getID(num):
-	ID = num
+	ID = FizzyDrink.amountOfRooms
 	reparent(parent)
 	ItemValues.melvinItems[ID]["Owned"] = false
 	position.x = -64

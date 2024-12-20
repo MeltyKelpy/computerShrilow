@@ -300,5 +300,6 @@ texture = ExtResource("9_n2y8x")
 stream = ExtResource("10_85137")
 volume_db = -16.865
 autoplay = true
+parameters/looping = true
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

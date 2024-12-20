@@ -71,11 +71,11 @@ func _endEvent():
 	var caca = cacapoopyGOD.instantiate()
 	if stars > 0:
 		winOrLose = true
-		money = 50 * stars
+		money = (50 + (ItemValues.maxMoney / 1000)) * stars
 		add_child(caca)
 	if stars <= 0:
 		winOrLose = false
-		money = 300 + (ItemValues.maxMoney / 10000)
+		money = 200 + (ItemValues.maxMoney / 1000)
 		add_child(caca)
 	caca.determineResult(winOrLose, stars, money)
 	caca.reparent($/root)

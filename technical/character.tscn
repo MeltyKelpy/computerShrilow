@@ -75,9 +75,9 @@ vertical_alignment = 1
 
 [node name="ColorRect" type="ColorRect" parent="ManageMenu"]
 z_index = 1
-offset_left = -69.0
+offset_left = -67.0
 offset_top = -165.0
-offset_right = 41.0
+offset_right = 33.0
 offset_bottom = -83.0
 color = Color(0, 0, 0, 0.470588)
 
@@ -91,7 +91,7 @@ scale = Vector2(1, 0.6)
 theme = ExtResource("2_fmgmx")
 theme_override_colors/font_color = Color(1, 0.905882, 0.85098, 1)
 theme_override_constants/outline_size = -1
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 18
 text = "Speed: 2
 Money: 1
 Level: 1
@@ -109,7 +109,7 @@ theme = ExtResource("2_fmgmx")
 theme_override_colors/font_color = Color(0.513726, 1, 0.54902, 1)
 theme_override_colors/font_outline_color = Color(0, 0.13855, 0.0161106, 1)
 theme_override_constants/outline_size = 7
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 18
 text = "10000$"
 
 [node name="speedUpButton" type="Button" parent="ManageMenu"]
@@ -142,7 +142,7 @@ theme = ExtResource("2_fmgmx")
 theme_override_colors/font_color = Color(0.513726, 1, 0.54902, 1)
 theme_override_colors/font_outline_color = Color(0, 0.13855, 0.0161106, 1)
 theme_override_constants/outline_size = 7
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 18
 text = "10000$"
 
 [node name="moneyUpButton" type="Button" parent="ManageMenu"]

@@ -21,7 +21,8 @@ extends Node2D
 @export var speedCost = 0.0
 @export var moneyCost = 0.0
 
-@export var mineLevel = 0.0
+@export var mineLevelSPEED = 0.0
+@export var mineLevelMONEY = 0.0
 
 func listPlacement(num):
 	ID = num
@@ -52,10 +53,22 @@ func _process(_delta: float) -> void:
 	
 	var hey = get_parent()
 	
-	if hey.mineLevel == 1:
-		mineLevel = 0.5
-	if hey.mineLevel == 2:
-		mineLevel = 1
+	if hey.mineLevel >= 1:
+		mineLevelMONEY = 0.5
+	if hey.mineLevel >= 2:
+		mineLevelSPEED = 0.5
+	if hey.mineLevel >= 3:
+		mineLevelMONEY = 1
+	if hey.mineLevel >= 4:
+		mineLevelSPEED = 1
+	if hey.mineLevel >= 5:
+		mineLevelMONEY = 1.5
+	if hey.mineLevel >= 6:
+		mineLevelSPEED = 1.5
+	if hey.mineLevel >= 7:
+		mineLevelMONEY = 2
+	if hey.mineLevel >= 8:
+		mineLevelSPEED = 2
 	
 	if $CharName.visible == true and Input.is_action_just_pressed("Click"):
 		managing = true
@@ -65,26 +78,14 @@ func _process(_delta: float) -> void:
 	moneyCost = (MoneyGain * 200) * Level
 	$ManageMenu/speedUp.text = str(round(speedCost))
 	$ManageMenu/moneyUp.text = str(round(moneyCost))
-	if hey.mineLevel +1 != 0:
-		if hey.selectedPath == 0:
-			$ManageMenu/UpgradeInfo.text = "Speed:"+str(float(Speed+((mineLevel)*Speed)))+"\nMoney:"+str(MoneyGain)+"\nLevel:"+str(Level)+"\n\nUpTokens:"+str(upTokens)
-		if hey.selectedPath == 1:
-			$ManageMenu/UpgradeInfo.text = "Speed:"+str(Speed)+"\nMoney:"+str(float(MoneyGain+((mineLevel)*MoneyGain)))+"\nLevel:"+str(Level)+"\n\nUpTokens:"+str(upTokens)
-		$ManageMenu.visible = managing
-	else:
-		$ManageMenu/UpgradeInfo.text = "Speed:"+str(Speed)+"\nMoney:"+str(MoneyGain)+"\nLevel:"+str(Level)+"\n\nUpTokens:"+str(upTokens)
+	$ManageMenu/UpgradeInfo.text = "Speed:"+str(Speed+((mineLevelSPEED)*Speed))+"\nMoney:"+str(MoneyGain+((mineLevelMONEY)*MoneyGain))+"\nLevel:"+str(Level)+"\n\nUpTokens:"+str(upTokens)
+	$ManageMenu.visible = managing
 	
 	$CharacterSprite.texture = load("res://assets/images/areas/mines/"+Name+str(state)+".png")
 	
 	$ManageMenu.visible = managing
 	
-	if hey.mineLevel + 1 != 0:
-		if hey.selectedPath == 0:
-			$CharName.text = Name+"\n"+str(MoneyGain)+"$ per "+str(Swings)+" Swings\nSpeed: "+str(float(Speed+((mineLevel)*Speed)))+"\nLevel: "+str(Level)+"\nL-Click to Manage"
-		if hey.selectedPath == 1:
-			$CharName.text = Name+"\n"+str(float(MoneyGain+((mineLevel)*MoneyGain)))+"$ per "+str(Swings)+" Swings\nSpeed: "+str(Speed)+"\nLevel: "+str(Level)+"\nL-Click to Manage"
-	else:
-		$CharName.text = Name+"\n"+str(MoneyGain)+"$ per "+str(Swings)+" Swings\nSpeed: "+str(Speed)+"\nLevel: "+str(Level)+"\nL-Click to Manage"
+	$CharName.text = Name+"\n"+str(MoneyGain+((mineLevelSPEED)*MoneyGain))+"$ per "+str(Swings)+" Swings\nSpeed: "+str(Speed+((mineLevelMONEY)*Speed))+"\nLevel: "+str(Level)+"\nL-Click to Manage"
 
 func _on_selection_mouse_entered() -> void:
 	if managing == false:
@@ -95,10 +96,7 @@ func _on_selection_mouse_exited() -> void:
 
 func _swingTimerEnd():
 	var hey = get_parent()
-	if hey.selectedPath == 0:
-		waitTime = (1.0 / (Speed+((mineLevel)*Speed))) - ((1.0 / (Speed+((mineLevel)*Speed))) / 4.0)
-	else:
-		waitTime = (1.0 / Speed) - ((1.0 / Speed) / 4.0)
+	waitTime = (1.0 / (Speed+((mineLevelSPEED)*Speed))) - ((1.0 / (Speed+((mineLevelSPEED)*Speed))) / 4.0)
 	timer.wait_time = waitTime
 	state = 1
 	curSwing += 1
@@ -106,23 +104,15 @@ func _swingTimerEnd():
 		var cacapoopyGOD = load("res://technical/moneyGet.tscn")
 		var caca = cacapoopyGOD.instantiate()
 		add_child(caca)
-		if hey.selectedPath == 1:
-			caca.determine(MoneyGain+(((mineLevel))*MoneyGain))
-			ItemValues.money += MoneyGain+(((mineLevel))*MoneyGain)
-		else:
-			caca.determine(MoneyGain)
-			ItemValues.money += MoneyGain
+		caca.determine(MoneyGain+(((mineLevelMONEY))*MoneyGain))
+		ItemValues.money += MoneyGain+(((mineLevelMONEY))*MoneyGain)
 		caca.position.x = -30
 		caca.position.y = -70
 		curSwing = 0
 	timer2.start()
 
 func _swingTimerRestart():
-	var hey = get_parent()
-	if hey.selectedPath == 0:
-		waitTime2 = (1.0 / (Speed+((mineLevel)*Speed))) / 4.0
-	else:
-		waitTime2 = (1.0 / (Speed+((mineLevel)*Speed))) / 4.0
+	waitTime2 = (1.0 / (Speed+((mineLevelSPEED)*Speed))) / 4.0
 	timer2.wait_time = waitTime2
 	state = 0
 	timer.start()

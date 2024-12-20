@@ -9,7 +9,7 @@ func getID(num) -> void:
 	loadMinigame()
 
 func loadMinigame():
-	for i in range(0, Events.justMinigames.size()):
+	for i in range(0, Events.justMinigames.size()-1):
 		if Events.justMinigames[i]["Played?"] == false:
 			if gamePlayed == false:
 				var cacapoopyGOD2 = load(Events.justMinigames[i]["AttachedScene"])

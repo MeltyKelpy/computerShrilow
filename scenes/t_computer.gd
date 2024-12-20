@@ -21,6 +21,8 @@ var allowing = false
 
 var dialogueOptionsMelanie = []
 
+var storage = []
+
 var gumballSelection = 0
 var gumballInfo = [
 	{
@@ -145,6 +147,7 @@ var cacapoopyGOD = preload("res://technical/MelaniesItem.tscn")
 var jellies
 var mines
 var puppies
+var rooms
 
 func manageScenes():
 	dialougeMode = true
@@ -371,6 +374,10 @@ func _ready():
 					add_child(cacaFUCK)
 	
 	if DirAccess.dir_exists_absolute("user://saveData/nodeSaves/file"+str(Game.curFile+1)) == true:
+		rooms = load("user://saveData/nodeSaves/file"+str(Game.curFile+1)+"/rooms.tscn").instantiate()
+		$Jelly/rooms.queue_free()
+		$Jelly.add_child(rooms)
+		
 		jellies = load("user://saveData/nodeSaves/file"+str(Game.curFile+1)+"/Jellies.tscn").instantiate()
 		$Jelly/Control.queue_free()
 		$Jelly.add_child(jellies)
@@ -620,9 +627,10 @@ func _on_back_button_ward2_pressed() -> void:
 		$sectionTransitions.play("leaveMines")
 
 func _on_trophies_button_pressed() -> void:
-	if can == true:
-		can = false
-		print("trophies")
+	pass
+	#if can == true:
+		#can = false
+		#print("trophies")
 
 func _on_mines_button_pressed() -> void:
 	if can == true:
@@ -911,11 +919,13 @@ func _on_section_transitions_animation_finished(anim_name: StringName) -> void:
 	can = true
 
 func urWelcomeSaayo():
-	for i in ["Jellies", "Mines", "Puppies"]:
+	for i in ["Jellies", "Mines", "Puppies", "Rooms"]:
 		var scene = PackedScene.new()
 		var scene_root
 		if i == "Jellies":
 			scene_root = $Jelly/Control
+		if i == "Rooms":
+			scene_root = $Jelly/rooms
 		if i == "Mines":
 			scene_root = $Mines/ScrollContainer/Control/MinesLevel
 		if i == "Puppies":
@@ -938,7 +948,26 @@ func _on_set_names_timeout() -> void:
 		jellies.name = "Control"
 	if puppies.name != "puppies":
 		puppies.name = "puppies"
-
+	if rooms.name != "rooms":
+		rooms.name = "rooms"
 
 func _on_timer_timeout() -> void:
 	Game.gameTime += 1.0
+
+func _spawnStorage() -> void:
+	for i in Jelly.storedJellys.size():
+		print(Jelly.storedJellys)
+		var cacapoopyGOD2 = load("res://technical/jellies/storedJelly.tscn")
+		var caca = cacapoopyGOD2.instantiate()
+		caca.jelly = Jelly.storedJellys[i]["Name"]
+		caca.money = Jelly.storedJellys[i]["MoneyGain"]
+		caca.seconds = Jelly.storedJellys[i]["Seconds"]
+		caca.rarity = Jelly.storedJellys[i]["Rarity"]
+		add_child(caca)
+		caca.reparent($storage/ScrollContainer/GridContainer)
+		storage.append(caca)
+
+func _deleteStorag() -> void:
+	for i in storage.size():
+		storage[i].queue_free()
+	storage.resize(0)

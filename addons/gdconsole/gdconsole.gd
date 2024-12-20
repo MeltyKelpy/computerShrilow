@@ -416,6 +416,7 @@ func _spawn_jelly(jellyTypeToBe : String, goatedVar : int) -> void:
 			Jelly.commonJellies[goatedVar]["Discovered"] = true
 			add_child(caca)
 			caca.getID(0)
+			caca.buy()
 		else:
 			print_error("that jelly doesnt exist, the amount of jellies in your choice rarity is only up to 0, as common only has Jelly")
 	elif jellyTypeToBe == "uncommon":
@@ -430,6 +431,7 @@ func _spawn_jelly(jellyTypeToBe : String, goatedVar : int) -> void:
 			Jelly.uncommonJellies[goatedVar]["Discovered"] = true
 			add_child(caca)
 			caca.getID(0)
+			caca.buy()
 		else:
 			print_error("that jelly doesnt exist, the amount of jellies in your choice rarity is from 0 to "+str(Jelly.uncommonJellies.size()-1))
 	elif jellyTypeToBe == "rare":
@@ -444,6 +446,7 @@ func _spawn_jelly(jellyTypeToBe : String, goatedVar : int) -> void:
 			Jelly.rareJellies[goatedVar]["Discovered"] = true
 			add_child(caca)
 			caca.getID(0)
+			caca.buy()
 		else:
 			print_error("that jelly doesnt exist, the amount of jellies in your choice rarity is from 0 to "+str(Jelly.uncommonJellies.size()-1))
 	elif jellyTypeToBe == "awesome":
@@ -458,6 +461,7 @@ func _spawn_jelly(jellyTypeToBe : String, goatedVar : int) -> void:
 			Jelly.awesomeJellies[goatedVar]["Discovered"] = true
 			add_child(caca)
 			caca.getID(0)
+			caca.buy()
 		else:
 			print_error("that jelly doesnt exist, the amount of jellies in your choice rarity is from 0 to "+str(Jelly.awesomeJellies.size()-1))
 	elif jellyTypeToBe == "queer":
@@ -472,6 +476,7 @@ func _spawn_jelly(jellyTypeToBe : String, goatedVar : int) -> void:
 			Jelly.queerJellies[goatedVar]["Discovered"] = true
 			add_child(caca)
 			caca.getID(0)
+			caca.buy()
 		else:
 			print_error("that jelly doesnt exist, the amount of jellies in your choice rarity is from 0 to "+str(Jelly.queerJellies.size()-1))
 	elif jellyTypeToBe == "blue":
@@ -486,6 +491,7 @@ func _spawn_jelly(jellyTypeToBe : String, goatedVar : int) -> void:
 			Jelly.blueJellies[goatedVar]["Discovered"] = true
 			add_child(caca)
 			caca.getID(0)
+			caca.buy()
 		else:
 			print_error("that jelly doesnt exist, the amount of jellies in your choice rarity is from 0 to "+str(Jelly.blueJellies.size()-1))
 	else:

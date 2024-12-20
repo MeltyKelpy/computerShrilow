@@ -7,6 +7,7 @@ extends Node2D
 @export var seconds = 6
 @export var selfDiscoveredVar = false
 @export var new = true
+var hi = true
 
 @onready var mouse_pin: PinJoint2D = $MousePin
 @onready var fake_body: StaticBody2D = $MousePin/FakeBody
@@ -25,18 +26,8 @@ var colorsIgLOL = [
 	]
 
 func buy():
-	reparent($/root/computerShrilow/Jelly/Control)
-
-func _ready() -> void:
-	$FirstTimer.wait_time = seconds - 0.2
-	$SecondTimer.wait_time = 0.2
-	$FirstTimer.start()
-	$SecondTimer.start()
 	visible = false
-	mouse_pin.node_a = mouse_pin.get_path_to(fake_body)
-	rigid_body_2d.input_pickable = true
-	rigid_body_2d.input_event.connect(_on_input_event)
-	rigid_body_2d.transform = Transform2D(0.0, Vector2(-600, 100))
+	reparent($/root/computerShrilow/Jelly/Control)
 	var cacapoopyGOD3 = preload("res://technical/events/eventIndicator.tscn")
 	var caca2 = cacapoopyGOD3.instantiate()
 	add_child(caca2)
@@ -54,12 +45,24 @@ func _ready() -> void:
 		new = false
 	$nameShit/Name.text = jelly
 	$nameShit/Stats.text = rarity+"\n"+str(money)+"$ per "+str(seconds)+" Seconds"
+	_on_storage_pressed()
+
+func _ready() -> void:
+	reparent($/root/computerShrilow/Jelly/Control)
+	$FirstTimer.wait_time = seconds - 0.2
+	$SecondTimer.wait_time = 0.2
+	$FirstTimer.start()
+	$SecondTimer.start()
+	mouse_pin.node_a = mouse_pin.get_path_to(fake_body)
+	rigid_body_2d.input_pickable = true
+	rigid_body_2d.input_event.connect(_on_input_event)
+	rigid_body_2d.transform = Transform2D(0.0, Vector2(-600, 100))
+	visible = true
 	if rarity != "Queer":
 		$RigidBody2D/jelly.material.set_shader_parameter("line_color", colorsIgLOL[0][rarity])
 		$RigidBody2D/jelly.material.set_shader_parameter("rainbow", false)
 	else:
 		$RigidBody2D/jelly.material.set_shader_parameter("rainbow", true)
-	visible = true
 
 func _physics_process(delta: float) -> void:
 	$RigidBody2D/mange.rotation = (-1) * $RigidBody2D.rotation
@@ -118,15 +121,15 @@ func _on_kill_pressed() -> void:
 	$RigidBody2D/Squeak.volume_db = -80
 	var moneyTo = 0
 	if rarity == "Common":
-		moneyTo = 200
+		moneyTo = 100
 	if rarity == "Uncommon":
-		moneyTo = 400
+		moneyTo = 300
 	if rarity == "Rare":
-		moneyTo = 800
+		moneyTo = 600
 	if rarity == "Awesome":
-		moneyTo = 4500
+		moneyTo = 3000
 	if rarity == "Queer":
-		moneyTo = 10000
+		moneyTo = 7500
 	if rarity == "Blue":
 		moneyTo = 1000000
 	var cacapoopyGOD = load("res://technical/moneyGet.tscn")
@@ -139,4 +142,19 @@ func _on_kill_pressed() -> void:
 	$deathTime.start()
 
 func _on_death_time_timeout() -> void:
+	queue_free()
+
+func _on_change_floor_pressed() -> void:
+	rigid_body_2d.transform = Transform2D(0.0, Vector2(-800, 100+(1 * 1500)))
+
+func _on_storage_pressed() -> void:
+	var awesomsmee = {
+		"Name":jelly,
+		"MoneyGain":money,
+		"Seconds":seconds,
+		"Rarity":rarity,
+		}
+	Jelly.storedJellys.resize(Jelly.storedJellys.size()+1)
+	Jelly.storedJellys[Jelly.storedJellys.size()-1] = awesomsmee
+	print(Jelly.storedJellys[Jelly.storedJellys.size()-1])
 	queue_free()
