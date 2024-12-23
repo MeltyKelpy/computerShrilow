@@ -9,8 +9,8 @@ var streamTo = ""
 
 func _ready() -> void:
 	reparent($/root/computerShrilow/Camera2D)
-	position.x = 0
-	position.y = 0
+	position.x = -577
+	position.y = -324
 
 func _process(delta: float) -> void:
 	if second < 10:

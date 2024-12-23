@@ -97,11 +97,11 @@ func _process(_delta: float) -> void:
 		$VisualCodeSpaghetti/MelCost.text = str(moneyValues[2])+"$"
 		$VisualCodeSpaghetti/BlairCost.text = str(moneyValues[3])+"$"
 		$VisualCodeSpaghetti/CharlotteCost.text = str(moneyValues[4])+"$"
-		moneyValues[0] = characterInfos[0]["BasePrice"] + ((characterInfos[0]["BasePrice"] / 2)*(amountOfDwellers))
-		moneyValues[1] = characterInfos[1]["BasePrice"] + ((characterInfos[1]["BasePrice"] / 2)*(amountOfDwellers))
-		moneyValues[2] = characterInfos[2]["BasePrice"] + ((characterInfos[2]["BasePrice"] / 2)*(amountOfDwellers))
-		moneyValues[3] = characterInfos[3]["BasePrice"] + ((characterInfos[3]["BasePrice"] / 2)*(amountOfDwellers))
-		moneyValues[4] = characterInfos[4]["BasePrice"] + ((characterInfos[4]["BasePrice"] / 2)*(amountOfDwellers))
+		moneyValues[0] = characterInfos[0]["BasePrice"] + ((characterInfos[0]["BasePrice"] / 4)*(amountOfDwellers))
+		moneyValues[1] = characterInfos[1]["BasePrice"] + ((characterInfos[1]["BasePrice"] / 4)*(amountOfDwellers))
+		moneyValues[2] = characterInfos[2]["BasePrice"] + ((characterInfos[2]["BasePrice"] / 4)*(amountOfDwellers))
+		moneyValues[3] = characterInfos[3]["BasePrice"] + ((characterInfos[3]["BasePrice"] / 4)*(amountOfDwellers))
+		moneyValues[4] = characterInfos[4]["BasePrice"] + ((characterInfos[4]["BasePrice"] / 4)*(amountOfDwellers))
 		if selected == 0:
 			$VisualCodeSpaghetti/ShrilowIcon.modulate = Color(1,1,0)
 		elif hoverSelected == 0:
