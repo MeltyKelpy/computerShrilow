@@ -8,7 +8,7 @@ func buy():
 	var caca2 = cacapoopyGOD3.instantiate()
 	add_child(caca2)
 	caca2.reparent($/root)
-	caca2.warn("You bought a Greasepuppy! you now have "+FizzyDrink.greasepuppies)
+	caca2.warn("You bought a Greasepuppy! you now have "+str(FizzyDrink.greasepuppies))
 
 func getPuppy(hi):
 	position.x = 850
