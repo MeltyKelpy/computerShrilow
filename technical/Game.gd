@@ -54,10 +54,12 @@ func loadData():
 	var err = config.load(files[curFile])
 	
 	if err == OK:
-		var namee = config.get_value("Fiscal", "Name")
-		var jellies = config.get_value("Fiscal", "Jellies")
-		var rebirths = config.get_value("Fiscal", "Rebirths")
-		var time = config.get_value("Fiscal", "Time")
+		namee = config.get_value("Fiscal", "Name")
+		jellies = config.get_value("Fiscal", "Jellies")
+		Jelly.storedJellys = config.get_value("Fiscal", "StoredJellies")
+		rebirths = config.get_value("Fiscal", "Rebirths")
+		gameTime = config.get_value("Fiscal", "Time")
+		FizzyDrink.clicks = config.get_value("Fiscal", "Clicks")
 		ItemValues.money = config.get_value("Fiscal", "Money")
 		
 		ItemValues.itemInfomation[0]["CurUpgrade"] = config.get_value("Shop", "autoClickerUpgrade")
@@ -105,8 +107,10 @@ func saveData():
 	config.set_value("Fiscal", "Name", namee)
 	config.set_value("Fiscal", "Money", ItemValues.money)
 	config.set_value("Fiscal", "Jellies", jellies)
+	config.set_value("Fiscal", "StoredJellies", Jelly.storedJellys)
 	config.set_value("Fiscal", "Rebirths", rebirths)
 	config.set_value("Fiscal", "Time", gameTime)
+	config.set_value("Fiscal", "Clicks", FizzyDrink.clicks)
 	
 	# STATS
 	

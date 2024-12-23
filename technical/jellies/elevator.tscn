@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bei2i10a0juyl"]
+[gd_scene load_steps=15 format=3 uid="uid://cc62swwttf6t2"]
 
 [ext_resource type="Script" path="res://technical/jellies/elevator.gd" id="1_bc1dj"]
 [ext_resource type="Texture2D" uid="uid://bwbx2j1d11lbj" path="res://assets/images/areas/jellies/elevator.png" id="2_240xc"]
@@ -26,7 +26,7 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sbm43"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a8kxp"]
-size = Vector2(372, 648)
+size = Vector2(460, 706)
 
 [node name="Elevator" type="Node2D"]
 script = ExtResource("1_bc1dj")
@@ -73,7 +73,7 @@ layout_mode = 2
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(4, -164)
+position = Vector2(48, -193)
 shape = SubResource("RectangleShape2D_a8kxp")
 
 [connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]

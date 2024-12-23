@@ -1,0 +1,89 @@
+[gd_scene load_steps=16 format=3 uid="uid://bvr8ee5h28ij"]
+
+[ext_resource type="Script" path="res://technical/jellies/jellyRepo.gd" id="1_2mvwo"]
+
+[sub_resource type="Gradient" id="Gradient_nny8f"]
+colors = PackedColorArray(0, 0, 0, 0.827451, 0, 0, 0, 0.647059)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bempj"]
+gradient = SubResource("Gradient_nny8f")
+width = 200
+height = 50
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ynaxn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4n1ju"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_28q51"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k725c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x18vm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ij4c7"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6ub28"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_857qp"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mv3g3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eqyvo"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gg53p"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ccxua"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="Repo" type="TextureRect"]
+offset_right = 200.0
+offset_bottom = 50.0
+texture = SubResource("GradientTexture2D_bempj")
+script = ExtResource("1_2mvwo")
+
+[node name="name" type="Label" parent="."]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 1.0
+offset_right = 146.0
+offset_bottom = 35.0
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ynaxn")
+text = "floor name"
+vertical_alignment = 1
+clip_text = true
+text_direction = 1
+
+[node name="jellies" type="Label" parent="."]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 30.0
+offset_right = 55.0
+offset_bottom = 43.0
+theme_override_font_sizes/font_size = 9
+text = "jellies: 0"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 149.0
+offset_top = 8.0
+offset_right = 192.0
+offset_bottom = 43.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4n1ju")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_28q51")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_k725c")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_x18vm")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_ij4c7")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_6ub28")
+theme_override_styles/hover = SubResource("StyleBoxFlat_857qp")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_mv3g3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_eqyvo")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_gg53p")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ccxua")
+text = "send"
+icon_alignment = 1
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

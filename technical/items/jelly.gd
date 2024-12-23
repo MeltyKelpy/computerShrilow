@@ -8,6 +8,7 @@ extends Node2D
 @export var selfDiscoveredVar = false
 @export var new = true
 var hi = true
+@export var room : Node
 
 @onready var mouse_pin: PinJoint2D = $MousePin
 @onready var fake_body: StaticBody2D = $MousePin/FakeBody
@@ -25,7 +26,11 @@ var colorsIgLOL = [
 	},
 	]
 
+func findRoom(Laroom):
+	room = Laroom
+
 func buy():
+	rigid_body_2d.transform = Transform2D(0.0, Vector2(-600, 100))
 	visible = false
 	reparent($/root/computerShrilow/Jelly/Control)
 	var cacapoopyGOD3 = preload("res://technical/events/eventIndicator.tscn")
@@ -45,10 +50,13 @@ func buy():
 		new = false
 	$nameShit/Name.text = jelly
 	$nameShit/Stats.text = rarity+"\n"+str(money)+"$ per "+str(seconds)+" Seconds"
-	_on_storage_pressed()
+	_on_storage_pressed(true)
+
+func setParent():
+	reparent($/root/computerShrilow/Jelly/Control)
+	# this function avoids a stupid error when loading them in.
 
 func _ready() -> void:
-	reparent($/root/computerShrilow/Jelly/Control)
 	$FirstTimer.wait_time = seconds - 0.2
 	$SecondTimer.wait_time = 0.2
 	$FirstTimer.start()
@@ -56,7 +64,6 @@ func _ready() -> void:
 	mouse_pin.node_a = mouse_pin.get_path_to(fake_body)
 	rigid_body_2d.input_pickable = true
 	rigid_body_2d.input_event.connect(_on_input_event)
-	rigid_body_2d.transform = Transform2D(0.0, Vector2(-600, 100))
 	visible = true
 	if rarity != "Queer":
 		$RigidBody2D/jelly.material.set_shader_parameter("line_color", colorsIgLOL[0][rarity])
@@ -116,6 +123,7 @@ func _jelly_spawn() -> void:
 	visible = true
 
 func _on_kill_pressed() -> void:
+	room.jellyCount -= 1
 	$RigidBody2D.visible = false
 	$nameShit.visible = false
 	$RigidBody2D/Squeak.volume_db = -80
@@ -127,9 +135,9 @@ func _on_kill_pressed() -> void:
 	if rarity == "Rare":
 		moneyTo = 600
 	if rarity == "Awesome":
-		moneyTo = 3000
+		moneyTo = 1000
 	if rarity == "Queer":
-		moneyTo = 7500
+		moneyTo = 5000
 	if rarity == "Blue":
 		moneyTo = 1000000
 	var cacapoopyGOD = load("res://technical/moneyGet.tscn")
@@ -139,15 +147,19 @@ func _on_kill_pressed() -> void:
 	caca.position.x = rigid_body_2d.position.x
 	caca.position.y = rigid_body_2d.position.y
 	ItemValues.money += moneyTo
+	$RigidBody2D/mange.visible = false
 	$deathTime.start()
 
 func _on_death_time_timeout() -> void:
 	queue_free()
 
-func _on_change_floor_pressed() -> void:
-	rigid_body_2d.transform = Transform2D(0.0, Vector2(-800, 100+(1 * 1500)))
+func _on_change_floor_pressed(ID) -> void:
+	rigid_body_2d.transform = Transform2D(0.0, Vector2(0, 100+((ID * 1300) + 1600)))
+	print(100+((ID * 1300) + 1600))
 
-func _on_storage_pressed() -> void:
+func _on_storage_pressed(type) -> void:
+	if type == false:
+		room.jellyCount -= 1
 	var awesomsmee = {
 		"Name":jelly,
 		"MoneyGain":money,

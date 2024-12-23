@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b27r2f8uoxva5"]
+[gd_scene load_steps=22 format=3 uid="uid://cdpi6c1cmwei0"]
 
 [ext_resource type="Script" path="res://technical/events/minerkid.gd" id="1_cfsla"]
 [ext_resource type="Texture2D" uid="uid://b6hgn2orh4jaw" path="res://assets/images/events/theminerkid/isCalling.png" id="2_4wqpm"]

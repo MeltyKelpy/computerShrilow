@@ -1,9 +1,12 @@
 extends Sprite2D
 
 var ID = 0
+var hours = 0
+var minutes = 0
+var seconds = 0
+var time_dict = {"H" : 0, "M" : 0, "S" : 0}
 
 func _ready() -> void:
-	
 	Game.reloadGlobals()
 	
 	var config = ConfigFile.new()
@@ -11,9 +14,33 @@ func _ready() -> void:
 	var err = config.load(Game.files[ID])
 	
 	if err == OK:
+		var time = config.get_value("Fiscal", "Time")
+		while time >= 60:
+			time -= 60
+			time_dict["M"] += 1
+		time_dict["S"] = time
+		while time_dict["M"] >= 60:
+			time_dict["M"] -= 60
+			time_dict["H"] += 1
+		var finH
+		if time_dict["H"] < 10:
+			finH = "0"+str(time_dict["H"])
+		else:
+			finH = time_dict["S"]
+		var finM
+		if time_dict["M"] < 10:
+			finM = "0"+str(time_dict["M"])
+		else:
+			finM = time_dict["S"]
+		var finS
+		if time_dict["S"] < 10:
+			finS = "0"+str(time_dict["S"])
+		else:
+			finS = time_dict["S"]
+		var final = str(finH) + ":" + str(finM) + ":" + str(finS)
 		$Icon.visible = true
 		$FileName.text = config.get_value("Fiscal", "Name")
-		$Desc.text = "Money: "+str(config.get_value("Fiscal", "Money"))+"\nJellies Found: "+str(config.get_value("Fiscal", "Jellies"))+"\nRebirths: "+str(config.get_value("Fiscal", "Rebirths"))+"\nHours Played: "+str(round_to_dec(((config.get_value("Fiscal", "Time") / 60 ) / 60), 1))
+		$Desc.text = "Money: "+str(config.get_value("Fiscal", "Money"))+"\nJellies Found: "+str(config.get_value("Fiscal", "Jellies"))+"\nRebirths: "+str(config.get_value("Fiscal", "Rebirths"))+"\nTime Played: "+final+"\nClicks: "+str(config.get_value("Fiscal", "Clicks"))
 	else:
 		$Icon.visible = false
 		$FileName.text = "FILE "+str(ID+1)

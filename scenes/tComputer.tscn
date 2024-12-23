@@ -1,4 +1,4 @@
-[gd_scene load_steps=120 format=3 uid="uid://bgw557ttv6noe"]
+[gd_scene load_steps=122 format=3 uid="uid://bgw557ttv6noe"]
 
 [ext_resource type="Script" path="res://scenes/t_computer.gd" id="1_swrb7"]
 [ext_resource type="Texture2D" uid="uid://dajex7cpt7k4p" path="res://assets/images/bg/background.png" id="2_u0da7"]
@@ -33,7 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://cs21yt57gfegw" path="res://assets/images/areas/melanies/sign.png" id="23_1b4os"]
 [ext_resource type="Texture2D" uid="uid://i56e4q3q5h8" path="res://assets/images/areas/melanies/melanie/base.png" id="24_umbwu"]
 [ext_resource type="Texture2D" uid="uid://bi8cjj45fwhyo" path="res://assets/images/areas/melanies/melanie/talkBase.png" id="25_ndj4q"]
-[ext_resource type="PackedScene" uid="uid://bei2i10a0juyl" path="res://technical/jellies/elevator.tscn" id="25_y45oj"]
+[ext_resource type="PackedScene" uid="uid://cc62swwttf6t2" path="res://technical/jellies/elevator.tscn" id="25_y45oj"]
 [ext_resource type="Texture2D" uid="uid://dv1knrxoff866" path="res://assets/images/ui/transitions/bg.png" id="27_e5v8d"]
 [ext_resource type="Texture2D" uid="uid://bb0hqhdgonp44" path="res://assets/images/areas/gumball/realBg.png" id="29_50vaf"]
 [ext_resource type="Texture2D" uid="uid://dkxpmi3v4ilpw" path="res://assets/images/areas/gumball/coins/common.png" id="30_1fn55"]
@@ -57,6 +57,8 @@
 [ext_resource type="Texture2D" uid="uid://b4sehpse6a35m" path="res://assets/images/ui/transitions/elevator0.png" id="45_wo732"]
 [ext_resource type="Texture2D" uid="uid://cg4s4o4vbdqyc" path="res://assets/images/ui/transitions/elevator1.png" id="46_p35b6"]
 [ext_resource type="Texture2D" uid="uid://owu8rr2pxppu" path="res://assets/images/ui/theComputerLogo.png" id="54_dab5r"]
+[ext_resource type="Texture2D" uid="uid://d3d3t8abbtv8h" path="res://assets/images/ui/storage.png" id="58_oj2kv"]
+[ext_resource type="Texture2D" uid="uid://cdi4tcc76faq8" path="res://assets/images/areas/melanies/items/floppydisk.png" id="59_5ltno"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p6f28"]
 
@@ -1880,6 +1882,27 @@ text = "this is the uhmhmdm jelly"
 horizontal_alignment = 2
 autowrap_mode = 2
 
+[node name="back" type="Sprite2D" parent="Journal"]
+position = Vector2(571.5, 92)
+texture = ExtResource("19_tht4w")
+
+[node name="BackJOURNAL" type="Button" parent="Journal"]
+offset_left = 502.5
+offset_top = 16.0
+offset_right = 640.5
+offset_bottom = 168.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p6f28")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_w4xu3")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_uj6cr")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0meto")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_rmwiu")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_o3afr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_amgep")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_e3kvh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_kvmat")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iq0t2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
+
 [node name="storage" type="Node2D" parent="."]
 position = Vector2(-1367, -3748)
 
@@ -1897,33 +1920,15 @@ offset_bottom = 607.0
 layout_mode = 2
 columns = 4
 
-[node name="Button" type="Button" parent="storage"]
-offset_left = 45.0
-offset_top = 28.0
-offset_right = 353.0
-offset_bottom = 161.0
-text = "PLEASE LOAD MY JELELLLSSEE"
-
-[node name="Button2" type="Button" parent="storage"]
-offset_left = 366.0
-offset_top = 28.0
-offset_right = 671.0
-offset_bottom = 161.0
-text = "no wait stop"
-
-[node name="back" type="Sprite2D" parent="."]
-position = Vector2(-795.5, -1453)
+[node name="back" type="Sprite2D" parent="storage"]
+position = Vector2(106.5, 65)
 texture = ExtResource("19_tht4w")
 
-[node name="talkTimer" type="Timer" parent="."]
-wait_time = 0.01
-one_shot = true
-
-[node name="BackJOURNAL" type="Button" parent="."]
-offset_left = -864.5
-offset_top = -1529.0
-offset_right = -726.5
-offset_bottom = -1377.0
+[node name="BackSTORAGE" type="Button" parent="storage"]
+offset_left = 37.0
+offset_top = 6.0
+offset_right = 175.0
+offset_bottom = 141.0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_p6f28")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_w4xu3")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_uj6cr")
@@ -1935,6 +1940,10 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_e3kvh")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_kvmat")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iq0t2")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
+
+[node name="talkTimer" type="Timer" parent="."]
+wait_time = 0.01
+one_shot = true
 
 [node name="sectionTransitions" type="AnimationPlayer" parent="."]
 libraries = {
@@ -2024,6 +2033,29 @@ libraries = {
 "": SubResource("AnimationLibrary_y6pyl")
 }
 
+[node name="storgImg" type="Sprite2D" parent="Camera2D"]
+visible = false
+position = Vector2(486.5, 239.5)
+texture = ExtResource("58_oj2kv")
+
+[node name="storg" type="Button" parent="Camera2D"]
+visible = false
+offset_left = 417.0
+offset_top = 166.0
+offset_right = 561.0
+offset_bottom = 316.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p6f28")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_w4xu3")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_uj6cr")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0meto")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_rmwiu")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_o3afr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_amgep")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_e3kvh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_kvmat")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iq0t2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
+
 [node name="bg" type="Sprite2D" parent="Camera2D"]
 z_index = 4096
 position = Vector2(0, 1152)
@@ -2031,7 +2063,7 @@ texture = ExtResource("27_e5v8d")
 
 [node name="icon" type="AnimatedSprite2D" parent="Camera2D/bg"]
 sprite_frames = SubResource("SpriteFrames_2w07w")
-animation = &"bell"
+animation = &"storage"
 
 [node name="intro" type="TextureRect" parent="Camera2D"]
 visible = false
@@ -2068,10 +2100,25 @@ offset_bottom = 335.0
 mouse_filter = 2
 color = Color(0, 1, 0, 1)
 
+[node name="autoPoop" type="Sprite2D" parent="Camera2D"]
+visible = false
+z_index = 4096
+position = Vector2(-517, 260)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("59_5ltno")
+
+[node name="poopTimer" type="Timer" parent="Camera2D/autoPoop"]
+one_shot = true
+
 [node name="setNames" type="Timer" parent="."]
 wait_time = 0.05
+one_shot = true
 
 [node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="autosave" type="Timer" parent="."]
+wait_time = 300.0
 autostart = true
 
 [connection signal="pressed" from="Mines/ScrollContainer/Control/BackButtonWARD" to="." method="_on_back_button_ward2_pressed"]
@@ -2091,10 +2138,9 @@ autostart = true
 [connection signal="pressed" from="Gumball/LastCoin" to="." method="coinSelectionChange" binds= [-1]]
 [connection signal="pressed" from="Gumball/Button" to="." method="_buyGumball_pressed"]
 [connection signal="pressed" from="Melvin/BackButton" to="." method="cameraAnimation" binds= ["bell", -576, 324, true]]
-[connection signal="pressed" from="storage/Button" to="." method="_spawnStorage"]
-[connection signal="pressed" from="storage/Button2" to="." method="_deleteStorag"]
+[connection signal="pressed" from="Journal/BackJOURNAL" to="." method="cameraAnimation" binds= ["journal", -576, 324, true]]
+[connection signal="pressed" from="storage/BackSTORAGE" to="." method="storageCamShit" binds= ["leave"]]
 [connection signal="timeout" from="talkTimer" to="." method="_on_talk_timer_timeout"]
-[connection signal="pressed" from="BackJOURNAL" to="." method="cameraAnimation" binds= ["journal", -576, 324, true]]
 [connection signal="animation_finished" from="sectionTransitions" to="." method="_on_section_transitions_animation_finished"]
 [connection signal="timeout" from="EventTimer" to="." method="_event"]
 [connection signal="timeout" from="faceRevert" to="." method="_on_face_revert_timeout"]
@@ -2103,5 +2149,8 @@ autostart = true
 [connection signal="mouse_exited" from="Camera2D/leftMove" to="." method="_on_left_move_mouse_exited"]
 [connection signal="mouse_entered" from="Camera2D/rightMove" to="." method="_on_right_move_mouse_entered"]
 [connection signal="mouse_exited" from="Camera2D/rightMove" to="." method="_on_right_move_mouse_exited"]
+[connection signal="pressed" from="Camera2D/storg" to="." method="storageCamShit" binds= ["enter"]]
+[connection signal="timeout" from="Camera2D/autoPoop/poopTimer" to="." method="killPoop"]
 [connection signal="timeout" from="setNames" to="." method="_on_set_names_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="autosave" to="." method="autosave"]

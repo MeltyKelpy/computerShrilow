@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://technical/jellies/basic_room.gd" id="1_b4876"]
 [ext_resource type="Texture2D" uid="uid://xkcjaapvasvr" path="res://assets/images/areas/jellies/rooms/basicRoom/bg.png" id="1_txxv0"]
-[ext_resource type="PackedScene" uid="uid://bei2i10a0juyl" path="res://technical/jellies/elevator.tscn" id="3_x6anf"]
+[ext_resource type="PackedScene" uid="uid://cc62swwttf6t2" path="res://technical/jellies/elevator.tscn" id="3_x6anf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fd18s"]
 size = Vector2(1774, 62)

@@ -1,5 +1,7 @@
 extends Node
 
+var clicks = 0
+
 var clickPower = 1
 var clickPowerAdditions = 0
 var clickPowerClothingBuffs = 0
@@ -47,16 +49,28 @@ var melDialogue = [
 	"unlocked":false,
 	"interacted":false,
 	},
-	{
-	"present":"Still Wakes the Deep?",
-	"dialogKey":"STILLWAKES",
-	"unlocked":false,
-	"interacted":false,
-	},
+	#{
+	#"present":"Still Wakes the Deep?",
+	#"dialogKey":"STILLWAKES",
+	#"unlocked":false,
+	#"interacted":false,
+	#},
 	{
 	"present":"Jerry Seinfeld",
 	"dialogKey":"JERRY",
 	"unlocked":true,
+	"interacted":false,
+	},
+	{
+	"present":"How're u here?",
+	"dialogKey":"HOW",
+	"unlocked":true,
+	"interacted":false,
+	},
+	{
+	"present":"Opinions on here?",
+	"dialogKey":"COMPUTEROPINIONS",
+	"unlocked":false,
 	"interacted":false,
 	},
 	{

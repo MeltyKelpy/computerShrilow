@@ -1,6 +1,5 @@
 extends Node2D
 
-var clicks = 0.0
 var curClicks = 0.0
 var rng = RandomNumberGenerator.new()
 var held_object = false
@@ -19,8 +18,11 @@ var AnimPosCamX = 0
 var AnimPosCamY = 0
 var allowing = false
 
-var dialogueOptionsMelanie = []
+var storageReturnX = 0
+var storageReturnY = 0
+var storageReturnA = ""
 
+var dialogueOptionsMelanie = []
 var storage = []
 
 var gumballSelection = 0
@@ -75,8 +77,8 @@ var gumballInfo = [
 	},
 	{
 	"Name":"Awesome Coin",
-	"Desc":"The Awesome Coin - 4500$\nallows you to get awesomes abit more easily, but for NOTABLY more money.\n\nCommon Chance: 0%\nUncommon Chance: 19%\nRare Chance: 40%\nAwesome Chance: 40%\nQueer Chance: 1%",
-	"Cost":4500,
+	"Desc":"The Awesome Coin - 2000$\nallows you to get awesomes abit more easily, but for NOTABLY more money.\n\nCommon Chance: 0%\nUncommon Chance: 19%\nRare Chance: 40%\nAwesome Chance: 40%\nQueer Chance: 1%",
+	"Cost":2000,
 	"imagePath":"res://assets/images/areas/gumball/coins/awesome.png",
 	"1STOrder":"RareChance", 
 	"2NDOrder":"AwesomeChance", 
@@ -91,8 +93,8 @@ var gumballInfo = [
 	},
 	{
 	"Name":"Queer Coin",
-	"Desc":"The Queer Coin - $10000\nallows you to get queers abit more easily, but for INSANELY more money.\n\nCommon Chance: 0%\nUncommon Chance: 10%\nRare Chance: 35%\nAwesome Chance: 55%\nQueer Chance: 5%",
-	"Cost":10000,
+	"Desc":"The Queer Coin - $7500\nallows you to get queers abit more easily, but for INSANELY more money.\n\nCommon Chance: 0%\nUncommon Chance: 10%\nRare Chance: 35%\nAwesome Chance: 55%\nQueer Chance: 5%",
+	"Cost":7500,
 	"imagePath":"res://assets/images/areas/gumball/coins/queer.png",
 	"1STOrder":"AwesomeChance", 
 	"2NDOrder":"RareChance", 
@@ -161,6 +163,31 @@ func manageScenes():
 				$Shop/ItemDescription.text = "this also worked as a test, which is cool"
 			if alongTheDialogue == 2:
 				endDialogue()
+		"HOW":
+			if alongTheDialogue == 0:
+				$Shop/ItemDescription.text = "Honestly? i dont really remember"
+				for i in FizzyDrink.melDialogue.size():
+					if FizzyDrink.melDialogue[i]["dialogKey"] == "COMPUTEROPINIONS":
+						FizzyDrink.melDialogue[i]["unlocked"] = true
+			if alongTheDialogue == 1:
+				$Shop/ItemDescription.text = "just sortaaa... woke up here?? i guess??"
+			if alongTheDialogue == 2:
+				$Shop/ItemDescription.text = "not too insanely pressed, alot of my other friends are here, like shrilow! and thats cool!!.. I guess?"
+			if alongTheDialogue == 3:
+				$Shop/ItemDescription.text = "does it make up for being trapped inside a computer? no LOL but its good enough if im gonna be here anyways."
+			if alongTheDialogue == 4:
+				endDialogue()
+		"COMPUTEROPINIONS":
+			if alongTheDialogue == 0:
+				$Shop/ItemDescription.text = "Its kinda chill, Jerry is annoying as fuck but i can handle him."
+			if alongTheDialogue == 1:
+				$Shop/ItemDescription.text = "That quick time event prick is a littleee bit annoying tho, same with those black market guys GOD FORBID someone do something original around here, huh?"
+			if alongTheDialogue == 2:
+				$Shop/ItemDescription.text = "but yeah, its fine, i guess"
+			if alongTheDialogue == 3:
+				$Shop/ItemDescription.text = "Never in my life did i think i'd be scared of a recycling bin, though. eugh. its SCARY in there."
+			if alongTheDialogue == 4:
+				endDialogue()
 		"MELVIN":
 			if alongTheDialogue == 0:
 				$Shop/ItemDescription.text = "woah haha uhm whatareyou talking about idk who that is haha"
@@ -183,14 +210,14 @@ func manageScenes():
 			if alongTheDialogue == 0:
 				$Shop/ItemDescription.text = "i really like drawing, and also coding, and listening to music, and getting high"
 				for i in FizzyDrink.melDialogue.size():
-					if FizzyDrink.melDialogue[i]["dialogKey"] == "CODING" or FizzyDrink.melDialogue[i]["dialogKey"] == "MLP" or FizzyDrink.melDialogue[i]["dialogKey"] == "STILLWAKES" or FizzyDrink.melDialogue[i]["dialogKey"] == "WEED":
+					if FizzyDrink.melDialogue[i]["dialogKey"] == "CODING" or FizzyDrink.melDialogue[i]["dialogKey"] == "MLP" or FizzyDrink.melDialogue[i]["dialogKey"] == "WEED":
 						FizzyDrink.melDialogue[i]["unlocked"] = true
 			if alongTheDialogue == 1:
 				$Shop/ItemDescription.text = "and also girls, and also boys, one very specific alien boy to be exact"
 			if alongTheDialogue == 2:
 				$Shop/ItemDescription.text = "i also really like my little pony gen 4, SPECIFICALLY gen 4"
 			if alongTheDialogue == 3:
-				$Shop/ItemDescription.text = "and also Still Wakes the Deep, thats a really good game and you should check it out i think"
+				$Shop/ItemDescription.text = "thats about it, I guess?"
 			if alongTheDialogue == 4:
 				endDialogue()
 		"CODING":
@@ -208,8 +235,10 @@ func manageScenes():
 			if alongTheDialogue == 0:
 				$Shop/ItemDescription.text = "i like MLP Gen 4 alot, been a fan for awhile now"
 			if alongTheDialogue == 1:
-				$Shop/ItemDescription.text = "pinkie pie is my favorite, maybe thats generic but i really enjoy her silly personality, its comforting to watch for me"
+				$Shop/ItemDescription.text = "pinkie pie is my favorite probably, but i like all of the mane 6 and the extended mane 6 aswell"
 			if alongTheDialogue == 2:
+				$Shop/ItemDescription.text = "despite being a kids show its still really good, and that makes sense cuz it was made when kid's television wasnt TRASH AND ASS so yk"
+			if alongTheDialogue == 3:
 				endDialogue()
 		"WEED":
 			if alongTheDialogue == 0:
@@ -222,17 +251,17 @@ func manageScenes():
 				$Shop/ItemDescription.text = "offers there, just saying"
 			if alongTheDialogue == 4:
 				endDialogue()
-		"STILLWAKES":
-			if alongTheDialogue == 0:
-				$Shop/ItemDescription.text = "genuinely the best game of 2024, no competition"
-			if alongTheDialogue == 1:
-				$Shop/ItemDescription.text = "beautiful sound design, genuinely scary, and visually beautiful aswell, what more could you want?"
-			if alongTheDialogue == 2:
-				$Shop/ItemDescription.text = "it's pretty linear, though. so it depends if thats something you fuck with or not"
-			if alongTheDialogue == 3:
-				$Shop/ItemDescription.text = "its kind of on the more expensive side, i suppose. if you dont got 50ish bucks laying around then i personally recommend jacksepticeye's playthrough of it, i really enjoyed that one"
-			if alongTheDialogue == 4:
-				endDialogue()
+		#"STILLWAKES":
+			#if alongTheDialogue == 0:
+				#$Shop/ItemDescription.text = "genuinely the best game of 2024, no competition"
+			#if alongTheDialogue == 1:
+				#$Shop/ItemDescription.text = "beautiful sound design, genuinely scary, and visually beautiful aswell, what more could you want?"
+			#if alongTheDialogue == 2:
+				#$Shop/ItemDescription.text = "it's pretty linear, though. so it depends if thats something you fuck with or not"
+			#if alongTheDialogue == 3:
+				#$Shop/ItemDescription.text = "its kind of on the more expensive side, i suppose. if you dont got 50ish bucks laying around then i personally recommend jacksepticeye's playthrough of it, i really enjoyed that one"
+			#if alongTheDialogue == 4:
+				#endDialogue()
 		"JERRY":
 			if alongTheDialogue == 0:
 				$Shop/ItemDescription.text = "oh. yeah. that guy."
@@ -374,7 +403,7 @@ func _ready():
 					add_child(cacaFUCK)
 	
 	if DirAccess.dir_exists_absolute("user://saveData/nodeSaves/file"+str(Game.curFile+1)) == true:
-		rooms = load("user://saveData/nodeSaves/file"+str(Game.curFile+1)+"/rooms.tscn").instantiate()
+		rooms = load("user://saveData/nodeSaves/file"+str(Game.curFile+1)+"/Rooms.tscn").instantiate()
 		$Jelly/rooms.queue_free()
 		$Jelly.add_child(rooms)
 		
@@ -524,7 +553,7 @@ func _process(_delta : float) -> void:
 	$Wardrobe/ItemName.text = ClothingObjects.itemName
 	$Wardrobe/ItemDescription.text = ClothingObjects.itemDesc
 	
-	$ShrilowScreen/Clicks.text = "CLICKS: "+str(clicks)
+	$ShrilowScreen/Clicks.text = "CLICKS: "+str(FizzyDrink.clicks)
 	$USDText.text = str(round(ItemValues.money))
 	$Gumball/USDText.text = str(round(ItemValues.money))
 	$Melvin/USDText.text = str(round(ItemValues.money))
@@ -583,7 +612,7 @@ func _on_shrilow_squeak_pressed() -> void:
 			$Shrilow/Shrilow/StillFace.texture = load("res://assets/images/computershrilows/shrilowFaces/dizzy.png")
 		$Shrilow/Squeak.play()
 		ItemValues.money += FizzyDrink.clickPower+FizzyDrink.clickPowerAdditions+FizzyDrink.clickPowerClothingBuffs
-		clicks += 1
+		FizzyDrink.clicks += 1
 		curClicks += 1
 	if Input.is_action_just_pressed("rightClick"):
 		$Shrilow/textBox/box/dialog.text = str(shitShrilowCanSay[rng.randi_range(0, shitShrilowCanSay.size()-1)])
@@ -685,6 +714,9 @@ func _on_face_revert_2_timeout() -> void:
 
 func _on_back_button_jelly_pressed() -> void:
 	area = "notJellies"
+	$Camera2D/storg.disabled = true
+	$Camera2D/storgImg.visible = false
+	$Camera2D/storg.visible = false
 	if can == true:
 		can = false
 		$sectionTransitions.play("leaveJellies")
@@ -710,6 +742,9 @@ func _on_left_move_mouse_exited() -> void:
 
 func _signal_jelly():
 	area = "Jellies"
+	$Camera2D/storg.disabled = false
+	$Camera2D/storg.visible = true
+	$Camera2D/storgImg.visible = true
 
 func cameraAnimation(Varea, positionX, positionY, allowMove):
 	if Varea == "bell":
@@ -720,23 +755,38 @@ func cameraAnimation(Varea, positionX, positionY, allowMove):
 		for i in FizzyDrink.melDialogue.size():
 			if FizzyDrink.melDialogue[i]["dialogKey"] == "MELVIN":
 				FizzyDrink.melDialogue[i]["unlocked"] = true
-	if area != "melvin":
+	if area == "Jellies":
 		area = "notJellies"
 	$EventTimer.paused = true
-	$Camera2D/bg/icon.play(Varea)
+	var end = false
+	for i in $Camera2D/bg/icon.sprite_frames.get_animation_names():
+		if i == Varea:
+			end = true
+	if end == true:
+		$Camera2D/bg/icon.play(Varea)
+	else:
+		$Camera2D/bg/icon.play("elevator")
 	AnimPosCamX = positionX
 	AnimPosCamY = positionY
 	$Camera2D/AnimationPlayer.play("open")
 	allowing = allowMove
 
 func moveCam():
+	can = true
 	$Camera2D.position.x = AnimPosCamX
 	$Camera2D.position.y = AnimPosCamY
-	print(AnimPosCamY)
 	if allowing == false and area == "Jellies":
 		area = "notJellies"
 	if allowing == true:
 		area = "Jellies"
+	if area == "notJellies" or area == "melvin":
+		$Camera2D/storg.disabled = true
+		$Camera2D/storgImg.visible = false
+		$Camera2D/storg.visible = false
+	else:
+		$Camera2D/storg.disabled = false
+		$Camera2D/storg.visible = true
+		$Camera2D/storgImg.visible = true
 
 func coinSelectionChange(toAdd: int) -> void:
 	gumballSelection += toAdd
@@ -956,9 +1006,9 @@ func _on_timer_timeout() -> void:
 
 func _spawnStorage() -> void:
 	for i in Jelly.storedJellys.size():
-		print(Jelly.storedJellys)
 		var cacapoopyGOD2 = load("res://technical/jellies/storedJelly.tscn")
 		var caca = cacapoopyGOD2.instantiate()
+		caca.jellyNum = i
 		caca.jelly = Jelly.storedJellys[i]["Name"]
 		caca.money = Jelly.storedJellys[i]["MoneyGain"]
 		caca.seconds = Jelly.storedJellys[i]["Seconds"]
@@ -967,7 +1017,48 @@ func _spawnStorage() -> void:
 		caca.reparent($storage/ScrollContainer/GridContainer)
 		storage.append(caca)
 
+func _reloadStorage():
+	for i in storage.size():
+		storage[i].queue_free()
+	storage.resize(0)
+	_spawnStorage()
+
 func _deleteStorag() -> void:
 	for i in storage.size():
 		storage[i].queue_free()
 	storage.resize(0)
+
+func storageCamShit(type : String):
+	if can == true:
+		if type == "enter":
+			storageReturnA = area
+			storageReturnX = $Camera2D.position.x
+			storageReturnY = $Camera2D.position.y
+			cameraAnimation("storage", -791, -3424, false)
+			_spawnStorage()
+		if type == "leave":
+			cameraAnimation(storageReturnA, storageReturnX, storageReturnY, false)
+			var timer2 = Timer.new()
+			timer2.wait_time = 3.1
+			timer2.one_shot = true
+			timer2.autostart = true
+			timer2.connect("timeout", changeArea)
+			add_child(timer2)
+	can = false
+
+func changeArea():
+	area = storageReturnA
+	$Camera2D/storg.disabled = false
+	$Camera2D/storg.visible = true
+	$Camera2D/storgImg.visible = true
+	_deleteStorag()
+
+func autosave() -> void:
+	Game.saveData()
+	DirAccess.make_dir_absolute(Game.scenePaths[Game.curFile])
+	urWelcomeSaayo()
+	$Camera2D/autoPoop.visible = true
+	$Camera2D/autoPoop/poopTimer.start()
+
+func killPoop() -> void:
+	$Camera2D/autoPoop.visible = false

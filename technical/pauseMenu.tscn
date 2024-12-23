@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://dpv5yh8fb86a5"]
+[gd_scene load_steps=42 format=3 uid="uid://6wcc8jfv4mt5"]
 
 [ext_resource type="Script" path="res://technical/pauseMenu.gd" id="1_0pw43"]
 [ext_resource type="FontFile" uid="uid://brn7smfq0l6ao" path="res://assets/fonts/TwCen.ttf" id="1_wqogi"]
@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://6jl2v3awijit" path="res://assets/images/mainMenu/pressed.png" id="4_twrxj"]
 [ext_resource type="Texture2D" uid="uid://b3xebwynw0fcw" path="res://assets/images/mainMenu/button.png" id="5_r4oq7"]
 [ext_resource type="Texture2D" uid="uid://b2ybgdfw8q766" path="res://assets/images/mainMenu/disabled.png" id="6_5bkqc"]
-[ext_resource type="PackedScene" uid="uid://vpt87r2yvndr" path="res://technical/settingsScene.tscn" id="8_6xb0h"]
+[ext_resource type="PackedScene" path="res://technical/settingsScene.tscn" id="8_6xb0h"]
 [ext_resource type="Texture2D" uid="uid://cwladsljiqill" path="res://assets/images/ui/backDown.png" id="9_avaki"]
 [ext_resource type="Texture2D" uid="uid://bf5nxu26qx66x" path="res://assets/images/loadingLow.png" id="9_ue280"]
 [ext_resource type="Texture2D" uid="uid://dhml6kkc1kfmj" path="res://assets/images/logo.png" id="10_1d8aj"]

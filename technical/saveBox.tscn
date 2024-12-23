@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://b27whf8e32gjj"]
+[gd_scene load_steps=23 format=3 uid="uid://nlv6t80uh1fp"]
 
 [ext_resource type="Texture2D" uid="uid://yaivbhdq4dxn" path="res://assets/images/areas/melanies/itemBox.png" id="1_lgb1h"]
 [ext_resource type="Script" path="res://technical/saveBox.gd" id="2_pyrv6"]
@@ -78,8 +78,13 @@ offset_right = 295.0
 offset_bottom = 97.0
 scale = Vector2(1, 0.7)
 theme = ExtResource("2_q66pj")
+theme_override_constants/line_spacing = -2
 theme_override_font_sizes/font_size = 28
-text = "Load me pls"
+text = "Load me pls
+Load me pls
+Load me pls
+Load me pls
+Load me pls"
 autowrap_mode = 3
 
 [node name="Load" type="Button" parent="."]

@@ -18,12 +18,14 @@ func _on_button_pressed() -> void:
 			var hi = $/root/computerShrilow/Jelly/rooms.get_child(i)
 			var cacaPoopyFUCK = load("res://technical/jellies/floor.tscn")
 			var caca = cacaPoopyFUCK.instantiate()
-			print(hi)
 			caca.naame = hi.Aname
+			caca.type = hi.type
+			caca.maxJells = hi.maxJel
 			caca.jelly = hi.jellyCount
 			caca.posX = hi.camXpos
 			caca.posY = hi.camYpos
 			caca.hi = hi
+			caca.ID = i
 			add_child(caca)
 			caca.reparent($ScrollContainer/GridContainer)
 			appendage.append(caca)
