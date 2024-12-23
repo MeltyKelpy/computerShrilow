@@ -1,0 +1,606 @@
+[gd_scene load_steps=29 format=3 uid="uid://bfs7i3sgigtxr"]
+
+[ext_resource type="Script" path="res://technical/events/writeitright.gd" id="1_pmuc2"]
+[ext_resource type="Texture2D" uid="uid://bjbddkb1lup8" path="res://assets/images/events/writeitright/bg.png" id="2_m88lx"]
+[ext_resource type="Texture2D" uid="uid://bucepb3oy8gmh" path="res://assets/images/events/minigameTitle.png" id="3_4keh8"]
+[ext_resource type="Texture2D" uid="uid://be8tov83885gm" path="res://assets/images/events/writeitright/shrilow/backspace.png" id="3_y616w"]
+[ext_resource type="Texture2D" uid="uid://sn2vh6yb4153" path="res://assets/images/events/filledStar.png" id="4_837fx"]
+[ext_resource type="Texture2D" uid="uid://ccjcltcqv7cvt" path="res://assets/images/events/writeitright/shrilow/base.png" id="4_c1a5g"]
+[ext_resource type="Texture2D" uid="uid://bsjnsxl2xs2j0" path="res://assets/images/events/unfilledStar0.png" id="5_hfmj0"]
+[ext_resource type="Texture2D" uid="uid://8xxthhnan7dv" path="res://assets/images/events/writeitright/shrilow/type1.png" id="5_lh5sc"]
+[ext_resource type="Texture2D" uid="uid://cfsk2vjwf33vt" path="res://assets/images/events/writeitright/shrilow/type2.png" id="6_70kfy"]
+[ext_resource type="Texture2D" uid="uid://n4fjjq8ir18y" path="res://assets/images/events/unfilledStar1.png" id="6_g5rkq"]
+[ext_resource type="AudioStream" uid="uid://doov5lqi3y5cd" path="res://assets/sounds/fuckyeah.ogg" id="7_0y1nw"]
+[ext_resource type="Texture2D" uid="uid://xr055hxah57d" path="res://assets/images/events/writeitright/shrilow/happy.png" id="7_aepwr"]
+[ext_resource type="Texture2D" uid="uid://jxi1qaw0beje" path="res://assets/images/events/writeitright/typeBox.png" id="8_7v4a3"]
+[ext_resource type="Texture2D" uid="uid://6nno2cik65i4" path="res://assets/images/events/fuckYeah.png" id="8_oam6m"]
+[ext_resource type="FontFile" uid="uid://brn7smfq0l6ao" path="res://assets/fonts/TwCen.ttf" id="9_k7knm"]
+[ext_resource type="Texture2D" uid="uid://uyg7fyvw3px1" path="res://assets/images/events/writeitright/paper.png" id="9_ms34q"]
+[ext_resource type="Texture2D" uid="uid://hpupqlf6p440" path="res://assets/images/events/writeitright/exBox.png" id="9_mteur"]
+[ext_resource type="AudioStream" uid="uid://cahd8n2qup8t6" path="res://assets/music/roshambo.ogg" id="11_g4k27"]
+
+[sub_resource type="Animation" id="Animation_djedu"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("opening/minigameLogo:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(565, 993)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("opening/ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("opening/Label:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-9, 900)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("opening/Star1:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(456, 128)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("opening/Star1:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("opening/fuckYeah:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(576, 900)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("opening/paper:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(576, 1000)]
+}
+
+[sub_resource type="Animation" id="Animation_e3o1v"]
+resource_name = "pop"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("opening/minigameLogo:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(0.420448, 1, 2, 1),
+"update": 0,
+"values": [Vector2(565, 993), Vector2(565, 324), Vector2(565, 324), Vector2(565, -345)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("opening/ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0.607843)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("opening/paper:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(3, 5),
+"transitions": PackedFloat32Array(0.297302, 1),
+"update": 0,
+"values": [Vector2(576, 1000), Vector2(576, 324)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_itsToSIGN"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_fcjxb"]
+resource_name = "title"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("opening/Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(0.450625, 1, 0.420448, 1),
+"update": 0,
+"values": [Vector2(-9, 900), Vector2(-9, 285), Vector2(-9, 285), Vector2(-9, 10)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("opening/ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.63333, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.607843), Color(0, 0, 0, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_allowToMove"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("opening/Star1:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(3, 3.5),
+"transitions": PackedFloat32Array(0.287175, 1),
+"update": 0,
+"values": [Vector2(456, 128), Vector2(456, 104)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("opening/Star2:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(3.1, 3.6),
+"transitions": PackedFloat32Array(0.287175, 1),
+"update": 0,
+"values": [Vector2(515, 128), Vector2(515, 104)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("opening/Star3:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(3.2, 3.7),
+"transitions": PackedFloat32Array(0.287175, 1),
+"update": 0,
+"values": [Vector2(574, 128), Vector2(574, 104)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("opening/Star4:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(3.3, 3.8),
+"transitions": PackedFloat32Array(0.287175, 1),
+"update": 0,
+"values": [Vector2(633, 128), Vector2(633, 104)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("opening/Star5:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(3.4, 3.9),
+"transitions": PackedFloat32Array(0.287175, 1),
+"update": 0,
+"values": [Vector2(692, 128), Vector2(692, 104)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("opening/Star1:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(3, 3.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("opening/Star2:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(3.1, 3.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("opening/Star3:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(3.2, 3.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("opening/Star4:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(3.3, 3.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("opening/Star5:modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(3.4, 3.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("opening/paper:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 0.633333),
+"transitions": PackedFloat32Array(2.14355, 1),
+"update": 0,
+"values": [Vector2(576, 324), Vector2(576, 1000)]
+}
+
+[sub_resource type="Animation" id="Animation_tlkvl"]
+resource_name = "yes"
+length = 3.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_endEvent"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("opening/fuckYeah:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(0.353553, 1),
+"update": 0,
+"values": [Vector2(576, 900), Vector2(576, 324)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iiqyl"]
+_data = {
+"RESET": SubResource("Animation_djedu"),
+"pop": SubResource("Animation_e3o1v"),
+"title": SubResource("Animation_fcjxb"),
+"yes": SubResource("Animation_tlkvl")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_87g2v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_y616w")
+}],
+"loop": true,
+"name": &"backspace",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_c1a5g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_lh5sc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_70kfy")
+}],
+"loop": true,
+"name": &"talk",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_aepwr")
+}],
+"loop": true,
+"name": &"win",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_av3w1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4s42o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_837fx")
+}],
+"loop": true,
+"name": &"star",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_hfmj0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_g5rkq")
+}],
+"loop": false,
+"name": &"unstar",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jqpq1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y1iid"]
+
+[node name="minigame" type="Node2D"]
+process_mode = 3
+z_index = 100
+script = ExtResource("1_pmuc2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_iiqyl")
+}
+
+[node name="Game" type="Node2D" parent="."]
+
+[node name="background" type="Sprite2D" parent="Game"]
+position = Vector2(576, 324)
+texture = ExtResource("2_m88lx")
+
+[node name="Shrilow" type="AnimatedSprite2D" parent="Game"]
+position = Vector2(923, 438)
+sprite_frames = SubResource("SpriteFrames_87g2v")
+frame_progress = 0.833519
+
+[node name="Text" type="Label" parent="Game"]
+offset_left = 69.0
+offset_top = 256.0
+offset_right = 688.0
+offset_bottom = 429.0
+theme_override_colors/font_color = Color(0.121569, 0.0470588, 0, 1)
+theme_override_fonts/font = ExtResource("9_k7knm")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_av3w1")
+text = "PROMPT 1:"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="exBox" type="Sprite2D" parent="Game"]
+position = Vector2(576, 324)
+texture = ExtResource("9_mteur")
+
+[node name="Text" type="Label" parent="Game/exBox"]
+offset_left = -517.0
+offset_top = -112.0
+offset_right = 102.0
+offset_bottom = 61.0
+theme_override_colors/font_color = Color(0.121569, 0.0470588, 0, 1)
+theme_override_fonts/font = ExtResource("9_k7knm")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_av3w1")
+text = "I cant stop drinking oil, i just cant stop! you know, the black stuff? that comes in barrels? i cant stop drinking it."
+autowrap_mode = 3
+
+[node name="opening" type="Node2D" parent="."]
+z_index = 30
+
+[node name="ColorRect" type="ColorRect" parent="opening"]
+offset_right = 1162.0
+offset_bottom = 652.0
+color = Color(0, 0, 0, 1)
+
+[node name="minigameLogo" type="Sprite2D" parent="opening"]
+position = Vector2(565, 993)
+texture = ExtResource("3_4keh8")
+
+[node name="Label" type="Label" parent="opening"]
+offset_left = -9.0
+offset_top = 900.0
+offset_right = 1152.0
+offset_bottom = 969.0
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 30
+text = "Type my Messages."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Star1" type="AnimatedSprite2D" parent="opening"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(456, 128)
+sprite_frames = SubResource("SpriteFrames_4s42o")
+animation = &"star"
+
+[node name="Star2" type="AnimatedSprite2D" parent="opening"]
+position = Vector2(515, 104)
+sprite_frames = SubResource("SpriteFrames_4s42o")
+animation = &"star"
+
+[node name="Star3" type="AnimatedSprite2D" parent="opening"]
+position = Vector2(574, 104)
+sprite_frames = SubResource("SpriteFrames_4s42o")
+animation = &"star"
+
+[node name="Star4" type="AnimatedSprite2D" parent="opening"]
+position = Vector2(633, 104)
+sprite_frames = SubResource("SpriteFrames_4s42o")
+animation = &"star"
+
+[node name="Star5" type="AnimatedSprite2D" parent="opening"]
+position = Vector2(692, 104)
+sprite_frames = SubResource("SpriteFrames_4s42o")
+animation = &"star"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="opening"]
+stream = ExtResource("7_0y1nw")
+
+[node name="fuckYeah" type="Sprite2D" parent="opening"]
+position = Vector2(576, 900)
+texture = ExtResource("8_oam6m")
+
+[node name="paper" type="Sprite2D" parent="opening"]
+position = Vector2(576, 1000)
+texture = ExtResource("9_ms34q")
+
+[node name="typeBox" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(576, 324)
+texture = ExtResource("8_7v4a3")
+
+[node name="LineEdit" type="TextEdit" parent="typeBox"]
+offset_left = -517.0
+offset_top = 103.0
+offset_right = 102.0
+offset_bottom = 221.0
+theme_override_colors/font_placeholder_color = Color(0.690196, 0.603922, 0.552941, 1)
+theme_override_colors/font_readonly_color = Color(0.121569, 0.0470588, 0, 1)
+theme_override_colors/font_color = Color(0.121569, 0.0470588, 0, 1)
+theme_override_fonts/font = ExtResource("9_k7knm")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_av3w1")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jqpq1")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_y1iid")
+text = "hiii"
+placeholder_text = "Type Here! you got this!"
+editable = false
+context_menu_enabled = false
+selecting_enabled = false
+wrap_mode = 1
+
+[node name="Show" type="RichTextLabel" parent="typeBox"]
+visible = false
+offset_left = -517.0
+offset_top = 107.0
+offset_right = 102.0
+offset_bottom = 225.0
+theme_override_colors/default_color = Color(0.121569, 0.0470588, 0, 1)
+theme_override_colors/font_outline_color = Color(0.121569, 0.0470588, 0, 1)
+theme_override_constants/outline_size = 11
+theme_override_fonts/normal_font = ExtResource("9_k7knm")
+theme_override_font_sizes/normal_font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_av3w1")
+bbcode_enabled = true
+text = "[color=green]hiii[/color][color=red]this letter is wrong[/color]"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_g4k27")
+autoplay = true
+parameters/looping = true
+
+[node name="LastType" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="ShowPrompt" type="Timer" parent="."]
+
+[node name="ShowTextBox" type="Timer" parent="."]
+
+[connection signal="gui_input" from="typeBox/LineEdit" to="." method="_acceptText"]
+[connection signal="text_changed" from="typeBox/LineEdit" to="." method="_on_line_edit_text_changed"]
+[connection signal="timeout" from="LastType" to="." method="typeTimeout"]

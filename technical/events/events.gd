@@ -67,4 +67,11 @@ var justMinigames = [
 	"Type":"Minigame",
 	"Played?":false,
 	},
+	{
+	"Event":"Write-it-Right!",
+	"AttachedScene":"res://technical/events/writeitright.tscn",
+	"WarningMessage":"I love typing im so good at typing my teacher made me use typing.com in 2nd grade so im like. rly good at it yeah",
+	"Type":"Minigame",
+	"Played?":false,
+	},
 	]

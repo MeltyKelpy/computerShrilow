@@ -84,7 +84,7 @@ func _process(_delta: float) -> void:
 	
 	if err == OK:
 		var awesome = config.get_value("Rebirth", "EvilMinesAvaliable")
-		if awesome == false:
+		if awesome == true:
 			maxMineLevel = 8
 		else:
 			maxMineLevel = 4
