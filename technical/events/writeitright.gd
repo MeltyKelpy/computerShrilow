@@ -29,6 +29,7 @@ var prompts = [
 	"Theres a man on the wing.",
 	"It's beginning to look alot like a white christmas in here",
 	"Hawk 1: hi im hawk 1. Hawk 2: uhm. Those who know: Skull",
+	"Well, it looks like fredbears is closing again because of a report of a child dying there. It may sound insane, but we're closing down!",
 	]
 var lastResultDETERMINE = ""
 var section = 0

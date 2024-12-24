@@ -471,7 +471,7 @@ texture = ExtResource("3_ie5f4")
 [node name="Shrilow" type="AnimatedSprite2D" parent="Game"]
 position = Vector2(923, 438)
 sprite_frames = SubResource("SpriteFrames_87g2v")
-frame_progress = 0.147942
+frame_progress = 0.980939
 
 [node name="Text" type="Label" parent="Game"]
 visible = false
