@@ -1,8 +1,9 @@
-[gd_scene load_steps=29 format=3 uid="uid://bfs7i3sgigtxr"]
+[gd_scene load_steps=31 format=3 uid="uid://bfs7i3sgigtxr"]
 
 [ext_resource type="Script" path="res://technical/events/writeitright.gd" id="1_pmuc2"]
 [ext_resource type="Texture2D" uid="uid://bjbddkb1lup8" path="res://assets/images/events/writeitright/bg.png" id="2_m88lx"]
 [ext_resource type="Texture2D" uid="uid://bucepb3oy8gmh" path="res://assets/images/events/minigameTitle.png" id="3_4keh8"]
+[ext_resource type="Texture2D" uid="uid://dljq5e4jy2hm7" path="res://assets/images/events/writeitright/bgScroll.png" id="3_ie5f4"]
 [ext_resource type="Texture2D" uid="uid://be8tov83885gm" path="res://assets/images/events/writeitright/shrilow/backspace.png" id="3_y616w"]
 [ext_resource type="Texture2D" uid="uid://sn2vh6yb4153" path="res://assets/images/events/filledStar.png" id="4_837fx"]
 [ext_resource type="Texture2D" uid="uid://ccjcltcqv7cvt" path="res://assets/images/events/writeitright/shrilow/base.png" id="4_c1a5g"]
@@ -18,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://uyg7fyvw3px1" path="res://assets/images/events/writeitright/paper.png" id="9_ms34q"]
 [ext_resource type="Texture2D" uid="uid://hpupqlf6p440" path="res://assets/images/events/writeitright/exBox.png" id="9_mteur"]
 [ext_resource type="AudioStream" uid="uid://cahd8n2qup8t6" path="res://assets/music/roshambo.ogg" id="11_g4k27"]
+[ext_resource type="AudioStream" uid="uid://by43iftb5qwsc" path="res://assets/sounds/cheer.ogg" id="19_gmn3h"]
 
 [sub_resource type="Animation" id="Animation_djedu"]
 tracks/0/type = "value"
@@ -447,18 +449,32 @@ libraries = {
 "": SubResource("AnimationLibrary_iiqyl")
 }
 
-[node name="Game" type="Node2D" parent="."]
-
-[node name="background" type="Sprite2D" parent="Game"]
+[node name="background" type="Sprite2D" parent="."]
 position = Vector2(576, 324)
 texture = ExtResource("2_m88lx")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+offset = Vector2(500, 325)
+scale = Vector2(1.15, 1.15)
+transform = Transform2D(1.15, 0, 0, 1.15, 500, 325)
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(669.565, -20.8696)
+motion_mirroring = Vector2(2204, 0)
+
+[node name="background" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(-36.5218, 48.6956)
+texture = ExtResource("3_ie5f4")
+
+[node name="Game" type="Node2D" parent="."]
 
 [node name="Shrilow" type="AnimatedSprite2D" parent="Game"]
 position = Vector2(923, 438)
 sprite_frames = SubResource("SpriteFrames_87g2v")
-frame_progress = 0.833519
+frame_progress = 0.147942
 
 [node name="Text" type="Label" parent="Game"]
+visible = false
 offset_left = 69.0
 offset_top = 256.0
 offset_right = 688.0
@@ -473,6 +489,7 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="exBox" type="Sprite2D" parent="Game"]
+modulate = Color(1, 1, 1, 0)
 position = Vector2(576, 324)
 texture = ExtResource("9_mteur")
 
@@ -549,7 +566,7 @@ position = Vector2(576, 1000)
 texture = ExtResource("9_ms34q")
 
 [node name="typeBox" type="Sprite2D" parent="."]
-visible = false
+modulate = Color(1, 1, 1, 0)
 position = Vector2(576, 324)
 texture = ExtResource("8_7v4a3")
 
@@ -566,7 +583,6 @@ theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxEmpty_av3w1")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_jqpq1")
 theme_override_styles/read_only = SubResource("StyleBoxEmpty_y1iid")
-text = "hiii"
 placeholder_text = "Type Here! you got this!"
 editable = false
 context_menu_enabled = false
@@ -598,9 +614,23 @@ wait_time = 0.5
 one_shot = true
 
 [node name="ShowPrompt" type="Timer" parent="."]
+one_shot = true
 
 [node name="ShowTextBox" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="StartNextMatch" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_gmn3h")
+volume_db = -8.771
 
 [connection signal="gui_input" from="typeBox/LineEdit" to="." method="_acceptText"]
 [connection signal="text_changed" from="typeBox/LineEdit" to="." method="_on_line_edit_text_changed"]
 [connection signal="timeout" from="LastType" to="." method="typeTimeout"]
+[connection signal="timeout" from="ShowPrompt" to="." method="_on_show_prompt_timeout"]
+[connection signal="timeout" from="ShowTextBox" to="." method="_on_show_text_box_timeout"]
+[connection signal="timeout" from="StartNextMatch" to="." method="_on_start_next_match_timeout"]

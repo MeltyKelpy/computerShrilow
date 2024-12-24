@@ -12,15 +12,23 @@ var letterToCheck = 0
 
 var round = 0
 
+var prevPrompts = [
+	null,
+	null,
+	null,
+	null,
+	]
+
 var deterministic = [
 	]
 var prompts = [
 	"I cant stop drinking oil. I cant stop drinking it! I cant stop drinking crude oil!",
-	"I think Quick-Time Event is a cool person",
+	"I think QuickTime Event is a cool person",
 	"I hope everyone who dies goes to hell, no matter what.",
 	"Supercalifragilisticexpealadocious",
 	"Theres a man on the wing.",
 	"It's beginning to look alot like a white christmas in here",
+	"Hawk 1: hi im hawk 1. Hawk 2: uhm. Those who know: Skull",
 	]
 var lastResultDETERMINE = ""
 var section = 0
@@ -37,14 +45,23 @@ func _ready() -> void:
 
 func _allowToMove():
 	readyy = true
-	$Game/exBox/Text.text = prompts[rng.randi_range(0, prompts.size()-1)]
-	$typeBox/LineEdit.editable = true
 	startRound()
 
 func startRound():
 	round += 1
-	$Game/Text.visible = true
-	$Game/Text.text = "Prompt "+round+":"
+	if round < 4:
+		$typeBox/LineEdit.text = ""
+		$typeBox/LineEdit.visible = true
+		$typeBox/Show.visible = false
+		deterministic.resize(0)
+		lastResultDETERMINE = ""
+		section = 0
+		letterToCheck = 0
+		$Game/Text.visible = true
+		$Game/Text.text = "Prompt "+str(round)+":"
+		$ShowPrompt.start()
+	else:
+		_fuckYeah()
 
 func starsUpdate():
 	if $opening/Star5.animation != "unstar":
@@ -70,6 +87,7 @@ func starsUpdate():
 		$opening/Star1.play("star")
 
 func _process(_delta: float) -> void:
+	$ParallaxBackground.scroll_base_offset.x -= 10 * _delta/0.5
 	
 	if shrilState == "Base":
 		$Game/Shrilow.play("default")
@@ -77,8 +95,8 @@ func _process(_delta: float) -> void:
 		$Game/Shrilow.play("talk")
 	if shrilState == "Backspace":
 		$Game/Shrilow.play("backspace")
-	#if shrilState == "Base":
-		#$Game/Shrilow.play("default")
+	if shrilState == "Stupid":
+		$Game/Shrilow.play("win")
 	
 	if state == "contract" and Input.is_action_just_pressed("Enter"):
 		state = "interactable"
@@ -96,7 +114,7 @@ func _process(_delta: float) -> void:
 		starsUpdate()
 		starsPrev = stars
 	
-	if stars == 0 and gameOver == false and readyy == true:
+	if round == 4 and gameOver == false and readyy == true:
 		_fuckYeah()
 	
 	if gameOver == true:
@@ -120,7 +138,7 @@ func _endEvent():
 	var caca = cacapoopyGOD.instantiate()
 	if stars > 0:
 		winOrLose = true
-		money = (100 + (ItemValues.maxMoney / 1000)) * stars
+		money = (500 + (ItemValues.maxMoney / 100)) * stars
 		add_child(caca)
 	if stars <= 0:
 		winOrLose = false
@@ -130,7 +148,7 @@ func _endEvent():
 	caca.reparent($/root)
 
 func _acceptText(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("Enter"):
+	if Input.is_action_just_pressed("Enter") and $typeBox/LineEdit.editable == true:
 		$typeBox/LineEdit.editable = false
 		print("hello mario")
 		checkSpelling()
@@ -175,20 +193,37 @@ func checkSpelling():
 		letterToCheck += 1
 		checkSpelling()
 	else:
+		if letterToCheck < full.length()-1:
+			print(full.length()-1)
+			print(letterToCheck)
+			stars -= (full.length()-1) - letterToCheck
 		showResults()
 
 func showResults():
 	$typeBox/Show.text = ""
+	var hi = true
 	for i in deterministic.size():
 		if i != 0:
 			if deterministic[i]["Result"] == "Wrong":
+				if deterministic[i]["sectionOfText"] == "":
+					deterministic[i]["sectionOfText"] = "_"
 				$typeBox/Show.text = $typeBox/Show.text + "[color=red]"+deterministic[i]["sectionOfText"]+"[/color]"
+				hi = false
+				stars -= 1
 			if deterministic[i]["Result"] == "Correct":
 				$typeBox/Show.text = $typeBox/Show.text + "[color=green]"+deterministic[i]["sectionOfText"]+"[/color]"
 	print($typeBox/Show.text)
+	if hi == true:
+		shrilState == "Stupid"
+		$AudioStreamPlayer2.stream = load("res://assets/sounds/cheer.ogg")
+	if hi == false:
+		shrilState == "Backspace"
+		$AudioStreamPlayer2.stream = load("res://assets/sounds/awh.ogg")
+	$AudioStreamPlayer2.play()
+	$StartNextMatch.start()
 
 func _on_line_edit_text_changed() -> void:
-	if Input.is_action_just_pressed("Backspace"):
+	if Input.is_action_pressed("Backspace"):
 		print("hello luigi")
 		shrilState = "Backspace"
 	else:
@@ -198,3 +233,37 @@ func _on_line_edit_text_changed() -> void:
 
 func typeTimeout() -> void:
 	shrilState = "Base"
+
+func _on_show_prompt_timeout() -> void:
+	var tween = get_tree().create_tween()
+	$Game/Text.visible = false
+	tween.tween_property($Game/exBox, "modulate", Color(1,1,1,1), 1)
+	var prompppt = calcPrompt()
+	prevPrompts[round] = prompppt
+	$Game/exBox/Text.text = prompts[prompppt]
+	#tween.tween_callback($Sprite.queue_free)
+	$ShowTextBox.start()
+
+func calcPrompt():
+	var ranThruTimes = 0
+	var prompppt
+	prompppt = rng.randi_range(0, prompts.size()-1)
+	for i in [1,2,3]:
+		ranThruTimes = i
+		if prompppt == prevPrompts[i]:
+			calcPrompt()
+		elif ranThruTimes == 3:
+			return prompppt
+
+func _on_show_text_box_timeout() -> void:
+	$typeBox/LineEdit.editable = true
+	var tween = get_tree().create_tween()
+	tween.tween_property($typeBox, "modulate", Color(1,1,1,1), 1)
+
+func _on_start_next_match_timeout() -> void:
+	shrilState = "Base"
+	var tween = get_tree().create_tween()
+	var tween2 = get_tree().create_tween()
+	tween.tween_property($Game/exBox, "modulate", Color(1,1,1,0), 1)
+	tween2.tween_property($typeBox, "modulate", Color(1,1,1,0), 1)
+	tween.tween_callback(startRound)
