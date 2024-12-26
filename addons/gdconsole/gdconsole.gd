@@ -519,6 +519,8 @@ func _minigame(ID : int):
 	if ID <= Events.justMinigames.size()-1:
 		var cacapoopyGOD2 = load(Events.justMinigames[ID]["AttachedScene"])
 		var caca = cacapoopyGOD2.instantiate()
-		add_child(caca)
+		$/root.add_child(caca)
+		$/root/computerShrilow.visible = false
+		get_tree().paused = true
 	else:
 		print_error("that event doesnt exist, the amount of event in your choice is from 0 to "+str(Events.justMinigames.size()-1))

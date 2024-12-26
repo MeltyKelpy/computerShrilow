@@ -471,7 +471,7 @@ texture = ExtResource("3_ie5f4")
 [node name="Shrilow" type="AnimatedSprite2D" parent="Game"]
 position = Vector2(923, 438)
 sprite_frames = SubResource("SpriteFrames_87g2v")
-frame_progress = 0.980939
+frame_progress = 0.546604
 
 [node name="Text" type="Label" parent="Game"]
 visible = false
@@ -519,9 +519,9 @@ texture = ExtResource("3_4keh8")
 
 [node name="Label" type="Label" parent="opening"]
 offset_left = -9.0
-offset_top = 900.0
+offset_top = 10.0
 offset_right = 1152.0
-offset_bottom = 969.0
+offset_bottom = 79.0
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 30
 text = "Type my Messages."

@@ -700,6 +700,7 @@ func _startEvent(numberPicked, type) -> void:
 		$Camera2D.position.x = 576
 		$Camera2D.position.y = 324
 		caca.reparent($/root)
+		visible = false
 
 func shrilowColor(color) -> void:
 	if color == "base":

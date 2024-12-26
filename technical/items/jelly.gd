@@ -48,8 +48,6 @@ func buy():
 			Game.jellies += 1
 			selfDiscoveredVar = true
 		new = false
-	$nameShit/Name.text = jelly
-	$nameShit/Stats.text = rarity+"\n"+str(money)+"$ per "+str(seconds)+" Seconds"
 	_on_storage_pressed(true)
 
 func setParent():
@@ -57,6 +55,8 @@ func setParent():
 	# this function avoids a stupid error when loading them in.
 
 func _ready() -> void:
+	$nameShit/Name.text = jelly
+	$nameShit/Stats.text = rarity+"\n"+str(money)+"$ per "+str(seconds)+" Seconds"
 	$FirstTimer.wait_time = seconds - 0.2
 	$SecondTimer.wait_time = 0.2
 	$FirstTimer.start()

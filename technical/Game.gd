@@ -61,6 +61,7 @@ func loadData():
 		gameTime = config.get_value("Fiscal", "Time")
 		FizzyDrink.clicks = config.get_value("Fiscal", "Clicks")
 		ItemValues.money = config.get_value("Fiscal", "Money")
+		ClothingObjects.equippedClothing = config.get_value("Fiscal", "Clothing")
 		
 		ItemValues.itemInfomation[0]["CurUpgrade"] = config.get_value("Shop", "autoClickerUpgrade")
 		ItemValues.itemInfomation[1]["CurUpgrade"] = config.get_value("Shop", "PlusOneUpgrade")
@@ -111,6 +112,7 @@ func saveData():
 	config.set_value("Fiscal", "Rebirths", rebirths)
 	config.set_value("Fiscal", "Time", gameTime)
 	config.set_value("Fiscal", "Clicks", FizzyDrink.clicks)
+	config.set_value("Fiscal", "Clothing", ClothingObjects.equippedClothing)
 	
 	# STATS
 	

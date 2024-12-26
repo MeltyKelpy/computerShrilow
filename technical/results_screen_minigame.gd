@@ -97,6 +97,7 @@ func allowExit():
 	$/root/computerShrilow/Camera2D.position.y = $/root/computerShrilow.returnPosCamY
 	position.x = $/root/computerShrilow.returnPosCamX - 576
 	position.y = $/root/computerShrilow.returnPosCamY - 324
+	$/root/computerShrilow.visible = true
 	if resultt == "LOSE.":
 		countingMoney = false
 		allowExiting = true

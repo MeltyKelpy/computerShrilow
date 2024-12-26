@@ -1,4 +1,4 @@
-[gd_scene load_steps=122 format=3 uid="uid://bgw557ttv6noe"]
+[gd_scene load_steps=125 format=3 uid="uid://bgw557ttv6noe"]
 
 [ext_resource type="Script" path="res://scenes/t_computer.gd" id="1_swrb7"]
 [ext_resource type="Texture2D" uid="uid://dajex7cpt7k4p" path="res://assets/images/bg/background.png" id="2_u0da7"]
@@ -44,7 +44,9 @@
 [ext_resource type="AudioStream" uid="uid://b8er53yeuc5lq" path="res://assets/music/skate.ogg" id="32_rrknt"]
 [ext_resource type="Texture2D" uid="uid://cyl5tq8jp5j0t" path="res://assets/images/ui/transitions/gumball0.png" id="33_ltk4g"]
 [ext_resource type="Texture2D" uid="uid://bkbjihpsh2jer" path="res://assets/images/ui/transitions/gumball1.png" id="34_81w35"]
+[ext_resource type="Texture2D" uid="uid://dlr8i70w0kxe" path="res://assets/images/areas/blackMarket/marketFrame1.png" id="34_plbbe"]
 [ext_resource type="Texture2D" uid="uid://b3tp13r2ykpby" path="res://assets/images/ui/transitions/journal0.png" id="35_a0leu"]
+[ext_resource type="Texture2D" uid="uid://b3va7wv24phrk" path="res://assets/images/areas/blackMarket/marketFrame2.png" id="35_sqmvq"]
 [ext_resource type="Texture2D" uid="uid://qhintyosqus" path="res://assets/images/ui/transitions/journal1.png" id="36_s2fg5"]
 [ext_resource type="Texture2D" uid="uid://kpdgjt7sf3f1" path="res://assets/images/ui/transitions/storage0.png" id="37_minta"]
 [ext_resource type="Texture2D" uid="uid://ba21ncyajao5t" path="res://assets/images/ui/transitions/storage1.png" id="38_1n5wc"]
@@ -142,6 +144,20 @@ animations = [{
 "loop": true,
 "name": &"talkBase",
 "speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x01u4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("34_plbbe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_sqmvq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
 }]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e17ue"]
@@ -1117,22 +1133,6 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
 [node name="MinesLevel" parent="Mines/ScrollContainer/Control" instance=ExtResource("18_6bagw")]
 position = Vector2(0, 100)
 
-[node name="USD" type="Sprite2D" parent="."]
-z_index = 8
-position = Vector2(51, 70)
-texture = ExtResource("7_0u6ge")
-
-[node name="USDText" type="Label" parent="."]
-z_index = 8
-offset_left = 108.0
-offset_top = 46.0
-offset_right = 212.0
-offset_bottom = 116.0
-scale = Vector2(1, 0.6)
-theme = ExtResource("8_oskpf")
-theme_override_font_sizes/font_size = 50
-text = "MONEY"
-
 [node name="Shrilow" type="Node2D" parent="."]
 position = Vector2(586, 649)
 
@@ -1331,6 +1331,22 @@ theme = ExtResource("8_oskpf")
 text = "CLICKS:"
 
 [node name="puppies" type="Node2D" parent="ShrilowScreen"]
+
+[node name="USD" type="Sprite2D" parent="."]
+z_index = 8
+position = Vector2(51, 70)
+texture = ExtResource("7_0u6ge")
+
+[node name="USDText" type="Label" parent="."]
+z_index = 8
+offset_left = 108.0
+offset_top = 46.0
+offset_right = 212.0
+offset_bottom = 116.0
+scale = Vector2(1, 0.6)
+theme = ExtResource("8_oskpf")
+theme_override_font_sizes/font_size = 50
+text = "MONEY"
 
 [node name="Jelly" type="Node2D" parent="."]
 position = Vector2(-1152, 0)
@@ -1532,7 +1548,16 @@ parameters/looping = true
 
 [node name="type" type="AudioStreamPlayer" parent="Shop"]
 stream = ExtResource("30_av4u0")
-volume_db = -10.633
+volume_db = 0.644
+
+[node name="MarektIndicator" type="AnimatedSprite2D" parent="Shop"]
+position = Vector2(576, 324)
+sprite_frames = SubResource("SpriteFrames_x01u4")
+autoplay = "default"
+frame_progress = 0.512889
+
+[node name="Market" type="Node2D" parent="."]
+position = Vector2(2799, 1084)
 
 [node name="Wardrobe" type="Node2D" parent="."]
 position = Vector2(0, -648)
@@ -2117,7 +2142,7 @@ one_shot = true
 autostart = true
 
 [node name="autosave" type="Timer" parent="."]
-wait_time = 300.0
+wait_time = 360.0
 autostart = true
 
 [connection signal="pressed" from="Mines/ScrollContainer/Control/BackButtonWARD" to="." method="_on_back_button_ward2_pressed"]
