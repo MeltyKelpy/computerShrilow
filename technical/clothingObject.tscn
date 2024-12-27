@@ -37,9 +37,9 @@ texture = ExtResource("2_facdx")
 
 [node name="Cost" type="Label" parent="Clothing"]
 offset_left = -76.0
-offset_top = 51.0
+offset_top = 43.0
 offset_right = 75.0
-offset_bottom = 81.0
+offset_bottom = 73.0
 scale = Vector2(1, 0.6)
 theme = ExtResource("3_jjocx")
 theme_override_colors/font_color = Color(0.231373, 0.0862745, 0.0784314, 1)

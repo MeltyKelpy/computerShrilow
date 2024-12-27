@@ -79,7 +79,7 @@ offset_bottom = 97.0
 scale = Vector2(1, 0.7)
 theme = ExtResource("2_q66pj")
 theme_override_constants/line_spacing = -2
-theme_override_font_sizes/font_size = 28
+theme_override_font_sizes/font_size = 24
 text = "Load me pls
 Load me pls
 Load me pls

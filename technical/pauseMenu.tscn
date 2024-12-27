@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://6wcc8jfv4mt5"]
+[gd_scene load_steps=44 format=3 uid="uid://6wcc8jfv4mt5"]
 
 [ext_resource type="Script" path="res://technical/pauseMenu.gd" id="1_0pw43"]
 [ext_resource type="FontFile" uid="uid://brn7smfq0l6ao" path="res://assets/fonts/TwCen.ttf" id="1_wqogi"]
@@ -7,10 +7,12 @@
 [ext_resource type="Texture2D" uid="uid://6jl2v3awijit" path="res://assets/images/mainMenu/pressed.png" id="4_twrxj"]
 [ext_resource type="Texture2D" uid="uid://b3xebwynw0fcw" path="res://assets/images/mainMenu/button.png" id="5_r4oq7"]
 [ext_resource type="Texture2D" uid="uid://b2ybgdfw8q766" path="res://assets/images/mainMenu/disabled.png" id="6_5bkqc"]
-[ext_resource type="PackedScene" path="res://technical/settingsScene.tscn" id="8_6xb0h"]
+[ext_resource type="PackedScene" uid="uid://vpt87r2yvndr" path="res://technical/settingsScene.tscn" id="8_6xb0h"]
 [ext_resource type="Texture2D" uid="uid://cwladsljiqill" path="res://assets/images/ui/backDown.png" id="9_avaki"]
 [ext_resource type="Texture2D" uid="uid://bf5nxu26qx66x" path="res://assets/images/loadingLow.png" id="9_ue280"]
 [ext_resource type="Texture2D" uid="uid://dhml6kkc1kfmj" path="res://assets/images/logo.png" id="10_1d8aj"]
+[ext_resource type="AudioStream" uid="uid://df6n0e2ffypgv" path="res://assets/music/screensaver.ogg" id="12_hpk77"]
+[ext_resource type="VideoStream" path="res://assets/videos/screensaver.ogv" id="13_ury0b"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f6onq"]
 
@@ -446,6 +448,18 @@ text = "this is a pause menu, if you didnt notice"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = -171.0
+offset_top = -222.0
+offset_right = 629.0
+offset_bottom = 386.0
+scale = Vector2(2, 2)
+mouse_filter = 2
+stream = ExtResource("13_ury0b")
+autoplay = true
+loop = true
+
 [node name="SettingsScene" parent="." instance=ExtResource("8_6xb0h")]
 position = Vector2(0, 668)
 
@@ -521,9 +535,22 @@ libraries = {
 "": SubResource("AnimationLibrary_g53so")
 }
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_hpk77")
+volume_db = -80.0
+autoplay = true
+parameters/looping = true
+
+[node name="wow" type="Timer" parent="."]
+wait_time = 20.0
+one_shot = true
+autostart = true
+
 [connection signal="pressed" from="resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="SettingsScene/back2" to="." method="_on_back_2_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
+[connection signal="timeout" from="wow" to="." method="_on_wow_timeout"]

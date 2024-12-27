@@ -1,5 +1,7 @@
 extends Node2D
 
+var loading
+
 var creditors = [
 	{
 	"Name":"MeltyKelpy",
@@ -114,7 +116,10 @@ func _process(delta: float) -> void:
 		$Credits/person.texture = load(creditors[selectedCredit]["Image"])
 
 func endMenu():
-	get_tree().change_scene_to_file("res://scenes/tComputer.tscn")
+	if loading == "game":
+		get_tree().change_scene_to_file("res://scenes/tComputer.tscn")
+	if loading == "tutorial":
+		get_tree().change_scene_to_file("res://scenes/tutorial.tscn")
 
 func _on_start_pressed() -> void:
 	if can == true:
@@ -167,7 +172,10 @@ func openLink(site : String) -> void:
 	if site == "Our Website":
 		OS.shell_open("https://bsky.app/profile/juiceboxfactory.bsky.social")
 
-func _on_button_pressed() -> void:
-	if can == true:
-		$loadingScreen/loading.play("loading")
-		can = false
+func _on_button_pressed(type) -> void:
+	loading = type
+	$loadingScreen/loading.play("loading")
+	can = false
+
+func _on_tutorial_pressed() -> void:
+	_on_button_pressed("tutorial")

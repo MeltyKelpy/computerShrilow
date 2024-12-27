@@ -215,10 +215,10 @@ func showResults():
 				$typeBox/Show.text = $typeBox/Show.text + "[color=green]"+deterministic[i]["sectionOfText"]+"[/color]"
 	print($typeBox/Show.text)
 	if hi == true:
-		shrilState == "Stupid"
+		shrilState = "Stupid"
 		$AudioStreamPlayer2.stream = load("res://assets/sounds/cheer.ogg")
 	if hi == false:
-		shrilState == "Backspace"
+		shrilState = "Backspace"
 		$AudioStreamPlayer2.stream = load("res://assets/sounds/awh.ogg")
 	$AudioStreamPlayer2.play()
 	$StartNextMatch.start()
@@ -236,7 +236,7 @@ func typeTimeout() -> void:
 	shrilState = "Base"
 
 func _on_show_prompt_timeout() -> void:
-	var tween = get_tree().create_tween()
+	var tween = create_tween()
 	$Game/Text.visible = false
 	tween.tween_property($Game/exBox, "modulate", Color(1,1,1,1), 1)
 	var prompppt = calcPrompt()
@@ -258,13 +258,13 @@ func calcPrompt():
 
 func _on_show_text_box_timeout() -> void:
 	$typeBox/LineEdit.editable = true
-	var tween = get_tree().create_tween()
+	var tween = create_tween()
 	tween.tween_property($typeBox, "modulate", Color(1,1,1,1), 1)
 
 func _on_start_next_match_timeout() -> void:
 	shrilState = "Base"
-	var tween = get_tree().create_tween()
-	var tween2 = get_tree().create_tween()
+	var tween = create_tween()
+	var tween2 = create_tween()
 	tween.tween_property($Game/exBox, "modulate", Color(1,1,1,0), 1)
 	tween2.tween_property($typeBox, "modulate", Color(1,1,1,0), 1)
 	tween.tween_callback(startRound)

@@ -5,8 +5,8 @@ var rng = RandomNumberGenerator.new()
 var held_object = false
 var cameraMoveDir = "center"
 var area = "notJellies"
-var returnPosCamX = 0
-var returnPosCamY = 0
+var returnPosCamX = 577
+var returnPosCamY = 324
 var can = true
 var melShopState = true
 var melvinShopState = true
@@ -317,6 +317,12 @@ func generateHoes():
 		caca.type = "melvin"
 		add_child(caca)
 		caca.reparent($Melvin/ScrollContainer/GridContainer)
+	for i in ItemValues.marketItems.size():
+		var cacapoopyGOD2 = preload("res://technical/MarketItem.tscn")
+		var caca = cacapoopyGOD2.instantiate()
+		caca.ItemID = i
+		add_child(caca)
+		caca.reparent($BlackMarket/ScrollContainer/GridContainer)
 	for i in ClothingObjects.clothes.size():
 		var cacapoopyGOD2 = preload("res://technical/clothingObject.tscn")
 		var caca = cacapoopyGOD2.instantiate()
@@ -388,7 +394,15 @@ func _ready():
 	
 	# AWFUL CASE OF SPAGHETTI CODE IM JUST TOO LAZY TO WRITE THIS WELL LMAO
 	if err == OK:
-		for i in ["autoclicker", "plusone", "plusoneauto"]:
+		
+		if config.get_value("Fiscal", "Rebirths") > 0:
+			$Shop/MarektIndicator.visible = true
+			$Shop/EnterMarket.disabled = false
+		else:
+			$Shop/MarektIndicator.visible = false
+			$Shop/EnterMarket.disabled = true
+		
+		for i in ["autoclicker", "plusone", "plusoneauto", "Rautoclicker", "Rplusone", "Rplusoneauto"]:
 			if i == "autoclicker":
 				if config.get_value("Shop", "autoClickerUpgrade") > 0:
 					var cacaFUCK = load("res://technical/items/"+i+".tscn").instantiate()
@@ -400,6 +414,18 @@ func _ready():
 			elif i == "plusoneauto":
 				if config.get_value("Shop", "PlusOneAUTOUpgrade") > 0:
 					var cacaFUCK = load("res://technical/items/"+i+".tscn").instantiate()
+					add_child(cacaFUCK)
+			elif i == "Rautoclicker":
+				if config.get_value("Rebirth", "RebirthAutoClickerLevel") > 0:
+					var cacaFUCK = load("res://technical/rebirthShit/"+i+".tscn").instantiate()
+					add_child(cacaFUCK)
+			elif i == "Rplusone":
+				if config.get_value("Rebirth", "PresistantPlusOne") > 0:
+					var cacaFUCK = load("res://technical/rebirthShit/"+i+".tscn").instantiate()
+					add_child(cacaFUCK)
+			elif i == "Rplusoneauto":
+				if config.get_value("Rebirth", "PlusOneMC") > 0:
+					var cacaFUCK = load("res://technical/rebirthShit/"+i+".tscn").instantiate()
 					add_child(cacaFUCK)
 	
 	if DirAccess.dir_exists_absolute("user://saveData/nodeSaves/file"+str(Game.curFile+1)) == true:
@@ -531,10 +557,20 @@ func _process(_delta : float) -> void:
 	if $Melvin/ShopMusic.volume_db > -100 and area != "melvin":
 		$Melvin/ShopMusic.volume_db -= 1 + (1 * _delta)
 	
+	if $Market/ShopMusic.volume_db < 0 and area == "market":
+		$Market/ShopMusic.volume_db += 0.5 + (0.5 * _delta)
+	if $Market/ShopMusic.volume_db > -100 and area != "market":
+		$Market/ShopMusic.volume_db -= 1 + (1 * _delta)
+	
 	if $Shop/ShopMusic.volume_db < 0 and area == "melanie":
 		$Shop/ShopMusic.volume_db += 1 + (1 * _delta)
 	if $Shop/ShopMusic.volume_db > -100 and area != "melanie":
 		$Shop/ShopMusic.volume_db -= 1 + (1 * _delta)
+	
+	if $theVoid/mus.volume_db < -10 and area == "void":
+		$theVoid/mus.volume_db += 1 + (1 * _delta)
+	if $theVoid/mus.volume_db > -100 and area != "void":
+		$theVoid/mus.volume_db -= 1 + (1 * _delta)
 	
 	$Mines/ScrollContainer/Control.custom_minimum_size.y = (648 * FizzyDrink.minesLength) + 100
 	
@@ -549,6 +585,11 @@ func _process(_delta : float) -> void:
 	if melvinShopState == true:
 		$Melvin/ItemName.text = ItemValues.itemName
 		$Melvin/ItemDescription.text = ItemValues.itemDesc
+	if area == "market":
+		$BlackMarket/TokensCount.text = str(Game.rebirthTokens)
+		$BlackMarket/ItemName.text = ItemValues.itemName
+		$BlackMarket/ItemDescription.text = ItemValues.itemDesc
+		$BlackMarket/ItemExtra.text = ItemValues.itemExtra
 	
 	$Wardrobe/ItemName.text = ClothingObjects.itemName
 	$Wardrobe/ItemDescription.text = ClothingObjects.itemDesc
@@ -565,16 +606,16 @@ func _process(_delta : float) -> void:
 	if $Shrilow.scale.y < 1:
 		$Shrilow.scale.y += 0.05
 	
-	if Input.is_action_just_pressed("eventText"):
-		$Camera2D.position.y = 324
+	#if Input.is_action_just_pressed("eventText"):
+		#$Camera2D.position.y = 324
 		#_event()
 		#if $Camera2D.position.x != -1221:
 			#cameraAnimation("journal", -791, -1221)
 		#if $Camera2D.position.x == -791:
 			#cameraAnimation("journal", 576, 324)
 	
-	if Input.is_action_just_pressed("DebugMode"):
-		$DEBUGVALUES.visible = !$DEBUGVALUES.visible
+	#if Input.is_action_just_pressed("DebugMode"):
+		#$DEBUGVALUES.visible = !$DEBUGVALUES.visible
 	
 	if $DEBUGVALUES.visible == true:
 		$DEBUGVALUES/ScrollContainer/Control/Label.text = "DEBUG MODE\n================\nEvent Timer: "+str($EventTimer.time_left)+"\nStop Events Timer: "+str($noEventsTimer.time_left)
@@ -593,7 +634,7 @@ func _on_shrilow_squeak_autoclick() -> void:
 		$Shrilow/Shrilow/StillFace.texture = load("res://assets/images/computershrilows/shrilowFaces/click.png")
 	if curClicks >= 150:
 		$Shrilow/Shrilow/StillFace.texture = load("res://assets/images/computershrilows/shrilowFaces/dizzy.png")
-	ItemValues.money += FizzyDrink.AUTOclickPower+FizzyDrink.AUTOclickPowerAdditions+FizzyDrink.AUTOclickPowerClothingBuffs
+	ItemValues.money += FizzyDrink.AUTOclickPower+FizzyDrink.AUTOclickPowerP1+FizzyDrink.AUTOclickPowerP1R+FizzyDrink.AUTOclickPowerAdditions+FizzyDrink.AUTOclickPowerClothingBuffs
 	$Shrilow/Squeak2.play()
 
 func _on_shrilow_squeak_pressed() -> void:
@@ -611,7 +652,7 @@ func _on_shrilow_squeak_pressed() -> void:
 		if curClicks >= 150:
 			$Shrilow/Shrilow/StillFace.texture = load("res://assets/images/computershrilows/shrilowFaces/dizzy.png")
 		$Shrilow/Squeak.play()
-		ItemValues.money += FizzyDrink.clickPower+FizzyDrink.clickPowerAdditions+FizzyDrink.clickPowerClothingBuffs
+		ItemValues.money += FizzyDrink.clickPower+FizzyDrink.clickPowerP1+FizzyDrink.clickPowerP1R+FizzyDrink.clickPowerAdditions+FizzyDrink.clickPowerClothingBuffs
 		FizzyDrink.clicks += 1
 		curClicks += 1
 	if Input.is_action_just_pressed("rightClick"):
@@ -756,6 +797,14 @@ func cameraAnimation(Varea, positionX, positionY, allowMove):
 		for i in FizzyDrink.melDialogue.size():
 			if FizzyDrink.melDialogue[i]["dialogKey"] == "MELVIN":
 				FizzyDrink.melDialogue[i]["unlocked"] = true
+	if Varea == "market":
+		if area == "market":
+			area = "melanie"
+		else:
+			area = "market"
+		for i in FizzyDrink.melDialogue.size():
+			if FizzyDrink.melDialogue[i]["dialogKey"] == "MARKET":
+				FizzyDrink.melDialogue[i]["unlocked"] = true
 	if area == "Jellies":
 		area = "notJellies"
 	$EventTimer.paused = true
@@ -780,7 +829,7 @@ func moveCam():
 		area = "notJellies"
 	if allowing == true:
 		area = "Jellies"
-	if area == "notJellies" or area == "melvin":
+	if area == "notJellies" or area == "melvin" or area == "melanie" or area == "market":
 		$Camera2D/storg.disabled = true
 		$Camera2D/storgImg.visible = false
 		$Camera2D/storg.visible = false
@@ -1063,3 +1112,72 @@ func autosave() -> void:
 
 func killPoop() -> void:
 	$Camera2D/autoPoop.visible = false
+
+func marketState(type : String) -> void:
+	if type == "enter":
+		if $Market/ShopMusic.playing == false:
+			$Market/ShopMusic.play()
+		$Camera2D/bg.self_modulate = Color(0.1,0.1,0.1,1)
+		cameraAnimation("market", 1923, 1167, false)
+	if type == "leave":
+		$Camera2D/bg.self_modulate = Color(1,1,1,1)
+		cameraAnimation("market", 576, 324, false)
+	if type == "void":
+		if can == true:
+			area = "void"
+			var tween = create_tween()
+			tween.tween_property($Market, "position", Vector2(186,903), 1).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_IN)
+			tween.parallel().tween_property($Market, "scale", Vector2(7.5,7.5), 1).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
+			tween.tween_callback(canpls)
+			$theVoid.position.x = 1923
+			$Market/voidDoor.texture = load("res://assets/images/areas/blackMarket/voidDoorOpen.png")
+			can = false
+	if type == "voidLeave":
+		if can == true:
+			area = "market"
+			var tween = create_tween()
+			tween.tween_property($Market, "position", Vector2(1922,1167), 1).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
+			tween.parallel().tween_property($Market, "scale", Vector2(1,1), 1).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+			tween.tween_callback(canpls)
+			$theVoid.position.x = 3117
+			$Market/voidDoor.texture = load("res://assets/images/areas/blackMarket/voidDoorClosed.png")
+			can = false
+	if type == "blackmarket":
+		if can == true:
+			var tween = create_tween()
+			tween.tween_property($Market, "scale", Vector2(7.5,7.5), 1).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_IN)
+			tween.tween_callback(canpls)
+			$BlackMarket.position.x = 1923
+			$BlackMarket.position.y = 1167
+			$Market/marketDoor.texture = load("res://assets/images/areas/blackMarket/marketDoorOpen.png")
+			can = false
+	if type == "blackmarketLeave":
+		if can == true:
+			var tween = create_tween()
+			tween.tween_property($Market, "scale", Vector2(1,1), 1).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+			tween.tween_callback(canpls)
+			$BlackMarket.position.x = 1937
+			$BlackMarket.position.y = 1861
+			$Market/marketDoor.texture = load("res://assets/images/areas/blackMarket/marketDoorClosed.png")
+			can = false
+	if type == "PBJ":
+		if can == true:
+			var tween = create_tween()
+			tween.tween_property($Market, "position", Vector2(186,903), 1).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+			tween.parallel().tween_property($Market, "scale", Vector2(7.5,7.5), 1).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
+			tween.tween_callback(canpls)
+			$theVoid.position.x = 1923
+			$Market/voidDoor.texture = load("res://assets/images/areas/blackMarket/PBJDoorOpen.png")
+			can = false
+	if type == "PBJLeave":
+		if can == true:
+			var tween = create_tween()
+			tween.tween_property($Market, "position", Vector2(1922,1167), 1).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
+			tween.parallel().tween_property($Market, "scale", Vector2(1,1), 1).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+			tween.tween_callback(canpls)
+			$theVoid.position.x = 3117
+			$Market/voidDoor.texture = load("res://assets/images/areas/blackMarket/PBJDoorClosed.png")
+			can = false
+
+func canpls():
+	can = true

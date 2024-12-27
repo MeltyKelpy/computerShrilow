@@ -20,9 +20,6 @@ var gameTime = 0.0
 var curFile = 0
 
 var evilMines = false
-var MarketJelliesAvaliable = false
-var rebirthAutoClicker = false
-var RebirthAutoClickerLevel = 3
 var RebirthIntroPlayed = false
 var rebirthTokens = 0
 
@@ -67,6 +64,14 @@ func loadData():
 		ItemValues.itemInfomation[1]["CurUpgrade"] = config.get_value("Shop", "PlusOneUpgrade")
 		ItemValues.itemInfomation[2]["CurUpgrade"] = config.get_value("Shop", "PlusOneAUTOUpgrade")
 		
+		ItemValues.marketItems[0]["CurUpgrade"] = config.get_value("Rebirth", "RebirthAutoClickerLevel")
+		ItemValues.marketItems[1]["CurUpgrade"] = config.get_value("Rebirth", "PresistantPlusOne")
+		ItemValues.marketItems[2]["CurUpgrade"] = config.get_value("Rebirth", "PlusOneMC")
+		ItemValues.marketItems[3]["Owned"] = config.get_value("Rebirth", "EvilMinesAvaliable")
+		evilMines = config.get_value("Rebirth", "EvilMinesAvaliable")
+		ItemValues.marketItems[4]["CurUpgrade"] = config.get_value("Rebirth", "AntagJelly")
+		ItemValues.marketItems[5]["CurUpgrade"] = config.get_value("Rebirth", "PhantomJelly")
+		
 		# config.set_value("Stats", "amountOfMines", FizzyDrink.minesLength)
 		FizzyDrink.minesLength = config.get_value("Stats", "amountOfMines")
 		FizzyDrink.greasepuppies = config.get_value("Stats", "greasepuppies")
@@ -91,7 +96,11 @@ func loadData():
 		
 		var awesome = config.get_value("Stats", "ownedClothes")
 		for i in ClothingObjects.clothes.size():
+			if awesome.size() < ClothingObjects.clothes.size():
+				awesome.resize(ClothingObjects.clothes.size())
 			ClothingObjects.clothes[i]["Owned"] = awesome[i]
+		
+		rebirthTokens = config.get_value("Rebirth", "RebirthTokens")
 
 func saveData():
 	
@@ -169,11 +178,11 @@ func saveData():
 	
 	config.set_value("Rebirth", "RebirthTokens", rebirthTokens)
 	
-	config.set_value("Rebirth", "EvilMinesAvaliable", evilMines)
-	
-	config.set_value("Rebirth", "MarketJelliesAvaliable", MarketJelliesAvaliable)
-	
-	config.set_value("Rebirth", "RebirthAutoClicker", rebirthAutoClicker)
-	config.set_value("Rebirth", "RebirthAutoClickerLevel", RebirthAutoClickerLevel)
+	config.set_value("Rebirth", "RebirthAutoClickerLevel", ItemValues.marketItems[0]["CurUpgrade"])
+	config.set_value("Rebirth", "PresistantPlusOne", ItemValues.marketItems[1]["CurUpgrade"])
+	config.set_value("Rebirth", "PlusOneMC", ItemValues.marketItems[2]["CurUpgrade"])
+	config.set_value("Rebirth", "EvilMinesAvaliable", ItemValues.marketItems[3]["Owned"])
+	config.set_value("Rebirth", "AntagJelly", ItemValues.marketItems[4]["CurUpgrade"])
+	config.set_value("Rebirth", "PhantomJelly", ItemValues.marketItems[5]["CurUpgrade"])
 	
 	config.save(files[curFile])

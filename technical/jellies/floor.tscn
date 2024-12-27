@@ -75,6 +75,7 @@ theme_override_font_sizes/font_size = 9
 text = "jellies: 0"
 
 [node name="Button" type="Button" parent="."]
+layout_mode = 0
 offset_left = 25.0
 offset_top = 65.0
 offset_right = 111.0

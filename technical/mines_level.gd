@@ -83,13 +83,29 @@ func _process(_delta: float) -> void:
 	var err = config.load(Game.files[0])
 	
 	if err == OK:
-		var awesome = config.get_value("Rebirth", "EvilMinesAvaliable")
-		if awesome == true:
+		if Game.evilMines == true:
 			maxMineLevel = 8
 		else:
 			maxMineLevel = 4
 	else:
 		maxMineLevel = 4
+	
+	if maxMineLevel == 8 and mineLevel < maxMineLevel and mineLevel >= 4:
+		$VisualCodeSpaghetti/Upgrade/Box.texture = load("res://assets/images/areas/mines/upgradr/upgradeEvil.png")
+		$VisualCodeSpaghetti/Upgrade/Label.text = "NEXT LEVEL:"+str(mineLevel+1)
+		$VisualCodeSpaghetti/Upgrade/moneyLabel.text = str("$"+str(5000 * (mineLevel + 1)))
+		$VisualCodeSpaghetti/Upgrade/upGrade.modulate = Color(1,1,1)
+		$VisualCodeSpaghetti/Upgrade/Box.modulate = Color(1,1,1)
+	elif mineLevel == maxMineLevel:
+		$VisualCodeSpaghetti/Upgrade/upGrade.modulate = Color(0.47,0.47,0.47)
+		$VisualCodeSpaghetti/Upgrade/Box.modulate = Color(0.47,0.47,0.47)
+		$VisualCodeSpaghetti/Upgrade/Label.text = "MAXED OUT"
+		$VisualCodeSpaghetti/Upgrade/moneyLabel.visible = false
+	else:
+		$VisualCodeSpaghetti/Upgrade/upGrade.modulate = Color(1,1,1)
+		$VisualCodeSpaghetti/Upgrade/Box.modulate = Color(1,1,1)
+		$VisualCodeSpaghetti/Upgrade/Label.text = "NEXT LEVEL:"+str(mineLevel+1)
+		$VisualCodeSpaghetti/Upgrade/moneyLabel.text = str("$"+str(5000 * (mineLevel + 1)))
 	
 	if amountOfDwellers != 6:
 		$VisualCodeSpaghetti/ShrilowCost.text = str(moneyValues[0])+"$"
@@ -266,15 +282,3 @@ func _on_up_grade_button_pressed() -> void:
 		#texturer = load("res://assets/images/areas/mines/upgradr/level"+str(mineLevel)+".png")
 		#$VisualCodeSpaghetti/MinesLevel.texture = texturer
 		ItemValues.money -= 5000 * mineLevel
-		if maxMineLevel == 8 and mineLevel < maxMineLevel and mineLevel >= 4:
-			$VisualCodeSpaghetti/Upgrade/Box.texture = load("res://assets/images/areas/mines/upgradr/upgradeEvil.png")
-			$VisualCodeSpaghetti/Upgrade/Label.text = "NEXT LEVEL:"+str(mineLevel+1)
-			$VisualCodeSpaghetti/Upgrade/moneyLabel.text = str("$"+str(5000 * (mineLevel + 1)))
-		elif mineLevel == maxMineLevel:
-			$VisualCodeSpaghetti/Upgrade/upGrade.modulate = Color(0.47,0.47,0.47)
-			$VisualCodeSpaghetti/Upgrade/Box.modulate = Color(0.47,0.47,0.47)
-			$VisualCodeSpaghetti/Upgrade/Label.text = "MAXED OUT"
-			$VisualCodeSpaghetti/Upgrade/moneyLabel.visible = false
-		else:
-			$VisualCodeSpaghetti/Upgrade/Label.text = "NEXT LEVEL:"+str(mineLevel+1)
-			$VisualCodeSpaghetti/Upgrade/moneyLabel.text = str("$"+str(5000 * (mineLevel + 1)))

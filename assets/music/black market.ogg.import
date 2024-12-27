@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dkuh8u2yvi4th"
+path="res://.godot/imported/black market.ogg-7d3ec112f9b0a2e2242b17aec6b43d55.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/music/black market.ogg"
+dest_files=["res://.godot/imported/black market.ogg-7d3ec112f9b0a2e2242b17aec6b43d55.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

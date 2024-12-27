@@ -1,4 +1,4 @@
-[gd_scene load_steps=125 format=3 uid="uid://bgw557ttv6noe"]
+[gd_scene load_steps=148 format=3 uid="uid://bgw557ttv6noe"]
 
 [ext_resource type="Script" path="res://scenes/t_computer.gd" id="1_swrb7"]
 [ext_resource type="Texture2D" uid="uid://dajex7cpt7k4p" path="res://assets/images/bg/background.png" id="2_u0da7"]
@@ -47,20 +47,39 @@
 [ext_resource type="Texture2D" uid="uid://dlr8i70w0kxe" path="res://assets/images/areas/blackMarket/marketFrame1.png" id="34_plbbe"]
 [ext_resource type="Texture2D" uid="uid://b3tp13r2ykpby" path="res://assets/images/ui/transitions/journal0.png" id="35_a0leu"]
 [ext_resource type="Texture2D" uid="uid://b3va7wv24phrk" path="res://assets/images/areas/blackMarket/marketFrame2.png" id="35_sqmvq"]
+[ext_resource type="Texture2D" uid="uid://bn1mdyic0oegr" path="res://assets/images/areas/blackMarket/back1.png" id="36_60vji"]
 [ext_resource type="Texture2D" uid="uid://qhintyosqus" path="res://assets/images/ui/transitions/journal1.png" id="36_s2fg5"]
+[ext_resource type="Texture2D" uid="uid://cv1o8rtqs6vv8" path="res://assets/images/areas/blackMarket/entranceBG.png" id="36_xdb7a"]
+[ext_resource type="Texture2D" uid="uid://n2n2ys1q5a4h" path="res://assets/images/areas/blackMarket/marketDoorClosed.png" id="37_hc6sb"]
 [ext_resource type="Texture2D" uid="uid://kpdgjt7sf3f1" path="res://assets/images/ui/transitions/storage0.png" id="37_minta"]
+[ext_resource type="Texture2D" uid="uid://8n7wsn6xf5mv" path="res://assets/images/areas/blackMarket/back2.png" id="37_q510d"]
 [ext_resource type="Texture2D" uid="uid://ba21ncyajao5t" path="res://assets/images/ui/transitions/storage1.png" id="38_1n5wc"]
+[ext_resource type="Texture2D" uid="uid://bfhvpd76i3vyh" path="res://assets/images/areas/blackMarket/PBJDoorClosed.png" id="38_k3gwi"]
+[ext_resource type="Texture2D" uid="uid://2v33kmtt1v4l" path="res://assets/images/areas/blackMarket/gohere1.png" id="38_scn4i"]
+[ext_resource type="Texture2D" uid="uid://7v5xoymraeqi" path="res://assets/images/areas/blackMarket/voidDoorClosed.png" id="38_sjmeb"]
+[ext_resource type="Texture2D" uid="uid://c7s7kimy8u0o6" path="res://assets/images/areas/blackMarket/gohere2.png" id="39_7a1sy"]
 [ext_resource type="Texture2D" uid="uid://3tokm7bka706" path="res://assets/images/areas/jellies/melvin/bg.png" id="39_xk82v"]
 [ext_resource type="Texture2D" uid="uid://dxvslfuybm4qv" path="res://assets/images/areas/jellies/melvin/melvs/base.png" id="40_2pbfm"]
 [ext_resource type="Texture2D" uid="uid://c3rsesgxto2nt" path="res://assets/images/ui/transitions/bell0.png" id="41_boae4"]
+[ext_resource type="AudioStream" uid="uid://dkuh8u2yvi4th" path="res://assets/music/black market.ogg" id="42_6f2sh"]
+[ext_resource type="Texture2D" uid="uid://hffnjjcqem0k" path="res://assets/images/areas/blackMarket/trashcan1.png" id="42_gb041"]
 [ext_resource type="Texture2D" uid="uid://dqdfjx7jj56ii" path="res://assets/images/ui/transitions/bell1.png" id="42_pcusv"]
+[ext_resource type="Texture2D" uid="uid://dfjbhboar55qp" path="res://assets/images/areas/blackMarket/trashcan2.png" id="43_dpu08"]
 [ext_resource type="AudioStream" uid="uid://bwqy4bdtncyqd" path="res://assets/music/melvin.ogg" id="43_sou4k"]
 [ext_resource type="Texture2D" uid="uid://ch73g8yvav0am" path="res://assets/images/areas/storage/storageBg.png" id="45_uhupd"]
 [ext_resource type="Texture2D" uid="uid://b4sehpse6a35m" path="res://assets/images/ui/transitions/elevator0.png" id="45_wo732"]
 [ext_resource type="Texture2D" uid="uid://cg4s4o4vbdqyc" path="res://assets/images/ui/transitions/elevator1.png" id="46_p35b6"]
+[ext_resource type="AudioStream" uid="uid://cpuevowyq7ag7" path="res://assets/sounds/wind.ogg" id="47_ejbio"]
+[ext_resource type="Texture2D" uid="uid://bb25yyj5us8e0" path="res://assets/images/areas/blackMarket/market/bg.png" id="48_2duj5"]
+[ext_resource type="Texture2D" uid="uid://c6wc7c80442t8" path="res://assets/images/areas/blackMarket/market/anphan/base.png" id="49_wvpqh"]
+[ext_resource type="Texture2D" uid="uid://cc2llud3fviy" path="res://assets/images/areas/blackMarket/market/box.png" id="50_ekqsy"]
+[ext_resource type="Texture2D" uid="uid://c2jkl4ln5js5j" path="res://assets/images/areas/blackMarket/market/thing.png" id="50_ls83d"]
+[ext_resource type="Texture2D" uid="uid://nariqn20l7fb" path="res://assets/images/ui/Tokens.png" id="51_uvnc4"]
 [ext_resource type="Texture2D" uid="uid://owu8rr2pxppu" path="res://assets/images/ui/theComputerLogo.png" id="54_dab5r"]
 [ext_resource type="Texture2D" uid="uid://d3d3t8abbtv8h" path="res://assets/images/ui/storage.png" id="58_oj2kv"]
 [ext_resource type="Texture2D" uid="uid://cdi4tcc76faq8" path="res://assets/images/areas/melanies/items/floppydisk.png" id="59_5ltno"]
+[ext_resource type="Texture2D" uid="uid://1wa4musg8sh5" path="res://assets/images/ui/transitions/market0.png" id="65_frjgo"]
+[ext_resource type="Texture2D" uid="uid://dten384haeri1" path="res://assets/images/ui/transitions/market1.png" id="66_747lq"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p6f28"]
 
@@ -158,6 +177,64 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 2.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0uxyn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("36_60vji")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_q510d")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y870f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("38_scn4i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_7a1sy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gdfg7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("42_gb041")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_dpu08")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sp2sb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("49_wvpqh")
+}],
+"loop": true,
+"name": &"base",
+"speed": 5.0
 }]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e17ue"]
@@ -881,11 +958,11 @@ _data = {
 "toWard": SubResource("Animation_ok3bo")
 }
 
-[sub_resource type="Gradient" id="Gradient_2dxcp"]
+[sub_resource type="Gradient" id="Gradient_djy5u"]
 colors = PackedColorArray(0.520269, 1.49807e-06, 3.36915e-07, 0, 1, 0, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_gikbf"]
-gradient = SubResource("Gradient_2dxcp")
+gradient = SubResource("Gradient_djy5u")
 
 [sub_resource type="Animation" id="Animation_4bxwk"]
 length = 0.001
@@ -982,6 +1059,17 @@ animations = [{
 }],
 "loop": true,
 "name": &"journal",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("65_frjgo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_747lq")
+}],
+"loop": true,
+"name": &"market",
 "speed": 4.0
 }, {
 "frames": [{
@@ -1151,13 +1239,15 @@ position = Vector2(-212, -216)
 
 [node name="StillFace" type="Sprite2D" parent="Shrilow/Shrilow"]
 
-[node name="Squeak" type="AudioStreamPlayer" parent="Shrilow"]
+[node name="Squeak" type="AudioStreamPlayer2D" parent="Shrilow"]
 stream = ExtResource("6_g3mo2")
 volume_db = -25.753
+max_distance = 500.0
 
-[node name="Squeak2" type="AudioStreamPlayer" parent="Shrilow"]
+[node name="Squeak2" type="AudioStreamPlayer2D" parent="Shrilow"]
 stream = ExtResource("6_g3mo2")
 volume_db = -48.239
+max_distance = 500.0
 
 [node name="ShrilowSqueak" type="Button" parent="Shrilow"]
 offset_left = -158.75
@@ -1556,8 +1646,263 @@ sprite_frames = SubResource("SpriteFrames_x01u4")
 autoplay = "default"
 frame_progress = 0.512889
 
+[node name="EnterMarket" type="Button" parent="Shop"]
+offset_left = 932.0
+offset_top = 526.0
+offset_right = 1154.0
+offset_bottom = 648.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p6f28")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_w4xu3")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_uj6cr")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0meto")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_rmwiu")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_o3afr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_amgep")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_e3kvh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_kvmat")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iq0t2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
+
 [node name="Market" type="Node2D" parent="."]
-position = Vector2(2799, 1084)
+position = Vector2(1923, 1167)
+
+[node name="BG" type="Sprite2D" parent="Market"]
+position = Vector2(1, 0)
+texture = ExtResource("36_xdb7a")
+
+[node name="PBJDoor" type="Sprite2D" parent="Market"]
+position = Vector2(1, 0)
+texture = ExtResource("38_k3gwi")
+
+[node name="marketDoor" type="Sprite2D" parent="Market"]
+position = Vector2(1, 0)
+texture = ExtResource("37_hc6sb")
+
+[node name="voidDoor" type="Sprite2D" parent="Market"]
+position = Vector2(1, 0)
+texture = ExtResource("38_sjmeb")
+
+[node name="Back" type="AnimatedSprite2D" parent="Market"]
+position = Vector2(1, 0)
+sprite_frames = SubResource("SpriteFrames_0uxyn")
+autoplay = "default"
+frame_progress = 0.592145
+
+[node name="Market" type="AnimatedSprite2D" parent="Market"]
+position = Vector2(1, -1)
+sprite_frames = SubResource("SpriteFrames_y870f")
+autoplay = "default"
+frame_progress = 0.712529
+
+[node name="Trashcan" type="AnimatedSprite2D" parent="Market"]
+position = Vector2(1, -1)
+sprite_frames = SubResource("SpriteFrames_gdfg7")
+autoplay = "default"
+frame_progress = 0.291236
+
+[node name="LeaveMarket" type="Button" parent="Market"]
+offset_left = 357.0
+offset_top = -321.0
+offset_right = 579.0
+offset_bottom = -199.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p6f28")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_w4xu3")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_uj6cr")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0meto")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_rmwiu")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_o3afr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_amgep")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_e3kvh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_kvmat")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iq0t2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
+
+[node name="openVoid" type="Button" parent="Market"]
+offset_left = 120.0
+offset_top = -156.0
+offset_right = 337.0
+offset_bottom = 172.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p6f28")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_w4xu3")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_uj6cr")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0meto")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_rmwiu")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_o3afr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_amgep")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_e3kvh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_kvmat")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iq0t2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
+
+[node name="openMarket" type="Button" parent="Market"]
+offset_left = -107.0
+offset_top = -156.0
+offset_right = 105.0
+offset_bottom = 172.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p6f28")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_w4xu3")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_uj6cr")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0meto")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_rmwiu")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_o3afr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_amgep")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_e3kvh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_kvmat")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iq0t2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
+
+[node name="ShopMusic" type="AudioStreamPlayer" parent="Market"]
+stream = ExtResource("42_6f2sh")
+volume_db = -80.0
+parameters/looping = true
+
+[node name="theVoid" type="Node2D" parent="."]
+z_index = -1
+position = Vector2(3117, 1167)
+
+[node name="ColorRect" type="ColorRect" parent="theVoid"]
+offset_left = -589.0
+offset_top = -344.0
+offset_right = 582.0
+offset_bottom = 337.0
+color = Color(0, 0, 0, 1)
+
+[node name="Back" type="AnimatedSprite2D" parent="theVoid"]
+sprite_frames = SubResource("SpriteFrames_0uxyn")
+autoplay = "default"
+frame_progress = 0.837339
+
+[node name="LeaveVoid" type="Button" parent="theVoid"]
+offset_left = 356.0
+offset_top = -321.0
+offset_right = 578.0
+offset_bottom = -199.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p6f28")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_w4xu3")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_uj6cr")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0meto")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_rmwiu")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_o3afr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_amgep")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_e3kvh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_kvmat")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iq0t2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
+
+[node name="mus" type="AudioStreamPlayer" parent="theVoid"]
+stream = ExtResource("47_ejbio")
+volume_db = -80.0
+autoplay = true
+parameters/looping = true
+
+[node name="BlackMarket" type="Node2D" parent="."]
+z_index = -1
+position = Vector2(1937, 1861)
+
+[node name="BG" type="Sprite2D" parent="BlackMarket"]
+texture = ExtResource("48_2duj5")
+
+[node name="whores" type="AnimatedSprite2D" parent="BlackMarket"]
+sprite_frames = SubResource("SpriteFrames_sp2sb")
+animation = &"base"
+
+[node name="Box" type="Sprite2D" parent="BlackMarket"]
+texture = ExtResource("50_ekqsy")
+
+[node name="thing" type="Sprite2D" parent="BlackMarket"]
+texture = ExtResource("50_ls83d")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="BlackMarket"]
+offset_left = 1.0
+offset_top = -183.0
+offset_right = 531.0
+offset_bottom = 166.0
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
+
+[node name="GridContainer" type="GridContainer" parent="BlackMarket/ScrollContainer"]
+layout_mode = 2
+columns = 3
+
+[node name="Back" type="AnimatedSprite2D" parent="BlackMarket"]
+sprite_frames = SubResource("SpriteFrames_0uxyn")
+autoplay = "default"
+frame_progress = 0.837339
+
+[node name="LeaveBlack" type="Button" parent="BlackMarket"]
+offset_left = 356.0
+offset_top = -321.0
+offset_right = 578.0
+offset_bottom = -199.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p6f28")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_w4xu3")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_uj6cr")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0meto")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_rmwiu")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_o3afr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_amgep")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_e3kvh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_kvmat")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iq0t2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
+
+[node name="TokensCount" type="Label" parent="BlackMarket"]
+offset_left = -433.0
+offset_top = 207.0
+offset_right = -189.0
+offset_bottom = 384.0
+scale = Vector2(1, 0.6)
+theme = ExtResource("8_oskpf")
+theme_override_colors/font_color = Color(0.0823529, 0.0823529, 0.0823529, 1)
+theme_override_colors/font_shadow_color = Color(1, 0.376471, 0.85098, 1)
+theme_override_colors/font_outline_color = Color(1, 0.847059, 0.376471, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 9
+theme_override_constants/shadow_outline_size = 21
+theme_override_font_sizes/font_size = 53
+text = "TOKENS"
+vertical_alignment = 1
+
+[node name="Tokens" type="Sprite2D" parent="BlackMarket"]
+position = Vector2(-506, 261)
+texture = ExtResource("51_uvnc4")
+
+[node name="ItemName" type="Label" parent="BlackMarket"]
+offset_left = -12.0
+offset_top = 197.0
+offset_right = 132.0
+offset_bottom = 267.0
+scale = Vector2(1, 0.6)
+theme = ExtResource("8_oskpf")
+theme_override_colors/font_color = Color(0.0823529, 0.0823529, 0.0823529, 1)
+theme_override_font_sizes/font_size = 50
+text = "ITEM NAME"
+
+[node name="ItemDescription" type="Label" parent="BlackMarket"]
+offset_left = -12.0
+offset_top = 226.0
+offset_right = 548.0
+offset_bottom = 323.0
+scale = Vector2(1, 0.6)
+theme = ExtResource("8_oskpf")
+theme_override_colors/font_color = Color(0.0823529, 0.0823529, 0.0823529, 1)
+theme_override_font_sizes/font_size = 35
+text = "ITEM DESC"
+autowrap_mode = 3
+
+[node name="ItemExtra" type="Label" parent="BlackMarket"]
+offset_left = -13.0
+offset_top = 276.0
+offset_right = 538.0
+offset_bottom = 323.0
+scale = Vector2(1, 0.6)
+theme = ExtResource("8_oskpf")
+theme_override_colors/font_color = Color(0.0823529, 0.0823529, 0.0823529, 1)
+theme_override_font_sizes/font_size = 30
+text = "ITEM EXTRA"
+vertical_alignment = 2
+autowrap_mode = 3
 
 [node name="Wardrobe" type="Node2D" parent="."]
 position = Vector2(0, -648)
@@ -2088,7 +2433,7 @@ texture = ExtResource("27_e5v8d")
 
 [node name="icon" type="AnimatedSprite2D" parent="Camera2D/bg"]
 sprite_frames = SubResource("SpriteFrames_2w07w")
-animation = &"storage"
+animation = &"market"
 
 [node name="intro" type="TextureRect" parent="Camera2D"]
 self_modulate = Color(1, 1, 1, 0)
@@ -2156,6 +2501,12 @@ autostart = true
 [connection signal="pressed" from="Jelly/BackButtonJELLY" to="." method="_on_back_button_jelly_pressed"]
 [connection signal="pressed" from="Shop/melinteract" to="." method="melShopToggle"]
 [connection signal="pressed" from="Shop/BackButtonSHOP" to="." method="_on_back_button_shop_pressed"]
+[connection signal="pressed" from="Shop/EnterMarket" to="." method="marketState" binds= ["enter"]]
+[connection signal="pressed" from="Market/LeaveMarket" to="." method="marketState" binds= ["leave"]]
+[connection signal="pressed" from="Market/openVoid" to="." method="marketState" binds= ["void"]]
+[connection signal="pressed" from="Market/openMarket" to="." method="marketState" binds= ["blackmarket"]]
+[connection signal="pressed" from="theVoid/LeaveVoid" to="." method="marketState" binds= ["voidLeave"]]
+[connection signal="pressed" from="BlackMarket/LeaveBlack" to="." method="marketState" binds= ["blackmarketLeave"]]
 [connection signal="pressed" from="Wardrobe/BackButtonWARD" to="." method="_on_back_button_ward_pressed"]
 [connection signal="pressed" from="Gumball/BackButton" to="." method="cameraAnimation" binds= ["gumballMachine", -576, 324, true]]
 [connection signal="pressed" from="Gumball/NextCoin" to="." method="coinSelectionChange" binds= [1]]

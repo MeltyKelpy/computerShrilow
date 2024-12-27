@@ -26,12 +26,12 @@ func _ready() -> void:
 		if time_dict["H"] < 10:
 			finH = "0"+str(time_dict["H"])
 		else:
-			finH = time_dict["S"]
+			finH = time_dict["H"]
 		var finM
 		if time_dict["M"] < 10:
 			finM = "0"+str(time_dict["M"])
 		else:
-			finM = time_dict["S"]
+			finM = time_dict["M"]
 		var finS
 		if time_dict["S"] < 10:
 			finS = "0"+str(time_dict["S"])
@@ -40,7 +40,7 @@ func _ready() -> void:
 		var final = str(finH) + ":" + str(finM) + ":" + str(finS)
 		$Icon.visible = true
 		$FileName.text = config.get_value("Fiscal", "Name")
-		$Desc.text = "Money: "+str(config.get_value("Fiscal", "Money"))+"\nJellies Found: "+str(config.get_value("Fiscal", "Jellies"))+"\nRebirths: "+str(config.get_value("Fiscal", "Rebirths"))+"\nTime Played: "+final+"\nClicks: "+str(config.get_value("Fiscal", "Clicks"))
+		$Desc.text = "Money: "+str(config.get_value("Fiscal", "Money"))+"\nJellies Found: "+str(config.get_value("Fiscal", "Jellies"))+"\nRebirths: "+str(config.get_value("Fiscal", "Rebirths"))+"\nRebirth Tokens: "+str(config.get_value("Rebirth", "RebirthTokens"))+"\nTime Played: "+final+"\nClicks: "+str(config.get_value("Fiscal", "Clicks"))
 	else:
 		$Icon.visible = false
 		$FileName.text = "FILE "+str(ID+1)
@@ -54,7 +54,7 @@ func _on_load_pressed() -> void:
 	var hi1 = get_parent()
 	var hi2 = hi1.get_parent()
 	
-	hi2._on_button_pressed()
+	hi2._on_button_pressed("game")
 	Game.loadData()
 
 func _on_delete_pressed() -> void:
@@ -87,8 +87,6 @@ func _on_file_name_text_changed(new_text: String) -> void:
 		Game.namee = "Unnamed File"
 	else:
 		Game.namee = $FileName.text
-	
-	Game.saveData()
 
 func round_to_dec(num, digit):
 	return round(num * pow(10.0, digit)) / pow(10.0, digit)

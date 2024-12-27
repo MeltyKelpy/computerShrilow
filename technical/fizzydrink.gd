@@ -3,10 +3,14 @@ extends Node
 var clicks = 0
 
 var clickPower = 1
+var clickPowerP1 = 0
+var clickPowerP1R = 0
 var clickPowerAdditions = 0
 var clickPowerClothingBuffs = 0
 
 var AUTOclickPower = 1
+var AUTOclickPowerP1 = 0
+var AUTOclickPowerP1R = 0
 var AUTOclickPowerAdditions = 0
 var AUTOclickPowerClothingBuffs = 0
 
@@ -100,3 +104,5 @@ func updateClothes() -> void:
 	AUTOclickPowerClothingBuffs = 0
 	if ClothingObjects.clothes[ClothingObjects.equippedClothing]["Name"] == "Date Night":
 		clickPowerClothingBuffs = 1
+	if ClothingObjects.clothes[ClothingObjects.equippedClothing]["Name"] == "Rig Mechanic":
+		AUTOclickPowerClothingBuffs = 1

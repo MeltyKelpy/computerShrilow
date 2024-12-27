@@ -30,6 +30,15 @@ var clothes = [
 	"Image":"res://assets/images/computershrilows/shrilowBases/shrilowDate Night.png",
 	"Cost":100
 	},
+	{
+	# OIL RIG
+	"Name":"Rig Mechanic",
+	"Desc":"You're the luckiest bastard on this rig.\nincreases your auto-click power by 1",
+	"Owned":false,
+	"IconKey":"res://assets/images/areas/wardrobe/clothing/rig.png",
+	"Image":"res://assets/images/computershrilows/shrilowBases/shrilowCaz.png",
+	"Cost":500
+	},
 ]
 var itemName = "Clothing name will show up here"
 var itemDesc = "Click an item to buy it, hover to preview it."
