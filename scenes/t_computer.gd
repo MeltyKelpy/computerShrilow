@@ -7,7 +7,7 @@ var cameraMoveDir = "center"
 var area = "notJellies"
 var returnPosCamX = 577
 var returnPosCamY = 324
-var can = true
+var can = false
 var melShopState = true
 var melvinShopState = true
 var dialougeMode = false
@@ -17,6 +17,8 @@ var alongTheDialogue = 0
 var AnimPosCamX = 0
 var AnimPosCamY = 0
 var allowing = false
+
+var rebirthIndicated = false
 
 var storageReturnX = 0
 var storageReturnY = 0
@@ -450,6 +452,20 @@ func _ready():
 	Game.saveData()
 
 func _process(_delta : float) -> void:
+	
+	var config = ConfigFile.new()
+	
+	var err = config.load(Game.files[Game.curFile])
+	
+	# AWFUL CASE OF SPAGHETTI CODE IM JUST TOO LAZY TO WRITE THIS WELL LMAO
+	if err == OK:
+		if ItemValues.money >= 5000000 + (1000000 * Game.rebirths) and rebirthIndicated == false and can == true:
+			rebirthIndicated = true
+			var cacapoopyGOD3 = preload("res://technical/rebirthNotification.tscn")
+			var caca2 = cacapoopyGOD3.instantiate()
+			add_child(caca2)
+			$ShrilowScreen/Rebirth.disabled = false
+			$ShrilowScreen/Rebirth.visible = true
 	
 	if Input.is_action_just_pressed("ui_cancel"):
 		var cacapoopyGOD2 = preload("res://technical/pauseMenu.tscn")
@@ -1180,4 +1196,19 @@ func marketState(type : String) -> void:
 			can = false
 
 func canpls():
+	can = true
+
+func _Rebirth() -> void:
+	can = false
+	$Camera2D/AudioStreamPlayer.play()
+	$Camera2D/ColorRect.visible = true
+	$Camera2D/Timer.start()
+	FizzyDrink.stopTheCount = 100
+	$Shrilow/Squeak.volume_db = -80
+	$Shrilow/Squeak2.volume_db = -80
+
+func rebirth() -> void:
+	get_tree().change_scene_to_file("res://scenes/rebirthScene.tscn")
+
+func _on_anim_animation_finished(anim_name: StringName) -> void:
 	can = true

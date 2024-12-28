@@ -74,7 +74,7 @@ caret_blink = true
 [node name="Desc" type="Label" parent="."]
 offset_left = 92.0
 offset_top = -36.0
-offset_right = 295.0
+offset_right = 319.0
 offset_bottom = 97.0
 scale = Vector2(1, 0.7)
 theme = ExtResource("2_q66pj")

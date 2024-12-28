@@ -18,7 +18,7 @@ func getID(num):
 	ItemID = num
 
 func _process(_delta: float) -> void:
-	var time = float(ItemValues.marketItems[ItemID]["BaseValue"]+(ItemValues.marketItems[0]["CurUpgrade"]*ItemValues.marketItems[0]["UpgradeIncrease"]))
+	var time = float(ItemValues.itemInfomation[ItemID]["BaseValue"]+(ItemValues.itemInfomation[0]["CurUpgrade"]*ItemValues.itemInfomation[0]["UpgradeIncrease"]))
 	if time <= 0:
 		time = 0.2
 	timer.wait_time = time

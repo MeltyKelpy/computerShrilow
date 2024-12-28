@@ -92,4 +92,5 @@ func calculate():
 		Game.rebirthTokens -= hearMeOut[0][type][ItemID]["Cost"]*(hearMeOut[0][type][ItemID]["CurUpgrade"]+1)
 	if hearMeOut[0][type][ItemID]["Type"] == "Generic":
 		hearMeOut[0][type][ItemID]["CurUpgrade"] += 1
+		Game.rebirthTokens -= hearMeOut[0][type][ItemID]["Cost"]*(hearMeOut[0][type][ItemID]["CurUpgrade"]+1)
 	ItemValues.itemExtra = ItemSpecificString

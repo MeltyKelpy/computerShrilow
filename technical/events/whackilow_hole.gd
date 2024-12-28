@@ -3,6 +3,7 @@ extends Button
 var chara = "none"
 var rng = RandomNumberGenerator.new()
 var time = 2
+var click = true
 
 func _process(delta: float) -> void:
 	$appearTimer.wait_time = time + 1
@@ -29,9 +30,10 @@ func killChar():
 	var hi = get_parent()
 	$appearTimer.stop()
 	if hi.gameOver == false:
-		if chara == "shrilow":
+		if chara == "shrilow" and click == true:
 			$Squeak.play()
 			$Node2D/Control/char.play("shrilowBonk")
+			click = false
 			ItemValues.money += 5
 			var cacapoopyGOD = load("res://technical/moneyGet.tscn")
 			var caca = cacapoopyGOD.instantiate()
@@ -50,10 +52,12 @@ func killChar():
 func _on_appear_timer_timeout() -> void:
 	var hi = get_parent()
 	if hi.gameOver == false:
-		if chara == "shrilow":
-			hi.stars -= 1
 		$AnimationPlayer.play("goDown")
 
 func resetShit():
+	var hi = get_parent()
+	if chara == "shrilow" and click == true:
+		hi.stars -= 1
 	chara = "none"
 	$AnimationPlayer.play("RESET")
+	click = true

@@ -30,6 +30,7 @@ func findRoom(Laroom):
 	room = Laroom
 
 func buy():
+	FizzyDrink.jellys += 1
 	rigid_body_2d.transform = Transform2D(0.0, Vector2(-600, 100))
 	visible = false
 	reparent($/root/computerShrilow/Jelly/Control)
@@ -123,6 +124,7 @@ func _jelly_spawn() -> void:
 	visible = true
 
 func _on_kill_pressed() -> void:
+	FizzyDrink.jellys -= 1
 	room.jellyCount -= 1
 	$RigidBody2D.visible = false
 	$nameShit.visible = false

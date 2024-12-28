@@ -18,7 +18,7 @@ var minesLength = 1
 var health = 100
 
 var stopTheCount = 0
-var jellys = (-1)
+var jellys = 0
 var greasepuppies = 0
 var amountOfRooms = 0
 

@@ -96,6 +96,7 @@ func _process(_delta: float) -> void:
 		$VisualCodeSpaghetti/Upgrade/moneyLabel.text = str("$"+str(5000 * (mineLevel + 1)))
 		$VisualCodeSpaghetti/Upgrade/upGrade.modulate = Color(1,1,1)
 		$VisualCodeSpaghetti/Upgrade/Box.modulate = Color(1,1,1)
+		$VisualCodeSpaghetti/Upgrade/moneyLabel.visible = true
 	elif mineLevel == maxMineLevel:
 		$VisualCodeSpaghetti/Upgrade/upGrade.modulate = Color(0.47,0.47,0.47)
 		$VisualCodeSpaghetti/Upgrade/Box.modulate = Color(0.47,0.47,0.47)
@@ -106,6 +107,7 @@ func _process(_delta: float) -> void:
 		$VisualCodeSpaghetti/Upgrade/Box.modulate = Color(1,1,1)
 		$VisualCodeSpaghetti/Upgrade/Label.text = "NEXT LEVEL:"+str(mineLevel+1)
 		$VisualCodeSpaghetti/Upgrade/moneyLabel.text = str("$"+str(5000 * (mineLevel + 1)))
+		$VisualCodeSpaghetti/Upgrade/moneyLabel.visible = true
 	
 	if amountOfDwellers != 6:
 		$VisualCodeSpaghetti/ShrilowCost.text = str(moneyValues[0])+"$"

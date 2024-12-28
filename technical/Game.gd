@@ -59,6 +59,7 @@ func loadData():
 		FizzyDrink.clicks = config.get_value("Fiscal", "Clicks")
 		ItemValues.money = config.get_value("Fiscal", "Money")
 		ClothingObjects.equippedClothing = config.get_value("Fiscal", "Clothing")
+		FizzyDrink.jellys = config.get_value("Fiscal", "AmountOfJellies")
 		
 		ItemValues.itemInfomation[0]["CurUpgrade"] = config.get_value("Shop", "autoClickerUpgrade")
 		ItemValues.itemInfomation[1]["CurUpgrade"] = config.get_value("Shop", "PlusOneUpgrade")
@@ -111,19 +112,26 @@ func saveData():
 	
 	config.load(files[curFile])
 	
-	# FISCAL
-	# shows up on file menu and is considered "main" data
+	# NON RESETING // REBIRTH STUFF
+	# including shows up on file menu and is considered "main" data (FISCAL)
 	
 	config.set_value("Fiscal", "Name", namee)
-	config.set_value("Fiscal", "Money", ItemValues.money)
 	config.set_value("Fiscal", "Jellies", jellies)
-	config.set_value("Fiscal", "StoredJellies", Jelly.storedJellys)
 	config.set_value("Fiscal", "Rebirths", rebirths)
 	config.set_value("Fiscal", "Time", gameTime)
 	config.set_value("Fiscal", "Clicks", FizzyDrink.clicks)
-	config.set_value("Fiscal", "Clothing", ClothingObjects.equippedClothing)
 	
-	# STATS
+	config.set_value("Rebirth", "RebirthTokens", rebirthTokens)
+	config.set_value("Rebirth", "RebirthAutoClickerLevel", ItemValues.marketItems[0]["CurUpgrade"])
+	config.set_value("Rebirth", "PresistantPlusOne", ItemValues.marketItems[1]["CurUpgrade"])
+	config.set_value("Rebirth", "PlusOneMC", ItemValues.marketItems[2]["CurUpgrade"])
+	config.set_value("Rebirth", "EvilMinesAvaliable", ItemValues.marketItems[3]["Owned"])
+	config.set_value("Rebirth", "AntagJelly", ItemValues.marketItems[4]["CurUpgrade"])
+	config.set_value("Rebirth", "PhantomJelly", ItemValues.marketItems[5]["CurUpgrade"])
+	config.set_value("Story", "DialogueUnlockedMARKET", gameTime)
+	config.set_value("Story", "DialogueDoneMARKET", gameTime)
+	config.set_value("Story", "RebirthIntroPlayed", RebirthIntroPlayed)
+	config.set_value("Story", "DialogueUnlockedPBJ", gameTime)
 	
 	var commons = []
 	var uncommons = []
@@ -151,38 +159,52 @@ func saveData():
 	config.set_value("Stats", "queerJellies", queers)
 	config.set_value("Stats", "blackMarketJellies", markets)
 	config.set_value("Stats", "blueJellies", blues)
+	
+	# REBIRTH RESETING
+	
+	config.set_value("Fiscal", "AmountOfJellies", FizzyDrink.jellys)
+	config.set_value("Fiscal", "Money", ItemValues.money)
+	config.set_value("Fiscal", "StoredJellies", Jelly.storedJellys)
+	config.set_value("Fiscal", "Clothing", ClothingObjects.equippedClothing)
 	config.set_value("Stats", "amountOfMines", FizzyDrink.minesLength)
 	config.set_value("Stats", "greasepuppies", FizzyDrink.greasepuppies)
-	
 	var clothing = []
 	for i in ClothingObjects.clothes.size(): 
 		clothing.append(ClothingObjects.clothes[i]["Owned"])
 	config.set_value("Stats", "ownedClothes", clothing)
-	
 	config.set_value("Shop", "autoClickerUpgrade", ItemValues.itemInfomation[0]["CurUpgrade"])
 	config.set_value("Shop", "PlusOneUpgrade", ItemValues.itemInfomation[1]["CurUpgrade"])
 	config.set_value("Shop", "PlusOneAUTOUpgrade", ItemValues.itemInfomation[2]["CurUpgrade"])
-	
-	# STORY
-	
 	config.set_value("Story", "DialogueUnlockedMELANIE", gameTime)
 	config.set_value("Story", "DialogueDoneMELANIE", gameTime)
 	config.set_value("Story", "DialogueUnlockedMELVIN", gameTime)
 	config.set_value("Story", "DialogueDoneMELVIN", gameTime)
-	config.set_value("Story", "DialogueUnlockedMARKET", gameTime)
-	config.set_value("Story", "DialogueDoneMARKET", gameTime)
-	config.set_value("Story", "RebirthIntroPlayed", RebirthIntroPlayed)
-	config.set_value("Story", "DialogueUnlockedPBJ", gameTime)
 	
-	# REBIRTH
+	config.save(files[curFile])
 	
-	config.set_value("Rebirth", "RebirthTokens", rebirthTokens)
+	#resetables(false)
+
+func resetables():
+	var config = ConfigFile.new()
 	
-	config.set_value("Rebirth", "RebirthAutoClickerLevel", ItemValues.marketItems[0]["CurUpgrade"])
-	config.set_value("Rebirth", "PresistantPlusOne", ItemValues.marketItems[1]["CurUpgrade"])
-	config.set_value("Rebirth", "PlusOneMC", ItemValues.marketItems[2]["CurUpgrade"])
-	config.set_value("Rebirth", "EvilMinesAvaliable", ItemValues.marketItems[3]["Owned"])
-	config.set_value("Rebirth", "AntagJelly", ItemValues.marketItems[4]["CurUpgrade"])
-	config.set_value("Rebirth", "PhantomJelly", ItemValues.marketItems[5]["CurUpgrade"])
+	config.load(files[curFile])
+	
+	config.set_value("Fiscal", "AmountOfJellies", 0)
+	config.set_value("Fiscal", "Money", 0)
+	config.set_value("Fiscal", "StoredJellies", [])
+	config.set_value("Fiscal", "Clothing", 0)
+	config.set_value("Stats", "amountOfMines", 1)
+	config.set_value("Stats", "greasepuppies", 0)
+	var clothing = []
+	for i in ClothingObjects.clothes.size(): 
+		clothing.append(ClothingObjects.clothes[i]["Owned"])
+	config.set_value("Stats", "ownedClothes", clothing)
+	config.set_value("Shop", "autoClickerUpgrade", 0)
+	config.set_value("Shop", "PlusOneUpgrade", 0)
+	config.set_value("Shop", "PlusOneAUTOUpgrade", 0)
+	config.set_value("Story", "DialogueUnlockedMELANIE", [])
+	config.set_value("Story", "DialogueDoneMELANIE", [])
+	config.set_value("Story", "DialogueUnlockedMELVIN", [])
+	config.set_value("Story", "DialogueDoneMELVIN", [])
 	
 	config.save(files[curFile])

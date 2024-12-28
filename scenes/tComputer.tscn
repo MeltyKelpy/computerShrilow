@@ -1,4 +1,4 @@
-[gd_scene load_steps=148 format=3 uid="uid://bgw557ttv6noe"]
+[gd_scene load_steps=155 format=3 uid="uid://bgw557ttv6noe"]
 
 [ext_resource type="Script" path="res://scenes/t_computer.gd" id="1_swrb7"]
 [ext_resource type="Texture2D" uid="uid://dajex7cpt7k4p" path="res://assets/images/bg/background.png" id="2_u0da7"]
@@ -19,9 +19,11 @@
 [ext_resource type="Texture2D" uid="uid://cc7uegt46vf3d" path="res://assets/images/ui/back.png" id="14_88vde"]
 [ext_resource type="AudioStream" uid="uid://dbybnubpmhwx3" path="res://assets/music/melanieShop.ogg" id="15_kk7gt"]
 [ext_resource type="Texture2D" uid="uid://w4aga5clxbjf" path="res://assets/images/areas/wardrobe/wardrobe.png" id="16_ptxs8"]
+[ext_resource type="Texture2D" uid="uid://c5px4l4kt6ev4" path="res://assets/images/ui/rebirthHover.png" id="17_1xfnv"]
 [ext_resource type="Texture2D" uid="uid://cb65qvgh6u74n" path="res://assets/images/ui/backFlip.png" id="17_jpsse"]
 [ext_resource type="Texture2D" uid="uid://dtses6hed07fv" path="res://assets/images/areas/jellies/reception.png" id="17_km8e8"]
 [ext_resource type="Texture2D" uid="uid://msvb6jrm45iv" path="res://assets/images/ui/backUp.png" id="17_obgyp"]
+[ext_resource type="Texture2D" uid="uid://d3xwuakjymg2g" path="res://assets/images/ui/rebirth.png" id="18_1cdo7"]
 [ext_resource type="PackedScene" uid="uid://cbtrsg4a3b386" path="res://technical/minesLevel.tscn" id="18_6bagw"]
 [ext_resource type="Texture2D" uid="uid://bdb32kjljwqn4" path="res://assets/images/areas/jellies/JELLYDAYCARE.png" id="18_w041t"]
 [ext_resource type="Texture2D" uid="uid://bymsocpxxxn4o" path="res://assets/images/areas/jellies/receptionDesk.png" id="19_4v3d6"]
@@ -80,6 +82,7 @@
 [ext_resource type="Texture2D" uid="uid://cdi4tcc76faq8" path="res://assets/images/areas/melanies/items/floppydisk.png" id="59_5ltno"]
 [ext_resource type="Texture2D" uid="uid://1wa4musg8sh5" path="res://assets/images/ui/transitions/market0.png" id="65_frjgo"]
 [ext_resource type="Texture2D" uid="uid://dten384haeri1" path="res://assets/images/ui/transitions/market1.png" id="66_747lq"]
+[ext_resource type="AudioStream" uid="uid://d4nxr0v17co87" path="res://assets/sounds/click.ogg" id="83_hn3h7"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p6f28"]
 
@@ -133,6 +136,18 @@ bg_color = Color(0, 1, 0, 1)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7e2gc"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v5e17"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hfa8f"]
+texture = ExtResource("17_1xfnv")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yi3ut"]
+texture = ExtResource("17_1xfnv")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_85gsk"]
+texture = ExtResource("17_1xfnv")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t4wdy"]
+texture = ExtResource("18_1cdo7")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ugy5"]
 size = Vector2(1774, 62)
@@ -1422,6 +1437,26 @@ text = "CLICKS:"
 
 [node name="puppies" type="Node2D" parent="ShrilowScreen"]
 
+[node name="Rebirth" type="Button" parent="ShrilowScreen"]
+visible = false
+z_index = -5
+offset_left = 535.0
+offset_top = 52.0
+offset_right = 629.0
+offset_bottom = 180.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p6f28")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_w4xu3")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_uj6cr")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0meto")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_hfa8f")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_o3afr")
+theme_override_styles/hover = SubResource("StyleBoxTexture_yi3ut")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_e3kvh")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_85gsk")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iq0t2")
+theme_override_styles/normal = SubResource("StyleBoxTexture_t4wdy")
+disabled = true
+
 [node name="USD" type="Sprite2D" parent="."]
 z_index = 8
 position = Vector2(51, 70)
@@ -1641,6 +1676,7 @@ stream = ExtResource("30_av4u0")
 volume_db = 0.644
 
 [node name="MarektIndicator" type="AnimatedSprite2D" parent="Shop"]
+visible = false
 position = Vector2(576, 324)
 sprite_frames = SubResource("SpriteFrames_x01u4")
 autoplay = "default"
@@ -1662,6 +1698,7 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_e3kvh")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_kvmat")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iq0t2")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
+disabled = true
 
 [node name="Market" type="Node2D" parent="."]
 position = Vector2(1923, 1167)
@@ -2479,6 +2516,22 @@ texture = ExtResource("59_5ltno")
 [node name="poopTimer" type="Timer" parent="Camera2D/autoPoop"]
 one_shot = true
 
+[node name="Timer" type="Timer" parent="Camera2D"]
+wait_time = 2.0
+one_shot = true
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D"]
+visible = false
+z_index = 4096
+offset_left = -577.0
+offset_top = -324.0
+offset_right = 586.0
+offset_bottom = 332.0
+color = Color(0, 0, 0, 1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Camera2D"]
+stream = ExtResource("83_hn3h7")
+
 [node name="setNames" type="Timer" parent="."]
 wait_time = 0.05
 one_shot = true
@@ -2498,6 +2551,7 @@ autostart = true
 [connection signal="pressed" from="ShrilowScreen/WardrobeButton" to="." method="_on_wardrobe_button_pressed"]
 [connection signal="pressed" from="ShrilowScreen/TrophiesButton" to="." method="_on_trophies_button_pressed"]
 [connection signal="pressed" from="ShrilowScreen/MinesButton" to="." method="_on_mines_button_pressed"]
+[connection signal="pressed" from="ShrilowScreen/Rebirth" to="." method="_Rebirth"]
 [connection signal="pressed" from="Jelly/BackButtonJELLY" to="." method="_on_back_button_jelly_pressed"]
 [connection signal="pressed" from="Shop/melinteract" to="." method="melShopToggle"]
 [connection signal="pressed" from="Shop/BackButtonSHOP" to="." method="_on_back_button_shop_pressed"]
@@ -2525,7 +2579,9 @@ autostart = true
 [connection signal="mouse_entered" from="Camera2D/rightMove" to="." method="_on_right_move_mouse_entered"]
 [connection signal="mouse_exited" from="Camera2D/rightMove" to="." method="_on_right_move_mouse_exited"]
 [connection signal="pressed" from="Camera2D/storg" to="." method="storageCamShit" binds= ["enter"]]
+[connection signal="animation_finished" from="Camera2D/intro/anim" to="." method="_on_anim_animation_finished"]
 [connection signal="timeout" from="Camera2D/autoPoop/poopTimer" to="." method="killPoop"]
+[connection signal="timeout" from="Camera2D/Timer" to="." method="rebirth"]
 [connection signal="timeout" from="setNames" to="." method="_on_set_names_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="autosave" to="." method="autosave"]

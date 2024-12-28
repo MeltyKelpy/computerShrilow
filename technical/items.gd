@@ -65,7 +65,7 @@ var itemInfomation = [
 	# Greasepuppy
 	"Image":"res://assets/images/areas/melanies/items/greasepuppy.png",
 	"Name":"Greasepuppy",
-	"Desc":'"spawns in the main shrilow area, they give you $1 every 5 seconds, but you can buy as many as you want. as long as im getting my moneys worth" -Mel ',
+	"Desc":'"spawns in the main shrilow area, they give you $1 every 3 seconds, but you can buy as many as you want. as long as im getting my moneys worth" -Mel ',
 	"Upgradeable?":false,
 	"MaxUpgrade":1,
 	"CurUpgrade":0,
