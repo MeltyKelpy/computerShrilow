@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://j6hicahygtp"]
+[gd_scene load_steps=67 format=3 uid="uid://j6hicahygtp"]
 
 [ext_resource type="Script" path="res://scenes/tutorial.gd" id="1_oa3ri"]
 [ext_resource type="Texture2D" uid="uid://dajex7cpt7k4p" path="res://assets/images/bg/background.png" id="1_r6irf"]
@@ -6,11 +6,16 @@
 [ext_resource type="Texture2D" uid="uid://hfcstjcjosw4" path="res://assets/images/ui/vlcmediaplayer.png" id="3_kijts"]
 [ext_resource type="Texture2D" uid="uid://b8y35swxyqxen" path="res://assets/images/bg/fade.png" id="3_sor34"]
 [ext_resource type="Texture2D" uid="uid://dv1knrxoff866" path="res://assets/images/ui/transitions/bg.png" id="4_f6wap"]
+[ext_resource type="Texture2D" uid="uid://d3b1qb3i07urm" path="res://assets/images/computershrilows/shrilowBases/shrilowBase.png" id="4_uavk3"]
 [ext_resource type="Texture2D" uid="uid://c3rsesgxto2nt" path="res://assets/images/ui/transitions/bell0.png" id="5_7rbg0"]
 [ext_resource type="Texture2D" uid="uid://blvwd2nk3x3go" path="res://assets/images/ui/arrow.png" id="5_14j0e"]
+[ext_resource type="PackedScene" uid="uid://dctfcin0koae7" path="res://technical/shrilowFace.tscn" id="5_o0nah"]
+[ext_resource type="AudioStream" uid="uid://o0fq5njk38ru" path="res://assets/sounds/squeak.ogg" id="6_hvrrl"]
 [ext_resource type="Texture2D" uid="uid://dqdfjx7jj56ii" path="res://assets/images/ui/transitions/bell1.png" id="6_itv5l"]
+[ext_resource type="Texture2D" uid="uid://c1l80qqc08y64" path="res://assets/images/computershrilows/dialogBox.png" id="7_tdgmd"]
 [ext_resource type="Texture2D" uid="uid://b4sehpse6a35m" path="res://assets/images/ui/transitions/elevator0.png" id="7_w7gos"]
 [ext_resource type="Texture2D" uid="uid://cg4s4o4vbdqyc" path="res://assets/images/ui/transitions/elevator1.png" id="8_c32o5"]
+[ext_resource type="Theme" uid="uid://dr1wna4c2ab2h" path="res://technical/textStyle.tres" id="8_nkl3s"]
 [ext_resource type="Texture2D" uid="uid://cyl5tq8jp5j0t" path="res://assets/images/ui/transitions/gumball0.png" id="9_1e3ht"]
 [ext_resource type="Texture2D" uid="uid://bkbjihpsh2jer" path="res://assets/images/ui/transitions/gumball1.png" id="10_jwgm7"]
 [ext_resource type="Texture2D" uid="uid://b3tp13r2ykpby" path="res://assets/images/ui/transitions/journal0.png" id="11_4pe1s"]
@@ -22,6 +27,37 @@
 [ext_resource type="Texture2D" uid="uid://bckpy37xwgin2" path="res://assets/images/ui/theTutorialLogo.png" id="17_yt447"]
 [ext_resource type="Texture2D" uid="uid://cdi4tcc76faq8" path="res://assets/images/areas/melanies/items/floppydisk.png" id="18_46tk2"]
 [ext_resource type="AudioStream" uid="uid://d4nxr0v17co87" path="res://assets/sounds/click.ogg" id="22_d8i4e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c3jat"]
+size = Vector2(233, 405)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ok1w5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0wd8b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3da53"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dvx6b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rrj7w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jo0ps"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ytggr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t8b7u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ew36b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cj1pj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wljrr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_087vc"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i6sbd"]
+bg_color = Color(0, 1, 0, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f557w"]
 
@@ -275,6 +311,88 @@ texture = ExtResource("1_r6irf")
 [node name="fade" type="Sprite2D" parent="."]
 position = Vector2(577, 324)
 texture = ExtResource("3_sor34")
+
+[node name="Shrilow" type="Node2D" parent="."]
+position = Vector2(586, 649)
+
+[node name="Hitspot" type="Area2D" parent="Shrilow"]
+
+[node name="Colli" type="CollisionShape2D" parent="Shrilow/Hitspot"]
+position = Vector2(-1.5, -203.5)
+shape = SubResource("RectangleShape2D_c3jat")
+
+[node name="Shrilow" type="Sprite2D" parent="Shrilow"]
+position = Vector2(-3.75002, -212.5)
+texture = ExtResource("4_uavk3")
+
+[node name="ShrilowFace" parent="Shrilow/Shrilow" instance=ExtResource("5_o0nah")]
+position = Vector2(-212, -216)
+
+[node name="StillFace" type="Sprite2D" parent="Shrilow/Shrilow"]
+
+[node name="Squeak" type="AudioStreamPlayer2D" parent="Shrilow"]
+stream = ExtResource("6_hvrrl")
+volume_db = -25.753
+max_distance = 500.0
+
+[node name="Squeak2" type="AudioStreamPlayer2D" parent="Shrilow"]
+stream = ExtResource("6_hvrrl")
+volume_db = -48.239
+max_distance = 500.0
+
+[node name="ShrilowSqueak" type="Button" parent="Shrilow"]
+offset_left = -158.75
+offset_top = -421.25
+offset_right = 153.25
+offset_bottom = -0.25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ok1w5")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_0wd8b")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3da53")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_dvx6b")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_rrj7w")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_jo0ps")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ytggr")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_t8b7u")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ew36b")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_cj1pj")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wljrr")
+action_mode = 0
+button_mask = 3
+
+[node name="ProgressBar" type="ProgressBar" parent="Shrilow"]
+visible = false
+offset_left = -118.0
+offset_top = -445.0
+offset_right = 115.0
+offset_bottom = -418.0
+theme_override_styles/background = SubResource("StyleBoxFlat_087vc")
+theme_override_styles/fill = SubResource("StyleBoxFlat_i6sbd")
+value = 50.0
+show_percentage = false
+
+[node name="textBox" type="Node2D" parent="Shrilow"]
+position = Vector2(0, -381)
+scale = Vector2(1e-05, 1e-05)
+
+[node name="box" type="Sprite2D" parent="Shrilow/textBox"]
+position = Vector2(0, -73)
+texture = ExtResource("7_tdgmd")
+
+[node name="dialog" type="Label" parent="Shrilow/textBox/box"]
+offset_left = -211.0
+offset_top = -126.0
+offset_right = 212.0
+offset_bottom = 122.0
+scale = Vector2(1, 0.6)
+theme = ExtResource("8_nkl3s")
+theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Timer" type="Timer" parent="Shrilow"]
+wait_time = 5.0
+one_shot = true
 
 [node name="vlc" type="Sprite2D" parent="."]
 position = Vector2(576, 324)
