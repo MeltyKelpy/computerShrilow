@@ -387,6 +387,9 @@ func generateHoes():
 		caca.reparent($Journal/ScrollContainer/GridContainer)
 
 func _ready():
+	
+	Game.loadData()
+	
 	$Mines.position.y = 648
 	generateHoes()
 	

@@ -28,8 +28,8 @@ func _on_timer_timeout() -> void:
 	Game.resetables()
 	Game.saveData()
 	var config = ConfigFile.new()
-	
 	config.load(Game.files[Game.curFile])
+	print(recievedTokens)
 	config.set_value("Rebirth", "RebirthTokens", recievedTokens)
 	config.set_value("Fiscal", "Rebirths", Game.rebirths + 1)
 	config.save(Game.files[Game.curFile])
