@@ -19,6 +19,14 @@ func _process(delta: float) -> void:
 		$jellies.text = ""
 
 func _on_button_pressed() -> void:
+	if $name.text == "Lobby":
+		FizzyDrink.scrollLimitRIGHT = -576
+		FizzyDrink.scrollLimitLEFT = -1324
+	else:
+		FizzyDrink.scrollLimitRIGHT = hi.maxRIGHT
+		FizzyDrink.scrollLimitLEFT = hi.maxLEFT
+		print(FizzyDrink.scrollLimitRIGHT)
+		print(FizzyDrink.scrollLimitLEFT)
 	$/root/computerShrilow.cameraAnimation("elevator", posX, posY, true)
 
 func _on_name_text_changed(new_text: String) -> void:

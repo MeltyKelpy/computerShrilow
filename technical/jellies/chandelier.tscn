@@ -1,0 +1,137 @@
+[gd_scene load_steps=9 format=3 uid="uid://60vhnfaawi87"]
+
+[ext_resource type="Texture2D" uid="uid://7nd51l0gqsv5" path="res://assets/images/areas/jellies/rooms/simpleRoom/chan3.png" id="1_qimpq"]
+[ext_resource type="Texture2D" uid="uid://byc0ytjcqtg43" path="res://assets/images/areas/jellies/rooms/simpleRoom/chan1.png" id="1_s1087"]
+[ext_resource type="Texture2D" uid="uid://c73peoixvttyu" path="res://assets/images/areas/jellies/rooms/simpleRoom/chan2.png" id="2_p5cy1"]
+[ext_resource type="PackedScene" uid="uid://g8436k7dpk10" path="res://technical/jellies/chanBeads.tscn" id="3_xb74p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7sqe1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b5rf6"]
+size = Vector2(52, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j3h2f"]
+size = Vector2(96, 38)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rwnfe"]
+size = Vector2(96, 90)
+
+[node name="Chandelier" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, -14)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_7sqe1")
+
+[node name="ChanBeads9" parent="." instance=ExtResource("3_xb74p")]
+position = Vector2(0, 156)
+
+[node name="chanPoint1" type="PinJoint2D" parent="ChanBeads9"]
+node_a = NodePath("../../chan3")
+node_b = NodePath("..")
+
+[node name="chanPoint3" type="PinJoint2D" parent="."]
+position = Vector2(0, 128)
+node_a = NodePath("../chan2")
+node_b = NodePath("../chan3")
+
+[node name="chan3" type="RigidBody2D" parent="."]
+position = Vector2(0, 121)
+collision_layer = 64
+
+[node name="top" type="Sprite2D" parent="chan3"]
+position = Vector2(0, 20)
+texture = ExtResource("1_qimpq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="chan3"]
+position = Vector2(0, 20)
+shape = SubResource("RectangleShape2D_b5rf6")
+
+[node name="ChanBeads6" parent="." instance=ExtResource("3_xb74p")]
+position = Vector2(-26, 118)
+
+[node name="chanPoint1" type="PinJoint2D" parent="ChanBeads6"]
+node_a = NodePath("../../chan2")
+node_b = NodePath("..")
+
+[node name="ChanBeads7" parent="." instance=ExtResource("3_xb74p")]
+position = Vector2(0, 123)
+
+[node name="chanPoint1" type="PinJoint2D" parent="ChanBeads7"]
+node_a = NodePath("../../chan2")
+node_b = NodePath("..")
+
+[node name="ChanBeads8" parent="." instance=ExtResource("3_xb74p")]
+position = Vector2(26, 117)
+
+[node name="chanPoint1" type="PinJoint2D" parent="ChanBeads8"]
+node_a = NodePath("../../chan2")
+node_b = NodePath("..")
+
+[node name="chanPoint2" type="PinJoint2D" parent="."]
+position = Vector2(0, 93)
+node_a = NodePath("../chan1")
+node_b = NodePath("../chan2")
+
+[node name="chan2" type="RigidBody2D" parent="."]
+position = Vector2(0, 85)
+collision_layer = 2
+
+[node name="top" type="Sprite2D" parent="chan2"]
+position = Vector2(0, 19)
+texture = ExtResource("2_p5cy1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="chan2"]
+position = Vector2(0, 19)
+shape = SubResource("RectangleShape2D_j3h2f")
+
+[node name="ChanBeads" parent="." instance=ExtResource("3_xb74p")]
+position = Vector2(-40, 85)
+
+[node name="chanPoint1" type="PinJoint2D" parent="ChanBeads"]
+node_a = NodePath("../../chan1")
+node_b = NodePath("..")
+
+[node name="ChanBeads2" parent="." instance=ExtResource("3_xb74p")]
+position = Vector2(-20, 89)
+
+[node name="chanPoint1" type="PinJoint2D" parent="ChanBeads2"]
+node_a = NodePath("../../chan1")
+node_b = NodePath("..")
+
+[node name="ChanBeads3" parent="." instance=ExtResource("3_xb74p")]
+position = Vector2(-1, 90)
+
+[node name="chanPoint1" type="PinJoint2D" parent="ChanBeads3"]
+node_a = NodePath("../../chan1")
+node_b = NodePath("..")
+
+[node name="ChanBeads4" parent="." instance=ExtResource("3_xb74p")]
+position = Vector2(18, 88)
+
+[node name="chanPoint1" type="PinJoint2D" parent="ChanBeads4"]
+node_a = NodePath("../../chan1")
+node_b = NodePath("../../ChanBeads4")
+
+[node name="ChanBeads5" parent="." instance=ExtResource("3_xb74p")]
+position = Vector2(37, 82)
+
+[node name="chanPoint1" type="PinJoint2D" parent="ChanBeads5"]
+node_a = NodePath("../../chan1")
+node_b = NodePath("..")
+
+[node name="chanPoint1" type="PinJoint2D" parent="."]
+node_a = NodePath("../StaticBody2D")
+node_b = NodePath("../chan1")
+
+[node name="chan1" type="RigidBody2D" parent="."]
+
+[node name="top" type="Sprite2D" parent="chan1"]
+position = Vector2(0, 45)
+texture = ExtResource("1_s1087")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="chan1"]
+position = Vector2(0, 45)
+shape = SubResource("RectangleShape2D_rwnfe")

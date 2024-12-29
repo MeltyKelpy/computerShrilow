@@ -1,14 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://dthedtypqwdw2"]
+[gd_scene load_steps=9 format=3 uid="uid://bylwk1otht6du"]
 
-[ext_resource type="Script" path="res://technical/jellies/basicRoom.gd" id="1_5p3x2"]
-[ext_resource type="Texture2D" uid="uid://xkcjaapvasvr" path="res://assets/images/areas/jellies/rooms/basicRoom/bg.png" id="1_txxv0"]
-[ext_resource type="PackedScene" uid="uid://cc62swwttf6t2" path="res://technical/jellies/elevator.tscn" id="3_x6anf"]
+[ext_resource type="Script" path="res://technical/jellies/simpleRoom.gd" id="1_hjcd8"]
+[ext_resource type="Texture2D" uid="uid://bqqnav4fbsnkj" path="res://assets/images/areas/jellies/rooms/simpleRoom/room.png" id="2_1b20a"]
+[ext_resource type="PackedScene" uid="uid://cc62swwttf6t2" path="res://technical/jellies/elevator.tscn" id="3_13pnr"]
+[ext_resource type="PackedScene" uid="uid://60vhnfaawi87" path="res://technical/jellies/chandelier.tscn" id="3_q2mo3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fd18s"]
-size = Vector2(1774, 62)
+size = Vector2(1622, 62)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_df35r"]
-size = Vector2(1771.75, 44.7499)
+size = Vector2(1617.88, 44.7499)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j6het"]
 size = Vector2(66.0613, 1156.31)
@@ -16,32 +17,35 @@ size = Vector2(66.0613, 1156.31)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7bwgo"]
 size = Vector2(292, 1164)
 
-[node name="BasicRoom" type="Node2D"]
+[node name="SimpleRoom" type="Node2D"]
 position = Vector2(-64, 0)
-script = ExtResource("1_5p3x2")
+script = ExtResource("1_hjcd8")
 
 [node name="basicRoom" type="Sprite2D" parent="."]
-position = Vector2(950, 324)
-texture = ExtResource("1_txxv0")
+position = Vector2(737, 324)
+texture = ExtResource("2_1b20a")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="basicRoom"]
 position = Vector2(-268, -337)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="basicRoom/StaticBody2D"]
-position = Vector2(267, 639)
+position = Vector2(191, 639)
 shape = SubResource("RectangleShape2D_fd18s")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="basicRoom/StaticBody2D"]
-position = Vector2(266, -523)
+position = Vector2(189.063, -523)
 shape = SubResource("RectangleShape2D_df35r")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="basicRoom/StaticBody2D"]
-position = Vector2(1119.03, 28.1563)
+position = Vector2(968, 28.1563)
 shape = SubResource("RectangleShape2D_j6het")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="basicRoom/StaticBody2D"]
-position = Vector2(-476, 47)
+position = Vector2(-206, 47)
 shape = SubResource("RectangleShape2D_7bwgo")
 
-[node name="Elevator" parent="." instance=ExtResource("3_x6anf")]
-position = Vector2(439, 494)
+[node name="Chandelier" parent="." instance=ExtResource("3_q2mo3")]
+position = Vector2(887, -6)
+
+[node name="Elevator" parent="." instance=ExtResource("3_13pnr")]
+position = Vector2(411, 513)

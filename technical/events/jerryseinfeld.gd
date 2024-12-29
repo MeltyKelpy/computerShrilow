@@ -47,9 +47,9 @@ func _process(delta: float) -> void:
 			$jerry/jerryTail.play("noTail")
 			$jerry.position.y -= 1
 			if $jerry.position.x < 156:
-				$jerry.position.x += 1 + delta
+				$jerry.position.x += 1 + (1 + delta)
 			if $jerry.position.x > 156:
-				$jerry.position.x -= 1 + delta
+				$jerry.position.x -= 1 + (1 * delta)
 		elif $jerry.position.y == 105 and hurt == false:
 			$jerry.play("steal")
 			$jerry/jerryTail.play("tail")

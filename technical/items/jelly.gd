@@ -1,8 +1,8 @@
 extends Node2D
 
 @export var jellyNum = 0
-@export var jelly = "Retarded Gambler Jelly"
-@export var rarity = "Uncommon"
+@export var jelly = "Jelly"
+@export var rarity = "Queer"
 @export var money = 3
 @export var seconds = 6
 @export var selfDiscoveredVar = false
@@ -156,7 +156,7 @@ func _on_death_time_timeout() -> void:
 	queue_free()
 
 func _on_change_floor_pressed(ID) -> void:
-	rigid_body_2d.transform = Transform2D(0.0, Vector2(0, 100+((ID * 1300) + 1600)))
+	rigid_body_2d.transform = Transform2D($/root/computerShrilow/Jelly/rooms.get_child(ID-1).position.x + 100, Vector2(0, 100+((ID * 1300) + 1600)))
 	print(100+((ID * 1300) + 1600))
 
 func _on_storage_pressed(type) -> void:

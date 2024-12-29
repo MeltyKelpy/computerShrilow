@@ -154,21 +154,81 @@ var itemInfomation = [
 	]
 
 var melvinItems = [
-	{
+	#{
 	# BASIC ROOM
+	#"Image":"res://assets/images/areas/melanies/items/room.png",
+	#"Name":"Basic Room",
+	#"Desc":'"a basic room, jelly capcity of 15." - melvin',
+	#"Upgradeable?":false,
+	#"MaxUpgrade":1,
+	#"CurUpgrade":0,
+	#"BaseValue":0,
+	#"UpgradeIncrease":0,
+	#"Owned":false,
+	#"Cost":300,
+	#"ScenePath":"res://technical/jellies/basicRoom.tscn",
+	#"Type":"Consumable",
+	#},
+	{
+	# SIMPLE ROOM
 	"Image":"res://assets/images/areas/melanies/items/room.png",
-	"Name":"Basic Room",
-	"Desc":'"a basic room, jelly capcity of 15." - melvin',
+	"Name":"Simple Room",
+	"Desc":'"a simple room, jelly capcity of 5." - melvin',
 	"Upgradeable?":false,
 	"MaxUpgrade":1,
 	"CurUpgrade":0,
 	"BaseValue":0,
 	"UpgradeIncrease":0,
 	"Owned":false,
-	"Cost":300,
-	"ScenePath":"res://technical/jellies/basicRoom.tscn",
+	"Cost":100,
+	"ScenePath":"res://technical/jellies/simpleRoom.tscn",
 	"Type":"Consumable",
 	},
+	#{
+	## SIZABLE ROOM
+	#"Image":"res://assets/images/areas/melanies/items/room.png",
+	#"Name":"Sizable Room",
+	#"Desc":'"a sizable room, jelly capcity of 8." - melvin',
+	#"Upgradeable?":false,
+	#"MaxUpgrade":1,
+	#"CurUpgrade":0,
+	#"BaseValue":0,
+	#"UpgradeIncrease":0,
+	#"Owned":false,
+	#"Cost":250,
+	#"ScenePath":"res://technical/jellies/basicRoom.tscn",
+	#"Type":"Consumable",
+	#},
+	#{
+	## SIMPLE ROOM
+	#"Image":"res://assets/images/areas/melanies/items/room.png",
+	#"Name":"The Break Room",
+	#"Desc":'"a break room, jelly capcity of 8." - melvin',
+	#"Upgradeable?":false,
+	#"MaxUpgrade":1,
+	#"CurUpgrade":0,
+	#"BaseValue":0,
+	#"UpgradeIncrease":0,
+	#"Owned":false,
+	#"Cost":300,
+	#"ScenePath":"res://technical/jellies/basicRoom.tscn",
+	#"Type":"Consumable",
+	#},
+	#{
+	## The Court
+	#"Image":"res://assets/images/areas/melanies/items/room.png",
+	#"Name":"The Court",
+	#"Desc":'"a basketball court, jelly capcity of 10." - melvin',
+	#"Upgradeable?":false,
+	#"MaxUpgrade":1,
+	#"CurUpgrade":0,
+	#"BaseValue":0,
+	#"UpgradeIncrease":0,
+	#"Owned":false,
+	#"Cost":450,
+	#"ScenePath":"res://technical/jellies/basicRoom.tscn",
+	#"Type":"Consumable",
+	#},
 	]
 
 var marketItems = [

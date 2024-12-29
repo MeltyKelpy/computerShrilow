@@ -514,13 +514,13 @@ func _process(_delta : float) -> void:
 	else:
 		$Camera2D/bg.visible = false
 	
-	if $Camera2D.position.x < (-576) and $Camera2D.position.x > (-1324) and area == "Jellies":
+	if $Camera2D.position.x < (FizzyDrink.scrollLimitRIGHT) and $Camera2D.position.x > (FizzyDrink.scrollLimitLEFT) and area == "Jellies":
 		$Camera2D/leftMove.set_mouse_filter(1)
 		$Camera2D/rightMove.set_mouse_filter(1)
-	elif $Camera2D.position.x == (-576) and area == "Jellies":
+	elif $Camera2D.position.x == (FizzyDrink.scrollLimitRIGHT) and area == "Jellies":
 		$Camera2D/leftMove.set_mouse_filter(1)
 		$Camera2D/rightMove.set_mouse_filter(2)
-	elif $Camera2D.position.x == (-1324) and area == "Jellies":
+	elif $Camera2D.position.x == (FizzyDrink.scrollLimitLEFT) and area == "Jellies":
 		$Camera2D/leftMove.set_mouse_filter(2)
 		$Camera2D/rightMove.set_mouse_filter(1)
 	else:
@@ -532,10 +532,10 @@ func _process(_delta : float) -> void:
 	if cameraMoveDir == "right" and area == "Jellies":
 		$Camera2D.position.x += 270 * _delta/0.5
 	
-	if area == "Jellies" and $Camera2D.position.x > (-576):
-		$Camera2D.position.x = (-576)
-	if area == "Jellies" and $Camera2D.position.x < (-1324):
-		$Camera2D.position.x = (-1324)
+	if area == "Jellies" and $Camera2D.position.x > (FizzyDrink.scrollLimitRIGHT):
+		$Camera2D.position.x = (FizzyDrink.scrollLimitRIGHT)
+	if area == "Jellies" and $Camera2D.position.x < (FizzyDrink.scrollLimitLEFT):
+		$Camera2D.position.x = (FizzyDrink.scrollLimitLEFT)
 	
 	if FizzyDrink.stopTheCount != 0:
 		$noEventsTimer.wait_time = FizzyDrink.stopTheCount
@@ -613,6 +613,8 @@ func _process(_delta : float) -> void:
 	$Wardrobe/ItemName.text = ClothingObjects.itemName
 	$Wardrobe/ItemDescription.text = ClothingObjects.itemDesc
 	
+	if FizzyDrink.clicks == null:
+		FizzyDrink.clicks = 0
 	$ShrilowScreen/Clicks.text = "CLICKS: "+str(FizzyDrink.clicks)
 	$USDText.text = str(round(ItemValues.money))
 	$Gumball/USDText.text = str(round(ItemValues.money))
@@ -788,11 +790,11 @@ func _on_jellies_button_pressed() -> void:
 		$sectionTransitions.play("toJellies")
 
 func _on_right_move_mouse_entered() -> void:
-	if $Camera2D.position.x < (-576):
+	if $Camera2D.position.x < (FizzyDrink.scrollLimitRIGHT):
 		cameraMoveDir = "right"
 
 func _on_left_move_mouse_entered() -> void:
-	if $Camera2D.position.x > (-1324):
+	if $Camera2D.position.x > (FizzyDrink.scrollLimitLEFT):
 		cameraMoveDir = "left"
 
 func _on_right_move_mouse_exited() -> void:
@@ -803,6 +805,8 @@ func _on_left_move_mouse_exited() -> void:
 
 func _signal_jelly():
 	area = "Jellies"
+	FizzyDrink.scrollLimitRIGHT = -576
+	FizzyDrink.scrollLimitLEFT = -1324
 	$Camera2D/storg.disabled = false
 	$Camera2D/storg.visible = true
 	$Camera2D/storgImg.visible = true

@@ -17,9 +17,13 @@ func _ready() -> void:
 	$Label2.text = "You have Recieved "+str(recievedTokens)+" Tokens. Dont go spending it all in one place, now!"
 
 func restart():
+	var dir = DirAccess.open(Game.scenePaths[Game.curFile])
+	if dir != null:
+		for file in dir.get_files():
+			print(file)
+			DirAccess.remove_absolute(Game.scenePaths[Game.curFile]+"/"+file)
 	DirAccess.remove_absolute(Game.scenePaths[Game.curFile])
 	print(DirAccess.get_directories_at("user://saveData/nodeSaves"))
-	DirAccess.remove_absolute(Game.files[Game.curFile])
 	#Game.resetables(true)
 	Game.reloadGlobals()
 	$Timer.start()

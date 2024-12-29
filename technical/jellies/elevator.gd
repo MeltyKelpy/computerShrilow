@@ -18,6 +18,7 @@ func _on_button_pressed() -> void:
 			var hi = $/root/computerShrilow/Jelly/rooms.get_child(i)
 			var cacaPoopyFUCK = load("res://technical/jellies/floor.tscn")
 			var caca = cacaPoopyFUCK.instantiate()
+			print(hi)
 			caca.naame = hi.Aname
 			caca.type = hi.type
 			caca.maxJells = hi.maxJel

@@ -99,6 +99,9 @@ var melDialogue = [
 
 var descriptionSetting = ""
 
+var scrollLimitLEFT = 0
+var scrollLimitRIGHT = 0
+
 func updateClothes() -> void:
 	clickPowerClothingBuffs = 0
 	AUTOclickPowerClothingBuffs = 0

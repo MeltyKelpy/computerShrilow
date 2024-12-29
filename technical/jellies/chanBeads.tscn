@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://g8436k7dpk10"]
+
+[ext_resource type="Texture2D" uid="uid://dwlnjc6jihvye" path="res://assets/images/areas/jellies/rooms/simpleRoom/bead.png" id="1_6wu7h"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h1c4r"]
+radius = 8.0
+height = 20.0
+
+[node name="ChanBeads" type="RigidBody2D"]
+collision_layer = 8
+
+[node name="bead" type="Sprite2D" parent="."]
+position = Vector2(0, 9.5)
+texture = ExtResource("1_6wu7h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 10)
+shape = SubResource("CapsuleShape2D_h1c4r")
+
+[node name="bead2" type="RigidBody2D" parent="."]
+position = Vector2(0, 19)
+collision_layer = 16
+
+[node name="bead" type="Sprite2D" parent="bead2"]
+position = Vector2(0, 9.5)
+texture = ExtResource("1_6wu7h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bead2"]
+position = Vector2(0, 10)
+shape = SubResource("CapsuleShape2D_h1c4r")
+
+[node name="2" type="PinJoint2D" parent="."]
+position = Vector2(0, 19)
+node_a = NodePath("..")
+node_b = NodePath("../bead2")
+
+[node name="bead3" type="RigidBody2D" parent="."]
+position = Vector2(0, 38)
+collision_layer = 32
+
+[node name="bead" type="Sprite2D" parent="bead3"]
+position = Vector2(0, 9.5)
+texture = ExtResource("1_6wu7h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bead3"]
+position = Vector2(0, 10)
+shape = SubResource("CapsuleShape2D_h1c4r")
+
+[node name="3" type="PinJoint2D" parent="."]
+position = Vector2(0, 38)
+node_a = NodePath("../bead2")
+node_b = NodePath("../bead3")
