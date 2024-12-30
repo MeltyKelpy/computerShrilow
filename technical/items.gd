@@ -184,6 +184,21 @@ var melvinItems = [
 	"ScenePath":"res://technical/jellies/simpleRoom.tscn",
 	"Type":"Consumable",
 	},
+	{
+	# SIMPLE ROOM
+	"Image":"res://assets/images/areas/melanies/items/room.png",
+	"Name":"Cozy Cabin",
+	"Desc":'"a cozy cabin, jelly capcity of 5." - melvin',
+	"Upgradeable?":false,
+	"MaxUpgrade":1,
+	"CurUpgrade":0,
+	"BaseValue":0,
+	"UpgradeIncrease":0,
+	"Owned":false,
+	"Cost":150,
+	"ScenePath":"res://technical/jellies/cozyCabin.tscn",
+	"Type":"Consumable",
+	},
 	#{
 	## SIZABLE ROOM
 	#"Image":"res://assets/images/areas/melanies/items/room.png",
@@ -214,21 +229,21 @@ var melvinItems = [
 	#"ScenePath":"res://technical/jellies/basicRoom.tscn",
 	#"Type":"Consumable",
 	#},
-	#{
-	## The Court
-	#"Image":"res://assets/images/areas/melanies/items/room.png",
-	#"Name":"The Court",
-	#"Desc":'"a basketball court, jelly capcity of 10." - melvin',
-	#"Upgradeable?":false,
-	#"MaxUpgrade":1,
-	#"CurUpgrade":0,
-	#"BaseValue":0,
-	#"UpgradeIncrease":0,
-	#"Owned":false,
-	#"Cost":450,
-	#"ScenePath":"res://technical/jellies/basicRoom.tscn",
-	#"Type":"Consumable",
-	#},
+	{
+	# The Court
+	"Image":"res://assets/images/areas/melanies/items/room.png",
+	"Name":"The Court",
+	"Desc":'"a basketball court, jelly capcity of 10." - melvin',
+	"Upgradeable?":false,
+	"MaxUpgrade":1,
+	"CurUpgrade":0,
+	"BaseValue":0,
+	"UpgradeIncrease":0,
+	"Owned":false,
+	"Cost":450,
+	"ScenePath":"res://technical/jellies/TheCourt.tscn",
+	"Type":"Consumable",
+	},
 	]
 
 var marketItems = [

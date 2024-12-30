@@ -1,0 +1,92 @@
+[gd_scene load_steps=15 format=3 uid="uid://nk7i6oclbj2r"]
+
+[ext_resource type="Script" path="res://technical/jellies/cozyCabin.gd" id="1_52whn"]
+[ext_resource type="Texture2D" uid="uid://be3px2se80cy8" path="res://assets/images/areas/jellies/rooms/cozyCabin/bg.png" id="2_uimo8"]
+[ext_resource type="Texture2D" uid="uid://g43rnfqor8hk" path="res://assets/images/areas/jellies/rooms/cozyCabin/dark.png" id="3_73tex"]
+[ext_resource type="Texture2D" uid="uid://dr445j48pbg32" path="res://assets/images/areas/jellies/rooms/cozyCabin/fire1.png" id="3_cd71w"]
+[ext_resource type="PackedScene" uid="uid://cc62swwttf6t2" path="res://technical/jellies/elevator.tscn" id="4_bw3pm"]
+[ext_resource type="Texture2D" uid="uid://ds8q6nneowrj6" path="res://assets/images/areas/jellies/rooms/cozyCabin/light.png" id="4_w8enx"]
+[ext_resource type="Texture2D" uid="uid://dxy6ujt7cy63d" path="res://assets/images/areas/jellies/rooms/cozyCabin/fire2.png" id="4_wule6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4iaoc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_cd71w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_wule6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_r8sha"]
+blend_mode = 4
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_c724d"]
+blend_mode = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fd18s"]
+size = Vector2(1622, 62)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_df35r"]
+size = Vector2(1617.88, 44.7499)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j6het"]
+size = Vector2(66.0613, 1156.31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7bwgo"]
+size = Vector2(292, 1164)
+
+[node name="Cabin" type="Node2D"]
+position = Vector2(-64, 0)
+script = ExtResource("1_52whn")
+
+[node name="basicRoom" type="Sprite2D" parent="."]
+position = Vector2(737, 324)
+texture = ExtResource("2_uimo8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(737, 324)
+sprite_frames = SubResource("SpriteFrames_4iaoc")
+autoplay = "default"
+frame_progress = 0.279431
+
+[node name="dark" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+z_index = 5
+material = SubResource("CanvasItemMaterial_r8sha")
+position = Vector2(737, 324)
+texture = ExtResource("3_73tex")
+
+[node name="light" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.32549)
+z_index = 5
+material = SubResource("CanvasItemMaterial_c724d")
+position = Vector2(737, 324)
+texture = ExtResource("4_w8enx")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(469, -13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(191, 639)
+shape = SubResource("RectangleShape2D_fd18s")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(189.063, -523)
+shape = SubResource("RectangleShape2D_df35r")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(968, 28.1563)
+shape = SubResource("RectangleShape2D_j6het")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-206, 47)
+shape = SubResource("RectangleShape2D_7bwgo")
+
+[node name="Elevator" parent="." instance=ExtResource("4_bw3pm")]
+position = Vector2(411, 513)

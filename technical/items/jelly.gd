@@ -158,6 +158,7 @@ func _on_death_time_timeout() -> void:
 func _on_change_floor_pressed(ID) -> void:
 	rigid_body_2d.transform = Transform2D($/root/computerShrilow/Jelly/rooms.get_child(ID-1).position.x + 100, Vector2(0, 100+((ID * 1300) + 1600)))
 	print(100+((ID * 1300) + 1600))
+	rigid_body_2d.rotation = 0
 
 func _on_storage_pressed(type) -> void:
 	if type == false:

@@ -1,0 +1,82 @@
+[gd_scene load_steps=9 format=3 uid="uid://c1bcbqidyrlm"]
+
+[ext_resource type="Texture2D" uid="uid://cbwaipfevwftf" path="res://assets/images/areas/jellies/rooms/theCourt/hopBg.png" id="1_bpoii"]
+[ext_resource type="Script" path="res://technical/jellies/hoop.gd" id="1_fs31a"]
+[ext_resource type="AudioStream" uid="uid://by43iftb5qwsc" path="res://assets/sounds/cheer.ogg" id="2_6nmc5"]
+[ext_resource type="Texture2D" uid="uid://dinrm5hq4b3an" path="res://assets/images/areas/jellies/rooms/theCourt/hopFore.png" id="2_bp2tx"]
+
+[sub_resource type="Gradient" id="Gradient_dm3iq"]
+offsets = PackedFloat32Array(0, 0.14433, 0.309278, 0.536082, 0.773196, 0.958763)
+colors = PackedColorArray(1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 1, 0.667824, 0.313533, 1, 1, 0.860565, 0.690718, 0, 1, 0.858824, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c8tut"]
+size = Vector2(41.1004, 162.345)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8bfem"]
+size = Vector2(20, 34.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_udhg8"]
+size = Vector2(129, 20)
+
+[node name="Hoop" type="Node2D"]
+script = ExtResource("1_fs31a")
+
+[node name="Hop" type="StaticBody2D" parent="."]
+
+[node name="cheer" type="AudioStreamPlayer2D" parent="Hop"]
+position = Vector2(6, -58)
+stream = ExtResource("2_6nmc5")
+volume_db = -10.667
+max_distance = 1000.0
+
+[node name="HopBG" type="Sprite2D" parent="Hop"]
+position = Vector2(19.5, 48)
+texture = ExtResource("1_bpoii")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Hop"]
+emitting = false
+amount = 30
+lifetime = 3.0
+one_shot = true
+explosiveness = 0.6
+randomness = 0.2
+direction = Vector2(0, 1)
+spread = 25.0
+gravity = Vector2(0, -100)
+initial_velocity_min = 65.0
+initial_velocity_max = 200.0
+angular_velocity_min = 280.0
+angular_velocity_max = 280.0
+scale_amount_max = 5.0
+split_scale = true
+scale_curve_x = null
+scale_curve_y = null
+color_ramp = SubResource("Gradient_dm3iq")
+hue_variation_min = -0.05
+hue_variation_max = 0.75
+anim_speed_min = 16.0
+anim_speed_max = 82.7
+
+[node name="HopFore" type="Sprite2D" parent="Hop"]
+z_index = 10
+position = Vector2(19.5, 48)
+texture = ExtResource("2_bp2tx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hop"]
+position = Vector2(-69.5188, -114.839)
+rotation = 0.150896
+shape = SubResource("RectangleShape2D_c8tut")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Hop"]
+position = Vector2(86, -38)
+shape = SubResource("RectangleShape2D_8bfem")
+
+[node name="Area2D" type="Area2D" parent="Hop"]
+position = Vector2(-2, -34)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hop/Area2D"]
+position = Vector2(10, -9)
+rotation = 0.168606
+shape = SubResource("RectangleShape2D_udhg8")
+
+[connection signal="body_entered" from="Hop/Area2D" to="." method="_on_area_2d_body_entered"]

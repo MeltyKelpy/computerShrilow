@@ -2,8 +2,8 @@ extends Node2D
 
 @export var ItemID : int
 @export var ID : int
-@export var Aname = "Simple Room"
-@export var type = "Simple Room"
+@export var Aname = "Cozy Cabin"
+@export var type = "Cozy Cabin"
 @export var maxJel = 5
 @onready var parent = $/root/computerShrilow/Jelly/rooms
 @export var camYpos = 0
