@@ -11,6 +11,8 @@ extends Node2D
 @export var maxLEFT = 0
 @export var maxRIGHT = 0
 @export var jellyCount = 0
+@export var sideOneScore = 0
+@export var sideTwoScore = 0
 
 func getID(num):
 	ID = FizzyDrink.amountOfRooms
@@ -31,6 +33,8 @@ func getID(num):
 	caca2.warn("You bought a "+type+" for your jellies!")
 
 func _process(delta: float) -> void:
+	$ColorRect/Label.text = str(sideOneScore)
+	$ColorRect2/Label.text = str(sideTwoScore)
 	if Input.is_action_just_pressed("DebugMode"):
 		print(FizzyDrink.scrollLimitRIGHT)
 		print(FizzyDrink.scrollLimitLEFT)

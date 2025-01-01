@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://cfm7p37fq4a7p"]
+[gd_scene load_steps=11 format=3 uid="uid://cfm7p37fq4a7p"]
 
 [ext_resource type="Script" path="res://technical/jellies/TheCourt.gd" id="1_86ma1"]
 [ext_resource type="Texture2D" uid="uid://clj2hue2eb4q2" path="res://assets/images/areas/jellies/rooms/theCourt/bg.png" id="2_nsf75"]
 [ext_resource type="PackedScene" uid="uid://c1bcbqidyrlm" path="res://technical/jellies/Hoop.tscn" id="4_khiob"]
 [ext_resource type="PackedScene" uid="uid://cc62swwttf6t2" path="res://technical/jellies/elevator.tscn" id="4_xh81w"]
 [ext_resource type="Theme" uid="uid://dr1wna4c2ab2h" path="res://technical/textStyle.tres" id="5_w1phw"]
+[ext_resource type="PackedScene" uid="uid://bvxn7n144a812" path="res://technical/items/jelly.tscn" id="6_qutip"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fd18s"]
 size = Vector2(2717, 62)
@@ -54,6 +55,7 @@ position = Vector2(594, 332)
 [node name="Hoop2" parent="." instance=ExtResource("4_khiob")]
 position = Vector2(2315, 332)
 scale = Vector2(-1, 1)
+side = 1
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = 706.0
@@ -83,6 +85,7 @@ offset_bottom = 117.0
 color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="ColorRect2"]
+layout_mode = 0
 offset_left = 2.0
 offset_top = 3.0
 offset_right = 183.0
@@ -93,3 +96,6 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Jelly" parent="." instance=ExtResource("6_qutip")]
+position = Vector2(1185, 288)
