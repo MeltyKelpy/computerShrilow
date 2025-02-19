@@ -101,6 +101,14 @@ var melDialogue = [
 	"interacted":false,
 	},
 	]
+var melvinDialogue = [
+	{
+	"present":"About you",
+	"dialogKey":"ABTYOUMELV",
+	"unlocked":true,
+	"interacted":false,
+	},
+]
 
 var descriptionSetting = ""
 

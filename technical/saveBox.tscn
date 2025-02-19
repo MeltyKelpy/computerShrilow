@@ -120,8 +120,18 @@ text = "DELETE"
 visible = false
 texture = ExtResource("10_y2m8g")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="curse1" type="Sprite2D" parent="."]
 position = Vector2(70, -62)
+texture = ExtResource("11_8ty7l")
+
+[node name="curse2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(70, -47)
+texture = ExtResource("11_8ty7l")
+
+[node name="curse3" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(70, -32)
 texture = ExtResource("11_8ty7l")
 
 [connection signal="text_changed" from="FileName" to="." method="_on_file_name_text_changed"]

@@ -26,6 +26,7 @@ var storageReturnY = 0
 var storageReturnA = ""
 
 var dialogueOptionsMelanie = []
+var dialogueOptionsMelvin = []
 var storage = []
 
 var myEvilClockExists = false
@@ -158,8 +159,12 @@ var rooms
 
 func manageScenes():
 	dialougeMode = true
-	$Shop/ItemDescription.visible_ratio = 0
+	if melShopState == false:
+		$Shop/ItemDescription.visible_ratio = 0
+	if melvinShopState == false:
+		$Melvin/ItemDescription.visible_ratio = 0
 	clearDialogItems()
+	# MELANIE DIALOGUE BELOW
 	match dialogKey:
 		"none":
 			if alongTheDialogue == 0:
@@ -300,14 +305,54 @@ func manageScenes():
 				$Shop/ItemDescription.text = "they tried to give me a dead bird as a royal offering. where are they finding birds in the computer ??"
 			if alongTheDialogue == 6:
 				endDialogue()
+	
+	# MELVIN DIALOGUE BELOW
+	match dialogKey:
+		"none":
+			if alongTheDialogue == 0:
+				$Melvin/ItemDescription.text = "u should NOT be seeing this."
+			if alongTheDialogue == 1:
+				$Melvin/ItemDescription.text = "this also worked as a test, which is cool"
+			if alongTheDialogue == 2:
+				endDialogue()
+		"ABTYOUMELV":
+			if alongTheDialogue == 0:
+				$Melvin/ItemDescription.text = "Oh, yes! o-of course"
+			if alongTheDialogue == 1:
+				$Melvin/ItemDescription.text = "I am, mel..vin"
+			if alongTheDialogue == 2:
+				$Melvin/ItemDescription.text = "I run the Jelly Daycare!"
+			if alongTheDialogue == 3:
+				$Melvin/ItemDescription.text = "And I have, absolutely NO correlation to that other shopkeeper! none at all! ha!.. haha!"
+			if alongTheDialogue == 4:
+				$Melvin/ItemDescription.text = "...hm........."
+			if alongTheDialogue == 5:
+				endDialogue()
+		"ABTYOUMELV":
+			if alongTheDialogue == 0:
+				$Melvin/ItemDescription.text = "Oh, yes! o-of course"
+			if alongTheDialogue == 1:
+				$Melvin/ItemDescription.text = "I am, mel..vin"
+			if alongTheDialogue == 2:
+				$Melvin/ItemDescription.text = "I run the Jelly Daycare!"
+			if alongTheDialogue == 3:
+				$Melvin/ItemDescription.text = "And I have, absolutely NO correlation to that other shopkeeper! none at all! ha!.. haha!"
+			if alongTheDialogue == 4:
+				$Melvin/ItemDescription.text = "...hm........."
+			if alongTheDialogue == 5:
+				endDialogue()
 
 func endDialogue():
 	$Shop/ItemDescription.visible_ratio = 0
 	dialougeMode = false
 	dialogKey = "none"
 	alongTheDialogue = 0
-	spawnDialogueOptionsMelanie()
-	setShopBase()
+	if melShopState == false:
+		spawnDialogueOptionsMelanie("melanie")
+		setShopBase("melanie")
+	if melvinShopState == false:
+		spawnDialogueOptionsMelanie("melvin")
+		setShopBase("melvin")
 
 func generateHoes():
 	for i in ItemValues.itemInfomation.size():
@@ -512,21 +557,25 @@ func _process(_delta : float) -> void:
 		if $Shop/ItemDescription.visible_ratio > 1:
 			$Shop/ItemDescription.visible_ratio = 1
 		if $Shop/ItemDescription.visible_ratio < 1:
-			if $talkTimer.is_stopped() == true:
-				$talkTimer.start()
+			$Shop/type.play()
+			$Shop/ItemDescription.visible_characters += 50 * _delta
 	if melvinShopState == false:
 		if $Melvin/ItemDescription.visible_ratio > 1:
 			$Melvin/ItemDescription.visible_ratio = 1
 		if $Melvin/ItemDescription.visible_ratio < 1:
-			if $talkTimer.is_stopped() == true:
-				$talkTimer.start()
+			$Shop/type.play()
+			$Melvin/ItemDescription.visible_characters += 50 * _delta
 	
 	if dialougeMode == true:
 		$Shop/BackButtonSHOP.disabled = true
 		$Shop/BackSHOP.visible = false
+		$Melvin/BackButton.disabled = true
+		$Melvin/back.visible = false
 	if dialougeMode == false:
 		$Shop/BackButtonSHOP.disabled = false
 		$Shop/BackSHOP.visible = true
+		$Melvin/BackButton.disabled = false
+		$Melvin/back.visible = true
 	
 	$Journal/jellyName.text = Jelly.jellyName
 	$Journal/jellyDesc.text = Jelly.jellyDesc
@@ -844,6 +893,8 @@ func _signal_jelly():
 func cameraAnimation(Varea, positionX, positionY, allowMove):
 	if Varea == "bell":
 		if area == "melvin":
+			if melvinShopState != true:
+				melvShopToggle()
 			area = "notJellies"
 		else:
 			area = "melvin"
@@ -1003,35 +1054,62 @@ func _buyGumball_pressed() -> void:
 		#if type == 1:
 			#num = rng.randi_range(0, Events.eventList.size()-1)
 
-func spawnDialogueOptionsMelanie():
-	for i in FizzyDrink.melDialogue.size():
-		if FizzyDrink.melDialogue[i]["unlocked"] == true:
-			var cacapoopyGOD2 = load("res://technical/dialogOption.tscn")
-			var caca = cacapoopyGOD2.instantiate()
-			caca.present = FizzyDrink.melDialogue[i]["present"]
-			caca.dialogKey = FizzyDrink.melDialogue[i]["dialogKey"]
-			caca.interacted = FizzyDrink.melDialogue[i]["interacted"]
-			caca.arrayToUse = "melanie"
-			add_child(caca)
-			caca.reparent($Shop/talkOptions/GridContainer)
-			dialogueOptionsMelanie.append(caca)
+func spawnDialogueOptionsMelanie(char : String):
+	if char == "melanie":
+		for i in FizzyDrink.melDialogue.size():
+			if FizzyDrink.melDialogue[i]["unlocked"] == true:
+				var cacapoopyGOD2 = load("res://technical/dialogOption.tscn")
+				var caca = cacapoopyGOD2.instantiate()
+				caca.present = FizzyDrink.melDialogue[i]["present"]
+				caca.dialogKey = FizzyDrink.melDialogue[i]["dialogKey"]
+				caca.interacted = FizzyDrink.melDialogue[i]["interacted"]
+				caca.arrayToUse = "melanie"
+				add_child(caca)
+				caca.reparent($Shop/talkOptions/GridContainer)
+				dialogueOptionsMelanie.append(caca)
+	if char == "melvin":
+		for i in FizzyDrink.melvinDialogue.size():
+			if FizzyDrink.melvinDialogue[i]["unlocked"] == true:
+				var cacapoopyGOD2 = load("res://technical/dialogOption.tscn")
+				var caca = cacapoopyGOD2.instantiate()
+				caca.present = FizzyDrink.melvinDialogue[i]["present"]
+				caca.dialogKey = FizzyDrink.melvinDialogue[i]["dialogKey"]
+				caca.interacted = FizzyDrink.melvinDialogue[i]["interacted"]
+				caca.arrayToUse = "melvin"
+				add_child(caca)
+				caca.reparent($Melvin/talkOptions/GridContainer)
+				dialogueOptionsMelvin.append(caca)
 
 func clearDialogItems():
 	for i in dialogueOptionsMelanie.size():
 		dialogueOptionsMelanie[i].queue_free()
 	dialogueOptionsMelanie.resize(0)
+	for i in dialogueOptionsMelvin.size():
+		dialogueOptionsMelvin[i].queue_free()
+	dialogueOptionsMelvin.resize(0)
 
-func setShopBase():
-	$Shop/Mel.play("talkBase")
-	var openingMessages = [
-		"Oh, yeah sure, i got nothing else to do",
-		"Normally i couldnt do this, but its not like im selling anyone anything anyway",
-		"Hm? need smth?",
-		"Ask away, i guess",
-		]
-	$Shop/ItemName.text = "MELANIE:"
-	$Shop/ItemDescription.text = openingMessages[rng.randi_range(0, openingMessages.size()-1)]
-	$Shop/ItemExtra.text = ""
+func setShopBase(char : String):
+	if char == "melanie":
+		$Shop/Mel.play("talkBase")
+		var openingMessages = [
+			"Oh, yeah sure, i got nothing else to do",
+			"Normally i couldnt do this, but its not like im selling anyone anything anyway",
+			"Hm? need smth?",
+			"Ask away, i guess",
+			]
+		$Shop/ItemName.text = "MELANIE:"
+		$Shop/ItemDescription.text = openingMessages[rng.randi_range(0, openingMessages.size()-1)]
+		$Shop/ItemExtra.text = ""
+	if char == "melvin":
+		$Melvin/melvin.play("talkBase")
+		var openingMessages = [
+			"o- oh! oh yeah! we can talk! sure...",
+			"huh? oh- yeah! okay!",
+			"can we just go back to you buying things, and me.. not drawing attention to myself??.. haha?",
+			"A- Alright!",
+			]
+		$Melvin/ItemName.text = "MELVIN:"
+		$Melvin/ItemDescription.text = openingMessages[rng.randi_range(0, openingMessages.size()-1)]
 
 func melShopToggle() -> void:
 	if dialogKey == "none":
@@ -1040,10 +1118,10 @@ func melShopToggle() -> void:
 		melShopState = !melShopState
 		if melShopState == false:
 			$Shop/ItemDescription.visible_ratio = 0
-			spawnDialogueOptionsMelanie()
+			spawnDialogueOptionsMelanie("melanie")
 			$Shop/ScrollContainer.position.y = 872
 			$Shop/talkOptions.position.y = 112
-			setShopBase()
+			setShopBase("melanie")
 			$USD.visible = false
 			$USDText.visible = false
 		if melShopState == true:
@@ -1056,17 +1134,31 @@ func melShopToggle() -> void:
 			$Shop/ItemDescription.visible_characters = -1
 			$Shop/ItemDescription.visible_ratio = 1
 
+func melvShopToggle() -> void:
+	if dialogKey == "none":
+		$Melvin/ItemDescription.visible_characters = -1
+		$Melvin/ItemDescription.visible_ratio = 1
+		melvinShopState = !melvinShopState
+		if melvinShopState == false:
+			$Melvin/ItemDescription.visible_ratio = 0
+			spawnDialogueOptionsMelanie("melvin")
+			$Melvin/ScrollContainer.position.y = 872
+			setShopBase("melvin")
+			$Melvin/talkOptions.position.y
+			$Melvin/talkOptions.position.y = 112
+		if melvinShopState == true:
+			clearDialogItems()
+			$Melvin/talkOptions.position.y = 872
+			$Melvin/ScrollContainer.position.y = 112
+			$Melvin/melvin.play("default")
+			$USD.visible = true
+			$USDText.visible = true
+			$Melvin/ItemDescription.visible_characters = -1
+			$Melvin/ItemDescription.visible_ratio = 1
+
 func dialogueGoAway() -> void:
 	var tween = create_tween()
 	tween.tween_property($Shrilow/textBox, "scale", Vector2(0,0), 1).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
-
-func _on_talk_timer_timeout() -> void:
-	if melShopState == false:
-		$Shop/type.play()
-		$Shop/ItemDescription.visible_characters += 1
-	if melvinShopState == false:
-		$Shop/type.play()
-		$Melvin/ItemDescription.visible_characters += 1
 
 func _on_section_transitions_animation_finished(anim_name: StringName) -> void:
 	can = true

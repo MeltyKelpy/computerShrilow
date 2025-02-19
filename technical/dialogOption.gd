@@ -5,7 +5,8 @@ var dialogKey = ""
 var interacted = true
 var arrayToUse = ""
 var stupidArray = [{
-	"melanie":FizzyDrink.melDialogue
+	"melanie":FizzyDrink.melDialogue,
+	"melvin":FizzyDrink.melvinDialogue
 	}]
 
 func _ready():
