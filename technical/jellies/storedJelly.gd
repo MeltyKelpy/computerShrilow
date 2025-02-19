@@ -71,20 +71,21 @@ func _on_send_pressed() -> void:
 	$ScrollContainer.visible = true
 
 func _on_sell_pressed() -> void:
+	print("hi")
 	$/root/computerShrilow._deleteStorag()
-	Jelly.storedJellys.erase(jellyNum)
+	Jelly.storedJellys.remove_at(jellyNum)
 	if rarity == "Common":
-		ItemValues.money = 100
+		ItemValues.money += 100
 	if rarity == "Uncommon":
-		ItemValues.money = 300
+		ItemValues.money += 300
 	if rarity == "Rare":
-		ItemValues.money = 600
+		ItemValues.money += 600
 	if rarity == "Awesome":
-		ItemValues.money = 1000
+		ItemValues.money += 1000
 	if rarity == "Queer":
-		ItemValues.money.money = 5000
+		ItemValues.money += 5000
 	if rarity == "Blue":
-		ItemValues.money = 1000000
+		ItemValues.money += 1000000
 	$/root/computerShrilow._spawnStorage()
 
 func _on_x_pressed() -> void:
