@@ -13,6 +13,11 @@ func _ready():
 	$AudioStreamPlayer.play()
 
 func _process(delta: float) -> void:
+	var config = ConfigFile.new()
+	
+	var err = config.load(Game.files[Game.curFile])
+	
+	$file.text = "CURRENT FILE: "+config.get_value("Fiscal", "Name")
 	
 	if dying == false and $AudioStreamPlayer.volume_db < -15:
 		$AudioStreamPlayer.volume_db += 1 + (1 * delta)
