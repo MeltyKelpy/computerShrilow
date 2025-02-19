@@ -23,6 +23,7 @@ extends Node2D
 
 @export var mineLevelSPEED = 0.0
 @export var mineLevelMONEY = 0.0
+var adds = 1
 
 func listPlacement(num):
 	ID = num
@@ -48,6 +49,12 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	
+	if FizzyDrink.enabledCrystal == "mine":
+		adds = 2
+	else:
+		adds = 1
+	
 	if timer.time_left == 0 and timer2.time_left == 0:
 		timer.start()
 	
@@ -78,14 +85,14 @@ func _process(_delta: float) -> void:
 	moneyCost = (MoneyGain * 200) * Level
 	$ManageMenu/speedUp.text = str(round(speedCost))
 	$ManageMenu/moneyUp.text = str(round(moneyCost))
-	$ManageMenu/UpgradeInfo.text = "Speed:"+str(Speed+((mineLevelSPEED)*Speed))+"\nMoney:"+str(MoneyGain+((mineLevelMONEY)*MoneyGain))+"\nLevel:"+str(Level)+"\n\nUpTokens:"+str(upTokens)
+	$ManageMenu/UpgradeInfo.text = "Speed:"+str(Speed+((mineLevelSPEED)*Speed))+"\nMoney:"+str((MoneyGain+((mineLevelMONEY)*MoneyGain))*adds)+"\nLevel:"+str(Level)+"\n\nUpTokens:"+str(upTokens)
 	$ManageMenu.visible = managing
 	
 	$CharacterSprite.texture = load("res://assets/images/areas/mines/"+Name+str(state)+".png")
 	
 	$ManageMenu.visible = managing
 	
-	$CharName.text = Name+"\n"+str(MoneyGain+((mineLevelSPEED)*MoneyGain))+"$ per "+str(Swings)+" Swings\nSpeed: "+str(Speed+((mineLevelMONEY)*Speed))+"\nLevel: "+str(Level)+"\nL-Click to Manage"
+	$CharName.text = Name+"\n"+str((MoneyGain+((mineLevelMONEY)*MoneyGain))*adds)+"$ per "+str(Swings)+" Swings\nSpeed: "+str(Speed+((mineLevelSPEED)*Speed))+"\nLevel: "+str(Level)+"\nL-Click to Manage"
 
 func _on_selection_mouse_entered() -> void:
 	if managing == false:
@@ -104,8 +111,8 @@ func _swingTimerEnd():
 		var cacapoopyGOD = load("res://technical/moneyGet.tscn")
 		var caca = cacapoopyGOD.instantiate()
 		add_child(caca)
-		caca.determine(MoneyGain+(((mineLevelMONEY))*MoneyGain))
-		ItemValues.money += MoneyGain+(((mineLevelMONEY))*MoneyGain)
+		caca.determine((MoneyGain+(((mineLevelMONEY))*MoneyGain))*adds)
+		ItemValues.money += (MoneyGain+(((mineLevelMONEY))*MoneyGain))*adds
 		caca.position.x = -30
 		caca.position.y = -70
 		curSwing = 0

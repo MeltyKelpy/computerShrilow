@@ -15,6 +15,7 @@ var hi = true
 @onready var rigid_body_2d: RigidBody2D = $RigidBody2D
 
 var is_dragging = false
+var showMoney = 0
 
 var colorsIgLOL = [
 	{
@@ -57,8 +58,13 @@ func setParent():
 
 func _ready() -> void:
 	$nameShit/Name.text = jelly
-	$nameShit/Stats.text = rarity+"\n"+str(money)+"$ per "+str(seconds)+" Seconds"
-	$FirstTimer.wait_time = seconds - 0.2
+	showMoney = money 
+	var showSeconds = seconds 
+	if FizzyDrink.enabledCrystal == "jelly":
+		showMoney = showMoney * 3
+		showSeconds = showSeconds / 2
+	$nameShit/Stats.text = rarity+"\n"+str(showMoney)+"$ per "+str(seconds)+" Seconds"
+	$FirstTimer.wait_time = showSeconds - 0.2
 	$SecondTimer.wait_time = 0.2
 	$FirstTimer.start()
 	$SecondTimer.start()
@@ -73,6 +79,14 @@ func _ready() -> void:
 		$RigidBody2D/jelly.material.set_shader_parameter("rainbow", true)
 
 func _physics_process(delta: float) -> void:
+	showMoney = money 
+	var showSeconds = seconds
+	if FizzyDrink.enabledCrystal == "jelly":
+		showMoney = showMoney * 3
+		showSeconds = showSeconds / 2
+	$nameShit/Stats.text = rarity+"\n"+str(showMoney)+"$ per "+str(seconds)+" Seconds"
+	$FirstTimer.wait_time = showSeconds - 0.2
+	$SecondTimer.wait_time = 0.2
 	$RigidBody2D/mange.rotation = (-1) * $RigidBody2D.rotation
 	mouse_pin.global_position = get_global_mouse_position()
 	$nameShit.global_position = get_global_mouse_position()
@@ -113,7 +127,7 @@ func getJelly(num):
 func _on_timer_timeout() -> void:
 	$RigidBody2D/Squeak.play()
 	$RigidBody2D/jelly.texture = load("res://assets/images/jellies/"+jelly+"/jelly1.png")
-	ItemValues.money += money
+	ItemValues.money += showMoney
 	$SecondTimer.start()
 
 func _on_second_timer_timeout() -> void:
