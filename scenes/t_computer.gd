@@ -10,6 +10,7 @@ var returnPosCamY = 324
 var can = false
 var melShopState = true
 var melvinShopState = true
+var marketShopState = true
 var dialougeMode = false
 var dialogKey = "none"
 var alongTheDialogue = 0
@@ -26,6 +27,8 @@ var storageReturnA = ""
 
 var dialogueOptionsMelanie = []
 var storage = []
+
+var myEvilClockExists = false
 
 var gumballSelection = 0
 var gumballInfo = [
@@ -407,7 +410,14 @@ func _ready():
 			$Shop/MarektIndicator.visible = false
 			$Shop/EnterMarket.disabled = true
 		
-		for i in ["autoclicker", "plusone", "plusoneauto", "Rautoclicker", "Rplusone", "Rplusoneauto"]:
+		for i in ["autoClickerUpgrade", "PlusOneUpgrade", "PlusOneAUTOUpgrade", "shrilowCry", "jellyCry", "mineCry"]:
+			if config.get_value("Shop", i) == null:
+				config.set_value("Shop", i, 0)
+		for i in ["RebirthAutoClickerLevel", "PresistantPlusOne", "PlusOneMC"]:
+			if config.get_value("Rebirth", i) == null:
+				config.set_value("Rebirth", i, 0)
+		
+		for i in ["autoclicker", "plusone", "plusoneauto", "shrilowCrystal", "crystal", "mineCrystal", "Rautoclicker", "Rplusone", "Rplusoneauto"]:
 			if i == "autoclicker":
 				if config.get_value("Shop", "autoClickerUpgrade") > 0:
 					var cacaFUCK = load("res://technical/items/"+i+".tscn").instantiate()
@@ -418,6 +428,18 @@ func _ready():
 					add_child(cacaFUCK)
 			elif i == "plusoneauto":
 				if config.get_value("Shop", "PlusOneAUTOUpgrade") > 0:
+					var cacaFUCK = load("res://technical/items/"+i+".tscn").instantiate()
+					add_child(cacaFUCK)
+			if i == "shrilowCrystal":
+				if config.get_value("Shop", "shrilowCry") > 0:
+					var cacaFUCK = load("res://technical/items/"+i+".tscn").instantiate()
+					add_child(cacaFUCK)
+			elif i == "crystal":
+				if config.get_value("Shop", "jellyCry") > 0:
+					var cacaFUCK = load("res://technical/items/"+i+".tscn").instantiate()
+					add_child(cacaFUCK)
+			elif i == "mineCrystal":
+				if config.get_value("Shop", "mineCry") > 0:
 					var cacaFUCK = load("res://technical/items/"+i+".tscn").instantiate()
 					add_child(cacaFUCK)
 			elif i == "Rautoclicker":
@@ -538,12 +560,20 @@ func _process(_delta : float) -> void:
 		$Camera2D.position.x = (FizzyDrink.scrollLimitLEFT)
 	
 	if FizzyDrink.stopTheCount != 0:
+		if myEvilClockExists == false:
+			var cacapoopyGOD2 = preload("res://technical/clock.tscn")
+			var caca = cacapoopyGOD2.instantiate()
+			add_child(caca)
+			caca.create("Anti-virus", FizzyDrink.stopTheCount, "antivirus")
+		myEvilClockExists = true
 		$noEventsTimer.wait_time = FizzyDrink.stopTheCount
 		$noEventsTimer.start($noEventsTimer.time_left + FizzyDrink.stopTheCount)
+		FizzyDrink.riggedElection = FizzyDrink.stopTheCount
 		FizzyDrink.stopTheCount = 0
 		$EventTimer.paused = true
 	if $noEventsTimer.time_left == 0:
 		$EventTimer.paused = false
+		myEvilClockExists = false
 	
 	if FizzyDrink.health >= 100:
 		$Shrilow/ProgressBar.visible = false
@@ -655,7 +685,7 @@ func _on_shrilow_squeak_autoclick() -> void:
 		$Shrilow/Shrilow/StillFace.texture = load("res://assets/images/computershrilows/shrilowFaces/click.png")
 	if curClicks >= 150:
 		$Shrilow/Shrilow/StillFace.texture = load("res://assets/images/computershrilows/shrilowFaces/dizzy.png")
-	ItemValues.money += FizzyDrink.AUTOclickPower+FizzyDrink.AUTOclickPowerP1+FizzyDrink.AUTOclickPowerP1R+FizzyDrink.AUTOclickPowerAdditions+FizzyDrink.AUTOclickPowerClothingBuffs
+	ItemValues.money += FizzyDrink.AUTOclickPower+FizzyDrink.AUTOclickPowerP1+FizzyDrink.AUTOclickPowerP1R+FizzyDrink.AUTOclickPowerAdditions+FizzyDrink.AUTOclickPowerClothingBuffs+FizzyDrink.AUTOshrilowPower
 	$Shrilow/Squeak2.play()
 
 func _on_shrilow_squeak_pressed() -> void:
@@ -673,7 +703,7 @@ func _on_shrilow_squeak_pressed() -> void:
 		if curClicks >= 150:
 			$Shrilow/Shrilow/StillFace.texture = load("res://assets/images/computershrilows/shrilowFaces/dizzy.png")
 		$Shrilow/Squeak.play()
-		ItemValues.money += FizzyDrink.clickPower+FizzyDrink.clickPowerP1+FizzyDrink.clickPowerP1R+FizzyDrink.clickPowerAdditions+FizzyDrink.clickPowerClothingBuffs
+		ItemValues.money += FizzyDrink.clickPower+FizzyDrink.clickPowerP1+FizzyDrink.clickPowerP1R+FizzyDrink.clickPowerAdditions+FizzyDrink.clickPowerClothingBuffs+FizzyDrink.shrilowPower
 		FizzyDrink.clicks += 1
 		curClicks += 1
 	if Input.is_action_just_pressed("rightClick"):

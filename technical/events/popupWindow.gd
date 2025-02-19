@@ -25,6 +25,10 @@ var ads = [
 	"Name":"The Manga Mart",
 	"Image":"res://assets/images/events/popupAds/mangaMart.png"
 	},
+	{
+	"Name":"Juliet Waffles!",
+	"Image":"res://assets/images/events/popupAds/al.png"
+	},
 	]
 
 var xPo

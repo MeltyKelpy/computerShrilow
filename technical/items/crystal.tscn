@@ -1,0 +1,67 @@
+[gd_scene load_steps=15 format=3 uid="uid://bylosx4aw0lh7"]
+
+[ext_resource type="Script" path="res://technical/items/crystal.gd" id="1_j2jol"]
+[ext_resource type="Texture2D" uid="uid://dt8ddfhm8d2c8" path="res://assets/images/areas/jellies/crystalON.png" id="2_yafby"]
+[ext_resource type="Theme" uid="uid://dr1wna4c2ab2h" path="res://technical/textStyle.tres" id="3_muln5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s2f0u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t7yhy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8wcum"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tp14k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_55bhx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s5fk3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ych1t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n57ry"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uwjoy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wtyp4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6bwfi"]
+
+[node name="crystal" type="Node2D"]
+script = ExtResource("1_j2jol")
+
+[node name="crystal" type="Sprite2D" parent="."]
+texture = ExtResource("2_yafby")
+
+[node name="Button" type="Button" parent="."]
+offset_left = -52.0
+offset_top = 43.0
+offset_right = 51.0
+offset_bottom = 95.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_s2f0u")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_t7yhy")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8wcum")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_tp14k")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_55bhx")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_s5fk3")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ych1t")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_n57ry")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_uwjoy")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_wtyp4")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6bwfi")
+
+[node name="TITLE" type="Label" parent="."]
+visible = false
+offset_left = -80.0
+offset_top = -6.0
+offset_right = 78.0
+offset_bottom = 37.0
+theme = ExtResource("3_muln5")
+theme_override_constants/outline_size = 9
+theme_override_font_sizes/font_size = 28
+text = "JELLY CRYSTAL"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

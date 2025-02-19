@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://dgo46ag0qisg0"]
+
+[ext_resource type="Script" path="res://technical/clock.gd" id="1_jajcc"]
+[ext_resource type="Texture2D" uid="uid://cqqico1xj2o2c" path="res://assets/images/ui/clokc.png" id="2_dt4x5"]
+[ext_resource type="Theme" uid="uid://dr1wna4c2ab2h" path="res://technical/textStyle.tres" id="3_hoswo"]
+
+[node name="Clock" type="TextureRect"]
+offset_right = 90.0
+offset_bottom = 90.0
+texture = ExtResource("2_dt4x5")
+script = ExtResource("1_jajcc")
+
+[node name="Time" type="Label" parent="."]
+offset_top = 87.0
+offset_right = 91.0
+offset_bottom = 127.0
+theme = ExtResource("3_hoswo")
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 17
+text = "TIME LEFT"
+horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 70.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

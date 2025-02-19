@@ -64,6 +64,10 @@ func loadData():
 		ItemValues.itemInfomation[0]["CurUpgrade"] = config.get_value("Shop", "autoClickerUpgrade")
 		ItemValues.itemInfomation[1]["CurUpgrade"] = config.get_value("Shop", "PlusOneUpgrade")
 		ItemValues.itemInfomation[2]["CurUpgrade"] = config.get_value("Shop", "PlusOneAUTOUpgrade")
+		ItemValues.itemInfomation[9]["CurUpgrade"] = config.get_value("Shop", "shrilowCry")
+		ItemValues.itemInfomation[10]["CurUpgrade"] = config.get_value("Shop", "jellyCry")
+		ItemValues.itemInfomation[11]["CurUpgrade"] = config.get_value("Shop", "mineCry")
+		FizzyDrink.enabledCrystal = config.get_value("Shop", "selectedCrystal")
 		
 		ItemValues.marketItems[0]["CurUpgrade"] = config.get_value("Rebirth", "RebirthAutoClickerLevel")
 		ItemValues.marketItems[1]["CurUpgrade"] = config.get_value("Rebirth", "PresistantPlusOne")
@@ -179,6 +183,10 @@ func saveData():
 	config.set_value("Story", "DialogueDoneMELANIE", gameTime)
 	config.set_value("Story", "DialogueUnlockedMELVIN", gameTime)
 	config.set_value("Story", "DialogueDoneMELVIN", gameTime)
+	config.set_value("Shop", "shrilowCry", ItemValues.itemInfomation[9]["CurUpgrade"])
+	config.set_value("Shop", "jellyCry", ItemValues.itemInfomation[10]["CurUpgrade"])
+	config.set_value("Shop", "mineCry", ItemValues.itemInfomation[11]["CurUpgrade"])
+	config.set_value("Shop", "selectedCrystal", FizzyDrink.enabledCrystal)
 	
 	config.save(files[curFile])
 	

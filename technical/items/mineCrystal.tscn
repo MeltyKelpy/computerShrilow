@@ -1,0 +1,51 @@
+[gd_scene load_steps=14 format=3 uid="uid://5fsppkoaemgd"]
+
+[ext_resource type="Script" path="res://technical/items/mineCrystal.gd" id="1_6swax"]
+[ext_resource type="Texture2D" uid="uid://dwr3k0pwc2ive" path="res://assets/images/ui/minesCry.png" id="2_ggdw4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i8qs6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ba5ie"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sndu3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_doi7h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_njl2f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tl0yn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5jlne"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jxswm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_28hcf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l5j6j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_srgu8"]
+
+[node name="MineCrystal" type="Node2D"]
+script = ExtResource("1_6swax")
+
+[node name="mineCry" type="Sprite2D" parent="."]
+texture = ExtResource("2_ggdw4")
+
+[node name="mineButton" type="Button" parent="."]
+offset_left = -51.0
+offset_top = -71.0
+offset_right = 53.0
+offset_bottom = 72.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_i8qs6")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_ba5ie")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_sndu3")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_doi7h")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_njl2f")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_tl0yn")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5jlne")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_jxswm")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_28hcf")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_l5j6j")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_srgu8")
+
+[connection signal="pressed" from="mineButton" to="." method="_on_mine_button_pressed"]

@@ -7,6 +7,10 @@ func _ready() -> void:
 	$AnimPlayer.play("POPUP")
 	$eventer/Warning.text = "The BONE Effect has been applied! you now gain double the amount of dollars per click for the next 30 seconds."
 	FizzyDrink.clickPowerAdditions += (FizzyDrink.clickPower+FizzyDrink.clickPowerP1+FizzyDrink.clickPowerP1R+FizzyDrink.clickPowerClothingBuffs) * 2
+	var cacapoopyGOD2 = preload("res://technical/clock.tscn")
+	var caca = cacapoopyGOD2.instantiate()
+	add_child(caca)
+	caca.create("Bone", 30, "not")
 
 func getID(num):
 	ItemID = num

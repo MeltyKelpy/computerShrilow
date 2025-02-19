@@ -7,6 +7,10 @@ func _ready() -> void:
 	$AnimPlayer.play("POPUP")
 	$eventer/Warning.text = "The AUTOBONE Effect has been applied! your autoclicker now gives double the amount of dollars per click for the next 30 seconds."
 	FizzyDrink.AUTOclickPowerAdditions += (FizzyDrink.AUTOclickPower+FizzyDrink.AUTOclickPowerP1+FizzyDrink.AUTOclickPowerP1R+FizzyDrink.AUTOclickPowerClothingBuffs) * 2
+	var cacapoopyGOD2 = preload("res://technical/clock.tscn")
+	var caca = cacapoopyGOD2.instantiate()
+	add_child(caca)
+	caca.create("Auto-bone", 30, "not")
 
 func getID(num):
 	ItemID = num

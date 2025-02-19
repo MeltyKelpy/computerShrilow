@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://nlv6t80uh1fp"]
+[gd_scene load_steps=24 format=3 uid="uid://nlv6t80uh1fp"]
 
 [ext_resource type="Texture2D" uid="uid://yaivbhdq4dxn" path="res://assets/images/areas/melanies/itemBox.png" id="1_lgb1h"]
 [ext_resource type="Script" path="res://technical/saveBox.gd" id="2_pyrv6"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://b7aygs45tmycv" path="res://assets/images/mainMenu/files/deleteHover.png" id="4_vpp2j"]
 [ext_resource type="Texture2D" uid="uid://dyj2cvm45pn86" path="res://assets/images/mainMenu/files/delete.png" id="5_y4yb4"]
 [ext_resource type="Texture2D" uid="uid://cdi4tcc76faq8" path="res://assets/images/areas/melanies/items/floppydisk.png" id="10_y2m8g"]
+[ext_resource type="Texture2D" uid="uid://d26rxqod18rnw" path="res://assets/images/ui/curses/placeholderCurse.png" id="11_8ty7l"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pmqkl"]
 
@@ -118,6 +119,10 @@ text = "DELETE"
 [node name="Icon" type="Sprite2D" parent="."]
 visible = false
 texture = ExtResource("10_y2m8g")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(70, -62)
+texture = ExtResource("11_8ty7l")
 
 [connection signal="text_changed" from="FileName" to="." method="_on_file_name_text_changed"]
 [connection signal="pressed" from="Load" to="." method="_on_load_pressed"]

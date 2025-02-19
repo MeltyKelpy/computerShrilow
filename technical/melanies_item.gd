@@ -20,6 +20,8 @@ func _process(_delta: float) -> void:
 			$ItemIcon.texture = load(hearMeOut[0][type][ItemID]["Image"]+str(lastWorkingNumber)+".png")
 
 		if hearMeOut[0][type][ItemID]["CurUpgrade"] != hearMeOut[0][type][ItemID]["MaxUpgrade"]:
+			if hearMeOut[0][type][ItemID]["CurUpgrade"] == null:
+				hearMeOut[0][type][ItemID]["CurUpgrade"] = 0
 			$INFO.text = "Next Level: "+str(hearMeOut[0][type][ItemID]["CurUpgrade"]+1)
 		else:
 			$Cost.text = "Level: "+str(hearMeOut[0][type][ItemID]["CurUpgrade"])

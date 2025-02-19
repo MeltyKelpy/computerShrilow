@@ -7,20 +7,25 @@ var clickPowerP1 = 0
 var clickPowerP1R = 0
 var clickPowerAdditions = 0
 var clickPowerClothingBuffs = 0
+var shrilowPower = 0
 
 var AUTOclickPower = 1
 var AUTOclickPowerP1 = 0
 var AUTOclickPowerP1R = 0
 var AUTOclickPowerAdditions = 0
 var AUTOclickPowerClothingBuffs = 0
+var shrilowPowerAuto = 0
 
 var minesLength = 1
 var health = 100
 
 var stopTheCount = 0
+var riggedElection = 0
 var jellys = 0
 var greasepuppies = 0
 var amountOfRooms = 0
+
+var enabledCrystal = "none"
 
 var melDialogue = [
 	{
@@ -101,6 +106,14 @@ var descriptionSetting = ""
 
 var scrollLimitLEFT = 0
 var scrollLimitRIGHT = 0
+
+func _process(float) -> void:
+	if enabledCrystal == "shrilow":
+		shrilowPower = (FizzyDrink.clickPowerAdditions+FizzyDrink.clickPower+FizzyDrink.clickPowerP1+FizzyDrink.clickPowerP1R+FizzyDrink.clickPowerClothingBuffs) * 2
+		shrilowPowerAuto = (FizzyDrink.AUTOclickPowerAdditions+FizzyDrink.AUTOclickPower+FizzyDrink.AUTOclickPowerP1+FizzyDrink.AUTOclickPowerP1R+FizzyDrink.AUTOclickPowerClothingBuffs) * 2
+	else: 
+		shrilowPower = 0
+		shrilowPowerAuto = 0
 
 func updateClothes() -> void:
 	clickPowerClothingBuffs = 0

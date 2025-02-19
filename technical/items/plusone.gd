@@ -6,4 +6,4 @@ func getID(num):
 	number = num
 
 func _process(_delta: float):
-	FizzyDrink.clickPowerP1R = (ItemValues.marketItems[number]["CurUpgrade"])
+	FizzyDrink.clickPowerP1 = (ItemValues.itemInfomation[number]["CurUpgrade"])

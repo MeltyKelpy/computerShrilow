@@ -151,6 +151,51 @@ var itemInfomation = [
 	"ScenePath":"res://technical/items/blockOutEvents.tscn",
 	"Type":"Consumable",
 	},
+	{
+	# SHRILOWCRYSTAL
+	"Image":"res://assets/images/areas/melanies/items/shrilowCrystal",
+	"Name":"Shrilow Crystal",
+	"Desc":'"Late-game upgrade for your $ per click/auto-click. only one crystal can be on at once." -Mel ',
+	"Upgradeable?":true,
+	"MaxUpgrade":1,
+	"CurUpgrade":0,
+	"BaseValue":0,
+	"UpgradeIncrease":0,
+	"Owned":false,
+	"Cost":100000,
+	"ScenePath":"res://technical/items/shrilowCrystal.tscn",
+	"Type":"Generic",
+	},
+	{
+	# JELLYCRYSTAL
+	"Image":"res://assets/images/areas/melanies/items/jellyCrystal",
+	"Name":"Jelly Crystal",
+	"Desc":'"Late-game upgrade for your overall jelly $ per second amounts. only one crystal can be on at once." -Mel ',
+	"Upgradeable?":true,
+	"MaxUpgrade":1,
+	"CurUpgrade":0,
+	"BaseValue":0,
+	"UpgradeIncrease":0,
+	"Owned":false,
+	"Cost":200000,
+	"ScenePath":"res://technical/items/crystal.tscn",
+	"Type":"Generic",
+	},
+	{
+	# MINECRYSTAL
+	"Image":"res://assets/images/areas/melanies/items/mineCrystal",
+	"Name":"Mine Crystal",
+	"Desc":'"Late-game upgrade for your miners income. only one crystal can be on at once." -Mel ',
+	"Upgradeable?":true,
+	"MaxUpgrade":1,
+	"CurUpgrade":0,
+	"BaseValue":0,
+	"UpgradeIncrease":0,
+	"Owned":false,
+	"Cost":300000,
+	"ScenePath":"res://technical/items/mineCrystal.tscn",
+	"Type":"Generic",
+	},
 	]
 
 var melvinItems = [

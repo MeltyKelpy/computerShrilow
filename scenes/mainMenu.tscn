@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://ba4g00sxw1ioe"]
+[gd_scene load_steps=65 format=3 uid="uid://ba4g00sxw1ioe"]
 
 [ext_resource type="Texture2D" uid="uid://dajex7cpt7k4p" path="res://assets/images/bg/background.png" id="1_i2qlv"]
 [ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_ihte6"]
@@ -12,14 +12,13 @@
 [ext_resource type="Texture2D" uid="uid://6jl2v3awijit" path="res://assets/images/mainMenu/pressed.png" id="7_wjw70"]
 [ext_resource type="Texture2D" uid="uid://bf5nxu26qx66x" path="res://assets/images/loadingLow.png" id="11_0hksq"]
 [ext_resource type="Texture2D" uid="uid://ev78l3naksn8" path="res://assets/images/mainMenu/credits/ppl/kose.png" id="11_4c4kp"]
-[ext_resource type="PackedScene" uid="uid://vpt87r2yvndr" path="res://technical/settingsScene.tscn" id="11_2381o"]
+[ext_resource type="PackedScene" path="res://technical/settingsScene.tscn" id="11_2381o"]
 [ext_resource type="Texture2D" uid="uid://cb65qvgh6u74n" path="res://assets/images/ui/backFlip.png" id="11_pjae8"]
 [ext_resource type="Texture2D" uid="uid://bbtc0ul1d7fn5" path="res://assets/images/mainMenu/credits/border.png" id="12_u15cr"]
 [ext_resource type="Theme" uid="uid://dr1wna4c2ab2h" path="res://technical/textStyle.tres" id="14_q2cbi"]
 [ext_resource type="Texture2D" uid="uid://c42ce4ntcagjk" path="res://assets/images/mainMenu/credits/arrows.png" id="15_vaslp"]
 [ext_resource type="Texture2D" uid="uid://x4tqkgm40s3d" path="res://assets/images/mainMenu/credits/sectionDot.png" id="16_cjgcw"]
 [ext_resource type="Texture2D" uid="uid://cwladsljiqill" path="res://assets/images/ui/backDown.png" id="17_q8ob8"]
-[ext_resource type="FontFile" uid="uid://cpx5bbh068e1y" path="res://assets/fonts/ARIAL.TTF" id="17_s0ifr"]
 [ext_resource type="Texture2D" uid="uid://msvb6jrm45iv" path="res://assets/images/ui/backUp.png" id="20_tauat"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b1kt2"]
@@ -804,7 +803,7 @@ offset_bottom = 306.0
 scale = Vector2(1, 0.7)
 theme = ExtResource("14_q2cbi")
 theme_override_font_sizes/font_size = 45
-text = "Find us on:"
+text = "Click our evil links:"
 horizontal_alignment = 2
 
 [node name="BlueSky" type="Button" parent="Credits/JBF"]
@@ -818,8 +817,8 @@ theme_override_colors/font_hover_color = Color(0, 0, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.403922, 0, 1, 1)
 theme_override_colors/font_focus_color = Color(0, 0.756863, 1, 1)
 theme_override_colors/font_color = Color(0, 0.756863, 1, 1)
-theme_override_fonts/font = ExtResource("17_s0ifr")
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("6_fvg6h")
+theme_override_font_sizes/font_size = 35
 theme_override_styles/focus = SubResource("StyleBoxEmpty_imujy")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_4hmps")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_wuxuo")
@@ -832,6 +831,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_mneyc")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_rs8pd")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_pet0d")
 text = "BlueSky"
+alignment = 2
 
 [node name="Twitter" type="Button" parent="Credits/JBF"]
 layout_mode = 0
@@ -844,8 +844,8 @@ theme_override_colors/font_hover_color = Color(0, 0, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.403922, 0, 1, 1)
 theme_override_colors/font_focus_color = Color(0, 0.756863, 1, 1)
 theme_override_colors/font_color = Color(0, 0.756863, 1, 1)
-theme_override_fonts/font = ExtResource("17_s0ifr")
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("6_fvg6h")
+theme_override_font_sizes/font_size = 35
 theme_override_styles/focus = SubResource("StyleBoxEmpty_imujy")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_4hmps")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_wuxuo")
@@ -871,8 +871,8 @@ theme_override_colors/font_hover_color = Color(0, 0, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.403922, 0, 1, 1)
 theme_override_colors/font_focus_color = Color(0, 0.756863, 1, 1)
 theme_override_colors/font_color = Color(0, 0.756863, 1, 1)
-theme_override_fonts/font = ExtResource("17_s0ifr")
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("6_fvg6h")
+theme_override_font_sizes/font_size = 35
 theme_override_styles/focus = SubResource("StyleBoxEmpty_imujy")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_4hmps")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_wuxuo")
@@ -885,6 +885,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_mneyc")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_rs8pd")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_pet0d")
 text = "YouTube"
+alignment = 2
 
 [node name="Website" type="Button" parent="Credits/JBF"]
 layout_mode = 0
@@ -897,8 +898,8 @@ theme_override_colors/font_hover_color = Color(0, 0, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.403922, 0, 1, 1)
 theme_override_colors/font_focus_color = Color(0, 0.756863, 1, 1)
 theme_override_colors/font_color = Color(0, 0.756863, 1, 1)
-theme_override_fonts/font = ExtResource("17_s0ifr")
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("6_fvg6h")
+theme_override_font_sizes/font_size = 35
 theme_override_styles/focus = SubResource("StyleBoxEmpty_imujy")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_4hmps")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_wuxuo")
@@ -911,6 +912,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_mneyc")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_rs8pd")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_pet0d")
 text = "Our Website"
+alignment = 2
 
 [node name="Jobs" type="Label" parent="Credits"]
 offset_left = 540.0
