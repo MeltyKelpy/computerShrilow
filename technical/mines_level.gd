@@ -276,6 +276,7 @@ func _on_button_pressed() -> void:
 		caca.position.y = ((602/2)*(1))
 		newMineExists = false
 		$newMine.queue_free()
+		$newMine/Button.disabled = true
 
 func _on_up_grade_button_pressed() -> void:
 	if ItemValues.money >= 5000 * (mineLevel + 1) and (mineLevel < maxMineLevel):
