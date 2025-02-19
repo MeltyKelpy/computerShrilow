@@ -2370,6 +2370,7 @@ autostart = true
 
 [node name="DEBUGVALUES" type="Node2D" parent="."]
 visible = false
+position = Vector2(459, -17)
 
 [node name="ColorRect" type="ColorRect" parent="DEBUGVALUES"]
 process_priority = -1

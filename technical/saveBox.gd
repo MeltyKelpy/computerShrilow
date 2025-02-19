@@ -58,6 +58,13 @@ func _on_load_pressed() -> void:
 	Game.loadData()
 	var config = ConfigFile.new()
 	var err = config.load(Game.files[ID])
+	if $FileName.text == "":
+		config.set_value("Fiscal", "Name", "UNNAMED FILE")
+		Game.saveData()
+	else:
+		Game.namee = $FileName.text
+		config.set_value("Fiscal", "Name", $FileName.text)
+		Game.saveData()
 	print("Opening File "+str(ID+1)+", Name: "+config.get_value("Fiscal", "Name"))
 
 func _on_delete_pressed() -> void:
@@ -88,11 +95,9 @@ func _on_file_name_text_changed(new_text: String) -> void:
 	
 	if $FileName.text == "":
 		config.set_value("Fiscal", "Name", "UNNAMED FILE")
-		Game.saveData()
 	else:
 		Game.namee = $FileName.text
 		config.set_value("Fiscal", "Name", $FileName.text)
-		Game.saveData()
 
 func round_to_dec(num, digit):
 	return round(num * pow(10.0, digit)) / pow(10.0, digit)
