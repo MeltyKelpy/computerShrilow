@@ -108,6 +108,24 @@ var melvinDialogue = [
 	"unlocked":true,
 	"interacted":false,
 	},
+	{
+	"present":"About this place",
+	"dialogKey":"ABTDAYCARE",
+	"unlocked":true,
+	"interacted":false,
+	},
+	{
+	"present":"Origin of the Jellies",
+	"dialogKey":"JELLYORIGINS",
+	"unlocked":true,
+	"interacted":false,
+	},
+	{
+	"present":"Caring for a Jelly",
+	"dialogKey":"CARINGFORJELLIES",
+	"unlocked":true,
+	"interacted":false,
+	},
 ]
 
 var descriptionSetting = ""
@@ -117,8 +135,8 @@ var scrollLimitRIGHT = 0
 
 func _process(float) -> void:
 	if enabledCrystal == "shrilow":
-		shrilowPower = (FizzyDrink.clickPowerAdditions+FizzyDrink.clickPower+FizzyDrink.clickPowerP1+FizzyDrink.clickPowerP1R+FizzyDrink.clickPowerClothingBuffs) * 2
-		shrilowPowerAuto = (FizzyDrink.AUTOclickPowerAdditions+FizzyDrink.AUTOclickPower+FizzyDrink.AUTOclickPowerP1+FizzyDrink.AUTOclickPowerP1R+FizzyDrink.AUTOclickPowerClothingBuffs) * 2
+		shrilowPower = (FizzyDrink.clickPowerAdditions+FizzyDrink.clickPower+FizzyDrink.clickPowerP1+FizzyDrink.clickPowerP1R+FizzyDrink.clickPowerClothingBuffs)
+		shrilowPowerAuto = (FizzyDrink.AUTOclickPowerAdditions+FizzyDrink.AUTOclickPower+FizzyDrink.AUTOclickPowerP1+FizzyDrink.AUTOclickPowerP1R+FizzyDrink.AUTOclickPowerClothingBuffs)
 	else: 
 		shrilowPower = 0
 		shrilowPowerAuto = 0

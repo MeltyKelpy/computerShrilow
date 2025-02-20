@@ -16,6 +16,7 @@ var namee = "SAVE FILE"
 var jellies = 0
 var rebirths = 0
 var gameTime = 0.0
+var icon = 0
 
 var curFile = 0
 
@@ -124,6 +125,7 @@ func saveData():
 	config.set_value("Fiscal", "Rebirths", rebirths)
 	config.set_value("Fiscal", "Time", gameTime)
 	config.set_value("Fiscal", "Clicks", FizzyDrink.clicks)
+	config.set_value("Fiscal", "Icon", icon)
 	
 	config.set_value("Rebirth", "RebirthTokens", rebirthTokens)
 	config.set_value("Rebirth", "RebirthAutoClickerLevel", ItemValues.marketItems[0]["CurUpgrade"])

@@ -1,10 +1,8 @@
 extends Sprite2D
 
 var ID = 0
-var hours = 0
-var minutes = 0
-var seconds = 0
 var time_dict = {"H" : 0, "M" : 0, "S" : 0}
+var icon = 0
 
 func _ready() -> void:
 	Game.reloadGlobals()
@@ -41,13 +39,18 @@ func _ready() -> void:
 		$Icon.visible = true
 		$FileName.text = config.get_value("Fiscal", "Name")
 		$Desc.text = "Money: "+str(config.get_value("Fiscal", "Money"))+"\nJellies Found: "+str(config.get_value("Fiscal", "Jellies"))+"\nRebirths: "+str(config.get_value("Fiscal", "Rebirths"))+"\nRebirth Tokens: "+str(config.get_value("Rebirth", "RebirthTokens"))+"\nTime Played: "+final+"\nClicks: "+str(config.get_value("Fiscal", "Clicks"))
+		icon = config.get_value("Fiscal", "Icon")
 	else:
 		$Icon.visible = false
 		$FileName.text = "FILE "+str(ID+1)
 		$Desc.text = ""
 		Game.curFile = ID
+		icon = 0
 	
 	print("File "+str(ID+1)+" Loaded, Name: "+$FileName.text)
+
+func _process(delta: float) -> void:
+	$Icon.texture = load("res://assets/images/ui/saveIcons/"+str(icon)+".png")
 
 func _on_load_pressed() -> void:
 	Game.curFile = ID
@@ -96,8 +99,28 @@ func _on_file_name_text_changed(new_text: String) -> void:
 	if $FileName.text == "":
 		config.set_value("Fiscal", "Name", "UNNAMED FILE")
 	else:
+		Game.loadData()
 		Game.namee = $FileName.text
 		config.set_value("Fiscal", "Name", $FileName.text)
+		Game.saveData()
 
 func round_to_dec(num, digit):
 	return round(num * pow(10.0, digit)) / pow(10.0, digit)
+
+func changeIcon(changeBy: int) -> void:
+	if icon == null:
+		icon = 0
+	icon += changeBy
+	if FileAccess.file_exists("res://assets/images/ui/saveIcons/"+str(icon)+".png"):
+		pass
+	else:
+		icon = 0
+	
+	var config = ConfigFile.new()
+	
+	Game.curFile = ID
+	
+	Game.loadData()
+	Game.icon = icon
+	config.set_value("Fiscal", "Icon", icon)
+	Game.saveData()

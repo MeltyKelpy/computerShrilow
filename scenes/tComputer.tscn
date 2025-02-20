@@ -1481,12 +1481,15 @@ offset_right = 328.0
 offset_bottom = 120.0
 
 [node name="CurseDisplay" parent="ShrilowScreen/cursesDisplay" instance=ExtResource("19_m2i3t")]
+visible = false
 layout_mode = 2
 
 [node name="CurseDisplay2" parent="ShrilowScreen/cursesDisplay" instance=ExtResource("19_m2i3t")]
+visible = false
 layout_mode = 2
 
 [node name="CurseDisplay3" parent="ShrilowScreen/cursesDisplay" instance=ExtResource("19_m2i3t")]
+visible = false
 layout_mode = 2
 
 [node name="USD" type="Sprite2D" parent="."]
@@ -2178,18 +2181,6 @@ texture = ExtResource("39_xk82v")
 position = Vector2(576, 324)
 texture = ExtResource("39_xk82v")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Melvin"]
-offset_left = 558.0
-offset_top = 116.0
-offset_right = 1088.0
-offset_bottom = 465.0
-horizontal_scroll_mode = 3
-vertical_scroll_mode = 3
-
-[node name="GridContainer" type="GridContainer" parent="Melvin/ScrollContainer"]
-layout_mode = 2
-columns = 3
-
 [node name="talkOptions" type="ScrollContainer" parent="Melvin"]
 offset_left = 524.0
 offset_top = 113.0
@@ -2201,6 +2192,18 @@ vertical_scroll_mode = 3
 [node name="GridContainer" type="GridContainer" parent="Melvin/talkOptions"]
 layout_mode = 2
 columns = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Melvin"]
+offset_left = 558.0
+offset_top = 116.0
+offset_right = 1088.0
+offset_bottom = 465.0
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
+
+[node name="GridContainer" type="GridContainer" parent="Melvin/ScrollContainer"]
+layout_mode = 2
+columns = 3
 
 [node name="back" type="Sprite2D" parent="Melvin"]
 position = Vector2(89, 82)

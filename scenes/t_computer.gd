@@ -341,6 +341,45 @@ func manageScenes():
 				$Melvin/ItemDescription.text = "...hm........."
 			if alongTheDialogue == 5:
 				endDialogue()
+		"ABTDAYCARE":
+			if alongTheDialogue == 0:
+				$Melvin/ItemDescription.text = "I opened it awhile ago when i seen a.."
+			if alongTheDialogue == 1:
+				$Melvin/ItemDescription.text = '.."poor and helpless" jelly sitting in a folder'
+			if alongTheDialogue == 2:
+				$Melvin/ItemDescription.text = "So i started this daycare to.. contain them."
+			if alongTheDialogue == 3:
+				$Melvin/ItemDescription.text = "I tend to their needs, and i give them a place to live that they"
+			if alongTheDialogue == 4:
+				$Melvin/ItemDescription.text = "CANT GET OUT OF."
+			if alongTheDialogue == 5:
+				endDialogue()
+		"JELLYORIGINS":
+			if alongTheDialogue == 0:
+				$Melvin/ItemDescription.text = "I don't know a whole lot, but ive overheard some stuff"
+			if alongTheDialogue == 1:
+				$Melvin/ItemDescription.text = "If I remember correctly, they're shortcut files of another puter-person, Melanie"
+			if alongTheDialogue == 2:
+				$Melvin/ItemDescription.text = "Apparently, they were made on accident, and in the recycling bin they somehow managed to copy their file"
+			if alongTheDialogue == 3:
+				$Melvin/ItemDescription.text = "I dont know if they're still cloning or anything, but there sure is alot of them."
+			if alongTheDialogue == 4:
+				$Melvin/ItemDescription.text = "(I hope someday they get deleted and cleared.)"
+			if alongTheDialogue == 5:
+				endDialogue()
+		"CARINGFORJELLIES":
+			if alongTheDialogue == 0:
+				$Melvin/ItemDescription.text = "Oh, yes! o-of course"
+			if alongTheDialogue == 1:
+				$Melvin/ItemDescription.text = "I am, mel..vin"
+			if alongTheDialogue == 2:
+				$Melvin/ItemDescription.text = "I run the Jelly Daycare!"
+			if alongTheDialogue == 3:
+				$Melvin/ItemDescription.text = "And I have, absolutely NO correlation to that other shopkeeper! none at all! ha!.. haha!"
+			if alongTheDialogue == 4:
+				$Melvin/ItemDescription.text = "...hm........."
+			if alongTheDialogue == 5:
+				endDialogue()
 
 func endDialogue():
 	$Shop/ItemDescription.visible_ratio = 0

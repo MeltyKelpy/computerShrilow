@@ -2,20 +2,21 @@ extends TextureRect
 
 var timerName = "NULL:3"
 var specialClockType = "not"
-var hours = 0
-var minutes = 0
-var seconds = 0
 var time_dict = {"H" : 0, "M" : 0, "S" : 0}
 
-func create(namer, _time, type):
+func create(namer, time, type):
 	specialClockType = type
 	timerName = namer
+	if specialClockType != "antivirus":
+		$Timer.wait_time = time
+	$Timer.start()
 	reparent($/root/computerShrilow/ShrilowScreen/clocks)
 
 func _process(delta: float) -> void:
 	var time = round($Timer.time_left)
 	time_dict = {"H" : 0, "M" : 0, "S" : 0}
-	while time >= 60:
+	time_dict["S"] = time
+	while time_dict["S"] >= 60:
 		time -= 60
 		time_dict["M"] += 1
 		time_dict["S"] = time
@@ -38,6 +39,7 @@ func _process(delta: float) -> void:
 	else:
 		finS = time_dict["S"]
 	var final = str(finH) + ":" + str(finM) + ":" + str(finS)
+	
 	
 	$Time.text = str(timerName+"\n")+str(final)
 	if specialClockType == "antivirus":

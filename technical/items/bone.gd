@@ -9,7 +9,7 @@ func _ready() -> void:
 	add_child(caca2)
 	caca2.reparent($/root)
 	caca2.warn("You bought a Bone! your click power is currently doubled for a limited time.")
-	FizzyDrink.clickPowerAdditions += (FizzyDrink.clickPower+FizzyDrink.clickPowerP1+FizzyDrink.clickPowerP1R+FizzyDrink.clickPowerClothingBuffs) * 2
+	FizzyDrink.clickPowerAdditions += (FizzyDrink.clickPower+FizzyDrink.clickPowerP1+FizzyDrink.clickPowerP1R+FizzyDrink.clickPowerClothingBuffs)
 	var cacapoopyGOD2 = preload("res://technical/clock.tscn")
 	var caca = cacapoopyGOD2.instantiate()
 	add_child(caca)
@@ -29,7 +29,7 @@ func _endEffect() -> void:
 	add_child(caca2)
 	caca2.reparent($/root)
 	caca2.warn("oops! bone effect all gone")
-	FizzyDrink.clickPowerAdditions -= (FizzyDrink.clickPower+FizzyDrink.clickPowerP1+FizzyDrink.clickPowerP1R+FizzyDrink.clickPowerClothingBuffs) * 2
+	FizzyDrink.clickPowerAdditions -= (FizzyDrink.clickPower+FizzyDrink.clickPowerP1+FizzyDrink.clickPowerP1R+FizzyDrink.clickPowerClothingBuffs)
 	print(FizzyDrink.clickPower)
 
 func _kill() -> void:
