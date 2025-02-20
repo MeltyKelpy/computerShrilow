@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://breajdhvvyjm3"]
+
+[ext_resource type="Script" path="res://technical/rooms/player_journal.gd" id="1_x36x3"]
+[ext_resource type="PackedScene" uid="uid://blpl7hmlaxaxo" path="res://technical/rooms/entry.tscn" id="2_33kyf"]
+
+[node name="PlayerJournal" type="Node2D"]
+script = ExtResource("1_x36x3")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Panel2" type="Panel" parent="."]
+offset_left = 581.0
+offset_top = 69.0
+offset_right = 1130.0
+offset_bottom = 623.0
+
+[node name="Label" type="Label" parent="."]
+offset_left = 2.0
+offset_top = -3.0
+offset_right = 1149.0
+offset_bottom = 39.0
+theme_override_font_sizes/font_size = 30
+text = "le epic joruanall"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 30.0
+offset_top = 72.0
+offset_right = 558.0
+offset_bottom = 620.0
+
+[node name="Entry" parent="VBoxContainer" instance=ExtResource("2_33kyf")]
+layout_mode = 2
+entryName = "The Jellies"
+attachedEntry = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+offset_left = 587.0
+offset_top = 74.0
+offset_right = 1125.0
+offset_bottom = 618.0
+
+[node name="Label2" type="RichTextLabel" parent="ScrollContainer"]
+custom_minimum_size = Vector2(537, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "[bgcolor=black][color=black]Text to redact[/color][/bgcolor] le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall vv"
+fit_content = true
+autowrap_mode = 2

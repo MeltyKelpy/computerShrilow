@@ -108,8 +108,8 @@ func _process(_delta: float) -> void:
 	if state == "interactable":
 		pass
 	
-	if Input.is_action_just_pressed("DebugMode"):
-		_fuckYeah()
+	#if Input.is_action_just_pressed("DebugMode"):
+		#_fuckYeah()
 	
 	if stars != starsPrev:
 		starsUpdate()

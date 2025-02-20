@@ -598,13 +598,25 @@ func _process(_delta : float) -> void:
 			$Shop/ItemDescription.visible_ratio = 1
 		if $Shop/ItemDescription.visible_ratio < 1:
 			$Shop/type.play()
-			$Shop/ItemDescription.visible_characters += 50 * _delta
+			var numToUse
+			if _delta < 0.03:
+				numToUse = 0.03
+			else:
+				numToUse = _delta
+			print(_delta)
+			$Shop/ItemDescription.visible_characters += 50 * numToUse
 	if melvinShopState == false:
 		if $Melvin/ItemDescription.visible_ratio > 1:
 			$Melvin/ItemDescription.visible_ratio = 1
 		if $Melvin/ItemDescription.visible_ratio < 1:
 			$Shop/type.play()
-			$Melvin/ItemDescription.visible_characters += 50 * _delta
+			var numToUse
+			if _delta < 0.03:
+				numToUse = 0.03
+			else:
+				numToUse = _delta
+			print(_delta)
+			$Melvin/ItemDescription.visible_characters += 50 * numToUse
 	
 	if dialougeMode == true:
 		$Shop/BackButtonSHOP.disabled = true
@@ -1171,7 +1183,7 @@ func melShopToggle() -> void:
 			$Shop/Mel.play("default")
 			$USD.visible = true
 			$USDText.visible = true
-			$Shop/ItemDescription.visible_characters = -1
+			$Shop/ItemDescription.visible_characters = 100000
 			$Shop/ItemDescription.visible_ratio = 1
 
 func melvShopToggle() -> void:
@@ -1193,7 +1205,7 @@ func melvShopToggle() -> void:
 			$Melvin/melvin.play("default")
 			$USD.visible = true
 			$USDText.visible = true
-			$Melvin/ItemDescription.visible_characters = -1
+			$Melvin/ItemDescription.visible_characters = 100000
 			$Melvin/ItemDescription.visible_ratio = 1
 
 func dialogueGoAway() -> void:

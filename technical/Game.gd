@@ -67,6 +67,7 @@ func loadData():
 		ItemValues.money = config.get_value("Fiscal", "Money")
 		ClothingObjects.equippedClothing = config.get_value("Fiscal", "Clothing")
 		FizzyDrink.jellys = config.get_value("Fiscal", "AmountOfJellies")
+		FizzyDrink.amountOfRooms = config.get_value("Fiscal", "AmountOfRooms")
 		
 		ItemValues.itemInfomation[0]["CurUpgrade"] = config.get_value("Shop", "autoClickerUpgrade")
 		ItemValues.itemInfomation[1]["CurUpgrade"] = config.get_value("Shop", "PlusOneUpgrade")
@@ -181,6 +182,7 @@ func saveData():
 	# REBIRTH RESETING
 	
 	config.set_value("Fiscal", "AmountOfJellies", FizzyDrink.jellys)
+	config.set_value("Fiscal", "AmountOfRooms", FizzyDrink.amountOfRooms)
 	config.set_value("Fiscal", "Money", ItemValues.money)
 	config.set_value("Fiscal", "StoredJellies", Jelly.storedJellys)
 	config.set_value("Fiscal", "Clothing", ClothingObjects.equippedClothing)

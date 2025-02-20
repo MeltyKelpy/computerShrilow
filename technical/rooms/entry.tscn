@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://blpl7hmlaxaxo"]
+
+[ext_resource type="Script" path="res://technical/rooms/entry.gd" id="1_s4lct"]
+
+[node name="Entry" type="Panel"]
+custom_minimum_size = Vector2(400, 70)
+script = ExtResource("1_s4lct")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 401.0
+offset_bottom = 69.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 10.0
+offset_right = 391.0
+offset_bottom = 61.0
+text = "entry name here"
+vertical_alignment = 1
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

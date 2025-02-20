@@ -8,7 +8,7 @@ extends Node2D
 @export var selfDiscoveredVar = false
 @export var new = true
 var hi = true
-@export var room : Node
+@export var room = 0
 
 @onready var mouse_pin: PinJoint2D = $MousePin
 @onready var fake_body: StaticBody2D = $MousePin/FakeBody
@@ -28,7 +28,7 @@ var colorsIgLOL = [
 	]
 
 func findRoom(Laroom):
-	room = Laroom
+	room = Laroom.ID
 
 func buy():
 	FizzyDrink.jellys += 1
@@ -81,6 +81,8 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	showMoney = money 
 	var showSeconds = seconds
+	if room == null:
+		_on_storage_pressed(true)
 	if FizzyDrink.enabledCrystal == "jelly":
 		showMoney = showMoney * 3
 		showSeconds = showSeconds / 2
@@ -139,7 +141,8 @@ func _jelly_spawn() -> void:
 
 func _on_kill_pressed() -> void:
 	FizzyDrink.jellys -= 1
-	room.jellyCount -= 1
+	if room != null:
+		$/root/computerShrilow/Jelly/rooms.get_child(room).jellyCount -= 1
 	$RigidBody2D.visible = false
 	$nameShit.visible = false
 	$RigidBody2D/Squeak.volume_db = -80
@@ -176,7 +179,7 @@ func _on_change_floor_pressed(ID) -> void:
 
 func _on_storage_pressed(type) -> void:
 	if type == false:
-		room.jellyCount -= 1
+		$/root/computerShrilow/Jelly/rooms.get_child(room).jellyCount -= 1
 	var awesomsmee = {
 		"Name":jelly,
 		"MoneyGain":money,
