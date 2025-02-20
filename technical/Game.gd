@@ -46,6 +46,12 @@ func reloadGlobals():
 	set_script(null)
 	set_script(s)
 
+func load():
+	loadData()
+
+func save():
+	saveData()
+
 func loadData():
 	var config = ConfigFile.new()
 	
