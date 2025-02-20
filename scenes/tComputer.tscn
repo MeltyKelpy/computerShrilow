@@ -254,6 +254,27 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_1f25w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("40_2pbfm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("65_x28qq")
+}],
+"loop": true,
+"name": &"talkBase",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0bpyy"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e17ue"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qs8ly"]
@@ -275,27 +296,6 @@ animations = [{
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ehj2i"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fh8os"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_1f25w"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("40_2pbfm")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("65_x28qq")
-}],
-"loop": true,
-"name": &"talkBase",
-"speed": 5.0
-}]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0bpyy"]
 
 [sub_resource type="Animation" id="Animation_5fubl"]
 length = 0.001
@@ -2049,127 +2049,6 @@ volume_db = -80.0
 autoplay = true
 parameters/looping = true
 
-[node name="Gumball" type="Node2D" parent="."]
-position = Vector2(-1367, -2308)
-
-[node name="bg" type="Sprite2D" parent="Gumball"]
-position = Vector2(576, 324)
-texture = ExtResource("29_50vaf")
-
-[node name="coin" type="Sprite2D" parent="Gumball"]
-position = Vector2(576, 324)
-texture = ExtResource("30_1fn55")
-
-[node name="coin2" type="Sprite2D" parent="Gumball"]
-position = Vector2(576, 324)
-texture = ExtResource("31_1xbpg")
-
-[node name="coin3" type="Sprite2D" parent="Gumball"]
-position = Vector2(576, 324)
-texture = ExtResource("32_6505f")
-
-[node name="stuff" type="Label" parent="Gumball"]
-offset_left = 490.0
-offset_top = 130.0
-offset_right = 861.0
-offset_bottom = 461.0
-theme = ExtResource("8_oskpf")
-theme_override_colors/font_color = Color(0.101961, 0.101961, 0.0901961, 1)
-theme_override_constants/outline_size = 0
-theme_override_font_sizes/font_size = 25
-text = "COMMON COIN"
-autowrap_mode = 3
-
-[node name="back" type="Sprite2D" parent="Gumball"]
-position = Vector2(89, 565)
-texture = ExtResource("17_obgyp")
-
-[node name="BackButton" type="Button" parent="Gumball"]
-offset_left = 20.0
-offset_top = 489.0
-offset_right = 158.0
-offset_bottom = 641.0
-theme_override_styles/focus = SubResource("StyleBoxEmpty_p6f28")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_w4xu3")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_uj6cr")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0meto")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_rmwiu")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_o3afr")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_amgep")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_e3kvh")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_kvmat")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iq0t2")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
-
-[node name="NextCoin" type="Button" parent="Gumball"]
-offset_left = 968.0
-offset_top = 492.0
-offset_right = 1092.0
-offset_bottom = 563.0
-theme_override_styles/focus = SubResource("StyleBoxEmpty_p6f28")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_w4xu3")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_uj6cr")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0meto")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_rmwiu")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_o3afr")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_amgep")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_e3kvh")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_kvmat")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iq0t2")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
-
-[node name="LastCoin" type="Button" parent="Gumball"]
-offset_left = 973.0
-offset_top = 143.0
-offset_right = 1100.0
-offset_bottom = 218.0
-theme_override_styles/focus = SubResource("StyleBoxEmpty_p6f28")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_w4xu3")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_uj6cr")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0meto")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_rmwiu")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_o3afr")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_amgep")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_e3kvh")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_kvmat")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iq0t2")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
-
-[node name="Button" type="Button" parent="Gumball"]
-offset_left = 497.0
-offset_top = 438.0
-offset_right = 833.0
-offset_bottom = 602.0
-theme_override_font_sizes/font_size = 28
-theme_override_styles/focus = SubResource("StyleBoxEmpty_e17ue")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_qs8ly")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_spsft")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_xxilq")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_56s0b")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_01kl8")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_modlm")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_57qnw")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_1neu3")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ehj2i")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_fh8os")
-autowrap_mode = 2
-
-[node name="USD" type="Sprite2D" parent="Gumball"]
-z_index = 8
-position = Vector2(47.5, 66.5)
-texture = ExtResource("7_0u6ge")
-
-[node name="USDText" type="Label" parent="Gumball"]
-z_index = 8
-offset_left = 16.0
-offset_top = 124.0
-offset_right = 120.0
-offset_bottom = 194.0
-scale = Vector2(1, 0.6)
-theme = ExtResource("8_oskpf")
-theme_override_font_sizes/font_size = 50
-text = "MONEY"
-
 [node name="Melvin" type="Node2D" parent="."]
 position = Vector2(-1367, -3029)
 
@@ -2401,6 +2280,128 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_kvmat")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iq0t2")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
 
+[node name="Gumball" type="Node2D" parent="."]
+position = Vector2(-1367, -2308)
+
+[node name="bg" type="Sprite2D" parent="Gumball"]
+position = Vector2(576, 324)
+texture = ExtResource("29_50vaf")
+
+[node name="coin" type="Sprite2D" parent="Gumball"]
+position = Vector2(576, 324)
+texture = ExtResource("30_1fn55")
+
+[node name="coin2" type="Sprite2D" parent="Gumball"]
+position = Vector2(576, 324)
+texture = ExtResource("31_1xbpg")
+
+[node name="coin3" type="Sprite2D" parent="Gumball"]
+position = Vector2(576, 324)
+texture = ExtResource("32_6505f")
+
+[node name="stuff" type="Label" parent="Gumball"]
+offset_left = 490.0
+offset_top = 130.0
+offset_right = 861.0
+offset_bottom = 461.0
+theme = ExtResource("8_oskpf")
+theme_override_colors/font_color = Color(0.101961, 0.101961, 0.0901961, 1)
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 25
+text = "COMMON COIN"
+autowrap_mode = 3
+
+[node name="back" type="Sprite2D" parent="Gumball"]
+position = Vector2(89, 565)
+texture = ExtResource("17_obgyp")
+
+[node name="BackButton" type="Button" parent="Gumball"]
+offset_left = 20.0
+offset_top = 489.0
+offset_right = 158.0
+offset_bottom = 641.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p6f28")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_w4xu3")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_uj6cr")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0meto")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_rmwiu")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_o3afr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_amgep")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_e3kvh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_kvmat")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iq0t2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
+
+[node name="NextCoin" type="Button" parent="Gumball"]
+offset_left = 968.0
+offset_top = 492.0
+offset_right = 1092.0
+offset_bottom = 563.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p6f28")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_w4xu3")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_uj6cr")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0meto")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_rmwiu")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_o3afr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_amgep")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_e3kvh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_kvmat")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iq0t2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
+
+[node name="LastCoin" type="Button" parent="Gumball"]
+process_priority = 10
+offset_left = 974.0
+offset_top = 143.0
+offset_right = 1101.0
+offset_bottom = 218.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p6f28")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_w4xu3")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_uj6cr")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0meto")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_rmwiu")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_o3afr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_amgep")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_e3kvh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_kvmat")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iq0t2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
+
+[node name="Button" type="Button" parent="Gumball"]
+offset_left = 497.0
+offset_top = 438.0
+offset_right = 833.0
+offset_bottom = 602.0
+theme_override_font_sizes/font_size = 28
+theme_override_styles/focus = SubResource("StyleBoxEmpty_e17ue")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_qs8ly")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_spsft")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_xxilq")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_56s0b")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_01kl8")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_modlm")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_57qnw")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_1neu3")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ehj2i")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fh8os")
+autowrap_mode = 2
+
+[node name="USD" type="Sprite2D" parent="Gumball"]
+z_index = 8
+position = Vector2(47.5, 66.5)
+texture = ExtResource("7_0u6ge")
+
+[node name="USDText" type="Label" parent="Gumball"]
+z_index = 8
+offset_left = 16.0
+offset_top = 124.0
+offset_right = 120.0
+offset_bottom = 194.0
+scale = Vector2(1, 0.6)
+theme = ExtResource("8_oskpf")
+theme_override_font_sizes/font_size = 50
+text = "MONEY"
+
 [node name="sectionTransitions" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_vs8hy")
@@ -2612,14 +2613,14 @@ autostart = true
 [connection signal="pressed" from="theVoid/LeaveVoid" to="." method="marketState" binds= ["voidLeave"]]
 [connection signal="pressed" from="BlackMarket/LeaveBlack" to="." method="marketState" binds= ["blackmarketLeave"]]
 [connection signal="pressed" from="Wardrobe/BackButtonWARD" to="." method="_on_back_button_ward_pressed"]
-[connection signal="pressed" from="Gumball/BackButton" to="." method="cameraAnimation" binds= ["gumballMachine", -576, 324, true]]
-[connection signal="pressed" from="Gumball/NextCoin" to="." method="coinSelectionChange" binds= [1]]
-[connection signal="pressed" from="Gumball/LastCoin" to="." method="coinSelectionChange" binds= [-1]]
-[connection signal="pressed" from="Gumball/Button" to="." method="_buyGumball_pressed"]
 [connection signal="pressed" from="Melvin/BackButton" to="." method="cameraAnimation" binds= ["bell", -576, 324, true]]
 [connection signal="pressed" from="Melvin/melvinteract" to="." method="melvShopToggle"]
 [connection signal="pressed" from="Journal/BackJOURNAL" to="." method="cameraAnimation" binds= ["journal", -576, 324, true]]
 [connection signal="pressed" from="storage/BackSTORAGE" to="." method="storageCamShit" binds= ["leave"]]
+[connection signal="pressed" from="Gumball/BackButton" to="." method="cameraAnimation" binds= ["gumballMachine", -576, 324, true]]
+[connection signal="pressed" from="Gumball/NextCoin" to="." method="coinSelectionChange" binds= [1]]
+[connection signal="pressed" from="Gumball/LastCoin" to="." method="coinSelectionChange" binds= [-1]]
+[connection signal="pressed" from="Gumball/Button" to="." method="_buyGumball_pressed"]
 [connection signal="animation_finished" from="sectionTransitions" to="." method="_on_section_transitions_animation_finished"]
 [connection signal="timeout" from="EventTimer" to="." method="_event"]
 [connection signal="timeout" from="faceRevert" to="." method="_on_face_revert_timeout"]

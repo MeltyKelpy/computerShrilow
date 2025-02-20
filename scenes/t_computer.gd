@@ -369,15 +369,15 @@ func manageScenes():
 				endDialogue()
 		"CARINGFORJELLIES":
 			if alongTheDialogue == 0:
-				$Melvin/ItemDescription.text = "Oh, yes! o-of course"
+				$Melvin/ItemDescription.text = "Since we're digital, they dont really eat or anything"
 			if alongTheDialogue == 1:
-				$Melvin/ItemDescription.text = "I am, mel..vin"
+				$Melvin/ItemDescription.text = "they do need.. attention, though."
 			if alongTheDialogue == 2:
-				$Melvin/ItemDescription.text = "I run the Jelly Daycare!"
+				$Melvin/ItemDescription.text = "If they dont have another jelly to talk to, or someone to hang out with, they get violent."
 			if alongTheDialogue == 3:
-				$Melvin/ItemDescription.text = "And I have, absolutely NO correlation to that other shopkeeper! none at all! ha!.. haha!"
+				$Melvin/ItemDescription.text = "so, keeping them entertained is a high priority"
 			if alongTheDialogue == 4:
-				$Melvin/ItemDescription.text = "...hm........."
+				$Melvin/ItemDescription.text = "we wouldnt want another Jel-leven."
 			if alongTheDialogue == 5:
 				endDialogue()
 
