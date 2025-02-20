@@ -88,17 +88,23 @@ func loadData():
 		var queers = config.get_value("Stats", "queerJellies")
 		var blues = config.get_value("Stats", "blueJellies")
 		for i in Jelly.commonJellies.size():
-			Jelly.commonJellies[i]["Discovered"] = commons[i]
+			if commons.size() >= i:
+				Jelly.commonJellies[i]["Discovered"] = commons[i]
 		for i in Jelly.uncommonJellies.size():
-			Jelly.uncommonJellies[i]["Discovered"] = uncommons[i]
+			if uncommons.size() >= i:
+				Jelly.uncommonJellies[i]["Discovered"] = uncommons[i]
 		for i in Jelly.rareJellies.size():
-			Jelly.rareJellies[i]["Discovered"] = rares[i]
+			if rares.size() >= i:
+				Jelly.rareJellies[i]["Discovered"] = rares[i]
 		for i in Jelly.awesomeJellies.size():
-			Jelly.awesomeJellies[i]["Discovered"] = awesomes[i]
+			if awesomes.size() >= i:
+				Jelly.awesomeJellies[i]["Discovered"] = awesomes[i]
 		for i in Jelly.queerJellies.size():
-			Jelly.queerJellies[i]["Discovered"] = queers[i]
+			if queers.size() >= i:
+				Jelly.queerJellies[i]["Discovered"] = queers[i]
 		for i in Jelly.blueJellies.size():
-			Jelly.blueJellies[i]["Discovered"] = blues[i]
+			if blues.size() >= i:
+				Jelly.blueJellies[i]["Discovered"] = blues[i]
 		
 		var awesome = config.get_value("Stats", "ownedClothes")
 		for i in ClothingObjects.clothes.size():

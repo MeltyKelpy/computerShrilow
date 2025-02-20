@@ -568,11 +568,12 @@ func _process(_delta : float) -> void:
 	
 	# AWFUL CASE OF SPAGHETTI CODE IM JUST TOO LAZY TO WRITE THIS WELL LMAO
 	if err == OK:
-		if ItemValues.money >= 5000000 + (1000000 * Game.rebirths) and rebirthIndicated == false and can == true:
+		if ItemValues.money >= 1000000 + (1000000 * Game.rebirths) and rebirthIndicated == false and can == true:
 			rebirthIndicated = true
 			var cacapoopyGOD3 = preload("res://technical/rebirthNotification.tscn")
 			var caca2 = cacapoopyGOD3.instantiate()
 			add_child(caca2)
+			caca2.reparent($Camera2D)
 			$ShrilowScreen/Rebirth.disabled = false
 			$ShrilowScreen/Rebirth.visible = true
 	

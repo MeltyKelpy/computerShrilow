@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dtadge1tuylvl"]
+[gd_scene load_steps=9 format=3 uid="uid://bxaspgbqy6x5s"]
 
 [ext_resource type="Texture2D" uid="uid://1860tkm8lohn" path="res://assets/images/ui/rebirthThing.png" id="1_ka7x5"]
 [ext_resource type="Script" path="res://technical/rebirth_notification.gd" id="1_xq0v5"]
