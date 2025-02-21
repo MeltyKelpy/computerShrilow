@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://j6hicahygtp"]
+[gd_scene load_steps=90 format=3 uid="uid://j6hicahygtp"]
 
 [ext_resource type="Script" path="res://scenes/tutorial.gd" id="1_oa3ri"]
 [ext_resource type="Texture2D" uid="uid://dajex7cpt7k4p" path="res://assets/images/bg/background.png" id="1_r6irf"]
@@ -7,26 +7,96 @@
 [ext_resource type="Texture2D" uid="uid://b8y35swxyqxen" path="res://assets/images/bg/fade.png" id="3_sor34"]
 [ext_resource type="Texture2D" uid="uid://dv1knrxoff866" path="res://assets/images/ui/transitions/bg.png" id="4_f6wap"]
 [ext_resource type="Texture2D" uid="uid://d3b1qb3i07urm" path="res://assets/images/computershrilows/shrilowBases/shrilowBase.png" id="4_uavk3"]
+[ext_resource type="Texture2D" uid="uid://cs21yt57gfegw" path="res://assets/images/areas/melanies/sign.png" id="4_ywyf8"]
 [ext_resource type="Texture2D" uid="uid://c3rsesgxto2nt" path="res://assets/images/ui/transitions/bell0.png" id="5_7rbg0"]
 [ext_resource type="Texture2D" uid="uid://blvwd2nk3x3go" path="res://assets/images/ui/arrow.png" id="5_14j0e"]
 [ext_resource type="PackedScene" uid="uid://dctfcin0koae7" path="res://technical/shrilowFace.tscn" id="5_o0nah"]
+[ext_resource type="Texture2D" uid="uid://i56e4q3q5h8" path="res://assets/images/areas/melanies/melanie/base.png" id="5_sw3lp"]
 [ext_resource type="AudioStream" uid="uid://o0fq5njk38ru" path="res://assets/sounds/squeak.ogg" id="6_hvrrl"]
 [ext_resource type="Texture2D" uid="uid://dqdfjx7jj56ii" path="res://assets/images/ui/transitions/bell1.png" id="6_itv5l"]
+[ext_resource type="Texture2D" uid="uid://bi8cjj45fwhyo" path="res://assets/images/areas/melanies/melanie/talkBase.png" id="6_li62y"]
+[ext_resource type="Texture2D" uid="uid://dpvj0h8nv5awc" path="res://assets/images/areas/melanies/descriptionBox.png" id="7_soyxc"]
 [ext_resource type="Texture2D" uid="uid://c1l80qqc08y64" path="res://assets/images/computershrilows/dialogBox.png" id="7_tdgmd"]
 [ext_resource type="Texture2D" uid="uid://b4sehpse6a35m" path="res://assets/images/ui/transitions/elevator0.png" id="7_w7gos"]
 [ext_resource type="Texture2D" uid="uid://cg4s4o4vbdqyc" path="res://assets/images/ui/transitions/elevator1.png" id="8_c32o5"]
 [ext_resource type="Theme" uid="uid://dr1wna4c2ab2h" path="res://technical/textStyle.tres" id="8_nkl3s"]
 [ext_resource type="Texture2D" uid="uid://cyl5tq8jp5j0t" path="res://assets/images/ui/transitions/gumball0.png" id="9_1e3ht"]
+[ext_resource type="Texture2D" uid="uid://cc7uegt46vf3d" path="res://assets/images/ui/back.png" id="9_8fve6"]
+[ext_resource type="Texture2D" uid="uid://bls5d01dest6c" path="res://assets/images/ui/usd.png" id="9_ot6un"]
 [ext_resource type="Texture2D" uid="uid://bkbjihpsh2jer" path="res://assets/images/ui/transitions/gumball1.png" id="10_jwgm7"]
+[ext_resource type="AudioStream" uid="uid://b8er53yeuc5lq" path="res://assets/music/skate.ogg" id="10_qbdo4"]
 [ext_resource type="Texture2D" uid="uid://b3tp13r2ykpby" path="res://assets/images/ui/transitions/journal0.png" id="11_4pe1s"]
+[ext_resource type="AudioStream" uid="uid://cquw41xvj2yne" path="res://assets/sounds/typeSFX.ogg" id="11_vswbs"]
+[ext_resource type="Texture2D" uid="uid://dlr8i70w0kxe" path="res://assets/images/areas/blackMarket/marketFrame1.png" id="12_e5qk5"]
 [ext_resource type="Texture2D" uid="uid://qhintyosqus" path="res://assets/images/ui/transitions/journal1.png" id="12_yt3im"]
 [ext_resource type="Texture2D" uid="uid://1wa4musg8sh5" path="res://assets/images/ui/transitions/market0.png" id="13_cxpy7"]
+[ext_resource type="Texture2D" uid="uid://b3va7wv24phrk" path="res://assets/images/areas/blackMarket/marketFrame2.png" id="13_gkxl5"]
 [ext_resource type="Texture2D" uid="uid://dten384haeri1" path="res://assets/images/ui/transitions/market1.png" id="14_n7x6n"]
 [ext_resource type="Texture2D" uid="uid://kpdgjt7sf3f1" path="res://assets/images/ui/transitions/storage0.png" id="15_sbkq4"]
 [ext_resource type="Texture2D" uid="uid://ba21ncyajao5t" path="res://assets/images/ui/transitions/storage1.png" id="16_gt7hx"]
 [ext_resource type="Texture2D" uid="uid://bckpy37xwgin2" path="res://assets/images/ui/theTutorialLogo.png" id="17_yt447"]
 [ext_resource type="Texture2D" uid="uid://cdi4tcc76faq8" path="res://assets/images/areas/melanies/items/floppydisk.png" id="18_46tk2"]
 [ext_resource type="AudioStream" uid="uid://d4nxr0v17co87" path="res://assets/sounds/click.ogg" id="22_d8i4e"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jn0nf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_sw3lp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_li62y")
+}],
+"loop": true,
+"name": &"talkBase",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pdu81"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g6exu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nkcqm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_so20d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i2o04"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4niux"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vg6w1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qdu5m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cyem3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iwdh3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7qagc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ggwsy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_e5qk5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_gkxl5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c3jat"]
 size = Vector2(233, 405)
@@ -312,6 +382,150 @@ texture = ExtResource("1_r6irf")
 position = Vector2(577, 324)
 texture = ExtResource("3_sor34")
 
+[node name="Shop" type="Node2D" parent="."]
+position = Vector2(1152, 0)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Shop"]
+offset_left = 68.0
+offset_top = 112.0
+offset_right = 598.0
+offset_bottom = 461.0
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
+
+[node name="GridContainer" type="GridContainer" parent="Shop/ScrollContainer"]
+layout_mode = 2
+columns = 3
+
+[node name="talkOptions" type="ScrollContainer" parent="Shop"]
+offset_left = 35.0
+offset_top = 872.0
+offset_right = 623.0
+offset_bottom = 1221.0
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
+
+[node name="GridContainer" type="GridContainer" parent="Shop/talkOptions"]
+layout_mode = 2
+columns = 2
+
+[node name="Sign" type="Sprite2D" parent="Shop"]
+position = Vector2(576, 324)
+texture = ExtResource("4_ywyf8")
+
+[node name="Mel" type="AnimatedSprite2D" parent="Shop"]
+position = Vector2(577, 324)
+sprite_frames = SubResource("SpriteFrames_jn0nf")
+
+[node name="melinteract" type="Button" parent="Shop"]
+offset_left = 664.0
+offset_top = 187.0
+offset_right = 1125.0
+offset_bottom = 621.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pdu81")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_g6exu")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_nkcqm")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_so20d")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_i2o04")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_4niux")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vg6w1")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_qdu5m")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_cyem3")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iwdh3")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_7qagc")
+button_mask = 2
+
+[node name="Description" type="Sprite2D" parent="Shop"]
+position = Vector2(576, 324)
+texture = ExtResource("7_soyxc")
+
+[node name="ItemName" type="Label" parent="Shop"]
+offset_left = 48.0
+offset_top = 487.0
+offset_right = 192.0
+offset_bottom = 557.0
+scale = Vector2(1, 0.6)
+theme = ExtResource("8_nkl3s")
+theme_override_font_sizes/font_size = 50
+text = "MELANIE:"
+
+[node name="ItemDescription" type="Label" parent="Shop"]
+offset_left = 48.0
+offset_top = 516.0
+offset_right = 599.0
+offset_bottom = 676.0
+scale = Vector2(1, 0.6)
+theme = ExtResource("8_nkl3s")
+theme_override_font_sizes/font_size = 35
+text = "oh, sure i got nothing else to do anyways lmao"
+autowrap_mode = 3
+
+[node name="ItemExtra" type="Label" parent="Shop"]
+offset_left = 47.0
+offset_top = 588.0
+offset_right = 598.0
+offset_bottom = 635.0
+scale = Vector2(1, 0.6)
+theme = ExtResource("8_nkl3s")
+theme_override_font_sizes/font_size = 30
+text = "ITEMDESC"
+autowrap_mode = 3
+
+[node name="BackSHOP" type="Sprite2D" parent="Shop"]
+position = Vector2(91, 48)
+texture = ExtResource("9_8fve6")
+
+[node name="BackButtonSHOP" type="Button" parent="Shop"]
+offset_left = 2.0
+offset_top = 8.0
+offset_right = 174.0
+offset_bottom = 92.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pdu81")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_g6exu")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_nkcqm")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_so20d")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_i2o04")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_4niux")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vg6w1")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_qdu5m")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_cyem3")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iwdh3")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_7qagc")
+
+[node name="ShopMusic" type="AudioStreamPlayer" parent="Shop"]
+stream = ExtResource("10_qbdo4")
+volume_db = -80.0
+autoplay = true
+parameters/looping = true
+
+[node name="type" type="AudioStreamPlayer" parent="Shop"]
+stream = ExtResource("11_vswbs")
+volume_db = 0.644
+
+[node name="MarektIndicator" type="AnimatedSprite2D" parent="Shop"]
+visible = false
+position = Vector2(576, 324)
+sprite_frames = SubResource("SpriteFrames_ggwsy")
+autoplay = "default"
+
+[node name="EnterMarket" type="Button" parent="Shop"]
+offset_left = 932.0
+offset_top = 526.0
+offset_right = 1154.0
+offset_bottom = 648.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pdu81")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_g6exu")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_nkcqm")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_so20d")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_i2o04")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_4niux")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vg6w1")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_qdu5m")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_cyem3")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iwdh3")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_7qagc")
+disabled = true
+
 [node name="Shrilow" type="Node2D" parent="."]
 position = Vector2(586, 649)
 
@@ -333,11 +547,6 @@ position = Vector2(-212, -216)
 [node name="Squeak" type="AudioStreamPlayer2D" parent="Shrilow"]
 stream = ExtResource("6_hvrrl")
 volume_db = -25.753
-max_distance = 500.0
-
-[node name="Squeak2" type="AudioStreamPlayer2D" parent="Shrilow"]
-stream = ExtResource("6_hvrrl")
-volume_db = -48.239
 max_distance = 500.0
 
 [node name="ShrilowSqueak" type="Button" parent="Shrilow"]
@@ -390,9 +599,32 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Timer" type="Timer" parent="Shrilow"]
-wait_time = 5.0
+[node name="faceRevert" type="Timer" parent="Shrilow"]
+wait_time = 0.5
 one_shot = true
+
+[node name="Clicks" type="Label" parent="."]
+offset_left = 14.5
+offset_top = 596.5
+offset_right = 158.5
+offset_bottom = 666.5
+scale = Vector2(1, 0.6)
+theme = ExtResource("8_nkl3s")
+text = "CLICKS:"
+
+[node name="USD" type="Sprite2D" parent="."]
+position = Vector2(55.5, 68.5)
+texture = ExtResource("9_ot6un")
+
+[node name="USDText" type="Label" parent="."]
+offset_left = 112.5
+offset_top = 44.5
+offset_right = 216.5
+offset_bottom = 114.5
+scale = Vector2(1, 0.6)
+theme = ExtResource("8_nkl3s")
+theme_override_font_sizes/font_size = 50
+text = "MONEY"
 
 [node name="vlc" type="Sprite2D" parent="."]
 position = Vector2(576, 324)
@@ -542,6 +774,19 @@ one_shot = true
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("22_d8i4e")
 
+[node name="TXT" type="Label" parent="."]
+offset_left = 237.0
+offset_top = 17.0
+offset_right = 930.0
+offset_bottom = 177.0
+theme = ExtResource("8_nkl3s")
+theme_override_font_sizes/font_size = 45
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[connection signal="pressed" from="Shrilow/ShrilowSqueak" to="." method="shrilClicked"]
+[connection signal="timeout" from="Shrilow/faceRevert" to="." method="_on_face_revert_timeout"]
 [connection signal="timeout" from="vlc/Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="vlc/Timer2" to="." method="_on_timer_2_timeout"]
 [connection signal="pressed" from="vlc/X" to="." method="begin"]
