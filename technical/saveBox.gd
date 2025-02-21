@@ -38,7 +38,7 @@ func _ready() -> void:
 		var final = str(finH) + ":" + str(finM) + ":" + str(finS)
 		$Icon.visible = true
 		$FileName.text = config.get_value("Fiscal", "Name")
-		$Desc.text = "Money: "+str(config.get_value("Fiscal", "Money"))+"\nJellies Found: "+str(config.get_value("Fiscal", "Jellies"))+"\nRebirths: "+str(config.get_value("Fiscal", "Rebirths"))+"\nRebirth Tokens: "+str(config.get_value("Rebirth", "RebirthTokens"))+"\nTime Played: "+final+"\nClicks: "+str(config.get_value("Fiscal", "Clicks"))
+		$Desc.text = "Money: "+str(Game.commizeNumber(round(config.get_value("Fiscal", "Money"))))+"\nJellies Found: "+str(config.get_value("Fiscal", "Jellies"))+"\nRebirths: "+str(config.get_value("Fiscal", "Rebirths"))+"\nRebirth Tokens: "+str(config.get_value("Rebirth", "RebirthTokens"))+"\nTime Played: "+final+"\nClicks: "+str(config.get_value("Fiscal", "Clicks"))
 		icon = config.get_value("Fiscal", "Icon")
 	else:
 		$Icon.visible = false

@@ -7,9 +7,11 @@ var cashh2 = ItemValues.money
 var allowExiting = false
 var countingMoney = false
 var toCountTo = 0
+var baseMoney
 
 func _ready():
 	$AnimationPlayer.play("animation")
+	baseMoney = ItemValues.money
 
 func determineResult(result : bool, stars : int, cash : int):
 	cashh = cash
@@ -30,7 +32,7 @@ func _process(_delta: float) -> void:
 				cashh = 0
 				allowExit()
 			if cashh2 < toCountTo:
-				$resultsscreen/INFO2.text = str(int(cashh2))+" + "+str(int(cashh))
+				$resultsscreen/INFO2.text = str(Game.commizeNumber(int(cashh2)))+" + "+str(Game.commizeNumber(int(cashh)))
 				cashh2 += 15
 				cashh -= 15
 			else:
@@ -41,7 +43,7 @@ func _process(_delta: float) -> void:
 				cashh = 0
 				allowExit()
 			if cashh2 > toCountTo:
-				$resultsscreen/INFO2.text = str(int(cashh2))+" - "+str(int(cashh))
+				$resultsscreen/INFO2.text = str(Game.commizeNumber(int(cashh2)))+" - "+str(Game.commizeNumber(int(cashh)))
 				cashh2 -= 15
 				cashh -= 15
 
@@ -92,6 +94,7 @@ func countMoney():
 	countingMoney = true
 
 func allowExit():
+	$/root/computerShrilow.visible = true
 	$resultsscreen/INFO.text = "\n\n\nSTARS:\n"+str(starr)+"/5\n\nTOTAL MONEY:\n"
 	$/root/computerShrilow/Camera2D.position.x = $/root/computerShrilow.returnPosCamX
 	$/root/computerShrilow/Camera2D.position.y = $/root/computerShrilow.returnPosCamY
@@ -104,12 +107,12 @@ func allowExit():
 		ItemValues.money = toCountTo
 		$resultsscreen/INFO2.visible = false
 		$resultsscreen/INFO3.visible = true
-		$resultsscreen/INFO3.text = str(ItemValues.money)
+		$resultsscreen/INFO3.text = str(Game.commizeNumber(ItemValues.money))
 		$resultsscreen/EXIT.visible = true
-		if ItemValues.money < 0:
+		if ItemValues.money < 0 and baseMoney < ItemValues.money:
 			$resultsscreen/Shrilow.texture = load("res://assets/images/events/shrilowDead.png")
 			$AnimationPlayer.play("die")
-			$resultsscreen/broke.text = "YOU'RE A FUCKING BROKIEEEEEEEEEEEEEEEEEEE\nclick to go back to your DEBT FILLED LIFE.\n\nloser.\n\nyour DEBT: "+str(ItemValues.money)
+			$resultsscreen/broke.text = "YOU'RE A FUCKING BROKIEEEEEEEEEEEEEEEEEEE\nclick to go back to your DEBT FILLED LIFE.\n\nloser.\n\nyour DEBT: "+str(Game.commizeNumber(ItemValues.money))
 	if resultt == "WIN!":
 		countingMoney = false
 		ItemValues.money = toCountTo

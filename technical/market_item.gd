@@ -32,9 +32,9 @@ func _process(_delta: float) -> void:
 			MaxedOut = true
 	
 	if (hearMeOut[0][type][ItemID]["Type"] == "Generic" and hearMeOut[0][type][ItemID]["CurUpgrade"] != 0 and MaxedOut == false) or hearMeOut[0][type][ItemID]["Type"] == "Consumable":
-		$Cost.text = str(hearMeOut[0][type][ItemID]["Cost"]*(hearMeOut[0][type][ItemID]["CurUpgrade"]+1))+"#"
+		$Cost.text = str(Game.commizeNumber(hearMeOut[0][type][ItemID]["Cost"]*(hearMeOut[0][type][ItemID]["CurUpgrade"]+1)))+"#"
 	elif (hearMeOut[0][type][ItemID]["Type"] == "Generic" and hearMeOut[0][type][ItemID]["CurUpgrade"] == 0 and MaxedOut == false) or hearMeOut[0][type][ItemID]["Type"] == "Consumable":
-		$Cost.text = str(hearMeOut[0][type][ItemID]["Cost"])+"#"
+		$Cost.text = str(Game.commizeNumber(hearMeOut[0][type][ItemID]["Cost"]))+"#"
 	
 	
 	if MaxedOut == true:

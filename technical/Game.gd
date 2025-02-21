@@ -46,6 +46,30 @@ func reloadGlobals():
 	set_script(null)
 	set_script(s)
 
+func commizeNumber(value: int) -> String:
+	# Convert value to string.
+	var str_value: String = str(value)
+	
+	# Check if the value is positive or negative.
+	# Use index 0(excluded) if positive to avoid comma before the 1st digit.
+	# Use index 1(excluded) if negative to avoid comma after the - sign.
+	var loop_end: int = 0 if value > -1 else 1
+	
+	# Loop backward starting at the last 3 digits,
+	# add comma then, repeat every 3rd step.
+	var config = ConfigFile.new()
+	
+	var err = config.load("user://settings.cfg")
+	
+	for i in range(str_value.length()-3, loop_end, -3):
+		if err == OK:
+			str_value = str_value.insert(i, config.get_value("Settings", "SeperatorType"))
+		else:
+			str_value = str_value.insert(i, ",")
+	
+	# Return the formatted string.
+	return str_value
+
 func load():
 	loadData()
 

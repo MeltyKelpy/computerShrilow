@@ -35,14 +35,14 @@ func _process(_delta: float) -> void:
 			MaxedOut = true
 	
 	if (hearMeOut[0][type][ItemID]["Type"] == "Generic" and hearMeOut[0][type][ItemID]["CurUpgrade"] != 0 and MaxedOut == false) or hearMeOut[0][type][ItemID]["Type"] == "Consumable":
-		$Cost.text = str(hearMeOut[0][type][ItemID]["Cost"]*(hearMeOut[0][type][ItemID]["CurUpgrade"]+1))+"$"
+		$Cost.text = str(Game.commizeNumber(hearMeOut[0][type][ItemID]["Cost"]*(hearMeOut[0][type][ItemID]["CurUpgrade"]+1)))+"$"
 		if hearMeOut[0][type][ItemID]["Name"] == "Greasepuppy":
 			var multi = FizzyDrink.greasepuppies - 4
 			if multi < 0:
 				multi = 0
-			$Cost.text = str(hearMeOut[0][type][ItemID]["Cost"] + ((hearMeOut[0][type][ItemID]["Cost"] * 0.5) * multi))+"$"
+			$Cost.text = str(Game.commizeNumber(hearMeOut[0][type][ItemID]["Cost"] + ((hearMeOut[0][type][ItemID]["Cost"] * 0.5) * multi)))+"$"
 	elif (hearMeOut[0][type][ItemID]["Type"] == "Generic" and hearMeOut[0][type][ItemID]["CurUpgrade"] == 0 and MaxedOut == false) or hearMeOut[0][type][ItemID]["Type"] == "Consumable":
-		$Cost.text = str(hearMeOut[0][type][ItemID]["Cost"])+"$"
+		$Cost.text = str(Game.commizeNumber(hearMeOut[0][type][ItemID]["Cost"]))+"$"
 	
 	
 	if MaxedOut == true:
@@ -65,7 +65,7 @@ func _on_button_mouse_entered() -> void:
 		var clicks = str(hearMeOut[0][type][ItemID]["BaseValue"]+(hearMeOut[0][type][ItemID]["CurUpgrade"]*hearMeOut[0][type][ItemID]["UpgradeIncrease"]))
 		ItemSpecificString = "Autoclick clicks value increased by "+clicks
 	if ItemValues.itemName == "Greasepuppy":
-		ItemSpecificString = "You have " + str(FizzyDrink.greasepuppies+1) + " Greasepuppies"
+		ItemSpecificString = "You have " + str(FizzyDrink.greasepuppies) + " Greasepuppies"
 	ItemValues.itemExtra = ItemSpecificString
 
 func _on_button_mouse_exited() -> void:

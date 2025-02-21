@@ -23,7 +23,7 @@ func _process(delta: float) -> void:
 		$jerry.position.x = 156 + rng.randf_range(-20.0, 20.0)
 	
 	if curClicks == clicks or curClicks > clicks:
-		$jerry.position.y += 2
+		$jerry.position.y += 2 + (2 * delta)
 		$jerry.play("fall")
 		if ranCheck == false:
 			var awesome = rng.randi_range(1, 30)
@@ -45,15 +45,18 @@ func _process(delta: float) -> void:
 		if $jerry.position.y > 105 and hurt == false:
 			$jerry.play("climb")
 			$jerry/jerryTail.play("noTail")
-			$jerry.position.y -= 1
+			$jerry.position.y -= 2 + (2 * delta)
 			if $jerry.position.x < 156:
-				$jerry.position.x += 1 + (1 + delta)
+				$jerry.position.x += 1 + (1 * delta)
 			if $jerry.position.x > 156:
 				$jerry.position.x -= 1 + (1 * delta)
-		elif $jerry.position.y == 105 and hurt == false:
+		elif $jerry.position.y <= 105 and hurt == false:
 			$jerry.play("steal")
 			$jerry/jerryTail.play("tail")
-			ItemValues.money -= 1
+			if ItemValues.money > 100:
+				ItemValues.money -= 0.5 * (ItemValues.money / 700)
+			else:
+				ItemValues.money -= 0.5
 		elif hurt == true:
 			if $jerry.frame != 1:
 				$jerry.play("punch")

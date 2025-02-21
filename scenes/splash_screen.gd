@@ -3,6 +3,8 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Settings.loadData()
+	Settings.saveData()
 	$AnimationPlayer.play("opening")
 	$AudioStreamPlayer.play()
 	DiscordRPC.app_id = 1160342090039971850

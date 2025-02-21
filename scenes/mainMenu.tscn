@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://6jl2v3awijit" path="res://assets/images/mainMenu/pressed.png" id="7_wjw70"]
 [ext_resource type="Texture2D" uid="uid://bf5nxu26qx66x" path="res://assets/images/loadingLow.png" id="11_0hksq"]
 [ext_resource type="Texture2D" uid="uid://ev78l3naksn8" path="res://assets/images/mainMenu/credits/ppl/kose.png" id="11_4c4kp"]
-[ext_resource type="PackedScene" path="res://technical/settingsScene.tscn" id="11_2381o"]
+[ext_resource type="PackedScene" uid="uid://b4m7w5w35g0nl" path="res://technical/settingsScene.tscn" id="11_2381o"]
 [ext_resource type="Texture2D" uid="uid://cb65qvgh6u74n" path="res://assets/images/ui/backFlip.png" id="11_pjae8"]
 [ext_resource type="Texture2D" uid="uid://bbtc0ul1d7fn5" path="res://assets/images/mainMenu/credits/border.png" id="12_u15cr"]
 [ext_resource type="Theme" uid="uid://dr1wna4c2ab2h" path="res://technical/textStyle.tres" id="14_q2cbi"]
@@ -1083,7 +1083,6 @@ libraries = {
 autoplay = "intro"
 
 [node name="ColorRect" type="ColorRect" parent="."]
-visible = false
 offset_right = 1165.0
 offset_bottom = 661.0
 mouse_filter = 2

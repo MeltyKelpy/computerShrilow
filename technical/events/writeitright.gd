@@ -29,12 +29,12 @@ var prompts = [
 	"Theres a man on the wing.",
 	"It's beginning to look alot like a white christmas in here",
 	"Hawk 1: hi im hawk 1. Hawk 2: uhm. Those who know: Skull",
-	"Well, it looks like fredbears is closing again because of a report of a child dying there. It may sound insane, but we're closing down!",
 	]
 var lastResultDETERMINE = ""
 var section = 0
 
 func _ready() -> void:
+	$/root/computerShrilow.visible = false
 	Events.justMinigames[4]["Played?"] = true
 	$opening/Label.position.y = 5000
 	$AnimationPlayer.play("pop")
@@ -139,7 +139,7 @@ func _endEvent():
 	var caca = cacapoopyGOD.instantiate()
 	if stars > 0:
 		winOrLose = true
-		money = (500 + (ItemValues.maxMoney / 100)) * stars
+		money = (300 + (ItemValues.maxMoney / 1000)) * stars
 		add_child(caca)
 	if stars <= 0:
 		winOrLose = false
