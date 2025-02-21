@@ -1,7 +1,30 @@
-[gd_scene load_steps=3 format=3 uid="uid://breajdhvvyjm3"]
+[gd_scene load_steps=15 format=3 uid="uid://breajdhvvyjm3"]
 
 [ext_resource type="Script" path="res://technical/rooms/player_journal.gd" id="1_x36x3"]
 [ext_resource type="PackedScene" uid="uid://blpl7hmlaxaxo" path="res://technical/rooms/entry.tscn" id="2_33kyf"]
+[ext_resource type="Texture2D" uid="uid://cwladsljiqill" path="res://assets/images/ui/backDown.png" id="3_mhguf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e1ifc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rkpxj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dh3e7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u6evs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8tmmn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r362j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jjq7m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yr2x2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0rbeg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aunqb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2qpv4"]
 
 [node name="PlayerJournal" type="Node2D"]
 script = ExtResource("1_x36x3")
@@ -12,22 +35,37 @@ offset_bottom = 648.0
 
 [node name="Panel2" type="Panel" parent="."]
 offset_left = 581.0
-offset_top = 69.0
+offset_top = 99.0
 offset_right = 1130.0
 offset_bottom = 623.0
 
-[node name="Label" type="Label" parent="."]
-offset_left = 2.0
-offset_top = -3.0
-offset_right = 1149.0
-offset_bottom = 39.0
-theme_override_font_sizes/font_size = 30
-text = "le epic joruanall"
-horizontal_alignment = 1
+[node name="Panel3" type="Panel" parent="."]
+offset_left = 29.0
+offset_top = 87.0
+offset_right = 1130.0
+offset_bottom = 623.0
+
+[node name="Panel4" type="Panel" parent="."]
+offset_left = 109.0
+offset_top = 32.0
+offset_right = 190.0
+offset_bottom = 88.0
+
+[node name="Panel5" type="Panel" parent="."]
+offset_left = 208.0
+offset_top = 32.0
+offset_right = 289.0
+offset_bottom = 88.0
+
+[node name="Panel6" type="Panel" parent="."]
+offset_left = 309.0
+offset_top = 33.0
+offset_right = 390.0
+offset_bottom = 89.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-offset_left = 30.0
-offset_top = 72.0
+offset_left = 41.0
+offset_top = 98.0
 offset_right = 558.0
 offset_bottom = 620.0
 
@@ -38,7 +76,7 @@ attachedEntry = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 offset_left = 587.0
-offset_top = 74.0
+offset_top = 111.0
 offset_right = 1125.0
 offset_bottom = 618.0
 
@@ -49,3 +87,27 @@ bbcode_enabled = true
 text = "[bgcolor=black][color=black]Text to redact[/color][/bgcolor] le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall vv"
 fit_content = true
 autowrap_mode = 2
+
+[node name="BackWARD" type="Sprite2D" parent="."]
+position = Vector2(46, 42)
+scale = Vector2(0.571429, 0.602649)
+texture = ExtResource("3_mhguf")
+
+[node name="BackButtonWARD" type="Button" parent="."]
+offset_left = 7.0
+offset_top = 6.0
+offset_right = 84.0
+offset_bottom = 84.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_e1ifc")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_rkpxj")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_dh3e7")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_u6evs")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_8tmmn")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_r362j")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_jjq7m")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_yr2x2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_0rbeg")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_aunqb")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2qpv4")
+
+[connection signal="pressed" from="BackButtonWARD" to="." method="_on_back_button_ward_pressed"]

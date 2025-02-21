@@ -855,6 +855,7 @@ func _on_back_button_ward2_pressed() -> void:
 
 func _on_trophies_button_pressed() -> void:
 	pass
+	#R.I.P trophies button......
 	#if can == true:
 		#can = false
 		#print("trophies")

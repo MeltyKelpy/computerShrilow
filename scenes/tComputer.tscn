@@ -11,12 +11,12 @@
 [ext_resource type="Texture2D" uid="uid://ddsp35hv5mq4k" path="res://assets/images/ui/shop.png" id="8_kysej"]
 [ext_resource type="Theme" uid="uid://dr1wna4c2ab2h" path="res://technical/textStyle.tres" id="8_oskpf"]
 [ext_resource type="Texture2D" uid="uid://brs8k5prrtxmq" path="res://assets/images/ui/wardrobe.png" id="9_0gok5"]
-[ext_resource type="Texture2D" uid="uid://bags5dre2kqgg" path="res://assets/images/ui/trophies.png" id="10_4g76h"]
 [ext_resource type="Texture2D" uid="uid://8e0gyo2yjajj" path="res://assets/images/ui/mines.png" id="11_2lflx"]
 [ext_resource type="Texture2D" uid="uid://c1l80qqc08y64" path="res://assets/images/computershrilows/dialogBox.png" id="12_pyedg"]
 [ext_resource type="Texture2D" uid="uid://jlc36tcyv84" path="res://assets/images/ui/jellies.png" id="13_irs6y"]
 [ext_resource type="Texture2D" uid="uid://dpvj0h8nv5awc" path="res://assets/images/areas/melanies/descriptionBox.png" id="13_m021q"]
 [ext_resource type="Texture2D" uid="uid://cc7uegt46vf3d" path="res://assets/images/ui/back.png" id="14_88vde"]
+[ext_resource type="Texture2D" uid="uid://bc36iksrorduf" path="res://assets/images/ui/notebook.png" id="15_8r711"]
 [ext_resource type="AudioStream" uid="uid://dbybnubpmhwx3" path="res://assets/music/melanieShop.ogg" id="15_kk7gt"]
 [ext_resource type="Texture2D" uid="uid://w4aga5clxbjf" path="res://assets/images/areas/wardrobe/wardrobe.png" id="16_ptxs8"]
 [ext_resource type="Texture2D" uid="uid://c5px4l4kt6ev4" path="res://assets/images/ui/rebirthHover.png" id="17_1xfnv"]
@@ -1394,14 +1394,14 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_kvmat")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iq0t2")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
 
-[node name="Trophies" type="Sprite2D" parent="ShrilowScreen"]
-position = Vector2(1063, 255)
-texture = ExtResource("10_4g76h")
+[node name="Notebook" type="Sprite2D" parent="ShrilowScreen"]
+position = Vector2(1068.5, 255)
+texture = ExtResource("15_8r711")
 
-[node name="TrophiesButton" type="Button" parent="ShrilowScreen"]
-offset_left = 983.0
+[node name="NotebookButton" type="Button" parent="ShrilowScreen"]
+offset_left = 988.5
 offset_top = 179.0
-offset_right = 1143.0
+offset_right = 1148.5
 offset_bottom = 330.0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_p6f28")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_w4xu3")
@@ -2468,6 +2468,7 @@ blame ghost."
 one_shot = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
+visible = false
 position = Vector2(577, 324)
 
 [node name="leftMove" type="TextureRect" parent="Camera2D"]
@@ -2600,7 +2601,7 @@ autostart = true
 [connection signal="pressed" from="ShrilowScreen/ShopButton" to="." method="_on_shop_button_pressed"]
 [connection signal="pressed" from="ShrilowScreen/JelliesButton" to="." method="_on_jellies_button_pressed"]
 [connection signal="pressed" from="ShrilowScreen/WardrobeButton" to="." method="_on_wardrobe_button_pressed"]
-[connection signal="pressed" from="ShrilowScreen/TrophiesButton" to="." method="_on_trophies_button_pressed"]
+[connection signal="pressed" from="ShrilowScreen/NotebookButton" to="." method="_on_trophies_button_pressed"]
 [connection signal="pressed" from="ShrilowScreen/MinesButton" to="." method="_on_mines_button_pressed"]
 [connection signal="pressed" from="ShrilowScreen/Rebirth" to="." method="_Rebirth"]
 [connection signal="pressed" from="Jelly/BackButtonJELLY" to="." method="_on_back_button_jelly_pressed"]
