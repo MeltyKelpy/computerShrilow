@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://brdoqiicv0eno"]
+
+[ext_resource type="Script" path="res://technical/achievements.gd" id="1_4wnnr"]
+
+[node name="Achievements" type="Node2D"]
+script = ExtResource("1_4wnnr")

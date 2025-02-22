@@ -63,12 +63,26 @@ func commizeNumber(value: int) -> String:
 	
 	for i in range(str_value.length()-3, loop_end, -3):
 		if err == OK:
-			str_value = str_value.insert(i, config.get_value("Settings", "SeperatorType"))
+			str_value = str_value.insert(i, config.get_value("Settings", "SeperatorType")[0])
 		else:
 			str_value = str_value.insert(i, ",")
 	
 	# Return the formatted string.
 	return str_value
+
+func notify(text : String, icon : String):
+	var cacapoopyGOD3 = preload("res://technical/notification.tscn")
+	var caca2 = cacapoopyGOD3.instantiate()
+	caca2.texture = icon
+	caca2.text = text
+	$/root.add_child(caca2)
+
+func warn(text : String):
+	var cacapoopyGOD3 = preload("res://technical/events/eventIndicator.tscn")
+	var caca2 = cacapoopyGOD3.instantiate()
+	add_child(caca2)
+	caca2.reparent($/root)
+	caca2.warn(text)
 
 func load():
 	loadData()
@@ -119,22 +133,22 @@ func loadData():
 		var queers = config.get_value("Stats", "queerJellies")
 		var blues = config.get_value("Stats", "blueJellies")
 		for i in Jelly.commonJellies.size():
-			if commons.size() >= i:
+			if commons.size()-1 >= i:
 				Jelly.commonJellies[i]["Discovered"] = commons[i]
 		for i in Jelly.uncommonJellies.size():
-			if uncommons.size() >= i:
+			if uncommons.size()-1 >= i:
 				Jelly.uncommonJellies[i]["Discovered"] = uncommons[i]
 		for i in Jelly.rareJellies.size():
-			if rares.size() >= i:
+			if rares.size()-1 >= i:
 				Jelly.rareJellies[i]["Discovered"] = rares[i]
 		for i in Jelly.awesomeJellies.size():
-			if awesomes.size() >= i:
+			if awesomes.size()-1 >= i:
 				Jelly.awesomeJellies[i]["Discovered"] = awesomes[i]
 		for i in Jelly.queerJellies.size():
-			if queers.size() >= i:
+			if queers.size()-1 >= i:
 				Jelly.queerJellies[i]["Discovered"] = queers[i]
 		for i in Jelly.blueJellies.size():
-			if blues.size() >= i:
+			if blues.size()-1 >= i:
 				Jelly.blueJellies[i]["Discovered"] = blues[i]
 		
 		var awesome = config.get_value("Stats", "ownedClothes")
@@ -144,6 +158,8 @@ func loadData():
 			ClothingObjects.clothes[i]["Owned"] = awesome[i]
 		
 		rebirthTokens = config.get_value("Rebirth", "RebirthTokens")
+		
+		Achievements.load()
 
 func saveData():
 	
@@ -258,5 +274,7 @@ func resetables():
 	config.set_value("Story", "DialogueDoneMELANIE", [])
 	config.set_value("Story", "DialogueUnlockedMELVIN", [])
 	config.set_value("Story", "DialogueDoneMELVIN", [])
+	
+	Achievements.save()
 	
 	config.save(files[curFile])

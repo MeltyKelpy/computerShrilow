@@ -40,5 +40,27 @@ var clothes = [
 	"Cost":500
 	},
 ]
+
+var clothesTUTORIAL = [
+	{
+	# BASE // 0
+	"Name":"Base Clothes",
+	"Desc":"The iconic shrilow clothes! Provides no buffs.",
+	"Owned":true,
+	"IconKey":"res://assets/images/areas/wardrobe/clothing/base.png",
+	"Image":"res://assets/images/computershrilows/shrilowBases/shrilowBase.png",
+	"Cost":0
+	},
+	{
+	# DATE NIGHT
+	"Name":"Date Night",
+	"Desc":"Everyone needs a fancy outfit for their date night! or, atleast i think they do? idk i show up in jeans usually lol\nincreases your click power by 1",
+	"Owned":true,
+	"IconKey":"res://assets/images/areas/wardrobe/clothing/datenight.png",
+	"Image":"res://assets/images/computershrilows/shrilowBases/shrilowDate Night.png",
+	"Cost":0
+	},
+]
+
 var itemName = "Clothing name will show up here"
 var itemDesc = "Click an item to buy it, hover to preview it."

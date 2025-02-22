@@ -178,6 +178,9 @@ func _process(_delta: float) -> void:
 	
 	if newMineExists == true:
 		$newMine/NewLevelCost.text = str(1000+(1000*caveNumber))+"$"
+		$newMine.visible = true
+	if newMineExists == false:
+		$newMine.visible = false
 
 # STUPID FUCKING SPAGHETTI CODE
 

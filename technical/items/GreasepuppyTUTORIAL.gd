@@ -3,7 +3,7 @@ extends Node2D
 var ID = 0
 
 func buy():
-	reparent($/root/computerShrilow/ShrilowScreen/puppies)
+	reparent($/root/Tutorial/ShrilowScreen/puppies)
 	var cacapoopyGOD3 = preload("res://technical/events/eventIndicator.tscn")
 	var caca2 = cacapoopyGOD3.instantiate()
 	add_child(caca2)
@@ -20,7 +20,7 @@ func _process(delta: float) -> void:
 
 func getID(num):
 	ID = num
-	ItemValues.shopTUTORIAL[num]["Owned"] = false
+	ItemValues.itemInfomation[num]["Owned"] = false
 
 func _on_timer_timeout() -> void:
 	$AudioListener2D.play()

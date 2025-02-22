@@ -8,6 +8,7 @@ var lastWorkingNumber = 0
 
 var hearMeOut = [{
 	"melanie":ItemValues.itemInfomation,
+	"tutorial":ItemValues.shopTUTORIAL,
 	"melvin":ItemValues.melvinItems,
 	}]
 

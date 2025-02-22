@@ -853,18 +853,18 @@ func _on_back_button_ward2_pressed() -> void:
 		can = false
 		$sectionTransitions.play("leaveMines")
 
+func _on_mines_button_pressed() -> void:
+	if can == true:
+		can = false
+		print("mines")
+		$sectionTransitions.play("toMines")
+
 func _on_trophies_button_pressed() -> void:
 	pass
 	#R.I.P trophies button......
 	#if can == true:
 		#can = false
 		#print("trophies")
-
-func _on_mines_button_pressed() -> void:
-	if can == true:
-		can = false
-		print("mines")
-		$sectionTransitions.play("toMines")
 
 func _event() -> void:
 	$Camera2D/bg.visible = false
