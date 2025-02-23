@@ -26,9 +26,12 @@ func loadData():
 		var kiwamiState = config.get_value("Settings", "KiwamiMode")
 		var SeperatorType = config.get_value("Settings", "SeperatorType")
 		Settings.settings[0]["enabled?"] = bool(kiwamiState)
-		Settings.settings[1]["selection"] = str(SeperatorType[0])
-		Settings.settings[1]["selectionNum"] = int(SeperatorType[1])
-
+		if SeperatorType != null:
+			Settings.settings[1]["selection"] = str(SeperatorType[0])
+			Settings.settings[1]["selectionNum"] = int(SeperatorType[1])
+		else:
+			Settings.settings[1]["selection"] = ","
+			Settings.settings[1]["selectionNum"] = 0
 func saveData():
 	var config = ConfigFile.new()
 	
