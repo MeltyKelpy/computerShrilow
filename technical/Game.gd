@@ -106,6 +106,7 @@ func loadData():
 		Jelly.storedJellys = config.get_value("Fiscal", "StoredJellies")
 		rebirths = config.get_value("Fiscal", "Rebirths")
 		gameTime = config.get_value("Fiscal", "Time")
+		icon = config.get_value("Fiscal", "Icon")
 		FizzyDrink.clicks = config.get_value("Fiscal", "Clicks")
 		ItemValues.money = config.get_value("Fiscal", "Money")
 		ClothingObjects.equippedClothing = config.get_value("Fiscal", "Clothing")
@@ -264,12 +265,14 @@ func resetables():
 	
 	config.load(files[curFile])
 	
+	config.set_value("Fiscal", "Name", namee)
 	config.set_value("Fiscal", "AmountOfJellies", 0)
 	config.set_value("Fiscal", "Money", 0)
 	config.set_value("Fiscal", "StoredJellies", [])
 	config.set_value("Fiscal", "Clothing", 0)
 	config.set_value("Stats", "amountOfMines", 1)
 	config.set_value("Stats", "greasepuppies", 0)
+	config.set_value("Fiscal", "Icon", icon)
 	var clothing = []
 	for i in ClothingObjects.clothes.size(): 
 		clothing.append(ClothingObjects.clothes[i]["Owned"])

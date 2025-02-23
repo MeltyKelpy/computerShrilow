@@ -33,8 +33,8 @@ func _on_timer_timeout() -> void:
 	Game.saveData()
 	var config = ConfigFile.new()
 	config.load(Game.files[Game.curFile])
-	print(recievedTokens)
 	Game.rebirths += 1
+	Game.rebirthTokens += recievedTokens
 	config.set_value("Rebirth", "RebirthTokens", recievedTokens)
 	config.set_value("Fiscal", "Rebirths", Game.rebirths)
 	config.save(Game.files[Game.curFile])
