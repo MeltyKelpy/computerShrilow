@@ -74,6 +74,13 @@ var uncommonJellies = [
 	"Discovered":false,
 	},
 	{
+	"Name":"Missing Jelly",
+	"Desc":"hey! there you are!!! i finally found you!!!!!! Wait, aren't you supposed to be from a game\n(Based on Sarah W. from Where's Sarah W, a scrapped Juicebox Factory Game)",
+	"MoneyGain":10,
+	"Seconds":5,
+	"Discovered":false,
+	},
+	{
 	"Name":"Diamond Peanut Butter",
 	"Desc":"ride my minecart\n(Based on DanTDM)",
 	"MoneyGain":10,
@@ -99,6 +106,13 @@ var rareJellies = [
 	{
 	"Name":"Pup Jelly",
 	"Desc":"got that dog in her\n(Based on a character from a comic called Pinky and Pepper Forever)",
+	"MoneyGain":10,
+	"Seconds":5,
+	"Discovered":false,
+	},
+	{
+	"Name":"Weird Lookin' Cat Jelly",
+	"Desc":"MA! THERE'S A WEIRD FUCKIN CAT OUTSIDE, IT LOOKS LIKE GRANDMA THE FUCKIN THING\n(Based on Sky's sona Token)",
 	"MoneyGain":10,
 	"Seconds":5,
 	"Discovered":false,
@@ -232,6 +246,13 @@ var awesomeJellies = [
 	"Discovered":false,
 	},
 	{
+	"Name":"Mirrored Peanut Butter",
+	"Desc":"guess you could say I'm proud of this one\n(based on Yourself created by Divide)",
+	"MoneyGain":20,
+	"Seconds":3,
+	"Discovered":false,
+	},
+	{
 	"Name":"Skibidi Jelly",
 	"Desc":"skibidi skibidi dop dop yes yes",
 	"MoneyGain":25,
@@ -294,6 +315,13 @@ var blueJellies = [
 	{
 	"Name":"Those who Jelly",
 	"Desc":"brazilian phonk",
+	"MoneyGain":200,
+	"Seconds":1,
+	"Discovered":false,
+	},
+	{
+	"Name":"fat gf jelly",
+	"Desc":"melty added this not me -saayo",
 	"MoneyGain":200,
 	"Seconds":1,
 	"Discovered":false,
