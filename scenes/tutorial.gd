@@ -201,14 +201,14 @@ func dialogManagement(state):
 				$ShrilowScreen/TXT.text = "Try clicking Shrilow now!"
 				canClickShrilow = true
 				canProg = false
-			if dialogueLine == 14:
+			if dialogueLine == 15:
 				$ShrilowScreen/TXT.text = "Awesome!!!\nIf you didnt notice, your clicks are now worth 2 instead of one!"
 				canProg = true
 				canClickShrilow = false
-			if dialogueLine == 15:
+			if dialogueLine == 16:
 				$ShrilowScreen/TXT.text = "Alright, ready to move on? I know I am!"
 				canProg = true
-			if dialogueLine == 16:
+			if dialogueLine == 17:
 				$ShrilowScreen/TXT.text = "Lets try out"
 				await get_tree().create_timer(1).timeout
 				$ShrilowScreen/TXT.text = "Lets try out."
@@ -302,6 +302,12 @@ func _on_section_transitions_animation_finished(anim_name: StringName) -> void:
 	if dialougeState == "wardrobeExplaination" and dialogueLine == 12:
 		$Wardrobe/TXT.text = ""
 		dialogManagement(dialougeState)
+	if dialougeState == "wardrobeExplaination" and dialogueLine == 17:
+		$ShrilowScreen/TXT.text = ""
+		$Mines/TXT.visible = true
+		dialougeState = "mines"
+		dialogManagement(dialougeState)
+
 
 func _on_wardrobe_button_pressed() -> void:
 	if can == true:

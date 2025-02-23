@@ -1245,7 +1245,6 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
 
 [node name="MinesLevel" parent="Mines/ScrollContainer/Control" instance=ExtResource("18_6bagw")]
 position = Vector2(0, 100)
-newMineExists = false
 
 [node name="Shrilow" type="Node2D" parent="."]
 position = Vector2(586, 649)
