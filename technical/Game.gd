@@ -17,6 +17,7 @@ var jellies = 0
 var rebirths = 0
 var gameTime = 0.0
 var icon = 0
+var saveFileClicks = 0
 
 var curFile = 0
 
@@ -41,6 +42,10 @@ func reloadGlobals():
 	s = ClothingObjects.get_script()
 	ClothingObjects.set_script(null)
 	ClothingObjects.set_script(s)
+	
+	s = Achievements.get_script()
+	Achievements.set_script(null)
+	Achievements.set_script(s)
 	
 	s = get_script()
 	set_script(null)
@@ -159,6 +164,11 @@ func loadData():
 		
 		rebirthTokens = config.get_value("Rebirth", "RebirthTokens")
 		
+		saveFileClicks = config.get_value("Achievements", "All-Time-Clicks")
+		
+		if Game.saveFileClicks == null:
+			Game.saveFileClicks = 0
+		
 		Achievements.load()
 
 func saveData():
@@ -246,6 +256,7 @@ func saveData():
 	
 	config.save(files[curFile])
 	
+	Achievements.save()
 	#resetables(false)
 
 func resetables():
@@ -274,7 +285,6 @@ func resetables():
 	config.set_value("Story", "DialogueDoneMELANIE", [])
 	config.set_value("Story", "DialogueUnlockedMELVIN", [])
 	config.set_value("Story", "DialogueDoneMELVIN", [])
-	
-	Achievements.save()
+	config.set_value("Achievements", "All-Time-Clicks", saveFileClicks)
 	
 	config.save(files[curFile])

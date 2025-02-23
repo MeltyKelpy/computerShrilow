@@ -1,12 +1,20 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dr1wna4c2ab2h"]
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://dr1wna4c2ab2h"]
 
 [ext_resource type="FontFile" uid="uid://brn7smfq0l6ao" path="res://assets/fonts/TwCen.ttf" id="1_hxvs8"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_osllf"]
+bg_color = Color(1, 0.905882, 0.85098, 1)
+
 [resource]
 default_font = ExtResource("1_hxvs8")
-default_font_size = 65
+default_font_size = 35
 Label/colors/font_color = Color(0.121569, 0.0470588, 0, 1)
 Label/colors/font_outline_color = Color(1, 0.905882, 0.85098, 1)
 Label/constants/outline_size = 20
 Label/font_sizes/font_size = 65
 Label/fonts/font = ExtResource("1_hxvs8")
+PopupPanel/colors/title_color = Color(0.121569, 0.0470588, 0, 1)
+PopupPanel/constants/title_outline_size = 0
+PopupPanel/font_sizes/title_font_size = 5
+PopupPanel/fonts/title_font = ExtResource("1_hxvs8")
+PopupPanel/styles/panel = SubResource("StyleBoxFlat_osllf")

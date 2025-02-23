@@ -82,14 +82,18 @@ func updateEntryContents():
 	var completeEntryComputer = ""
 	for i in range(0, TheComputerEntry.size()):
 		var entryText = completeEntryComputer
-		if JellyEntry[i]["revealed?"] == true:
+		if TheComputerEntry[i]["revealed?"] == true:
 			entryText = entryText+TheComputerEntry[i]["text"]+" "
-		if JellyEntry[i]["revealed?"] == false:
+		if TheComputerEntry[i]["revealed?"] == false:
 			entryText = entryText+"[bgcolor=black][color=black]"+TheComputerEntry[i]["text"]+"[/color][/bgcolor] "
 	entries = [
 	{
 	"EntryName":"No Entry Selected!",
 	"Text":"Select an Entry by clicking on it!",
+	},
+	{
+	"EntryName":"The Computer",
+	"Text":completeEntryComputer,
 	},
 	{
 	"EntryName":"The Jellies",

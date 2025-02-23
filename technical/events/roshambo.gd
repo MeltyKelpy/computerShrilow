@@ -125,6 +125,15 @@ func _endEvent():
 		add_child(caca)
 	caca.determineResult(winOrLose, stars, money)
 	caca.reparent($/root)
+	if stars == 0:
+		var achievementID
+		for i in Achievements.achievements.size()-1:
+			if Achievements.achievements[i]["ID"] == "roshambo":
+				achievementID = i
+				break
+		if Achievements.achievements[achievementID]["unlocked?"] == false:
+			Achievements.achievements[achievementID]["unlocked?"] = true
+			Game.notify('you got the "Quite Simple" achievement!\nits quite simple, really!', "trophy")
 
 func runRoChoice():
 	if turn == 1:

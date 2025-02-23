@@ -1,23 +1,56 @@
-[gd_scene load_steps=2 format=3 uid="uid://blpl7hmlaxaxo"]
+[gd_scene load_steps=12 format=3 uid="uid://blpl7hmlaxaxo"]
 
 [ext_resource type="Script" path="res://technical/rooms/entry.gd" id="1_s4lct"]
+[ext_resource type="Theme" uid="uid://dr1wna4c2ab2h" path="res://technical/textStyle.tres" id="2_a532w"]
+[ext_resource type="Texture2D" uid="uid://dw511n4u4srfv" path="res://assets/images/areas/notebook/entrybOxSel.png" id="2_kaivt"]
+[ext_resource type="FontFile" uid="uid://brn7smfq0l6ao" path="res://assets/fonts/TwCen.ttf" id="3_0jt80"]
+[ext_resource type="Texture2D" uid="uid://bc5htw6fsybeg" path="res://assets/images/areas/notebook/entrybOx.png" id="3_gt7xx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eqxvt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8ffqf"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mtcht"]
+texture = ExtResource("2_kaivt")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5u3ok"]
+texture = ExtResource("3_gt7xx")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_01ohj"]
+texture = ExtResource("2_kaivt")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uoblf"]
+texture = ExtResource("3_gt7xx")
 
 [node name="Entry" type="Panel"]
 custom_minimum_size = Vector2(400, 70)
+theme_override_styles/panel = SubResource("StyleBoxEmpty_eqxvt")
 script = ExtResource("1_s4lct")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_right = 401.0
-offset_bottom = 69.0
+offset_right = 504.0
+offset_bottom = 81.0
+theme = ExtResource("2_a532w")
+theme_override_fonts/font = ExtResource("3_0jt80")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8ffqf")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_mtcht")
+theme_override_styles/hover = SubResource("StyleBoxTexture_5u3ok")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_01ohj")
+theme_override_styles/normal = SubResource("StyleBoxTexture_uoblf")
+keep_pressed_outside = true
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 12.0
-offset_top = 10.0
-offset_right = 391.0
-offset_bottom = 61.0
+offset_left = 16.0
+offset_top = 14.0
+offset_right = 484.0
+offset_bottom = 65.0
+theme = ExtResource("2_a532w")
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 40
 text = "entry name here"
+horizontal_alignment = 1
 vertical_alignment = 1
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

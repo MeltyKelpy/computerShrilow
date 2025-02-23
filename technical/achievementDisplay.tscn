@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://c847jm6gfn6pk"]
+
+[ext_resource type="Texture2D" uid="uid://c154ned0wd2ac" path="res://assets/images/ui/achievements/Rebirth.png" id="1_2dukk"]
+[ext_resource type="Script" path="res://technical/achievement_display.gd" id="2_6c1ow"]
+[ext_resource type="Theme" uid="uid://dr1wna4c2ab2h" path="res://technical/textStyle.tres" id="3_7la4t"]
+
+[node name="AchievementDisplay" type="TextureRect"]
+theme = ExtResource("3_7la4t")
+texture = ExtResource("1_2dukk")
+script = ExtResource("2_6c1ow")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 177.0
+offset_right = 256.0
+offset_bottom = 208.0
+theme = ExtResource("3_7la4t")
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/font_size = 28
+text = "title"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Desc" type="Label" parent="."]
+layout_mode = 0
+offset_top = 204.0
+offset_right = 261.0
+offset_bottom = 241.0
+theme = ExtResource("3_7la4t")
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/font_size = 18
+text = "desc"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

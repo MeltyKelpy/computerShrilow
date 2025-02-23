@@ -562,6 +562,25 @@ func _ready():
 
 func _process(_delta : float) -> void:
 	
+	if Game.saveFileClicks >= 100000:
+		var achievementID
+		for i in Achievements.achievements.size()-1:
+			if Achievements.achievements[i]["ID"] == "carpaltunnel":
+				achievementID = i
+				break
+		if Achievements.achievements[achievementID]["unlocked?"] == false:
+			Achievements.achievements[achievementID]["unlocked?"] = true
+			Game.notify('you got the "Carpal Tunnel" achievement!\n'+"Don't u know that is the hurts? *bone sound* IV in that arm, yo!", "trophy")
+	elif Game.saveFileClicks >= 10000:
+		var achievementID
+		for i in Achievements.achievements.size()-1:
+			if Achievements.achievements[i]["ID"] == "sorefingers":
+				achievementID = i
+				break
+		if Achievements.achievements[achievementID]["unlocked?"] == false:
+			Achievements.achievements[achievementID]["unlocked?"] = true
+			Game.notify('you got the "Are your Fingers Sore" achievement!\nYEOUUCHH', "trophy")
+	
 	var config = ConfigFile.new()
 	
 	var err = config.load(Game.files[Game.curFile])
@@ -771,8 +790,8 @@ func _process(_delta : float) -> void:
 		#if $Camera2D.position.x == -791:
 			#cameraAnimation("journal", 576, 324)
 	
-	#if Input.is_action_just_pressed("DebugMode"):
-		#$DEBUGVALUES.visible = !$DEBUGVALUES.visible
+	if Input.is_action_just_pressed("DebugMode"):
+		Game.saveFileClicks += 10000
 	
 	if $DEBUGVALUES.visible == true:
 		$DEBUGVALUES/ScrollContainer/Control/Label.text = "DEBUG MODE\n================\nEvent Timer: "+str($EventTimer.time_left)+"\nStop Events Timer: "+str($noEventsTimer.time_left)
@@ -811,6 +830,7 @@ func _on_shrilow_squeak_pressed() -> void:
 		$Shrilow/Squeak.play()
 		ItemValues.money += FizzyDrink.clickPower+FizzyDrink.clickPowerP1+FizzyDrink.clickPowerP1R+FizzyDrink.clickPowerAdditions+FizzyDrink.clickPowerClothingBuffs+FizzyDrink.shrilowPower
 		FizzyDrink.clicks += 1
+		Game.saveFileClicks += 1
 		curClicks += 1
 	if Input.is_action_just_pressed("rightClick"):
 		$Shrilow/textBox/box/dialog.text = str(shitShrilowCanSay[rng.randi_range(0, shitShrilowCanSay.size()-1)])
@@ -860,11 +880,9 @@ func _on_mines_button_pressed() -> void:
 		$sectionTransitions.play("toMines")
 
 func _on_trophies_button_pressed() -> void:
-	pass
-	#R.I.P trophies button......
-	#if can == true:
-		#can = false
-		#print("trophies")
+	var cacapoopyGOD3 = preload("res://technical/rooms/playerJournal.tscn")
+	var caca2 = cacapoopyGOD3.instantiate()
+	$/root.add_child(caca2)
 
 func _event() -> void:
 	$Camera2D/bg.visible = false

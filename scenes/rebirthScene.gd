@@ -37,4 +37,12 @@ func _on_timer_timeout() -> void:
 	config.set_value("Rebirth", "RebirthTokens", recievedTokens)
 	config.set_value("Fiscal", "Rebirths", Game.rebirths + 1)
 	config.save(Game.files[Game.curFile])
+	if Game.rebirths >= 10 and Achievements.achievements[1]["unlocked?"] == false:
+		Game.notify('You unlocked the "10 Lifetimes Past" achievement!\nProve your worth.', "trophy")
+		Achievements.achievements[0]["unlocked?"] = true
+	if Achievements.achievements[0]["unlocked?"] == false:
+		Game.notify('You unlocked the "Rebirth" achievement!\nData Wipe.', "trophy")
+		Achievements.achievements[0]["unlocked?"] = true
+	Game.saveData()
+	Game.loadData()
 	get_tree().change_scene_to_file("res://scenes/tComputer.tscn")

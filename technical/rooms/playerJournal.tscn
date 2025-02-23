@@ -1,8 +1,74 @@
-[gd_scene load_steps=15 format=3 uid="uid://breajdhvvyjm3"]
+[gd_scene load_steps=45 format=3 uid="uid://breajdhvvyjm3"]
 
 [ext_resource type="Script" path="res://technical/rooms/player_journal.gd" id="1_x36x3"]
-[ext_resource type="PackedScene" uid="uid://blpl7hmlaxaxo" path="res://technical/rooms/entry.tscn" id="2_33kyf"]
+[ext_resource type="Texture2D" uid="uid://dkx3j1h7db7t6" path="res://assets/images/areas/notebook/openBACK.png" id="2_18d3f"]
+[ext_resource type="Texture2D" uid="uid://duim7xn20dq6v" path="res://assets/images/areas/notebook/pages.png" id="3_2gfw1"]
+[ext_resource type="Texture2D" uid="uid://7kn3ivtcydbo" path="res://assets/images/areas/notebook/entriesUp.png" id="3_5ctr5"]
 [ext_resource type="Texture2D" uid="uid://cwladsljiqill" path="res://assets/images/ui/backDown.png" id="3_mhguf"]
+[ext_resource type="Theme" uid="uid://dr1wna4c2ab2h" path="res://technical/textStyle.tres" id="4_e1be2"]
+[ext_resource type="Texture2D" uid="uid://cmmacqxp32hj5" path="res://assets/images/areas/notebook/entriesDown.png" id="4_xd68q"]
+[ext_resource type="Texture2D" uid="uid://bh2aku0b6gtqq" path="res://assets/images/areas/notebook/achievementsUp.png" id="5_7pjs2"]
+[ext_resource type="Texture2D" uid="uid://c1wwkfic8471f" path="res://assets/images/areas/notebook/achievementsDown.png" id="6_2k4s6"]
+[ext_resource type="Texture2D" uid="uid://uby20y7wi0vy" path="res://assets/images/areas/notebook/curl.png" id="9_rjm0f"]
+[ext_resource type="Texture2D" uid="uid://d1v0xi2hbvoky" path="res://assets/images/areas/notebook/leftUh.png" id="10_v7itm"]
+[ext_resource type="Texture2D" uid="uid://ddm6lf1bu04gi" path="res://assets/images/areas/notebook/curlRight.png" id="11_qhrg7"]
+[ext_resource type="Texture2D" uid="uid://gtei8og1jcrp" path="res://assets/images/areas/notebook/rightUh.png" id="12_h3i1u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k0w3k"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cfxni"]
+texture = ExtResource("3_5ctr5")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_17x0i"]
+texture = ExtResource("4_xd68q")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2ihnr"]
+texture = ExtResource("3_5ctr5")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yyfx8"]
+texture = ExtResource("4_xd68q")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ucif8"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7f164"]
+texture = ExtResource("5_7pjs2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kmmp6"]
+texture = ExtResource("6_2k4s6")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_de6ba"]
+texture = ExtResource("5_7pjs2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mn75g"]
+texture = ExtResource("6_2k4s6")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1y107"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jtvv7"]
+texture = ExtResource("9_rjm0f")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ey27x"]
+texture = ExtResource("9_rjm0f")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hnjqv"]
+texture = ExtResource("9_rjm0f")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nnxmu"]
+texture = ExtResource("10_v7itm")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jj7w4"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pcifj"]
+texture = ExtResource("11_qhrg7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_co5do"]
+texture = ExtResource("11_qhrg7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_inuyc"]
+texture = ExtResource("11_qhrg7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nddci"]
+texture = ExtResource("12_h3i1u")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e1ifc"]
 
@@ -33,70 +99,113 @@ script = ExtResource("1_x36x3")
 offset_right = 1152.0
 offset_bottom = 648.0
 
-[node name="Panel2" type="Panel" parent="."]
-offset_left = 581.0
-offset_top = 99.0
-offset_right = 1130.0
-offset_bottom = 623.0
+[node name="back" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+texture = ExtResource("2_18d3f")
 
-[node name="Panel3" type="Panel" parent="."]
-offset_left = 29.0
-offset_top = 87.0
-offset_right = 1130.0
-offset_bottom = 623.0
-
-[node name="Panel4" type="Button" parent="."]
+[node name="entriesButton" type="Button" parent="."]
 offset_left = 109.0
-offset_top = 32.0
+offset_top = 19.0
 offset_right = 190.0
-offset_bottom = 88.0
-text = "entries"
+offset_bottom = 75.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_k0w3k")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_cfxni")
+theme_override_styles/hover = SubResource("StyleBoxTexture_17x0i")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_2ihnr")
+theme_override_styles/normal = SubResource("StyleBoxTexture_yyfx8")
+toggle_mode = true
+button_pressed = true
+keep_pressed_outside = true
 
-[node name="Panel5" type="Button" parent="."]
+[node name="achievementsButton" type="Button" parent="."]
 offset_left = 208.0
-offset_top = 32.0
+offset_top = 17.0
 offset_right = 289.0
-offset_bottom = 88.0
-text = "achievements"
+offset_bottom = 73.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ucif8")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_7f164")
+theme_override_styles/hover = SubResource("StyleBoxTexture_kmmp6")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_de6ba")
+theme_override_styles/normal = SubResource("StyleBoxTexture_mn75g")
+toggle_mode = true
 autowrap_mode = 1
 
-[node name="Panel6" type="Button" parent="."]
-offset_left = 309.0
-offset_top = 33.0
-offset_right = 390.0
-offset_bottom = 89.0
-text = "hawk tuah"
-autowrap_mode = 2
+[node name="pages" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+texture = ExtResource("3_2gfw1")
 
 [node name="Entries" type="Node2D" parent="."]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Entries"]
+[node name="ScrollContainer2" type="ScrollContainer" parent="Entries"]
 offset_left = 41.0
-offset_top = 98.0
-offset_right = 558.0
-offset_bottom = 620.0
+offset_top = 101.0
+offset_right = 548.0
+offset_bottom = 599.0
 
-[node name="Entry" parent="Entries/VBoxContainer" instance=ExtResource("2_33kyf")]
+[node name="VBoxContainer" type="VBoxContainer" parent="Entries/ScrollContainer2"]
+z_index = 4096
 layout_mode = 2
-entryName = "The Jellies"
-attachedEntry = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Entries"]
-offset_left = 587.0
-offset_top = 111.0
-offset_right = 1125.0
-offset_bottom = 618.0
+offset_left = 608.0
+offset_top = 97.0
+offset_right = 1105.0
+offset_bottom = 601.0
 
 [node name="Label2" type="RichTextLabel" parent="Entries/ScrollContainer"]
-custom_minimum_size = Vector2(537, 0)
+custom_minimum_size = Vector2(490, 0)
 layout_mode = 2
+theme = ExtResource("4_e1be2")
+theme_override_colors/default_color = Color(0.121569, 0.0470588, 0, 1)
+theme_override_colors/font_selected_color = Color(1, 0.905882, 0.85098, 1)
 bbcode_enabled = true
 text = "[bgcolor=black][color=black]Text to redact[/color][/bgcolor] le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall vv"
 fit_content = true
 autowrap_mode = 2
 
+[node name="Achievements" type="Node2D" parent="."]
+visible = false
+
+[node name="LeftPage" type="GridContainer" parent="Achievements"]
+offset_left = 42.0
+offset_top = 93.0
+offset_right = 538.0
+offset_bottom = 602.0
+columns = 2
+
+[node name="RightPage" type="GridContainer" parent="Achievements"]
+offset_left = 598.0
+offset_top = 93.0
+offset_right = 1094.0
+offset_bottom = 602.0
+columns = 2
+
+[node name="lastPage" type="Button" parent="Achievements"]
+offset_left = 23.0
+offset_top = 567.0
+offset_right = 95.0
+offset_bottom = 624.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1y107")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_jtvv7")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ey27x")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_hnjqv")
+theme_override_styles/normal = SubResource("StyleBoxTexture_nnxmu")
+autowrap_mode = 1
+
+[node name="nextPage" type="Button" parent="Achievements"]
+offset_left = 1056.0
+offset_top = 572.0
+offset_right = 1128.0
+offset_bottom = 624.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jj7w4")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_pcifj")
+theme_override_styles/hover = SubResource("StyleBoxTexture_co5do")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_inuyc")
+theme_override_styles/normal = SubResource("StyleBoxTexture_nddci")
+autowrap_mode = 1
+
 [node name="BackWARD" type="Sprite2D" parent="."]
-position = Vector2(46, 42)
+position = Vector2(46, 43)
 scale = Vector2(0.571429, 0.602649)
 texture = ExtResource("3_mhguf")
 
@@ -117,4 +226,8 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_0rbeg")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_aunqb")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_2qpv4")
 
+[connection signal="pressed" from="entriesButton" to="." method="tabPressed" binds= ["entries"]]
+[connection signal="pressed" from="achievementsButton" to="." method="tabPressed" binds= ["achievements"]]
+[connection signal="pressed" from="Achievements/lastPage" to="." method="flipPage" binds= [-1]]
+[connection signal="pressed" from="Achievements/nextPage" to="." method="flipPage" binds= [1]]
 [connection signal="pressed" from="BackButtonWARD" to="." method="_on_back_button_ward_pressed"]

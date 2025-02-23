@@ -6,6 +6,7 @@ var toolText = [
 	"do you like my game",
 	"bladeninja",
 	]
+var savePressedTimes = 0
 
 var dying = false
 
@@ -63,6 +64,13 @@ func _on_resume_pressed() -> void:
 
 func _on_save_pressed() -> void:
 	Game.saveData()
+	if savePressedTimes == 0:
+		Game.notify("Game has been saved!\nLike, genuinely, you dont need to press it again", "save")
+	if savePressedTimes == 1:
+		Game.notify("Game has been saved!\nBut, you knew that already.", "save")
+	if savePressedTimes > 1:
+		Game.notify("alright.", "save")
+	savePressedTimes += 1
 	DirAccess.make_dir_absolute(Game.scenePaths[Game.curFile])
 	$/root/computerShrilow.urWelcomeSaayo()
 
