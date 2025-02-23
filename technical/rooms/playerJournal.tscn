@@ -93,6 +93,7 @@ texture = ExtResource("12_h3i1u")
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2qpv4"]
 
 [node name="PlayerJournal" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_x36x3")
 
 [node name="Panel" type="Panel" parent="."]
@@ -104,10 +105,10 @@ position = Vector2(576, 324)
 texture = ExtResource("2_18d3f")
 
 [node name="entriesButton" type="Button" parent="."]
-offset_left = 109.0
-offset_top = 19.0
-offset_right = 190.0
-offset_bottom = 75.0
+offset_left = 190.0
+offset_top = 20.0
+offset_right = 271.0
+offset_bottom = 76.0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_k0w3k")
 theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_cfxni")
 theme_override_styles/hover = SubResource("StyleBoxTexture_17x0i")
@@ -118,10 +119,10 @@ button_pressed = true
 keep_pressed_outside = true
 
 [node name="achievementsButton" type="Button" parent="."]
-offset_left = 208.0
-offset_top = 17.0
-offset_right = 289.0
-offset_bottom = 73.0
+offset_left = 289.0
+offset_top = 18.0
+offset_right = 370.0
+offset_bottom = 74.0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ucif8")
 theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_7f164")
 theme_override_styles/hover = SubResource("StyleBoxTexture_kmmp6")
@@ -133,6 +134,17 @@ autowrap_mode = 1
 [node name="pages" type="Sprite2D" parent="."]
 position = Vector2(576, 324)
 texture = ExtResource("3_2gfw1")
+
+[node name="MainPage" type="Node2D" parent="."]
+visible = false
+
+[node name="Label" type="Label" parent="MainPage"]
+offset_left = 175.0
+offset_top = 193.0
+offset_right = 417.0
+offset_bottom = 263.0
+theme = ExtResource("4_e1be2")
+text = "MY JOURNAL"
 
 [node name="Entries" type="Node2D" parent="."]
 

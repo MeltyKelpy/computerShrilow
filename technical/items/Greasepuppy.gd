@@ -21,6 +21,7 @@ func _process(delta: float) -> void:
 func getID(num):
 	ID = num
 	ItemValues.itemInfomation[num]["Owned"] = false
+	ItemValues.shopTUTORIAL[0]["Owned"] = false
 
 func _on_timer_timeout() -> void:
 	$AudioListener2D.play()

@@ -50,7 +50,11 @@ func _ready() -> void:
 	print("File "+str(ID+1)+" Loaded, Name: "+$FileName.text)
 
 func _process(delta: float) -> void:
-	$Icon.texture = load("res://assets/images/ui/saveIcons/"+str(icon)+".png")
+	if icon != null:
+		$Icon.texture = load("res://assets/images/ui/saveIcons/"+str(icon)+".png")
+	else:
+		icon = 0
+		$Icon.texture = load("res://assets/images/ui/saveIcons/0.png")
 
 func _on_load_pressed() -> void:
 	Game.curFile = ID

@@ -22,6 +22,10 @@ func _process(delta: float) -> void:
 	if $Achievements.visible == true:
 		$achievementsButton.button_pressed = true
 		$entriesButton.button_pressed = false
+	if get_tree().paused == true:
+		$Entries/ScrollContainer2.visible = false
+	else:
+		$Entries/ScrollContainer2.visible = true
 
 func _on_back_button_ward_pressed() -> void:
 	queue_free()

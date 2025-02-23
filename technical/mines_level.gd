@@ -72,7 +72,7 @@ var moneyValues = [
 	750,
 	]
 
-@export var newMineExists = true
+var newMineExists = true
 
 func getMineLevel(num):
 	caveNumber = num
