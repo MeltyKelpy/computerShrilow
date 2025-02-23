@@ -87,7 +87,7 @@ func _physics_process(delta: float) -> void:
 		showMoney = showMoney * 3
 		showSeconds = showSeconds / 2
 	$nameShit/Stats.text = rarity+"\n"+str(showMoney)+"$ per "+str(seconds)+" Seconds"
-	$FirstTimer.wait_time = showSeconds - 0.2
+	$FirstTimer.wait_time = float(showSeconds - 0.2)
 	$SecondTimer.wait_time = 0.2
 	$RigidBody2D/mange.rotation = (-1) * $RigidBody2D.rotation
 	mouse_pin.global_position = get_global_mouse_position()
