@@ -13,7 +13,7 @@ func _ready():
 		$Desc.text = achievementDesc
 
 func _process(delta: float) -> void:
-	if FileAccess.file_exists("res://assets/images/ui/achievements/"+iconToUse+".png"):
+	if ResourceLoader.exists("res://assets/images/ui/achievements/"+iconToUse+".png"):
 		self.texture = load("res://assets/images/ui/achievements/"+iconToUse+".png")
 	else:
 		self.texture = load("res://assets/images/ui/achievements/noiconfound.png")
