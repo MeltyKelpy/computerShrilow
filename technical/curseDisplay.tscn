@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://dqgb3qnrfpmm1"]
 
 [ext_resource type="Texture2D" uid="uid://d26rxqod18rnw" path="res://assets/images/ui/curses/placeholderCurse.png" id="1_w3vsn"]
-[ext_resource type="Shader" path="res://technical/jellyOutline.gdshader" id="1_y7jq7"]
-[ext_resource type="Script" path="res://technical/curse_display.gd" id="3_td6nk"]
+[ext_resource type="Shader" uid="uid://csehigfpjnq1r" path="res://technical/jellyOutline.gdshader" id="1_y7jq7"]
+[ext_resource type="Script" uid="uid://dyaf0qwnh82eq" path="res://technical/curse_display.gd" id="3_td6nk"]
 [ext_resource type="Theme" uid="uid://dr1wna4c2ab2h" path="res://technical/textStyle.tres" id="4_6pw1v"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4a8f0"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://bsaobsf7sfhkj"]
 
 [ext_resource type="Texture2D" uid="uid://d3xwuakjymg2g" path="res://assets/images/ui/rebirth.png" id="1_6xcba"]
-[ext_resource type="Script" path="res://scenes/rebirthScene.gd" id="1_i0unl"]
+[ext_resource type="Script" uid="uid://d1k6bwxqri7l4" path="res://scenes/rebirthScene.gd" id="1_i0unl"]
 [ext_resource type="Texture2D" uid="uid://naq03aso04ja" path="res://assets/images/ui/light.png" id="1_scs7e"]
 [ext_resource type="FontFile" uid="uid://brn7smfq0l6ao" path="res://assets/fonts/TwCen.ttf" id="3_c2huh"]
 [ext_resource type="AudioStream" uid="uid://cpuevowyq7ag7" path="res://assets/sounds/wind.ogg" id="4_yplct"]
@@ -40,8 +40,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_m8kp2"]
 _data = {
-"RESET": SubResource("Animation_fc60p"),
-"fade": SubResource("Animation_0y1f7")
+&"RESET": SubResource("Animation_fc60p"),
+&"fade": SubResource("Animation_0y1f7")
 }
 
 [sub_resource type="Animation" id="Animation_hdpqv"]
@@ -238,8 +238,8 @@ tracks/7/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hnmsn"]
 _data = {
-"RESET": SubResource("Animation_hdpqv"),
-"anim": SubResource("Animation_mwxex")
+&"RESET": SubResource("Animation_hdpqv"),
+&"anim": SubResource("Animation_mwxex")
 }
 
 [node name="RebirthScene" type="Node2D"]
@@ -296,13 +296,13 @@ color = Color(0, 0, 0, 1)
 
 [node name="fade" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_m8kp2")
+&"": SubResource("AnimationLibrary_m8kp2")
 }
 autoplay = "fade"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_hnmsn")
+&"": SubResource("AnimationLibrary_hnmsn")
 }
 autoplay = "anim"
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://b568oxss488hb"]
 
-[ext_resource type="Script" path="res://technical/moneyGet.gd" id="1_0wcq8"]
+[ext_resource type="Script" uid="uid://rvrtr8fqptel" path="res://technical/moneyGet.gd" id="1_0wcq8"]
 [ext_resource type="Texture2D" uid="uid://bw10i3uroj3t7" path="res://assets/images/events/money.png" id="1_ff4ed"]
 [ext_resource type="Theme" uid="uid://dr1wna4c2ab2h" path="res://technical/textStyle.tres" id="2_s8fr5"]
 
@@ -75,8 +75,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wk5b7"]
 _data = {
-"RESET": SubResource("Animation_102l2"),
-"money": SubResource("Animation_ccmk8")
+&"RESET": SubResource("Animation_102l2"),
+&"money": SubResource("Animation_ccmk8")
 }
 
 [node name="MoneyGet" type="Node2D"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=44 format=3 uid="uid://236u4uh1snic"]
 
-[ext_resource type="Script" path="res://technical/events/jerryseinfeld.gd" id="1_8wkrw"]
+[ext_resource type="Script" uid="uid://yuwe70tbxhej" path="res://technical/events/jerryseinfeld.gd" id="1_8wkrw"]
 [ext_resource type="Texture2D" uid="uid://bdgxmy1frebgy" path="res://assets/images/events/jerrySeinfeld/climb1.png" id="1_e6t3d"]
 [ext_resource type="Texture2D" uid="uid://bu2mf1xo3ewjv" path="res://assets/images/events/jerrySeinfeld/climb2.png" id="2_fqwuu"]
 [ext_resource type="Texture2D" uid="uid://c0y87av0sh2tj" path="res://assets/images/events/jerrySeinfeld/punch1.png" id="3_vhiaa"]
@@ -197,8 +197,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1coc6"]
 _data = {
-"RESET": SubResource("Animation_4g7av"),
-"spawn": SubResource("Animation_julb3")
+&"RESET": SubResource("Animation_4g7av"),
+&"spawn": SubResource("Animation_julb3")
 }
 
 [node name="Jerryseinfeld" type="Node2D"]

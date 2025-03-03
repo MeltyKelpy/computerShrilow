@@ -1,6 +1,6 @@
 [gd_scene load_steps=31 format=3 uid="uid://bfs7i3sgigtxr"]
 
-[ext_resource type="Script" path="res://technical/events/writeitright.gd" id="1_pmuc2"]
+[ext_resource type="Script" uid="uid://cxrexix86uu1d" path="res://technical/events/writeitright.gd" id="1_pmuc2"]
 [ext_resource type="Texture2D" uid="uid://bjbddkb1lup8" path="res://assets/images/events/writeitright/bg.png" id="2_m88lx"]
 [ext_resource type="Texture2D" uid="uid://bucepb3oy8gmh" path="res://assets/images/events/minigameTitle.png" id="3_4keh8"]
 [ext_resource type="Texture2D" uid="uid://dljq5e4jy2hm7" path="res://assets/images/events/writeitright/bgScroll.png" id="3_ie5f4"]
@@ -367,10 +367,10 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_iiqyl"]
 _data = {
-"RESET": SubResource("Animation_djedu"),
-"pop": SubResource("Animation_e3o1v"),
-"title": SubResource("Animation_fcjxb"),
-"yes": SubResource("Animation_tlkvl")
+&"RESET": SubResource("Animation_djedu"),
+&"pop": SubResource("Animation_e3o1v"),
+&"title": SubResource("Animation_fcjxb"),
+&"yes": SubResource("Animation_tlkvl")
 }
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_87g2v"]

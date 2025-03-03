@@ -1,6 +1,6 @@
 [gd_scene load_steps=44 format=3 uid="uid://6wcc8jfv4mt5"]
 
-[ext_resource type="Script" path="res://technical/pauseMenu.gd" id="1_0pw43"]
+[ext_resource type="Script" uid="uid://bw3s3r7pcikmm" path="res://technical/pauseMenu.gd" id="1_0pw43"]
 [ext_resource type="FontFile" uid="uid://brn7smfq0l6ao" path="res://assets/fonts/TwCen.ttf" id="1_wqogi"]
 [ext_resource type="Texture2D" uid="uid://brkdf8hawsefn" path="res://assets/images/mainMenu/pressedHover.png" id="2_a47d5"]
 [ext_resource type="Texture2D" uid="uid://cp81860qk7d68" path="res://assets/images/mainMenu/hover.png" id="3_ouyqr"]
@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bf5nxu26qx66x" path="res://assets/images/loadingLow.png" id="9_ue280"]
 [ext_resource type="Texture2D" uid="uid://dhml6kkc1kfmj" path="res://assets/images/logo.png" id="10_1d8aj"]
 [ext_resource type="AudioStream" uid="uid://df6n0e2ffypgv" path="res://assets/music/screensaver.ogg" id="12_hpk77"]
-[ext_resource type="VideoStream" path="res://assets/videos/screensaver.ogv" id="13_ury0b"]
+[ext_resource type="VideoStream" uid="uid://bn4pqqtlhbtl3" path="res://assets/videos/screensaver.ogv" id="13_ury0b"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f6onq"]
 
@@ -93,8 +93,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pvitt"]
 _data = {
-"RESET": SubResource("Animation_r28nj"),
-"guy": SubResource("Animation_fvmxd")
+&"RESET": SubResource("Animation_r28nj"),
+&"guy": SubResource("Animation_fvmxd")
 }
 
 [sub_resource type="Animation" id="Animation_bcgxs"]
@@ -192,8 +192,8 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_25i17"]
 _data = {
-"RESET": SubResource("Animation_bcgxs"),
-"loading": SubResource("Animation_o07pd")
+&"RESET": SubResource("Animation_bcgxs"),
+&"loading": SubResource("Animation_o07pd")
 }
 
 [sub_resource type="Animation" id="Animation_gyidq"]
@@ -320,10 +320,10 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_g53so"]
 _data = {
-"RESET": SubResource("Animation_gyidq"),
-"resume": SubResource("Animation_otjrg"),
-"settings": SubResource("Animation_y1tn1"),
-"settingsLeabe": SubResource("Animation_wlqpg")
+&"RESET": SubResource("Animation_gyidq"),
+&"resume": SubResource("Animation_otjrg"),
+&"settings": SubResource("Animation_y1tn1"),
+&"settingsLeabe": SubResource("Animation_wlqpg")
 }
 
 [node name="PauseMenu" type="Node2D"]
@@ -345,10 +345,10 @@ offset_right = 691.0
 offset_bottom = 326.0
 theme_override_colors/font_hover_pressed_color = Color(0.0352941, 0.333333, 0.356863, 1)
 theme_override_colors/font_hover_color = Color(0.0352941, 0.333333, 0.356863, 1)
-theme_override_colors/font_pressed_color = Color(0.0392157, 0.027451, 0.360784, 1)
-theme_override_colors/font_focus_color = Color(0.0352941, 0.333333, 0.356863, 1)
-theme_override_colors/font_color = Color(0.0627451, 0.333333, 0.290196, 1)
 theme_override_colors/font_outline_color = Color(0.827451, 1, 0, 1)
+theme_override_colors/font_color = Color(0.0627451, 0.333333, 0.290196, 1)
+theme_override_colors/font_focus_color = Color(0.0352941, 0.333333, 0.356863, 1)
+theme_override_colors/font_pressed_color = Color(0.0392157, 0.027451, 0.360784, 1)
 theme_override_constants/outline_size = 15
 theme_override_fonts/font = ExtResource("1_wqogi")
 theme_override_font_sizes/font_size = 35
@@ -367,10 +367,10 @@ offset_right = 691.0
 offset_bottom = 398.0
 theme_override_colors/font_hover_pressed_color = Color(0.0352941, 0.333333, 0.356863, 1)
 theme_override_colors/font_hover_color = Color(0.0352941, 0.333333, 0.356863, 1)
-theme_override_colors/font_pressed_color = Color(0.0392157, 0.027451, 0.360784, 1)
-theme_override_colors/font_focus_color = Color(0.0352941, 0.333333, 0.356863, 1)
-theme_override_colors/font_color = Color(0.0627451, 0.333333, 0.290196, 1)
 theme_override_colors/font_outline_color = Color(0.827451, 1, 0, 1)
+theme_override_colors/font_color = Color(0.0627451, 0.333333, 0.290196, 1)
+theme_override_colors/font_focus_color = Color(0.0352941, 0.333333, 0.356863, 1)
+theme_override_colors/font_pressed_color = Color(0.0392157, 0.027451, 0.360784, 1)
 theme_override_constants/outline_size = 15
 theme_override_fonts/font = ExtResource("1_wqogi")
 theme_override_font_sizes/font_size = 35
@@ -390,10 +390,10 @@ offset_right = 691.0
 offset_bottom = 470.0
 theme_override_colors/font_hover_pressed_color = Color(0.0352941, 0.333333, 0.356863, 1)
 theme_override_colors/font_hover_color = Color(0.0352941, 0.333333, 0.356863, 1)
-theme_override_colors/font_pressed_color = Color(0.0392157, 0.027451, 0.360784, 1)
-theme_override_colors/font_focus_color = Color(0.0352941, 0.333333, 0.356863, 1)
-theme_override_colors/font_color = Color(0.0627451, 0.333333, 0.290196, 1)
 theme_override_colors/font_outline_color = Color(0.827451, 1, 0, 1)
+theme_override_colors/font_color = Color(0.0627451, 0.333333, 0.290196, 1)
+theme_override_colors/font_focus_color = Color(0.0352941, 0.333333, 0.356863, 1)
+theme_override_colors/font_pressed_color = Color(0.0392157, 0.027451, 0.360784, 1)
 theme_override_constants/outline_size = 15
 theme_override_fonts/font = ExtResource("1_wqogi")
 theme_override_font_sizes/font_size = 35
@@ -412,10 +412,10 @@ offset_right = 691.0
 offset_bottom = 546.0
 theme_override_colors/font_hover_pressed_color = Color(0.0352941, 0.333333, 0.356863, 1)
 theme_override_colors/font_hover_color = Color(0.0352941, 0.333333, 0.356863, 1)
-theme_override_colors/font_pressed_color = Color(0.0392157, 0.027451, 0.360784, 1)
-theme_override_colors/font_focus_color = Color(0.0352941, 0.333333, 0.356863, 1)
-theme_override_colors/font_color = Color(0.0627451, 0.333333, 0.290196, 1)
 theme_override_colors/font_outline_color = Color(0.827451, 1, 0, 1)
+theme_override_colors/font_color = Color(0.0627451, 0.333333, 0.290196, 1)
+theme_override_colors/font_focus_color = Color(0.0352941, 0.333333, 0.356863, 1)
+theme_override_colors/font_pressed_color = Color(0.0392157, 0.027451, 0.360784, 1)
 theme_override_constants/outline_size = 15
 theme_override_fonts/font = ExtResource("1_wqogi")
 theme_override_font_sizes/font_size = 35
@@ -533,13 +533,13 @@ texture = ExtResource("10_1d8aj")
 
 [node name="littleGuy" type="AnimationPlayer" parent="loadingScreen"]
 libraries = {
-"": SubResource("AnimationLibrary_pvitt")
+&"": SubResource("AnimationLibrary_pvitt")
 }
 autoplay = "guy"
 
 [node name="loading" type="AnimationPlayer" parent="loadingScreen"]
 libraries = {
-"": SubResource("AnimationLibrary_25i17")
+&"": SubResource("AnimationLibrary_25i17")
 }
 
 [node name="cover" type="ColorRect" parent="loadingScreen"]
@@ -549,7 +549,7 @@ offset_bottom = 648.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_g53so")
+&"": SubResource("AnimationLibrary_g53so")
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

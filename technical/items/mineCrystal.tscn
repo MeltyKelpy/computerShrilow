@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://5fsppkoaemgd"]
 
-[ext_resource type="Script" path="res://technical/items/mineCrystal.gd" id="1_6swax"]
+[ext_resource type="Script" uid="uid://d2a0arwke3dlt" path="res://technical/items/mineCrystal.gd" id="1_6swax"]
 [ext_resource type="Texture2D" uid="uid://dwr3k0pwc2ive" path="res://assets/images/ui/minesCry.png" id="2_ggdw4"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i8qs6"]

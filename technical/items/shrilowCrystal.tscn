@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://b2vma6cljcdqb"]
 
-[ext_resource type="Script" path="res://technical/items/shrilowCrystal.gd" id="1_0eyqh"]
+[ext_resource type="Script" uid="uid://6fvbpityqvls" path="res://technical/items/shrilowCrystal.gd" id="1_0eyqh"]
 [ext_resource type="Texture2D" uid="uid://qovk4vpqdfml" path="res://assets/images/ui/shrilowCry.png" id="2_kb4bo"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i8qs6"]

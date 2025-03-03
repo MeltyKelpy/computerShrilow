@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://cc62swwttf6t2"]
 
-[ext_resource type="Script" path="res://technical/jellies/elevator.gd" id="1_bc1dj"]
+[ext_resource type="Script" uid="uid://ql8v37kwcre2" path="res://technical/jellies/elevator.gd" id="1_bc1dj"]
 [ext_resource type="Texture2D" uid="uid://bwbx2j1d11lbj" path="res://assets/images/areas/jellies/elevator.png" id="2_240xc"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6p2fe"]

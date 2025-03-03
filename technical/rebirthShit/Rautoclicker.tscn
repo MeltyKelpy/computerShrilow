@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://d3egj0h80k7g5"]
 
-[ext_resource type="Script" path="res://technical/rebirthShit/autoclicker.gd" id="1_3v4pq"]
+[ext_resource type="Script" uid="uid://wa2rdvrgldfd" path="res://technical/rebirthShit/autoclicker.gd" id="1_3v4pq"]
 
 [node name="Autoclicker" type="Node"]
 script = ExtResource("1_3v4pq")

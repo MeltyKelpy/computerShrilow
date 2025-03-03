@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b4m7w5w35g0nl"]
 
 [ext_resource type="FontFile" uid="uid://brn7smfq0l6ao" path="res://assets/fonts/TwCen.ttf" id="1_5ke5v"]
-[ext_resource type="Script" path="res://technical/settingsScene.gd" id="1_w6bug"]
+[ext_resource type="Script" uid="uid://dv57x7bv3req5" path="res://technical/settingsScene.gd" id="1_w6bug"]
 
 [node name="SettingsScene" type="Node2D"]
 script = ExtResource("1_w6bug")

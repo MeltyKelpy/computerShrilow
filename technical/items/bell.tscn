@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://bj5pxngi3puif"]
 
-[ext_resource type="Script" path="res://technical/items/bell.gd" id="1_xpcqr"]
+[ext_resource type="Script" uid="uid://bc8bj8l7gkt7b" path="res://technical/items/bell.gd" id="1_xpcqr"]
 [ext_resource type="Texture2D" uid="uid://5rxkas8dxnjy" path="res://assets/images/areas/jellies/bell.png" id="2_tkda5"]
 [ext_resource type="Theme" uid="uid://dr1wna4c2ab2h" path="res://technical/textStyle.tres" id="3_0cjfs"]
 

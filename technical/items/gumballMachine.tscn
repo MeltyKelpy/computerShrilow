@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://ctkrk05lsjbrs"]
 
-[ext_resource type="Script" path="res://technical/items/gumballMachine.gd" id="1_pof3q"]
+[ext_resource type="Script" uid="uid://ddm4jbuq6aup2" path="res://technical/items/gumballMachine.gd" id="1_pof3q"]
 [ext_resource type="Texture2D" uid="uid://c3ehplshjo8fq" path="res://assets/images/areas/jellies/gumballMachine.png" id="1_srasr"]
 [ext_resource type="Theme" uid="uid://dr1wna4c2ab2h" path="res://technical/textStyle.tres" id="3_2tbru"]
 

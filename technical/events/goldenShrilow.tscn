@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c6o6gnikkwjoh"]
 
-[ext_resource type="Script" path="res://technical/events/golden_shrilow.gd" id="1_244hp"]
+[ext_resource type="Script" uid="uid://b0e527m2m32l5" path="res://technical/events/golden_shrilow.gd" id="1_244hp"]
 
 [node name="GoldenShrilow" type="Node2D"]
 script = ExtResource("1_244hp")

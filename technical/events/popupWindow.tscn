@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://d1vom4hnyk1jx"]
 
-[ext_resource type="Script" path="res://technical/events/popupWindow.gd" id="1_x0k3k"]
+[ext_resource type="Script" uid="uid://cbpep8h8vqt6e" path="res://technical/events/popupWindow.gd" id="1_x0k3k"]
 [ext_resource type="Texture2D" uid="uid://ddkehfnruupi" path="res://assets/images/events/popupAds/frumpoFarm.png" id="2_b7lcm"]
 
 [node name="PopupWindow" type="Window"]

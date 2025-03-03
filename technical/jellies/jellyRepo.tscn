@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://bvr8ee5h28ij"]
 
-[ext_resource type="Script" path="res://technical/jellies/jellyRepo.gd" id="1_2mvwo"]
+[ext_resource type="Script" uid="uid://dpufo83ywnjy1" path="res://technical/jellies/jellyRepo.gd" id="1_2mvwo"]
 
 [sub_resource type="Gradient" id="Gradient_nny8f"]
 colors = PackedColorArray(0, 0, 0, 0.827451, 0, 0, 0, 0.647059)

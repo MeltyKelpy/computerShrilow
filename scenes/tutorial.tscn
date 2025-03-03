@@ -1,6 +1,6 @@
 [gd_scene load_steps=198 format=3 uid="uid://j6hicahygtp"]
 
-[ext_resource type="Script" path="res://scenes/tutorial.gd" id="1_oa3ri"]
+[ext_resource type="Script" uid="uid://dadd2svbxa472" path="res://scenes/tutorial.gd" id="1_oa3ri"]
 [ext_resource type="Texture2D" uid="uid://dajex7cpt7k4p" path="res://assets/images/bg/background.png" id="1_r6irf"]
 [ext_resource type="Texture2D" uid="uid://d3d3t8abbtv8h" path="res://assets/images/ui/storage.png" id="3_4fseq"]
 [ext_resource type="Texture2D" uid="uid://hfcstjcjosw4" path="res://assets/images/ui/vlcmediaplayer.png" id="3_kijts"]
@@ -38,7 +38,7 @@
 [ext_resource type="Texture2D" uid="uid://bckpy37xwgin2" path="res://assets/images/ui/theTutorialLogo.png" id="17_yt447"]
 [ext_resource type="Texture2D" uid="uid://cdi4tcc76faq8" path="res://assets/images/areas/melanies/items/floppydisk.png" id="18_46tk2"]
 [ext_resource type="Texture2D" uid="uid://ddsp35hv5mq4k" path="res://assets/images/ui/shop.png" id="19_bwqs2"]
-[ext_resource type="Shader" path="res://technical/glitchShader.gdshader" id="20_qqekh"]
+[ext_resource type="Shader" uid="uid://bqjri10ykuq47" path="res://technical/glitchShader.gdshader" id="20_qqekh"]
 [ext_resource type="Texture2D" uid="uid://c1xyylky43y2u" path="res://assets/images/ui/notebookGlitch.png" id="21_gft0u"]
 [ext_resource type="Texture2D" uid="uid://brs8k5prrtxmq" path="res://assets/images/ui/wardrobe.png" id="22_3w3yg"]
 [ext_resource type="AudioStream" uid="uid://d4nxr0v17co87" path="res://assets/sounds/click.ogg" id="22_d8i4e"]
@@ -359,8 +359,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_y6pyl"]
 _data = {
-"RESET": SubResource("Animation_4bxwk"),
-"open": SubResource("Animation_p5fj6")
+&"RESET": SubResource("Animation_4bxwk"),
+&"open": SubResource("Animation_p5fj6")
 }
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nihfc"]
@@ -525,35 +525,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_46cp3"]
 _data = {
-"RESET": SubResource("Animation_tjk11"),
-"intro": SubResource("Animation_hvvfl")
-}
-
-[sub_resource type="Animation" id="Animation_q6xs0"]
-resource_name = "pearShop"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ShrilowScreen/Shop:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(0.225313, 1),
-"update": 0,
-"values": [Vector2(1245, 93), Vector2(1065, 93)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ShrilowScreen/ShopButton:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(0.225313, 1),
-"update": 0,
-"values": [Vector2(1160, 3), Vector2(980, 3)]
+&"RESET": SubResource("Animation_tjk11"),
+&"intro": SubResource("Animation_hvvfl")
 }
 
 [sub_resource type="Animation" id="Animation_luf0s"]
@@ -730,57 +703,6 @@ tracks/1/keys = {
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_rejsw"]
-resource_name = "pearWard"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ShrilowScreen/Wardrobe:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(0.225313, 1),
-"update": 0,
-"values": [Vector2(1245, 419), Vector2(1065, 419)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ShrilowScreen/WardrobeButton:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(0.225313, 1),
-"update": 0,
-"values": [Vector2(1160, 342), Vector2(980, 342)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("ShrilowScreen/Wardrobe:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("ShrilowScreen/WardrobeButton:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
 [sub_resource type="Animation" id="Animation_cvgvq"]
 resource_name = "pearMines"
 tracks/0/type = "value"
@@ -832,13 +754,91 @@ tracks/3/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_q6xs0"]
+resource_name = "pearShop"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShrilowScreen/Shop:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.225313, 1),
+"update": 0,
+"values": [Vector2(1245, 93), Vector2(1065, 93)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ShrilowScreen/ShopButton:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.225313, 1),
+"update": 0,
+"values": [Vector2(1160, 3), Vector2(980, 3)]
+}
+
+[sub_resource type="Animation" id="Animation_rejsw"]
+resource_name = "pearWard"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShrilowScreen/Wardrobe:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.225313, 1),
+"update": 0,
+"values": [Vector2(1245, 419), Vector2(1065, 419)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ShrilowScreen/WardrobeButton:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.225313, 1),
+"update": 0,
+"values": [Vector2(1160, 342), Vector2(980, 342)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ShrilowScreen/Wardrobe:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ShrilowScreen/WardrobeButton:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_efm5h"]
 _data = {
-"RESET": SubResource("Animation_luf0s"),
-"pearGlitch": SubResource("Animation_ib6o0"),
-"pearMines": SubResource("Animation_cvgvq"),
-"pearShop": SubResource("Animation_q6xs0"),
-"pearWard": SubResource("Animation_rejsw")
+&"RESET": SubResource("Animation_luf0s"),
+&"pearGlitch": SubResource("Animation_ib6o0"),
+&"pearMines": SubResource("Animation_cvgvq"),
+&"pearShop": SubResource("Animation_q6xs0"),
+&"pearWard": SubResource("Animation_rejsw")
 }
 
 [sub_resource type="Animation" id="Animation_5fubl"]
@@ -1516,15 +1516,15 @@ tracks/4/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vs8hy"]
 _data = {
-"RESET": SubResource("Animation_5fubl"),
-"leaveJellies": SubResource("Animation_niq0t"),
-"leaveMines": SubResource("Animation_xn1b5"),
-"leaveShop": SubResource("Animation_s3t8e"),
-"leaveWard": SubResource("Animation_eejxq"),
-"toJellies": SubResource("Animation_2rn2d"),
-"toMines": SubResource("Animation_msj8d"),
-"toShop": SubResource("Animation_m2dy7"),
-"toWard": SubResource("Animation_ok3bo")
+&"RESET": SubResource("Animation_5fubl"),
+&"leaveJellies": SubResource("Animation_niq0t"),
+&"leaveMines": SubResource("Animation_xn1b5"),
+&"leaveShop": SubResource("Animation_s3t8e"),
+&"leaveWard": SubResource("Animation_eejxq"),
+&"toJellies": SubResource("Animation_2rn2d"),
+&"toMines": SubResource("Animation_msj8d"),
+&"toShop": SubResource("Animation_m2dy7"),
+&"toWard": SubResource("Animation_ok3bo")
 }
 
 [node name="Tutorial" type="Node2D"]
@@ -2546,7 +2546,7 @@ texture = SubResource("GradientTexture2D_6nkf3")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D"]
 libraries = {
-"": SubResource("AnimationLibrary_y6pyl")
+&"": SubResource("AnimationLibrary_y6pyl")
 }
 
 [node name="storgImg" type="Sprite2D" parent="Camera2D"]
@@ -2600,7 +2600,7 @@ texture = ExtResource("17_yt447")
 
 [node name="anim" type="AnimationPlayer" parent="Camera2D/intro"]
 libraries = {
-"": SubResource("AnimationLibrary_46cp3")
+&"": SubResource("AnimationLibrary_46cp3")
 }
 autoplay = "intro"
 
@@ -2646,12 +2646,12 @@ stream = ExtResource("22_d8i4e")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_efm5h")
+&"": SubResource("AnimationLibrary_efm5h")
 }
 
 [node name="sectionTransitions" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_vs8hy")
+&"": SubResource("AnimationLibrary_vs8hy")
 }
 
 [connection signal="pressed" from="Shop/BackButtonSHOP" to="." method="_on_back_button_shop_pressed"]

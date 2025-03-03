@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://c6toq5a3ihyny"]
 
-[ext_resource type="Script" path="res://technical/events/event_indicator.gd" id="1_a2766"]
+[ext_resource type="Script" uid="uid://bls8gk64qy3b1" path="res://technical/events/event_indicator.gd" id="1_a2766"]
 [ext_resource type="Texture2D" uid="uid://wpciqec4n52g" path="res://assets/images/ui/warning.png" id="1_dpthf"]
 [ext_resource type="Theme" uid="uid://dr1wna4c2ab2h" path="res://technical/textStyle.tres" id="2_hswlr"]
 
@@ -57,8 +57,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hso7e"]
 _data = {
-"POPUP": SubResource("Animation_4vel4"),
-"RESET": SubResource("Animation_wlti7")
+&"POPUP": SubResource("Animation_4vel4"),
+&"RESET": SubResource("Animation_wlti7")
 }
 
 [node name="EventIndicator" type="Node2D"]

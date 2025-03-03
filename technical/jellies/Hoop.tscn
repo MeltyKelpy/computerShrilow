@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://c1bcbqidyrlm"]
 
 [ext_resource type="Texture2D" uid="uid://cbwaipfevwftf" path="res://assets/images/areas/jellies/rooms/theCourt/hopBg.png" id="1_bpoii"]
-[ext_resource type="Script" path="res://technical/jellies/hoop.gd" id="1_fs31a"]
+[ext_resource type="Script" uid="uid://cx7gm85b0gnii" path="res://technical/jellies/hoop.gd" id="1_fs31a"]
 [ext_resource type="AudioStream" uid="uid://by43iftb5qwsc" path="res://assets/sounds/cheer.ogg" id="2_6nmc5"]
 [ext_resource type="Texture2D" uid="uid://dinrm5hq4b3an" path="res://assets/images/areas/jellies/rooms/theCourt/hopFore.png" id="2_bp2tx"]
 

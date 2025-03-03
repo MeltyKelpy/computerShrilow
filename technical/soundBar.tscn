@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cm0838w037eww"]
 
-[ext_resource type="Script" path="res://technical/sound_bar.gd" id="1_qn2c0"]
+[ext_resource type="Script" uid="uid://d0iwbrf0pd33l" path="res://technical/sound_bar.gd" id="1_qn2c0"]
 [ext_resource type="Texture2D" uid="uid://c68hte2xguyjp" path="res://assets/images/ui/0.png" id="2_ea56m"]
 
 [sub_resource type="Animation" id="Animation_nqw5m"]
@@ -35,8 +35,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rp7e2"]
 _data = {
-"RESET": SubResource("Animation_nqw5m"),
-"drop": SubResource("Animation_nmnng")
+&"RESET": SubResource("Animation_nqw5m"),
+&"drop": SubResource("Animation_nmnng")
 }
 
 [node name="SoundBar" type="CanvasLayer"]

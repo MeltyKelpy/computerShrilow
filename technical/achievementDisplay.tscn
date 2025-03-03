@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c847jm6gfn6pk"]
 
 [ext_resource type="Texture2D" uid="uid://c154ned0wd2ac" path="res://assets/images/ui/achievements/Rebirth.png" id="1_2dukk"]
-[ext_resource type="Script" path="res://technical/achievement_display.gd" id="2_6c1ow"]
+[ext_resource type="Script" uid="uid://ba8aet1j2gl8b" path="res://technical/achievement_display.gd" id="2_6c1ow"]
 [ext_resource type="Theme" uid="uid://dr1wna4c2ab2h" path="res://technical/textStyle.tres" id="3_7la4t"]
 
 [node name="AchievementDisplay" type="TextureRect"]

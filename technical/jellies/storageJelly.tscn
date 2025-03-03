@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://b6nlcsimin3ol"]
 
-[ext_resource type="Script" path="res://technical/jellies/storageJelly.gd" id="1_7mibj"]
+[ext_resource type="Script" uid="uid://bgg8a7fkp0y0k" path="res://technical/jellies/storageJelly.gd" id="1_7mibj"]
 [ext_resource type="Texture2D" uid="uid://0kxffdwqcovt" path="res://assets/images/jellies/storageBox.png" id="2_pf328"]
-[ext_resource type="Shader" path="res://technical/jellyOutline.gdshader" id="2_s41vi"]
+[ext_resource type="Shader" uid="uid://csehigfpjnq1r" path="res://technical/jellyOutline.gdshader" id="2_s41vi"]
 [ext_resource type="Texture2D" uid="uid://b2hc0jmvf0qfi" path="res://assets/images/jellies/Jelly/jelly0.png" id="3_uwgp5"]
 [ext_resource type="Theme" uid="uid://dr1wna4c2ab2h" path="res://technical/textStyle.tres" id="5_l2fg8"]
 

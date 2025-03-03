@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cah60govrbwal" path="res://assets/images/areas/melanies/talk/choice.png" id="1_cmp3d"]
 [ext_resource type="Theme" uid="uid://dr1wna4c2ab2h" path="res://technical/textStyle.tres" id="2_amch1"]
-[ext_resource type="Script" path="res://technical/dialogOption.gd" id="2_x4lmq"]
+[ext_resource type="Script" uid="uid://dx1ghuo2mocry" path="res://technical/dialogOption.gd" id="2_x4lmq"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ljk5j"]
 

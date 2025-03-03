@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://c88vm7nljefrb"]
 
 [ext_resource type="Texture2D" uid="uid://n4ap8srunahn" path="res://assets/images/areas/blackMarket/market/itemBox.png" id="1_rusbw"]
-[ext_resource type="Script" path="res://technical/market_item.gd" id="2_lqoh7"]
+[ext_resource type="Script" uid="uid://d16tym1m73ts1" path="res://technical/market_item.gd" id="2_lqoh7"]
 [ext_resource type="Texture2D" uid="uid://d1axlhq1ks2ra" path="res://assets/images/areas/melanies/items/autoclick0.png" id="3_inv8x"]
 [ext_resource type="Theme" uid="uid://dr1wna4c2ab2h" path="res://technical/textStyle.tres" id="4_662xi"]
 

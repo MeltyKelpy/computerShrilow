@@ -1,6 +1,6 @@
 [gd_scene load_steps=35 format=3 uid="uid://cbtrsg4a3b386"]
 
-[ext_resource type="Script" path="res://technical/mines_level.gd" id="1_2a0p1"]
+[ext_resource type="Script" uid="uid://cqqq3e6bcn0uo" path="res://technical/mines_level.gd" id="1_2a0p1"]
 [ext_resource type="Texture2D" uid="uid://xk5uw86f11md" path="res://assets/images/areas/mines/upgradr/upGrade.png" id="2_5qis4"]
 [ext_resource type="Texture2D" uid="uid://b17wod7uw7ut5" path="res://assets/images/areas/mines/minesLevel.png" id="2_vic5o"]
 [ext_resource type="Texture2D" uid="uid://bms33udjyr7di" path="res://assets/images/areas/mines/addLevel.png" id="3_0neni"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://bylwk1otht6du"]
 
-[ext_resource type="Script" path="res://technical/jellies/simpleRoom.gd" id="1_hjcd8"]
+[ext_resource type="Script" uid="uid://c10uwm2sqvrgr" path="res://technical/jellies/simpleRoom.gd" id="1_hjcd8"]
 [ext_resource type="Texture2D" uid="uid://bqqnav4fbsnkj" path="res://assets/images/areas/jellies/rooms/simpleRoom/room.png" id="2_1b20a"]
 [ext_resource type="PackedScene" uid="uid://cc62swwttf6t2" path="res://technical/jellies/elevator.tscn" id="3_13pnr"]
 [ext_resource type="PackedScene" uid="uid://60vhnfaawi87" path="res://technical/jellies/chandelier.tscn" id="3_q2mo3"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://bvxn7n144a812"]
 
-[ext_resource type="Script" path="res://technical/items/jelly.gd" id="1_3rnah"]
-[ext_resource type="Shader" path="res://technical/jellyOutline.gdshader" id="2_lc331"]
+[ext_resource type="Script" uid="uid://dliyexff7yg8o" path="res://technical/items/jelly.gd" id="1_3rnah"]
+[ext_resource type="Shader" uid="uid://csehigfpjnq1r" path="res://technical/jellyOutline.gdshader" id="2_lc331"]
 [ext_resource type="Texture2D" uid="uid://b2hc0jmvf0qfi" path="res://assets/images/jellies/Jelly/jelly0.png" id="2_mw5c0"]
 [ext_resource type="AudioStream" uid="uid://o0fq5njk38ru" path="res://assets/sounds/squeak.ogg" id="3_howpp"]
 [ext_resource type="Theme" uid="uid://dr1wna4c2ab2h" path="res://technical/textStyle.tres" id="4_elgnm"]

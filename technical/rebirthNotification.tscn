@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bxaspgbqy6x5s"]
 
 [ext_resource type="Texture2D" uid="uid://1860tkm8lohn" path="res://assets/images/ui/rebirthThing.png" id="1_ka7x5"]
-[ext_resource type="Script" path="res://technical/rebirth_notification.gd" id="1_xq0v5"]
+[ext_resource type="Script" uid="uid://ce47eefy1wj5k" path="res://technical/rebirth_notification.gd" id="1_xq0v5"]
 [ext_resource type="AudioStream" uid="uid://cpuevowyq7ag7" path="res://assets/sounds/wind.ogg" id="3_3jv3f"]
 [ext_resource type="Theme" uid="uid://dr1wna4c2ab2h" path="res://technical/textStyle.tres" id="3_knx3c"]
 
@@ -116,9 +116,9 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sf2nx"]
 _data = {
-"RESET": SubResource("Animation_oje17"),
-"pop": SubResource("Animation_sv87r"),
-"unpop": SubResource("Animation_kroae")
+&"RESET": SubResource("Animation_oje17"),
+&"pop": SubResource("Animation_sv87r"),
+&"unpop": SubResource("Animation_kroae")
 }
 
 [node name="RebirthNotification" type="Node2D"]
@@ -176,7 +176,7 @@ autowrap_mode = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_sf2nx")
+&"": SubResource("AnimationLibrary_sf2nx")
 }
 autoplay = "pop"
 

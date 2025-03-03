@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b341q5xike847"]
 
-[ext_resource type="Script" path="res://technical/rebirthShit/plusoneauto.gd" id="1_v5xhc"]
+[ext_resource type="Script" uid="uid://61n0itkvkblu" path="res://technical/rebirthShit/plusoneauto.gd" id="1_v5xhc"]
 
 [node name="Plusone" type="Node2D"]
 script = ExtResource("1_v5xhc")

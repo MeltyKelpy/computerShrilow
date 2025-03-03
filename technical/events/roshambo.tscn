@@ -1,6 +1,6 @@
 [gd_scene load_steps=48 format=3 uid="uid://be5cjahr4jdmy"]
 
-[ext_resource type="Script" path="res://technical/events/roshambo.gd" id="1_j22tn"]
+[ext_resource type="Script" uid="uid://cgin203j5lihw" path="res://technical/events/roshambo.gd" id="1_j22tn"]
 [ext_resource type="Texture2D" uid="uid://c5pxii3mw3a7c" path="res://assets/images/events/roshambo/wall.png" id="2_sm0v0"]
 [ext_resource type="Texture2D" uid="uid://ckwl1ygxnc6vv" path="res://assets/images/events/roshambo/roShambo/003.png" id="3_ptngl"]
 [ext_resource type="Texture2D" uid="uid://c8uws48kgf6ta" path="res://assets/images/events/roshambo/roShambo/004.png" id="4_0262e"]
@@ -568,12 +568,12 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_iiqyl"]
 _data = {
-"RESET": SubResource("Animation_djedu"),
-"pop": SubResource("Animation_e3o1v"),
-"ro": SubResource("Animation_htqen"),
-"title": SubResource("Animation_fcjxb"),
-"yes": SubResource("Animation_tlkvl"),
-"you": SubResource("Animation_ce4ur")
+&"RESET": SubResource("Animation_djedu"),
+&"pop": SubResource("Animation_e3o1v"),
+&"ro": SubResource("Animation_htqen"),
+&"title": SubResource("Animation_fcjxb"),
+&"yes": SubResource("Animation_tlkvl"),
+&"you": SubResource("Animation_ce4ur")
 }
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4s42o"]
@@ -645,7 +645,7 @@ texture = ExtResource("11_52bd5")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_iiqyl")
+&"": SubResource("AnimationLibrary_iiqyl")
 }
 
 [node name="wins" type="Label" parent="."]

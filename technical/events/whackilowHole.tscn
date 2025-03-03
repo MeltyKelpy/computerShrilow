@@ -1,6 +1,6 @@
 [gd_scene load_steps=29 format=3 uid="uid://b3br2qvlsk0m4"]
 
-[ext_resource type="Script" path="res://technical/events/whackilow_hole.gd" id="1_31bfp"]
+[ext_resource type="Script" uid="uid://0bo56wmalaai" path="res://technical/events/whackilow_hole.gd" id="1_31bfp"]
 [ext_resource type="Texture2D" uid="uid://p7dpc7vlfrbi" path="res://assets/images/events/whack-a-low/hole.png" id="1_fvsap"]
 [ext_resource type="Texture2D" uid="uid://bum732avadukr" path="res://assets/images/events/whack-a-low/chars/mel.png" id="2_45jly"]
 [ext_resource type="Texture2D" uid="uid://dm5bcwxu7fp5b" path="res://assets/images/events/whack-a-low/holeBove.png" id="2_q87pp"]
@@ -149,9 +149,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hquhk"]
 _data = {
-"RESET": SubResource("Animation_yknti"),
-"goDown": SubResource("Animation_lajfa"),
-"showUp": SubResource("Animation_ujljh")
+&"RESET": SubResource("Animation_yknti"),
+&"goDown": SubResource("Animation_lajfa"),
+&"showUp": SubResource("Animation_ujljh")
 }
 
 [node name="WhackilowHole" type="Button"]

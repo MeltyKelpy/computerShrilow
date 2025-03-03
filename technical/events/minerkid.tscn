@@ -1,6 +1,6 @@
 [gd_scene load_steps=22 format=3 uid="uid://cdpi6c1cmwei0"]
 
-[ext_resource type="Script" path="res://technical/events/minerkid.gd" id="1_cfsla"]
+[ext_resource type="Script" uid="uid://qsp58dsv0gy" path="res://technical/events/minerkid.gd" id="1_cfsla"]
 [ext_resource type="Texture2D" uid="uid://b6hgn2orh4jaw" path="res://assets/images/events/theminerkid/isCalling.png" id="2_4wqpm"]
 [ext_resource type="AudioStream" uid="uid://73eawo8dkfqg" path="res://assets/music/phonecall.ogg" id="3_tscpx"]
 [ext_resource type="FontFile" uid="uid://cpx5bbh068e1y" path="res://assets/fonts/ARIAL.TTF" id="3_yefqt"]
@@ -66,8 +66,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_h14wy"]
 _data = {
-"RESET": SubResource("Animation_1qa5b"),
-"pop": SubResource("Animation_4cxcc")
+&"RESET": SubResource("Animation_1qa5b"),
+&"pop": SubResource("Animation_4cxcc")
 }
 
 [node name="minerKid" type="Node2D"]

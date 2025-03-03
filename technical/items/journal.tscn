@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://cr7xl87ndl5xc"]
 
-[ext_resource type="Script" path="res://technical/items/journal.gd" id="1_h00ud"]
+[ext_resource type="Script" uid="uid://bcs4p4k8x8tig" path="res://technical/items/journal.gd" id="1_h00ud"]
 [ext_resource type="Texture2D" uid="uid://cpgu3n66srcn6" path="res://assets/images/areas/jellies/journal.png" id="2_yqyaj"]
 [ext_resource type="Theme" uid="uid://dr1wna4c2ab2h" path="res://technical/textStyle.tres" id="3_nqq6d"]
 

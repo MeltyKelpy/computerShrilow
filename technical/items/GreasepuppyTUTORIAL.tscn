@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bo005hm8pabm6"]
 
-[ext_resource type="Script" path="res://technical/items/GreasepuppyTUTORIAL.gd" id="1_atj4e"]
+[ext_resource type="Script" uid="uid://b20ri08kcdqno" path="res://technical/items/GreasepuppyTUTORIAL.gd" id="1_atj4e"]
 [ext_resource type="Texture2D" uid="uid://d1krw3p03h87g" path="res://assets/images/items/gp0.png" id="2_nrcqe"]
 [ext_resource type="AudioStream" uid="uid://blfksn5wuyk14" path="res://assets/sounds/chaching.ogg" id="3_l8165"]
 

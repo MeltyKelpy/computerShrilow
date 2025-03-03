@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://bb468p2jh4a7n"]
 
-[ext_resource type="Script" path="res://technical/events/whack-ilow.gd" id="1_3ab8d"]
+[ext_resource type="Script" uid="uid://c2und1mjhhba0" path="res://technical/events/whack-ilow.gd" id="1_3ab8d"]
 [ext_resource type="Texture2D" uid="uid://bhlkdyjwexyik" path="res://assets/images/events/whack-a-low/bg.png" id="2_i18ow"]
 [ext_resource type="PackedScene" uid="uid://b3br2qvlsk0m4" path="res://technical/events/whackilowHole.tscn" id="10_66mh6"]
 [ext_resource type="Texture2D" uid="uid://ct4ktp5pdisbg" path="res://assets/images/events/whack-a-low/paper.png" id="16_2r3w4"]
@@ -358,10 +358,10 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_iiqyl"]
 _data = {
-"RESET": SubResource("Animation_djedu"),
-"pop": SubResource("Animation_e3o1v"),
-"title": SubResource("Animation_fcjxb"),
-"yes": SubResource("Animation_tlkvl")
+&"RESET": SubResource("Animation_djedu"),
+&"pop": SubResource("Animation_e3o1v"),
+&"title": SubResource("Animation_fcjxb"),
+&"yes": SubResource("Animation_tlkvl")
 }
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4s42o"]

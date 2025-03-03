@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://bylosx4aw0lh7"]
 
-[ext_resource type="Script" path="res://technical/items/crystal.gd" id="1_j2jol"]
+[ext_resource type="Script" uid="uid://dtyrmcn475dn4" path="res://technical/items/crystal.gd" id="1_j2jol"]
 [ext_resource type="Texture2D" uid="uid://dt8ddfhm8d2c8" path="res://assets/images/areas/jellies/crystalON.png" id="2_yafby"]
 [ext_resource type="Theme" uid="uid://dr1wna4c2ab2h" path="res://technical/textStyle.tres" id="3_muln5"]
 

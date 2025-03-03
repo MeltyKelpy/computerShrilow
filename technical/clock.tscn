@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dgo46ag0qisg0"]
 
-[ext_resource type="Script" path="res://technical/clock.gd" id="1_jajcc"]
+[ext_resource type="Script" uid="uid://d3rolehdb57ix" path="res://technical/clock.gd" id="1_jajcc"]
 [ext_resource type="Texture2D" uid="uid://cqqico1xj2o2c" path="res://assets/images/ui/clokc.png" id="2_dt4x5"]
 [ext_resource type="Theme" uid="uid://dr1wna4c2ab2h" path="res://technical/textStyle.tres" id="3_hoswo"]
 

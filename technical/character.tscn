@@ -1,7 +1,7 @@
 [gd_scene load_steps=28 format=3 uid="uid://canvc8if52ase"]
 
 [ext_resource type="Texture2D" uid="uid://iu3eruu7vpxl" path="res://assets/images/areas/mines/Shrilow0.png" id="1_cglsy"]
-[ext_resource type="Script" path="res://technical/character.gd" id="1_lwkwd"]
+[ext_resource type="Script" uid="uid://bc0k2sn4bgag6" path="res://technical/character.gd" id="1_lwkwd"]
 [ext_resource type="Theme" uid="uid://dr1wna4c2ab2h" path="res://technical/textStyle.tres" id="2_fmgmx"]
 [ext_resource type="Texture2D" uid="uid://dw24g78th34kv" path="res://assets/images/areas/mines/cancel.png" id="4_jbw8d"]
 [ext_resource type="Texture2D" uid="uid://dk0yfw0xb5wi8" path="res://assets/images/areas/mines/sell.png" id="5_hfuui"]

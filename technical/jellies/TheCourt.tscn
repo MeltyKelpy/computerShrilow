@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://4qeivt15ar4b"]
 
-[ext_resource type="Script" path="res://technical/jellies/TheCourt.gd" id="1_86ma1"]
+[ext_resource type="Script" uid="uid://d0lymjb4277x3" path="res://technical/jellies/TheCourt.gd" id="1_86ma1"]
 [ext_resource type="Texture2D" uid="uid://clj2hue2eb4q2" path="res://assets/images/areas/jellies/rooms/theCourt/bg.png" id="2_nsf75"]
 [ext_resource type="PackedScene" uid="uid://c1bcbqidyrlm" path="res://technical/jellies/Hoop.tscn" id="4_khiob"]
 [ext_resource type="PackedScene" uid="uid://cc62swwttf6t2" path="res://technical/jellies/elevator.tscn" id="4_xh81w"]
