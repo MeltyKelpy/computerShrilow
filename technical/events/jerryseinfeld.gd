@@ -26,7 +26,7 @@ func _process(delta: float) -> void:
 		$jerry.position.y += 2 + (2 * delta)
 		$jerry.play("fall")
 		if ranCheck == false:
-			var awesome = rng.randi_range(1, 30)
+			var awesome = rng.randi_range(1, 10)
 			if awesome == 1:
 				var cacapoopyGOD2 = load("res://technical/events/jerryseinfeld.tscn")
 				var caca = cacapoopyGOD2.instantiate()
@@ -45,7 +45,7 @@ func _process(delta: float) -> void:
 		if $jerry.position.y > 105 and hurt == false:
 			$jerry.play("climb")
 			$jerry/jerryTail.play("noTail")
-			$jerry.position.y -= 2 + (2 * delta)
+			$jerry.position.y -= 50 * delta
 			if $jerry.position.x < 156:
 				$jerry.position.x += 1 + (1 * delta)
 			if $jerry.position.x > 156:

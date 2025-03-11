@@ -12,7 +12,7 @@ func _ready() -> void:
 	var err = config.load(Game.files[ID])
 	
 	if err == OK:
-		var time = config.get_value("Fiscal", "Time")
+		var time = int(round(config.get_value("Fiscal", "Time")))
 		while time >= 60:
 			time -= 60
 			time_dict["M"] += 1

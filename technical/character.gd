@@ -83,8 +83,8 @@ func _process(_delta: float) -> void:
 	
 	speedCost = ((Speed / 2) * 500) * Level
 	moneyCost = (MoneyGain * 200) * Level
-	$ManageMenu/speedUp.text = str(round(speedCost))
-	$ManageMenu/moneyUp.text = str(round(moneyCost))
+	$ManageMenu/speedUp.text = str(int(round(speedCost)))
+	$ManageMenu/moneyUp.text = str(int(round(moneyCost)))
 	$ManageMenu/UpgradeInfo.text = "Speed:"+str(Speed+((mineLevelSPEED)*Speed))+"\nMoney:"+str((MoneyGain+((mineLevelMONEY)*MoneyGain))*adds)+"\nLevel:"+str(Level)+"\n\nUpTokens:"+str(upTokens)
 	$ManageMenu.visible = managing
 	

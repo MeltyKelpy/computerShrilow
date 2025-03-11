@@ -825,7 +825,7 @@ color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_8kjol")
+&"": SubResource("AnimationLibrary_8kjol")
 }
 
 [node name="Node2D" type="Node2D" parent="."]

@@ -13,7 +13,7 @@ func create(namer, time, type):
 	reparent($/root/computerShrilow/ShrilowScreen/clocks)
 
 func _process(delta: float) -> void:
-	var time = round($Timer.time_left)
+	var time = int(round($Timer.time_left))
 	time_dict = {"H" : 0, "M" : 0, "S" : 0}
 	time_dict["S"] = time
 	while time_dict["S"] >= 60:
