@@ -18,11 +18,17 @@ var colorsIgLOL = [
 	]
 
 func _ready() -> void:
-	if rarity != "Queer":
+	if rarity != "Queer" and rarity != "Market":
 		$jelly.material.set_shader_parameter("line_color", colorsIgLOL[0][rarity])
 		$jelly.material.set_shader_parameter("rainbow", false)
-	else:
+	elif rarity == "Queer":
 		$jelly.material.set_shader_parameter("rainbow", true)
+	elif jelly == "Phantom Jelly":
+		$jelly.material.set_shader_parameter("line_color", Color(1.0, 0.847, 0.376, 1))
+		$jelly.material.set_shader_parameter("rainbow", false)
+	elif jelly == "Antag Jelly":
+		$jelly.material.set_shader_parameter("line_color", Color(1.0, 0.376, 0.851, 1))
+		$jelly.material.set_shader_parameter("rainbow", false)
 	$jelly.texture = load("res://assets/images/jellies/"+jelly+"/jelly0.png")
 	$Label.text = jelly+"\n"+rarity+"\n"+str(money)+"$ per "+str(seconds)+" Seconds"
 
@@ -51,6 +57,8 @@ func spawnJelly(ID):
 		caca.rarity = Jelly.storedJellys[jellyNum]["Rarity"]
 		caca.money = Jelly.storedJellys[jellyNum]["MoneyGain"]
 		caca.seconds = Jelly.storedJellys[jellyNum]["Seconds"]
+		if Jelly.storedJellys[jellyNum]["ID"] != null:
+			caca.id = Jelly.storedJellys[jellyNum]["ID"]
 		caca.selfDiscoveredVar = true
 		$/root/computerShrilow/Jelly/Control.add_child(caca)
 		Jelly.storedJellys.erase(jellyNum)
@@ -71,9 +79,6 @@ func _on_send_pressed() -> void:
 	$ScrollContainer.visible = true
 
 func _on_sell_pressed() -> void:
-	print("hi")
-	$/root/computerShrilow._deleteStorag()
-	Jelly.storedJellys.remove_at(jellyNum)
 	if rarity == "Common":
 		ItemValues.money += 100
 	if rarity == "Uncommon":
@@ -86,7 +91,11 @@ func _on_sell_pressed() -> void:
 		ItemValues.money += 5000
 	if rarity == "Blue":
 		ItemValues.money += 1000000
-	$/root/computerShrilow._spawnStorage()
+	if rarity != "Market":
+		print("hi")
+		$/root/computerShrilow._deleteStorag()
+		Jelly.storedJellys.remove_at(jellyNum)
+		$/root/computerShrilow._spawnStorage()
 
 func _on_x_pressed() -> void:
 	for i in repos.size():

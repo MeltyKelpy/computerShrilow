@@ -9,6 +9,7 @@ extends Node2D
 @export var new = true
 var hi = true
 @export var room = 0
+@export var id = 0
 
 @onready var mouse_pin: PinJoint2D = $MousePin
 @onready var fake_body: StaticBody2D = $MousePin/FakeBody
@@ -72,13 +73,29 @@ func _ready() -> void:
 	rigid_body_2d.input_pickable = true
 	rigid_body_2d.input_event.connect(_on_input_event)
 	visible = true
-	if rarity != "Queer":
+	if rarity != "Queer" and rarity != "Market":
 		$RigidBody2D/jelly.material.set_shader_parameter("line_color", colorsIgLOL[0][rarity])
 		$RigidBody2D/jelly.material.set_shader_parameter("rainbow", false)
-	else:
+	elif rarity == "Queer":
 		$RigidBody2D/jelly.material.set_shader_parameter("rainbow", true)
+	elif jelly == "Phantom Jelly":
+		$RigidBody2D/jelly.material.set_shader_parameter("line_color", Color(1.0, 0.847, 0.376, 1))
+		$RigidBody2D/jelly.material.set_shader_parameter("rainbow", false)
+	elif jelly == "Antag Jelly":
+		$RigidBody2D/jelly.material.set_shader_parameter("line_color", Color(1.0, 0.376, 0.851, 1))
+		$RigidBody2D/jelly.material.set_shader_parameter("rainbow", false)
 
 func _physics_process(delta: float) -> void:
+	if jelly == "Phantom Jelly":
+		money = round(1 + (1 * (ItemValues.marketItems[id]["CurUpgrade"] / 2)))
+		seconds = 2
+		if id == 0:
+			id = 4
+	if jelly == "Antag Jelly":
+		money = round(3 + (3 * (ItemValues.marketItems[id]["CurUpgrade"] / 2)))
+		seconds = 4
+		if id == 0:
+			id = 5
 	showMoney = money 
 	var showSeconds = seconds
 	if room == null:
@@ -86,7 +103,7 @@ func _physics_process(delta: float) -> void:
 	if FizzyDrink.enabledCrystal == "jelly":
 		showMoney = showMoney * 3
 		showSeconds = showSeconds / 2
-	$nameShit/Stats.text = rarity+"\n"+str(showMoney)+"$ per "+str(seconds)+" Seconds"
+	$nameShit/Stats.text = rarity+"\n"+str(showMoney)+"$ per "+str(showSeconds)+" Seconds"
 	$FirstTimer.wait_time = float(showSeconds - 0.2)
 	$SecondTimer.wait_time = 0.2
 	$RigidBody2D/mange.rotation = (-1) * $RigidBody2D.rotation
@@ -140,12 +157,6 @@ func _jelly_spawn() -> void:
 	visible = true
 
 func _on_kill_pressed() -> void:
-	FizzyDrink.jellys -= 1
-	if room != null:
-		$/root/computerShrilow/Jelly/rooms.get_child(room).jellyCount -= 1
-	$RigidBody2D.visible = false
-	$nameShit.visible = false
-	$RigidBody2D/Squeak.volume_db = -80
 	var moneyTo = 0
 	if rarity == "Common":
 		moneyTo = 100
@@ -159,15 +170,22 @@ func _on_kill_pressed() -> void:
 		moneyTo = 5000
 	if rarity == "Blue":
 		moneyTo = 1000000
-	var cacapoopyGOD = load("res://technical/moneyGet.tscn")
-	var caca = cacapoopyGOD.instantiate()
-	add_child(caca)
-	caca.determine(moneyTo)
-	caca.position.x = rigid_body_2d.position.x
-	caca.position.y = rigid_body_2d.position.y
-	ItemValues.money += moneyTo
-	$RigidBody2D/mange.visible = false
-	$deathTime.start()
+	if rarity != "Market":
+		FizzyDrink.jellys -= 1
+		if room != null:
+			$/root/computerShrilow/Jelly/rooms.get_child(room).jellyCount -= 1
+		$RigidBody2D.visible = false
+		$nameShit.visible = false
+		$RigidBody2D/Squeak.volume_db = -80
+		var cacapoopyGOD = load("res://technical/moneyGet.tscn")
+		var caca = cacapoopyGOD.instantiate()
+		add_child(caca)
+		caca.determine(moneyTo)
+		caca.position.x = rigid_body_2d.position.x
+		caca.position.y = rigid_body_2d.position.y
+		ItemValues.money += moneyTo
+		$RigidBody2D/mange.visible = false
+		$deathTime.start()
 
 func _on_death_time_timeout() -> void:
 	queue_free()
@@ -178,6 +196,12 @@ func _on_change_floor_pressed(ID) -> void:
 	rigid_body_2d.rotation = 0
 
 func _on_storage_pressed(type) -> void:
+	if jelly == "Phantom Jelly":
+		money = round(1 + (1 * (ItemValues.marketItems[id]["CurUpgrade"] / 2)))
+		seconds = 2
+	if jelly == "Antag Jelly":
+		money = round(3 + (3 * (ItemValues.marketItems[id]["CurUpgrade"] / 2)))
+		seconds = 4
 	if type == false:
 		$/root/computerShrilow/Jelly/rooms.get_child(room).jellyCount -= 1
 	var awesomsmee = {
@@ -185,6 +209,7 @@ func _on_storage_pressed(type) -> void:
 		"MoneyGain":money,
 		"Seconds":seconds,
 		"Rarity":rarity,
+		"ID":id
 		}
 	Jelly.storedJellys.resize(Jelly.storedJellys.size()+1)
 	Jelly.storedJellys[Jelly.storedJellys.size()-1] = awesomsmee

@@ -6,7 +6,8 @@ var interacted = true
 var arrayToUse = ""
 var stupidArray = [{
 	"melanie":FizzyDrink.melDialogue,
-	"melvin":FizzyDrink.melvinDialogue
+	"melvin":FizzyDrink.melvinDialogue,
+	"market":FizzyDrink.marketDialogue,
 	}]
 
 func _ready():

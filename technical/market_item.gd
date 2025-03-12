@@ -81,16 +81,25 @@ func calculate():
 			if hearMeOut[0][type][ItemID]["CurUpgrade"] == 0:
 				cacapoopyGOD = load(hearMeOut[0][type][ItemID]["ScenePath"])
 				caca = cacapoopyGOD.instantiate()
-				add_child(caca)
-				caca.getID(ItemID)
+				if hearMeOut[0][type][ItemID]["ScenePath"] == "res://technical/items/jelly.tscn":
+					caca.jelly = hearMeOut[0][type][ItemID]["Name"]
+					caca.rarity = "Market"
+					caca.id = ItemID
+					if hearMeOut[0][type][ItemID]["CurUpgrade"] == 0:
+						caca._on_storage_pressed(true)
+						Game.warn("You bought the "+hearMeOut[0][type][ItemID]["Name"]+"!")
+				else:
+					caca.getID(ItemID)
+				if hearMeOut[0][type][ItemID]["CurUpgrade"] == 0:
+					add_child(caca)
 		else:
 			cacapoopyGOD = load(hearMeOut[0][type][ItemID]["ScenePath"])
 			caca = cacapoopyGOD.instantiate()
 			add_child(caca)
 			caca.getID(ItemID)
-	if hearMeOut[0][type][ItemID]["CurUpgrade"] != 0:
-		Game.rebirthTokens -= hearMeOut[0][type][ItemID]["Cost"]*(hearMeOut[0][type][ItemID]["CurUpgrade"]+1)
 	if hearMeOut[0][type][ItemID]["Type"] == "Generic":
 		Game.rebirthTokens -= hearMeOut[0][type][ItemID]["Cost"]*(hearMeOut[0][type][ItemID]["CurUpgrade"]+1)
 		hearMeOut[0][type][ItemID]["CurUpgrade"] += 1
+	else:
+		Game.rebirthTokens -= hearMeOut[0][type][ItemID]["Cost"]
 	ItemValues.itemExtra = ItemSpecificString

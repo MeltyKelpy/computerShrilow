@@ -1,0 +1,60 @@
+[gd_scene load_steps=10 format=3 uid="uid://dg0ivea2ihqkk"]
+
+[ext_resource type="Script" uid="uid://bu55xmycd70xf" path="res://technical/jellies/thePit.gd" id="1_t4w8s"]
+[ext_resource type="Texture2D" uid="uid://bj10x1ka5qcjo" path="res://assets/images/areas/jellies/rooms/thePit/room.png" id="2_t4w8s"]
+[ext_resource type="PackedScene" uid="uid://cc62swwttf6t2" path="res://technical/jellies/elevator.tscn" id="4_5l41m"]
+[ext_resource type="Texture2D" uid="uid://dw8oys38bu57g" path="res://assets/images/areas/jellies/rooms/thePit/light.png" id="4_s2t3g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fd18s"]
+size = Vector2(1622, 62)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t4w8s"]
+size = Vector2(197, 86)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_df35r"]
+size = Vector2(1617.88, 44.7499)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j6het"]
+size = Vector2(66.0613, 1156.31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7bwgo"]
+size = Vector2(328, 1164)
+
+[node name="thePit" type="Node2D"]
+position = Vector2(-64, 0)
+script = ExtResource("1_t4w8s")
+
+[node name="basicRoom" type="Sprite2D" parent="."]
+position = Vector2(737, 324)
+texture = ExtResource("2_t4w8s")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="basicRoom"]
+position = Vector2(-268, -337)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="basicRoom/StaticBody2D"]
+position = Vector2(191, 639)
+shape = SubResource("RectangleShape2D_fd18s")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="basicRoom/StaticBody2D"]
+position = Vector2(26.5, 322)
+shape = SubResource("RectangleShape2D_t4w8s")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="basicRoom/StaticBody2D"]
+position = Vector2(189.063, -523)
+shape = SubResource("RectangleShape2D_df35r")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="basicRoom/StaticBody2D"]
+position = Vector2(968, 28.1563)
+shape = SubResource("RectangleShape2D_j6het")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="basicRoom/StaticBody2D"]
+position = Vector2(-188, 47)
+shape = SubResource("RectangleShape2D_7bwgo")
+
+[node name="Elevator" parent="." instance=ExtResource("4_5l41m")]
+position = Vector2(380, 545)
+
+[node name="Light" type="Sprite2D" parent="."]
+z_index = 5
+position = Vector2(737, 324)
+texture = ExtResource("4_s2t3g")

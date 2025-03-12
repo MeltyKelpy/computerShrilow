@@ -27,6 +27,7 @@ var storageReturnA = ""
 
 var dialogueOptionsMelanie = []
 var dialogueOptionsMelvin = []
+var dialogueOptionsMarket = []
 var storage = []
 
 var myEvilClockExists = false
@@ -131,6 +132,8 @@ var gumballInfo = [
 	},
 	]
 
+var talker = "Phantom"
+
 var shitShrilowCanSay = [
 	"Whos leg do i gotta hump to get a dry martini around here?",
 	"FAGGOT. FAGGOT. FAGGOT.",
@@ -148,6 +151,18 @@ var shitShrilowCanSay = [
 	"the bible? i hardly know her!",
 	"who are you.",
 	"IVE BEEN FUCKING PETRIFIED HELP ME",
+	"I LOVE eating bones. but its not cuz im a dog, i just LOVE feeling the cartilage melt in my stomach acid",
+	"luigi was right",
+	"this is slander, im suing you.",
+	"when you click me in-game, i feel all the pain in real life. all of it. its like a voodoo doll",
+	"my dick is HARD",
+	"my dick is soft",
+	"i will never become youtube kids slop, because i will say, fuck! yurp. thats a bad word.",
+	"of montreal",
+	"hello",
+	"so... do you come here often?",
+	"y'know, its been awhile since ive felt human body heat",
+	"it aint easy being a computer...",
 	]
 
 var cacapoopyGOD = preload("res://technical/MelaniesItem.tscn")
@@ -163,6 +178,8 @@ func manageScenes():
 		$Shop/ItemDescription.visible_ratio = 0
 	if melvinShopState == false:
 		$Melvin/ItemDescription.visible_ratio = 0
+	if marketShopState == false:
+		$BlackMarket/talk.visible_ratio = 0
 	clearDialogItems()
 	# MELANIE DIALOGUE BELOW
 	match dialogKey:
@@ -305,6 +322,20 @@ func manageScenes():
 				$Shop/ItemDescription.text = "they tried to give me a dead bird as a royal offering. where are they finding birds in the computer ??"
 			if alongTheDialogue == 6:
 				endDialogue()
+		"MARKETCONTINUED":
+			if alongTheDialogue == 0:
+				$Shop/ItemDescription.text = "Ugh. those guys"
+			if alongTheDialogue == 1:
+				$Shop/ItemDescription.text = "look, i dont HATE them, but im JUSTTT SAYIN' they only started doin their shit after I did."
+			if alongTheDialogue == 2:
+				$Shop/ItemDescription.text = "like, c'mon, do something original."
+			if alongTheDialogue == 3:
+				$Shop/ItemDescription.text = "cant hate em too bad though, i mean, they're the only ones who have a sembalance of whats going on. i kinda need them around."
+			if alongTheDialogue == 4:
+				for i in FizzyDrink.marketDialogue.size():
+					if FizzyDrink.marketDialogue[i]["dialogKey"] == "MELANIN":
+						FizzyDrink.marketDialogue[i]["unlocked"] = true
+				endDialogue()
 	
 	# MELVIN DIALOGUE BELOW
 	match dialogKey:
@@ -380,6 +411,341 @@ func manageScenes():
 				$Melvin/ItemDescription.text = "we wouldnt want another Jel-leven."
 			if alongTheDialogue == 5:
 				endDialogue()
+	
+	# MARKET DIALOGUE BELOW
+	match dialogKey:
+		"none":
+			if alongTheDialogue == 0:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+" u should NOT be seeing this."
+			if alongTheDialogue == 1:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"this also worked as a test, which is cool"
+			if alongTheDialogue == 2:
+				endDialogue()
+		"whoAreYall":
+			if alongTheDialogue == 0:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"Oh, fuck yeah! I get to-"
+			if alongTheDialogue == 1:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+"I am cutting you off before you say anything else."
+			if alongTheDialogue == 2:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"cries"
+			if alongTheDialogue == 3:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+'I am formally known as "The Antagonist", but you can just call me Antag though.'
+			if alongTheDialogue == 4:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"Antagy Wagy."
+			if alongTheDialogue == 5:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+"..."
+			if alongTheDialogue == 6:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+"so i'm done talking now."
+			if alongTheDialogue == 7:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"Best day ever."
+			if alongTheDialogue == 8:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"Anyway now that this BOZO shut UP... I'm Phantom."
+			if alongTheDialogue == 9:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"You can just call me... uh... uhm... uh... hmm.... uhhhhhhh....."
+			if alongTheDialogue == 10:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+"You got this."
+			if alongTheDialogue == 11:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"uhh... FUCK uhhhh..."
+			if alongTheDialogue == 12:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"..."
+			if alongTheDialogue == 13:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+"..."
+			if alongTheDialogue == 14:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"..."
+			if alongTheDialogue == 15:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+"You ca-"
+			if alongTheDialogue == 16:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"PHAAantom"
+			if alongTheDialogue == 17:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+"..."
+			if alongTheDialogue == 18:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+"I hate you."
+			if alongTheDialogue == 19:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"We came from likes. a different place! yeah. a different one!"
+			if alongTheDialogue == 20:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+"and we're also, unfortunately, stuck together. why? i couldnt really tell you, to be honest."
+			if alongTheDialogue == 21:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"It's because he loooovveeess me!"
+			if alongTheDialogue == 22:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+"i do not."
+			if alongTheDialogue == 23:
+				endDialogue()
+		"whatIsThis":
+			if alongTheDialogue == 0:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"Don't eat those mushrooms or you will die."
+			if alongTheDialogue == 1:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+"wh- Okay?? What mushrooms??"
+			if alongTheDialogue == 2:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"those"
+			if alongTheDialogue == 3:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+"define those"
+			if alongTheDialogue == 4:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"no."
+			if alongTheDialogue == 5:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+"..."
+			if alongTheDialogue == 6:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+"We have to pay the bills somehow, so this is our way of doing it."
+			if alongTheDialogue == 7:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+"So yeah you're in the Black Market."
+			if alongTheDialogue == 8:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+"We sell stuff under the nose of QuickTime Event"
+				for i in FizzyDrink.marketDialogue.size():
+					if FizzyDrink.marketDialogue[i]["dialogKey"] == "QTE":
+						FizzyDrink.marketDialogue[i]["unlocked"] = true
+			if alongTheDialogue == 9:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+"Anything bought here cant be controlled by him."
+			if alongTheDialogue == 10:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"If you think it's shady and stuff that's just because we painted the walls black."
+			if alongTheDialogue == 11:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+"That, and also Black Markets are shady."
+			if alongTheDialogue == 12:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+"We painted the walls black just because any other color would make me rip my hair out."
+			if alongTheDialogue == 13:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"...Erm ...you actually painted them eigengrau!"
+			if alongTheDialogue == 14:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+"..Ignore him."
+			if alongTheDialogue == 15:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"Wait no i HATE being ignored!"
+			if alongTheDialogue == 16:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+"This place is where you can get yourself upgrades, either temporary or permanent."
+			if alongTheDialogue == 17:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"starts hyperventilating!"
+			if alongTheDialogue == 18:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+"We run very similarly to Melanie's shop. But honestly, you'd be hard pressed to find a shop that doesn't."
+			if alongTheDialogue == 19:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"la la la la la la la"
+			if alongTheDialogue == 20:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+"Every time you rebirth, you'll get these little rebirth tokens... Holds up a rebirth token."
+			if alongTheDialogue == 21:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"lalalaal wait why did you say that out loud"
+			if alongTheDialogue == 22:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+"And you can trade those tokens in for upgrades that last in between rebirths."
+			if alongTheDialogue == 23:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"HAHAHA INbtweEEEn LALALALALLAL"
+			if alongTheDialogue == 24:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+"...Rebirthing is a much more complicated feature that I don't feel like explaining right now though."
+			if alongTheDialogue == 25:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"LALALALALALALALALALALALA"
+			if alongTheDialogue == 26:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+"FOR THE LOVE OF THE CREATOR SHUT THE FUCK. UP."
+			if alongTheDialogue == 27:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"okay!"
+			if alongTheDialogue == 28:
+				endDialogue()
+		"skibidi":
+			if alongTheDialogue == 0:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"yeah, i like pickles"
+			if alongTheDialogue == 1:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+"..."
+			if alongTheDialogue == 2:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+"phantom they asked if we fuck with skibidi toilet."
+			if alongTheDialogue == 3:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"..."
+			if alongTheDialogue == 4:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"yeah i like pickles"
+			if alongTheDialogue == 5:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+"...well i don't like pickles or skibidi toilet. not my thing, honestly."
+			if alongTheDialogue == 6:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"three days"
+			if alongTheDialogue == 7:
+				endDialogue()
+		"MELANIN":
+			if alongTheDialogue == 0:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"she comes down here alot, actually"
+			if alongTheDialogue == 1:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+"and shes always trying to ask us stuff. all the time."
+			if alongTheDialogue == 2:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"its cuz im really really smart btw"
+			if alongTheDialogue == 3:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+"it's actually probably because of all the stuff we know that she doesnt."
+			if alongTheDialogue == 4:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"oh. yeah i guess... i guesss that makes sense.. hmph"
+			if alongTheDialogue == 5:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+"are you 4 years old"
+			if alongTheDialogue == 6:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"kinda"
+			if alongTheDialogue == 7:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+"close enough."
+			if alongTheDialogue == 8:
+				endDialogue()
+		"QTE":
+			if alongTheDialogue == 0:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"oh you mean playstation controller, right?"
+			if alongTheDialogue == 1:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+"I told you he's an Xbox!"
+			if alongTheDialogue == 2:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"you know i'm right"
+			if alongTheDialogue == 3:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+"No you are not! shut up!"
+			if alongTheDialogue == 4:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"okay!"
+			if alongTheDialogue == 5:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+"But uh.. he controls all this. I'm assuming you know that, though."
+			if alongTheDialogue == 6:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+"He primarily controls the computer's main-area, otherwise known as where that shrilow guy is."
+			if alongTheDialogue == 7:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+"Most well known for his minigames, he doesnt seem too harmless at first. but thats mainly a trick"
+			if alongTheDialogue == 8:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+"He's also our landlord"
+			if alongTheDialogue == 9:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"Yeah, what a bad landlord! I mean, whats he need all those tokens for? quite a! weird form of payment!"
+			if alongTheDialogue == 10:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"If i had all those tokens i'd put them in a big box somewhere haha not that ive done that or anything!"
+			if alongTheDialogue == 11:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+"Atleast its something we can manage, we dont really have money or anything."
+			if alongTheDialogue == 12:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+"He isnt gonna kill everyone or anything, but he's a control freak, and we think thats not very chill."
+			if alongTheDialogue == 13:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"yeah antag only thinks its cool when HE'S a control freak!"
+			if alongTheDialogue == 14:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+"I'M NOT A CONTROL FREAK"
+			if alongTheDialogue == 15:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"I dunnooooo....."
+			if alongTheDialogue == 16:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+"just because I didnt let you clone yourself that one time, doesnt mean im a control freak"
+			if alongTheDialogue == 17:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"You hate fun"
+			if alongTheDialogue == 18:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+"I hate YOU"
+			if alongTheDialogue == 19:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"Same thing"
+			if alongTheDialogue == 20:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+"rot."
+			if alongTheDialogue == 21:
+				endDialogue()
+		"BRICKS":
+			if alongTheDialogue == 0:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"same person"
+			if alongTheDialogue == 1:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+"Wh- Okay, I know you guys look similar but you are NOT the same person"
+			if alongTheDialogue == 2:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"...y-yeah i.. i knew that!"
+			if alongTheDialogue == 3:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+"Phantom thought Mr. Bricks looked cool, so he copied his appearance a long time ago"
+			if alongTheDialogue == 4:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"did not"
+			if alongTheDialogue == 5:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+"Yes you did."
+			if alongTheDialogue == 6:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"did not"
+			if alongTheDialogue == 7:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+"Phantom, stop it."
+			if alongTheDialogue == 8:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"did not"
+			if alongTheDialogue == 9:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+"..."
+			if alongTheDialogue == 10:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+"did too"
+			if alongTheDialogue == 11:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"did not"
+			if alongTheDialogue == 12:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+"did too"
+			if alongTheDialogue == 13:
+				endDialogue()
+	
+	$BlackMarket/icon.texture = load("res://assets/images/areas/blackMarket/market/anphan/"+talker+"Icon.png")
 
 func endDialogue():
 	$Shop/ItemDescription.visible_ratio = 0
@@ -392,6 +758,9 @@ func endDialogue():
 	if melvinShopState == false:
 		spawnDialogueOptionsMelanie("melvin")
 		setShopBase("melvin")
+	if marketShopState == false:
+		spawnDialogueOptionsMelanie("market")
+		setShopBase("market")
 
 func generateHoes():
 	for i in ItemValues.itemInfomation.size():
@@ -618,40 +987,70 @@ func _process(_delta : float) -> void:
 		manageScenes()
 	
 	if melShopState == false:
+		$Shop/type.pitch_scale = 1.0
 		if $Shop/ItemDescription.visible_ratio > 1:
 			$Shop/ItemDescription.visible_ratio = 1
 		if $Shop/ItemDescription.visible_ratio < 1:
-			$Shop/type.play()
+			if $Shop/ItemDescription.visible_ratio < 0.9:
+				$Shop/type.play()
 			var numToUse
 			if _delta < 0.03:
 				numToUse = 0.03
 			else:
 				numToUse = _delta
-			print(_delta)
 			$Shop/ItemDescription.visible_characters += 50 * numToUse
+	else:
+		$Shop/ItemDescription.visible_ratio = 1
+		$Shop/ItemDescription.visible_characters = -1
+	if marketShopState == false:
+		if talker == "Phantom":
+			$Shop/type.pitch_scale = 1.0
+		if talker == "Antag":
+			$Shop/type.pitch_scale = 0.5
+		if $BlackMarket/talk.visible_ratio > 1.0:
+			$BlackMarket/talk.visible_ratio = 1.0
+		if $BlackMarket/talk.visible_ratio < 1.0:
+			if $BlackMarket/talk.visible_ratio < 0.9:
+				$Shop/type.play()
+			var numToUse
+			if _delta < 0.03:
+				numToUse = 0.03
+			else:
+				numToUse = _delta
+			$BlackMarket/talk.visible_characters += 50 * numToUse
 	if melvinShopState == false:
+		$Shop/type.pitch_scale = 1.0
 		if $Melvin/ItemDescription.visible_ratio > 1:
 			$Melvin/ItemDescription.visible_ratio = 1
 		if $Melvin/ItemDescription.visible_ratio < 1:
-			$Shop/type.play()
+			if $Melvin/ItemDescription.visible_ratio < 0.9:
+				$Shop/type.play()
+			else:
+				$Shop/type.volume_db = -1000
 			var numToUse
 			if _delta < 0.03:
 				numToUse = 0.03
 			else:
 				numToUse = _delta
-			print(_delta)
 			$Melvin/ItemDescription.visible_characters += 50 * numToUse
+	else:
+		$Melvin/ItemDescription.visible_ratio = 1
+		$Melvin/ItemDescription.visible_characters = -1
 	
 	if dialougeMode == true:
 		$Shop/BackButtonSHOP.disabled = true
 		$Shop/BackSHOP.visible = false
 		$Melvin/BackButton.disabled = true
 		$Melvin/back.visible = false
+		$BlackMarket/LeaveBlack.disabled = true
+		$BlackMarket/Back.visible = false
 	if dialougeMode == false:
 		$Shop/BackButtonSHOP.disabled = false
 		$Shop/BackSHOP.visible = true
 		$Melvin/BackButton.disabled = false
 		$Melvin/back.visible = true
+		$BlackMarket/LeaveBlack.disabled = false
+		$BlackMarket/Back.visible = true
 	
 	$Journal/jellyName.text = Jelly.jellyName
 	$Journal/jellyDesc.text = Jelly.jellyDesc
@@ -1155,6 +1554,18 @@ func spawnDialogueOptionsMelanie(char : String):
 				add_child(caca)
 				caca.reparent($Melvin/talkOptions/GridContainer)
 				dialogueOptionsMelvin.append(caca)
+	if char == "market":
+		for i in FizzyDrink.marketDialogue.size():
+			if FizzyDrink.marketDialogue[i]["unlocked"] == true:
+				var cacapoopyGOD2 = load("res://technical/dialogOption.tscn")
+				var caca = cacapoopyGOD2.instantiate()
+				caca.present = FizzyDrink.marketDialogue[i]["present"]
+				caca.dialogKey = FizzyDrink.marketDialogue[i]["dialogKey"]
+				caca.interacted = FizzyDrink.marketDialogue[i]["interacted"]
+				caca.arrayToUse = "market"
+				add_child(caca)
+				caca.reparent($BlackMarket/talkOptions/GridContainer)
+				dialogueOptionsMarket.append(caca)
 
 func clearDialogItems():
 	for i in dialogueOptionsMelanie.size():
@@ -1163,6 +1574,9 @@ func clearDialogItems():
 	for i in dialogueOptionsMelvin.size():
 		dialogueOptionsMelvin[i].queue_free()
 	dialogueOptionsMelvin.resize(0)
+	for i in dialogueOptionsMarket.size():
+		dialogueOptionsMarket[i].queue_free()
+	dialogueOptionsMarket.resize(0)
 
 func setShopBase(char : String):
 	if char == "melanie":
@@ -1176,6 +1590,24 @@ func setShopBase(char : String):
 		$Shop/ItemName.text = "MELANIE:"
 		$Shop/ItemDescription.text = openingMessages[rng.randi_range(0, openingMessages.size()-1)]
 		$Shop/ItemExtra.text = ""
+	if char == "market":
+		$BlackMarket/whores.play("talk")
+		var openingMessages = [
+			"Antag: Dont encourage him.",
+			"Phantom: Oh! Oh! Oh! you wanna talk? yes!!!!!",
+			"Antag: Ok.",
+			"Phantom: Hi!",
+			]
+		var openingIcons = [
+			"Antag",
+			"Phantom",
+			"Antag",
+			"Phantom",
+			]
+		var num = rng.randi_range(0, openingMessages.size()-1)
+		talker = openingIcons[num]
+		$BlackMarket/icon.texture = load("res://assets/images/areas/blackMarket/market/anphan/"+openingIcons[num]+"Icon.png")
+		$BlackMarket/talk.text = openingMessages[num]
 	if char == "melvin":
 		$Melvin/melvin.play("talkBase")
 		var openingMessages = [
@@ -1186,6 +1618,35 @@ func setShopBase(char : String):
 			]
 		$Melvin/ItemName.text = "MELVIN:"
 		$Melvin/ItemDescription.text = openingMessages[rng.randi_range(0, openingMessages.size()-1)]
+
+
+func marketShopToggle() -> void:
+	if dialogKey == "none":
+		$BlackMarket/talk.text = ""
+		$BlackMarket/talk.visible_characters = -1
+		$BlackMarket/talk.visible_ratio = 1
+		marketShopState = !marketShopState
+		if marketShopState == false:
+			$BlackMarket/talk.visible_ratio = 0
+			spawnDialogueOptionsMelanie("market")
+			$BlackMarket/ScrollContainer.position.y = 365.0
+			$BlackMarket/talkOptions.position.y = -183.0
+			setShopBase("market")
+			$BlackMarket/ItemDescription.visible = false
+			$BlackMarket/ItemName.visible = false
+			$BlackMarket/ItemExtra.visible = false
+			$BlackMarket/talk.visible = true
+			$BlackMarket/icon.visible = true
+		if marketShopState == true:
+			clearDialogItems()
+			$BlackMarket/talkOptions.position.y = 365.0
+			$BlackMarket/ScrollContainer.position.y = -183.0
+			$BlackMarket/whores.play("base")
+			$BlackMarket/ItemDescription.visible = true
+			$BlackMarket/ItemName.visible = true
+			$BlackMarket/ItemExtra.visible = true
+			$BlackMarket/talk.visible = false
+			$BlackMarket/icon.visible = false
 
 func melShopToggle() -> void:
 	if dialogKey == "none":
@@ -1338,11 +1799,16 @@ func marketState(type : String) -> void:
 	if type == "enter":
 		if $Market/ShopMusic.playing == false:
 			$Market/ShopMusic.play()
+		if melShopState != true:
+			melShopToggle()
 		$Camera2D/bg.self_modulate = Color(0.1,0.1,0.1,1)
-		cameraAnimation("market", 1923, 1167, false)
+		cameraAnimation("market", 1924, 1167, false)
+		for i in FizzyDrink.melDialogue.size():
+			if FizzyDrink.melDialogue[i]["dialogKey"] == "MARKETCONTINUED":
+				FizzyDrink.melDialogue[i]["unlocked"] = true
 	if type == "leave":
 		$Camera2D/bg.self_modulate = Color(1,1,1,1)
-		cameraAnimation("market", 576, 324, false)
+		cameraAnimation("market", 577, 324, false)
 	if type == "void":
 		if can == true:
 			area = "void"
@@ -1368,12 +1834,15 @@ func marketState(type : String) -> void:
 			var tween = create_tween()
 			tween.tween_property($Market, "scale", Vector2(7.5,7.5), 1).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_IN)
 			tween.tween_callback(canpls)
-			$BlackMarket.position.x = 1923
+			$BlackMarket.position.x = 1924
 			$BlackMarket.position.y = 1167
 			$Market/marketDoor.texture = load("res://assets/images/areas/blackMarket/marketDoorOpen.png")
 			can = false
 	if type == "blackmarketLeave":
 		if can == true:
+			if marketShopState != true:
+				marketShopToggle()
+				clearDialogItems()
 			var tween = create_tween()
 			tween.tween_property($Market, "scale", Vector2(1,1), 1).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 			tween.tween_callback(canpls)
@@ -1417,3 +1886,11 @@ func rebirth() -> void:
 
 func _on_anim_animation_finished(anim_name: StringName) -> void:
 	can = true
+
+func box() -> void:
+	if Game.boxed == false:
+		$Market/AudioStreamPlayer.play()
+		Game.boxed = true
+		Game.rebirthTokens += 25
+		Game.warn("You found Phantom's secret stash of 25 Rebirth Tokens!...")
+	

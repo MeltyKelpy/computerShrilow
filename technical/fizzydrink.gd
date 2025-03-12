@@ -58,6 +58,12 @@ var melDialogue = [
 	"unlocked":false,
 	"interacted":false,
 	},
+	{
+	"present":"Black Market?",
+	"dialogKey":"MARKETCONTINUED",
+	"unlocked":false,
+	"interacted":false,
+	},
 	#{
 	#"present":"Still Wakes the Deep?",
 	#"dialogKey":"STILLWAKES",
@@ -126,7 +132,45 @@ var melvinDialogue = [
 	"unlocked":true,
 	"interacted":false,
 	},
-]
+	]
+var marketDialogue = [
+	{
+	"present":"Who are yall?",
+	"dialogKey":"whoAreYall",
+	"unlocked":true,
+	"interacted":false,
+	},
+	{
+	"present":"What is this place?",
+	"dialogKey":"whatIsThis",
+	"unlocked":true,
+	"interacted":false,
+	},
+	{
+	"present":"Phantom, you look like ghostybricks.",
+	"dialogKey":"BRICKS",
+	"unlocked":true,
+	"interacted":false,
+	},
+	{
+	"present":"do you fw skibidi toilet?",
+	"dialogKey":"skibidi",
+	"unlocked":true,
+	"interacted":false,
+	},
+	{
+	"present":"QuickTime Event?",
+	"dialogKey":"QTE",
+	"unlocked":false,
+	"interacted":false,
+	},
+	{
+	"present":"Melanie?",
+	"dialogKey":"MELANIN",
+	"unlocked":false,
+	"interacted":false,
+	},
+	]
 
 var descriptionSetting = ""
 
@@ -134,6 +178,8 @@ var scrollLimitLEFT = 0
 var scrollLimitRIGHT = 0
 
 func _process(float) -> void:
+	if str(enabledCrystal) == str(0):
+		enabledCrystal = "shrilow"
 	if enabledCrystal == "shrilow":
 		shrilowPower = (FizzyDrink.clickPowerAdditions+FizzyDrink.clickPower+FizzyDrink.clickPowerP1+FizzyDrink.clickPowerP1R+FizzyDrink.clickPowerClothingBuffs)
 		shrilowPowerAuto = (FizzyDrink.AUTOclickPowerAdditions+FizzyDrink.AUTOclickPower+FizzyDrink.AUTOclickPowerP1+FizzyDrink.AUTOclickPowerP1R+FizzyDrink.AUTOclickPowerClothingBuffs)

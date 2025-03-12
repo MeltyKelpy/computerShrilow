@@ -19,6 +19,8 @@ var gameTime = 0.0
 var icon = 0
 var saveFileClicks = 0
 
+var boxed = false
+
 var curFile = 0
 
 var evilMines = false
@@ -75,10 +77,10 @@ func commizeNumber(value: int) -> String:
 	# Return the formatted string.
 	return str_value
 
-func notify(text : String, icon : String):
+func notify(text : String, hashtagicon : String):
 	var cacapoopyGOD3 = preload("res://technical/notification.tscn")
 	var caca2 = cacapoopyGOD3.instantiate()
-	caca2.texture = icon
+	caca2.texture = hashtagicon
 	caca2.text = text
 	$/root.add_child(caca2)
 
@@ -111,7 +113,11 @@ func loadData():
 		ItemValues.money = config.get_value("Fiscal", "Money")
 		ClothingObjects.equippedClothing = config.get_value("Fiscal", "Clothing")
 		FizzyDrink.jellys = config.get_value("Fiscal", "AmountOfJellies")
-		FizzyDrink.amountOfRooms = config.get_value("Fiscal", "AmountOfRooms")
+		FizzyDrink.amountOfRooms = config.get_value("Fiscal", "AmountOfRooms", 0)
+		if config.get_value("Rebirth", "RebirthBoxTokens") != null:
+			boxed = config.get_value("Rebirth", "RebirthBoxTokens")
+		else:
+			boxed = false
 		
 		ItemValues.itemInfomation[0]["CurUpgrade"] = config.get_value("Shop", "autoClickerUpgrade")
 		ItemValues.itemInfomation[1]["CurUpgrade"] = config.get_value("Shop", "PlusOneUpgrade")
@@ -119,7 +125,7 @@ func loadData():
 		ItemValues.itemInfomation[9]["CurUpgrade"] = config.get_value("Shop", "shrilowCry")
 		ItemValues.itemInfomation[10]["CurUpgrade"] = config.get_value("Shop", "jellyCry")
 		ItemValues.itemInfomation[11]["CurUpgrade"] = config.get_value("Shop", "mineCry")
-		FizzyDrink.enabledCrystal = config.get_value("Shop", "selectedCrystal")
+		FizzyDrink.enabledCrystal = config.get_value("Shop", "selectedCrystal", "shrilow")
 		
 		ItemValues.marketItems[0]["CurUpgrade"] = config.get_value("Rebirth", "RebirthAutoClickerLevel")
 		ItemValues.marketItems[1]["CurUpgrade"] = config.get_value("Rebirth", "PresistantPlusOne")
@@ -165,7 +171,7 @@ func loadData():
 		
 		rebirthTokens = config.get_value("Rebirth", "RebirthTokens")
 		
-		saveFileClicks = config.get_value("Achievements", "All-Time-Clicks")
+		saveFileClicks = config.get_value("Achievements", "All-Time-Clicks", 0)
 		
 		if Game.saveFileClicks == null:
 			Game.saveFileClicks = 0
@@ -192,6 +198,7 @@ func saveData():
 	config.set_value("Fiscal", "Icon", icon)
 	
 	config.set_value("Rebirth", "RebirthTokens", rebirthTokens)
+	config.set_value("Rebirth", "RebirthBoxTokens", boxed)
 	config.set_value("Rebirth", "RebirthAutoClickerLevel", ItemValues.marketItems[0]["CurUpgrade"])
 	config.set_value("Rebirth", "PresistantPlusOne", ItemValues.marketItems[1]["CurUpgrade"])
 	config.set_value("Rebirth", "PlusOneMC", ItemValues.marketItems[2]["CurUpgrade"])
