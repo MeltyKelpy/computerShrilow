@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dg0ivea2ihqkk"]
+[gd_scene load_steps=13 format=3 uid="uid://dg0ivea2ihqkk"]
 
 [ext_resource type="Script" uid="uid://bu55xmycd70xf" path="res://technical/jellies/thePit.gd" id="1_t4w8s"]
 [ext_resource type="Texture2D" uid="uid://bj10x1ka5qcjo" path="res://assets/images/areas/jellies/rooms/thePit/room.png" id="2_t4w8s"]
@@ -9,7 +9,16 @@
 size = Vector2(1622, 62)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t4w8s"]
-size = Vector2(197, 86)
+size = Vector2(171, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s2t3g"]
+size = Vector2(27, 29)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v8hrw"]
+size = Vector2(116, 75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3fkue"]
+size = Vector2(93.7445, 32.8896)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_df35r"]
 size = Vector2(1617.88, 44.7499)
@@ -36,8 +45,21 @@ position = Vector2(191, 639)
 shape = SubResource("RectangleShape2D_fd18s")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="basicRoom/StaticBody2D"]
-position = Vector2(26.5, 322)
+position = Vector2(13.5, 297)
 shape = SubResource("RectangleShape2D_t4w8s")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="basicRoom/StaticBody2D"]
+position = Vector2(108.5, 293.5)
+shape = SubResource("RectangleShape2D_s2t3g")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="basicRoom/StaticBody2D"]
+position = Vector2(-11, 324.5)
+shape = SubResource("RectangleShape2D_v8hrw")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="basicRoom/StaticBody2D"]
+position = Vector2(74.5938, 322.745)
+rotation = -0.605795
+shape = SubResource("RectangleShape2D_3fkue")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="basicRoom/StaticBody2D"]
 position = Vector2(189.063, -523)
