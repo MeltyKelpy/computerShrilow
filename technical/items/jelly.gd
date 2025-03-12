@@ -111,6 +111,15 @@ func _physics_process(delta: float) -> void:
 	$nameShit.global_position = get_global_mouse_position()
 	$nameShit/Name.rotation = 0
 	$nameShit/Stats.rotation = 0
+	if $/root/computerShrilow.rebirthProtocol == true:
+		var awesomsmee = {
+			"Name":jelly,
+			"MoneyGain":money,
+			"Seconds":seconds,
+			"Rarity":rarity,
+			"ID":id
+			}
+		Game.rebirthJellyProtocol[Game.rebirthJellyProtocol.size()] = awesomsmee
 
 func _unhandled_input(event: InputEvent) -> void:
 	if is_dragging and event is InputEventMouseButton and not event.is_pressed():
@@ -211,6 +220,10 @@ func _on_storage_pressed(type) -> void:
 		"Rarity":rarity,
 		"ID":id
 		}
+	if rarity == "Market":
+		Game.jelliesInStorage.resize(Game.jelliesInStorage.size()+1)
+		Game.jelliesInStorage[Game.jelliesInStorage.size()-1] = awesomsmee
+		print(Game.jelliesInStorage[Game.jelliesInStorage.size()-1])
 	Jelly.storedJellys.resize(Jelly.storedJellys.size()+1)
 	Jelly.storedJellys[Jelly.storedJellys.size()-1] = awesomsmee
 	print(Jelly.storedJellys[Jelly.storedJellys.size()-1])

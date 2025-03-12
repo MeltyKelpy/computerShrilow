@@ -19,6 +19,9 @@ var gameTime = 0.0
 var icon = 0
 var saveFileClicks = 0
 
+var rebirthJellyProtocol = []
+var jelliesInStorage = []
+
 var boxed = false
 
 var curFile = 0

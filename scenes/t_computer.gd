@@ -20,6 +20,7 @@ var AnimPosCamY = 0
 var allowing = false
 
 var rebirthIndicated = false
+var rebirthProtocol = false
 
 var storageReturnX = 0
 var storageReturnY = 0
@@ -843,6 +844,14 @@ func generateHoes():
 		caca.reparent($Journal/ScrollContainer/GridContainer)
 
 func _ready():
+	
+	print(Game.rebirthJellyProtocol)
+	print(Jelly.storedJellys)
+	if Game.rebirthJellyProtocol.size() != 0 and Game.jelliesInStorage.size() == 0:
+		Jelly.storedJellys = Game.rebirthJellyProtocol
+		Game.rebirthJellyProtocol.resize(0)
+	print(Game.rebirthJellyProtocol)
+	print(Jelly.storedJellys)
 	
 	Game.loadData()
 	
@@ -1882,6 +1891,16 @@ func _Rebirth() -> void:
 	$Shrilow/Squeak2.volume_db = -80
 
 func rebirth() -> void:
+	rebirthProtocol = true
+	print(Game.jelliesInStorage)
+	print(Game.rebirthJellyProtocol)
+	for i in range(0, Game.jelliesInStorage.size()-1):
+		if Game.rebirthJellyProtocol.size() > 0:
+			Game.rebirthJellyProtocol.resize(Game.rebirthJellyProtocol.size() + Game.jelliesInStorage.size())
+			for e in range(Game.jelliesInStorage.size()):
+				Game.rebirthJellyProtocol[(Game.rebirthJellyProtocol.size()-e)-1] = Game.jelliesInStorage[i]
+	print(Game.jelliesInStorage)
+	print(Game.rebirthJellyProtocol)
 	get_tree().change_scene_to_file("res://scenes/rebirthScene.tscn")
 
 func _on_anim_animation_finished(anim_name: StringName) -> void:
