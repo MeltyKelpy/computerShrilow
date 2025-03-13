@@ -102,7 +102,9 @@ func _physics_process(delta: float) -> void:
 		_on_storage_pressed(true)
 	if FizzyDrink.enabledCrystal == "jelly":
 		showMoney = showMoney * 3
-		showSeconds = showSeconds / 2
+		showSeconds = round(showSeconds / 2)
+		if showSeconds < 1:
+			showSeconds = 0.5
 	$nameShit/Stats.text = rarity+"\n"+str(showMoney)+"$ per "+str(showSeconds)+" Seconds"
 	$FirstTimer.wait_time = float(showSeconds - 0.2)
 	$SecondTimer.wait_time = 0.2
@@ -111,7 +113,7 @@ func _physics_process(delta: float) -> void:
 	$nameShit.global_position = get_global_mouse_position()
 	$nameShit/Name.rotation = 0
 	$nameShit/Stats.rotation = 0
-	if $/root/computerShrilow.rebirthProtocol == true:
+	if $/root/computerShrilow.rebirthProtocol == true and rarity == "Market":
 		var awesomsmee = {
 			"Name":jelly,
 			"MoneyGain":money,
