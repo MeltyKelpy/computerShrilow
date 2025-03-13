@@ -119,7 +119,9 @@ func _physics_process(delta: float) -> void:
 			"Rarity":rarity,
 			"ID":id
 			}
-		Game.rebirthJellyProtocol[Game.rebirthJellyProtocol.size()] = awesomsmee
+		Game.rebirthJellyProtocol.append(awesomsmee)
+		print(Game.rebirthJellyProtocol[Game.rebirthJellyProtocol.size()-1])
+		queue_free()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if is_dragging and event is InputEventMouseButton and not event.is_pressed():
@@ -220,10 +222,6 @@ func _on_storage_pressed(type) -> void:
 		"Rarity":rarity,
 		"ID":id
 		}
-	if rarity == "Market":
-		Game.jelliesInStorage.resize(Game.jelliesInStorage.size()+1)
-		Game.jelliesInStorage[Game.jelliesInStorage.size()-1] = awesomsmee
-		print(Game.jelliesInStorage[Game.jelliesInStorage.size()-1])
 	Jelly.storedJellys.resize(Jelly.storedJellys.size()+1)
 	Jelly.storedJellys[Jelly.storedJellys.size()-1] = awesomsmee
 	print(Jelly.storedJellys[Jelly.storedJellys.size()-1])

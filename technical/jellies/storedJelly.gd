@@ -64,6 +64,8 @@ func spawnJelly(ID):
 		Jelly.storedJellys.erase(jellyNum)
 		caca._on_change_floor_pressed(ID)
 		caca.setParent()
+		print(ID)
+		print($/root/computerShrilow/Jelly/rooms.get_child(ID))
 		caca.findRoom($/root/computerShrilow/Jelly/rooms.get_child(ID))
 		$/root/computerShrilow._deleteStorag()
 		Jelly.storedJellys.remove_at(jellyNum)

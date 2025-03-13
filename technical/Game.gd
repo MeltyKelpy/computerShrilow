@@ -20,7 +20,6 @@ var icon = 0
 var saveFileClicks = 0
 
 var rebirthJellyProtocol = []
-var jelliesInStorage = []
 
 var boxed = false
 
@@ -51,10 +50,6 @@ func reloadGlobals():
 	s = Achievements.get_script()
 	Achievements.set_script(null)
 	Achievements.set_script(s)
-	
-	s = get_script()
-	set_script(null)
-	set_script(s)
 
 func commizeNumber(value: int) -> String:
 	# Convert value to string.
@@ -137,6 +132,7 @@ func loadData():
 		evilMines = config.get_value("Rebirth", "EvilMinesAvaliable")
 		ItemValues.marketItems[4]["CurUpgrade"] = config.get_value("Rebirth", "AntagJelly")
 		ItemValues.marketItems[5]["CurUpgrade"] = config.get_value("Rebirth", "PhantomJelly")
+		rebirthJellyProtocol = config.get_value("Rebirth", "rebirthJellyProtocol")
 		
 		# config.set_value("Stats", "amountOfMines", FizzyDrink.minesLength)
 		FizzyDrink.minesLength = config.get_value("Stats", "amountOfMines")
@@ -208,6 +204,7 @@ func saveData():
 	config.set_value("Rebirth", "EvilMinesAvaliable", ItemValues.marketItems[3]["Owned"])
 	config.set_value("Rebirth", "AntagJelly", ItemValues.marketItems[4]["CurUpgrade"])
 	config.set_value("Rebirth", "PhantomJelly", ItemValues.marketItems[5]["CurUpgrade"])
+	config.set_value("Rebirth", "rebirthJellyProtocol", rebirthJellyProtocol)
 	config.set_value("Story", "DialogueUnlockedMARKET", gameTime)
 	config.set_value("Story", "DialogueDoneMARKET", gameTime)
 	config.set_value("Story", "RebirthIntroPlayed", RebirthIntroPlayed)
@@ -264,6 +261,7 @@ func saveData():
 	config.set_value("Shop", "jellyCry", ItemValues.itemInfomation[10]["CurUpgrade"])
 	config.set_value("Shop", "mineCry", ItemValues.itemInfomation[11]["CurUpgrade"])
 	config.set_value("Shop", "selectedCrystal", FizzyDrink.enabledCrystal)
+	config.set_value("Achievements", "All-Time-Clicks", saveFileClicks)
 	
 	config.save(files[curFile])
 	
@@ -275,11 +273,10 @@ func resetables():
 	
 	config.load(files[curFile])
 	
-	config.set_value("Fiscal", "Name", namee)
-	config.set_value("Fiscal", "AmountOfJellies", 0)
 	config.set_value("Fiscal", "Money", 0)
 	config.set_value("Fiscal", "StoredJellies", [])
 	config.set_value("Fiscal", "Clothing", 0)
+	config.set_value("Fiscal", "AmountOfRooms", 0)
 	config.set_value("Stats", "amountOfMines", 1)
 	config.set_value("Stats", "greasepuppies", 0)
 	config.set_value("Fiscal", "Icon", icon)
@@ -298,6 +295,5 @@ func resetables():
 	config.set_value("Story", "DialogueDoneMELANIE", [])
 	config.set_value("Story", "DialogueUnlockedMELVIN", [])
 	config.set_value("Story", "DialogueDoneMELVIN", [])
-	config.set_value("Achievements", "All-Time-Clicks", saveFileClicks)
 	
 	config.save(files[curFile])

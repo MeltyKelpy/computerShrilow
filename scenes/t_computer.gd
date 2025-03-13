@@ -845,15 +845,17 @@ func generateHoes():
 
 func _ready():
 	
-	print(Game.rebirthJellyProtocol)
-	print(Jelly.storedJellys)
-	if Game.rebirthJellyProtocol.size() != 0 and Game.jelliesInStorage.size() == 0:
-		Jelly.storedJellys = Game.rebirthJellyProtocol
-		Game.rebirthJellyProtocol.resize(0)
-	print(Game.rebirthJellyProtocol)
-	print(Jelly.storedJellys)
-	
 	Game.loadData()
+	
+	if Game.rebirthJellyProtocol.size() > 0:
+		print("Jellies "+str(Jelly.storedJellys))
+		print("Protocol "+str(Game.rebirthJellyProtocol))
+		for i in range(0, Game.rebirthJellyProtocol.size()):
+			if i <= Game.rebirthJellyProtocol.size()-1:
+				Jelly.storedJellys.append(Game.rebirthJellyProtocol[i])
+		Game.rebirthJellyProtocol.resize(0)
+		print("Updated Jellies "+str(Jelly.storedJellys))
+		print("Updated Protocol "+str(Game.rebirthJellyProtocol))
 	
 	$Mines.position.y = 648
 	generateHoes()
@@ -1882,6 +1884,18 @@ func canpls():
 	can = true
 
 func _Rebirth() -> void:
+	rebirthProtocol = true
+	for i in range(0, Jelly.storedJellys.size()):
+		if Jelly.storedJellys[i] != null:
+			if Jelly.storedJellys[i]["Rarity"] == "Market":
+				var awesomsmee = {
+					"Name":Jelly.storedJellys[i]["Name"],
+					"MoneyGain":Jelly.storedJellys[i]["MoneyGain"],
+					"Seconds":Jelly.storedJellys[i]["Seconds"],
+					"Rarity":Jelly.storedJellys[i]["Rarity"],
+					"ID":Jelly.storedJellys[i]["ID"]
+					}
+				Game.rebirthJellyProtocol.append(awesomsmee)
 	can = false
 	$Camera2D/AudioStreamPlayer.play()
 	$Camera2D/ColorRect.visible = true
@@ -1891,16 +1905,7 @@ func _Rebirth() -> void:
 	$Shrilow/Squeak2.volume_db = -80
 
 func rebirth() -> void:
-	rebirthProtocol = true
-	print(Game.jelliesInStorage)
-	print(Game.rebirthJellyProtocol)
-	for i in range(0, Game.jelliesInStorage.size()-1):
-		if Game.rebirthJellyProtocol.size() > 0:
-			Game.rebirthJellyProtocol.resize(Game.rebirthJellyProtocol.size() + Game.jelliesInStorage.size())
-			for e in range(Game.jelliesInStorage.size()):
-				Game.rebirthJellyProtocol[(Game.rebirthJellyProtocol.size()-e)-1] = Game.jelliesInStorage[i]
-	print(Game.jelliesInStorage)
-	print(Game.rebirthJellyProtocol)
+	Game.saveData()
 	get_tree().change_scene_to_file("res://scenes/rebirthScene.tscn")
 
 func _on_anim_animation_finished(anim_name: StringName) -> void:

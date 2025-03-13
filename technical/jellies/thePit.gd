@@ -14,6 +14,7 @@ extends Node2D
 
 func getID(num):
 	ID = FizzyDrink.amountOfRooms
+	print(ID)
 	reparent(parent)
 	ItemValues.melvinItems[num]["Owned"] = false
 	position.x = -64

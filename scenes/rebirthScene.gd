@@ -6,34 +6,39 @@ var prog = 1
 var canProg = false
 
 var lines = {
-	0:[
-		"The world suddenly dissolves, it encapsulates your soul.",
-		"Your history is to be erased, gone from the records.",
-		"You will be, reborn.",
-		"But, thats corny, isnt it?",
-		"I'll be honest, I wasnt expecting you to get here so fast.",
-		"So, forgive me.",
-		"hm... tell you what.",
-		"Come find me again, and i'll have something ready this time! promise.",
-		"Dont keep me waiting...",
-		"-QT.E",
-		],
-	1:[
-		"Hello again.",
-		"Good to see that you made it!",
-		"I see you are more dedicated than the rest.",
-		"I wasn't expecting it, but my my, you've truly impressed me.",
-		"So, i'd say its about time I made my entrance.",
-		"Introducing to you.",
-		"The One!",
-		"The Only!",
-		"QuickTime Event!",
-		],
+	0:["","BOOO"],
+	#0:[
+		#"",
+		#"The world suddenly dissolves, it encapsulates your soul.",
+		#"Your history is to be erased, gone from the records.",
+		#"You will be, reborn.",
+		#"But, thats corny, isnt it?",
+		#"I'll be honest, I wasnt expecting you to get here so fast.",
+		#"So, forgive me.",
+		#"hm... tell you what.",
+		#"Come find me again, and i'll have something ready this time! promise.",
+		#"Dont keep me waiting...",
+		#"-QT.E",
+		#],
+	1:["","BOOO"],
+		#"",
+		#"Hello again.",
+		#"Good to see that you made it!",
+		#"I see you are more dedicated than the rest.",
+		#"I wasn't expecting it, but my my, you've truly impressed me.",
+		#"So, i'd say its about time I made my entrance.",
+		#"Introducing to you.",
+		#"The One!",
+		#"The Only!",
+		#"QuickTime Event!",
+		#],
 	2:[
-		"oh!",
+		"",
 		"welcome back!",
 		],
 	}
+
+var dialog = 0
 
 func _ready() -> void:
 	if FizzyDrink.jellys == null:
@@ -50,7 +55,12 @@ func _ready() -> void:
 
 func _startDialog():
 	$AnimationPlayer.play("beamLoop")
-	$Label.text = lines[Game.rebirths][prog]
+	if Game.rebirths <= 2:
+		dialog = Game.rebirths
+		$Label.text = lines[Game.rebirths][prog]
+	else:
+		dialog = 2
+		$Label.text = lines[2][prog]
 	var tween = get_tree().create_tween()
 	tween.tween_property($Label, "modulate", Color(1,1,1,1), 1.5)
 	canProg = true
@@ -65,9 +75,9 @@ func _process(delta: float) -> void:
 			var tween = get_tree().create_tween()
 			tween.tween_property($Label, "modulate", Color(1,1,1,0), 1.5)
 			await get_tree().create_timer(1.5).timeout
-			if lines[Game.rebirths].size()-1 >= prog+1:
+			if lines[dialog].size()-1 >= prog+1:
 				prog += 1
-				$Label.text = lines[Game.rebirths][prog]
+				$Label.text = lines[dialog][prog]
 				var tween2 = get_tree().create_tween()
 				tween2.tween_property($Label, "modulate", Color(1,1,1,1), 1.5)
 				await get_tree().create_timer(1.5).timeout
@@ -85,18 +95,11 @@ func restart():
 	var dir = DirAccess.open(Game.scenePaths[Game.curFile])
 	if dir != null:
 		for file in dir.get_files():
-			print(file)
 			DirAccess.remove_absolute(Game.scenePaths[Game.curFile]+"/"+file)
 	DirAccess.remove_absolute(Game.scenePaths[Game.curFile])
-	print(DirAccess.get_directories_at("user://saveData/nodeSaves"))
 	#Game.resetables(true)
-	Game.reloadGlobals()
-	$Timer.start()
-
-func _on_timer_timeout() -> void:
+	Game.loadData()
 	Game.rebirths += 1
-	Game.resetables()
-	Game.saveData()
 	var config = ConfigFile.new()
 	config.load(Game.files[Game.curFile])
 	Game.rebirthTokens += recievedTokens
@@ -109,10 +112,15 @@ func _on_timer_timeout() -> void:
 	if Achievements.achievements[0]["unlocked?"] == false:
 		Game.notify('You unlocked the "Rebirth" achievement!\nData Wipe.', "trophy")
 		Achievements.achievements[0]["unlocked?"] = true
-	Game.saveData()
 	Achievements.save()
-	Game.loadData()
 	Achievements.load()
+	Game.saveData()
+	Game.resetables()
+	Game.loadData()
+	$Timer.start()
+
+func _on_timer_timeout() -> void:
+	ItemValues.money = 0
 	get_tree().change_scene_to_file("res://scenes/tComputer.tscn")
 
 func _on_timer_2_timeout() -> void:
