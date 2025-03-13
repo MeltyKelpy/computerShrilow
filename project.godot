@@ -38,6 +38,7 @@ Settings="*res://technical/settings.gd"
 Game="*res://technical/Game.gd"
 Journal="*res://technical/rooms/journalEntryManagement.gd"
 Achievements="*res://technical/Achievements.tscn"
+Curses="*res://technical/curses.gd"
 
 [debug]
 
