@@ -40,6 +40,7 @@ var lines = {
 var dialog = 0
 
 func _ready() -> void:
+	Curses.curses = []
 	if FizzyDrink.jellys == null:
 		FizzyDrink.jellys = 0
 	if FizzyDrink.clicks == null:
@@ -82,13 +83,21 @@ func _process(delta: float) -> void:
 				await get_tree().create_timer(1.5).timeout
 				canProg = true
 			else:
-				canProg = false
-				var tween2 = get_tree().create_tween()
-				tween2.tween_property($Label2, "modulate", Color(1,1,1,1), 1.5)
-				await get_tree().create_timer(3).timeout
-				tween.tween_property($Label2, "modulate", Color(1,1,1,0), 1.5)
-				await get_tree().create_timer(1.5).timeout
-				$AnimationPlayer.play("kill")
+				if dialog == 0:
+					end_scene_OG()
+				else:
+					$wipCurses.visible = true
+	$wipCurses/Label2.text = "amount of curses: "+str($wipCurses/HSlider.value)
+
+func end_scene_OG():
+	canProg = false
+	var tween2 = get_tree().create_tween()
+	tween2.tween_property($Label2, "modulate", Color(1,1,1,1), 1.5)
+	await get_tree().create_timer(3).timeout
+	var tween = get_tree().create_tween()
+	tween.tween_property($Label2, "modulate", Color(1,1,1,0), 1.5)
+	await get_tree().create_timer(1.5).timeout
+	$AnimationPlayer.play("kill")
 
 func restart():
 	var dir = DirAccess.open(Game.scenePaths[Game.curFile])
@@ -124,3 +133,38 @@ func _on_timer_timeout() -> void:
 
 func _on_timer_2_timeout() -> void:
 	$Label.text = "(you can click to progress the dialogue)"
+
+func _on_button_pressed() -> void:
+	for i in range(0, $wipCurses/HSlider.value):
+		Curses.curses.append(_pick_a_curse(i))
+	#print(Curses.curses)
+	Game.saveData()
+	end_scene_OG()
+	$wipCurses.visible = false
+
+func _pick_a_curse(curseNum):
+	var curseOutput
+	print(curseNum)
+	if curseNum == 0:
+		curseOutput = Curses.mainCurses[randi_range(0, Curses.mainCurses.size()-1)]
+	else:
+		var picker = randi_range(1, 100)
+		if picker > 50:
+			curseOutput = Curses.mainCurses[randi_range(0, Curses.mainCurses.size()-1)]
+		else:
+			curseOutput = Curses.passiveCurses[randi_range(0, Curses.passiveCurses.size()-1)]
+	
+	var output = true
+	for i in range(0, Curses.curses.size()-1):
+		if output != false:
+			if Curses.curses[i] != curseOutput:
+				output = true
+			else:
+				print(Curses.curses[i])
+				print(curseOutput)
+				output = false
+				curseOutput = _pick_a_curse(curseNum)
+		
+	if output == true:
+		print(curseOutput)
+		return curseOutput

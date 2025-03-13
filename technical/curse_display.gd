@@ -1,9 +1,17 @@
 extends TextureRect
 
-var curseID = 0
-var curseNum = 1
+var curseID = ""
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _ready() -> void:
+	for i in Curses.mainCurses.size():
+		if Curses.mainCurses[i]["ID"] == curseID:
+			$Label.text = Curses.mainCurses[i]["Name"]
+			texture = load(Curses.mainCurses[i]["Icon"])
+	for i in Curses.passiveCurses.size():
+		if Curses.passiveCurses[i]["ID"] == curseID:
+			$Label.text = Curses.passiveCurses[i]["Name"]
+			texture = load(Curses.passiveCurses[i]["Icon"])
+
 func _process(delta: float) -> void:
 	pass
 

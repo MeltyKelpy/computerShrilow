@@ -1,4 +1,4 @@
-[gd_scene load_steps=161 format=3 uid="uid://bgw557ttv6noe"]
+[gd_scene load_steps=160 format=3 uid="uid://bgw557ttv6noe"]
 
 [ext_resource type="Script" uid="uid://ddatxm3oli8qs" path="res://scenes/t_computer.gd" id="1_swrb7"]
 [ext_resource type="Texture2D" uid="uid://dajex7cpt7k4p" path="res://assets/images/bg/background.png" id="2_u0da7"]
@@ -27,7 +27,6 @@
 [ext_resource type="PackedScene" uid="uid://cbtrsg4a3b386" path="res://technical/minesLevel.tscn" id="18_6bagw"]
 [ext_resource type="Texture2D" uid="uid://bdb32kjljwqn4" path="res://assets/images/areas/jellies/JELLYDAYCARE.png" id="18_w041t"]
 [ext_resource type="Texture2D" uid="uid://bymsocpxxxn4o" path="res://assets/images/areas/jellies/receptionDesk.png" id="19_4v3d6"]
-[ext_resource type="PackedScene" uid="uid://dqgb3qnrfpmm1" path="res://technical/curseDisplay.tscn" id="19_m2i3t"]
 [ext_resource type="Texture2D" uid="uid://cwladsljiqill" path="res://assets/images/ui/backDown.png" id="19_tht4w"]
 [ext_resource type="Texture2D" uid="uid://ch5divq2tt5lo" path="res://assets/images/areas/jellies/melvin.png" id="20_elrg5"]
 [ext_resource type="PackedScene" uid="uid://ctkrk05lsjbrs" path="res://technical/items/gumballMachine.tscn" id="20_i56yc"]
@@ -1493,18 +1492,6 @@ offset_top = 78.0
 offset_right = 328.0
 offset_bottom = 120.0
 
-[node name="CurseDisplay" parent="ShrilowScreen/cursesDisplay" instance=ExtResource("19_m2i3t")]
-visible = false
-layout_mode = 2
-
-[node name="CurseDisplay2" parent="ShrilowScreen/cursesDisplay" instance=ExtResource("19_m2i3t")]
-visible = false
-layout_mode = 2
-
-[node name="CurseDisplay3" parent="ShrilowScreen/cursesDisplay" instance=ExtResource("19_m2i3t")]
-visible = false
-layout_mode = 2
-
 [node name="Jelly" type="Node2D" parent="."]
 position = Vector2(-1152, 0)
 
@@ -1707,17 +1694,125 @@ parameters/looping = true
 stream = ExtResource("30_av4u0")
 volume_db = 0.644
 
-[node name="MarektIndicator" type="AnimatedSprite2D" parent="Shop"]
-visible = false
+[node name="BricksGamble" type="Node2D" parent="."]
+position = Vector2(1152, 0)
+
+[node name="talkOptions" type="ScrollContainer" parent="BricksGamble"]
+offset_left = 35.0
+offset_top = 872.0
+offset_right = 623.0
+offset_bottom = 1221.0
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
+
+[node name="GridContainer" type="GridContainer" parent="BricksGamble/talkOptions"]
+layout_mode = 2
+columns = 2
+
+[node name="Sign" type="Sprite2D" parent="BricksGamble"]
 position = Vector2(576, 324)
+texture = ExtResource("23_1b4os")
+
+[node name="Mel" type="AnimatedSprite2D" parent="BricksGamble"]
+position = Vector2(577, 324)
+sprite_frames = SubResource("SpriteFrames_ugrh1")
+
+[node name="melinteract" type="Button" parent="BricksGamble"]
+offset_left = 664.0
+offset_top = 187.0
+offset_right = 1125.0
+offset_bottom = 621.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p6f28")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_w4xu3")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_uj6cr")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0meto")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_rmwiu")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_o3afr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_amgep")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_e3kvh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_kvmat")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iq0t2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
+button_mask = 2
+
+[node name="Description" type="Sprite2D" parent="BricksGamble"]
+position = Vector2(576, 324)
+texture = ExtResource("13_m021q")
+
+[node name="ItemName" type="Label" parent="BricksGamble"]
+offset_left = 48.0
+offset_top = 487.0
+offset_right = 192.0
+offset_bottom = 557.0
+scale = Vector2(1, 0.6)
+theme = ExtResource("8_oskpf")
+theme_override_font_sizes/font_size = 50
+text = "MELANIE:"
+
+[node name="ItemDescription" type="Label" parent="BricksGamble"]
+offset_left = 48.0
+offset_top = 516.0
+offset_right = 599.0
+offset_bottom = 676.0
+scale = Vector2(1, 0.6)
+theme = ExtResource("8_oskpf")
+theme_override_font_sizes/font_size = 35
+text = "oh, sure i got nothing else to do anyways lmao"
+autowrap_mode = 3
+
+[node name="ItemExtra" type="Label" parent="BricksGamble"]
+offset_left = 47.0
+offset_top = 588.0
+offset_right = 598.0
+offset_bottom = 635.0
+scale = Vector2(1, 0.6)
+theme = ExtResource("8_oskpf")
+theme_override_font_sizes/font_size = 30
+text = "ITEMDESC"
+autowrap_mode = 3
+
+[node name="BackSHOP" type="Sprite2D" parent="BricksGamble"]
+position = Vector2(91, 48)
+texture = ExtResource("14_88vde")
+
+[node name="BackButtonSHOP" type="Button" parent="BricksGamble"]
+offset_left = 2.0
+offset_top = 8.0
+offset_right = 174.0
+offset_bottom = 92.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p6f28")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_w4xu3")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_uj6cr")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0meto")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_rmwiu")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_o3afr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_amgep")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_e3kvh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_kvmat")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iq0t2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
+
+[node name="ShopMusic" type="AudioStreamPlayer" parent="BricksGamble"]
+stream = ExtResource("32_rrknt")
+volume_db = -80.0
+autoplay = true
+parameters/looping = true
+
+[node name="type" type="AudioStreamPlayer" parent="BricksGamble"]
+stream = ExtResource("30_av4u0")
+volume_db = 0.644
+
+[node name="MarektIndicator" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(1728, 324)
 sprite_frames = SubResource("SpriteFrames_x01u4")
 autoplay = "default"
 frame_progress = 0.512889
 
-[node name="EnterMarket" type="Button" parent="Shop"]
-offset_left = 932.0
+[node name="EnterMarket" type="Button" parent="."]
+offset_left = 2084.0
 offset_top = 526.0
-offset_right = 1154.0
+offset_right = 2306.0
 offset_bottom = 648.0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_p6f28")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_w4xu3")
@@ -2687,7 +2782,9 @@ autostart = true
 [connection signal="pressed" from="Jelly/BackButtonJELLY" to="." method="_on_back_button_jelly_pressed"]
 [connection signal="pressed" from="Shop/melinteract" to="." method="melShopToggle"]
 [connection signal="pressed" from="Shop/BackButtonSHOP" to="." method="_on_back_button_shop_pressed"]
-[connection signal="pressed" from="Shop/EnterMarket" to="." method="marketState" binds= ["enter"]]
+[connection signal="pressed" from="BricksGamble/melinteract" to="." method="melShopToggle"]
+[connection signal="pressed" from="BricksGamble/BackButtonSHOP" to="." method="_on_back_button_shop_pressed"]
+[connection signal="pressed" from="EnterMarket" to="." method="marketState" binds= ["enter"]]
 [connection signal="pressed" from="Market/LeaveMarket" to="." method="marketState" binds= ["leave"]]
 [connection signal="pressed" from="Market/openVoid" to="." method="marketState" binds= ["void"]]
 [connection signal="pressed" from="Market/openVoid2" to="." method="box"]

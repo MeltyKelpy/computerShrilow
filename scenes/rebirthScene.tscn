@@ -403,5 +403,45 @@ one_shot = true
 wait_time = 10.0
 one_shot = true
 
+[node name="wipCurses" type="Node2D" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="wipCurses"]
+offset_right = 1155.0
+offset_bottom = 653.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="wipCurses"]
+offset_left = 18.0
+offset_top = 16.0
+offset_right = 753.0
+offset_bottom = 112.0
+theme_override_font_sizes/font_size = 70
+text = "curses menu very wip"
+
+[node name="Label2" type="Label" parent="wipCurses"]
+offset_left = 20.0
+offset_top = 140.0
+offset_right = 755.0
+offset_bottom = 236.0
+theme_override_font_sizes/font_size = 40
+text = "amount of curses:"
+
+[node name="Button" type="Button" parent="wipCurses"]
+offset_left = 21.0
+offset_top = 249.0
+offset_right = 704.0
+offset_bottom = 356.0
+theme_override_font_sizes/font_size = 40
+text = "press this button to get cursed LOL"
+
+[node name="HSlider" type="HSlider" parent="wipCurses"]
+offset_left = 20.0
+offset_top = 187.0
+offset_right = 659.0
+offset_bottom = 224.0
+max_value = 5.0
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
+[connection signal="pressed" from="wipCurses/Button" to="." method="_on_button_pressed"]

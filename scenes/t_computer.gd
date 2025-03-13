@@ -764,6 +764,12 @@ func endDialogue():
 		setShopBase("market")
 
 func generateHoes():
+	for i in Curses.curses.size():
+		var cacapoopyGOD2 = preload("res://technical/curseDisplay.tscn")
+		var caca = cacapoopyGOD2.instantiate()
+		caca.curseID = Curses.curses[i]["ID"]
+		add_child(caca)
+		caca.reparent($ShrilowScreen/cursesDisplay)
 	for i in ItemValues.itemInfomation.size():
 		var caca = cacapoopyGOD.instantiate()
 		caca.ItemID = i
@@ -868,11 +874,11 @@ func _ready():
 	if err == OK:
 		
 		if config.get_value("Fiscal", "Rebirths") > 0:
-			$Shop/MarektIndicator.visible = true
-			$Shop/EnterMarket.disabled = false
+			$MarektIndicator.visible = true
+			$EnterMarket.disabled = false
 		else:
-			$Shop/MarektIndicator.visible = false
-			$Shop/EnterMarket.disabled = true
+			$MarektIndicator.visible = false
+			$EnterMarket.disabled = true
 		
 		for i in ["autoClickerUpgrade", "PlusOneUpgrade", "PlusOneAUTOUpgrade", "shrilowCry", "jellyCry", "mineCry"]:
 			if config.get_value("Shop", i) == null:
@@ -941,6 +947,11 @@ func _ready():
 	Game.saveData()
 
 func _process(_delta : float) -> void:
+	for i in range(0, Curses.curses.size()-1):
+		if Curses.curses[i]["ID"] == "gambling":
+			$ShrilowScreen/Shop.texture = load("res://assets/images/ui/bricks.png")
+		else:
+			$ShrilowScreen/Shop.texture = load("res://assets/images/ui/shop.png")
 	
 	if Game.saveFileClicks >= 100000:
 		var achievementID

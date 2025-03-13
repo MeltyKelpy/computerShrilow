@@ -116,6 +116,8 @@ func loadData():
 			boxed = config.get_value("Rebirth", "RebirthBoxTokens")
 		else:
 			boxed = false
+		Curses.curses = []
+		Curses.curses = config.get_value("Rebirth", "Curses", [])
 		
 		ItemValues.itemInfomation[0]["CurUpgrade"] = config.get_value("Shop", "autoClickerUpgrade")
 		ItemValues.itemInfomation[1]["CurUpgrade"] = config.get_value("Shop", "PlusOneUpgrade")
@@ -197,6 +199,7 @@ func saveData():
 	config.set_value("Fiscal", "Icon", icon)
 	
 	config.set_value("Rebirth", "RebirthTokens", rebirthTokens)
+	config.set_value("Rebirth", "Curses", Curses.curses)
 	config.set_value("Rebirth", "RebirthBoxTokens", boxed)
 	config.set_value("Rebirth", "RebirthAutoClickerLevel", ItemValues.marketItems[0]["CurUpgrade"])
 	config.set_value("Rebirth", "PresistantPlusOne", ItemValues.marketItems[1]["CurUpgrade"])
@@ -282,7 +285,10 @@ func resetables():
 	config.set_value("Fiscal", "Icon", icon)
 	var clothing = []
 	for i in ClothingObjects.clothes.size(): 
-		clothing.append(ClothingObjects.clothes[i]["Owned"])
+		if i <= 1:
+			ClothingObjects.clothes[i]["Owned"] = true
+		else:
+			ClothingObjects.clothes[i]["Owned"] = false
 	config.set_value("Stats", "ownedClothes", clothing)
 	config.set_value("Shop", "autoClickerUpgrade", 0)
 	config.set_value("Shop", "PlusOneUpgrade", 0)

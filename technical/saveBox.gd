@@ -47,6 +47,20 @@ func _ready() -> void:
 		Game.curFile = ID
 		icon = 0
 	
+	for i in config.get_value("Rebirth", "Curses", []).size():
+		var fuckyou = [
+			$curse1,
+			$curse2,
+			$curse3,
+			$curse4,
+			$curse5,
+			]
+		if config.get_value("Rebirth", "Curses", [])[i]["Icon"] != null and config.get_value("Rebirth", "Curses", [])[i]["Icon"] != "":
+			fuckyou[i].texture = load(config.get_value("Rebirth", "Curses", [])[i]["Icon"])
+			fuckyou[i].visible = true
+		else:
+			fuckyou[i].visible = false
+	
 	print("File "+str(ID+1)+" Loaded, Name: "+$FileName.text)
 
 func _process(delta: float) -> void:

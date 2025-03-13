@@ -2,9 +2,17 @@ extends Node
 
 var mainCurses = [
 	{"Name":"Curse of Gambling",
-	"Icon":"res://assets/images/ui/curses/gambling.png",}
+	"ID":"gambling",
+	"Icon":"res://assets/images/ui/curses/gambling.png",},
+	{"Name":"Curse of Kindness",
+	"ID":"kindness",
+	"Icon":"res://assets/images/ui/curses/kindness.png",},
 	]
-var passiveCurses = []
+var passiveCurses = [
+	{"Name":"Curse of Lost Bank Account",
+	"ID":"bankaccount",
+	"Icon":"res://assets/images/ui/curses/nobankaccount.png",},
+	]
 
 var curses = []
 
