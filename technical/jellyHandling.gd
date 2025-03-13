@@ -298,7 +298,7 @@ var queerJellies = [
 	},
 	{
 	"Name":"Modern Jelly",
-	"Desc":"i didnt wanna redraw jelly but my taco bell diablo sauce packet double dared me to\nremake of the original jelly, if it was made in the artstyle adopted closer to release rather than the initial one.",
+	"Desc":"i didnt wanna redraw jelly but my taco bell diablo sauce packet double dared me to\n\n(this one is a remake of the original jelly, if it was made in the artstyle adopted closer to release rather than the initial one.)",
 	"MoneyGain":50,
 	"Seconds":1,
 	"Discovered":false,
