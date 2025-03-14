@@ -182,6 +182,8 @@ var deletedAchievements = [
 
 func save():
 	
+	# hello
+	
 	var config = ConfigFile.new()
 	
 	var err = config.load(Game.files[Game.curFile])

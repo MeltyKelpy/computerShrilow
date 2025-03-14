@@ -7,6 +7,15 @@ var mainCurses = [
 	{"Name":"Curse of Kindness",
 	"ID":"kindness",
 	"Icon":"res://assets/images/ui/curses/kindness.png",},
+	{"Name":"Curse of Quicktime",
+	"ID":"quicktime",
+	"Icon":"res://assets/images/ui/curses/quicktime.png",},
+	{"Name":"Curse of Taxes",
+	"ID":"taxes",
+	"Icon":"res://assets/images/ui/curses/taxes.png",},
+	{"Name":"Curse of Mobile Game",
+	"ID":"mobilegame",
+	"Icon":"res://assets/images/ui/curses/ads.png",},
 	]
 var passiveCurses = [
 	{"Name":"Curse of Lost Bank Account",

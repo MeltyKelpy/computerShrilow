@@ -874,11 +874,11 @@ func _ready():
 	if err == OK:
 		
 		if config.get_value("Fiscal", "Rebirths") > 0:
-			$MarektIndicator.visible = true
-			$EnterMarket.disabled = false
+			$Shop/MarektIndicator.visible = true
+			$Shop/EnterMarket.disabled = false
 		else:
-			$MarektIndicator.visible = false
-			$EnterMarket.disabled = true
+			$Shop/MarektIndicator.visible = false
+			$Shop/EnterMarket.disabled = true
 		
 		for i in ["autoClickerUpgrade", "PlusOneUpgrade", "PlusOneAUTOUpgrade", "shrilowCry", "jellyCry", "mineCry"]:
 			if config.get_value("Shop", i) == null:
