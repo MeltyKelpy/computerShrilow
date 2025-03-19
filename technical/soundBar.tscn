@@ -53,7 +53,7 @@ one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_rp7e2")
+&"": SubResource("AnimationLibrary_rp7e2")
 }
 
 [connection signal="timeout" from="retractTimer" to="." method="_on_retract_timer_timeout"]

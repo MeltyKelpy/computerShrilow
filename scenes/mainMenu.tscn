@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://ba4g00sxw1ioe"]
+[gd_scene load_steps=82 format=3 uid="uid://ba4g00sxw1ioe"]
 
 [ext_resource type="Texture2D" uid="uid://dajex7cpt7k4p" path="res://assets/images/bg/background.png" id="1_i2qlv"]
 [ext_resource type="Script" uid="uid://du5kurp8y3jde" path="res://scenes/main_menu.gd" id="1_ihte6"]
@@ -20,6 +20,21 @@
 [ext_resource type="Texture2D" uid="uid://x4tqkgm40s3d" path="res://assets/images/mainMenu/credits/sectionDot.png" id="16_cjgcw"]
 [ext_resource type="Texture2D" uid="uid://cwladsljiqill" path="res://assets/images/ui/backDown.png" id="17_q8ob8"]
 [ext_resource type="Texture2D" uid="uid://msvb6jrm45iv" path="res://assets/images/ui/backUp.png" id="20_tauat"]
+[ext_resource type="Texture2D" uid="uid://cgtp3wwndtlh5" path="res://assets/images/mainMenu/intro/title1.png" id="21_uwljm"]
+[ext_resource type="Texture2D" uid="uid://do4n3qfp8ibk2" path="res://assets/images/mainMenu/intro/title2.png" id="22_1anpv"]
+[ext_resource type="Texture2D" uid="uid://bocd16vl78yoy" path="res://assets/images/mainMenu/intro/phone1.png" id="23_ud0v7"]
+[ext_resource type="Texture2D" uid="uid://berwuuut6ww4n" path="res://assets/images/mainMenu/intro/virus.png" id="24_3wx87"]
+[ext_resource type="Texture2D" uid="uid://cy3p12peo40cj" path="res://assets/images/mainMenu/intro/phone2.png" id="24_fm4j0"]
+[ext_resource type="Texture2D" uid="uid://cuxf3o8uvwivn" path="res://assets/images/mainMenu/intro/phone0.png" id="25_5p8yk"]
+[ext_resource type="Texture2D" uid="uid://cpd21uy55xrbr" path="res://assets/images/mainMenu/intro/phone3.png" id="25_mskd6"]
+[ext_resource type="Texture2D" uid="uid://bqf13sotltgbp" path="res://assets/images/mainMenu/intro/phone4.png" id="26_h5ho6"]
+[ext_resource type="Texture2D" uid="uid://ckueaowg38ov8" path="res://assets/images/mainMenu/intro/progbar.png" id="26_un3av"]
+[ext_resource type="Texture2D" uid="uid://dhu620t3sjgnt" path="res://assets/images/mainMenu/intro/phone5.png" id="27_wnp8d"]
+[ext_resource type="Texture2D" uid="uid://b4sjfbldwu6sm" path="res://assets/images/mainMenu/intro/phone6.png" id="28_apun0"]
+[ext_resource type="Texture2D" uid="uid://b3ryxveq3t4ja" path="res://assets/images/mainMenu/intro/phone9.png" id="29_3ut01"]
+[ext_resource type="Texture2D" uid="uid://bfm60kdaxkn3v" path="res://assets/images/mainMenu/intro/phone7.png" id="30_hib5h"]
+[ext_resource type="AudioStream" uid="uid://u4ixmy2d803t" path="res://assets/music/the loopmen arent here.ogg" id="32_fm4j0"]
+[ext_resource type="AudioStream" uid="uid://dltkivelchtpm" path="res://assets/music/the loopmen.ogg" id="33_mskd6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b1kt2"]
 
@@ -248,9 +263,131 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(0, -648)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("intro/Title:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("intro/Phone:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("intro/BarOver:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("intro/ProgressBar:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("intro/Title:texture")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("21_uwljm")]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("intro/ProgressBar:value")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("intro/popup:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("intro:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("intro/Phone:texture")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("25_5p8yk")]
+}
 
 [sub_resource type="Animation" id="Animation_q00ge"]
 resource_name = "intro"
+length = 28.0
+step = 0.0333
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -258,10 +395,130 @@ tracks/0/path = NodePath("ColorRect:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0.0333333, 23.6333, 23.6667, 24.3312, 24.3333, 27.0333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.121569, 0.0470588, 0, 1), Color(0.121569, 0.0470588, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("intro/Title:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0333333, 7.36667, 7.4, 23.6144, 23.631),
+"transitions": PackedFloat32Array(1, 1, 1, 1000, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("intro/Phone:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.0333333, 14.6, 14.6232, 23.6129, 23.6295),
+"transitions": PackedFloat32Array(1, 1, 1, 1000, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("intro/BarOver:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.0333333, 12.1, 12.1667, 23.6144, 23.631),
+"transitions": PackedFloat32Array(1, 1, 1, 1000, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("intro/ProgressBar:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.0333333, 12.1, 12.1667, 23.6144, 23.631),
+"transitions": PackedFloat32Array(1, 1, 1, 1000, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("intro/Title:texture")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.1, 9.63333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("21_uwljm"), ExtResource("22_1anpv")]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("intro/ProgressBar:value")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.0333333, 12.8333, 13.1333, 13.4333, 15.1279, 15.4059, 15.7059, 17.552, 17.852, 18.152, 19.9952, 20.2952, 20.5952, 22.4331, 22.7331, 23.0331),
+"transitions": PackedFloat32Array(10000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000),
+"update": 0,
+"values": [0.0, 5.0, 10.0, 15.0, 20.0, 25.0, 30.0, 35.0, 40.0, 50.0, 60.0, 70.0, 80.0, 90.0, 95.0, 100.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("intro/popup:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(23.924, 23.926),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0.121569, 0.0470588, 0, 1), Color(0.145098, 0.109804, 0.109804, 0)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("intro:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.0333333, 24.3318),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("intro/Phone:texture")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.11179, 14.6288, 14.7989, 14.9494, 15.0662, 15.275, 15.5519, 15.7676, 16.381, 16.9994, 17.1695, 17.3201, 17.4369, 17.6457, 17.9225, 18.1382, 18.4921, 18.8258, 19.1588, 19.4034, 19.5735, 19.724, 19.8409, 20.0597, 20.3265, 20.5422, 20.9131, 21.1557, 21.564, 21.8183, 22.23, 22.6975, 22.9841, 23.4488),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("25_5p8yk"), ExtResource("23_ud0v7"), ExtResource("24_fm4j0"), ExtResource("25_mskd6"), ExtResource("26_h5ho6"), ExtResource("27_wnp8d"), ExtResource("28_apun0"), ExtResource("29_3ut01"), ExtResource("25_5p8yk"), ExtResource("23_ud0v7"), ExtResource("24_fm4j0"), ExtResource("25_mskd6"), ExtResource("26_h5ho6"), ExtResource("27_wnp8d"), ExtResource("28_apun0"), ExtResource("30_hib5h"), ExtResource("28_apun0"), ExtResource("30_hib5h"), ExtResource("28_apun0"), ExtResource("23_ud0v7"), ExtResource("24_fm4j0"), ExtResource("25_mskd6"), ExtResource("26_h5ho6"), ExtResource("27_wnp8d"), ExtResource("28_apun0"), ExtResource("27_wnp8d"), ExtResource("28_apun0"), ExtResource("23_ud0v7"), ExtResource("24_fm4j0"), ExtResource("25_mskd6"), ExtResource("26_h5ho6"), ExtResource("27_wnp8d"), ExtResource("28_apun0"), ExtResource("30_hib5h")]
 }
 
 [sub_resource type="Animation" id="Animation_u6qta"]
@@ -563,6 +820,11 @@ _data = {
 &"toFiles": SubResource("Animation_mlkhf"),
 &"toSettings": SubResource("Animation_eckxe")
 }
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dtd21"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q6vq2"]
+bg_color = Color(1, 0.905882, 0.85098, 1)
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_ihte6")
@@ -1102,6 +1364,46 @@ offset_bottom = 661.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("32_fm4j0")
+volume_db = 5.428
+parameters/looping = true
+
+[node name="song" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("33_mskd6")
+volume_db = 5.428
+parameters/looping = true
+
+[node name="intro" type="Node2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(0.9, 0.9)
+
+[node name="Title" type="Sprite2D" parent="intro"]
+modulate = Color(1, 1, 1, 0)
+texture = ExtResource("21_uwljm")
+
+[node name="popup" type="Sprite2D" parent="intro"]
+modulate = Color(1, 1, 1, 0)
+texture = ExtResource("24_3wx87")
+
+[node name="Phone" type="Sprite2D" parent="intro"]
+modulate = Color(1, 1, 1, 0)
+texture = ExtResource("25_5p8yk")
+
+[node name="BarOver" type="Sprite2D" parent="intro"]
+modulate = Color(1, 1, 1, 0)
+texture = ExtResource("26_un3av")
+
+[node name="ProgressBar" type="ProgressBar" parent="intro"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -317.0
+offset_top = 293.0
+offset_right = 329.0
+offset_bottom = 321.0
+theme_override_styles/background = SubResource("StyleBoxEmpty_dtd21")
+theme_override_styles/fill = SubResource("StyleBoxFlat_q6vq2")
+show_percentage = false
+
 [connection signal="pressed" from="stuff/Left/shit/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="stuff/Left/shit/tutorial" to="." method="_on_tutorial_pressed"]
 [connection signal="pressed" from="stuff/Left/shit/settings" to="." method="_on_settings_pressed"]
@@ -1116,3 +1418,4 @@ color = Color(0, 0, 0, 1)
 [connection signal="pressed" from="Credits/back2" to="." method="_on_backCredit_pressed"]
 [connection signal="pressed" from="SaveFiles/back2" to="." method="_on_backFiles"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

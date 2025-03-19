@@ -888,3 +888,4 @@ color = Color(0, 0, 0, 1)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("18_iyypn")
+volume_db = 16.0
