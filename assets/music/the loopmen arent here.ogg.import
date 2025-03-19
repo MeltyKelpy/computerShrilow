@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://u4ixmy2d803t"
+path="res://.godot/imported/the loopmen arent here.ogg-92d910906a1a87bb65362bb5bba73e40.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/music/the loopmen arent here.ogg"
+dest_files=["res://.godot/imported/the loopmen arent here.ogg-92d910906a1a87bb65362bb5bba73e40.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

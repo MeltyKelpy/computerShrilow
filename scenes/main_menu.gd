@@ -179,3 +179,6 @@ func _on_button_pressed(type) -> void:
 
 func _on_tutorial_pressed() -> void:
 	_on_button_pressed("tutorial")
+
+func _on_audio_stream_player_finished() -> void:
+	$song.play()
