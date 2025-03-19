@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dltkivelchtpm"
+path="res://.godot/imported/the loopmen.ogg-a062ec015bda624c76d6ab1d4c3d441d.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/music/the loopmen.ogg"
+dest_files=["res://.godot/imported/the loopmen.ogg-a062ec015bda624c76d6ab1d4c3d441d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
