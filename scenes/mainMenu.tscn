@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=3 uid="uid://ba4g00sxw1ioe"]
+[gd_scene load_steps=85 format=3 uid="uid://ba4g00sxw1ioe"]
 
 [ext_resource type="Texture2D" uid="uid://dajex7cpt7k4p" path="res://assets/images/bg/background.png" id="1_i2qlv"]
 [ext_resource type="Script" uid="uid://du5kurp8y3jde" path="res://scenes/main_menu.gd" id="1_ihte6"]
@@ -35,6 +35,9 @@
 [ext_resource type="Texture2D" uid="uid://bfm60kdaxkn3v" path="res://assets/images/mainMenu/intro/phone7.png" id="30_hib5h"]
 [ext_resource type="AudioStream" uid="uid://u4ixmy2d803t" path="res://assets/music/the loopmen arent here.ogg" id="32_fm4j0"]
 [ext_resource type="AudioStream" uid="uid://dltkivelchtpm" path="res://assets/music/the loopmen.ogg" id="33_mskd6"]
+[ext_resource type="AudioStream" uid="uid://l8qig4llw231" path="res://assets/sounds/cancel.ogg" id="36_h5ho6"]
+[ext_resource type="AudioStream" uid="uid://cyqyuiknf31t7" path="res://assets/sounds/confirm.ogg" id="37_h5ho6"]
+[ext_resource type="AudioStream" uid="uid://1tnj3u0y0scp" path="res://assets/sounds/scroll.ogg" id="37_wnp8d"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b1kt2"]
 
@@ -154,6 +157,30 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(0, -648)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../song:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [5.428]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../AudioStreamPlayer:volume_db")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [5.428]
+}
 
 [sub_resource type="Animation" id="Animation_o07pd"]
 resource_name = "loading"
@@ -207,6 +234,30 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(0.225313, 1),
 "update": 0,
 "values": [Vector2(0, -648), Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../song:volume_db")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.99711),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [5.428, -80.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../AudioStreamPlayer:volume_db")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.9786),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [5.428, -80.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_25i17"]
@@ -1356,6 +1407,11 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_nncs3")
 libraries = {
 &"": SubResource("AnimationLibrary_2r10b")
 }
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_2r10b")
+}
 autoplay = "intro"
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -1367,7 +1423,6 @@ color = Color(0, 0, 0, 1)
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("32_fm4j0")
 volume_db = 5.428
-parameters/looping = true
 
 [node name="song" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("33_mskd6")
@@ -1404,6 +1459,18 @@ theme_override_styles/background = SubResource("StyleBoxEmpty_dtd21")
 theme_override_styles/fill = SubResource("StyleBoxFlat_q6vq2")
 show_percentage = false
 
+[node name="SFXCan" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("36_h5ho6")
+volume_db = 6.19
+
+[node name="SFXPick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("37_h5ho6")
+volume_db = 6.19
+
+[node name="SFXScroll" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("37_wnp8d")
+volume_db = 0.952
+
 [connection signal="pressed" from="stuff/Left/shit/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="stuff/Left/shit/tutorial" to="." method="_on_tutorial_pressed"]
 [connection signal="pressed" from="stuff/Left/shit/settings" to="." method="_on_settings_pressed"]
@@ -1418,4 +1485,5 @@ show_percentage = false
 [connection signal="pressed" from="Credits/back2" to="." method="_on_backCredit_pressed"]
 [connection signal="pressed" from="SaveFiles/back2" to="." method="_on_backFiles"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayer2" to="." method="_on_animation_player_animation_finished"]
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

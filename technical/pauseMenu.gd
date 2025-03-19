@@ -12,6 +12,7 @@ var dying = false
 
 func _ready():
 	$AudioStreamPlayer.play()
+	$SFXCan.play()
 
 func _process(delta: float) -> void:
 	var config = ConfigFile.new()
@@ -47,19 +48,23 @@ func endMenu():
 func _on_back_2_pressed() -> void:
 	$AnimationPlayer.play("settingsLeabe")
 	Settings.saveData()
+	$SFXCan.play()
 	$SettingsScene.kill()
 
 func _on_settings_pressed() -> void:
+	$SFXPick.play()
 	$AnimationPlayer.play("settings")
 	Settings.loadData()
 	$SettingsScene.spawnSettings()
 
 func _on_menu_pressed() -> void:
 	dying = true
+	$SFXPick.play()
 	$loadingScreen/loading.play("loading")
 
 func _on_resume_pressed() -> void:
 	dying = true
+	$SFXCan.play()
 	$AnimationPlayer.play("resume")
 
 func _on_save_pressed() -> void:

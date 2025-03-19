@@ -122,12 +122,14 @@ func endMenu():
 		get_tree().change_scene_to_file("res://scenes/tutorial.tscn")
 
 func _on_start_pressed() -> void:
+	$SFXPick.play()
 	if can == true:
 		Settings.loadData()
 		$AnimationPlayer.play("toFiles")
 		can = false
 
 func changeSelection(toChange):
+	$SFXScroll.play()
 	selectedCredit += toChange
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
@@ -137,27 +139,32 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		$settings/SettingsScene.kill()
 
 func _on_credits_pressed() -> void:
+	$SFXPick.play()
 	if can == true:
 		$AnimationPlayer.play("toCredits")
 		can = false
 
 func _on_backCredit_pressed() -> void:
+	$SFXCan.play()
 	if can == true:
 		$AnimationPlayer.play("leaveCredits")
 		can = false
 
 func _on_settings_pressed() -> void:
+	$SFXPick.play()
 	if can == true:
 		$settings/SettingsScene.spawnSettings()
 		$AnimationPlayer.play("toSettings")
 		can = false
 
 func _on_backSettings() -> void:
+	$SFXCan.play()
 	if can == true:
 		$AnimationPlayer.play("leaveSettings")
 		can = false
 
 func _on_backFiles() -> void:
+	$SFXCan.play()
 	if can == true:
 		$AnimationPlayer.play("leaveFiles")
 		can = false
@@ -173,6 +180,7 @@ func openLink(site : String) -> void:
 		OS.shell_open("https://bsky.app/profile/juiceboxfactory.bsky.social")
 
 func _on_button_pressed(type) -> void:
+	$SFXPick.play()
 	loading = type
 	$loadingScreen/loading.play("loading")
 	can = false

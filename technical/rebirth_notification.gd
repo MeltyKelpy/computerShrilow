@@ -15,7 +15,7 @@ func _process(_delta: float) -> void:
 		queue_free()
 	
 	if tutorial == false:
-		$PopUp/Desc.text = "You have reached "+str(1000000 + (1000000 * Game.rebirths))+" Dollars, this means you are now able to REBIRTH.\n\nThe option has been presented to you. Click the cross above Shrilow to REBIRTH. Once you have done so, you will lose all progress (Excluding your Jelly Journal, File Playtime, and anything else specified you'll keep.) \n\nHOWEVER, you will be able to access more things to make you gain money EVEN faster.\nYou May REBIRTH, If you so wish."
+		$PopUp/Desc.text = "You have reached "+str(1000000 + (1000000 * Game.rebirths))+" Dollars, t`s means you are now able to REBIRTH.\n\nThe option has been presented to you. Click the cross above Shrilow to REBIRTH. Once you have done so, you will lose all progress (Excluding your Jelly Journal, File Playtime, and anything else specified you'll keep.) \n\nHOWEVER, you will be able to access more things to make you gain money EVEN faster.\nYou May REBIRTH, If you so wish."
 	if tutorial == true:
 		$PopUp/Desc.text = "okay dude\n\n\n\n\nyou can rebrith or whatyewver i dont care anymore fuck you\nyou are ill."
 	

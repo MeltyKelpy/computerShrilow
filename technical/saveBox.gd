@@ -6,6 +6,7 @@ var icon = 0
 
 func _ready() -> void:
 	Game.reloadGlobals()
+	print(ID)
 	
 	var config = ConfigFile.new()
 	
@@ -47,7 +48,9 @@ func _ready() -> void:
 		Game.curFile = ID
 		icon = 0
 	
-	for i in config.get_value("Rebirth", "Curses", []).size():
+	var config2 = ConfigFile.new()
+	
+	for i in config2.get_value("Rebirth", "Curses", []).size():
 		var fuckyou = [
 			$curse1,
 			$curse2,
@@ -55,8 +58,8 @@ func _ready() -> void:
 			$curse4,
 			$curse5,
 			]
-		if config.get_value("Rebirth", "Curses", [])[i]["Icon"] != null and config.get_value("Rebirth", "Curses", [])[i]["Icon"] != "":
-			fuckyou[i].texture = load(config.get_value("Rebirth", "Curses", [])[i]["Icon"])
+		if config2.get_value("Rebirth", "Curses", [])[i]["Icon"] != null and config2.get_value("Rebirth", "Curses", [])[i]["Icon"] != "":
+			fuckyou[i].texture = load(config2.get_value("Rebirth", "Curses", [])[i]["Icon"])
 			fuckyou[i].visible = true
 		else:
 			fuckyou[i].visible = false

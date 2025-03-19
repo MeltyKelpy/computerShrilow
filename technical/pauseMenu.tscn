@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://6wcc8jfv4mt5"]
+[gd_scene load_steps=46 format=3 uid="uid://6wcc8jfv4mt5"]
 
 [ext_resource type="Script" uid="uid://bw3s3r7pcikmm" path="res://technical/pauseMenu.gd" id="1_0pw43"]
 [ext_resource type="FontFile" uid="uid://brn7smfq0l6ao" path="res://assets/fonts/TwCen.ttf" id="1_wqogi"]
@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://dhml6kkc1kfmj" path="res://assets/images/logo.png" id="10_1d8aj"]
 [ext_resource type="AudioStream" uid="uid://df6n0e2ffypgv" path="res://assets/music/screensaver.ogg" id="12_hpk77"]
 [ext_resource type="VideoStream" uid="uid://bn4pqqtlhbtl3" path="res://assets/videos/screensaver.ogv" id="13_ury0b"]
+[ext_resource type="AudioStream" uid="uid://l8qig4llw231" path="res://assets/sounds/cancel.ogg" id="14_m7ppn"]
+[ext_resource type="AudioStream" uid="uid://cyqyuiknf31t7" path="res://assets/sounds/confirm.ogg" id="15_m7ppn"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f6onq"]
 
@@ -562,6 +564,12 @@ parameters/looping = true
 wait_time = 20.0
 one_shot = true
 autostart = true
+
+[node name="SFXCan" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_m7ppn")
+
+[node name="SFXPick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_m7ppn")
 
 [connection signal="pressed" from="resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="save" to="." method="_on_save_pressed"]

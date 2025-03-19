@@ -50,6 +50,10 @@ func reloadGlobals():
 	s = Achievements.get_script()
 	Achievements.set_script(null)
 	Achievements.set_script(s)
+	
+	s = get_script()
+	set_script(null)
+	set_script(s)
 
 func commizeNumber(value: int) -> String:
 	# Convert value to string.
