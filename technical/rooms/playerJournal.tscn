@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://breajdhvvyjm3"]
+[gd_scene load_steps=46 format=3 uid="uid://breajdhvvyjm3"]
 
 [ext_resource type="Script" uid="uid://c4avbb8usspk5" path="res://technical/rooms/player_journal.gd" id="1_x36x3"]
 [ext_resource type="Texture2D" uid="uid://dkx3j1h7db7t6" path="res://assets/images/areas/notebook/openBACK.png" id="2_18d3f"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://d1v0xi2hbvoky" path="res://assets/images/areas/notebook/leftUh.png" id="10_v7itm"]
 [ext_resource type="Texture2D" uid="uid://ddm6lf1bu04gi" path="res://assets/images/areas/notebook/curlRight.png" id="11_qhrg7"]
 [ext_resource type="Texture2D" uid="uid://gtei8og1jcrp" path="res://assets/images/areas/notebook/rightUh.png" id="12_h3i1u"]
+[ext_resource type="Texture2D" uid="uid://bgpcvev1o56hk" path="res://assets/images/areas/notebook/closed.png" id="14_xrhpj"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k0w3k"]
 
@@ -97,14 +98,17 @@ process_mode = 3
 script = ExtResource("1_x36x3")
 
 [node name="Panel" type="Panel" parent="."]
+visible = false
 offset_right = 1152.0
 offset_bottom = 648.0
 
 [node name="back" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(576, 324)
 texture = ExtResource("2_18d3f")
 
 [node name="entriesButton" type="Button" parent="."]
+visible = false
 offset_left = 190.0
 offset_top = 20.0
 offset_right = 271.0
@@ -119,6 +123,7 @@ button_pressed = true
 keep_pressed_outside = true
 
 [node name="achievementsButton" type="Button" parent="."]
+visible = false
 offset_left = 289.0
 offset_top = 18.0
 offset_right = 370.0
@@ -132,6 +137,7 @@ toggle_mode = true
 autowrap_mode = 1
 
 [node name="pages" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(576, 324)
 texture = ExtResource("3_2gfw1")
 
@@ -147,6 +153,7 @@ theme = ExtResource("4_e1be2")
 text = "MY JOURNAL"
 
 [node name="Entries" type="Node2D" parent="."]
+visible = false
 
 [node name="ScrollContainer2" type="ScrollContainer" parent="Entries"]
 offset_left = 41.0
@@ -237,6 +244,10 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_yr2x2")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_0rbeg")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_aunqb")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_2qpv4")
+
+[node name="closed" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+texture = ExtResource("14_xrhpj")
 
 [connection signal="pressed" from="entriesButton" to="." method="tabPressed" binds= ["entries"]]
 [connection signal="pressed" from="achievementsButton" to="." method="tabPressed" binds= ["achievements"]]
