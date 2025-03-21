@@ -1,62 +1,132 @@
 extends Node
 
-var entries
-var JellyEntry = [
-	{
-	"text":"oogly googly",
-	"revealed?":false,
-	},
-	{
-	"text":"only this text should be visible",
-	"revealed?":true,
-	},
-	{
-	"text":"oogly googly",
-	"revealed?":false,
-	},
-	]
-var TheComputerEntry = [
-	{
-	"text":"oogly googly",
-	"revealed?":false,
-	},
-	{
-	"text":"only this text should be visible",
-	"revealed?":true,
-	},
-	{
-	"text":"oogly googly",
-	"revealed?":false,
-	},
-	]
-var ShrilowEntry = [
-	{
-	"text":"oogly googly",
-	"revealed?":false,
-	},
-	{
-	"text":"only this text should be visible",
-	"revealed?":true,
-	},
-	{
-	"text":"oogly googly",
-	"revealed?":false,
-	},
-	]
-var MelanieEntry = [
-	{
-	"text":"oogly googly",
-	"revealed?":false,
-	},
-	{
-	"text":"only this text should be visible",
-	"revealed?":true,
-	},
-	{
-	"text":"oogly googly",
-	"revealed?":false,
-	},
-	]
+var entries = []
+var entriesText = {
+	"The Computer":[
+		{
+		"text":"'The Computer' is what this place is called by its dwellers, though it",
+		"id":0,
+		"revealed?":true,
+		},
+		{
+		"text":"looks different to those on the inside,",
+		"id":1,
+		"revealed?":false,
+		},
+		{
+		"text":"your viewing of it still remains accurate.",
+		"id":2,
+		"revealed?":true,
+		},
+		{
+		"text":"",
+		"id":3,
+		"revealed?":false,
+		},
+		],
+	"Melanie // Melvin":[
+		{
+		"text":"oogly googly",
+		"id":0,
+		"revealed?":false,
+		},
+		{
+		"text":"only this text should be visible",
+		"id":1,
+		"revealed?":true,
+		},
+		{
+		"text":"oogly googly",
+		"id":2,
+		"revealed?":false,
+		},
+		],
+	"Jellies":[
+		{
+		"text":"oogly googly",
+		"id":0,
+		"revealed?":false,
+		},
+		{
+		"text":"only this text should be visible",
+		"id":1,
+		"revealed?":true,
+		},
+		{
+		"text":"oogly googly",
+		"id":2,
+		"revealed?":false,
+		},
+		],
+	"Minigames":[
+		{
+		"text":"oogly googly",
+		"id":0,
+		"revealed?":false,
+		},
+		{
+		"text":"only this text should be visible",
+		"id":1,
+		"revealed?":true,
+		},
+		{
+		"text":"oogly googly",
+		"id":2,
+		"revealed?":false,
+		},
+		],
+	"Mines":[
+		{
+		"text":"oogly googly",
+		"id":0,
+		"revealed?":false,
+		},
+		{
+		"text":"only this text should be visible",
+		"id":1,
+		"revealed?":true,
+		},
+		{
+		"text":"oogly googly",
+		"id":2,
+		"revealed?":false,
+		},
+		],
+	"Black Market":[
+		{
+		"text":"oogly googly",
+		"id":0,
+		"revealed?":false,
+		},
+		{
+		"text":"only this text should be visible",
+		"id":1,
+		"revealed?":true,
+		},
+		{
+		"text":"oogly googly",
+		"id":2,
+		"revealed?":false,
+		},
+		],
+	"QuickTime-Event":[
+		{
+		"text":"oogly googly",
+		"id":0,
+		"revealed?":false,
+		},
+		{
+		"text":"only this text should be visible",
+		"id":1,
+		"revealed?":true,
+		},
+		{
+		"text":"oogly googly",
+		"id":2,
+		"revealed?":false,
+		},
+		],
+}
 var selectedJournal = 0
 var journalTextToDisplay = ""
 
@@ -64,39 +134,15 @@ func _ready():
 	updateEntryContents()
 
 func updateEntryContents():
-	#entryTexts = [
-	#TheComputerEntry,
-	#ShrilowEntry,
-	#MelanieEntry,
-	#JellyEntry,
-	#MinesEntry,
-	#MarketEntry,
-	#QuickTimeEventEntry,
-	#]
-	var completeEntryJelly = ""
-	for i in range(0, JellyEntry.size()):
-		if JellyEntry[i]["revealed?"] == true:
-			completeEntryJelly = completeEntryJelly+JellyEntry[i]["text"]+" "
-		if JellyEntry[i]["revealed?"] == false:
-			completeEntryJelly = completeEntryJelly+"[bgcolor=black][color=black]"+JellyEntry[i]["text"]+"[/color][/bgcolor] "
-	var completeEntryComputer = ""
-	for i in range(0, TheComputerEntry.size()):
-		var entryText = completeEntryComputer
-		if TheComputerEntry[i]["revealed?"] == true:
-			entryText = entryText+TheComputerEntry[i]["text"]+" "
-		if TheComputerEntry[i]["revealed?"] == false:
-			entryText = entryText+"[bgcolor=black][color=black]"+TheComputerEntry[i]["text"]+"[/color][/bgcolor] "
-	entries = [
-	{
-	"EntryName":"No Entry Selected!",
-	"Text":"Select an Entry by clicking on it!",
-	},
-	{
-	"EntryName":"The Computer",
-	"Text":completeEntryComputer,
-	},
-	{
-	"EntryName":"The Jellies",
-	"Text":completeEntryJelly,
-	},
-	]
+	entries = []
+	for e in entriesText.size():
+		var completeEntry = ""
+		print(entriesText[entriesText.keys()[e]][0])
+		for i in range(0, entriesText[entriesText.keys()[e]].size()):
+			if entriesText[entriesText.keys()[e]][i]["revealed?"] == true:
+				completeEntry = completeEntry+entriesText[entriesText.keys()[e]][i]["text"]+" "
+			if entriesText[entriesText.keys()[e]][i]["revealed?"] == false:
+				completeEntry = completeEntry+"[bgcolor=black][color=black]"+entriesText[entriesText.keys()[e]][i]["text"]+"[/color][/bgcolor] "
+		print(entriesText[entriesText.keys()[e]])
+		entries.append({"EntryName":entriesText.keys()[e], "Text":completeEntry})
+	print(entries)

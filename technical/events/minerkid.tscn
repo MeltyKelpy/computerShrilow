@@ -80,6 +80,7 @@ position = Vector2(83, 828)
 texture = ExtResource("2_4wqpm")
 
 [node name="call" type="Button" parent="miner"]
+z_index = 4096
 offset_left = -58.0
 offset_top = 61.0
 offset_right = -8.0
@@ -97,6 +98,7 @@ theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_gwc53")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_kfi12")
 
 [node name="decline" type="Button" parent="miner"]
+z_index = 4096
 offset_left = 10.0
 offset_top = 61.0
 offset_right = 60.0
@@ -182,7 +184,7 @@ parameters/looping = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_h14wy")
+&"": SubResource("AnimationLibrary_h14wy")
 }
 
 [node name="actualAnims" type="AnimationPlayer" parent="."]

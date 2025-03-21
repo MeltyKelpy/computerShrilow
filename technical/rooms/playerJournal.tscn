@@ -1,21 +1,36 @@
-[gd_scene load_steps=46 format=3 uid="uid://breajdhvvyjm3"]
+[gd_scene load_steps=59 format=3 uid="uid://breajdhvvyjm3"]
 
 [ext_resource type="Script" uid="uid://c4avbb8usspk5" path="res://technical/rooms/player_journal.gd" id="1_x36x3"]
 [ext_resource type="Texture2D" uid="uid://dkx3j1h7db7t6" path="res://assets/images/areas/notebook/openBACK.png" id="2_18d3f"]
 [ext_resource type="Texture2D" uid="uid://duim7xn20dq6v" path="res://assets/images/areas/notebook/pages.png" id="3_2gfw1"]
 [ext_resource type="Texture2D" uid="uid://7kn3ivtcydbo" path="res://assets/images/areas/notebook/entriesUp.png" id="3_5ctr5"]
 [ext_resource type="Texture2D" uid="uid://cwladsljiqill" path="res://assets/images/ui/backDown.png" id="3_mhguf"]
+[ext_resource type="Texture2D" uid="uid://exsbeghxlnhi" path="res://assets/images/areas/notebook/mainUp.png" id="3_wnk1m"]
 [ext_resource type="Theme" uid="uid://dr1wna4c2ab2h" path="res://technical/textStyle.tres" id="4_e1be2"]
+[ext_resource type="Texture2D" uid="uid://bt62i4javyuwg" path="res://assets/images/areas/notebook/mainDown.png" id="4_rb0i3"]
 [ext_resource type="Texture2D" uid="uid://cmmacqxp32hj5" path="res://assets/images/areas/notebook/entriesDown.png" id="4_xd68q"]
 [ext_resource type="Texture2D" uid="uid://bh2aku0b6gtqq" path="res://assets/images/areas/notebook/achievementsUp.png" id="5_7pjs2"]
 [ext_resource type="Texture2D" uid="uid://c1wwkfic8471f" path="res://assets/images/areas/notebook/achievementsDown.png" id="6_2k4s6"]
 [ext_resource type="Texture2D" uid="uid://uby20y7wi0vy" path="res://assets/images/areas/notebook/curl.png" id="9_rjm0f"]
+[ext_resource type="Texture2D" uid="uid://di8ufln27gebo" path="res://assets/images/areas/notebook/mainPageDoodles.png" id="10_rb0i3"]
 [ext_resource type="Texture2D" uid="uid://d1v0xi2hbvoky" path="res://assets/images/areas/notebook/leftUh.png" id="10_v7itm"]
 [ext_resource type="Texture2D" uid="uid://ddm6lf1bu04gi" path="res://assets/images/areas/notebook/curlRight.png" id="11_qhrg7"]
 [ext_resource type="Texture2D" uid="uid://gtei8og1jcrp" path="res://assets/images/areas/notebook/rightUh.png" id="12_h3i1u"]
 [ext_resource type="Texture2D" uid="uid://bgpcvev1o56hk" path="res://assets/images/areas/notebook/closed.png" id="14_xrhpj"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k0w3k"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g6gna"]
+texture = ExtResource("3_wnk1m")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_70lni"]
+texture = ExtResource("3_wnk1m")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a8gfj"]
+texture = ExtResource("3_wnk1m")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x4tj3"]
+texture = ExtResource("4_rb0i3")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cfxni"]
 texture = ExtResource("3_5ctr5")
@@ -93,12 +108,332 @@ texture = ExtResource("12_h3i1u")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2qpv4"]
 
+[sub_resource type="Animation" id="Animation_wnk1m"]
+resource_name = "opening"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("closed:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.287175, 1),
+"update": 0,
+"values": [Vector2(576, 972), Vector2(576, 324)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("closed:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_rb0i3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("closed:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(576, 972)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("closed:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BackWARD:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BackButtonWARD:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_g6gna"]
+resource_name = "openBook"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("closed:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.233258, 1),
+"update": 0,
+"values": [Vector2(576, 324), Vector2(325, 330)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["mainpage"],
+"method": &"tabPressed"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("closed:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_70lni"]
+resource_name = "closeBook"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("closed:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.287175, 1),
+"update": 0,
+"values": [Vector2(576, 324), Vector2(576, 972)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_evil"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("closed:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BackWARD:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BackButtonWARD:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_a8gfj"]
+resource_name = "closeBook_2"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("closed:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(0.297302, 0.297302, 1),
+"update": 0,
+"values": [Vector2(325, 330), Vector2(576, 324), Vector2(576, 972)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_evil"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("closed:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BackWARD:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BackButtonWARD:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_70lni"]
+_data = {
+&"RESET": SubResource("Animation_rb0i3"),
+&"closeBook": SubResource("Animation_70lni"),
+&"closeBook_2": SubResource("Animation_a8gfj"),
+&"openBook": SubResource("Animation_g6gna"),
+&"opening": SubResource("Animation_wnk1m")
+}
+
 [node name="PlayerJournal" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_x36x3")
 
 [node name="Panel" type="Panel" parent="."]
-visible = false
+modulate = Color(1, 1, 1, 0)
 offset_right = 1152.0
 offset_bottom = 648.0
 
@@ -107,11 +442,27 @@ visible = false
 position = Vector2(576, 324)
 texture = ExtResource("2_18d3f")
 
+[node name="mainPageButton" type="Button" parent="."]
+visible = false
+offset_left = 96.0
+offset_top = 31.0
+offset_right = 177.0
+offset_bottom = 87.0
+rotation = -0.0555311
+theme_override_styles/focus = SubResource("StyleBoxEmpty_k0w3k")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_g6gna")
+theme_override_styles/hover = SubResource("StyleBoxTexture_70lni")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_a8gfj")
+theme_override_styles/normal = SubResource("StyleBoxTexture_x4tj3")
+toggle_mode = true
+button_pressed = true
+keep_pressed_outside = true
+
 [node name="entriesButton" type="Button" parent="."]
 visible = false
-offset_left = 190.0
+offset_left = 193.0
 offset_top = 20.0
-offset_right = 271.0
+offset_right = 274.0
 offset_bottom = 76.0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_k0w3k")
 theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_cfxni")
@@ -119,7 +470,6 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_17x0i")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_2ihnr")
 theme_override_styles/normal = SubResource("StyleBoxTexture_yyfx8")
 toggle_mode = true
-button_pressed = true
 keep_pressed_outside = true
 
 [node name="achievementsButton" type="Button" parent="."]
@@ -144,13 +494,52 @@ texture = ExtResource("3_2gfw1")
 [node name="MainPage" type="Node2D" parent="."]
 visible = false
 
+[node name="doodles" type="Sprite2D" parent="MainPage"]
+position = Vector2(576, 324)
+texture = ExtResource("10_rb0i3")
+
 [node name="Label" type="Label" parent="MainPage"]
-offset_left = 175.0
+offset_left = 162.0
 offset_top = 193.0
-offset_right = 417.0
+offset_right = 439.0
 offset_bottom = 263.0
 theme = ExtResource("4_e1be2")
-text = "MY JOURNAL"
+text = "MY NOTEBOOK"
+
+[node name="Label2" type="Label" parent="MainPage"]
+offset_left = 732.0
+offset_top = 105.0
+offset_right = 990.0
+offset_bottom = 157.0
+theme = ExtResource("4_e1be2")
+theme_override_font_sizes/font_size = 48
+text = "Table of Contents:"
+
+[node name="Label3" type="Label" parent="MainPage"]
+offset_left = 608.0
+offset_top = 157.0
+offset_right = 1106.0
+offset_bottom = 605.0
+theme = ExtResource("4_e1be2")
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 34
+text = "This notebook contains alot of stuff, primarily:
+- Journal Entries
+- Achievements
+You can access either of these by using the tabs on the top left, the journal entries will fill themselves out as you learn information, and the achievements have descriptions once howevered over, helping you achieve them! obviously.
+(You can flip pages in the Achievements in the bottom corners)"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Label4" type="Label" parent="MainPage"]
+offset_left = 55.0
+offset_top = 254.0
+offset_right = 548.0
+offset_bottom = 293.0
+theme = ExtResource("4_e1be2")
+theme_override_font_sizes/font_size = 36
+text = "NOTEBOOK OWNED BY:"
+horizontal_alignment = 1
 
 [node name="Entries" type="Node2D" parent="."]
 visible = false
@@ -223,6 +612,27 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_inuyc")
 theme_override_styles/normal = SubResource("StyleBoxTexture_nddci")
 autowrap_mode = 1
 
+[node name="closed" type="Sprite2D" parent="."]
+position = Vector2(576, 972)
+texture = ExtResource("14_xrhpj")
+
+[node name="openBook" type="Button" parent="."]
+offset_left = 273.0
+offset_top = 15.0
+offset_right = 843.0
+offset_bottom = 638.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_e1ifc")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_rkpxj")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_dh3e7")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_u6evs")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_8tmmn")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_r362j")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_jjq7m")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_yr2x2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_0rbeg")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_aunqb")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2qpv4")
+
 [node name="BackWARD" type="Sprite2D" parent="."]
 position = Vector2(46, 43)
 scale = Vector2(0.571429, 0.602649)
@@ -245,12 +655,16 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_0rbeg")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_aunqb")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_2qpv4")
 
-[node name="closed" type="Sprite2D" parent="."]
-position = Vector2(576, 324)
-texture = ExtResource("14_xrhpj")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_70lni")
+}
+autoplay = "opening"
 
+[connection signal="pressed" from="mainPageButton" to="." method="tabPressed" binds= ["mainpage"]]
 [connection signal="pressed" from="entriesButton" to="." method="tabPressed" binds= ["entries"]]
 [connection signal="pressed" from="achievementsButton" to="." method="tabPressed" binds= ["achievements"]]
 [connection signal="pressed" from="Achievements/lastPage" to="." method="flipPage" binds= [-1]]
 [connection signal="pressed" from="Achievements/nextPage" to="." method="flipPage" binds= [1]]
+[connection signal="pressed" from="openBook" to="." method="_on_open_book_pressed"]
 [connection signal="pressed" from="BackButtonWARD" to="." method="_on_back_button_ward_pressed"]
