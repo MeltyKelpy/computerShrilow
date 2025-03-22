@@ -1,0 +1,83 @@
+[gd_scene load_steps=8 format=3 uid="uid://dxyr4ab6ep8tn"]
+
+[ext_resource type="PackedScene" uid="uid://bc1oeu8aq6ex2" path="res://interstate-intracept/entities/passive/Player.tscn" id="1_ie3pa"]
+[ext_resource type="PackedScene" uid="uid://c4gi1gloj5jwk" path="res://interstate-intracept/entities/passive/item.tscn" id="2_utna5"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ie3pa"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_utna5"]
+sky_material = SubResource("ProceduralSkyMaterial_ie3pa")
+
+[sub_resource type="Environment" id="Environment_jr3gx"]
+background_mode = 2
+sky = SubResource("Sky_utna5")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_ie3pa"]
+size = Vector3(15.631, 2.398, 15.354)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ie3pa"]
+size = Vector3(15.6306, 2.39844, 15.3535)
+
+[node name="Streets1" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_jr3gx")
+
+[node name="Player" parent="." instance=ExtResource("1_ie3pa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0586853, 2.62887, 0.214584)
+
+[node name="Item" parent="." instance=ExtResource("2_utna5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.995411, -5.88973)
+
+[node name="Item2" parent="." instance=ExtResource("2_utna5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.05754, 0.995411, -5.88973)
+id = 2
+
+[node name="Item3" parent="." instance=ExtResource("2_utna5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9888, 0.995411, -5.88973)
+id = 3
+
+[node name="Item4" parent="." instance=ExtResource("2_utna5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.82723, 0.995411, -5.88973)
+id = 4
+
+[node name="CSGBox3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.07365, -0.352051, 0.881535)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.326, -0.699, -0.28)
+mesh = SubResource("BoxMesh_ie3pa")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.325806, -0.699219, -0.280273)
+shape = SubResource("BoxShape3D_ie3pa")
+
+[node name="CSGBox3D2" type="StaticBody3D" parent="."]
+transform = Transform3D(0.503537, 0, 0, 0, 9.48658, 0, 0, 0, 0.542882, 8.08744, 14.0205, 7.88165)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CSGBox3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.326, -0.699, -0.28)
+mesh = SubResource("BoxMesh_ie3pa")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.325806, -0.699219, -0.280273)
+shape = SubResource("BoxShape3D_ie3pa")
+
+[node name="CSGBox3D3" type="StaticBody3D" parent="."]
+transform = Transform3D(0.503537, 0, 0, 0, 9.48658, 0, 0, 0, 0.542882, -2.505, 14.0205, 7.88165)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CSGBox3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.326, -0.699, -0.28)
+mesh = SubResource("BoxMesh_ie3pa")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.325806, -0.699219, -0.280273)
+shape = SubResource("BoxShape3D_ie3pa")

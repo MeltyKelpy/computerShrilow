@@ -13,6 +13,7 @@ extends Node2D
 @export var jellyCount = 0
 
 func getID(num):
+	# FUCKKK I HATE MINORS
 	ID = FizzyDrink.amountOfRooms
 	reparent(parent)
 	ItemValues.melvinItems[num]["Owned"] = false

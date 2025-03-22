@@ -12,8 +12,10 @@
 [ext_resource type="Theme" uid="uid://dr1wna4c2ab2h" path="res://technical/textStyle.tres" id="8_oskpf"]
 [ext_resource type="Texture2D" uid="uid://brs8k5prrtxmq" path="res://assets/images/ui/wardrobe.png" id="9_0gok5"]
 [ext_resource type="Texture2D" uid="uid://8e0gyo2yjajj" path="res://assets/images/ui/mines.png" id="11_2lflx"]
+[ext_resource type="Texture2D" uid="uid://d12yufyal1xpv" path="res://assets/images/ui/hbBack.png" id="12_7tdnc"]
 [ext_resource type="Texture2D" uid="uid://c1l80qqc08y64" path="res://assets/images/computershrilows/dialogBox.png" id="12_pyedg"]
 [ext_resource type="Texture2D" uid="uid://jlc36tcyv84" path="res://assets/images/ui/jellies.png" id="13_irs6y"]
+[ext_resource type="Texture2D" uid="uid://bpm4wc0powig2" path="res://assets/images/ui/hbProg.png" id="13_kdxuf"]
 [ext_resource type="Texture2D" uid="uid://dpvj0h8nv5awc" path="res://assets/images/areas/melanies/descriptionBox.png" id="13_m021q"]
 [ext_resource type="Texture2D" uid="uid://cc7uegt46vf3d" path="res://assets/images/ui/back.png" id="14_88vde"]
 [ext_resource type="Texture2D" uid="uid://bc36iksrorduf" path="res://assets/images/ui/notebook.png" id="15_8r711"]
@@ -112,12 +114,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sq2lm"]
 size = Vector2(233, 405)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rwaqc"]
-bg_color = Color(1, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ilv6"]
-bg_color = Color(0, 1, 0, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_714v8"]
 
@@ -1306,17 +1302,6 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
 action_mode = 0
 button_mask = 3
 
-[node name="ProgressBar" type="ProgressBar" parent="Shrilow"]
-visible = false
-offset_left = -118.0
-offset_top = -445.0
-offset_right = 115.0
-offset_bottom = -418.0
-theme_override_styles/background = SubResource("StyleBoxFlat_rwaqc")
-theme_override_styles/fill = SubResource("StyleBoxFlat_3ilv6")
-value = 50.0
-show_percentage = false
-
 [node name="textBox" type="Node2D" parent="Shrilow"]
 position = Vector2(0, -381)
 scale = Vector2(1e-05, 1e-05)
@@ -1340,6 +1325,18 @@ autowrap_mode = 3
 [node name="Timer" type="Timer" parent="Shrilow"]
 wait_time = 5.0
 one_shot = true
+
+[node name="ProgressBar" type="Node2D" parent="Shrilow"]
+visible = false
+
+[node name="ProgressBar" type="TextureProgressBar" parent="Shrilow/ProgressBar"]
+offset_left = -118.0
+offset_top = -445.0
+offset_right = 115.0
+offset_bottom = -418.0
+value = 50.0
+texture_under = ExtResource("12_7tdnc")
+texture_progress = ExtResource("13_kdxuf")
 
 [node name="ShrilowScreen" type="Node2D" parent="."]
 

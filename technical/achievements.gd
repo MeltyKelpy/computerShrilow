@@ -182,7 +182,7 @@ var deletedAchievements = [
 
 func save():
 	
-	# hello
+	# hello hi hello
 	
 	var config = ConfigFile.new()
 	

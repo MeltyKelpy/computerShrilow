@@ -1125,7 +1125,7 @@ func _process(_delta : float) -> void:
 		$Shrilow/ProgressBar.visible = false
 	else:
 		$Shrilow/ProgressBar.visible = true
-	$Shrilow/ProgressBar.value = FizzyDrink.health
+	$Shrilow/ProgressBar/ProgressBar.value = FizzyDrink.health
 	if FizzyDrink.health <= 0:
 		var cacapoopyGOD2 = load("res://technical/death.tscn")
 		var caca = cacapoopyGOD2.instantiate()
