@@ -21,7 +21,6 @@ var mouse_sens = 0.005
 
 func _ready() -> void:
 	Intracept.hotboxes = []
-	Intracept.hotboxes.resize(Intracept.amountOfHotboxes)
 	for i in range(0, Intracept.amountOfHotboxes):
 		var cFUCK = Sprite2D.new()
 		cFUCK.texture = load("res://interstate-intracept/assets/ui/invBox.png")
@@ -33,8 +32,13 @@ func _ready() -> void:
 		cFUCK2.position.y = 596
 		cFUCK2.position.x = 65 + (127 * i)
 		$CanvasLayer/Boxes.add_child(cFUCK2)
-		hotboxes.append({"box":cFUCK, "box_img":cFUCK2})
-		Intracept.hotboxes[i] = 0
+		var cFUCK3 = Sprite2D.new()
+		cFUCK3.texture = load("res://interstate-intracept/assets/ui/itemPrev/0.png")
+		cFUCK3.position.y = 596
+		cFUCK3.position.x = 65 + (127 * i)
+		$CanvasLayer/Boxes.add_child(cFUCK3)
+		hotboxes.append({"box":cFUCK, "box_img":cFUCK2, "amount_img":cFUCK3})
+		Intracept.hotboxes.append({"id":0,"stack":0})
 	print(hotboxes)
 
 func _process(delta: float) -> void:
@@ -53,12 +57,12 @@ func _process(delta: float) -> void:
 			hotboxes[i]["box"].texture = load("res://interstate-intracept/assets/ui/invBoxSel.png")
 		else:
 			hotboxes[i]["box"].texture = load("res://interstate-intracept/assets/ui/invBox.png")
+			
+		hotboxes[i]["box_img"].texture = load("res://interstate-intracept/assets/ui/itemPrev/"+str(Intracept.hoxboxItems[Intracept.hotboxes[i]["id"]]["small_img_id"])+".png")
+		hotboxes[i]["amount_img"].texture = load("res://interstate-intracept/assets/ui/itemPrev/"+str(Intracept.hotboxes[i]["stack"])+".png")
 	
-	for i in range(0, hotboxes.size()):
-		hotboxes[i]["box_img"].texture = load("res://interstate-intracept/assets/ui/itemPrev/"+Intracept.hoxboxItems[Intracept.hotboxes[i]]["small_img_id"]+".png")
-	
-	$CanvasLayer/Boxes/Label.text = Intracept.hoxboxItems[Intracept.hotboxes[Intracept.hotboxSel]]["item_name"]
-	$Neck/heldItem.texture = load("res://interstate-intracept/assets/ui/shit_u_hold/"+Intracept.hoxboxItems[Intracept.hotboxes[Intracept.hotboxSel]]["held_img_id"]+".png")
+	$CanvasLayer/Boxes/Label.text = Intracept.hoxboxItems[Intracept.hotboxes[Intracept.hotboxSel]["id"]]["item_name"]
+	$Neck/heldItem.texture = load("res://interstate-intracept/assets/ui/shit_u_hold/"+Intracept.hoxboxItems[Intracept.hotboxes[Intracept.hotboxSel]["id"]]["held_img_id"]+".png")
 	
 	$CanvasLayer/Bars/HealthBar.value = health
 	$CanvasLayer/Bars/StamBar.value = stamina

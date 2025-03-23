@@ -47,7 +47,8 @@ id = 3
 
 [node name="Item4" parent="." instance=ExtResource("2_utna5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.82723, 0.995411, -5.88973)
-id = 4
+id = 3
+itemStack = 5
 
 [node name="CSGBox3D" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.07365, -0.352051, 0.881535)

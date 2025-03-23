@@ -326,13 +326,13 @@ var blueJellies = [
 	"Seconds":1,
 	"Discovered":false,
 	},
-	{
-	"Name":"fat gf jelly",
-	"Desc":"melty added this not me -saayo",
-	"MoneyGain":200,
-	"Seconds":1,
-	"Discovered":false,
-	},
+	#{
+	#"Name":"fat gf jelly",
+	#"Desc":"melty added this not me -saayo",
+	#"MoneyGain":200,
+	#"Seconds":1,
+	#"Discovered":false,
+	#},
 	]
 
 var storedJellys = []

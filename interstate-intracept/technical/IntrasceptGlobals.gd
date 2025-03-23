@@ -1,7 +1,7 @@
 extends Node
 
 var hotboxSel = 0
-var hotboxes = [0,0,0]
+var hotboxes = [{"id":0,"stack":0},{"id":0,"stack":0},{"id":0,"stack":0}]
 var amountOfHotboxes = 3
 
 var hoxboxItems = [
