@@ -389,7 +389,7 @@ func _scene2():
 				var tween2 = create_tween()
 				tween2.tween_property($curses/ThemeSong, "volume_db", -80, 2).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN_OUT)
 				$curses/AnimationPlayer.play("end")
-	if Game.rebirths == 4:
+	if Game.rebirths >= 4:
 		amountOfCurses = 3
 		match prog:
 			0:
