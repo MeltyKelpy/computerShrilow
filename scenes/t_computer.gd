@@ -954,22 +954,12 @@ func _process(_delta : float) -> void:
 			$ShrilowScreen/Shop.texture = load("res://assets/images/ui/shop.png")
 	
 	if Game.saveFileClicks >= 100000:
-		var achievementID
-		for i in Achievements.achievements.size()-1:
-			if Achievements.achievements[i]["ID"] == "carpaltunnel":
-				achievementID = i
-				break
-		if Achievements.achievements[achievementID]["unlocked?"] == false:
-			Achievements.achievements[achievementID]["unlocked?"] = true
+		Game.unlock_achievement("carpaltunnel")
+		if Game.unlock_check("carpaltunnel") == true:
 			Game.notify('you got the "Carpal Tunnel" achievement!\n'+"Don't u know that is the hurts? *bone sound* IV in that arm, yo!", "trophy")
 	elif Game.saveFileClicks >= 10000:
-		var achievementID
-		for i in Achievements.achievements.size()-1:
-			if Achievements.achievements[i]["ID"] == "sorefingers":
-				achievementID = i
-				break
-		if Achievements.achievements[achievementID]["unlocked?"] == false:
-			Achievements.achievements[achievementID]["unlocked?"] = true
+		Game.unlock_achievement("sorefingers")
+		if Game.unlock_check("sorefingers") == true:
 			Game.notify('you got the "Are your Fingers Sore" achievement!\nYEOUUCHH', "trophy")
 	
 	var config = ConfigFile.new()

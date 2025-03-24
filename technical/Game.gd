@@ -59,6 +59,19 @@ func reloadGlobals():
 	set_script(null)
 	set_script(s)
 
+func unlock_achievement(id : String):
+	pass
+
+func unlock_check(id : String):
+	pass
+		#var achievementID
+		#for i in Achievements.achievements.size()-1:
+			#if Achievements.achievements[i]["ID"] == "sorefingers":
+				#achievementID = i
+				#break
+		#if Achievements.achievements[achievementID]["unlocked?"] == false:
+			#Achievements.achievements[achievementID]["unlocked?"] = true
+
 func commizeNumber(value: int) -> String:
 	# Convert value to string.
 	var str_value: String = str(value)
