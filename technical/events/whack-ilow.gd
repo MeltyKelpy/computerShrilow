@@ -66,9 +66,9 @@ func _process(_delta: float) -> void:
 	$charTimer.wait_time = characterAppearTime
 	
 	if readyy == true:
-		$opening/Label.text = "Time left: "+str(round($gameTimer.time_left))
+		$opening/Label.text = "Time left: "+str(int($gameTimer.time_left))
 	else:
-		$opening/Label.text = "Time left: "+str(round($gameTimer.wait_time))
+		$opening/Label.text = "Time left: "+str(int($gameTimer.wait_time))
 	
 	if state == "contract" and Input.is_action_just_pressed("ui_accept"):
 		state = "interactable"
@@ -123,12 +123,12 @@ func _on_char_timer_timeout() -> void:
 	if gameOver == false:
 		var rrnngg = rng.randi_range(0, wackiholes.size() - 1)
 		var hi
-		characterAppearTime -= 0.045
+		characterAppearTime -= 0.070
 		if characterAppearTime < 0.3:
 			characterAppearTime = 0.3
 		wackiholes[rrnngg].time = characterAppearTime
 		if wackiholes[rrnngg].chara == "none":
-			if $gameTimer.time_left <= 40:
+			if $gameTimer.time_left <= 20:
 				hi = true
 			else:
 				hi = false

@@ -397,7 +397,7 @@ texture = ExtResource("2_i18ow")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_iiqyl")
+&"": SubResource("AnimationLibrary_iiqyl")
 }
 
 [node name="opening" type="Node2D" parent="."]
@@ -515,7 +515,7 @@ offset_right = 939.0
 offset_bottom = 550.0
 
 [node name="gameTimer" type="Timer" parent="."]
-wait_time = 60.0
+wait_time = 30.0
 one_shot = true
 
 [node name="charTimer" type="Timer" parent="."]
