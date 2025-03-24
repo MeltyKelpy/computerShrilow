@@ -14,3 +14,10 @@ func _physics_process(delta: float) -> void:
 			
 			if Input.is_action_just_pressed(collider.button_to_interact):
 				collider.interact()
+		
+		if collider is door:
+			prompt.text = collider.openText()
+			collider.shouldOutline()
+			
+			if Input.is_action_just_pressed(collider.button_to_interact):
+				collider.interact()

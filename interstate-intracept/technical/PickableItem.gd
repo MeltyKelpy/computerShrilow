@@ -31,35 +31,35 @@ func buttonShouldPress():
 		return interactMessage + " " + Intracept.hoxboxItems[id]["item_name"] + "(" + str(itemStack) + ")\n[" + key_name + "]"
 
 func interact():
-	# BROKEN ASS STACK CODE OOPS
-	var newId = Intracept.hotboxes[Intracept.hotboxSel]["id"]
-	var placements = Intracept.hotboxSel
-	if Intracept.hotboxes[Intracept.hotboxSel]["id"] != 0 and Intracept.hotboxes[Intracept.hotboxSel]["id"] != id:
-		for i in Intracept.hotboxes.size():
-			if Intracept.hotboxes[i]["id"] == 0:
-				newId = 0
-				placements = i
-				break
-		_sett(newId, placements)
-	elif Intracept.hotboxes[Intracept.hotboxSel]["id"] == id:
-		if Intracept.hotboxes[Intracept.hotboxSel]["stack"] < 5:
-			var toAdd = itemStack - Intracept.hotboxes[Intracept.hotboxSel]["stack"]
-			Intracept.hotboxes[Intracept.hotboxSel]["stack"] += toAdd
-			itemStack = Intracept.hotboxes[Intracept.hotboxSel]["stack"] - 5
-			Intracept.hotboxes[Intracept.hotboxSel]["stack"] -= itemStack
-			if itemStack > 0:
-				newId = id
-				_sett(newId, placements)
-			else:
-				newId = 0
-				_sett(newId, placements)
+	if Intracept.hotboxes[Intracept.hotboxSel]["id"] != 1:
+		var newId = Intracept.hotboxes[Intracept.hotboxSel]["id"]
+		var placements = Intracept.hotboxSel
+		if Intracept.hotboxes[Intracept.hotboxSel]["id"] != 0 and Intracept.hotboxes[Intracept.hotboxSel]["id"] != id:
+			for i in Intracept.hotboxes.size():
+				if Intracept.hotboxes[i]["id"] == 0:
+					newId = 0
+					placements = i
+					break
+			_sett(newId, placements)
 		else:
 			_sett(newId, placements)
-	else:
-		_sett(newId, placements)
 
 func _sett(newId : int, placements : int):
-	Intracept.hotboxes[placements]["id"] = id
+	if Intracept.hotboxes[placements]["id"] != id:
+		var newStack = Intracept.hotboxes[placements]["stack"]
+		Intracept.hotboxes[placements]["stack"] = itemStack
+		itemStack = newStack
+	if Intracept.hotboxes[placements]["stack"] < 5 and Intracept.hotboxes[placements]["id"] == id:
+		Intracept.hotboxes[placements]["stack"] += itemStack
+		itemStack = Intracept.hotboxes[placements]["stack"] - 5
+		Intracept.hotboxes[placements]["stack"] -= itemStack
+		newId = id
+	else:
+		Intracept.hotboxes[placements]["id"] = id
+	
+	if itemStack == 0:
+		newId = 0 
+	
 	if newId == 0:
 		queue_free()
 	else:

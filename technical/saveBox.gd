@@ -50,6 +50,8 @@ func _ready() -> void:
 	
 	var config2 = ConfigFile.new()
 	
+	config2.load(Game.files[ID])
+	
 	for i in config2.get_value("Rebirth", "Curses", []).size():
 		var fuckyou = [
 			$curse1,

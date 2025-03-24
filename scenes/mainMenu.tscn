@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=3 uid="uid://ba4g00sxw1ioe"]
+[gd_scene load_steps=86 format=3 uid="uid://ba4g00sxw1ioe"]
 
 [ext_resource type="Texture2D" uid="uid://dajex7cpt7k4p" path="res://assets/images/bg/background.png" id="1_i2qlv"]
 [ext_resource type="Script" uid="uid://du5kurp8y3jde" path="res://scenes/main_menu.gd" id="1_ihte6"]
@@ -571,6 +571,20 @@ tracks/10/keys = {
 "update": 1,
 "values": [ExtResource("25_5p8yk"), ExtResource("23_ud0v7"), ExtResource("24_fm4j0"), ExtResource("25_mskd6"), ExtResource("26_h5ho6"), ExtResource("27_wnp8d"), ExtResource("28_apun0"), ExtResource("29_3ut01"), ExtResource("25_5p8yk"), ExtResource("23_ud0v7"), ExtResource("24_fm4j0"), ExtResource("25_mskd6"), ExtResource("26_h5ho6"), ExtResource("27_wnp8d"), ExtResource("28_apun0"), ExtResource("30_hib5h"), ExtResource("28_apun0"), ExtResource("30_hib5h"), ExtResource("28_apun0"), ExtResource("23_ud0v7"), ExtResource("24_fm4j0"), ExtResource("25_mskd6"), ExtResource("26_h5ho6"), ExtResource("27_wnp8d"), ExtResource("28_apun0"), ExtResource("27_wnp8d"), ExtResource("28_apun0"), ExtResource("23_ud0v7"), ExtResource("24_fm4j0"), ExtResource("25_mskd6"), ExtResource("26_h5ho6"), ExtResource("27_wnp8d"), ExtResource("28_apun0"), ExtResource("30_hib5h")]
 }
+tracks/11/type = "method"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath(".")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(24.2333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [false],
+"method": &"_endIntro"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_u6qta"]
 resource_name = "leaveCredits"
@@ -860,6 +874,23 @@ tracks/3/keys = {
 "values": [Vector2(-1148, 0), Vector2(0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_wnp8d"]
+resource_name = "skip"
+length = 3.0
+step = 0.0333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2r10b"]
 _data = {
 &"RESET": SubResource("Animation_i4gyx"),
@@ -867,6 +898,7 @@ _data = {
 &"leaveCredits": SubResource("Animation_u6qta"),
 &"leaveFiles": SubResource("Animation_n1lob"),
 &"leaveSettings": SubResource("Animation_n2jhl"),
+&"skip": SubResource("Animation_wnp8d"),
 &"toCredits": SubResource("Animation_1pfkw"),
 &"toFiles": SubResource("Animation_mlkhf"),
 &"toSettings": SubResource("Animation_eckxe")

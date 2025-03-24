@@ -51,6 +51,10 @@ func reloadGlobals():
 	Achievements.set_script(null)
 	Achievements.set_script(s)
 	
+	s = Curses.get_script()
+	Curses.set_script(null)
+	Curses.set_script(s)
+	
 	s = get_script()
 	set_script(null)
 	set_script(s)

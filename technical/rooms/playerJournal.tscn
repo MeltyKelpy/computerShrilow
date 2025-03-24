@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://breajdhvvyjm3"]
+[gd_scene load_steps=60 format=3 uid="uid://breajdhvvyjm3"]
 
 [ext_resource type="Script" uid="uid://c4avbb8usspk5" path="res://technical/rooms/player_journal.gd" id="1_x36x3"]
 [ext_resource type="Texture2D" uid="uid://dkx3j1h7db7t6" path="res://assets/images/areas/notebook/openBACK.png" id="2_18d3f"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://ddm6lf1bu04gi" path="res://assets/images/areas/notebook/curlRight.png" id="11_qhrg7"]
 [ext_resource type="Texture2D" uid="uid://gtei8og1jcrp" path="res://assets/images/areas/notebook/rightUh.png" id="12_h3i1u"]
 [ext_resource type="Texture2D" uid="uid://bgpcvev1o56hk" path="res://assets/images/areas/notebook/closed.png" id="14_xrhpj"]
+[ext_resource type="AudioStream" uid="uid://bn0kao6t8fdjm" path="res://assets/sounds/pageTurn.ogg" id="18_g6gna"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k0w3k"]
 
@@ -660,6 +661,10 @@ libraries = {
 &"": SubResource("AnimationLibrary_70lni")
 }
 autoplay = "opening"
+
+[node name="paper" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_g6gna")
+volume_db = -14.667
 
 [connection signal="pressed" from="mainPageButton" to="." method="tabPressed" binds= ["mainpage"]]
 [connection signal="pressed" from="entriesButton" to="." method="tabPressed" binds= ["entries"]]

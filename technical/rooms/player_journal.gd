@@ -37,6 +37,7 @@ func _process(delta: float) -> void:
 		$Entries/ScrollContainer2.visible = true
 
 func _on_back_button_ward_pressed() -> void:
+	$paper.play()
 	if bookOpen == false:
 		$AnimationPlayer.play("closeBook")
 		tabPressed("cover")
@@ -93,13 +94,17 @@ func tabPressed(which: String) -> void:
 		$achievementsButton.visible = true
 		$closed.visible = false
 	if which == "mainpage":
+		$paper.play()
 		$MainPage.visible = true
 	if which == "entries":
+		$paper.play()
 		$Entries.visible = true
 	if which == "achievements":
+		$paper.play()
 		$Achievements.visible = true
 
 func flipPage(howMuch : int):
+	$paper.play()
 	if (pageLeftVal + (2 * howMuch) <= (Achievements.achievements.size()-1) / 4) and (displayPage + (1 * howMuch)) >= 1:
 		pageLeftVal += 2 * howMuch
 		pageRightVal += 2 * howMuch

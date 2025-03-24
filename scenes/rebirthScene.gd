@@ -4,6 +4,9 @@ var recievedTokens = 0
 
 var prog = 1
 var canProg = false
+var scene = "main"
+var amountOfCurses = 0
+var curses = []
 
 var lines = {
 	0:[
@@ -26,10 +29,6 @@ var lines = {
 		"I see you are more dedicated than the rest.",
 		"I wasn't expecting it, but my my, you've truly impressed me.",
 		"So, i'd say its about time I made my entrance.",
-		"Introducing to you.",
-		"The One!",
-		"The Only!",
-		"QuickTime Event!",
 		],
 	2:[
 		"",
@@ -40,6 +39,7 @@ var lines = {
 var dialog = 0
 
 func _ready() -> void:
+	$curses/logo.position.y = -88.0
 	Curses.curses = []
 	if FizzyDrink.jellys == null:
 		FizzyDrink.jellys = 0
@@ -52,12 +52,13 @@ func _ready() -> void:
 	recievedTokens = 10 + ((FizzyDrink.jellys / 10) + (FizzyDrink.clicks / 1000) + (FizzyDrink.clickPower / 150) + (FizzyDrink.AUTOclickPower / 150) + (FizzyDrink.amountOfRooms / 10))
 	recievedTokens = round(recievedTokens)
 	$Label2.text = "You have Recieved "+str(recievedTokens)+" Tokens. Dont go spending it all in one place, now!"
+	$curses/Label3.text = $Label2.text
 
 func _startDialog():
 	$AnimationPlayer.play("beamLoop")
 	if Game.rebirths <= 2:
 		dialog = Game.rebirths
-		$Label.text = lines[Game.rebirths][prog]
+		$Label.text = lines[dialog][prog]
 	else:
 		dialog = 2
 		$Label.text = lines[2][prog]
@@ -67,27 +68,77 @@ func _startDialog():
 	$Timer2.start()
 
 func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("DebugMode"):
+		prog -= 2
+		_scene2()
+	
+	# good old fashioned spaghetti code...
+	
+	for i in range(0, amountOfCurses):
+		if i == 0:
+			$curses/CurseIcon.visible = true
+		if i == 1:
+			$curses/CurseIcon2.visible = true
+		if i == 2:
+			$curses/CurseIcon3.visible = true
+		if i == 3:
+			$curses/CurseIcon4.visible = true
+		if i == 4:
+			$curses/CurseIcon5.visible = true
+	
+	for i in range(0, amountOfCurses):
+		if i <= curses.size()-1:
+			if i == 0:
+				$curses/CurseIcon.texture = load(curses[i]["Icon"])
+			if i == 1:
+				$curses/CurseIcon2.texture = load(curses[i]["Icon"])
+			if i == 2:
+				$curses/CurseIcon3.texture = load(curses[i]["Icon"])
+			if i == 3:
+				$curses/CurseIcon4.texture = load(curses[i]["Icon"])
+			if i == 4:
+				$curses/CurseIcon5.texture = load(curses[i]["Icon"])
+	
 	if canProg == true:
 		if Input.is_action_just_pressed("Click"):
-			if $Timer2.is_stopped() == false:
-				$Timer2.stop()
-			canProg = false
-			var tween = get_tree().create_tween()
-			tween.tween_property($Label, "modulate", Color(1,1,1,0), 1.5)
-			await get_tree().create_timer(1.5).timeout
-			if lines[dialog].size()-1 >= prog+1:
-				prog += 1
-				$Label.text = lines[dialog][prog]
-				var tween2 = get_tree().create_tween()
-				tween2.tween_property($Label, "modulate", Color(1,1,1,1), 1.5)
+			if scene == "main":
+				if $Timer2.is_stopped() == false:
+					$Timer2.stop()
+				canProg = false
+				var tween = get_tree().create_tween()
+				tween.tween_property($Label, "modulate", Color(1,1,1,0), 1.5)
 				await get_tree().create_timer(1.5).timeout
-				canProg = true
-			else:
-				if dialog == 0:
-					end_scene_OG()
+				if lines[dialog].size()-1 >= prog+1:
+					prog += 1
+					$Label.text = lines[dialog][prog]
+					var tween2 = get_tree().create_tween()
+					tween2.tween_property($Label, "modulate", Color(1,1,1,1), 1.5)
+					await get_tree().create_timer(1.5).timeout
+					canProg = true
 				else:
-					$wipCurses.visible = true
-	$wipCurses/Label2.text = "amount of curses: "+str($wipCurses/HSlider.value)
+					if dialog == 0:
+						end_scene_OG()
+					else:
+						$curses/AnimationPlayer.play("open")
+						$mus.playing = false
+						prog = 0
+			if scene == "curses":
+				canProg = false
+				_scene2()
+	
+	if scene == "curses":
+		$curses/talkSounds.pitch_scale = 1.0
+		if $curses/Dialogue.visible_ratio > 1:
+			$curses/Dialogue.visible_ratio = 1
+		if $curses/Dialogue.visible_ratio < 1:
+			if $curses/Dialogue.visible_ratio < 0.9:
+				$curses/talkSounds.play()
+			var numToUse
+			if delta < 0.03:
+				numToUse = 0.03
+			else:
+				numToUse = delta
+			$curses/Dialogue.visible_characters += 50 * numToUse
 
 func end_scene_OG():
 	canProg = false
@@ -114,9 +165,9 @@ func restart():
 	config.set_value("Rebirth", "RebirthTokens", recievedTokens)
 	config.set_value("Fiscal", "Rebirths", Game.rebirths)
 	config.save(Game.files[Game.curFile])
-	if Game.rebirths >= 10 and Achievements.achievements[1]["unlocked?"] == false:
-		Game.notify('You unlocked the "10 Lifetimes Past" achievement!\nProve your worth.', "trophy")
-		Achievements.achievements[0]["unlocked?"] = true
+	if Game.rebirths >= 5 and Achievements.achievements[1]["unlocked?"] == false:
+		Game.notify('You unlocked the "5 Lifetimes Past" achievement!\nProve your worth.', "trophy")
+		Achievements.achievements[1]["unlocked?"] = true
 	if Achievements.achievements[0]["unlocked?"] == false:
 		Game.notify('You unlocked the "Rebirth" achievement!\nData Wipe.', "trophy")
 		Achievements.achievements[0]["unlocked?"] = true
@@ -135,12 +186,11 @@ func _on_timer_2_timeout() -> void:
 	$Label.text = "(you can click to progress the dialogue)"
 
 func _on_button_pressed() -> void:
-	for i in range(0, $wipCurses/HSlider.value):
-		Curses.curses.append(_pick_a_curse(i))
-	#print(Curses.curses)
+	for i in range(0, amountOfCurses):
+		var oop = _pick_a_curse(i)
+		Curses.curses.append(oop)
+		curses.append(oop)
 	Game.saveData()
-	end_scene_OG()
-	$wipCurses.visible = false
 
 func _pick_a_curse(curseNum):
 	var curseOutput
@@ -160,11 +210,230 @@ func _pick_a_curse(curseNum):
 			if Curses.curses[i] != curseOutput:
 				output = true
 			else:
+				break
 				print(Curses.curses[i])
 				print(curseOutput)
-				output = false
 				curseOutput = _pick_a_curse(curseNum)
 		
 	if output == true:
 		print(curseOutput)
 		return curseOutput
+
+func _scene2():
+	scene = "curses"
+	
+	if Game.rebirths == 1:
+		amountOfCurses = 1
+		match prog:
+			0:
+				say("Greetings!", "Default")
+				canProg = true
+			1:
+				say("I am QuickTime-Event! though i wouldnt be surprised if you had found out about that by now", "Annouce")
+				canProg = true
+			2:
+				say("I run the place! im the one making you play all of those AWESOME (they're awesome right?) MINIGAMES!", "LaughAnim")
+				canProg = true
+			3:
+				say("One at a time please! I know you're so excited to meet me and that you want my autograph or something...", "Default")
+				canProg = true
+			4:
+				say("But, we have buisness to attend to!", "Default")
+				canProg = true
+			5:
+				say("Now, you may be thinking to yourself:", "Default")
+				canProg = true
+			6:
+				say('"oh no, QuickTime-Event; the super cool! why am I here?"', "Feign")
+				canProg = true
+			7:
+				say("and to that, first of all;", "Default")
+				canProg = true
+			8:
+				say("SHUT UP YOU WHINY BITCH", "Giddy")
+				canProg = true
+			9:
+				say("Secondly, its to make this experience abit more interesting for you!", "HappyAnim")
+				canProg = true
+			10:
+				say("You've gone through this a few times now, so we gotta make it extra interesting this time!", "Default")
+				canProg = true
+			11:
+				say("With that in mind; i'd like to introduce you to what ive been making", "HappyAnim")
+				canProg = true
+			12:
+				say("Introducing...", "Default")
+				canProg = true
+			13:
+				say("", "Default")
+				var tween = create_tween()
+				tween.tween_property($curses/logo, "position", Vector2(576.0, 82.0), 2)
+				await get_tree().create_timer(2).timeout
+				say("CURSES!", "Annouce")
+				$curses/logo/CPUParticles2D.emitting = true
+				$curses/popper.play()
+				canProg = true
+			14:
+				say("CURSES are like. weird evil things that affect the way you play!", "Default")
+				canProg = true
+			15:
+				say("Sometimes they restrict your access to things, and sometimes they ENTIRELY reimagine them!", "Default")
+				canProg = true
+			16:
+				say("And sometimes they're really stupid.", "Default")
+				canProg = true
+			17:
+				say("And now, i will spin this wheel! and whatever it lands on is the curse you'll get!", "Annouce")
+				canProg = true
+			18:
+				say("Ready?", "Default")
+				canProg = true
+			19:
+				say("3", "LaughAnim")
+				await get_tree().create_timer(0.1).timeout
+				say("2", "LaughAnim")
+				await get_tree().create_timer(0.1).timeout
+				say("1", "LaughAnim")
+				await get_tree().create_timer(0.1).timeout
+				say("GO", "LaughAnim")
+				await get_tree().create_timer(0.1).timeout
+				say("", "Look")
+				var tween2 = create_tween()
+				tween2.tween_property($curses/ThemeSong, "volume_db", -20, 2).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN_OUT)
+				var tween = create_tween()
+				tween.tween_property($curses/wheel, "rotation", randi_range(3000, 4000), 7).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN_OUT)
+				$curses/spin.play()
+				await get_tree().create_timer(7).timeout
+				_on_button_pressed()
+				$curses/AnimationPlayer.play("curse")
+				await get_tree().create_timer(2).timeout
+				var tween3 = create_tween()
+				tween3.tween_property($curses/ThemeSong, "volume_db", 0, 2).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN_OUT)
+				say("Wow! look at them curses!", "Default")
+				canProg = true
+			20:
+				say("well, now that THATS settled, its time we part ways!", "Default")
+				canProg = true
+			21:
+				say("Prove you can handle this, once you do meet me back here, we'll discuss further!", "Default")
+				canProg = true
+			22:
+				say("Toodles, friendo!", "Default")
+				canProg = true
+			23:
+				var tween2 = create_tween()
+				tween2.tween_property($curses/ThemeSong, "volume_db", -80, 2).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN_OUT)
+				$curses/AnimationPlayer.play("end")
+	if Game.rebirths == 2:
+		amountOfCurses = 2
+		match prog:
+			0:
+				say("Well, what do you know!", "Default")
+				canProg = true
+			1:
+				say("3", "LaughAnim")
+				await get_tree().create_timer(0.1).timeout
+				say("2", "LaughAnim")
+				await get_tree().create_timer(0.1).timeout
+				say("1", "LaughAnim")
+				await get_tree().create_timer(0.1).timeout
+				say("GO", "LaughAnim")
+				await get_tree().create_timer(0.1).timeout
+				say("", "Look")
+				var tween2 = create_tween()
+				tween2.tween_property($curses/ThemeSong, "volume_db", -20, 2).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN_OUT)
+				var tween = create_tween()
+				tween.tween_property($curses/wheel, "rotation", randi_range(3000, 4000), 7).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN_OUT)
+				$curses/spin.play()
+				await get_tree().create_timer(7).timeout
+				_on_button_pressed()
+				$curses/AnimationPlayer.play("curse")
+				await get_tree().create_timer(2).timeout
+				var tween3 = create_tween()
+				tween3.tween_property($curses/ThemeSong, "volume_db", 0, 2).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN_OUT)
+				say("Wow! look at them curses!", "Default")
+				canProg = true
+			2:
+				var tween2 = create_tween()
+				tween2.tween_property($curses/ThemeSong, "volume_db", -80, 2).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN_OUT)
+				$curses/AnimationPlayer.play("end")
+	if Game.rebirths == 3:
+		amountOfCurses = 3
+		match prog:
+			0:
+				say("Well, what do you know!", "Default")
+				canProg = true
+			1:
+				say("3", "LaughAnim")
+				await get_tree().create_timer(0.1).timeout
+				say("2", "LaughAnim")
+				await get_tree().create_timer(0.1).timeout
+				say("1", "LaughAnim")
+				await get_tree().create_timer(0.1).timeout
+				say("GO", "LaughAnim")
+				await get_tree().create_timer(0.1).timeout
+				say("", "Look")
+				var tween2 = create_tween()
+				tween2.tween_property($curses/ThemeSong, "volume_db", -20, 2).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN_OUT)
+				var tween = create_tween()
+				tween.tween_property($curses/wheel, "rotation", randi_range(3000, 4000), 7).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN_OUT)
+				$curses/spin.play()
+				await get_tree().create_timer(7).timeout
+				_on_button_pressed()
+				$curses/AnimationPlayer.play("curse")
+				await get_tree().create_timer(2).timeout
+				var tween3 = create_tween()
+				tween3.tween_property($curses/ThemeSong, "volume_db", 0, 2).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN_OUT)
+				say("Wow! look at them curses!", "Default")
+				canProg = true
+			2:
+				var tween2 = create_tween()
+				tween2.tween_property($curses/ThemeSong, "volume_db", -80, 2).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN_OUT)
+				$curses/AnimationPlayer.play("end")
+	if Game.rebirths == 4:
+		amountOfCurses = 3
+		match prog:
+			0:
+				say("Well, what do you know!", "Default")
+				canProg = true
+			1:
+				say("3", "LaughAnim")
+				await get_tree().create_timer(0.1).timeout
+				say("2", "LaughAnim")
+				await get_tree().create_timer(0.1).timeout
+				say("1", "LaughAnim")
+				await get_tree().create_timer(0.1).timeout
+				say("GO", "LaughAnim")
+				await get_tree().create_timer(0.1).timeout
+				say("", "Look")
+				var tween2 = create_tween()
+				tween2.tween_property($curses/ThemeSong, "volume_db", -20, 2).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN_OUT)
+				var tween = create_tween()
+				tween.tween_property($curses/wheel, "rotation", randi_range(3000, 4000), 7).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN_OUT)
+				$curses/spin.play()
+				await get_tree().create_timer(7).timeout
+				_on_button_pressed()
+				$curses/AnimationPlayer.play("curse")
+				await get_tree().create_timer(2).timeout
+				var tween3 = create_tween()
+				tween3.tween_property($curses/ThemeSong, "volume_db", 0, 2).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN_OUT)
+				say("Wow! look at them curses!", "Default")
+				canProg = true
+			2:
+				var tween2 = create_tween()
+				tween2.tween_property($curses/ThemeSong, "volume_db", -80, 2).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN_OUT)
+				$curses/AnimationPlayer.play("end")
+	prog += 1
+
+func setCurseDisplay(num : int):
+	if num <= curses.size()-1:
+		if num != 0:
+			$curses/Curses.text += "\n"+curses[num]["Name"]
+		else:
+			$curses/Curses.text += curses[num]["Name"]
+
+func say(texts : String, animation : StringName):
+	$curses/Dialogue.visible_ratio = 0
+	$curses/Dialogue.visible_characters = 0
+	$curses/Dialogue.text = texts
+	$curses/QTE.play(animation)

@@ -59,7 +59,21 @@ func _process(delta: float) -> void:
 			hotboxes[i]["box"].texture = load("res://interstate-intracept/assets/ui/invBox.png")
 			
 		hotboxes[i]["box_img"].texture = load("res://interstate-intracept/assets/ui/itemPrev/"+str(Intracept.hoxboxItems[Intracept.hotboxes[i]["id"]]["small_img_id"])+".png")
-		hotboxes[i]["amount_img"].texture = load("res://interstate-intracept/assets/ui/itemPrev/"+str(Intracept.hotboxes[i]["stack"])+".png")
+		if Intracept.hoxboxItems[Intracept.hotboxes[i]["id"]]["stackable"] == true:
+			hotboxes[i]["amount_img"].texture = load("res://interstate-intracept/assets/ui/itemPrev/"+str(Intracept.hotboxes[i]["stack"])+".png")
+		else:
+			hotboxes[i]["amount_img"].texture = load("res://interstate-intracept/assets/ui/itemPrev/0.png")
+	
+	if Input.is_action_just_pressed("Click"):
+		if Intracept.hotboxes[Intracept.hotboxSel]["id"] == 5:
+			if health < 100:
+				health += 25
+				Intracept.hotboxes[Intracept.hotboxSel]["stack"] -= 1
+				if Intracept.hotboxes[Intracept.hotboxSel]["stack"] == 0:
+					Intracept.reset_box(Intracept.hotboxSel)
+	
+	if Input.is_action_just_pressed("DebugMode"):
+		health -= 25
 	
 	$CanvasLayer/Boxes/Label.text = Intracept.hoxboxItems[Intracept.hotboxes[Intracept.hotboxSel]["id"]]["item_name"]
 	$Neck/heldItem.texture = load("res://interstate-intracept/assets/ui/shit_u_hold/"+Intracept.hoxboxItems[Intracept.hotboxes[Intracept.hotboxSel]["id"]]["held_img_id"]+".png")

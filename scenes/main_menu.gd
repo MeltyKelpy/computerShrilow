@@ -66,6 +66,7 @@ var commits = 69
 
 var evil = []
 
+var intro = true
 var can = true
 
 var config = ConfigFile.new()
@@ -114,6 +115,17 @@ func _process(delta: float) -> void:
 		$Credits/Jobs.text = ""
 		$Credits/Quote.text = ""
 		$Credits/person.texture = load(creditors[selectedCredit]["Image"])
+	
+	if Input.is_action_just_pressed("Click") and intro == true:
+		_endIntro(true)
+
+func _endIntro(manual : bool):
+	$intro.visible = false
+	intro = false
+	if manual == true:
+		$AudioStreamPlayer.playing = false
+		_on_audio_stream_player_finished()
+		$AnimationPlayer2.play("skip")
 
 func endMenu():
 	if loading == "game":
@@ -129,6 +141,7 @@ func _on_start_pressed() -> void:
 		can = false
 
 func changeSelection(toChange):
+	$Icon.visible = true
 	$SFXScroll.play()
 	selectedCredit += toChange
 
