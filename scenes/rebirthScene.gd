@@ -251,20 +251,19 @@ func _scene2():
 				canProg = true
 			8:
 				say("SHUT UP YOU WHINY BITCH", "Giddy")
-				canProg = true
-			9:
+				await get_tree().create_timer(0.6).timeout
 				say("Secondly, its to make this experience abit more interesting for you!", "HappyAnim")
 				canProg = true
-			10:
+			9:
 				say("You've gone through this a few times now, so we gotta make it extra interesting this time!", "Default")
 				canProg = true
-			11:
+			10:
 				say("With that in mind; i'd like to introduce you to what ive been making", "HappyAnim")
 				canProg = true
-			12:
+			11:
 				say("Introducing...", "Default")
 				canProg = true
-			13:
+			12:
 				say("", "Default")
 				var tween = create_tween()
 				tween.tween_property($curses/logo, "position", Vector2(576.0, 82.0), 2)
@@ -273,22 +272,22 @@ func _scene2():
 				$curses/logo/CPUParticles2D.emitting = true
 				$curses/popper.play()
 				canProg = true
-			14:
+			13:
 				say("CURSES are like. weird evil things that affect the way you play!", "Default")
 				canProg = true
-			15:
+			14:
 				say("Sometimes they restrict your access to things, and sometimes they ENTIRELY reimagine them!", "Default")
 				canProg = true
-			16:
+			15:
 				say("And sometimes they're really stupid.", "Default")
 				canProg = true
-			17:
+			16:
 				say("And now, i will spin this wheel! and whatever it lands on is the curse you'll get!", "Annouce")
 				canProg = true
-			18:
+			17:
 				say("Ready?", "Default")
 				canProg = true
-			19:
+			18:
 				say("3", "LaughAnim")
 				await get_tree().create_timer(0.1).timeout
 				say("2", "LaughAnim")
@@ -311,16 +310,16 @@ func _scene2():
 				tween3.tween_property($curses/ThemeSong, "volume_db", 0, 2).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN_OUT)
 				say("Wow! look at them curses!", "Default")
 				canProg = true
-			20:
+			19:
 				say("well, now that THATS settled, its time we part ways!", "Default")
 				canProg = true
-			21:
+			20:
 				say("Prove you can handle this, once you do meet me back here, we'll discuss further!", "Default")
 				canProg = true
-			22:
+			21:
 				say("Toodles, friendo!", "Default")
 				canProg = true
-			23:
+			22:
 				var tween2 = create_tween()
 				tween2.tween_property($curses/ThemeSong, "volume_db", -80, 2).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN_OUT)
 				$curses/AnimationPlayer.play("end")
