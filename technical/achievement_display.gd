@@ -13,6 +13,8 @@ func _ready():
 		$Desc.text = achievementDesc
 
 func _process(delta: float) -> void:
+	$Desc.size.x = 224.0
+	$Desc.position.x = 18.0
 	if ResourceLoader.exists("res://assets/images/ui/achievements/"+iconToUse+".png"):
 		self.texture = load("res://assets/images/ui/achievements/"+iconToUse+".png")
 	else:

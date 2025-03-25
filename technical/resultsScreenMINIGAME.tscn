@@ -416,7 +416,7 @@ stream = ExtResource("8_hn581")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_x03b3")
+&"": SubResource("AnimationLibrary_x03b3")
 }
 autoplay = "RESET"
 

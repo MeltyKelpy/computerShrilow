@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://c44raqdt416q7"]
+
+[ext_resource type="Script" uid="uid://bb3x2qeo6ep7n" path="res://technical/popup.gd" id="1_1s7rg"]
+[ext_resource type="Theme" uid="uid://dr1wna4c2ab2h" path="res://technical/textStyle.tres" id="1_y3yr2"]
+
+[node name="Popup" type="ConfirmationDialog"]
+title = "WARNING!"
+initial_position = 2
+size = Vector2i(917, 144)
+visible = true
+unresizable = true
+popup_window = true
+theme = ExtResource("1_y3yr2")
+ok_button_text = "Please load my file bro..."
+dialog_text = "This File's game version (00.00.00) is from a build later than this current build! (00.00.00).
+Loading it on this build could create errors when trying to load this file on its original (new) build, are you sure? 
+(note: it will work fine in this build!)"
+dialog_autowrap = true
+cancel_button_text = "Nevermind, dont load!"
+script = ExtResource("1_1s7rg")
+
+[connection signal="close_requested" from="." to="." method="_on_canceled"]
+[connection signal="confirmed" from="." to="." method="_on_confirmed"]

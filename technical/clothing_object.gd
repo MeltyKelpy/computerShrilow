@@ -12,6 +12,10 @@ func _ready() -> void:
 	$Clothing.texture = load(array[arrayToUse][ItemID]["IconKey"])
 
 func _process(_delta: float) -> void:
+	
+	if array[arrayToUse][ItemID]["Cost"] == 0:
+		array[arrayToUse][ItemID]["Owned"] = true
+	
 	if array[arrayToUse][ItemID]["Owned"] == true:
 		$Clothing/Cost.text = "Owned!"
 	else:

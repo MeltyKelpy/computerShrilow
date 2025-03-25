@@ -9,8 +9,8 @@ var achievements = [
 	"ID":"rebirth",
 	},
 	{
-	"name":"10 Lifetimes Pass",
-	"requirement":"Get your 10th Rebirth",
+	"name":"5 Lifetimes Pass",
+	"requirement":"Get your 5th Rebirth",
 	"desc":"Prove your worth.",
 	"unlocked?":false,
 	"ID":"rebirth10",
@@ -23,7 +23,7 @@ var achievements = [
 	"ID":"spicy",
 	},
 	{
-	"name":"THATS NOT SPICY, THATS JUST. HURT",
+	"name":"NOT SPICY. JUST. HURT.",
 	"requirement":"Go through a playthrough with 5 curses",
 	"desc":"Gotta get some milk for that...",
 	"unlocked?":false,

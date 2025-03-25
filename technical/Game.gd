@@ -14,10 +14,13 @@ var scenePaths = [
 
 var namee = "SAVE FILE"
 var jellies = 0
+var gumballsBought = 0
+var platinumGumballsBought = 0
 var rebirths = 0
 var gameTime = 0.0
 var icon = 0
 var saveFileClicks = 0
+var gameVersion = "00.02.68"
 
 var rebirthJellyProtocol = []
 
@@ -60,17 +63,14 @@ func reloadGlobals():
 	set_script(s)
 
 func unlock_achievement(id : String):
-	pass
-
-func unlock_check(id : String):
-	pass
-		#var achievementID
-		#for i in Achievements.achievements.size()-1:
-			#if Achievements.achievements[i]["ID"] == "sorefingers":
-				#achievementID = i
-				#break
-		#if Achievements.achievements[achievementID]["unlocked?"] == false:
-			#Achievements.achievements[achievementID]["unlocked?"] = true
+	var achievementID
+	for i in Achievements.achievements.size()-1:
+		if Achievements.achievements[i]["ID"] == id:
+			achievementID = i
+			break
+	if Achievements.achievements[achievementID]["unlocked?"] == false:
+		Achievements.achievements[achievementID]["unlocked?"] = true
+		Game.notify('you got the "'+Achievements.achievements[achievementID]["name"]+'" achievement!\n'+Achievements.achievements[achievementID]["desc"], "trophy")
 
 func commizeNumber(value: int) -> String:
 	# Convert value to string.
@@ -122,6 +122,7 @@ func loadData():
 	var err = config.load(files[curFile])
 	
 	if err == OK:
+		config.set_value("Fiscal", "gameVersion", gameVersion)
 		namee = config.get_value("Fiscal", "Name")
 		jellies = config.get_value("Fiscal", "Jellies")
 		Jelly.storedJellys = config.get_value("Fiscal", "StoredJellies")
@@ -133,6 +134,8 @@ func loadData():
 		ClothingObjects.equippedClothing = config.get_value("Fiscal", "Clothing")
 		FizzyDrink.jellys = config.get_value("Fiscal", "AmountOfJellies")
 		FizzyDrink.amountOfRooms = config.get_value("Fiscal", "AmountOfRooms", 0)
+		gumballsBought = config.get_value("Fiscal", "ballsBought", 0)
+		platinumGumballsBought = config.get_value("Fiscal", "platBallsBought", 0)
 		if config.get_value("Rebirth", "RebirthBoxTokens") != null:
 			boxed = config.get_value("Rebirth", "RebirthBoxTokens")
 		else:
@@ -186,10 +189,13 @@ func loadData():
 				Jelly.blueJellies[i]["Discovered"] = blues[i]
 		
 		var awesome = config.get_value("Stats", "ownedClothes")
+		if awesome.size() < ClothingObjects.clothes.size():
+			awesome.resize(ClothingObjects.clothes.size())
 		for i in ClothingObjects.clothes.size():
-			if awesome.size() < ClothingObjects.clothes.size():
-				awesome.resize(ClothingObjects.clothes.size())
-			ClothingObjects.clothes[i]["Owned"] = awesome[i]
+			if awesome[i] != null:
+				ClothingObjects.clothes[i]["Owned"] = awesome[i]
+			else:
+				ClothingObjects.clothes[i]["Owned"] = false
 		
 		rebirthTokens = config.get_value("Rebirth", "RebirthTokens")
 		
@@ -212,6 +218,7 @@ func saveData():
 	# NON RESETING // REBIRTH STUFF
 	# including shows up on file menu and is considered "main" data (FISCAL)
 	
+	config.set_value("Fiscal", "gameVersion", gameVersion)
 	config.set_value("Fiscal", "Name", namee)
 	config.set_value("Fiscal", "Jellies", jellies)
 	config.set_value("Fiscal", "Rebirths", rebirths)
@@ -233,6 +240,8 @@ func saveData():
 	config.set_value("Story", "DialogueDoneMARKET", gameTime)
 	config.set_value("Story", "RebirthIntroPlayed", RebirthIntroPlayed)
 	config.set_value("Story", "DialogueUnlockedPBJ", gameTime)
+	config.set_value("Fiscal", "ballsBought", gumballsBought)
+	config.set_value("Fiscal", "platBallsBought", platinumGumballsBought)
 	
 	var commons = []
 	var uncommons = []

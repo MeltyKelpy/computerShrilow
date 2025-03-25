@@ -1,20 +1,45 @@
-[gd_resource type="Theme" load_steps=3 format=3 uid="uid://dr1wna4c2ab2h"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://dr1wna4c2ab2h"]
 
 [ext_resource type="FontFile" uid="uid://brn7smfq0l6ao" path="res://assets/fonts/TwCen.ttf" id="1_hxvs8"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_osllf"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gdtk4"]
 bg_color = Color(1, 0.905882, 0.85098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_33mho"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xig12"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nmp3t"]
+bg_color = Color(1, 0.905882, 0.85098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xig12"]
+bg_color = Color(1, 0.905882, 0.85098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_74ua4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_33mho"]
 
 [resource]
 default_font = ExtResource("1_hxvs8")
 default_font_size = 35
+AcceptDialog/icons/close = null
+AcceptDialog/styles/panel = SubResource("StyleBoxFlat_gdtk4")
+Button/colors/font_color = Color(0.121569, 0.0470588, 0, 1)
+Button/colors/font_focus_color = Color(0.121569, 0.0470588, 0, 1)
+Button/colors/font_hover_color = Color(0.51935, 0.276982, 9.62615e-08, 1)
+Button/colors/font_hover_pressed_color = Color(0.121569, 0.0470588, 0, 1)
+Button/styles/disabled = SubResource("StyleBoxFlat_33mho")
+Button/styles/focus = SubResource("StyleBoxEmpty_xig12")
+Button/styles/hover = SubResource("StyleBoxFlat_nmp3t")
+Button/styles/normal = SubResource("StyleBoxFlat_xig12")
+Button/styles/pressed = SubResource("StyleBoxFlat_74ua4")
 Label/colors/font_color = Color(0.121569, 0.0470588, 0, 1)
 Label/colors/font_outline_color = Color(1, 0.905882, 0.85098, 1)
 Label/constants/outline_size = 20
-Label/font_sizes/font_size = 65
+Label/font_sizes/font_size = 27
 Label/fonts/font = ExtResource("1_hxvs8")
 PopupPanel/colors/title_color = Color(0.121569, 0.0470588, 0, 1)
-PopupPanel/constants/title_outline_size = 0
+PopupPanel/constants/title_outline_size = 5
 PopupPanel/font_sizes/title_font_size = 5
 PopupPanel/fonts/title_font = ExtResource("1_hxvs8")
-PopupPanel/styles/panel = SubResource("StyleBoxFlat_osllf")
+PopupPanel/styles/panel = SubResource("StyleBoxEmpty_33mho")

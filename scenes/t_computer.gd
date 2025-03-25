@@ -953,14 +953,50 @@ func _process(_delta : float) -> void:
 		else:
 			$ShrilowScreen/Shop.texture = load("res://assets/images/ui/shop.png")
 	
+	if ItemValues.money >= 1000000000:
+		Game.unlock_achievement("billionare")
+	
 	if Game.saveFileClicks >= 100000:
 		Game.unlock_achievement("carpaltunnel")
-		if Game.unlock_check("carpaltunnel") == true:
-			Game.notify('you got the "Carpal Tunnel" achievement!\n'+"Don't u know that is the hurts? *bone sound* IV in that arm, yo!", "trophy")
 	elif Game.saveFileClicks >= 10000:
 		Game.unlock_achievement("sorefingers")
-		if Game.unlock_check("sorefingers") == true:
-			Game.notify('you got the "Are your Fingers Sore" achievement!\nYEOUUCHH', "trophy")
+	
+	if Game.gumballsBought >= 100:
+		Game.unlock_achievement("90percent")
+	if Game.gumballsBought >= 1000:
+		Game.unlock_achievement("1000gum")
+	if Game.platinumGumballsBought >= 10:
+		Game.unlock_achievement("10plat")
+	
+	if $ShrilowScreen/puppies != null:
+		if $ShrilowScreen/puppies.get_child_count() >= 500:
+			Game.unlock_achievement("500gp")
+	
+	var clothes = true
+	for i in ClothingObjects.clothes.size():
+		if ClothingObjects.clothes[i]["Owned"] == false:
+			clothes = false
+			break
+	if clothes == true:
+		Game.unlock_achievement("fashionista")
+	
+	var jellyThing2 = [
+		Jelly.commonJellies,
+		Jelly.uncommonJellies,
+		Jelly.rareJellies,
+		Jelly.awesomeJellies,
+		Jelly.queerJellies,
+		]
+	var JELLYcanAchieve = true
+	
+	for i in jellyThing2.size():
+		for e in range(0, jellyThing2[i].size()-1):
+			if jellyThing2[i][e]["Discovered"] == false:
+				JELLYcanAchieve = false
+				break
+	
+	if JELLYcanAchieve == true:
+		Game.unlock_achievement("crazyjellylady")
 	
 	var config = ConfigFile.new()
 	
@@ -1202,6 +1238,7 @@ func _process(_delta : float) -> void:
 			#cameraAnimation("journal", 576, 324)
 	
 	if Input.is_action_just_pressed("DebugMode"):
+		FizzyDrink.clicks += 10000
 		Game.saveFileClicks += 10000
 	
 	if $DEBUGVALUES.visible == true:
@@ -1443,6 +1480,10 @@ func _buyGumball_pressed() -> void:
 		type = (rng.randi_range(1, 200))
 		print(type)
 		var jellyTypeToBe
+		
+		if gumballInfo[gumballSelection]["Name"] == "Platinum Coin":
+			Game.platinumGumballsBought += 1
+		Game.gumballsBought += 1
 		
 		if (type <= 1 and gumballInfo[gumballSelection]["Name"] == "Queer Coin") or (type <= 1 and gumballInfo[gumballSelection]["Name"] == "Platinum Coin"):
 			jellyTypeToBe = "BlueChance"
@@ -1885,6 +1926,10 @@ func canpls():
 	can = true
 
 func _Rebirth() -> void:
+	if Curses.curses.size() >= 1:
+		Game.unlock_achievement("spicy")
+	if Curses.curses.size() >= 5:
+		Game.unlock_achievement("extraspicy")
 	rebirthProtocol = true
 	for i in range(0, Jelly.storedJellys.size()):
 		if Jelly.storedJellys[i] != null:

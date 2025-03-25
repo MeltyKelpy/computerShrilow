@@ -9,5 +9,12 @@ func _ready() -> void:
 	$Notification/Icon.texture = load("res://assets/images/ui/"+texture+"Notification.png")
 	$Notification/Icon/Label.text = text
 
+func _process(delta: float) -> void:
+	if get_node_or_null(^"/root/computerShrilow/Camera2D"):
+		position.x = $/root/computerShrilow/Camera2D.position.x - 576
+		position.y = $/root/computerShrilow/Camera2D.position.y - 324
+	else:
+		queue_free()
+
 func _kill():
 	queue_free()

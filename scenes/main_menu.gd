@@ -8,7 +8,7 @@ var creditors = [
 	"Image":"res://assets/images/mainMenu/credits/ppl/mel.png",
 	"Pronouns":"It/Star",
 	"Roles":"Game Creator -\nMain Artist -\nMain Coder -",
-	"Commits":63,
+	"Commits":132,
 	"Quote":"jesus = false",
 	},
 	{
@@ -32,7 +32,7 @@ var creditors = [
 	"Image":"res://assets/images/mainMenu/credits/ppl/saayo.png",
 	"Pronouns":"She/Her",
 	"Roles":"Artist -",
-	"Commits":6,
+	"Commits":8,
 	"Quote":"kill melty",
 	},
 	{
@@ -62,7 +62,7 @@ var creditors = [
 	]
 
 var selectedCredit = 0
-var commits = 69
+var commits = 141
 
 var evil = []
 
@@ -82,6 +82,7 @@ var config = ConfigFile.new()
 	]
 
 func _ready() -> void:
+	$stuff/TXT.text = "beta build: +"+Game.gameVersion+"\nExported: March 24th, 2025"
 	Settings.loadData()
 	for i in range(0,3):
 		var cacapoopyFUCK = load("res://technical/saveBox.tscn")

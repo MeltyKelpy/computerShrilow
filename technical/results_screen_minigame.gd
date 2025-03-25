@@ -118,6 +118,6 @@ func allowExit():
 		ItemValues.money = toCountTo
 		$resultsscreen/INFO2.visible = false
 		$resultsscreen/INFO3.visible = true
-		$resultsscreen/INFO3.text = str(ItemValues.money)
+		$resultsscreen/INFO3.text = str(Game.commizeNumber(ItemValues.money))
 		allowExiting = true
 		$resultsscreen/EXIT.visible = true

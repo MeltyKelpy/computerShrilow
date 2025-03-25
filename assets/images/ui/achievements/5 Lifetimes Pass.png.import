@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bspqli8coxw3y"
-path="res://.godot/imported/10 Lifetimes Pass.png-17140461a4825986abaf0924a0197c94.ctex"
+uid="uid://hhw8urhpw8qo"
+path="res://.godot/imported/5 Lifetimes Pass.png-c7d91d0785989643e3afa35064c11a14.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/ui/achievements/10 Lifetimes Pass.png"
-dest_files=["res://.godot/imported/10 Lifetimes Pass.png-17140461a4825986abaf0924a0197c94.ctex"]
+source_file="res://assets/images/ui/achievements/5 Lifetimes Pass.png"
+dest_files=["res://.godot/imported/5 Lifetimes Pass.png-c7d91d0785989643e3afa35064c11a14.ctex"]
 
 [params]
 
