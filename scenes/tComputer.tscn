@@ -1,4 +1,4 @@
-[gd_scene load_steps=174 format=3 uid="uid://bgw557ttv6noe"]
+[gd_scene load_steps=173 format=3 uid="uid://bgw557ttv6noe"]
 
 [ext_resource type="Script" path="res://scenes/t_computer.gd" id="1_swrb7"]
 [ext_resource type="Texture2D" uid="uid://dajex7cpt7k4p" path="res://assets/images/bg/background.png" id="2_u0da7"]
@@ -29,7 +29,6 @@
 [ext_resource type="PackedScene" uid="uid://cbtrsg4a3b386" path="res://technical/minesLevel.tscn" id="18_6bagw"]
 [ext_resource type="Texture2D" uid="uid://bdb32kjljwqn4" path="res://assets/images/areas/jellies/JELLYDAYCARE.png" id="18_w041t"]
 [ext_resource type="Texture2D" uid="uid://bymsocpxxxn4o" path="res://assets/images/areas/jellies/receptionDesk.png" id="19_4v3d6"]
-[ext_resource type="PackedScene" uid="uid://b8pcc6x4abdnb" path="res://technical/items/Greasepuppy.tscn" id="19_b72lk"]
 [ext_resource type="Texture2D" uid="uid://cwladsljiqill" path="res://assets/images/ui/backDown.png" id="19_tht4w"]
 [ext_resource type="Texture2D" uid="uid://ch5divq2tt5lo" path="res://assets/images/areas/jellies/melvin.png" id="20_elrg5"]
 [ext_resource type="PackedScene" uid="uid://ctkrk05lsjbrs" path="res://technical/items/gumballMachine.tscn" id="20_i56yc"]
@@ -1482,10 +1481,8 @@ text = "CLICKS:"
 
 [node name="puppies" type="Node2D" parent="ShrilowScreen"]
 
-[node name="Greasepuppy" parent="ShrilowScreen/puppies" instance=ExtResource("19_b72lk")]
-position = Vector2(850, 544)
-
 [node name="gpButton" type="CheckButton" parent="ShrilowScreen"]
+visible = false
 offset_left = 869.0
 offset_top = 598.0
 offset_right = 969.0
