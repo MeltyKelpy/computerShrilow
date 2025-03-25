@@ -1,10 +1,10 @@
 [gd_scene load_steps=35 format=3 uid="uid://nwuvahaip15p"]
 
-[ext_resource type="Script" uid="uid://c0q7gtaex47fw" path="res://technical/events/hardestGame.gd" id="1_y1k7a"]
+[ext_resource type="Script" path="res://technical/events/hardestGame.gd" id="1_y1k7a"]
 [ext_resource type="Texture2D" uid="uid://cqhnoqmd6g783" path="res://assets/images/events/walls.png" id="2_2mshi"]
 [ext_resource type="AudioStream" uid="uid://l35q8ihhr1w4" path="res://assets/music/challengeimpossible.ogg" id="4_b51bn"]
 [ext_resource type="Texture2D" uid="uid://bbm6w1ljotmue" path="res://assets/images/events/player.png" id="5_byp34"]
-[ext_resource type="Script" uid="uid://djvhpd0lx5fp5" path="res://technical/events/hardestGamePlayer.gd" id="5_mussj"]
+[ext_resource type="Script" path="res://technical/events/hardestGamePlayer.gd" id="5_mussj"]
 [ext_resource type="Texture2D" uid="uid://sn2vh6yb4153" path="res://assets/images/events/filledStar.png" id="6_a5s46"]
 [ext_resource type="Texture2D" uid="uid://gmuga8kbaiow" path="res://assets/images/events/ough.png" id="7_ikofv"]
 [ext_resource type="Texture2D" uid="uid://bucepb3oy8gmh" path="res://assets/images/events/minigameTitle.png" id="7_j82wi"]
@@ -309,10 +309,10 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_iiqyl"]
 _data = {
-&"RESET": SubResource("Animation_djedu"),
-&"pop": SubResource("Animation_e3o1v"),
-&"title": SubResource("Animation_fcjxb"),
-&"yes": SubResource("Animation_tlkvl")
+"RESET": SubResource("Animation_djedu"),
+"pop": SubResource("Animation_e3o1v"),
+"title": SubResource("Animation_fcjxb"),
+"yes": SubResource("Animation_tlkvl")
 }
 
 [sub_resource type="Animation" id="Animation_mx2ph"]
@@ -433,8 +433,8 @@ tracks/4/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_od5ox"]
 _data = {
-&"RESET": SubResource("Animation_mx2ph"),
-&"blue": SubResource("Animation_kgbqy")
+"RESET": SubResource("Animation_mx2ph"),
+"blue": SubResource("Animation_kgbqy")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mmiw5"]
@@ -583,10 +583,10 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b385k"]
 _data = {
-&"RESET": SubResource("Animation_aa5mf"),
-&"die": SubResource("Animation_3ms3a"),
-&"die2": SubResource("Animation_bxtan"),
-&"win": SubResource("Animation_jr4tl")
+"RESET": SubResource("Animation_aa5mf"),
+"die": SubResource("Animation_3ms3a"),
+"die2": SubResource("Animation_bxtan"),
+"win": SubResource("Animation_jr4tl")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x0scv"]
