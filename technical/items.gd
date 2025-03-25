@@ -3,17 +3,19 @@ extends Node
 var itemInfomation = [
 	{
 	"ScenePath":"res://technical/shopTitle.tscn",
+	"SectionName":"",
 	"ImgType":"titleLeft",
 	"Type":"Title",
 	},
 	{
 	"ScenePath":"res://technical/shopTitle.tscn",
 	"SectionName":"Click-Up!",
-	"ImgType":"titleLeft",
+	"ImgType":"titlePiece",
 	"Type":"Title",
 	},
 	{
 	"ScenePath":"res://technical/shopTitle.tscn",
+	"SectionName":"",
 	"ImgType":"titleRight",
 	"Type":"Title",
 	},
@@ -79,17 +81,19 @@ var itemInfomation = [
 	#},
 	{
 	"ScenePath":"res://technical/shopTitle.tscn",
+	"SectionName":"",
 	"ImgType":"titleLeft",
 	"Type":"Title",
 	},
 	{
 	"ScenePath":"res://technical/shopTitle.tscn",
-	"SectionName":"Money makers",
-	"ImgType":"titleLeft",
+	"SectionName":"Money Makers",
+	"ImgType":"titlePiece",
 	"Type":"Title",
 	},
 	{
 	"ScenePath":"res://technical/shopTitle.tscn",
+	"SectionName":"",
 	"ImgType":"titleRight",
 	"Type":"Title",
 	},
@@ -140,17 +144,19 @@ var itemInfomation = [
 	},
 	{
 	"ScenePath":"res://technical/shopTitle.tscn",
+	"SectionName":"",
 	"ImgType":"titleLeft",
 	"Type":"Title",
 	},
 	{
 	"ScenePath":"res://technical/shopTitle.tscn",
-	"SectionName":"Event stuff",
-	"ImgType":"titleLeft",
+	"SectionName":"Events",
+	"ImgType":"titlePiece",
 	"Type":"Title",
 	},
 	{
 	"ScenePath":"res://technical/shopTitle.tscn",
+	"SectionName":"",
 	"ImgType":"titleRight",
 	"Type":"Title",
 	},
@@ -198,6 +204,24 @@ var itemInfomation = [
 	"Cost":200,
 	"ScenePath":"res://technical/items/blockOutEvents.tscn",
 	"Type":"Consumable",
+	},
+	{
+	"ScenePath":"res://technical/shopTitle.tscn",
+	"SectionName":"",
+	"ImgType":"titleLeft",
+	"Type":"Title",
+	},
+	{
+	"ScenePath":"res://technical/shopTitle.tscn",
+	"SectionName":"Crystals",
+	"ImgType":"titlePiece",
+	"Type":"Title",
+	},
+	{
+	"ScenePath":"res://technical/shopTitle.tscn",
+	"SectionName":"",
+	"ImgType":"titleRight",
+	"Type":"Title",
 	},
 	{
 	# SHRILOWCRYSTAL

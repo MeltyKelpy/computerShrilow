@@ -771,11 +771,19 @@ func generateHoes():
 		add_child(caca)
 		caca.reparent($ShrilowScreen/cursesDisplay)
 	for i in ItemValues.itemInfomation.size():
-		var caca = cacapoopyGOD.instantiate()
-		caca.ItemID = i
-		caca.type = "melanie"
-		add_child(caca)
-		caca.reparent($Shop/ScrollContainer/GridContainer)
+		if ItemValues.itemInfomation[i]["Type"] != "Title":
+			var caca = cacapoopyGOD.instantiate()
+			caca.ItemID = i
+			caca.type = "melanie"
+			add_child(caca)
+			caca.reparent($Shop/ScrollContainer/GridContainer)
+		else:
+			var cacapoopyGOD2 = load(ItemValues.itemInfomation[i]["ScenePath"])
+			var caca = cacapoopyGOD2.instantiate()
+			caca.type = ItemValues.itemInfomation[i]["ImgType"]
+			caca.text = ItemValues.itemInfomation[i]["SectionName"]
+			add_child(caca)
+			caca.reparent($Shop/ScrollContainer/GridContainer)
 	for i in ItemValues.melvinItems.size():
 		var caca = cacapoopyGOD.instantiate()
 		caca.ItemID = i

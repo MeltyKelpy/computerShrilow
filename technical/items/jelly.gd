@@ -87,12 +87,12 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if jelly == "Phantom Jelly":
-		money = round(1 + (1 * (ItemValues.marketItems[id]["CurUpgrade"] / 2)))
+		money = round(1 + (1 * (ItemValues.marketItems[id]["CurUpgrade"])))
 		seconds = 2
 		if id == 0:
 			id = 4
 	if jelly == "Antag Jelly":
-		money = round(3 + (3 * (ItemValues.marketItems[id]["CurUpgrade"] / 2)))
+		money = round(3 + (3 * (ItemValues.marketItems[id]["CurUpgrade"])))
 		seconds = 4
 		if id == 0:
 			id = 5

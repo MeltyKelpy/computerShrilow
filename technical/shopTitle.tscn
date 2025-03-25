@@ -1,3 +1,26 @@
-[gd_scene format=3 uid="uid://t363b31cvdd5"]
+[gd_scene load_steps=4 format=3 uid="uid://t363b31cvdd5"]
+
+[ext_resource type="Texture2D" uid="uid://djt7ymfsmch1a" path="res://assets/images/ui/titlePiece.png" id="1_w5eoy"]
+[ext_resource type="Script" uid="uid://4du878sh0krh" path="res://technical/shop_title.gd" id="2_yogqa"]
+[ext_resource type="Theme" uid="uid://dr1wna4c2ab2h" path="res://technical/textStyle.tres" id="3_yogqa"]
 
 [node name="ShopTitle" type="TextureRect"]
+texture = ExtResource("1_w5eoy")
+script = ExtResource("2_yogqa")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 17.0
+offset_top = 12.0
+offset_right = 156.0
+offset_bottom = 146.0
+theme = ExtResource("3_yogqa")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 35
+text = "Click-Up!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
