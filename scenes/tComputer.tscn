@@ -1741,6 +1741,7 @@ stream = ExtResource("30_av4u0")
 volume_db = 0.644
 
 [node name="MarektIndicator" type="AnimatedSprite2D" parent="Shop"]
+visible = false
 z_index = 2
 position = Vector2(576, 324)
 sprite_frames = SubResource("SpriteFrames_x01u4")
