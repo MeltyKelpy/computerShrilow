@@ -143,21 +143,35 @@ func loadData():
 		Curses.curses = []
 		Curses.curses = config.get_value("Rebirth", "Curses", [])
 		
-		ItemValues.itemInfomation[0]["CurUpgrade"] = config.get_value("Shop", "autoClickerUpgrade")
-		ItemValues.itemInfomation[1]["CurUpgrade"] = config.get_value("Shop", "PlusOneUpgrade")
-		ItemValues.itemInfomation[2]["CurUpgrade"] = config.get_value("Shop", "PlusOneAUTOUpgrade")
-		ItemValues.itemInfomation[9]["CurUpgrade"] = config.get_value("Shop", "shrilowCry")
-		ItemValues.itemInfomation[10]["CurUpgrade"] = config.get_value("Shop", "jellyCry")
-		ItemValues.itemInfomation[11]["CurUpgrade"] = config.get_value("Shop", "mineCry")
+		
+		var lazy = {
+			"Autoclick":"autoClickerUpgrade",
+			"Plus One":"PlusOneUpgrade",
+			"Plus One Auto":"PlusOneAUTOUpgrade",
+			"Shrilow Crystal":"shrilowCry",
+			"Jelly Crystal":"jellyCry",
+			"Mine Crystal":"mineCry",
+			}
+		for i in ["Autoclick", "Plus One", "Plus One Auto", "Shrilow Crystal", "Jelly Crystal", "Mine Crystal"]:
+			for e in ItemValues.itemInfomation.size():
+				if ItemValues.itemInfomation[e].has("Name"):
+					if ItemValues.itemInfomation[e]["Name"] == i:
+						ItemValues.itemInfomation[0]["CurUpgrade"] = config.get_value("Shop", lazy[i])
 		FizzyDrink.enabledCrystal = config.get_value("Shop", "selectedCrystal", "shrilow")
 		
-		ItemValues.marketItems[0]["CurUpgrade"] = config.get_value("Rebirth", "RebirthAutoClickerLevel")
-		ItemValues.marketItems[1]["CurUpgrade"] = config.get_value("Rebirth", "PresistantPlusOne")
-		ItemValues.marketItems[2]["CurUpgrade"] = config.get_value("Rebirth", "PlusOneMC")
-		ItemValues.marketItems[3]["Owned"] = config.get_value("Rebirth", "EvilMinesAvaliable")
+		var lazymarket = {
+			"Autoclick":"RebirthAutoClickerLevel",
+			"Plus One":"PresistantPlusOne",
+			"Plus One Auto":"PlusOneMC",
+			"Shrilow Crystal":"AntagJelly",
+			"Jelly Crystal":"PhantomJelly",
+			}
+		for i in ["MARKETCLICKER", "Persistent Plus One", "Plus One MC", "Antag Jelly", "Phantom Jelly"]:
+			for e in ItemValues.itemInfomation.size():
+				if ItemValues.marketItems[e].has("Name"):
+					if ItemValues.marketItems[e]["Name"] == i:
+						ItemValues.marketItems[e]["CurUpgrade"] = config.get_value("Shop", lazymarket[i])
 		evilMines = config.get_value("Rebirth", "EvilMinesAvaliable")
-		ItemValues.marketItems[4]["CurUpgrade"] = config.get_value("Rebirth", "AntagJelly")
-		ItemValues.marketItems[5]["CurUpgrade"] = config.get_value("Rebirth", "PhantomJelly")
 		rebirthJellyProtocol = config.get_value("Rebirth", "rebirthJellyProtocol")
 		
 		# config.set_value("Stats", "amountOfMines", FizzyDrink.minesLength)

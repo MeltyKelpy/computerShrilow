@@ -881,7 +881,7 @@ func _ready():
 	# AWFUL CASE OF SPAGHETTI CODE IM JUST TOO LAZY TO WRITE THIS WELL LMAO
 	if err == OK:
 		
-		if config.get_value("Fiscal", "Rebirths") > 0:
+		if Game.rebirths > 0:
 			$Shop/MarektIndicator.visible = true
 			$Shop/EnterMarket.disabled = false
 		else:
