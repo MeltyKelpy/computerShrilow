@@ -123,7 +123,7 @@ func _on_char_timer_timeout() -> void:
 	if gameOver == false:
 		var rrnngg = rng.randi_range(0, wackiholes.size() - 1)
 		var hi
-		characterAppearTime -= 0.070
+		characterAppearTime -= 0.090
 		if characterAppearTime < 0.3:
 			characterAppearTime = 0.3
 		wackiholes[rrnngg].time = characterAppearTime

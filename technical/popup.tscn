@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c44raqdt416q7"]
 
-[ext_resource type="Script" uid="uid://bb3x2qeo6ep7n" path="res://technical/popup.gd" id="1_1s7rg"]
+[ext_resource type="Script" path="res://technical/popup.gd" id="1_1s7rg"]
 [ext_resource type="Theme" uid="uid://dr1wna4c2ab2h" path="res://technical/textStyle.tres" id="1_y3yr2"]
 
 [node name="Popup" type="ConfirmationDialog"]

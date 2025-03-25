@@ -1,6 +1,6 @@
-[gd_scene load_steps=160 format=3 uid="uid://bgw557ttv6noe"]
+[gd_scene load_steps=174 format=3 uid="uid://bgw557ttv6noe"]
 
-[ext_resource type="Script" uid="uid://ddatxm3oli8qs" path="res://scenes/t_computer.gd" id="1_swrb7"]
+[ext_resource type="Script" path="res://scenes/t_computer.gd" id="1_swrb7"]
 [ext_resource type="Texture2D" uid="uid://dajex7cpt7k4p" path="res://assets/images/bg/background.png" id="2_u0da7"]
 [ext_resource type="Texture2D" uid="uid://c0aii38q2netl" path="res://assets/images/bg/dirt.png" id="3_8qufc"]
 [ext_resource type="Texture2D" uid="uid://b8y35swxyqxen" path="res://assets/images/bg/fade.png" id="3_x0lxa"]
@@ -29,10 +29,13 @@
 [ext_resource type="PackedScene" uid="uid://cbtrsg4a3b386" path="res://technical/minesLevel.tscn" id="18_6bagw"]
 [ext_resource type="Texture2D" uid="uid://bdb32kjljwqn4" path="res://assets/images/areas/jellies/JELLYDAYCARE.png" id="18_w041t"]
 [ext_resource type="Texture2D" uid="uid://bymsocpxxxn4o" path="res://assets/images/areas/jellies/receptionDesk.png" id="19_4v3d6"]
+[ext_resource type="PackedScene" uid="uid://b8pcc6x4abdnb" path="res://technical/items/Greasepuppy.tscn" id="19_b72lk"]
 [ext_resource type="Texture2D" uid="uid://cwladsljiqill" path="res://assets/images/ui/backDown.png" id="19_tht4w"]
 [ext_resource type="Texture2D" uid="uid://ch5divq2tt5lo" path="res://assets/images/areas/jellies/melvin.png" id="20_elrg5"]
 [ext_resource type="PackedScene" uid="uid://ctkrk05lsjbrs" path="res://technical/items/gumballMachine.tscn" id="20_i56yc"]
+[ext_resource type="Texture2D" uid="uid://bfgjhyh7fux6v" path="res://assets/images/ui/visible.png" id="20_t7slg"]
 [ext_resource type="PackedScene" uid="uid://cr7xl87ndl5xc" path="res://technical/items/journal.tscn" id="21_dxr3w"]
+[ext_resource type="Texture2D" uid="uid://dng238pf8ip5d" path="res://assets/images/ui/notvisible.png" id="21_t7slg"]
 [ext_resource type="PackedScene" uid="uid://bj5pxngi3puif" path="res://technical/items/bell.tscn" id="21_yl31h"]
 [ext_resource type="Texture2D" uid="uid://cs21yt57gfegw" path="res://assets/images/areas/melanies/sign.png" id="23_1b4os"]
 [ext_resource type="Texture2D" uid="uid://i56e4q3q5h8" path="res://assets/images/areas/melanies/melanie/base.png" id="24_umbwu"]
@@ -136,6 +139,28 @@ size = Vector2(233, 405)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7e2gc"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v5e17"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kdxuf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b72lk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t7slg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gvfko"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3b1km"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qadl1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s7pna"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_prxdq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ws2xo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wk0hf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ecty7"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hfa8f"]
 texture = ExtResource("17_1xfnv")
@@ -978,15 +1003,15 @@ tracks/4/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vs8hy"]
 _data = {
-&"RESET": SubResource("Animation_5fubl"),
-&"leaveJellies": SubResource("Animation_niq0t"),
-&"leaveMines": SubResource("Animation_xn1b5"),
-&"leaveShop": SubResource("Animation_s3t8e"),
-&"leaveWard": SubResource("Animation_eejxq"),
-&"toJellies": SubResource("Animation_2rn2d"),
-&"toMines": SubResource("Animation_msj8d"),
-&"toShop": SubResource("Animation_m2dy7"),
-&"toWard": SubResource("Animation_ok3bo")
+"RESET": SubResource("Animation_5fubl"),
+"leaveJellies": SubResource("Animation_niq0t"),
+"leaveMines": SubResource("Animation_xn1b5"),
+"leaveShop": SubResource("Animation_s3t8e"),
+"leaveWard": SubResource("Animation_eejxq"),
+"toJellies": SubResource("Animation_2rn2d"),
+"toMines": SubResource("Animation_msj8d"),
+"toShop": SubResource("Animation_m2dy7"),
+"toWard": SubResource("Animation_ok3bo")
 }
 
 [sub_resource type="Gradient" id="Gradient_djy5u"]
@@ -1042,8 +1067,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_y6pyl"]
 _data = {
-&"RESET": SubResource("Animation_4bxwk"),
-&"open": SubResource("Animation_p5fj6")
+"RESET": SubResource("Animation_4bxwk"),
+"open": SubResource("Animation_p5fj6")
 }
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2w07w"]
@@ -1186,8 +1211,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_46cp3"]
 _data = {
-&"RESET": SubResource("Animation_tjk11"),
-&"intro": SubResource("Animation_hvvfl")
+"RESET": SubResource("Animation_tjk11"),
+"intro": SubResource("Animation_hvvfl")
 }
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_v25cp"]
@@ -1456,6 +1481,32 @@ theme_override_font_sizes/font_size = 70
 text = "CLICKS:"
 
 [node name="puppies" type="Node2D" parent="ShrilowScreen"]
+
+[node name="Greasepuppy" parent="ShrilowScreen/puppies" instance=ExtResource("19_b72lk")]
+position = Vector2(850, 544)
+
+[node name="gpButton" type="CheckButton" parent="ShrilowScreen"]
+offset_left = 869.0
+offset_top = 598.0
+offset_right = 969.0
+offset_bottom = 698.0
+scale = Vector2(0.4, 0.4)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kdxuf")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_b72lk")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_t7slg")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_gvfko")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_3b1km")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_qadl1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_s7pna")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_prxdq")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ws2xo")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_wk0hf")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ecty7")
+theme_override_icons/checked = ExtResource("20_t7slg")
+theme_override_icons/unchecked = ExtResource("21_t7slg")
+button_pressed = true
+flat = true
+icon_alignment = 1
 
 [node name="Rebirth" type="Button" parent="ShrilowScreen"]
 visible = false
@@ -2577,7 +2628,7 @@ text = "MONEY"
 
 [node name="sectionTransitions" type="AnimationPlayer" parent="."]
 libraries = {
-&"": SubResource("AnimationLibrary_vs8hy")
+"": SubResource("AnimationLibrary_vs8hy")
 }
 
 [node name="EventTimer" type="Timer" parent="."]
@@ -2661,7 +2712,7 @@ texture = SubResource("GradientTexture2D_gikbf")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D"]
 libraries = {
-&"": SubResource("AnimationLibrary_y6pyl")
+"": SubResource("AnimationLibrary_y6pyl")
 }
 
 [node name="storgImg" type="Sprite2D" parent="Camera2D"]
@@ -2715,7 +2766,7 @@ texture = ExtResource("54_dab5r")
 
 [node name="anim" type="AnimationPlayer" parent="Camera2D/intro"]
 libraries = {
-&"": SubResource("AnimationLibrary_46cp3")
+"": SubResource("AnimationLibrary_46cp3")
 }
 autoplay = "intro"
 

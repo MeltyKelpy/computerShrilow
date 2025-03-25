@@ -1,6 +1,6 @@
 [gd_scene load_steps=22 format=3 uid="uid://b22vjjw5qyfe0"]
 
-[ext_resource type="Script" uid="uid://be6kqp0ni8oue" path="res://scenes/splash_screen.gd" id="1_kkkgk"]
+[ext_resource type="Script" path="res://scenes/splash_screen.gd" id="1_kkkgk"]
 [ext_resource type="Texture2D" uid="uid://hstioxqbmlhe" path="res://assets/images/opening/jbfletters/000.png" id="1_lnfyv"]
 [ext_resource type="Texture2D" uid="uid://b43o4cfbk84ur" path="res://assets/images/opening/jbfletters/001.png" id="2_5hbtr"]
 [ext_resource type="Texture2D" uid="uid://ykwpcg3u1i5v" path="res://assets/images/opening/jbfletters/002.png" id="3_t8613"]
@@ -811,8 +811,8 @@ tracks/32/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8kjol"]
 _data = {
-&"RESET": SubResource("Animation_4geag"),
-&"opening": SubResource("Animation_vc4tb")
+"RESET": SubResource("Animation_4geag"),
+"opening": SubResource("Animation_vc4tb")
 }
 
 [node name="SplashScreen" type="Node2D"]
@@ -825,7 +825,7 @@ color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-&"": SubResource("AnimationLibrary_8kjol")
+"": SubResource("AnimationLibrary_8kjol")
 }
 
 [node name="Node2D" type="Node2D" parent="."]

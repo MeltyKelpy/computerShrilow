@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://5qulgg6uej06"]
 
-[ext_resource type="Script" uid="uid://8p8oow16n4ld" path="res://technical/results_screen_minigame.gd" id="1_3pk8j"]
+[ext_resource type="Script" path="res://technical/results_screen_minigame.gd" id="1_3pk8j"]
 [ext_resource type="Texture2D" uid="uid://c1h37ug6tx8fl" path="res://assets/images/events/shrilowReactionWait.png" id="1_seyua"]
 [ext_resource type="Texture2D" uid="uid://dhonydbc85x7v" path="res://assets/images/events/minigameResultsLogo.png" id="2_3agxk"]
 [ext_resource type="FontFile" uid="uid://brn7smfq0l6ao" path="res://assets/fonts/TwCen.ttf" id="3_jkv3a"]
@@ -289,11 +289,11 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x03b3"]
 _data = {
-&"RESET": SubResource("Animation_etcqs"),
-&"animation": SubResource("Animation_8qc2a"),
-&"choose": SubResource("Animation_l6qv8"),
-&"die": SubResource("Animation_ek4wq"),
-&"leave": SubResource("Animation_87hia")
+"RESET": SubResource("Animation_etcqs"),
+"animation": SubResource("Animation_8qc2a"),
+"choose": SubResource("Animation_l6qv8"),
+"die": SubResource("Animation_ek4wq"),
+"leave": SubResource("Animation_87hia")
 }
 
 [node name="ResultsScreenMinigame" type="Node2D"]
@@ -416,7 +416,7 @@ stream = ExtResource("8_hn581")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-&"": SubResource("AnimationLibrary_x03b3")
+"": SubResource("AnimationLibrary_x03b3")
 }
 autoplay = "RESET"
 

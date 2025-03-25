@@ -977,6 +977,11 @@ func _process(_delta : float) -> void:
 		Game.unlock_achievement("10plat")
 	
 	if $ShrilowScreen/puppies != null:
+		#if $ShrilowScreen/puppies.get_child_count() >= 8:
+			#$ShrilowScreen/gpButton.visible = false
+			#$ShrilowScreen/puppies.visible = $ShrilowScreen/gpButton.button_pressed
+		#else:
+			#$ShrilowScreen/gpButton.visible = true
 		if $ShrilowScreen/puppies.get_child_count() >= 500:
 			Game.unlock_achievement("500gp")
 	

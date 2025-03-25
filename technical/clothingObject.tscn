@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://b51f2vyidut4p"]
 
 [ext_resource type="Texture2D" uid="uid://bxf8objhvmxog" path="res://assets/images/areas/wardrobe/clothingBox.png" id="1_q1k30"]
-[ext_resource type="Script" uid="uid://de2h5w37yxbfs" path="res://technical/clothing_object.gd" id="2_0njxn"]
+[ext_resource type="Script" path="res://technical/clothing_object.gd" id="2_0njxn"]
 [ext_resource type="Texture2D" uid="uid://dw8ygvkl5r3ws" path="res://assets/images/areas/wardrobe/clothing/base.png" id="2_facdx"]
 [ext_resource type="Theme" uid="uid://dr1wna4c2ab2h" path="res://technical/textStyle.tres" id="3_jjocx"]
 

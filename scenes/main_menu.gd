@@ -82,7 +82,7 @@ var config = ConfigFile.new()
 	]
 
 func _ready() -> void:
-	$stuff/TXT.text = "beta build: +"+Game.gameVersion+"\nExported: March 24th, 2025"
+	$stuff/TXT.text = "beta build: "+Game.gameVersion+"\nExported: March 24th, 2025"
 	Settings.loadData()
 	for i in range(0,3):
 		var cacapoopyFUCK = load("res://technical/saveBox.tscn")

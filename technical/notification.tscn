@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://b676qepellbwd"]
 
 [ext_resource type="Texture2D" uid="uid://82svg6d3vb8k" path="res://assets/images/ui/notification.png" id="1_0wqpn"]
-[ext_resource type="Script" uid="uid://rg1qem2asvp" path="res://technical/notification.gd" id="1_nxlgq"]
+[ext_resource type="Script" path="res://technical/notification.gd" id="1_nxlgq"]
 [ext_resource type="Texture2D" uid="uid://dirqf5owt3jj3" path="res://assets/images/ui/trophyNotification.png" id="2_3345d"]
 [ext_resource type="Theme" uid="uid://dr1wna4c2ab2h" path="res://technical/textStyle.tres" id="3_epkqk"]
 [ext_resource type="AudioStream" uid="uid://cyqyuiknf31t7" path="res://assets/sounds/confirm.ogg" id="5_73lap"]
@@ -53,8 +53,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_m7utv"]
 _data = {
-&"RESET": SubResource("Animation_2emul"),
-&"play": SubResource("Animation_o3240")
+"RESET": SubResource("Animation_2emul"),
+"play": SubResource("Animation_o3240")
 }
 
 [sub_resource type="Animation" id="Animation_n85da"]
@@ -90,8 +90,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ykxun"]
 _data = {
-&"RESET": SubResource("Animation_n85da"),
-&"allAchievements": SubResource("Animation_npu1r")
+"RESET": SubResource("Animation_n85da"),
+"allAchievements": SubResource("Animation_npu1r")
 }
 
 [node name="Notification" type="Node2D"]
@@ -139,13 +139,13 @@ hi"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-&"": SubResource("AnimationLibrary_m7utv")
+"": SubResource("AnimationLibrary_m7utv")
 }
 autoplay = "play"
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
 libraries = {
-&"": SubResource("AnimationLibrary_ykxun")
+"": SubResource("AnimationLibrary_ykxun")
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
