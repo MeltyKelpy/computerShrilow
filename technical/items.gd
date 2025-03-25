@@ -2,6 +2,22 @@ extends Node
 
 var itemInfomation = [
 	{
+	"ScenePath":"res://technical/shopTitle.tscn",
+	"ImgType":"titleLeft",
+	"Type":"Title",
+	},
+	{
+	"ScenePath":"res://technical/shopTitle.tscn",
+	"SectionName":"Click-Up!",
+	"ImgType":"titleLeft",
+	"Type":"Title",
+	},
+	{
+	"ScenePath":"res://technical/shopTitle.tscn",
+	"ImgType":"titleRight",
+	"Type":"Title",
+	},
+	{
 	# AUTOCLICK
 	"Image":"res://assets/images/areas/melanies/items/autoclick",
 	"Name":"Autoclick",
@@ -62,6 +78,22 @@ var itemInfomation = [
 	#"Type":"Consumable",
 	#},
 	{
+	"ScenePath":"res://technical/shopTitle.tscn",
+	"ImgType":"titleLeft",
+	"Type":"Title",
+	},
+	{
+	"ScenePath":"res://technical/shopTitle.tscn",
+	"SectionName":"Money makers",
+	"ImgType":"titleLeft",
+	"Type":"Title",
+	},
+	{
+	"ScenePath":"res://technical/shopTitle.tscn",
+	"ImgType":"titleRight",
+	"Type":"Title",
+	},
+	{
 	# Greasepuppy
 	"Image":"res://assets/images/areas/melanies/items/greasepuppy.png",
 	"Name":"Greasepuppy",
@@ -105,6 +137,22 @@ var itemInfomation = [
 	"Cost":800,
 	"ScenePath":"res://technical/items/autobone.tscn",
 	"Type":"Consumable",
+	},
+	{
+	"ScenePath":"res://technical/shopTitle.tscn",
+	"ImgType":"titleLeft",
+	"Type":"Title",
+	},
+	{
+	"ScenePath":"res://technical/shopTitle.tscn",
+	"SectionName":"Event stuff",
+	"ImgType":"titleLeft",
+	"Type":"Title",
+	},
+	{
+	"ScenePath":"res://technical/shopTitle.tscn",
+	"ImgType":"titleRight",
+	"Type":"Title",
 	},
 	{
 	# IMEDIATE EVENT

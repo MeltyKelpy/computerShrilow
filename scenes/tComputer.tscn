@@ -1446,12 +1446,13 @@ theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iq0t2")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
 
 [node name="Clicks" type="Label" parent="ShrilowScreen"]
-offset_left = 10.0
-offset_top = 598.0
-offset_right = 154.0
-offset_bottom = 668.0
+offset_left = 22.0
+offset_top = 590.0
+offset_right = 177.0
+offset_bottom = 665.0
 scale = Vector2(1, 0.6)
 theme = ExtResource("8_oskpf")
+theme_override_font_sizes/font_size = 70
 text = "CLICKS:"
 
 [node name="puppies" type="Node2D" parent="ShrilowScreen"]
@@ -2640,6 +2641,7 @@ blame ghost."
 one_shot = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
+visible = false
 position = Vector2(577, 324)
 
 [node name="leftMove" type="TextureRect" parent="Camera2D"]

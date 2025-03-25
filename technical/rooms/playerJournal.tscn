@@ -500,11 +500,12 @@ position = Vector2(576, 324)
 texture = ExtResource("10_rb0i3")
 
 [node name="Label" type="Label" parent="MainPage"]
-offset_left = 162.0
-offset_top = 193.0
-offset_right = 439.0
-offset_bottom = 263.0
+offset_left = 156.0
+offset_top = 183.0
+offset_right = 454.0
+offset_bottom = 258.0
 theme = ExtResource("4_e1be2")
+theme_override_font_sizes/font_size = 70
 text = "MY NOTEBOOK"
 
 [node name="Label2" type="Label" parent="MainPage"]
