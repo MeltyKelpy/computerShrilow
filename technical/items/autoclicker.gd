@@ -1,11 +1,11 @@
 extends Node
 
 var timer = Timer.new()
-var ItemID : int
+var ItemId : int
 var time
 
 func _ready() -> void:
-	time = float(ItemValues.itemInfomation[ItemID]["BaseValue"]+(ItemValues.itemInfomation[ItemID]["CurUpgrade"]*ItemValues.itemInfomation[ItemID]["UpgradeIncrease"]))
+	time = float(ItemValues.itemInfomation[ItemId]["BaseValue"]+(ItemValues.itemInfomation[ItemId]["CurUpgrade"]*ItemValues.itemInfomation[ItemId]["UpgradeIncrease"]))
 	if time < 0:
 		time = 0.05
 	timer.wait_time = time
@@ -15,10 +15,10 @@ func _ready() -> void:
 	add_child(timer)
 
 func getID(num):
-	ItemID = num
+	ItemId = num
 
 func _process(_delta: float) -> void:
-	var time = float(ItemValues.itemInfomation[ItemID]["BaseValue"]+(ItemValues.itemInfomation[ItemID]["CurUpgrade"]*ItemValues.itemInfomation[ItemID]["UpgradeIncrease"]))
+	var time = float(ItemValues.itemInfomation[ItemId]["BaseValue"]+(ItemValues.itemInfomation[ItemId]["CurUpgrade"]*ItemValues.itemInfomation[ItemId]["UpgradeIncrease"]))
 	if time <= 0:
 		time = 0.2
 	timer.wait_time = time

@@ -899,14 +899,17 @@ func _ready():
 			if i == "autoclicker":
 				if config.get_value("Shop", "autoClickerUpgrade") > 0:
 					var cacaFUCK = load("res://technical/items/"+i+".tscn").instantiate()
+					cacaFUCK.ItemId = 3
 					add_child(cacaFUCK)
 			elif i == "plusone":
 				if config.get_value("Shop", "PlusOneUpgrade") > 0:
 					var cacaFUCK = load("res://technical/items/"+i+".tscn").instantiate()
+					cacaFUCK.number = 4
 					add_child(cacaFUCK)
 			elif i == "plusoneauto":
 				if config.get_value("Shop", "PlusOneAUTOUpgrade") > 0:
 					var cacaFUCK = load("res://technical/items/"+i+".tscn").instantiate()
+					cacaFUCK.number = 5
 					add_child(cacaFUCK)
 			if i == "shrilowCrystal":
 				if config.get_value("Shop", "shrilowCry") > 0:
@@ -923,14 +926,17 @@ func _ready():
 			elif i == "Rautoclicker":
 				if config.get_value("Rebirth", "RebirthAutoClickerLevel") > 0:
 					var cacaFUCK = load("res://technical/rebirthShit/"+i+".tscn").instantiate()
+					cacaFUCK.ItemID = 0
 					add_child(cacaFUCK)
 			elif i == "Rplusone":
 				if config.get_value("Rebirth", "PresistantPlusOne") > 0:
 					var cacaFUCK = load("res://technical/rebirthShit/"+i+".tscn").instantiate()
+					cacaFUCK.number = 1
 					add_child(cacaFUCK)
 			elif i == "Rplusoneauto":
 				if config.get_value("Rebirth", "PlusOneMC") > 0:
 					var cacaFUCK = load("res://technical/rebirthShit/"+i+".tscn").instantiate()
+					cacaFUCK.number = 2
 					add_child(cacaFUCK)
 	
 	if DirAccess.dir_exists_absolute("user://saveData/nodeSaves/file"+str(Game.curFile+1)) == true:
@@ -1044,8 +1050,13 @@ func _process(_delta : float) -> void:
 		get_tree().paused = true
 	
 	if dialougeMode == true and Input.is_action_just_pressed("Click"):
-		alongTheDialogue += 1
-		manageScenes()
+		if $Shop/ItemDescription.visible_ratio < 0.9 or $Melvin/ItemDescription.visible_ratio < 0.9 or $BlackMarket/talk.visible_ratio < 0.9:
+			$Shop/ItemDescription.visible_ratio = 1
+			$Melvin/ItemDescription.visible_ratio = 1
+			$BlackMarket/talk.visible_ratio = 1
+		else:
+			alongTheDialogue += 1
+			manageScenes()
 	
 	if melShopState == false:
 		$Shop/type.pitch_scale = 1.0
@@ -1055,8 +1066,8 @@ func _process(_delta : float) -> void:
 			if $Shop/ItemDescription.visible_ratio < 0.9:
 				$Shop/type.play()
 			var numToUse
-			if _delta < 0.03:
-				numToUse = 0.03
+			if _delta < 0.05:
+				numToUse = 0.05
 			else:
 				numToUse = _delta
 			$Shop/ItemDescription.visible_characters += 50 * numToUse
@@ -1074,8 +1085,8 @@ func _process(_delta : float) -> void:
 			if $BlackMarket/talk.visible_ratio < 0.9:
 				$Shop/type.play()
 			var numToUse
-			if _delta < 0.03:
-				numToUse = 0.03
+			if _delta < 0.05:
+				numToUse = 0.05
 			else:
 				numToUse = _delta
 			$BlackMarket/talk.visible_characters += 50 * numToUse
@@ -1089,8 +1100,8 @@ func _process(_delta : float) -> void:
 			else:
 				$Shop/type.volume_db = -1000
 			var numToUse
-			if _delta < 0.03:
-				numToUse = 0.03
+			if _delta < 0.05:
+				numToUse = 0.05
 			else:
 				numToUse = _delta
 			$Melvin/ItemDescription.visible_characters += 50 * numToUse

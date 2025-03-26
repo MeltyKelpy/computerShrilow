@@ -156,21 +156,23 @@ func loadData():
 			for e in ItemValues.itemInfomation.size():
 				if ItemValues.itemInfomation[e].has("Name"):
 					if ItemValues.itemInfomation[e]["Name"] == i:
-						ItemValues.itemInfomation[0]["CurUpgrade"] = config.get_value("Shop", lazy[i])
+						print(ItemValues.itemInfomation[e]["CurUpgrade"])
+						print(config.get_value("Shop", lazy[i]))
+						ItemValues.itemInfomation[e]["CurUpgrade"] = config.get_value("Shop", lazy[i])
 		FizzyDrink.enabledCrystal = config.get_value("Shop", "selectedCrystal", "shrilow")
 		
 		var lazymarket = {
-			"Autoclick":"RebirthAutoClickerLevel",
-			"Plus One":"PresistantPlusOne",
-			"Plus One Auto":"PlusOneMC",
-			"Shrilow Crystal":"AntagJelly",
-			"Jelly Crystal":"PhantomJelly",
+			"MARKETCLICKER":"RebirthAutoClickerLevel",
+			"Persistent Plus One":"PresistantPlusOne",
+			"Plus One MC":"PlusOneMC",
+			"Antag Jelly":"AntagJelly",
+			"Phantom Jelly":"PhantomJelly",
 			}
 		for i in ["MARKETCLICKER", "Persistent Plus One", "Plus One MC", "Antag Jelly", "Phantom Jelly"]:
-			for e in ItemValues.itemInfomation.size():
+			for e in ItemValues.marketItems.size():
 				if ItemValues.marketItems[e].has("Name"):
 					if ItemValues.marketItems[e]["Name"] == i:
-						ItemValues.marketItems[e]["CurUpgrade"] = config.get_value("Shop", lazymarket[i])
+						ItemValues.marketItems[e]["CurUpgrade"] = config.get_value("Rebirth", lazymarket[i])
 		evilMines = config.get_value("Rebirth", "EvilMinesAvaliable")
 		rebirthJellyProtocol = config.get_value("Rebirth", "rebirthJellyProtocol")
 		
@@ -243,12 +245,19 @@ func saveData():
 	config.set_value("Rebirth", "RebirthTokens", rebirthTokens)
 	config.set_value("Rebirth", "Curses", Curses.curses)
 	config.set_value("Rebirth", "RebirthBoxTokens", boxed)
-	config.set_value("Rebirth", "RebirthAutoClickerLevel", ItemValues.marketItems[0]["CurUpgrade"])
-	config.set_value("Rebirth", "PresistantPlusOne", ItemValues.marketItems[1]["CurUpgrade"])
-	config.set_value("Rebirth", "PlusOneMC", ItemValues.marketItems[2]["CurUpgrade"])
-	config.set_value("Rebirth", "EvilMinesAvaliable", ItemValues.marketItems[3]["Owned"])
-	config.set_value("Rebirth", "AntagJelly", ItemValues.marketItems[4]["CurUpgrade"])
-	config.set_value("Rebirth", "PhantomJelly", ItemValues.marketItems[5]["CurUpgrade"])
+	
+	var lazymarket = {
+		"MARKETCLICKER":"RebirthAutoClickerLevel",
+		"Persistent Plus One":"PresistantPlusOne",
+		"Plus One MC":"PlusOneMC",
+		"Antag Jelly":"AntagJelly",
+		"Phantom Jelly":"PhantomJelly",
+		}
+	for i in ["MARKETCLICKER", "Persistent Plus One", "Plus One MC", "Antag Jelly", "Phantom Jelly"]:
+		for e in ItemValues.marketItems.size():
+			if ItemValues.marketItems[e].has("Name"):
+				if ItemValues.marketItems[e]["Name"] == i:
+						config.set_value("Rebirth", lazymarket[i], ItemValues.marketItems[e]["CurUpgrade"])
 	config.set_value("Rebirth", "rebirthJellyProtocol", rebirthJellyProtocol)
 	config.set_value("Story", "DialogueUnlockedMARKET", gameTime)
 	config.set_value("Story", "DialogueDoneMARKET", gameTime)
@@ -286,6 +295,20 @@ func saveData():
 	
 	# REBIRTH RESETING
 	
+	var lazy = {
+		"Autoclick":"autoClickerUpgrade",
+		"Plus One":"PlusOneUpgrade",
+		"Plus One Auto":"PlusOneAUTOUpgrade",
+		"Shrilow Crystal":"shrilowCry",
+		"Jelly Crystal":"jellyCry",
+		"Mine Crystal":"mineCry",
+		}
+	for i in ["Autoclick", "Plus One", "Plus One Auto", "Shrilow Crystal", "Jelly Crystal", "Mine Crystal"]:
+		for e in ItemValues.itemInfomation.size():
+			if ItemValues.itemInfomation[e].has("Name"):
+					if ItemValues.itemInfomation[e]["Name"] == i:
+						config.set_value("Shop", lazy[i], ItemValues.itemInfomation[e]["CurUpgrade"])
+	FizzyDrink.enabledCrystal = config.get_value("Shop", "selectedCrystal", "shrilow")
 	config.set_value("Fiscal", "AmountOfJellies", FizzyDrink.jellys)
 	config.set_value("Fiscal", "AmountOfRooms", FizzyDrink.amountOfRooms)
 	config.set_value("Fiscal", "Money", ItemValues.money)
@@ -297,16 +320,10 @@ func saveData():
 	for i in ClothingObjects.clothes.size(): 
 		clothing.append(ClothingObjects.clothes[i]["Owned"])
 	config.set_value("Stats", "ownedClothes", clothing)
-	config.set_value("Shop", "autoClickerUpgrade", ItemValues.itemInfomation[0]["CurUpgrade"])
-	config.set_value("Shop", "PlusOneUpgrade", ItemValues.itemInfomation[1]["CurUpgrade"])
-	config.set_value("Shop", "PlusOneAUTOUpgrade", ItemValues.itemInfomation[2]["CurUpgrade"])
 	config.set_value("Story", "DialogueUnlockedMELANIE", gameTime)
 	config.set_value("Story", "DialogueDoneMELANIE", gameTime)
 	config.set_value("Story", "DialogueUnlockedMELVIN", gameTime)
 	config.set_value("Story", "DialogueDoneMELVIN", gameTime)
-	config.set_value("Shop", "shrilowCry", ItemValues.itemInfomation[9]["CurUpgrade"])
-	config.set_value("Shop", "jellyCry", ItemValues.itemInfomation[10]["CurUpgrade"])
-	config.set_value("Shop", "mineCry", ItemValues.itemInfomation[11]["CurUpgrade"])
 	config.set_value("Shop", "selectedCrystal", FizzyDrink.enabledCrystal)
 	config.set_value("Achievements", "All-Time-Clicks", saveFileClicks)
 	
