@@ -1,6 +1,6 @@
 [gd_scene load_steps=173 format=3 uid="uid://bgw557ttv6noe"]
 
-[ext_resource type="Script" path="res://scenes/t_computer.gd" id="1_swrb7"]
+[ext_resource type="Script" uid="uid://ddatxm3oli8qs" path="res://scenes/t_computer.gd" id="1_swrb7"]
 [ext_resource type="Texture2D" uid="uid://dajex7cpt7k4p" path="res://assets/images/bg/background.png" id="2_u0da7"]
 [ext_resource type="Texture2D" uid="uid://c0aii38q2netl" path="res://assets/images/bg/dirt.png" id="3_8qufc"]
 [ext_resource type="Texture2D" uid="uid://b8y35swxyqxen" path="res://assets/images/bg/fade.png" id="3_x0lxa"]
@@ -1002,15 +1002,15 @@ tracks/4/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vs8hy"]
 _data = {
-"RESET": SubResource("Animation_5fubl"),
-"leaveJellies": SubResource("Animation_niq0t"),
-"leaveMines": SubResource("Animation_xn1b5"),
-"leaveShop": SubResource("Animation_s3t8e"),
-"leaveWard": SubResource("Animation_eejxq"),
-"toJellies": SubResource("Animation_2rn2d"),
-"toMines": SubResource("Animation_msj8d"),
-"toShop": SubResource("Animation_m2dy7"),
-"toWard": SubResource("Animation_ok3bo")
+&"RESET": SubResource("Animation_5fubl"),
+&"leaveJellies": SubResource("Animation_niq0t"),
+&"leaveMines": SubResource("Animation_xn1b5"),
+&"leaveShop": SubResource("Animation_s3t8e"),
+&"leaveWard": SubResource("Animation_eejxq"),
+&"toJellies": SubResource("Animation_2rn2d"),
+&"toMines": SubResource("Animation_msj8d"),
+&"toShop": SubResource("Animation_m2dy7"),
+&"toWard": SubResource("Animation_ok3bo")
 }
 
 [sub_resource type="Gradient" id="Gradient_djy5u"]
@@ -1066,8 +1066,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_y6pyl"]
 _data = {
-"RESET": SubResource("Animation_4bxwk"),
-"open": SubResource("Animation_p5fj6")
+&"RESET": SubResource("Animation_4bxwk"),
+&"open": SubResource("Animation_p5fj6")
 }
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2w07w"]
@@ -1210,8 +1210,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_46cp3"]
 _data = {
-"RESET": SubResource("Animation_tjk11"),
-"intro": SubResource("Animation_hvvfl")
+&"RESET": SubResource("Animation_tjk11"),
+&"intro": SubResource("Animation_hvvfl")
 }
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_v25cp"]

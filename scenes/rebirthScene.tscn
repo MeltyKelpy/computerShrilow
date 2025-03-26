@@ -1,7 +1,7 @@
 [gd_scene load_steps=47 format=3 uid="uid://bsaobsf7sfhkj"]
 
 [ext_resource type="Texture2D" uid="uid://d3xwuakjymg2g" path="res://assets/images/ui/rebirth.png" id="1_6xcba"]
-[ext_resource type="Script" path="res://scenes/rebirthScene.gd" id="1_i0unl"]
+[ext_resource type="Script" uid="uid://d1k6bwxqri7l4" path="res://scenes/rebirthScene.gd" id="1_i0unl"]
 [ext_resource type="Texture2D" uid="uid://naq03aso04ja" path="res://assets/images/ui/light.png" id="1_scs7e"]
 [ext_resource type="FontFile" uid="uid://brn7smfq0l6ao" path="res://assets/fonts/TwCen.ttf" id="3_c2huh"]
 [ext_resource type="AudioStream" uid="uid://cpuevowyq7ag7" path="res://assets/sounds/wind.ogg" id="4_yplct"]
@@ -65,8 +65,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_m8kp2"]
 _data = {
-"RESET": SubResource("Animation_fc60p"),
-"fade": SubResource("Animation_0y1f7")
+&"RESET": SubResource("Animation_fc60p"),
+&"fade": SubResource("Animation_0y1f7")
 }
 
 [sub_resource type="Animation" id="Animation_hdpqv"]
@@ -346,10 +346,10 @@ tracks/4/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hnmsn"]
 _data = {
-"RESET": SubResource("Animation_hdpqv"),
-"anim": SubResource("Animation_mwxex"),
-"beamLoop": SubResource("Animation_emy6o"),
-"kill": SubResource("Animation_yoxvo")
+&"RESET": SubResource("Animation_hdpqv"),
+&"anim": SubResource("Animation_mwxex"),
+&"beamLoop": SubResource("Animation_emy6o"),
+&"kill": SubResource("Animation_yoxvo")
 }
 
 [sub_resource type="Animation" id="Animation_e25hp"]
@@ -965,10 +965,10 @@ tracks/9/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_u8ivg"]
 _data = {
-"RESET": SubResource("Animation_e25hp"),
-"curse": SubResource("Animation_kf1rl"),
-"end": SubResource("Animation_t03k1"),
-"open": SubResource("Animation_bcfrp")
+&"RESET": SubResource("Animation_e25hp"),
+&"curse": SubResource("Animation_kf1rl"),
+&"end": SubResource("Animation_t03k1"),
+&"open": SubResource("Animation_bcfrp")
 }
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_u8ivg"]
