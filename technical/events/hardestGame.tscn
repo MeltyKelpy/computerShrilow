@@ -624,12 +624,12 @@ script = ExtResource("1_y1k7a")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_iiqyl")
+&"": SubResource("AnimationLibrary_iiqyl")
 }
 
 [node name="AnimPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_od5ox")
+&"": SubResource("AnimationLibrary_od5ox")
 }
 autoplay = "blue"
 
@@ -696,7 +696,7 @@ shape = SubResource("RectangleShape2D_1r85e")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="HardestGamePlayer"]
 libraries = {
-"": SubResource("AnimationLibrary_b385k")
+&"": SubResource("AnimationLibrary_b385k")
 }
 
 [node name="Sphere1" type="Area2D" parent="."]

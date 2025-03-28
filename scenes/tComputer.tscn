@@ -2626,7 +2626,7 @@ text = "MONEY"
 
 [node name="sectionTransitions" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_vs8hy")
+&"": SubResource("AnimationLibrary_vs8hy")
 }
 
 [node name="EventTimer" type="Timer" parent="."]
@@ -2710,7 +2710,7 @@ texture = SubResource("GradientTexture2D_gikbf")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D"]
 libraries = {
-"": SubResource("AnimationLibrary_y6pyl")
+&"": SubResource("AnimationLibrary_y6pyl")
 }
 
 [node name="storgImg" type="Sprite2D" parent="Camera2D"]
@@ -2764,7 +2764,7 @@ texture = ExtResource("54_dab5r")
 
 [node name="anim" type="AnimationPlayer" parent="Camera2D/intro"]
 libraries = {
-"": SubResource("AnimationLibrary_46cp3")
+&"": SubResource("AnimationLibrary_46cp3")
 }
 autoplay = "intro"
 

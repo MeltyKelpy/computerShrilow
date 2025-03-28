@@ -56,6 +56,7 @@ func _ready() -> void:
 
 func _startDialog():
 	$AnimationPlayer.play("beamLoop")
+	#Game.rebirths = 4
 	if Game.rebirths <= 2:
 		dialog = Game.rebirths
 		$Label.text = lines[dialog][prog]
@@ -311,15 +312,21 @@ func _scene2():
 				say("Wow! look at them curses!", "Default")
 				canProg = true
 			19:
-				say("well, now that THATS settled, its time we part ways!", "Default")
+				say("Any curse you get can have its description viewed in the CURSES Entry in that little notebook of yours! I'd heavily suggest looking at that.", "Annouce")
 				canProg = true
 			20:
-				say("Prove you can handle this, once you do meet me back here, we'll discuss further!", "Default")
+				say("or dont, im not your MOM", "Default")
 				canProg = true
 			21:
-				say("Toodles, friendo!", "Default")
+				say("well, now that THATS settled, its time we part ways!", "Default")
 				canProg = true
 			22:
+				say("Prove you can handle this, once you do meet me back here, we'll discuss further!", "Default")
+				canProg = true
+			23:
+				say("Toodles, friendo!", "Default")
+				canProg = true
+			24:
 				var tween2 = create_tween()
 				tween2.tween_property($curses/ThemeSong, "volume_db", -80, 2).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN_OUT)
 				$curses/AnimationPlayer.play("end")
@@ -390,7 +397,7 @@ func _scene2():
 				tween2.tween_property($curses/ThemeSong, "volume_db", -80, 2).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN_OUT)
 				$curses/AnimationPlayer.play("end")
 	if Game.rebirths >= 4:
-		amountOfCurses = 3
+		amountOfCurses = 5
 		match prog:
 			0:
 				say("Well, what do you know!", "Default")

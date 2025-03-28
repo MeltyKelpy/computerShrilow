@@ -159,7 +159,7 @@ func loadData():
 						print(ItemValues.itemInfomation[e]["CurUpgrade"])
 						print(config.get_value("Shop", lazy[i]))
 						ItemValues.itemInfomation[e]["CurUpgrade"] = config.get_value("Shop", lazy[i])
-		FizzyDrink.enabledCrystal = config.get_value("Shop", "selectedCrystal", "shrilow")
+		FizzyDrink.enabledCrystal = config.get_value("Shop", "selectedCrystal", "")
 		
 		var lazymarket = {
 			"MARKETCLICKER":"RebirthAutoClickerLevel",
@@ -221,6 +221,12 @@ func loadData():
 			Game.saveFileClicks = 0
 		
 		Achievements.load()
+
+func contains_curse(ID):
+	for i in range(Curses.curses.size()):
+		if Curses.curses[i]["ID"] == ID:
+			return true
+	return false
 
 func saveData():
 	
@@ -308,7 +314,7 @@ func saveData():
 			if ItemValues.itemInfomation[e].has("Name"):
 					if ItemValues.itemInfomation[e]["Name"] == i:
 						config.set_value("Shop", lazy[i], ItemValues.itemInfomation[e]["CurUpgrade"])
-	FizzyDrink.enabledCrystal = config.get_value("Shop", "selectedCrystal", "shrilow")
+	FizzyDrink.enabledCrystal = config.get_value("Shop", "selectedCrystal", "")
 	config.set_value("Fiscal", "AmountOfJellies", FizzyDrink.jellys)
 	config.set_value("Fiscal", "AmountOfRooms", FizzyDrink.amountOfRooms)
 	config.set_value("Fiscal", "Money", ItemValues.money)

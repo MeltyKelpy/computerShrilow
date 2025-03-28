@@ -1141,13 +1141,13 @@ color = Color(0, 0, 0, 1)
 
 [node name="fade" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_m8kp2")
+&"": SubResource("AnimationLibrary_m8kp2")
 }
 autoplay = "fade"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_hnmsn")
+&"": SubResource("AnimationLibrary_hnmsn")
 }
 autoplay = "anim"
 
@@ -1175,7 +1175,7 @@ color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="curses"]
 libraries = {
-"": SubResource("AnimationLibrary_u8ivg")
+&"": SubResource("AnimationLibrary_u8ivg")
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="curses"]

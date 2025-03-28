@@ -659,7 +659,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_2qpv4")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_70lni")
+&"": SubResource("AnimationLibrary_70lni")
 }
 autoplay = "opening"
 

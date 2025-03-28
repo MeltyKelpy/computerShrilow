@@ -126,6 +126,28 @@ var entriesText = {
 		"revealed?":false,
 		},
 		],
+	"Curses":[
+		{
+		"text":"Curse of Gambling:\nReplace's Melanies Shop with GAMBLING!!! run by THE ghostybricks. my goat. you HAVE to gamble to buy ANYTHING at all, literally anything! at all! and you're forced to buy whatever you get, even if its... bad.\n\n",
+		"id":"gambling",
+		"revealed?":false,
+		},
+		{
+		"text":"Curse of No Bank Account:\n",
+		"id":"bankaccount",
+		"revealed?":false,
+		},
+		{
+		"text":"oogly googly",
+		"id":"",
+		"revealed?":false,
+		},
+		{
+		"text":"",
+		"id":3,
+		"revealed?":false,
+		},
+		],
 }
 var selectedJournal = 0
 var journalTextToDisplay = ""

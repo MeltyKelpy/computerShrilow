@@ -961,11 +961,10 @@ func _ready():
 	Game.saveData()
 
 func _process(_delta : float) -> void:
-	for i in range(0, Curses.curses.size()-1):
-		if Curses.curses[i]["ID"] == "gambling":
-			$ShrilowScreen/Shop.texture = load("res://assets/images/ui/bricks.png")
-		else:
-			$ShrilowScreen/Shop.texture = load("res://assets/images/ui/shop.png")
+	if Game.contains_curse("gambling"):
+		$ShrilowScreen/Shop.texture = load("res://assets/images/ui/bricks.png")
+	else:
+		$ShrilowScreen/Shop.texture = load("res://assets/images/ui/shop.png")
 	
 	if ItemValues.money >= 1000000000:
 		Game.unlock_achievement("billionare")
@@ -1242,9 +1241,18 @@ func _process(_delta : float) -> void:
 	if FizzyDrink.clicks == null:
 		FizzyDrink.clicks = 0
 	$ShrilowScreen/Clicks.text = "CLICKS: "+str(FizzyDrink.clicks)
-	$USDText.text = str(Game.commizeNumber(round(ItemValues.money)))
-	$Gumball/USDText.text = str(Game.commizeNumber(round(ItemValues.money)))
-	$Melvin/USDText.text = str(Game.commizeNumber(round(ItemValues.money)))
+	if Game.contains_curse("bankaccount"):
+		var amountOfMulah = str(round(ItemValues.money)).length()
+		var outputText = ""
+		for amount in range(amountOfMulah):
+			outputText += "X"
+		$USDText.text = str(outputText)
+		$Gumball/USDText.text = str(outputText)
+		$Melvin/USDText.text = str(outputText)
+	else:
+		$USDText.text = str(Game.commizeNumber(round(ItemValues.money)))
+		$Gumball/USDText.text = str(Game.commizeNumber(round(ItemValues.money)))
+		$Melvin/USDText.text = str(Game.commizeNumber(round(ItemValues.money)))
 	
 	$ParallaxBackground.scroll_base_offset.y -= 10 * _delta/0.5
 	
@@ -1287,23 +1295,24 @@ func _on_shrilow_squeak_autoclick() -> void:
 
 func _on_shrilow_squeak_pressed() -> void:
 	if Input.is_action_just_pressed("Click"):
-		$faceRevert.stop()
-		$faceRevert.start()
-		$faceRevert2.stop()
-		$faceRevert2.start()
-		$Shrilow.scale.x = 1.2
-		$Shrilow.scale.y = 0.85
-		$Shrilow/Shrilow/ShrilowFace.visible = false
-		$Shrilow/Shrilow/StillFace.visible = true
-		if curClicks < 150:
-			$Shrilow/Shrilow/StillFace.texture = load("res://assets/images/computershrilows/shrilowFaces/click.png")
-		if curClicks >= 150:
-			$Shrilow/Shrilow/StillFace.texture = load("res://assets/images/computershrilows/shrilowFaces/dizzy.png")
-		$Shrilow/Squeak.play()
-		ItemValues.money += FizzyDrink.clickPower+FizzyDrink.clickPowerP1+FizzyDrink.clickPowerP1R+FizzyDrink.clickPowerAdditions+FizzyDrink.clickPowerClothingBuffs+FizzyDrink.shrilowPower
-		FizzyDrink.clicks += 1
-		Game.saveFileClicks += 1
-		curClicks += 1
+		if !Game.contains_curse("kindness"):
+			$faceRevert.stop()
+			$faceRevert.start()
+			$faceRevert2.stop()
+			$faceRevert2.start()
+			$Shrilow.scale.x = 1.2
+			$Shrilow.scale.y = 0.85
+			$Shrilow/Shrilow/ShrilowFace.visible = false
+			$Shrilow/Shrilow/StillFace.visible = true
+			if curClicks < 150:
+				$Shrilow/Shrilow/StillFace.texture = load("res://assets/images/computershrilows/shrilowFaces/click.png")
+			if curClicks >= 150:
+				$Shrilow/Shrilow/StillFace.texture = load("res://assets/images/computershrilows/shrilowFaces/dizzy.png")
+			$Shrilow/Squeak.play()
+			ItemValues.money += FizzyDrink.clickPower+FizzyDrink.clickPowerP1+FizzyDrink.clickPowerP1R+FizzyDrink.clickPowerAdditions+FizzyDrink.clickPowerClothingBuffs+FizzyDrink.shrilowPower
+			FizzyDrink.clicks += 1
+			Game.saveFileClicks += 1
+			curClicks += 1
 	if Input.is_action_just_pressed("rightClick"):
 		$Shrilow/textBox/box/dialog.text = str(shitShrilowCanSay[rng.randi_range(0, shitShrilowCanSay.size()-1)])
 		var tween = create_tween()
@@ -1346,10 +1355,11 @@ func _on_back_button_ward2_pressed() -> void:
 		$sectionTransitions.play("leaveMines")
 
 func _on_mines_button_pressed() -> void:
-	if can == true:
-		can = false
-		print("mines")
-		$sectionTransitions.play("toMines")
+	if !Game.contains_curse("blacklung"):
+		if can == true:
+			can = false
+			print("mines")
+			$sectionTransitions.play("toMines")
 
 func _on_trophies_button_pressed() -> void:
 	var cacapoopyGOD3 = preload("res://technical/rooms/playerJournal.tscn")
@@ -1412,9 +1422,10 @@ func _on_back_button_jelly_pressed() -> void:
 		$sectionTransitions.play("leaveJellies")
 
 func _on_jellies_button_pressed() -> void:
-	if can == true:
-		can = false
-		$sectionTransitions.play("toJellies")
+	if !Game.contains_curse("jelly"):
+		if can == true:
+			can = false
+			$sectionTransitions.play("toJellies")
 
 func _on_right_move_mouse_entered() -> void:
 	if $Camera2D.position.x < (FizzyDrink.scrollLimitRIGHT):

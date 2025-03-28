@@ -139,13 +139,13 @@ hi"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_m7utv")
+&"": SubResource("AnimationLibrary_m7utv")
 }
 autoplay = "play"
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_ykxun")
+&"": SubResource("AnimationLibrary_ykxun")
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
