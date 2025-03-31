@@ -57,6 +57,10 @@ func _killMiniGame():
 
 func _resultsStart():
 	if resultt == "WIN!":
+		$resultsscreen/Shrilow.texture = load("res://assets/images/events/shrilowReactionGood.png")
+	if resultt == "LOSE.":
+		$resultsscreen/Shrilow.texture = load("res://assets/images/events/shrilowReactionBad.png")
+	if resultt == "WIN!":
 		$resultsscreen/cheer.play()
 		$resultsscreen/popper.play()
 		$resultsscreen/INFO.text = "\n\n\nSTARS:\n"+str(starr)+"/5\n\nMONEY EARNED:\n"
@@ -72,10 +76,6 @@ func _resultsStart():
 	add_child(timer)
 
 func infoDisplay():
-	if resultt == "WIN!":
-		$resultsscreen/Shrilow.texture = load("res://assets/images/events/shrilowReactionGood.png")
-	if resultt == "LOSE.":
-		$resultsscreen/Shrilow.texture = load("res://assets/images/events/shrilowReactionBad.png")
 	$resultsscreen/INFO2.text = str(cashh)
 	$resultsscreen/INFO.visible = true
 	$resultsscreen/INFO2.visible = true

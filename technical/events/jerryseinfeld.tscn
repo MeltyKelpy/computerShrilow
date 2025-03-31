@@ -240,7 +240,7 @@ wait_time = 0.1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_1coc6")
+&"": SubResource("AnimationLibrary_1coc6")
 }
 autoplay = "spawn"
 

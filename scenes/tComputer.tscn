@@ -1,4 +1,4 @@
-[gd_scene load_steps=173 format=3 uid="uid://bgw557ttv6noe"]
+[gd_scene load_steps=174 format=3 uid="uid://bgw557ttv6noe"]
 
 [ext_resource type="Script" uid="uid://ddatxm3oli8qs" path="res://scenes/t_computer.gd" id="1_swrb7"]
 [ext_resource type="Texture2D" uid="uid://dajex7cpt7k4p" path="res://assets/images/bg/background.png" id="2_u0da7"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dctfcin0koae7" path="res://technical/shrilowFace.tscn" id="5_d5to6"]
 [ext_resource type="AudioStream" uid="uid://o0fq5njk38ru" path="res://assets/sounds/squeak.ogg" id="6_g3mo2"]
 [ext_resource type="Texture2D" uid="uid://bls5d01dest6c" path="res://assets/images/ui/usd.png" id="7_0u6ge"]
+[ext_resource type="Material" uid="uid://bilp3b7bbie4k" path="res://technical/shrilowOutlineMat.tres" id="7_t7slg"]
 [ext_resource type="Texture2D" uid="uid://ddsp35hv5mq4k" path="res://assets/images/ui/shop.png" id="8_kysej"]
 [ext_resource type="Theme" uid="uid://dr1wna4c2ab2h" path="res://technical/textStyle.tres" id="8_oskpf"]
 [ext_resource type="Texture2D" uid="uid://brs8k5prrtxmq" path="res://assets/images/ui/wardrobe.png" id="9_0gok5"]
@@ -1289,13 +1290,12 @@ position = Vector2(-1.5, -203.5)
 shape = SubResource("RectangleShape2D_sq2lm")
 
 [node name="Shrilow" type="Sprite2D" parent="Shrilow"]
+material = ExtResource("7_t7slg")
 position = Vector2(-3.75002, -212.5)
 texture = ExtResource("4_v8f27")
 
 [node name="ShrilowFace" parent="Shrilow/Shrilow" instance=ExtResource("5_d5to6")]
-position = Vector2(-212, -216)
-
-[node name="StillFace" type="Sprite2D" parent="Shrilow/Shrilow"]
+position = Vector2(-210.25, -211.5)
 
 [node name="Squeak" type="AudioStreamPlayer2D" parent="Shrilow"]
 stream = ExtResource("6_g3mo2")
@@ -2690,6 +2690,7 @@ blame ghost."
 one_shot = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
+visible = false
 position = Vector2(577, 324)
 
 [node name="leftMove" type="TextureRect" parent="Camera2D"]

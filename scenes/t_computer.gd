@@ -14,6 +14,7 @@ var marketShopState = true
 var dialougeMode = false
 var dialogKey = "none"
 var alongTheDialogue = 0
+var shrilowState = ""
 
 var AnimPosCamX = 0
 var AnimPosCamY = 0
@@ -172,6 +173,8 @@ var jellies
 var mines
 var puppies
 var rooms
+
+var textu
 
 func manageScenes():
 	dialougeMode = true
@@ -1220,7 +1223,7 @@ func _process(_delta : float) -> void:
 	
 	#$Mines/MinesBackground.position.y = $Mines/ScrollContainer.scroll_vertical
 	
-	$Shrilow/Shrilow.texture = load(ClothingObjects.clothes[ClothingObjects.equippedClothing]["Image"])
+	loadShrilow()
 	
 	if melShopState == true:
 		$Shop/ItemName.text = ItemValues.itemName
@@ -1276,6 +1279,14 @@ func _process(_delta : float) -> void:
 	if $DEBUGVALUES.visible == true:
 		$DEBUGVALUES/ScrollContainer/Control/Label.text = "DEBUG MODE\n================\nEvent Timer: "+str($EventTimer.time_left)+"\nStop Events Timer: "+str($noEventsTimer.time_left)
 
+func loadShrilow():
+	textu = "res://assets/images/computershrilows/shrilowBases/"+ClothingObjects.clothes[ClothingObjects.equippedClothing]["Image"]+shrilowState+".png"
+	if ResourceLoader.exists(textu):
+		$Shrilow/Shrilow.texture = load(textu)
+	else:
+		textu = "res://assets/images/computershrilows/shrilowBases/shrilowBase.png"
+		$Shrilow/Shrilow.texture = load(textu)
+
 func killIntro():
 	$Camera2D/intro.queue_free()
 
@@ -1285,11 +1296,10 @@ func _on_shrilow_squeak_autoclick() -> void:
 	$Shrilow.scale.x = 1.2
 	$Shrilow.scale.y = 0.85
 	$Shrilow/Shrilow/ShrilowFace.visible = false
-	$Shrilow/Shrilow/StillFace.visible = true
 	if curClicks < 150:
-		$Shrilow/Shrilow/StillFace.texture = load("res://assets/images/computershrilows/shrilowFaces/click.png")
+		shrilowState = "-clicked"
 	if curClicks >= 150:
-		$Shrilow/Shrilow/StillFace.texture = load("res://assets/images/computershrilows/shrilowFaces/dizzy.png")
+		shrilowState = "-dizzy"
 	ItemValues.money += FizzyDrink.AUTOclickPower+FizzyDrink.AUTOclickPowerP1+FizzyDrink.AUTOclickPowerP1R+FizzyDrink.AUTOclickPowerAdditions+FizzyDrink.AUTOclickPowerClothingBuffs+FizzyDrink.shrilowPowerAuto
 	$Shrilow/Squeak2.play()
 
@@ -1303,11 +1313,10 @@ func _on_shrilow_squeak_pressed() -> void:
 			$Shrilow.scale.x = 1.2
 			$Shrilow.scale.y = 0.85
 			$Shrilow/Shrilow/ShrilowFace.visible = false
-			$Shrilow/Shrilow/StillFace.visible = true
 			if curClicks < 150:
-				$Shrilow/Shrilow/StillFace.texture = load("res://assets/images/computershrilows/shrilowFaces/click.png")
+				shrilowState = "-clicked"
 			if curClicks >= 150:
-				$Shrilow/Shrilow/StillFace.texture = load("res://assets/images/computershrilows/shrilowFaces/dizzy.png")
+				shrilowState = "-dizzy"
 			$Shrilow/Squeak.play()
 			ItemValues.money += FizzyDrink.clickPower+FizzyDrink.clickPowerP1+FizzyDrink.clickPowerP1R+FizzyDrink.clickPowerAdditions+FizzyDrink.clickPowerClothingBuffs+FizzyDrink.shrilowPower
 			FizzyDrink.clicks += 1
@@ -1320,8 +1329,9 @@ func _on_shrilow_squeak_pressed() -> void:
 		$Shrilow/Timer.start()
 
 func _on_face_revert_timeout() -> void:
+	shrilowState = ""
+	loadShrilow()
 	$Shrilow/Shrilow/ShrilowFace.visible = true
-	$Shrilow/Shrilow/StillFace.visible = false
 
 func _on_shop_button_pressed() -> void:
 	if can == true:
@@ -1411,6 +1421,8 @@ func shrilowColor(color) -> void:
 
 func _on_face_revert_2_timeout() -> void:
 	curClicks = 0
+	shrilowState = ""
+	loadShrilow()
 
 func _on_back_button_jelly_pressed() -> void:
 	area = "notJellies"

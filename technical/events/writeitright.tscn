@@ -446,7 +446,7 @@ script = ExtResource("1_pmuc2")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_iiqyl")
+&"": SubResource("AnimationLibrary_iiqyl")
 }
 
 [node name="background" type="Sprite2D" parent="."]

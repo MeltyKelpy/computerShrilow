@@ -9,7 +9,9 @@ var clothes = [
 	"Desc":"The iconic shrilow clothes! Provides no buffs.",
 	"Owned":true,
 	"IconKey":"res://assets/images/areas/wardrobe/clothing/base.png",
-	"Image":"res://assets/images/computershrilows/shrilowBases/shrilowBase.png",
+	"Image":"shrilowBase",
+	"eyes":"BaseEyes",
+	"maxDistance":20,
 	"Cost":0
 	},
 	{
@@ -18,7 +20,9 @@ var clothes = [
 	"Desc":"As all presidents must have. may be useful if you ever need to go to a speech... otherwise, provides no buffs.",
 	"Owned":true,
 	"IconKey":"res://assets/images/areas/wardrobe/clothing/suit.png",
-	"Image":"res://assets/images/computershrilows/shrilowBases/shrilowPresident.png",
+	"Image":"shrilowPresident",
+	"eyes":"PresEyes",
+	"maxDistance":10,
 	"Cost":0
 	},
 	{
@@ -27,7 +31,9 @@ var clothes = [
 	"Desc":"Everyone needs a fancy outfit for their date night! or, atleast i think they do? idk i show up in jeans usually lol\nincreases your click power by 1",
 	"Owned":false,
 	"IconKey":"res://assets/images/areas/wardrobe/clothing/datenight.png",
-	"Image":"res://assets/images/computershrilows/shrilowBases/shrilowDate Night.png",
+	"Image":"shrilowDate Night",
+	"eyes":"BaseEyes",
+	"maxDistance":20,
 	"Cost":100
 	},
 	{
@@ -36,7 +42,9 @@ var clothes = [
 	"Desc":"You're the luckiest bastard on this rig.\nincreases your auto-click power by 1",
 	"Owned":false,
 	"IconKey":"res://assets/images/areas/wardrobe/clothing/rig.png",
-	"Image":"res://assets/images/computershrilows/shrilowBases/shrilowCaz.png",
+	"Image":"shrilowCaz",
+	"eyes":"BaseEyes",
+	"maxDistance":20,
 	"Cost":500
 	},
 ]
