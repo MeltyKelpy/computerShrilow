@@ -118,6 +118,14 @@ func _load_properly():
 	print("Opening File "+str(ID+1)+", Name: "+config.get_value("Fiscal", "Name"))
 
 func _on_delete_pressed() -> void:
+	
+	# LOL
+	$curse1.visible = false
+	$curse2.visible = false
+	$curse3.visible = false
+	$curse4.visible = false
+	$curse5.visible = false
+	
 	var config = ConfigFile.new()
 	
 	var err = config.load(Game.files[ID])

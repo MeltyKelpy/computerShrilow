@@ -32,7 +32,7 @@ var clothes = [
 	"Owned":false,
 	"IconKey":"res://assets/images/areas/wardrobe/clothing/datenight.png",
 	"Image":"shrilowDate Night",
-	"eyes":"BaseEyes",
+	"eyes":"DateEyes",
 	"maxDistance":20,
 	"Cost":100
 	},
@@ -43,6 +43,17 @@ var clothes = [
 	"Owned":false,
 	"IconKey":"res://assets/images/areas/wardrobe/clothing/rig.png",
 	"Image":"shrilowCaz",
+	"eyes":"BaseEyes",
+	"maxDistance":20,
+	"Cost":500
+	},
+	{
+	# FREIHTER
+	"Name":"Space Freighter",
+	"Desc":"I can fix this..\n",
+	"Owned":false,
+	"IconKey":"res://assets/images/areas/wardrobe/clothing/base.png",
+	"Image":"shrilowFreighter",
 	"eyes":"BaseEyes",
 	"maxDistance":20,
 	"Cost":500

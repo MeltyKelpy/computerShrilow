@@ -20,6 +20,7 @@ texture = ExtResource("1_w3vsn")
 script = ExtResource("3_td6nk")
 
 [node name="Label" type="Label" parent="."]
+visible = false
 layout_mode = 0
 offset_left = -19.0
 offset_top = 42.0

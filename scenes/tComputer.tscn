@@ -2690,7 +2690,6 @@ blame ghost."
 one_shot = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
-visible = false
 position = Vector2(577, 324)
 
 [node name="leftMove" type="TextureRect" parent="Camera2D"]
