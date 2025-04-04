@@ -20,7 +20,7 @@ var rebirths = 0
 var gameTime = 0.0
 var icon = 0
 var saveFileClicks = 0
-var gameVersion = "00.02.69"
+var gameVersion = "00.02.70"
 
 var rebirthJellyProtocol = []
 
