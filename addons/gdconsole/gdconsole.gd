@@ -66,6 +66,7 @@ func _init() -> void:
 	create_command(_update_status, "updateStatus", "updates the rich presence status to say you're working on the game, just a neat little feature i added for funsies!")
 	create_command(_minigame, "startMinigame", "starts a minigame. put the ID for the minigame after the function. ex: startMinigame 0 for cat mario")
 	create_command(_screenEvent, "startScreenEvent", "starts a screen event. put the ID for the screen event after the function. ex: startScreenEvent 0 for golden shrilow")
+	create_command(_unlock_achievement, "unlockAchievement", "unlocks an achievement using an id. EX: unlockAchievement minecraft")
 
 	print_bold("COMPUTER SHRILOW DEBUG CONSOLE")
 	print_line("Use 'help' to see list of available commands.")
@@ -402,6 +403,9 @@ func _exit() -> void:
 
 func _quit() -> void:
 	get_tree().quit()
+
+func _unlock_achievement(achievement):
+	Game.unlock_achievement(achievement)
 
 func _spawn_jelly(jellyTypeToBe : String, goatedVar : int) -> void:
 	var caca
