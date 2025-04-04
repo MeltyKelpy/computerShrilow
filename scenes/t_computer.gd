@@ -1038,6 +1038,26 @@ func _process(_delta : float) -> void:
 	if JELLYcanAchieve == true:
 		Game.unlock_achievement("crazyjellylady")
 	
+	var minigamesAchieve = true
+	
+	for e in Events.justMinigames.size():
+		if Events.justMinigames[e]["Played?"] == false:
+			minigamesAchieve = false
+			break
+	
+	if minigamesAchieve == true:
+		Game.unlock_achievement("arcade")
+	
+	var screeneventsAchieve = true
+	
+	for e in Events.eventList.size()-1:
+		if Events.eventList[e]["Played?"] == false:
+			screeneventsAchieve = false
+			break
+	
+	if screeneventsAchieve == true:
+		Game.unlock_achievement("ipadbaby")
+	
 	var config = ConfigFile.new()
 	
 	var err = config.load(Game.files[Game.curFile])
@@ -1420,6 +1440,7 @@ func _startEvent(numberPicked, type) -> void:
 		caca2.warn(Events.justMinigames[numberPicked]["WarningMessage"])
 	if type == 1:
 		caca2.warn(Events.eventList[numberPicked]["WarningMessage"])
+		Events.eventList[numberPicked]["Played?"] = true
 	if type == 0:
 		get_tree().paused = true
 		Events.justMinigames[numberPicked]["Played?"] = true
@@ -1442,6 +1463,7 @@ func _on_face_revert_2_timeout() -> void:
 	curClicks = 0
 	shrilowState = ""
 	loadShrilow()
+	$Shrilow/Shrilow/ShrilowFace.visible = true
 
 func _on_back_button_jelly_pressed() -> void:
 	area = "notJellies"

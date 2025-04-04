@@ -514,6 +514,7 @@ func _update_status() -> void:
 func _screenEvent(ID : int):
 	if ID <= Events.eventList.size()-1:
 		var cacapoopyGOD2 = load(Events.eventList[ID]["AttachedScene"])
+		Events.eventList[ID]["Played?"] = true
 		var caca = cacapoopyGOD2.instantiate()
 		add_child(caca)
 	else:
@@ -522,6 +523,7 @@ func _screenEvent(ID : int):
 func _minigame(ID : int):
 	if ID <= Events.justMinigames.size()-1:
 		var cacapoopyGOD2 = load(Events.justMinigames[ID]["AttachedScene"])
+		Events.justMinigames[ID]["Played?"] = true
 		var caca = cacapoopyGOD2.instantiate()
 		$/root.add_child(caca)
 		$/root/computerShrilow.visible = false

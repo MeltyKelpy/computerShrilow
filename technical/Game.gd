@@ -190,17 +190,19 @@ func loadData():
 		rebirthJellyProtocol = config.get_value("Rebirth", "rebirthJellyProtocol")
 		
 		
-		var myPretties = config.get_value("Shop", "PurchasesShop")
+		var myPretties = config.get_value("Shop", "PurchasesShop", [])
 		
-		for i in ItemValues.itemInfomation.size():
-			if ItemValues.itemInfomation[i].has("Purchased"):
-				ItemValues.itemInfomation[i]["Purchased"] = myPretties[i]
+		if myPretties.size() == ItemValues.itemInfomation.size():
+			for i in ItemValues.itemInfomation.size():
+				if ItemValues.itemInfomation[i].has("Purchased"):
+					ItemValues.itemInfomation[i]["Purchased"] = myPretties[i]
 		
-		var myPretties2 = config.get_value("Rebirth", "PurchasesReb")
+		var myPretties2 = config.get_value("Rebirth", "PurchasesReb", [])
 		
-		for i in ItemValues.marketItems.size():
-			if ItemValues.marketItems[i].has("Purchased"):
-				ItemValues.marketItems[i]["Purchased"] = myPretties2[i]
+		if myPretties2.size() == ItemValues.itemInfomation.size():
+			for i in ItemValues.marketItems.size():
+				if ItemValues.marketItems[i].has("Purchased"):
+					ItemValues.marketItems[i]["Purchased"] = myPretties2[i]
 		
 		# config.set_value("Stats", "amountOfMines", FizzyDrink.minesLength)
 		FizzyDrink.minesLength = config.get_value("Stats", "amountOfMines")
@@ -353,14 +355,14 @@ func saveData():
 	shopPurchases.resize(ItemValues.itemInfomation.size())
 	for i in ItemValues.itemInfomation.size():
 		if ItemValues.itemInfomation[i].has("Purchased"):
-			shopPurchases[i].append(ItemValues.itemInfomation[i]["Purchased"])
+			shopPurchases[i] = (ItemValues.itemInfomation[i]["Purchased"])
 	config.set_value("Shop", "PurchasesShop", shopPurchases)
 	
 	var marketPurchases = []
 	marketPurchases.resize(ItemValues.marketItems.size())
 	for i in ItemValues.marketItems.size():
 		if ItemValues.marketItems[i].has("Purchased"):
-			marketPurchases[i].append(ItemValues.marketItems[i]["Purchased"])
+			marketPurchases[i] = (ItemValues.marketItems[i]["Purchased"])
 	config.set_value("Rebirth", "PurchasesReb", marketPurchases)
 	
 	config.set_value("Fiscal", "AmountOfJellies", FizzyDrink.jellys)

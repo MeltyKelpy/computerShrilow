@@ -6,6 +6,7 @@ var gamePlayed = false
 
 func getID(num) -> void:
 	ItemValues.itemInfomation[num]["Owned"] = false
+	self.reparent($/root)
 	loadMinigame()
 
 func loadMinigame():
@@ -31,7 +32,7 @@ func loadMinigame():
 				caca2.position.x = 0
 				caca2.position.y = 0
 				queue_free()
-			gamePlayed = true
+				gamePlayed = true
 		else:
 			check += 1
 			if check == Events.justMinigames.size()-1:

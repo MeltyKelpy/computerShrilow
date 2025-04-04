@@ -4,6 +4,7 @@ var rng = RandomNumberGenerator.new()
 
 func getID(num) -> void:
 	ItemValues.itemInfomation[num]["Owned"] = false
+	self.reparent($/root)
 	loadMinigame()
 
 func loadMinigame():
@@ -15,8 +16,8 @@ func loadMinigame():
 	var caca2 = cacapoopyGOD3.instantiate()
 	add_child(caca2)
 	caca2.warn(Events.justMinigames[num]["WarningMessage"])
-	get_tree().paused = true
 	Events.justMinigames[num]["Played?"] = true
+	get_tree().paused = true
 	$/root/computerShrilow.returnPosCamX = $/root/computerShrilow/Camera2D.position.x
 	$/root/computerShrilow.returnPosCamY = $/root/computerShrilow/Camera2D.position.y
 	$/root/computerShrilow/Camera2D.position.x = 576

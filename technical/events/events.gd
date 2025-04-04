@@ -11,30 +11,35 @@ var eventList = [
 	"AttachedScene":"res://technical/events/goldenShrilow.tscn",
 	"WarningMessage":"HE HAS TURN GOLD.. WOAW..............",
 	"Type":"Generic",
+	"Played?":false,
 	},
 	{
 	"Event":"Jerry Seinfeld",
 	"AttachedScene":"res://technical/events/jerryseinfeld.tscn",
 	"WarningMessage":"wuh oh! mischevious jerry seinfeld the cat has come to STEAL YOUR MONEY. click him to shoo him away!",
 	"Type":"Generic",
+	"Played?":false,
 	},
 	{
 	"Event":"Flood",
 	"AttachedScene":"res://technical/events/flood.tscn",
 	"WarningMessage":"Oh, thats shrilow's area flooding. GO PULL OUT THE PLUG BEFORE HE DROOOWWNNNSSS.",
 	"Type":"Generic",
+	"Played?":false,
 	},
 	{
 	"Event":"Miner Kid",
 	"AttachedScene":"res://technical/events/minerkid.tscn",
 	"WarningMessage":"Oh.. i think you're getting a call.. you should check that..",
 	"Type":"Generic",
+	"Played?":false,
 	},
 	{
 	"Event":"Popup Windows",
 	"AttachedScene":"res://technical/events/startMyWindwosComputer.tscn",
 	"WarningMessage":"get an adblocker already",
 	"Type":"Generic",
+	"Played?":false,
 	},
 	]
 

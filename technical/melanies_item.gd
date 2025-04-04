@@ -99,8 +99,8 @@ func calculate():
 			if hearMeOut[0][type][ItemID]["CurUpgrade"] == 0:
 				cacapoopyGOD = load(hearMeOut[0][type][ItemID]["ScenePath"])
 				caca = cacapoopyGOD.instantiate()
-				add_child(caca)
 				caca.getID(ItemID)
+				add_child(caca)
 		else:
 			cacapoopyGOD = load(hearMeOut[0][type][ItemID]["ScenePath"])
 			caca = cacapoopyGOD.instantiate()
