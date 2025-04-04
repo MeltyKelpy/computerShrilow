@@ -972,6 +972,24 @@ func _process(_delta : float) -> void:
 	if ItemValues.money >= 1000000000:
 		Game.unlock_achievement("billionare")
 	
+	var rebPurchases = true
+	for i in ItemValues.marketItems.size():
+		if ItemValues.marketItems[i].has("Purchased"):
+			if ItemValues.marketItems[i]["Purchased"] == false:
+				rebPurchases = false
+				break
+	if rebPurchases == true:
+		Game.unlock_achievement("darkwebber")
+	
+	var shopPurchases = true
+	for i in ItemValues.itemInfomation.size():
+		if ItemValues.itemInfomation[i].has("Purchased"):
+			if ItemValues.itemInfomation[i]["Purchased"] == false:
+				shopPurchases = false
+				break
+	if shopPurchases == true:
+		Game.unlock_achievement("women")
+	
 	if Game.saveFileClicks >= 100000:
 		Game.unlock_achievement("carpaltunnel")
 		Game.unlock_outfit("Coka")

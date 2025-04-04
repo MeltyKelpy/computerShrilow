@@ -73,6 +73,7 @@ func _on_button_pressed() -> void:
 				calculate()
 
 func calculate():
+	hearMeOut[0][type][ItemID]["Purchased"] = true
 	var cacapoopyGOD
 	var caca
 	hearMeOut[0][type][ItemID]["Owned"] = true
