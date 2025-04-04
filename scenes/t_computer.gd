@@ -1050,7 +1050,7 @@ func _process(_delta : float) -> void:
 	
 	var screeneventsAchieve = true
 	
-	for e in Events.eventList.size()-1:
+	for e in Events.eventList.size():
 		if Events.eventList[e]["Played?"] == false:
 			screeneventsAchieve = false
 			break
