@@ -78,6 +78,11 @@ func getMineLevel(num):
 	caveNumber = num
 
 func _process(_delta: float) -> void:
+	
+	if mineLevel >= 4:
+		Game.unlock_achievement("minecraft")
+		Game.unlock_outfit("Space Freighter")
+	
 	var config = ConfigFile.new()
 	
 	var err = config.load(Game.files[0])

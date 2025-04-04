@@ -974,6 +974,7 @@ func _process(_delta : float) -> void:
 	
 	if Game.saveFileClicks >= 100000:
 		Game.unlock_achievement("carpaltunnel")
+		Game.unlock_outfit("Coka")
 	elif Game.saveFileClicks >= 10000:
 		Game.unlock_achievement("sorefingers")
 	

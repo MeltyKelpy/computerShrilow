@@ -60,17 +60,19 @@ var clothes = [
 	"IconKey":"res://assets/images/areas/wardrobe/clothing/freight.png",
 	"Image":"shrilowFreighter",
 	"eyes":"BaseEyes",
+	"UnlockReq":"a little overkill on those mine upgrades... dont you think?\n(Unlocks Alongside an Achievement)",
 	"maxDistance":20,
 	"Cost":500
 	},
 	{
-	# FREIHTER
+	# COKA
 	"Name":"Coka",
 	"Desc":"I did ALL THE CLICKING! ALL OF IT! more clicking than you've EVER SEEN!\nincreases (UNDEFINED LMAOO)",
 	"Owned":false,
 	"Unlocked":false,
 	"IconKey":"res://assets/images/areas/wardrobe/clothing/mokerson.png",
 	"Image":"shrilowMokerson",
+	"UnlockReq":"I'd get clicking...\n(Unlocks Alongside an Achievement)",
 	"eyes":"BaseEyes",
 	"maxDistance":20,
 	"Cost":500

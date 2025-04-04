@@ -62,15 +62,28 @@ func reloadGlobals():
 	set_script(null)
 	set_script(s)
 
+func unlock_outfit(ID):
+	var output
+	for i in ClothingObjects.clothes.size():
+		if ClothingObjects.clothes[i]["Name"] == ID:
+			output = i
+			break
+	if output != null:
+		if ClothingObjects.clothes[output]["Unlocked"] == false:
+			ClothingObjects.clothes[output]["Unlocked"] = true
+			await get_tree().create_timer(6).timeout
+			Game.notify("AND, you've also unlocked an outfit...", "trophy")
+
 func unlock_achievement(id : String):
 	var achievementID
 	for i in Achievements.achievements.size()-1:
 		if Achievements.achievements[i]["ID"] == id:
 			achievementID = i
 			break
-	if Achievements.achievements[achievementID]["unlocked?"] == false:
-		Achievements.achievements[achievementID]["unlocked?"] = true
-		Game.notify('you got the "'+Achievements.achievements[achievementID]["name"]+'" achievement!\n'+Achievements.achievements[achievementID]["desc"], "trophy")
+	if achievementID != null:
+		if Achievements.achievements[achievementID]["unlocked?"] == false:
+			Achievements.achievements[achievementID]["unlocked?"] = true
+			Game.notify('you got the "'+Achievements.achievements[achievementID]["name"]+'" achievement!\n'+Achievements.achievements[achievementID]["desc"], "trophy")
 
 func commizeNumber(value: int) -> String:
 	# Convert value to string.
@@ -204,7 +217,7 @@ func loadData():
 			if blues.size()-1 >= i:
 				Jelly.blueJellies[i]["Discovered"] = blues[i]
 		
-		var awesome = config.get_value("Stats", "ownedClothes")
+		var awesome = config.get_value("Stats", "ownedClothes", [])
 		if awesome.size() < ClothingObjects.clothes.size():
 			awesome.resize(ClothingObjects.clothes.size())
 		for i in ClothingObjects.clothes.size():
@@ -212,6 +225,13 @@ func loadData():
 				ClothingObjects.clothes[i]["Owned"] = awesome[i]
 			else:
 				ClothingObjects.clothes[i]["Owned"] = false
+		
+		var awesome2 = config.get_value("Stats", "unlockedClothes", [])
+		if awesome2.size() < ClothingObjects.clothes.size():
+			awesome2.resize(ClothingObjects.clothes.size())
+		for i in ClothingObjects.clothes.size():
+			if awesome2[i] != null:
+				ClothingObjects.clothes[i]["Unlocked"] = awesome2[i]
 		
 		rebirthTokens = config.get_value("Rebirth", "RebirthTokens")
 		
@@ -322,10 +342,17 @@ func saveData():
 	config.set_value("Fiscal", "Clothing", ClothingObjects.equippedClothing)
 	config.set_value("Stats", "amountOfMines", FizzyDrink.minesLength)
 	config.set_value("Stats", "greasepuppies", FizzyDrink.greasepuppies)
+	
 	var clothing = []
 	for i in ClothingObjects.clothes.size(): 
 		clothing.append(ClothingObjects.clothes[i]["Owned"])
 	config.set_value("Stats", "ownedClothes", clothing)
+	
+	var clothingUn = []
+	for i in ClothingObjects.clothes.size(): 
+		clothingUn.append(ClothingObjects.clothes[i]["Unlocked"])
+	config.set_value("Stats", "unlockedClothes", clothingUn)
+	
 	config.set_value("Story", "DialogueUnlockedMELANIE", gameTime)
 	config.set_value("Story", "DialogueDoneMELANIE", gameTime)
 	config.set_value("Story", "DialogueUnlockedMELVIN", gameTime)
