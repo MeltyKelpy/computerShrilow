@@ -1040,8 +1040,8 @@ offset_bottom = 636.0
 theme = ExtResource("14_q2cbi")
 theme_override_constants/outline_size = 7
 theme_override_font_sizes/font_size = 30
-text = "beta build: 00.02.65
-Exported: March 12th, 2025"
+text = "beta build: 00.02.70
+Exported: April 4th, 2025"
 horizontal_alignment = 2
 vertical_alignment = 1
 autowrap_mode = 3

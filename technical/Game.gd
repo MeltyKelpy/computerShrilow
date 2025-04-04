@@ -186,7 +186,7 @@ func loadData():
 				if ItemValues.marketItems[e].has("Name"):
 					if ItemValues.marketItems[e]["Name"] == i:
 						ItemValues.marketItems[e]["CurUpgrade"] = config.get_value("Rebirth", lazymarket[i])
-		evilMines = config.get_value("Rebirth", "EvilMinesAvaliable")
+		evilMines = config.get_value("Rebirth", "EvilMinesAvaliable", false)
 		rebirthJellyProtocol = config.get_value("Rebirth", "rebirthJellyProtocol")
 		
 		
@@ -286,6 +286,7 @@ func saveData():
 	config.set_value("Rebirth", "RebirthTokens", rebirthTokens)
 	config.set_value("Rebirth", "Curses", Curses.curses)
 	config.set_value("Rebirth", "RebirthBoxTokens", boxed)
+	config.set_value("Rebirth", "EvilMinesAvaliable", evilMines)
 	
 	var lazymarket = {
 		"MARKETCLICKER":"RebirthAutoClickerLevel",
