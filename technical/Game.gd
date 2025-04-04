@@ -76,7 +76,7 @@ func unlock_outfit(ID):
 
 func unlock_achievement(id : String):
 	var achievementID
-	for i in Achievements.achievements.size()-1:
+	for i in Achievements.achievements.size():
 		if Achievements.achievements[i]["ID"] == id:
 			achievementID = i
 			break
