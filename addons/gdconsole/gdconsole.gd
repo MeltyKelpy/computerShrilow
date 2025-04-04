@@ -404,7 +404,7 @@ func _exit() -> void:
 func _quit() -> void:
 	get_tree().quit()
 
-func _unlock_achievement(achievement):
+func _unlock_achievement(achievement : String):
 	Game.unlock_achievement(achievement)
 
 func _spawn_jelly(jellyTypeToBe : String, goatedVar : int) -> void:
