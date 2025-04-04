@@ -45,7 +45,7 @@ var achievements = [
 	},
 	{
 	"name":"Minecraft",
-	"requirement":"Max out a mine (Reward: Captain Shrilow)",
+	"requirement":"Max out a mine",
 	"desc":"Oh yeah? I'm in the same cave; looking for miners.",
 	"unlocked?":false,
 	"ID":"minecraft",
