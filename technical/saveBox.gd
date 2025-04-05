@@ -179,3 +179,19 @@ func changeIcon(changeBy: int) -> void:
 	Game.icon = icon
 	config.set_value("Fiscal", "Icon", icon)
 	Game.saveData()
+
+
+func zip(export : bool):
+	$FileDialog.current_dir = "/"
+	$FileDialog.visible = true
+	if export == true:
+		$FileDialog.file_mode = 4
+		var writer = ZIPPacker.new()
+		var err = writer.open("user://archive.zip")
+		writer.start_file("hello.txt")
+		writer.write_file("Hello World".to_utf8_buffer())
+		writer.close_file()
+		
+		 # Connect the file_selected signal
+		
+		writer.close()

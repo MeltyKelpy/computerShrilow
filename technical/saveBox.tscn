@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://nlv6t80uh1fp"]
+[gd_scene load_steps=31 format=3 uid="uid://nlv6t80uh1fp"]
 
 [ext_resource type="Texture2D" uid="uid://yaivbhdq4dxn" path="res://assets/images/areas/melanies/itemBox.png" id="1_lgb1h"]
 [ext_resource type="Script" uid="uid://b5heeh874t72s" path="res://technical/saveBox.gd" id="2_pyrv6"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dyj2cvm45pn86" path="res://assets/images/mainMenu/files/delete.png" id="5_y4yb4"]
 [ext_resource type="Texture2D" uid="uid://cdi4tcc76faq8" path="res://assets/images/areas/melanies/items/floppydisk.png" id="10_y2m8g"]
 [ext_resource type="Texture2D" uid="uid://bsck5ex54oqu1" path="res://assets/images/ui/curses/gambling.png" id="11_igle1"]
+[ext_resource type="Texture2D" uid="uid://vgiue53lgfux" path="res://assets/images/ui/importexport.png" id="11_ivsl3"]
 [ext_resource type="Texture2D" uid="uid://qtlkqqq74cty" path="res://assets/images/ui/curses/kindness.png" id="12_ivsl3"]
 [ext_resource type="Texture2D" uid="uid://bbk4jp0wel3cr" path="res://assets/images/ui/curses/nobankaccount.png" id="13_vxuy1"]
 
@@ -163,6 +164,45 @@ text = "<"
 visible = false
 texture = ExtResource("10_y2m8g")
 
+[node name="export" type="Button" parent="."]
+visible = false
+offset_left = 727.0
+offset_top = -84.0
+offset_right = 743.0
+offset_bottom = -68.0
+theme_override_colors/font_hover_color = Color(0.471584, 0.249372, 0, 1)
+theme_override_colors/font_color = Color(0.121569, 0.0470588, 0, 1)
+theme_override_colors/font_focus_color = Color(0.121569, 0.0470588, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.470588, 0.25098, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6l1dl")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_scyoh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5kpg2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_s05bs")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6371d")
+button_mask = 3
+
+[node name="import" type="Button" parent="."]
+visible = false
+offset_left = 707.0
+offset_top = -84.0
+offset_right = 723.0
+offset_bottom = -68.0
+theme_override_colors/font_hover_color = Color(0.471584, 0.249372, 0, 1)
+theme_override_colors/font_color = Color(0.121569, 0.0470588, 0, 1)
+theme_override_colors/font_focus_color = Color(0.121569, 0.0470588, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.470588, 0.25098, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6l1dl")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_scyoh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5kpg2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_s05bs")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6371d")
+button_mask = 3
+
+[node name="importExport" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(725, -76)
+texture = ExtResource("11_ivsl3")
+
 [node name="curse1" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(70, -62)
@@ -188,8 +228,16 @@ visible = false
 position = Vector2(70, 31)
 texture = ExtResource("13_vxuy1")
 
+[node name="FileDialog" type="FileDialog" parent="."]
+initial_position = 1
+access = 1
+use_native_dialog = true
+
 [connection signal="text_changed" from="FileName" to="." method="_on_file_name_text_changed"]
 [connection signal="pressed" from="Load" to="." method="_on_load_pressed"]
 [connection signal="pressed" from="Delete" to="." method="_on_delete_pressed"]
 [connection signal="pressed" from="iconForward" to="." method="changeIcon" binds= [1]]
 [connection signal="pressed" from="iconBackward" to="." method="changeIcon" binds= [-1]]
+[connection signal="pressed" from="export" to="." method="zip" binds= [true]]
+[connection signal="pressed" from="import" to="." method="zip" binds= [false]]
+[connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]
