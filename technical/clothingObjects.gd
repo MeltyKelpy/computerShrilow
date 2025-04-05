@@ -11,7 +11,7 @@ var clothes = [
 	"Unlocked":true,
 	"IconKey":"res://assets/images/areas/wardrobe/clothing/base.png",
 	"Image":"shrilowBase",
-	"eyes":"BaseEyes",
+	"eyes":"baseEyes",
 	"maxDistance":20,
 	"Cost":0
 	},
@@ -23,7 +23,7 @@ var clothes = [
 	"Unlocked":true,
 	"IconKey":"res://assets/images/areas/wardrobe/clothing/suit.png",
 	"Image":"shrilowPresident",
-	"eyes":"PresEyes",
+	"eyes":"presEyes",
 	"maxDistance":10,
 	"Cost":0
 	},
@@ -35,7 +35,7 @@ var clothes = [
 	"Unlocked":true,
 	"IconKey":"res://assets/images/areas/wardrobe/clothing/datenight.png",
 	"Image":"shrilowDate Night",
-	"eyes":"DateEyes",
+	"eyes":"dateEyes",
 	"maxDistance":20,
 	"Cost":100
 	},
@@ -47,7 +47,7 @@ var clothes = [
 	"Unlocked":true,
 	"IconKey":"res://assets/images/areas/wardrobe/clothing/rig.png",
 	"Image":"shrilowCaz",
-	"eyes":"RigEyes",
+	"eyes":"rigEyes",
 	"maxDistance":20,
 	"Cost":500
 	},
@@ -59,7 +59,7 @@ var clothes = [
 	"Unlocked":false,
 	"IconKey":"res://assets/images/areas/wardrobe/clothing/freight.png",
 	"Image":"shrilowFreighter",
-	"eyes":"BaseEyes",
+	"eyes":"baseEyes",
 	"UnlockReq":"a little overkill on those mine upgrades... dont you think?\n(Unlocks Alongside an Achievement)",
 	"maxDistance":20,
 	"Cost":500
@@ -73,7 +73,7 @@ var clothes = [
 	"IconKey":"res://assets/images/areas/wardrobe/clothing/mokerson.png",
 	"Image":"shrilowMokerson",
 	"UnlockReq":"I'd get clicking...\n(Unlocks Alongside an Achievement)",
-	"eyes":"BaseEyes",
+	"eyes":"baseEyes",
 	"maxDistance":20,
 	"Cost":500
 	},

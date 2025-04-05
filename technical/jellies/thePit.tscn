@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://dg0ivea2ihqkk"]
+[gd_scene load_steps=14 format=3 uid="uid://dg0ivea2ihqkk"]
 
 [ext_resource type="Script" uid="uid://bu55xmycd70xf" path="res://technical/jellies/thePit.gd" id="1_t4w8s"]
 [ext_resource type="Texture2D" uid="uid://bj10x1ka5qcjo" path="res://assets/images/areas/jellies/rooms/thePit/room.png" id="2_t4w8s"]
 [ext_resource type="PackedScene" uid="uid://cc62swwttf6t2" path="res://technical/jellies/elevator.tscn" id="4_5l41m"]
 [ext_resource type="Texture2D" uid="uid://dw8oys38bu57g" path="res://assets/images/areas/jellies/rooms/thePit/light.png" id="4_s2t3g"]
+[ext_resource type="PackedScene" uid="uid://dedd2asxmvj7" path="res://technical/invasion/jerryDaycare.tscn" id="5_s2t3g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fd18s"]
 size = Vector2(1622, 62)
@@ -80,3 +81,12 @@ position = Vector2(380, 545)
 z_index = 5
 position = Vector2(737, 324)
 texture = ExtResource("4_s2t3g")
+
+[node name="Jerry" parent="." instance=ExtResource("5_s2t3g")]
+position = Vector2(710, 479)
+
+[node name="Jerry2" parent="." instance=ExtResource("5_s2t3g")]
+position = Vector2(710, 314)
+
+[node name="Jerry3" parent="." instance=ExtResource("5_s2t3g")]
+position = Vector2(710, 153)

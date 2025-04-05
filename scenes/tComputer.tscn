@@ -1,4 +1,4 @@
-[gd_scene load_steps=174 format=3 uid="uid://bgw557ttv6noe"]
+[gd_scene load_steps=177 format=3 uid="uid://bgw557ttv6noe"]
 
 [ext_resource type="Script" uid="uid://ddatxm3oli8qs" path="res://scenes/t_computer.gd" id="1_swrb7"]
 [ext_resource type="Texture2D" uid="uid://dajex7cpt7k4p" path="res://assets/images/bg/background.png" id="2_u0da7"]
@@ -38,9 +38,12 @@
 [ext_resource type="Texture2D" uid="uid://dng238pf8ip5d" path="res://assets/images/ui/notvisible.png" id="21_t7slg"]
 [ext_resource type="PackedScene" uid="uid://bj5pxngi3puif" path="res://technical/items/bell.tscn" id="21_yl31h"]
 [ext_resource type="Texture2D" uid="uid://cs21yt57gfegw" path="res://assets/images/areas/melanies/sign.png" id="23_1b4os"]
+[ext_resource type="Texture2D" uid="uid://coup6v4fjgp33" path="res://assets/images/ui/jerryInvasion/thing.png" id="24_3b1km"]
 [ext_resource type="Texture2D" uid="uid://i56e4q3q5h8" path="res://assets/images/areas/melanies/melanie/base.png" id="24_umbwu"]
 [ext_resource type="Texture2D" uid="uid://bi8cjj45fwhyo" path="res://assets/images/areas/melanies/melanie/talkBase.png" id="25_ndj4q"]
+[ext_resource type="Texture2D" uid="uid://dgksr5ktgu53j" path="res://assets/images/ui/jerryInvasion/logo.png" id="25_qadl1"]
 [ext_resource type="PackedScene" uid="uid://cc62swwttf6t2" path="res://technical/jellies/elevator.tscn" id="25_y45oj"]
+[ext_resource type="FontFile" uid="uid://brn7smfq0l6ao" path="res://assets/fonts/TwCen.ttf" id="26_qadl1"]
 [ext_resource type="Texture2D" uid="uid://dv1knrxoff866" path="res://assets/images/ui/transitions/bg.png" id="27_e5v8d"]
 [ext_resource type="Texture2D" uid="uid://bb0hqhdgonp44" path="res://assets/images/areas/gumball/realBg.png" id="29_50vaf"]
 [ext_resource type="Texture2D" uid="uid://dkxpmi3v4ilpw" path="res://assets/images/areas/gumball/coins/common.png" id="30_1fn55"]
@@ -1538,6 +1541,36 @@ offset_top = 78.0
 offset_right = 328.0
 offset_bottom = 120.0
 
+[node name="JerryInvasionUI" type="Control" parent="ShrilowScreen"]
+clip_contents = true
+custom_minimum_size = Vector2(1152, 648)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Backer" type="Sprite2D" parent="ShrilowScreen/JerryInvasionUI"]
+position = Vector2(585, 621.5)
+texture = ExtResource("24_3b1km")
+
+[node name="Logo" type="Sprite2D" parent="ShrilowScreen/JerryInvasionUI"]
+position = Vector2(585, 578.5)
+texture = ExtResource("25_qadl1")
+
+[node name="Info" type="Label" parent="ShrilowScreen/JerryInvasionUI"]
+layout_mode = 0
+offset_left = 450.0
+offset_top = 597.0
+offset_right = 722.0
+offset_bottom = 644.0
+theme_override_colors/font_color = Color(1, 0.176471, 0.215686, 1)
+theme_override_constants/line_spacing = -9
+theme_override_fonts/font = ExtResource("26_qadl1")
+theme_override_font_sizes/font_size = 25
+text = "ROUND: 1
+TIME LEFT: 10:00"
+horizontal_alignment = 1
+
 [node name="Jelly" type="Node2D" parent="."]
 position = Vector2(-1152, 0)
 
@@ -2690,6 +2723,7 @@ blame ghost."
 one_shot = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
+visible = false
 position = Vector2(577, 324)
 
 [node name="leftMove" type="TextureRect" parent="Camera2D"]

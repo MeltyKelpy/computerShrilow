@@ -1,0 +1,227 @@
+[gd_scene load_steps=35 format=3 uid="uid://dedd2asxmvj7"]
+
+[ext_resource type="Script" uid="uid://ct712s6a0wt7y" path="res://technical/invasion/jerryDaycare.gd" id="1_uj1g2"]
+[ext_resource type="Shader" uid="uid://csehigfpjnq1r" path="res://technical/jellyOutline.gdshader" id="2_ld8f0"]
+[ext_resource type="Texture2D" uid="uid://s0a2khtnqeas" path="res://assets/images/ui/jerryInvasion/daycare/base.png" id="3_uj1g2"]
+[ext_resource type="Texture2D" uid="uid://bnoaejed2v0gb" path="res://assets/images/ui/jerryInvasion/daycare/shatter.png" id="4_7eca0"]
+[ext_resource type="Texture2D" uid="uid://c57e7gaks4ps6" path="res://assets/images/ui/jerryInvasion/daycare/squirm1.png" id="5_rls0w"]
+[ext_resource type="Texture2D" uid="uid://2ff1lelhh04x" path="res://assets/images/ui/jerryInvasion/daycare/squirm2.png" id="6_53vgc"]
+[ext_resource type="Texture2D" uid="uid://cecsyv80ektu6" path="res://assets/images/ui/jerryInvasion/daycare/pixel.png" id="7_7eca0"]
+[ext_resource type="Theme" uid="uid://dr1wna4c2ab2h" path="res://technical/textStyle.tres" id="7_nannn"]
+[ext_resource type="Shader" uid="uid://ggmewd18pdds" path="res://technical/invasion/explosion.gdshader" id="8_rls0w"]
+[ext_resource type="Texture2D" uid="uid://dm8ynjcmbnbve" path="res://assets/images/ui/jerryInvasion/daycare/frame_08_delay-0.1s.png" id="9_dscex"]
+[ext_resource type="Texture2D" uid="uid://q5it5hidu80l" path="res://assets/images/ui/jerryInvasion/daycare/frame_09_delay-0.1s.png" id="10_78yts"]
+[ext_resource type="Texture2D" uid="uid://c0jf4xvxn4wrc" path="res://assets/images/ui/jerryInvasion/daycare/frame_10_delay-0.1s.png" id="11_eaikc"]
+[ext_resource type="Texture2D" uid="uid://cqxqfn3gps586" path="res://assets/images/ui/jerryInvasion/daycare/frame_11_delay-0.1s.png" id="12_hhdil"]
+[ext_resource type="Texture2D" uid="uid://c5ceom3qof7a5" path="res://assets/images/ui/jerryInvasion/daycare/frame_12_delay-0.1s.png" id="13_cr3rw"]
+[ext_resource type="Texture2D" uid="uid://cvj4yvyglmcnu" path="res://assets/images/ui/jerryInvasion/daycare/frame_13_delay-0.1s.png" id="14_5e6he"]
+[ext_resource type="Texture2D" uid="uid://csi4e0yay65f7" path="res://assets/images/ui/jerryInvasion/daycare/frame_14_delay-0.1s.png" id="15_vf4tb"]
+[ext_resource type="Texture2D" uid="uid://baqwx4b0swe5o" path="res://assets/images/ui/jerryInvasion/daycare/frame_15_delay-0.1s.png" id="16_7jrkl"]
+[ext_resource type="Texture2D" uid="uid://cfueoidj4y6iw" path="res://assets/images/ui/jerryInvasion/daycare/frame_16_delay-0.1s.png" id="17_bxtrg"]
+[ext_resource type="Texture2D" uid="uid://c1oj4ievs6h8c" path="res://assets/images/ui/jerryInvasion/daycare/frame_00_delay-0.1s.png" id="18_wv3h7"]
+[ext_resource type="Texture2D" uid="uid://b66yu6nroppae" path="res://assets/images/ui/jerryInvasion/daycare/frame_01_delay-0.1s.png" id="19_sw838"]
+[ext_resource type="Texture2D" uid="uid://p5dshsxyfvod" path="res://assets/images/ui/jerryInvasion/daycare/frame_02_delay-0.1s.png" id="20_iim2h"]
+[ext_resource type="Texture2D" uid="uid://d2yqnnettth0c" path="res://assets/images/ui/jerryInvasion/daycare/frame_03_delay-0.1s.png" id="21_5iv2f"]
+[ext_resource type="Texture2D" uid="uid://b3cm4fchd3qad" path="res://assets/images/ui/jerryInvasion/daycare/frame_04_delay-0.1s.png" id="22_levbc"]
+[ext_resource type="Texture2D" uid="uid://wggjyecn8krl" path="res://assets/images/ui/jerryInvasion/daycare/frame_05_delay-0.1s.png" id="23_hgt4n"]
+[ext_resource type="Texture2D" uid="uid://tju175pmdygd" path="res://assets/images/ui/jerryInvasion/daycare/frame_06_delay-0.1s.png" id="24_45kwb"]
+[ext_resource type="Texture2D" uid="uid://0ku1uqc48o1e" path="res://assets/images/ui/jerryInvasion/daycare/frame_07_delay-0.1s.png" id="25_m8hqg"]
+[ext_resource type="AudioStream" uid="uid://hnqoa0ukth0n" path="res://assets/sounds/EXPLOSION.ogg" id="27_78yts"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_53vgc"]
+shader = ExtResource("8_rls0w")
+shader_parameter/spread = 90.0
+shader_parameter/inherit_emitter_velocity_ratio = 0.0
+shader_parameter/initial_linear_velocity_min = 100.0
+shader_parameter/initial_linear_velocity_max = 100.0
+shader_parameter/orbit_velocity_min = 0.0
+shader_parameter/orbit_velocity_max = 0.0
+shader_parameter/radial_velocity_min = 0.0
+shader_parameter/radial_velocity_max = 0.0
+shader_parameter/linear_accel_min = 0.0
+shader_parameter/linear_accel_max = 0.0
+shader_parameter/radial_accel_min = 0.0
+shader_parameter/radial_accel_max = 0.0
+shader_parameter/tangent_accel_min = 0.0
+shader_parameter/tangent_accel_max = 0.0
+shader_parameter/damping_min = 0.0
+shader_parameter/damping_max = 0.0
+shader_parameter/scale_min = 1.0
+shader_parameter/scale_max = 1.0
+shader_parameter/lifetime_randomness = 0.0
+shader_parameter/emission_shape_offset = Vector3(0, 0, 0)
+shader_parameter/emission_shape_scale = Vector3(1, 1, 1)
+shader_parameter/emission_box_extents = Vector3(100, 100, 0)
+shader_parameter/sprite = ExtResource("4_7eca0")
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qn6m5"]
+friction = 0.91
+bounce = 0.68
+absorbent = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i58en"]
+resource_local_to_scene = true
+shader = ExtResource("2_ld8f0")
+shader_parameter/rainbow = false
+shader_parameter/line_color = Color(1, 0.905882, 0.85098, 1)
+shader_parameter/line_scale = 1.874
+shader_parameter/frequency = 0.096
+shader_parameter/light_offset = 0.5
+shader_parameter/alpha = 1.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jynru"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_uj1g2")
+}],
+"loop": true,
+"name": &"base",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_rls0w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_53vgc")
+}],
+"loop": true,
+"name": &"squirm",
+"speed": 12.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e422r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_dscex")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_78yts")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_eaikc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_hhdil")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_cr3rw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_5e6he")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_vf4tb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_7jrkl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_bxtrg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_wv3h7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_sw838")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_iim2h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_5iv2f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_levbc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_hgt4n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_45kwb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_m8hqg")
+}],
+"loop": false,
+"name": &"anim",
+"speed": 12.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b8wjh"]
+radius = 51.0
+height = 116.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_edxbq"]
+size = Vector2(102, 55)
+
+[node name="Jerry" type="Node2D"]
+script = ExtResource("1_uj1g2")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+visible = false
+top_level = true
+emitting = false
+amount = 58752
+texture = ExtResource("7_7eca0")
+lifetime = 5.0
+one_shot = true
+explosiveness = 1.0
+local_coords = true
+draw_order = 0
+process_material = SubResource("ShaderMaterial_53vgc")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_qn6m5")
+contact_monitor = true
+max_contacts_reported = 10
+
+[node name="Jerry" type="AnimatedSprite2D" parent="RigidBody2D"]
+material = SubResource("ShaderMaterial_i58en")
+position = Vector2(2, -41)
+sprite_frames = SubResource("SpriteFrames_jynru")
+animation = &"base"
+frame_progress = 0.574453
+
+[node name="Explosion" type="AnimatedSprite2D" parent="RigidBody2D"]
+visible = false
+position = Vector2(0, 34)
+sprite_frames = SubResource("SpriteFrames_e422r")
+animation = &"anim"
+frame = 16
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(0, 4)
+shape = SubResource("CapsuleShape2D_b8wjh")
+
+[node name="Stand" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(0, 39.5)
+shape = SubResource("RectangleShape2D_edxbq")
+
+[node name="MousePin" type="PinJoint2D" parent="."]
+
+[node name="FakeBody" type="StaticBody2D" parent="MousePin"]
+
+[node name="nameShit" type="Node2D" parent="."]
+
+[node name="Name" type="Label" parent="nameShit"]
+visible = false
+offset_left = -115.0
+offset_top = -84.0
+offset_right = 110.0
+offset_bottom = -49.0
+theme = ExtResource("7_nannn")
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 30
+text = "Jerry Seinfeld (the cat)"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("27_78yts")
+
+[connection signal="body_entered" from="RigidBody2D" to="." method="_on_rigid_body_2d_body_entered"]
