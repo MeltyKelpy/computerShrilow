@@ -1075,13 +1075,7 @@ func _process(_delta : float) -> void:
 	
 	var config2 = ConfigFile.new()
 	
-	var err2 = config.load("user://settings.cfg")
-	
-	if err2 == OK:
-		if config.get_value("Settings", "KiwamiMode") == true:
-			$Camera2D/kiwami.visible = true
-		if config.get_value("Settings", "KiwamiMode") == false:
-			$Camera2D/kiwami.visible = false
+	$Camera2D/kiwami.visible = Settings.setting_state("kiwami")
 
 	if Input.is_action_just_pressed("ui_cancel"):
 		var cacapoopyGOD2 = preload("res://technical/pauseMenu.tscn")

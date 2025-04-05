@@ -14,6 +14,7 @@ func spawnSettings():
 			caca.uhmg = Settings.settings[i]["enabled?"]
 		if Settings.settings[i].type == "multiChoice":
 			caca.multiChoiceChoice = Settings.settings[i]["selectionNum"]
+			caca.choices = Settings.settings[i]["choices"]
 		add_child(caca)
 		evil.append(caca)
 		caca.reparent($ScrollContainer/Control)

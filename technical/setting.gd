@@ -30,7 +30,6 @@ func _process(delta: float) -> void:
 		$button.disabled = false
 		$button.visible = true
 	elif type == "multiChoice":
-		choices = Settings.settings[ID]["choices"]
 		keys = choices.keys()
 		Settings.settings[ID]["selection"] = choices[str(keys[multiChoiceChoice])]
 		Settings.settings[ID]["selectionNum"] = multiChoiceChoice
@@ -52,6 +51,11 @@ func _on_kiwami_mode_mouse_exited() -> void:
 
 func _on_left_pressed() -> void:
 	multiChoiceChoice -= 1
+	Settings.saveData()
 
 func _on_right_pressed() -> void:
 	multiChoiceChoice += 1
+	Settings.saveData()
+
+func _on_button_pressed() -> void:
+	Settings.saveData()

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://pc1vm6m58ysl"]
+
+[ext_resource type="Shader" uid="uid://bof4tcwqbaldg" path="res://technical/colorblindShader.gdshader" id="1_y6ltt"]
+[ext_resource type="Script" uid="uid://bfk53kygie7ph" path="res://technical/colorblind_filter.gd" id="1_yxt21"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yxt21"]
+shader = ExtResource("1_y6ltt")
+shader_parameter/mode = 0
+shader_parameter/intensity = 1.0
+
+[node name="ColorblindFilter" type="ColorRect"]
+process_mode = 3
+z_index = 4096
+mouse_filter = 2
+script = ExtResource("1_yxt21")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_yxt21")
+offset_left = -3.0
+offset_top = -2.0
+offset_right = 1160.0
+offset_bottom = 654.0
+mouse_filter = 2

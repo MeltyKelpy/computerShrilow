@@ -142,7 +142,6 @@ func _on_start_pressed() -> void:
 		can = false
 
 func changeSelection(toChange):
-	$Icon.visible = true
 	$SFXScroll.play()
 	selectedCredit += toChange
 

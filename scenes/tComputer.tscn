@@ -1542,12 +1542,14 @@ offset_right = 328.0
 offset_bottom = 120.0
 
 [node name="JerryInvasionUI" type="Control" parent="ShrilowScreen"]
+visible = false
 clip_contents = true
 custom_minimum_size = Vector2(1152, 648)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 
 [node name="Backer" type="Sprite2D" parent="ShrilowScreen/JerryInvasionUI"]
 position = Vector2(585, 621.5)
@@ -2723,7 +2725,6 @@ blame ghost."
 one_shot = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
-visible = false
 position = Vector2(577, 324)
 
 [node name="leftMove" type="TextureRect" parent="Camera2D"]

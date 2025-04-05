@@ -183,7 +183,7 @@ material = SubResource("ShaderMaterial_i58en")
 position = Vector2(2, -41)
 sprite_frames = SubResource("SpriteFrames_jynru")
 animation = &"base"
-frame_progress = 0.574453
+frame_progress = 0.890162
 
 [node name="Explosion" type="AnimatedSprite2D" parent="RigidBody2D"]
 visible = false

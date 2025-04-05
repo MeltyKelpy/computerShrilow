@@ -40,6 +40,7 @@ Journal="*res://technical/rooms/journalEntryManagement.gd"
 Achievements="*res://technical/Achievements.tscn"
 Curses="*res://technical/curses.gd"
 Intracept="*res://interstate-intracept/technical/IntrasceptGlobals.gd"
+ColorblindFilter="*res://technical/colorblindFilter.tscn"
 
 [debug]
 

@@ -102,7 +102,7 @@ func commizeNumber(value: int) -> String:
 	
 	for i in range(str_value.length()-3, loop_end, -3):
 		if err == OK:
-			str_value = str_value.insert(i, config.get_value("Settings", "SeperatorType")[0])
+			str_value = str_value.insert(i, Settings.settings[Settings.get_setting("seperator")]["selection"])
 		else:
 			str_value = str_value.insert(i, ",")
 	

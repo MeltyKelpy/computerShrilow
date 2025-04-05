@@ -18,7 +18,7 @@ func _physics_process(delta: float) -> void:
 	$nameShit.global_position = get_global_mouse_position()
 	$nameShit/Name.rotation = 0
 	
-	if abs(rigid_body_2d.linear_velocity.x) > 5 or abs(rigid_body_2d.linear_velocity.y) > 5:
+	if abs(rigid_body_2d.linear_velocity.x) > 10 or abs(rigid_body_2d.linear_velocity.y) > 10:
 		$RigidBody2D/Jerry.play("squirm")
 	elif $RigidBody2D.sleeping == false:
 		$RigidBody2D/Jerry.play("base")

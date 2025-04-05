@@ -29,7 +29,7 @@ func _process(delta: float) -> void:
 		$AudioStreamPlayer.volume_db -= 1 + (1 * delta)
 	position.x = $/root/computerShrilow/Camera2D.position.x - 576
 	position.y = $/root/computerShrilow/Camera2D.position.y - 324
-	z_index = 4096
+	z_index = 4000
 	if Input.is_action_just_pressed("ui_cancel"):
 		$AnimationPlayer.play("resume")
 
