@@ -78,6 +78,7 @@ theme_override_font_sizes/font_size = 42
 text = "Kiwami Mode"
 
 [node name="multiChoice" type="Node2D" parent="."]
+visible = false
 position = Vector2(0, 39)
 
 [node name="display" type="Label" parent="multiChoice"]

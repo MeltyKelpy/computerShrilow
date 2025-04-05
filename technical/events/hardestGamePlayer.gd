@@ -13,13 +13,13 @@ func _physics_process(delta: float) -> void:
 	
 	if can == true:
 		if Input.is_action_pressed("ui_up"):
-			position.y -= 3
+			position.y -= 60 * (delta*2)
 		if Input.is_action_pressed("ui_down"):
-			position.y += 3
+			position.y += 60 * (delta*2)
 		if Input.is_action_pressed("ui_left"):
-			position.x -= 3
+			position.x -= 60 * (delta*2)
 		if Input.is_action_pressed("ui_right"):
-			position.x += 3
+			position.x += 60 * (delta*2)
 		
 	move_and_slide()
 
