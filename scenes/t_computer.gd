@@ -1138,7 +1138,7 @@ func _process(_delta : float) -> void:
 				numToUse = 0.05
 			else:
 				numToUse = _delta
-			$Shop/ItemDescription.visible_characters += 35 * numToUse
+			$Shop/ItemDescription.visible_characters += 50 * numToUse
 	else:
 		$Shop/ItemDescription.visible_ratio = 1
 		$Shop/ItemDescription.visible_characters = -1
@@ -1157,7 +1157,7 @@ func _process(_delta : float) -> void:
 				numToUse = 0.05
 			else:
 				numToUse = _delta
-			$BlackMarket/talk.visible_characters += 35 * numToUse
+			$BlackMarket/talk.visible_characters += 50 * numToUse
 	if melvinShopState == false:
 		$Shop/type.pitch_scale = 1.0
 		if $Melvin/ItemDescription.visible_ratio > 1:
@@ -1172,7 +1172,7 @@ func _process(_delta : float) -> void:
 				numToUse = 0.05
 			else:
 				numToUse = _delta
-			$Melvin/ItemDescription.visible_characters += 35 * numToUse
+			$Melvin/ItemDescription.visible_characters += 50 * numToUse
 	else:
 		$Melvin/ItemDescription.visible_ratio = 1
 		$Melvin/ItemDescription.visible_characters = -1

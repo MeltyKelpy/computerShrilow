@@ -172,7 +172,7 @@ func loadData():
 						print(ItemValues.itemInfomation[e]["CurUpgrade"])
 						print(config.get_value("Shop", lazy[i]))
 						ItemValues.itemInfomation[e]["CurUpgrade"] = config.get_value("Shop", lazy[i])
-		FizzyDrink.enabledCrystal = config.get_value("Shop", "selectedCrystal", "")
+		FizzyDrink.enabledCrystal = config.get_value("Shop", "selectedCrystal")
 		
 		var lazymarket = {
 			"MARKETCLICKER":"RebirthAutoClickerLevel",

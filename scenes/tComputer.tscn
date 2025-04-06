@@ -2751,7 +2751,7 @@ theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iq0t2")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
 
 [node name="bg" type="Sprite2D" parent="Camera2D"]
-z_index = 4096
+z_index = 4000
 position = Vector2(0, 1152)
 texture = ExtResource("27_e5v8d")
 

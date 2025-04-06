@@ -49,7 +49,7 @@ func _ready() -> void:
 		FizzyDrink.clickPower = 0
 	if FizzyDrink.AUTOclickPower == null:
 		FizzyDrink.AUTOclickPower = 0
-	recievedTokens = 10 + ((FizzyDrink.jellys / 10) + (FizzyDrink.clicks / 1000) + (FizzyDrink.clickPower / 150) + (FizzyDrink.AUTOclickPower / 150) + (FizzyDrink.amountOfRooms / 10))
+	recievedTokens = 10 + ((FizzyDrink.jellys / 10) + (FizzyDrink.clicks / 1000) + (FizzyDrink.clickPower / 150) + (FizzyDrink.AUTOclickPower / 150) + (FizzyDrink.amountOfRooms / 10) + (FizzyDrink.minesLength / 5))
 	recievedTokens = round(recievedTokens)
 	$Label2.text = "You have Recieved "+str(recievedTokens)+" Tokens. Dont go spending it all in one place, now!"
 	$curses/Label3.text = $Label2.text

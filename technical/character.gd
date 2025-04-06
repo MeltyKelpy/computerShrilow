@@ -6,7 +6,6 @@ extends Node2D
 @export var BaseMoneyGain = MoneyGain
 @export var BaseSpeed = Speed
 @export var Level = 1
-@export var Swings = 3
 @export var BasePrice = 150
 @export var state = 0
 @export var timer = Timer.new()
@@ -17,6 +16,8 @@ extends Node2D
 @export var managing = false
 @export var upTokens = 4
 @export var ID = 0
+var optimizeMoney = 0.0
+var optimizeSpeed = 0.0
 
 @export var speedCost = 0.0
 @export var moneyCost = 0.0
@@ -29,6 +30,17 @@ func listPlacement(num):
 	ID = num
 
 func _ready() -> void:
+	#  1 / 3 = 
+	#  5 / 6 = 
+	#  3 / (1.0 / Speed)
+	#
+	#  (Swings / MoneyGain) / Speed
+	#  (6 / 5) / 1.5
+	#
+	#  "MoneyGain":1,
+	#  "Swings":3,
+	#  "Speed":1.000,
+	#
 	remove_child(timer)
 	remove_child(timer2)
 	BaseMoneyGain = MoneyGain
@@ -49,6 +61,15 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	
+	optimizeMoney = (MoneyGain+(((mineLevelMONEY))*MoneyGain))*adds
+	optimizeSpeed = Speed+((mineLevelSPEED)*Speed)
+	
+	if Settings.setting_state("minesOptimization") == true:
+		waitTime = (1.0 / BaseSpeed) - ((1.0 / BaseSpeed) / 4.0)
+		timer.wait_time = waitTime
+		waitTime2 = (1.0 / BaseSpeed) / 4.0
+		timer2.wait_time = waitTime2
 	
 	if FizzyDrink.enabledCrystal == "mine":
 		adds = 2
@@ -88,11 +109,14 @@ func _process(_delta: float) -> void:
 	$ManageMenu/UpgradeInfo.text = "Speed:"+str(Speed+((mineLevelSPEED)*Speed))+"\nMoney:"+str((MoneyGain+((mineLevelMONEY)*MoneyGain))*adds)+"\nLevel:"+str(Level)+"\n\nUpTokens:"+str(upTokens)
 	$ManageMenu.visible = managing
 	
-	$CharacterSprite.texture = load("res://assets/images/areas/mines/"+Name+str(state)+".png")
+	if Settings.setting_state("animationsOptimization"):
+		$CharacterSprite.texture = load("res://assets/images/areas/mines/"+Name+str(state)+".png")
+	else:
+		$CharacterSprite.texture = load("res://assets/images/areas/mines/"+Name+"0.png")
 	
 	$ManageMenu.visible = managing
 	
-	$CharName.text = Name+"\n"+str((MoneyGain+((mineLevelMONEY)*MoneyGain))*adds)+"$ per "+str(Swings)+" Swings\nSpeed: "+str(Speed+((mineLevelSPEED)*Speed))+"\nLevel: "+str(Level)+"\nL-Click to Manage"
+	$CharName.text = Name+"\n"+str((MoneyGain+((mineLevelMONEY)*MoneyGain))*adds)+"$ every Swing\nSpeed: "+str(Speed+((mineLevelSPEED)*Speed))+"\nLevel: "+str(Level)+"\nL-Click to Manage"
 
 func _on_selection_mouse_entered() -> void:
 	if managing == false:
@@ -103,11 +127,11 @@ func _on_selection_mouse_exited() -> void:
 
 func _swingTimerEnd():
 	var hey = get_parent()
-	waitTime = (1.0 / (Speed+((mineLevelSPEED)*Speed))) - ((1.0 / (Speed+((mineLevelSPEED)*Speed))) / 4.0)
-	timer.wait_time = waitTime
+	if Settings.setting_state("minesOptimization") == false:
+		waitTime = (1.0 / (Speed+((mineLevelSPEED)*Speed))) - ((1.0 / (Speed+((mineLevelSPEED)*Speed))) / 4.0)
+		timer.wait_time = waitTime
 	state = 1
-	curSwing += 1
-	if curSwing == Swings:
+	if Settings.setting_state("minesOptimization") == false:
 		var cacapoopyGOD = load("res://technical/moneyGet.tscn")
 		var caca = cacapoopyGOD.instantiate()
 		add_child(caca)
@@ -119,8 +143,9 @@ func _swingTimerEnd():
 	timer2.start()
 
 func _swingTimerRestart():
-	waitTime2 = (1.0 / (Speed+((mineLevelSPEED)*Speed))) / 4.0
-	timer2.wait_time = waitTime2
+	if Settings.setting_state("minesOptimization") == false:
+		waitTime2 = (1.0 / (Speed+((mineLevelSPEED)*Speed))) / 4.0
+		timer2.wait_time = waitTime2
 	state = 0
 	timer.start()
 

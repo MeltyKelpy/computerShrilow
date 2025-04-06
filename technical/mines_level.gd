@@ -5,42 +5,37 @@ extends Node2D
 var characterInfos = [
 	{
 		"Name":"Shrilow",
-		"Desc":"1$ per 3 pickaxe swings.\nBase Speed: 1 a second",
+		"Desc":"0.3$ per Pickaxe Swing.\nBase Speed: 1/s a second",
 		"BasePrice":200,
-		"MoneyGain":1,
-		"Swings":3,
+		"MoneyGain":0.3,
 		"Speed":1.000,
 	},
 	{
 		"Name":"Moka",
-		"Desc":"2$ per 4 pickaxe swings.\nBase Speed: 1.2 a second",
-		"BasePrice":400,
-		"MoneyGain":2,
-		"Swings":4,
+		"Desc":"0.5$ per Pickaxe Swing.\nBase Speed: 1.2/s a second",
+		"BasePrice":350,
+		"MoneyGain":0.5,
 		"Speed":1.200,
 	},
 	{
 		"Name":"Mel",
-		"Desc":"5$ per 7 pickaxe swings.\nBase Speed: 1.6 a second",
-		"BasePrice":550,
-		"MoneyGain":5,
-		"Swings":7,
+		"Desc":"1$ per Pickaxe Swing.\nBase Speed: 1.6/s a second",
+		"BasePrice":500,
+		"MoneyGain":1,
 		"Speed":1.600,
 	},
 	{
 		"Name":"Blair",
-		"Desc":"2$ per 4 pickaxe swings.\nBase Speed: 2.5 a second",
-		"BasePrice":650,
-		"MoneyGain":2,
-		"Swings":4,
+		"Desc":"1.5$ per Pickaxe Swing.\nBase Speed: 2.5/s a second",
+		"BasePrice":750,
+		"MoneyGain":1.5,
 		"Speed":2.50,
 	},
 	{
 		"Name":"Charlotte",
-		"Desc":"5$ per 6 pickaxe swings.\nBase Speed: 1.5 a second",
-		"BasePrice":800,
-		"MoneyGain":5,
-		"Swings":6,
+		"Desc":"2$ per Pickaxe Swing.\nBase Speed: 1.5/s a second",
+		"BasePrice":900,
+		"MoneyGain":2,
 		"Speed":1.500,
 	},
 	]
@@ -76,6 +71,14 @@ var newMineExists = true
 
 func getMineLevel(num):
 	caveNumber = num
+
+func _ready() -> void:
+	var timer = Timer.new()
+	timer.wait_time = 1
+	timer.one_shot = false
+	timer.autostart = true
+	timer.connect("timeout", _on_timer_timeout)
+	add_child(timer)
 
 func _process(_delta: float) -> void:
 	
@@ -120,11 +123,11 @@ func _process(_delta: float) -> void:
 		$VisualCodeSpaghetti/MelCost.text = str(moneyValues[2])+"$"
 		$VisualCodeSpaghetti/BlairCost.text = str(moneyValues[3])+"$"
 		$VisualCodeSpaghetti/CharlotteCost.text = str(moneyValues[4])+"$"
-		moneyValues[0] = characterInfos[0]["BasePrice"] + ((characterInfos[0]["BasePrice"] / 4)*(amountOfDwellers))
-		moneyValues[1] = characterInfos[1]["BasePrice"] + ((characterInfos[1]["BasePrice"] / 4)*(amountOfDwellers))
-		moneyValues[2] = characterInfos[2]["BasePrice"] + ((characterInfos[2]["BasePrice"] / 4)*(amountOfDwellers))
-		moneyValues[3] = characterInfos[3]["BasePrice"] + ((characterInfos[3]["BasePrice"] / 4)*(amountOfDwellers))
-		moneyValues[4] = characterInfos[4]["BasePrice"] + ((characterInfos[4]["BasePrice"] / 4)*(amountOfDwellers))
+		moneyValues[0] = characterInfos[0]["BasePrice"] + ((characterInfos[0]["BasePrice"] / 4)*(amountOfDwellers/2))
+		moneyValues[1] = characterInfos[1]["BasePrice"] + ((characterInfos[1]["BasePrice"] / 4)*(amountOfDwellers/2))
+		moneyValues[2] = characterInfos[2]["BasePrice"] + ((characterInfos[2]["BasePrice"] / 4)*(amountOfDwellers/2))
+		moneyValues[3] = characterInfos[3]["BasePrice"] + ((characterInfos[3]["BasePrice"] / 4)*(amountOfDwellers/2))
+		moneyValues[4] = characterInfos[4]["BasePrice"] + ((characterInfos[4]["BasePrice"] / 4)*(amountOfDwellers/2))
 		if selected == 0:
 			$VisualCodeSpaghetti/ShrilowIcon.modulate = Color(1,1,0)
 		elif hoverSelected == 0:
@@ -182,10 +185,12 @@ func _process(_delta: float) -> void:
 		$CharDesc.text = "Buy a new mine, or sell someone, to add more to this mine."
 	
 	if newMineExists == true:
-		$newMine/NewLevelCost.text = str(1000+(1000*caveNumber))+"$"
-		$newMine.visible = true
+		if get_node_or_null(^"newMine"):
+			$newMine/NewLevelCost.text = str(1000+(1000*caveNumber))+"$"
+			$newMine.visible = true
 	if newMineExists == false:
-		$newMine.visible = false
+		if get_node_or_null(^"newMine"):
+			$newMine.visible = false
 
 # STUPID FUCKING SPAGHETTI CODE
 
@@ -256,7 +261,6 @@ func _on_buy_button_pressed() -> void:
 				caca.MoneyGain = characterInfos[selected]["MoneyGain"]
 				caca.BasePrice = characterInfos[selected]["BasePrice"]
 				caca.Speed = characterInfos[selected]["Speed"]
-				caca.Swings = characterInfos[selected]["Swings"]
 				add_child(caca)
 				miners[i] = caca
 				amountOfDwellers += 1
@@ -293,3 +297,11 @@ func _on_up_grade_button_pressed() -> void:
 		#texturer = load("res://assets/images/areas/mines/upgradr/level"+str(mineLevel)+".png")
 		#$VisualCodeSpaghetti/MinesLevel.texture = texturer
 		ItemValues.money -= 5000 * mineLevel
+
+func _on_timer_timeout() -> void:
+	if Settings.setting_state("minesOptimization"):
+		var outputMonsey = 0.0
+		for i in miners.size():
+			if miners[i] != null:
+				outputMonsey += miners[i].optimizeMoney * miners[i].optimizeSpeed
+		ItemValues.money += outputMonsey
