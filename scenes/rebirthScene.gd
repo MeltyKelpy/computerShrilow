@@ -90,15 +90,30 @@ func _process(delta: float) -> void:
 	for i in range(0, amountOfCurses):
 		if i <= curses.size()-1:
 			if i == 0:
-				$curses/CurseIcon.texture = load(curses[i]["Icon"])
+				if ResourceLoader.exists(curses[i]["Icon"]):
+					$curses/CurseIcon.texture = load(curses[i]["Icon"])
+				else:
+					$curses/CurseIcon.texture = load("res://assets/images/ui/curses/placeholderCurse.png")
 			if i == 1:
-				$curses/CurseIcon2.texture = load(curses[i]["Icon"])
+				if ResourceLoader.exists(curses[i]["Icon"]):
+					$curses/CurseIcon2.texture = load(curses[i]["Icon"])
+				else:
+					$curses/CurseIcon2.texture = load("res://assets/images/ui/curses/placeholderCurse.png")
 			if i == 2:
-				$curses/CurseIcon3.texture = load(curses[i]["Icon"])
+				if ResourceLoader.exists(curses[i]["Icon"]):
+					$curses/CurseIcon3.texture = load(curses[i]["Icon"])
+				else:
+					$curses/CurseIcon3.texture = load("res://assets/images/ui/curses/placeholderCurse.png")
 			if i == 3:
-				$curses/CurseIcon4.texture = load(curses[i]["Icon"])
+				if ResourceLoader.exists(curses[i]["Icon"]):
+					$curses/CurseIcon4.texture = load(curses[i]["Icon"])
+				else:
+					$curses/CurseIcon4.texture = load("res://assets/images/ui/curses/placeholderCurse.png")
 			if i == 4:
-				$curses/CurseIcon5.texture = load(curses[i]["Icon"])
+				if ResourceLoader.exists(curses[i]["Icon"]):
+					$curses/CurseIcon5.texture = load(curses[i]["Icon"])
+				else:
+					$curses/CurseIcon5.texture = load("res://assets/images/ui/curses/placeholderCurse.png")
 	
 	if canProg == true:
 		if Input.is_action_just_pressed("Click"):
@@ -214,7 +229,8 @@ func _pick_a_curse(curseNum):
 				break
 				print(Curses.curses[i])
 				print(curseOutput)
-				curseOutput = _pick_a_curse(curseNum)
+				while Curses.curses[i] == curseOutput:
+					curseOutput = _pick_a_curse(curseNum)
 		
 	if output == true:
 		print(curseOutput)

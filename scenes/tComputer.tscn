@@ -1,4 +1,4 @@
-[gd_scene load_steps=177 format=3 uid="uid://bgw557ttv6noe"]
+[gd_scene load_steps=185 format=3 uid="uid://bgw557ttv6noe"]
 
 [ext_resource type="Script" uid="uid://ddatxm3oli8qs" path="res://scenes/t_computer.gd" id="1_swrb7"]
 [ext_resource type="Texture2D" uid="uid://dajex7cpt7k4p" path="res://assets/images/bg/background.png" id="2_u0da7"]
@@ -68,9 +68,16 @@
 [ext_resource type="Texture2D" uid="uid://2v33kmtt1v4l" path="res://assets/images/areas/blackMarket/gohere1.png" id="38_scn4i"]
 [ext_resource type="Texture2D" uid="uid://7v5xoymraeqi" path="res://assets/images/areas/blackMarket/voidDoorClosed.png" id="38_sjmeb"]
 [ext_resource type="Texture2D" uid="uid://c7s7kimy8u0o6" path="res://assets/images/areas/blackMarket/gohere2.png" id="39_7a1sy"]
+[ext_resource type="Texture2D" uid="uid://yaivbhdq4dxn" path="res://assets/images/areas/melanies/itemBox.png" id="39_ecty7"]
+[ext_resource type="Texture2D" uid="uid://duuj5j81d0ed1" path="res://assets/images/areas/bricks/sign.png" id="39_s7pna"]
+[ext_resource type="Texture2D" uid="uid://b65xwyb6bdc2i" path="res://assets/images/areas/bricks/ghost/basic.png" id="39_ws2xo"]
 [ext_resource type="Texture2D" uid="uid://3tokm7bka706" path="res://assets/images/areas/jellies/melvin/bg.png" id="39_xk82v"]
 [ext_resource type="Texture2D" uid="uid://dxvslfuybm4qv" path="res://assets/images/areas/jellies/melvin/melvs/base.png" id="40_2pbfm"]
+[ext_resource type="Texture2D" uid="uid://ddwjh24yh1mkm" path="res://assets/images/areas/bricks/arrows.png" id="40_j6y8p"]
+[ext_resource type="Texture2D" uid="uid://bj3y6by0b5qfv" path="res://assets/images/areas/bricks/roll.png" id="40_wbu7p"]
+[ext_resource type="Texture2D" uid="uid://bk3jgj5yo002b" path="res://assets/images/areas/bricks/ghost/yapp.png" id="40_wk0hf"]
 [ext_resource type="Texture2D" uid="uid://c3rsesgxto2nt" path="res://assets/images/ui/transitions/bell0.png" id="41_boae4"]
+[ext_resource type="Texture2D" uid="uid://nrmnbx6y6118" path="res://assets/images/areas/bricks/tickets/basic.png" id="41_ycke0"]
 [ext_resource type="AudioStream" uid="uid://dkuh8u2yvi4th" path="res://assets/music/black market.ogg" id="42_6f2sh"]
 [ext_resource type="Texture2D" uid="uid://hffnjjcqem0k" path="res://assets/images/areas/blackMarket/trashcan1.png" id="42_gb041"]
 [ext_resource type="Texture2D" uid="uid://dqdfjx7jj56ii" path="res://assets/images/ui/transitions/bell1.png" id="42_pcusv"]
@@ -188,6 +195,25 @@ size = Vector2(66.0613, 1156.31)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ficg7"]
 size = Vector2(292, 1164)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ecty7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("39_ws2xo")
+}],
+"loop": true,
+"name": &"base",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("40_wk0hf")
+}],
+"loop": true,
+"name": &"talkBase",
+"speed": 5.0
+}]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ugrh1"]
 animations = [{
@@ -1658,19 +1684,9 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
 [node name="Shop" type="Node2D" parent="."]
 position = Vector2(1152, 0)
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Shop"]
-offset_left = 68.0
-offset_top = 112.0
-offset_right = 598.0
-offset_bottom = 461.0
-horizontal_scroll_mode = 3
-vertical_scroll_mode = 3
+[node name="Bricks" type="Node2D" parent="Shop"]
 
-[node name="GridContainer" type="GridContainer" parent="Shop/ScrollContainer"]
-layout_mode = 2
-columns = 3
-
-[node name="talkOptions" type="ScrollContainer" parent="Shop"]
+[node name="talkOptions" type="ScrollContainer" parent="Shop/Bricks"]
 offset_left = 35.0
 offset_top = 872.0
 offset_right = 623.0
@@ -1678,17 +1694,92 @@ offset_bottom = 1221.0
 horizontal_scroll_mode = 3
 vertical_scroll_mode = 3
 
-[node name="GridContainer" type="GridContainer" parent="Shop/talkOptions"]
+[node name="GridContainer" type="GridContainer" parent="Shop/Bricks/talkOptions"]
 layout_mode = 2
 columns = 2
 
-[node name="Sign" type="Sprite2D" parent="Shop"]
+[node name="Bricks" type="AnimatedSprite2D" parent="Shop/Bricks"]
+position = Vector2(577, 324)
+sprite_frames = SubResource("SpriteFrames_ecty7")
+animation = &"base"
+
+[node name="Sign" type="Sprite2D" parent="Shop/Bricks"]
+position = Vector2(576, 324)
+texture = ExtResource("39_s7pna")
+
+[node name="Gambling" type="Node2D" parent="Shop/Bricks"]
+
+[node name="box" type="Sprite2D" parent="Shop/Bricks/Gambling"]
+position = Vector2(270.5, 242)
+texture = ExtResource("39_ecty7")
+
+[node name="item" type="Sprite2D" parent="Shop/Bricks/Gambling"]
+position = Vector2(270.5, 242)
+texture = ExtResource("39_ecty7")
+
+[node name="arrows" type="Sprite2D" parent="Shop/Bricks/Gambling"]
+position = Vector2(418, 288.5)
+texture = ExtResource("40_j6y8p")
+
+[node name="ticket" type="Sprite2D" parent="Shop/Bricks/Gambling"]
+position = Vector2(419, 288.5)
+texture = ExtResource("41_ycke0")
+
+[node name="roll" type="Sprite2D" parent="Shop/Bricks/Gambling"]
+position = Vector2(270.5, 374)
+texture = ExtResource("40_wbu7p")
+
+[node name="price" type="Label" parent="Shop/Bricks/Gambling"]
+offset_left = 197.0
+offset_top = 397.0
+offset_right = 344.0
+offset_bottom = 430.0
+theme_override_colors/font_color = Color(0.121569, 0.0470588, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 0.905882, 0.85098, 1)
+theme_override_constants/outline_size = 11
+theme_override_fonts/font = ExtResource("26_qadl1")
+theme_override_font_sizes/font_size = 30
+text = "$100"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Melanie" type="Node2D" parent="Shop"]
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Shop/Melanie"]
+offset_left = 68.0
+offset_top = 112.0
+offset_right = 598.0
+offset_bottom = 461.0
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
+
+[node name="GridContainer" type="GridContainer" parent="Shop/Melanie/ScrollContainer"]
+layout_mode = 2
+columns = 3
+
+[node name="talkOptions" type="ScrollContainer" parent="Shop/Melanie"]
+offset_left = 35.0
+offset_top = 872.0
+offset_right = 623.0
+offset_bottom = 1221.0
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
+
+[node name="GridContainer" type="GridContainer" parent="Shop/Melanie/talkOptions"]
+layout_mode = 2
+columns = 2
+
+[node name="Sign" type="Sprite2D" parent="Shop/Melanie"]
 position = Vector2(576, 324)
 texture = ExtResource("23_1b4os")
 
-[node name="Mel" type="AnimatedSprite2D" parent="Shop"]
+[node name="Mel" type="AnimatedSprite2D" parent="Shop/Melanie"]
 position = Vector2(577, 324)
 sprite_frames = SubResource("SpriteFrames_ugrh1")
+
+[node name="Description" type="Sprite2D" parent="Shop"]
+position = Vector2(576, 324)
+texture = ExtResource("13_m021q")
 
 [node name="melinteract" type="Button" parent="Shop"]
 offset_left = 664.0
@@ -1706,11 +1797,7 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_e3kvh")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_kvmat")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iq0t2")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
-button_mask = 2
-
-[node name="Description" type="Sprite2D" parent="Shop"]
-position = Vector2(576, 324)
-texture = ExtResource("13_m021q")
+button_mask = 3
 
 [node name="ItemName" type="Label" parent="Shop"]
 offset_left = 48.0
@@ -1799,114 +1886,6 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_kvmat")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iq0t2")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
 disabled = true
-
-[node name="BricksGamble" type="Node2D" parent="."]
-position = Vector2(1152, 0)
-
-[node name="talkOptions" type="ScrollContainer" parent="BricksGamble"]
-offset_left = 35.0
-offset_top = 872.0
-offset_right = 623.0
-offset_bottom = 1221.0
-horizontal_scroll_mode = 3
-vertical_scroll_mode = 3
-
-[node name="GridContainer" type="GridContainer" parent="BricksGamble/talkOptions"]
-layout_mode = 2
-columns = 2
-
-[node name="Sign" type="Sprite2D" parent="BricksGamble"]
-position = Vector2(576, 324)
-texture = ExtResource("23_1b4os")
-
-[node name="Mel" type="AnimatedSprite2D" parent="BricksGamble"]
-position = Vector2(577, 324)
-sprite_frames = SubResource("SpriteFrames_ugrh1")
-
-[node name="melinteract" type="Button" parent="BricksGamble"]
-offset_left = 664.0
-offset_top = 187.0
-offset_right = 1125.0
-offset_bottom = 621.0
-theme_override_styles/focus = SubResource("StyleBoxEmpty_p6f28")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_w4xu3")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_uj6cr")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0meto")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_rmwiu")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_o3afr")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_amgep")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_e3kvh")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_kvmat")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iq0t2")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
-button_mask = 2
-
-[node name="Description" type="Sprite2D" parent="BricksGamble"]
-position = Vector2(576, 324)
-texture = ExtResource("13_m021q")
-
-[node name="ItemName" type="Label" parent="BricksGamble"]
-offset_left = 48.0
-offset_top = 487.0
-offset_right = 192.0
-offset_bottom = 557.0
-scale = Vector2(1, 0.6)
-theme = ExtResource("8_oskpf")
-theme_override_font_sizes/font_size = 50
-text = "MELANIE:"
-
-[node name="ItemDescription" type="Label" parent="BricksGamble"]
-offset_left = 48.0
-offset_top = 516.0
-offset_right = 599.0
-offset_bottom = 676.0
-scale = Vector2(1, 0.6)
-theme = ExtResource("8_oskpf")
-theme_override_font_sizes/font_size = 35
-text = "oh, sure i got nothing else to do anyways lmao"
-autowrap_mode = 3
-
-[node name="ItemExtra" type="Label" parent="BricksGamble"]
-offset_left = 47.0
-offset_top = 588.0
-offset_right = 598.0
-offset_bottom = 635.0
-scale = Vector2(1, 0.6)
-theme = ExtResource("8_oskpf")
-theme_override_font_sizes/font_size = 30
-text = "ITEMDESC"
-autowrap_mode = 3
-
-[node name="BackSHOP" type="Sprite2D" parent="BricksGamble"]
-position = Vector2(91, 48)
-texture = ExtResource("14_88vde")
-
-[node name="BackButtonSHOP" type="Button" parent="BricksGamble"]
-offset_left = 2.0
-offset_top = 8.0
-offset_right = 174.0
-offset_bottom = 92.0
-theme_override_styles/focus = SubResource("StyleBoxEmpty_p6f28")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_w4xu3")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_uj6cr")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0meto")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_rmwiu")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_o3afr")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_amgep")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_e3kvh")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_kvmat")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iq0t2")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
-
-[node name="ShopMusic" type="AudioStreamPlayer" parent="BricksGamble"]
-stream = ExtResource("32_rrknt")
-volume_db = -80.0
-autoplay = true
-parameters/looping = true
-
-[node name="type" type="AudioStreamPlayer" parent="BricksGamble"]
-stream = ExtResource("30_av4u0")
-volume_db = 0.644
 
 [node name="Market" type="Node2D" parent="."]
 position = Vector2(1923, 1167)
@@ -2217,7 +2196,7 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_e3kvh")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_kvmat")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iq0t2")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
-button_mask = 2
+button_mask = 3
 
 [node name="Wardrobe" type="Node2D" parent="."]
 position = Vector2(0, -648)
@@ -2416,7 +2395,7 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_e3kvh")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_kvmat")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iq0t2")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
-button_mask = 2
+button_mask = 3
 
 [node name="Journal" type="Node2D" parent="."]
 position = Vector2(-1367, -1545)
@@ -2864,8 +2843,6 @@ autostart = true
 [connection signal="pressed" from="Shop/melinteract" to="." method="melShopToggle"]
 [connection signal="pressed" from="Shop/BackButtonSHOP" to="." method="_on_back_button_shop_pressed"]
 [connection signal="pressed" from="Shop/EnterMarket" to="." method="marketState" binds= ["enter"]]
-[connection signal="pressed" from="BricksGamble/melinteract" to="." method="melShopToggle"]
-[connection signal="pressed" from="BricksGamble/BackButtonSHOP" to="." method="_on_back_button_shop_pressed"]
 [connection signal="pressed" from="Market/LeaveMarket" to="." method="marketState" binds= ["leave"]]
 [connection signal="pressed" from="Market/openVoid" to="." method="marketState" binds= ["void"]]
 [connection signal="pressed" from="Market/openVoid2" to="." method="box"]

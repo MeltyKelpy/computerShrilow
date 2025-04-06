@@ -15,7 +15,7 @@ func _ready() -> void:
 		if Curses.passiveCurses[i]["ID"] == curseID:
 			$Label.text = Curses.passiveCurses[i]["Name"]
 			if ResourceLoader.exists(Curses.passiveCurses[i]["Icon"]):
-				texture = load(Curses.mainCurses[i]["Icon"])
+				texture = load(Curses.passiveCurses[i]["Icon"])
 				break
 			else:
 				texture = load("res://assets/images/ui/curses/placeholderCurse.png")

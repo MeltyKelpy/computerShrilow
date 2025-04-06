@@ -1,24 +1,24 @@
 [gd_scene load_steps=23 format=3 uid="uid://b22vjjw5qyfe0"]
 
 [ext_resource type="Script" uid="uid://be6kqp0ni8oue" path="res://scenes/splash_screen.gd" id="1_kkkgk"]
-[ext_resource type="Texture2D" uid="uid://hstioxqbmlhe" path="res://assets/images/opening/jbfletters/000.png" id="1_lnfyv"]
-[ext_resource type="Texture2D" uid="uid://b43o4cfbk84ur" path="res://assets/images/opening/jbfletters/001.png" id="2_5hbtr"]
-[ext_resource type="Texture2D" uid="uid://ykwpcg3u1i5v" path="res://assets/images/opening/jbfletters/002.png" id="3_t8613"]
-[ext_resource type="Texture2D" uid="uid://cj2wfbanc0vvg" path="res://assets/images/opening/jbfletters/003.png" id="4_rb2ls"]
-[ext_resource type="Texture2D" uid="uid://cvm4hphiequfn" path="res://assets/images/opening/jbfletters/004.png" id="5_vdlkw"]
-[ext_resource type="Texture2D" uid="uid://cqennwqegiu1b" path="res://assets/images/opening/jbfletters/005.png" id="6_rmcc5"]
-[ext_resource type="Texture2D" uid="uid://bjymw0p8hpcy4" path="res://assets/images/opening/jbfletters/006.png" id="7_80spj"]
-[ext_resource type="Texture2D" uid="uid://c4jft4osr0fi4" path="res://assets/images/opening/jbfletters/007.png" id="8_wo730"]
-[ext_resource type="Texture2D" uid="uid://chju6qf70ynu1" path="res://assets/images/opening/jbfletters/008.png" id="9_utds0"]
-[ext_resource type="Texture2D" uid="uid://c6s1bddl6tx8b" path="res://assets/images/opening/jbfletters/009.png" id="10_epg3n"]
-[ext_resource type="Texture2D" uid="uid://btki1w7eut2wd" path="res://assets/images/opening/jbfletters/010.png" id="11_b4ci6"]
-[ext_resource type="Texture2D" uid="uid://dy8el7wu6ly24" path="res://assets/images/opening/jbfletters/011.png" id="12_xrttd"]
-[ext_resource type="Texture2D" uid="uid://bxgj2p257c7ea" path="res://assets/images/opening/jbfletters/012.png" id="13_cq1vv"]
-[ext_resource type="Texture2D" uid="uid://di74q188i7bxc" path="res://assets/images/opening/jbfletters/013.png" id="14_mpxdk"]
-[ext_resource type="Texture2D" uid="uid://d4hmfolfys02k" path="res://assets/images/opening/jbfletters/014.png" id="15_5fky6"]
+[ext_resource type="Texture2D" uid="uid://baphh4ybdhah" path="res://assets/images/opening/jbfletters/000.png" id="1_lnfyv"]
+[ext_resource type="Texture2D" uid="uid://bvjj5w6o3qkvw" path="res://assets/images/opening/jbfletters/001.png" id="2_5hbtr"]
+[ext_resource type="Texture2D" uid="uid://b6xj7ptu8cneb" path="res://assets/images/opening/jbfletters/002.png" id="3_t8613"]
+[ext_resource type="Texture2D" uid="uid://bcg6hq58fkfu1" path="res://assets/images/opening/jbfletters/003.png" id="4_rb2ls"]
+[ext_resource type="Texture2D" uid="uid://d2hb3wvat7c5e" path="res://assets/images/opening/jbfletters/004.png" id="5_vdlkw"]
+[ext_resource type="Texture2D" uid="uid://c8hjjig2frb6s" path="res://assets/images/opening/jbfletters/005.png" id="6_rmcc5"]
+[ext_resource type="Texture2D" uid="uid://bubflhwryw4d0" path="res://assets/images/opening/jbfletters/006.png" id="7_80spj"]
+[ext_resource type="Texture2D" uid="uid://b1byp0wt8mx5r" path="res://assets/images/opening/jbfletters/007.png" id="8_wo730"]
+[ext_resource type="Texture2D" uid="uid://cynbarv6gw52u" path="res://assets/images/opening/jbfletters/008.png" id="9_utds0"]
+[ext_resource type="Texture2D" uid="uid://cbw3b8r6kyj6t" path="res://assets/images/opening/jbfletters/009.png" id="10_epg3n"]
+[ext_resource type="Texture2D" uid="uid://bruxxmqccn6h7" path="res://assets/images/opening/jbfletters/010.png" id="11_b4ci6"]
+[ext_resource type="Texture2D" uid="uid://dn3indm6xf4mj" path="res://assets/images/opening/jbfletters/011.png" id="12_xrttd"]
+[ext_resource type="Texture2D" uid="uid://cxk0rx4r4j8sx" path="res://assets/images/opening/jbfletters/012.png" id="13_cq1vv"]
+[ext_resource type="Texture2D" uid="uid://db6be72x7036o" path="res://assets/images/opening/jbfletters/013.png" id="14_mpxdk"]
+[ext_resource type="Texture2D" uid="uid://cky8ykt2maor3" path="res://assets/images/opening/jbfletters/014.png" id="15_5fky6"]
 [ext_resource type="Texture2D" uid="uid://pdapw21ubbg4" path="res://assets/images/opening/juiceboxlogo.png" id="16_1dyec"]
+[ext_resource type="Texture2D" uid="uid://dfuafei3dxcp4" path="res://assets/images/opening/coloredText.png" id="17_suy0i"]
 [ext_resource type="AudioStream" uid="uid://m6kenxcd5swi" path="res://assets/music/kinoboxfaggotry.ogg" id="18_iyypn"]
-[ext_resource type="PackedScene" uid="uid://pc1vm6m58ysl" path="res://technical/colorblindFilter.tscn" id="18_suy0i"]
 
 [sub_resource type="Animation" id="Animation_4geag"]
 length = 0.001
@@ -406,6 +406,18 @@ tracks/31/keys = {
 "update": 0,
 "values": [Color(0, 0, 0, 1)]
 }
+tracks/32/type = "value"
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/path = NodePath("Node2D/colored:modulate")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_vc4tb"]
 resource_name = "opening"
@@ -421,7 +433,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(0.366021, 1),
 "update": 0,
-"values": [Vector2(400, 400), Vector2(-125, 0)]
+"values": [Vector2(400, 400), Vector2(0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -445,7 +457,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0.0666667, 0.6),
 "transitions": PackedFloat32Array(0.366021, 1),
 "update": 0,
-"values": [Vector2(400, 400), Vector2(-105, 0)]
+"values": [Vector2(400, 400), Vector2(0, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -469,7 +481,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0.133333, 0.666667),
 "transitions": PackedFloat32Array(0.366021, 1),
 "update": 0,
-"values": [Vector2(400, 400), Vector2(-90, 0)]
+"values": [Vector2(400, 400), Vector2(0, 0)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -493,7 +505,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0.2, 0.733333),
 "transitions": PackedFloat32Array(0.366021, 1),
 "update": 0,
-"values": [Vector2(400, 400), Vector2(-73, 1)]
+"values": [Vector2(400, 400), Vector2(0, 0)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -517,7 +529,7 @@ tracks/8/keys = {
 "times": PackedFloat32Array(0.266667, 0.8),
 "transitions": PackedFloat32Array(0.366021, 1),
 "update": 0,
-"values": [Vector2(400, 400), Vector2(-58, 0)]
+"values": [Vector2(400, 400), Vector2(0, 0)]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
@@ -541,7 +553,7 @@ tracks/10/keys = {
 "times": PackedFloat32Array(0.333333, 0.933333),
 "transitions": PackedFloat32Array(0.366021, 1),
 "update": 0,
-"values": [Vector2(400, 400), Vector2(-40, 0)]
+"values": [Vector2(400, 400), Vector2(0, 0)]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
@@ -550,7 +562,7 @@ tracks/11/path = NodePath("Node2D/B:scale")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(0.333333, 0.933333),
+"times": PackedFloat32Array(0.333333, 0.917395),
 "transitions": PackedFloat32Array(0.732043, 1),
 "update": 0,
 "values": [Vector2(3, 3), Vector2(1, 1)]
@@ -565,7 +577,7 @@ tracks/12/keys = {
 "times": PackedFloat32Array(0.433333, 1.03333),
 "transitions": PackedFloat32Array(0.366021, 1),
 "update": 0,
-"values": [Vector2(400, 400), Vector2(-20, 0)]
+"values": [Vector2(400, 400), Vector2(0, 0)]
 }
 tracks/13/type = "value"
 tracks/13/imported = false
@@ -574,7 +586,7 @@ tracks/13/path = NodePath("Node2D/O:scale")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
-"times": PackedFloat32Array(0.433333, 1.03333),
+"times": PackedFloat32Array(0.433333, 1.01739),
 "transitions": PackedFloat32Array(0.732043, 1),
 "update": 0,
 "values": [Vector2(3, 3), Vector2(1, 1)]
@@ -586,7 +598,7 @@ tracks/14/path = NodePath("Node2D/X:position")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
-"times": PackedFloat32Array(0.5, 1.1),
+"times": PackedFloat32Array(0.5, 1.09),
 "transitions": PackedFloat32Array(0.366021, 1),
 "update": 0,
 "values": [Vector2(400, 400), Vector2(0, 0)]
@@ -598,7 +610,7 @@ tracks/15/path = NodePath("Node2D/X:scale")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
-"times": PackedFloat32Array(0.5, 1.1),
+"times": PackedFloat32Array(0.5, 1.08406),
 "transitions": PackedFloat32Array(0.732043, 1),
 "update": 0,
 "values": [Vector2(3, 3), Vector2(1, 1)]
@@ -610,10 +622,10 @@ tracks/16/path = NodePath("Node2D/F:position")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
-"times": PackedFloat32Array(0.533333, 1.13333),
+"times": PackedFloat32Array(0.5075, 1.1233),
 "transitions": PackedFloat32Array(0.366021, 1),
 "update": 0,
-"values": [Vector2(400, 400), Vector2(20, 0)]
+"values": [Vector2(400, 400), Vector2(0, 0)]
 }
 tracks/17/type = "value"
 tracks/17/imported = false
@@ -622,7 +634,7 @@ tracks/17/path = NodePath("Node2D/F:scale")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/keys = {
-"times": PackedFloat32Array(0.533333, 1.13333),
+"times": PackedFloat32Array(0.5075, 1.10736),
 "transitions": PackedFloat32Array(0.732043, 1),
 "update": 0,
 "values": [Vector2(3, 3), Vector2(1, 1)]
@@ -634,10 +646,10 @@ tracks/18/path = NodePath("Node2D/A:position")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
-"times": PackedFloat32Array(0.566667, 1.16667),
+"times": PackedFloat32Array(0.540795, 1.1567),
 "transitions": PackedFloat32Array(0.366021, 1),
 "update": 0,
-"values": [Vector2(400, 400), Vector2(32, 0)]
+"values": [Vector2(400, 400), Vector2(0, 0)]
 }
 tracks/19/type = "value"
 tracks/19/imported = false
@@ -646,7 +658,7 @@ tracks/19/path = NodePath("Node2D/A:scale")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/keys = {
-"times": PackedFloat32Array(0.566667, 1.16667),
+"times": PackedFloat32Array(0.5408, 1.14076),
 "transitions": PackedFloat32Array(0.732043, 1),
 "update": 0,
 "values": [Vector2(3, 3), Vector2(1, 1)]
@@ -658,10 +670,10 @@ tracks/20/path = NodePath("Node2D/C2:position")
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/keys = {
-"times": PackedFloat32Array(0, 0.633333, 1.23333),
-"transitions": PackedFloat32Array(1, 0.366021, 1),
+"times": PackedFloat32Array(0.6075, 1.2233),
+"transitions": PackedFloat32Array(0.366021, 1),
 "update": 0,
-"values": [Vector2(500, 500), Vector2(400, 400), Vector2(50, 1)]
+"values": [Vector2(400, 400), Vector2(0, 0)]
 }
 tracks/21/type = "value"
 tracks/21/imported = false
@@ -670,10 +682,10 @@ tracks/21/path = NodePath("Node2D/C2:scale")
 tracks/21/interp = 1
 tracks/21/loop_wrap = true
 tracks/21/keys = {
-"times": PackedFloat32Array(0, 0.633333, 1.23333),
-"transitions": PackedFloat32Array(1, 0.732043, 1),
+"times": PackedFloat32Array(0.6075, 1.20736),
+"transitions": PackedFloat32Array(0.732043, 1),
 "update": 0,
-"values": [Vector2(3, 3), Vector2(3, 3), Vector2(1, 1)]
+"values": [Vector2(3, 3), Vector2(1, 1)]
 }
 tracks/22/type = "value"
 tracks/22/imported = false
@@ -682,10 +694,10 @@ tracks/22/path = NodePath("Node2D/T:position")
 tracks/22/interp = 1
 tracks/22/loop_wrap = true
 tracks/22/keys = {
-"times": PackedFloat32Array(0, 0.666667, 1.26667),
-"transitions": PackedFloat32Array(1, 0.366021, 1),
+"times": PackedFloat32Array(0.640795, 1.2567),
+"transitions": PackedFloat32Array(0.366021, 1),
 "update": 0,
-"values": [Vector2(500, 500), Vector2(400, 400), Vector2(67, 0)]
+"values": [Vector2(400, 400), Vector2(0, 0)]
 }
 tracks/23/type = "value"
 tracks/23/imported = false
@@ -694,10 +706,10 @@ tracks/23/path = NodePath("Node2D/T:scale")
 tracks/23/interp = 1
 tracks/23/loop_wrap = true
 tracks/23/keys = {
-"times": PackedFloat32Array(0, 0.666667, 1.26667),
-"transitions": PackedFloat32Array(1, 0.732043, 1),
+"times": PackedFloat32Array(0.6408, 1.24076),
+"transitions": PackedFloat32Array(0.732043, 1),
 "update": 0,
-"values": [Vector2(3, 3), Vector2(3, 3), Vector2(1, 1)]
+"values": [Vector2(3, 3), Vector2(1, 1)]
 }
 tracks/24/type = "value"
 tracks/24/imported = false
@@ -706,10 +718,10 @@ tracks/24/path = NodePath("Node2D/O2:position")
 tracks/24/interp = 1
 tracks/24/loop_wrap = true
 tracks/24/keys = {
-"times": PackedFloat32Array(0, 0.7, 1.3),
-"transitions": PackedFloat32Array(1, 0.366021, 1),
+"times": PackedFloat32Array(0.6741, 1.29),
+"transitions": PackedFloat32Array(0.366021, 1),
 "update": 0,
-"values": [Vector2(500, 500), Vector2(400, 400), Vector2(85, 1)]
+"values": [Vector2(400, 400), Vector2(0, 0)]
 }
 tracks/25/type = "value"
 tracks/25/imported = false
@@ -718,10 +730,10 @@ tracks/25/path = NodePath("Node2D/O2:scale")
 tracks/25/interp = 1
 tracks/25/loop_wrap = true
 tracks/25/keys = {
-"times": PackedFloat32Array(0, 0.7, 1.3),
-"transitions": PackedFloat32Array(1, 0.732043, 1),
+"times": PackedFloat32Array(0.6741, 1.27406),
+"transitions": PackedFloat32Array(0.732043, 1),
 "update": 0,
-"values": [Vector2(3, 3), Vector2(3, 3), Vector2(1, 1)]
+"values": [Vector2(3, 3), Vector2(1, 1)]
 }
 tracks/26/type = "value"
 tracks/26/imported = false
@@ -730,10 +742,10 @@ tracks/26/path = NodePath("Node2D/R:position")
 tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = {
-"times": PackedFloat32Array(0, 0.766667, 1.36667),
-"transitions": PackedFloat32Array(1, 0.366021, 1),
+"times": PackedFloat32Array(0.7784, 1.3567),
+"transitions": PackedFloat32Array(0.366021, 1),
 "update": 0,
-"values": [Vector2(500, 500), Vector2(400, 400), Vector2(103, 0)]
+"values": [Vector2(400, 400), Vector2(0, 0)]
 }
 tracks/27/type = "value"
 tracks/27/imported = false
@@ -742,10 +754,10 @@ tracks/27/path = NodePath("Node2D/R:scale")
 tracks/27/interp = 1
 tracks/27/loop_wrap = true
 tracks/27/keys = {
-"times": PackedFloat32Array(0, 0.766667, 1.36667),
-"transitions": PackedFloat32Array(1, 0.732043, 1),
+"times": PackedFloat32Array(0.7784, 1.34076),
+"transitions": PackedFloat32Array(0.732043, 1),
 "update": 0,
-"values": [Vector2(3, 3), Vector2(3, 3), Vector2(1, 1)]
+"values": [Vector2(3, 3), Vector2(1, 1)]
 }
 tracks/28/type = "value"
 tracks/28/imported = false
@@ -754,10 +766,10 @@ tracks/28/path = NodePath("Node2D/Y:position")
 tracks/28/interp = 1
 tracks/28/loop_wrap = true
 tracks/28/keys = {
-"times": PackedFloat32Array(0, 0.8, 1.4),
-"transitions": PackedFloat32Array(1, 0.366021, 1),
+"times": PackedFloat32Array(0.8117, 1.39),
+"transitions": PackedFloat32Array(0.366021, 1),
 "update": 0,
-"values": [Vector2(500, 500), Vector2(400, 400), Vector2(120, 0)]
+"values": [Vector2(400, 400), Vector2(0, 0)]
 }
 tracks/29/type = "value"
 tracks/29/imported = false
@@ -766,10 +778,10 @@ tracks/29/path = NodePath("Node2D/Y:scale")
 tracks/29/interp = 1
 tracks/29/loop_wrap = true
 tracks/29/keys = {
-"times": PackedFloat32Array(0, 0.8, 1.4),
-"transitions": PackedFloat32Array(1, 0.732043, 1),
+"times": PackedFloat32Array(0.8117, 1.37406),
+"transitions": PackedFloat32Array(0.732043, 1),
 "update": 0,
-"values": [Vector2(3, 3), Vector2(3, 3), Vector2(1, 1)]
+"values": [Vector2(3, 3), Vector2(1, 1)]
 }
 tracks/30/type = "value"
 tracks/30/imported = false
@@ -778,7 +790,7 @@ tracks/30/path = NodePath("Node2D/Logo:modulate")
 tracks/30/interp = 1
 tracks/30/loop_wrap = true
 tracks/30/keys = {
-"times": PackedFloat32Array(1.466, 1.82467),
+"times": PackedFloat32Array(1.466, 1.8247),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -809,6 +821,18 @@ tracks/32/keys = {
 "method": &"_end"
 }]
 }
+tracks/33/type = "value"
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/path = NodePath("Node2D/colored:modulate")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/keys = {
+"times": PackedFloat32Array(1.466, 1.8247),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8kjol"]
 _data = {
@@ -830,7 +854,7 @@ libraries = {
 }
 
 [node name="Node2D" type="Node2D" parent="."]
-position = Vector2(577, 357)
+position = Vector2(563, 381)
 
 [node name="J" type="Sprite2D" parent="Node2D"]
 texture = ExtResource("1_lnfyv")
@@ -877,8 +901,12 @@ texture = ExtResource("14_mpxdk")
 [node name="Y" type="Sprite2D" parent="Node2D"]
 texture = ExtResource("15_5fky6")
 
+[node name="colored" type="Sprite2D" parent="Node2D"]
+modulate = Color(1, 1, 1, 0)
+texture = ExtResource("17_suy0i")
+
 [node name="Logo" type="Sprite2D" parent="Node2D"]
-position = Vector2(-1, -74)
+position = Vector2(-2, -76)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("16_1dyec")
 
@@ -886,8 +914,6 @@ texture = ExtResource("16_1dyec")
 offset_right = 1166.0
 offset_bottom = 669.0
 color = Color(0, 0, 0, 1)
-
-[node name="ColorblindFilter" parent="." instance=ExtResource("18_suy0i")]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("18_iyypn")

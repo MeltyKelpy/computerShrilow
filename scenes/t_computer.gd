@@ -341,6 +341,23 @@ func manageScenes():
 						FizzyDrink.marketDialogue[i]["unlocked"] = true
 				endDialogue()
 	
+	# BRICKS DIALOGUE BELOW
+	match dialogKey:
+		"none":
+			if alongTheDialogue == 0:
+				$Shop/ItemDescription.text = "u should NOT be seeing this."
+			if alongTheDialogue == 1:
+				$Shop/ItemDescription.text = "this also worked as a test, which is cool"
+			if alongTheDialogue == 2:
+				endDialogue()
+		"ABTYOUBRICKS":
+			if alongTheDialogue == 0:
+				$Shop/ItemDescription.text = "i am bricks. ghostybricks"
+			if alongTheDialogue == 1:
+				$Shop/ItemDescription.text = "im feeling quite. bricked! up! heh."
+			if alongTheDialogue == 2:
+				endDialogue()
+	
 	# MELVIN DIALOGUE BELOW
 	match dialogKey:
 		"none":
@@ -757,8 +774,12 @@ func endDialogue():
 	dialogKey = "none"
 	alongTheDialogue = 0
 	if melShopState == false:
-		spawnDialogueOptionsMelanie("melanie")
-		setShopBase("melanie")
+		if Game.contains_curse("gambling"):
+			spawnDialogueOptionsMelanie("bricks")
+			setShopBase("bricks")
+		else:
+			spawnDialogueOptionsMelanie("melanie")
+			setShopBase("melanie")
 	if melvinShopState == false:
 		spawnDialogueOptionsMelanie("melvin")
 		setShopBase("melvin")
@@ -779,14 +800,14 @@ func generateHoes():
 			caca.ItemID = i
 			caca.type = "melanie"
 			add_child(caca)
-			caca.reparent($Shop/ScrollContainer/GridContainer)
+			caca.reparent($Shop/Melanie/ScrollContainer/GridContainer)
 		else:
 			var cacapoopyGOD2 = load(ItemValues.itemInfomation[i]["ScenePath"])
 			var caca = cacapoopyGOD2.instantiate()
 			caca.type = ItemValues.itemInfomation[i]["ImgType"]
 			caca.text = ItemValues.itemInfomation[i]["SectionName"]
 			add_child(caca)
-			caca.reparent($Shop/ScrollContainer/GridContainer)
+			caca.reparent($Shop/Melanie/ScrollContainer/GridContainer)
 	for i in ItemValues.melvinItems.size():
 		var caca = cacapoopyGOD.instantiate()
 		caca.ItemID = i
@@ -863,6 +884,14 @@ func generateHoes():
 func _ready():
 	
 	Game.loadData()
+	
+	if Game.contains_curse("gambling"):
+		$Shop/ShopMusic.stream = load("res://assets/music/screensaver.ogg")
+		ItemValues.itemName = "Welcome to the Casino!"
+		ItemValues.itemDesc = "Need Help? Click on the GhostyBricks!"
+	else:
+		$Shop/ShopMusic.stream = load("res://assets/music/skate.ogg")
+	$Shop/ShopMusic.play()
 	
 	if Game.rebirthJellyProtocol.size() > 0:
 		print("Jellies "+str(Jelly.storedJellys))
@@ -966,8 +995,12 @@ func _ready():
 func _process(_delta : float) -> void:
 	if Game.contains_curse("gambling"):
 		$ShrilowScreen/Shop.texture = load("res://assets/images/ui/bricks.png")
+		$Shop/Melanie.position.y = -648.0
+		$Shop/Bricks.position.y = 0
 	else:
 		$ShrilowScreen/Shop.texture = load("res://assets/images/ui/shop.png")
+		$Shop/Bricks.position.y = -648.0
+		$Shop/Melanie.position.y = -0
 	
 	if ItemValues.money >= 1000000000:
 		Game.unlock_achievement("billionare")
@@ -1105,7 +1138,7 @@ func _process(_delta : float) -> void:
 				numToUse = 0.05
 			else:
 				numToUse = _delta
-			$Shop/ItemDescription.visible_characters += 50 * numToUse
+			$Shop/ItemDescription.visible_characters += 35 * numToUse
 	else:
 		$Shop/ItemDescription.visible_ratio = 1
 		$Shop/ItemDescription.visible_characters = -1
@@ -1124,7 +1157,7 @@ func _process(_delta : float) -> void:
 				numToUse = 0.05
 			else:
 				numToUse = _delta
-			$BlackMarket/talk.visible_characters += 50 * numToUse
+			$BlackMarket/talk.visible_characters += 35 * numToUse
 	if melvinShopState == false:
 		$Shop/type.pitch_scale = 1.0
 		if $Melvin/ItemDescription.visible_ratio > 1:
@@ -1139,7 +1172,7 @@ func _process(_delta : float) -> void:
 				numToUse = 0.05
 			else:
 				numToUse = _delta
-			$Melvin/ItemDescription.visible_characters += 50 * numToUse
+			$Melvin/ItemDescription.visible_characters += 35 * numToUse
 	else:
 		$Melvin/ItemDescription.visible_ratio = 1
 		$Melvin/ItemDescription.visible_characters = -1
@@ -1675,7 +1708,19 @@ func spawnDialogueOptionsMelanie(char : String):
 				caca.interacted = FizzyDrink.melDialogue[i]["interacted"]
 				caca.arrayToUse = "melanie"
 				add_child(caca)
-				caca.reparent($Shop/talkOptions/GridContainer)
+				caca.reparent($Shop/Melanie/talkOptions/GridContainer)
+				dialogueOptionsMelanie.append(caca)
+	if char == "bricks":
+		for i in FizzyDrink.bricksDialogue.size():
+			if FizzyDrink.bricksDialogue[i]["unlocked"] == true:
+				var cacapoopyGOD2 = load("res://technical/dialogOption.tscn")
+				var caca = cacapoopyGOD2.instantiate()
+				caca.present = FizzyDrink.bricksDialogue[i]["present"]
+				caca.dialogKey = FizzyDrink.bricksDialogue[i]["dialogKey"]
+				caca.interacted = FizzyDrink.bricksDialogue[i]["interacted"]
+				caca.arrayToUse = "bricks"
+				add_child(caca)
+				caca.reparent($Shop/Bricks/talkOptions/GridContainer)
 				dialogueOptionsMelanie.append(caca)
 	if char == "melvin":
 		for i in FizzyDrink.melvinDialogue.size():
@@ -1715,7 +1760,7 @@ func clearDialogItems():
 
 func setShopBase(char : String):
 	if char == "melanie":
-		$Shop/Mel.play("talkBase")
+		$Shop/Melanie/Mel.play("talkBase")
 		var openingMessages = [
 			"Oh, yeah sure, i got nothing else to do",
 			"Normally i couldnt do this, but its not like im selling anyone anything anyway",
@@ -1723,6 +1768,17 @@ func setShopBase(char : String):
 			"Ask away, i guess",
 			]
 		$Shop/ItemName.text = "MELANIE:"
+		$Shop/ItemDescription.text = openingMessages[rng.randi_range(0, openingMessages.size()-1)]
+		$Shop/ItemExtra.text = ""
+	if char == "bricks":
+		$Shop/Bricks/Bricks.play("talkBase")
+		var openingMessages = [
+			"Cheesed",
+			"Stop talking to me you gotta go gamble",
+			"Celeste",
+			"Computer Shrilow: Ghost Mix",
+			]
+		$Shop/ItemName.text = "GHOSTYBRICKS:"
 		$Shop/ItemDescription.text = openingMessages[rng.randi_range(0, openingMessages.size()-1)]
 		$Shop/ItemExtra.text = ""
 	if char == "market":
@@ -1790,17 +1846,28 @@ func melShopToggle() -> void:
 		melShopState = !melShopState
 		if melShopState == false:
 			$Shop/ItemDescription.visible_ratio = 0
-			spawnDialogueOptionsMelanie("melanie")
-			$Shop/ScrollContainer.position.y = 872
-			$Shop/talkOptions.position.y = 112
-			setShopBase("melanie")
+			if Game.contains_curse("gambling"):
+				spawnDialogueOptionsMelanie("bricks")
+				$Shop/Bricks/talkOptions.position.y = 112
+				$Shop/Bricks/Gambling.position.y = 872
+				setShopBase("bricks")
+			else:
+				spawnDialogueOptionsMelanie("melanie")
+				$Shop/Melanie/ScrollContainer.position.y = 872
+				$Shop/Melanie/talkOptions.position.y = 112
+				setShopBase("melanie")
 			$USD.visible = false
 			$USDText.visible = false
 		if melShopState == true:
 			clearDialogItems()
-			$Shop/talkOptions.position.y = 872
-			$Shop/ScrollContainer.position.y = 112
-			$Shop/Mel.play("default")
+			if Game.contains_curse("gambling"):
+				$Shop/Bricks/talkOptions.position.y = 872
+				$Shop/Bricks/Gambling.position.y = 112
+				$Shop/Bricks/Bricks.play("base")
+			else:
+				$Shop/Melanie/talkOptions.position.y = 872
+				$Shop/Melanie/ScrollContainer.position.y = 112
+				$Shop/Melanie/Mel.play("default")
 			$USD.visible = true
 			$USDText.visible = true
 			$Shop/ItemDescription.visible_characters = 100000
@@ -1923,6 +1990,7 @@ func changeArea():
 func autosave() -> void:
 	Game.saveData()
 	DirAccess.make_dir_absolute(Game.scenePaths[Game.curFile])
+	Game.loadData()
 	urWelcomeSaayo()
 	$Camera2D/autoPoop.visible = true
 	$Camera2D/autoPoop/poopTimer.start()

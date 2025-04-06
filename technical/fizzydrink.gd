@@ -171,6 +171,32 @@ var marketDialogue = [
 	"interacted":false,
 	},
 	]
+var bricksDialogue = [
+	{
+	"present":"About you",
+	"dialogKey":"ABTYOUBRICKS",
+	"unlocked":true,
+	"interacted":false,
+	},
+	{
+	"present":"How does this place work?",
+	"dialogKey":"ABTCASINO",
+	"unlocked":true,
+	"interacted":false,
+	},
+	{
+	"present":"whats your fucking problem",
+	"dialogKey":"BRICKSINSULT",
+	"unlocked":true,
+	"interacted":false,
+	},
+	{
+	"present":"Phantom?",
+	"dialogKey":"BRICKSPHANTOM",
+	"unlocked":true,
+	"interacted":false,
+	},
+	]
 
 var descriptionSetting = ""
 

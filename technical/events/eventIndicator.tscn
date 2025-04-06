@@ -84,5 +84,5 @@ metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_hso7e")
+&"": SubResource("AnimationLibrary_hso7e")
 }

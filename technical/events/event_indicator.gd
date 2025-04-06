@@ -6,6 +6,9 @@ func _process(_delta: float) -> void:
 		position.y = $/root/computerShrilow/Camera2D.position.y - 324
 	else:
 		queue_free()
+	
+	if Game.contains_curse("senselessness"):
+		visible = false
 
 func warn(message : String):
 	$AnimationPlayer.play("POPUP")

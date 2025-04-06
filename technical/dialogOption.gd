@@ -6,6 +6,7 @@ var interacted = true
 var arrayToUse = ""
 var stupidArray = [{
 	"melanie":FizzyDrink.melDialogue,
+	"bricks":FizzyDrink.bricksDialogue,
 	"melvin":FizzyDrink.melvinDialogue,
 	"market":FizzyDrink.marketDialogue,
 	}]
