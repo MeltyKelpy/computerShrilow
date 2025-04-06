@@ -40,6 +40,8 @@ bg_color = Color(1, 0.894118, 0.827451, 1)
 script = ExtResource("1_3rnah")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
+collision_layer = 2
+collision_mask = 3
 physics_material_override = SubResource("PhysicsMaterial_qn6m5")
 
 [node name="jelly" type="Sprite2D" parent="RigidBody2D"]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bylwk1otht6du"]
+[gd_scene load_steps=10 format=3 uid="uid://bylwk1otht6du"]
 
 [ext_resource type="Script" uid="uid://c10uwm2sqvrgr" path="res://technical/jellies/simpleRoom.gd" id="1_hjcd8"]
 [ext_resource type="Texture2D" uid="uid://bqqnav4fbsnkj" path="res://assets/images/areas/jellies/rooms/simpleRoom/room.png" id="2_1b20a"]
 [ext_resource type="PackedScene" uid="uid://cc62swwttf6t2" path="res://technical/jellies/elevator.tscn" id="3_13pnr"]
 [ext_resource type="PackedScene" uid="uid://60vhnfaawi87" path="res://technical/jellies/chandelier.tscn" id="3_q2mo3"]
+[ext_resource type="Texture2D" uid="uid://bgbckp8m05g1k" path="res://assets/images/areas/jellies/rooms/simpleRoom/optimizeChan.png" id="5_0h1d5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fd18s"]
 size = Vector2(1622, 62)
@@ -49,3 +50,7 @@ position = Vector2(887, -6)
 
 [node name="Elevator" parent="." instance=ExtResource("3_13pnr")]
 position = Vector2(411, 513)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(739, 318)
+texture = ExtResource("5_0h1d5")

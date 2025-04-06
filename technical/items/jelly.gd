@@ -86,6 +86,12 @@ func _ready() -> void:
 		$RigidBody2D/jelly.material.set_shader_parameter("rainbow", false)
 
 func _physics_process(delta: float) -> void:
+	
+	if Settings.setting_state("jelliesOptimization"):
+		rigid_body_2d.set_collision_mask_value(2, false)
+	else:
+		rigid_body_2d.set_collision_mask_value(2, true)
+	
 	if jelly == "Phantom Jelly":
 		money = round(1 + (1 * (ItemValues.marketItems[id]["CurUpgrade"])))
 		seconds = 2
@@ -106,8 +112,11 @@ func _physics_process(delta: float) -> void:
 		if showSeconds < 1:
 			showSeconds = 0.5
 	$nameShit/Stats.text = rarity+"\n"+str(showMoney)+"$ per "+str(showSeconds)+" Seconds"
-	$FirstTimer.wait_time = float(showSeconds - 0.2)
-	$SecondTimer.wait_time = 0.2
+	if Settings.setting_state("animationsOptimization"):
+		$FirstTimer.wait_time = 3
+	else:
+		$FirstTimer.wait_time = float(showSeconds - 0.2)
+		$SecondTimer.wait_time = 0.2
 	$RigidBody2D/mange.rotation = (-1) * $RigidBody2D.rotation
 	mouse_pin.global_position = get_global_mouse_position()
 	$nameShit.global_position = get_global_mouse_position()
@@ -158,13 +167,15 @@ func getJelly(num):
 
 func _on_timer_timeout() -> void:
 	$RigidBody2D/Squeak.play()
-	$RigidBody2D/jelly.texture = load("res://assets/images/jellies/"+jelly+"/jelly1.png")
 	ItemValues.money += showMoney
-	$SecondTimer.start()
+	if !Settings.setting_state("animationsOptimization"):
+		$RigidBody2D/jelly.texture = load("res://assets/images/jellies/"+jelly+"/jelly1.png")
+		$SecondTimer.start()
 
 func _on_second_timer_timeout() -> void:
-	$RigidBody2D/jelly.texture = load("res://assets/images/jellies/"+jelly+"/jelly0.png")
-	$FirstTimer.start()
+	if !Settings.setting_state("animationsOptimization"):
+		$RigidBody2D/jelly.texture = load("res://assets/images/jellies/"+jelly+"/jelly0.png")
+		$FirstTimer.start()
 
 func _jelly_spawn() -> void:
 	visible = true

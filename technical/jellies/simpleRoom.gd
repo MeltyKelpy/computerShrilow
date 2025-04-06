@@ -31,6 +31,16 @@ func getID(num):
 	caca2.warn("You bought a "+type+" for your jellies!")
 
 func _process(delta: float) -> void:
+	
+	if Settings.setting_state("jelliesOptimization"):
+		$Chandelier.process_mode = Node.PROCESS_MODE_DISABLED
+		$Chandelier.visible = false
+		$Sprite2D.visible = true
+	else:
+		$Chandelier.process_mode = Node.PROCESS_MODE_INHERIT
+		$Chandelier.visible = true
+		$Sprite2D.visible = false
+	
 	if Input.is_action_just_pressed("DebugMode"):
 		print(FizzyDrink.scrollLimitRIGHT)
 		print(FizzyDrink.scrollLimitLEFT)

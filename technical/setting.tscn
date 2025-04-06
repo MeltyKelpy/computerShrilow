@@ -64,8 +64,10 @@ theme_override_constants/check_v_offset = 0
 theme_override_icons/checked = ExtResource("2_kdtf8")
 theme_override_icons/unchecked = ExtResource("3_uvxre")
 text = "Kiwami Mode"
+autowrap_mode = 3
 
 [node name="altName" type="Label" parent="."]
+visible = false
 layout_mode = 0
 offset_top = 5.0
 offset_right = 261.0
@@ -77,6 +79,22 @@ theme_override_constants/outline_size = 0
 theme_override_constants/shadow_outline_size = 0
 theme_override_font_sizes/font_size = 42
 text = "Kiwami Mode"
+autowrap_mode = 3
+
+[node name="Title" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_top = 5.0
+offset_right = 261.0
+offset_bottom = 60.0
+mouse_filter = 1
+theme = ExtResource("1_7wps4")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_outline_size = 0
+theme_override_font_sizes/font_size = 50
+text = "CATEGORY TITLE:"
+autowrap_mode = 3
 
 [node name="multiChoice" type="Node2D" parent="."]
 visible = false

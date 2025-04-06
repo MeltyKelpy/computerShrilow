@@ -24,11 +24,13 @@ func _process(delta: float) -> void:
 	var keys = choices.keys()
 	$button.text = Settings.settings[ID]["name"]
 	$altName.text = Settings.settings[ID]["name"]
+	$Title.text = Settings.settings[ID]["name"]
 	if type == "boolean":
 		Settings.settings[ID]["enabled?"] = $button.button_pressed
 		$altName.visible = false
 		$button.disabled = false
 		$button.visible = true
+		$Title.visible = false
 	elif type == "multiChoice":
 		keys = choices.keys()
 		Settings.settings[ID]["selection"] = choices[str(keys[multiChoiceChoice])]
@@ -38,10 +40,19 @@ func _process(delta: float) -> void:
 		$button.disabled = true
 		$button.visible = false
 		$altName.visible = true
+		$Title.visible = false
+	elif type == "category":
+		$multiChoice.visible = false
+		$button.disabled = true
+		$button.visible = false
+		$altName.visible = false
+		$Title.visible = true
 	else:
+		$multiChoice.visible = false
 		$button.disabled = true
 		$button.visible = false
 		$altName.visible = true
+		$Title.visible = false
 
 func _on_kiwami_mode_mouse_entered() -> void:
 	FizzyDrink.descriptionSetting = desc
