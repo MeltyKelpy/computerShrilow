@@ -1,0 +1,29 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://eobcj5e6lxtm"]
+
+[ext_resource type="FontFile" uid="uid://cpx5bbh068e1y" path="res://assets/fonts/ARIAL.TTF" id="1_apiop"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_apiop"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2piky"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wfqe1"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[resource]
+Label/colors/font_color = Color(0, 0.466667, 0, 1)
+Label/font_sizes/font_size = 20
+Label/fonts/font = ExtResource("1_apiop")
+LineEdit/colors/caret_color = Color(0, 0.466667, 0, 1)
+LineEdit/colors/font_color = Color(0, 0.466667, 0, 1)
+LineEdit/colors/font_outline_color = Color(0, 0, 0, 0)
+LineEdit/colors/font_placeholder_color = Color(0, 0.325331, 0, 1)
+LineEdit/colors/font_selected_color = Color(1, 1, 1, 0)
+LineEdit/colors/font_uneditable_color = Color(0.87451, 0.87451, 0.87451, 0)
+LineEdit/colors/selection_color = Color(0, 0.545098, 0.447059, 0.552941)
+LineEdit/font_sizes/font_size = 20
+LineEdit/fonts/font = ExtResource("1_apiop")
+LineEdit/styles/focus = SubResource("StyleBoxFlat_apiop")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_2piky")
+LineEdit/styles/read_only = SubResource("StyleBoxFlat_wfqe1")

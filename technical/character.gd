@@ -66,10 +66,14 @@ func _process(_delta: float) -> void:
 	optimizeSpeed = Speed+((mineLevelSPEED)*Speed)
 	
 	if Settings.setting_state("minesOptimization") == true:
-		waitTime = (1.0 / BaseSpeed) - ((1.0 / BaseSpeed) / 4.0)
-		timer.wait_time = waitTime
-		waitTime2 = (1.0 / BaseSpeed) / 4.0
-		timer2.wait_time = waitTime2
+		if Settings.setting_state("animationsOptimization") == true:
+			timer.paused = true
+			timer2.paused = true
+		else:
+			waitTime = (1.0 / BaseSpeed) - ((1.0 / BaseSpeed) / 4.0)
+			timer.wait_time = waitTime
+			waitTime2 = (1.0 / BaseSpeed) / 4.0
+			timer2.wait_time = waitTime2
 	
 	if FizzyDrink.enabledCrystal == "mine":
 		adds = 2

@@ -20,6 +20,8 @@ var AnimPosCamX = 0
 var AnimPosCamY = 0
 var allowing = false
 
+var melSmoke = false
+
 var rebirthIndicated = false
 var rebirthProtocol = false
 
@@ -910,6 +912,9 @@ func _ready():
 	
 	var err = config.load(Game.files[Game.curFile])
 	
+	if Game.contains_curse("smokebreak"):
+		$Shop/Timer.start()
+	
 	# AWFUL CASE OF SPAGHETTI CODE IM JUST TOO LAZY TO WRITE THIS WELL LMAO
 	if err == OK:
 		
@@ -1292,9 +1297,20 @@ func _process(_delta : float) -> void:
 	loadShrilow()
 	
 	if melShopState == true:
-		$Shop/ItemName.text = ItemValues.itemName
-		$Shop/ItemDescription.text = ItemValues.itemDesc
-		$Shop/ItemExtra.text = ItemValues.itemExtra
+		if melSmoke == false:
+			if $Shop/Melanie/Mel.animation != "default":
+				$Shop/Melanie/Mel.play("default")
+			$Shop/ItemName.text = ItemValues.itemName
+			$Shop/ItemDescription.text = ItemValues.itemDesc
+			$Shop/ItemExtra.text = ItemValues.itemExtra
+			$Shop/Melanie/ScrollContainer.visible = true
+		else:
+			if $Shop/Melanie/Mel.animation != "smoke":
+				$Shop/Melanie/Mel.play("smoke")
+			$Shop/ItemName.text = "MELANIE:"
+			$Shop/ItemDescription.text = "Sorry, im on my smoke break."
+			$Shop/ItemExtra.text = ""
+			$Shop/Melanie/ScrollContainer.visible = false
 	if melvinShopState == true:
 		$Melvin/ItemName.text = ItemValues.itemName
 		$Melvin/ItemDescription.text = ItemValues.itemDesc
@@ -1862,7 +1878,7 @@ func melShopToggle() -> void:
 			clearDialogItems()
 			if Game.contains_curse("gambling"):
 				$Shop/Bricks/talkOptions.position.y = 872
-				$Shop/Bricks/Gambling.position.y = 112
+				$Shop/Bricks/Gambling.position.y = 0
 				$Shop/Bricks/Bricks.play("base")
 			else:
 				$Shop/Melanie/talkOptions.position.y = 872
@@ -2114,3 +2130,6 @@ func box() -> void:
 		Game.rebirthTokens += 25
 		Game.warn("You found Phantom's secret stash of 25 Rebirth Tokens!...")
 	
+
+func smoke_break() -> void:
+	melSmoke = !melSmoke

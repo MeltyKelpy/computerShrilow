@@ -1,0 +1,129 @@
+[gd_scene load_steps=8 format=3 uid="uid://ccf01kj6665ym"]
+
+[ext_resource type="Texture2D" uid="uid://wa8ckju1rl61" path="res://assets/images/areas/interstate/veins.png" id="1_km12q"]
+[ext_resource type="Shader" uid="uid://dokpqajxsjnrx" path="res://technical/veins.gdshader" id="1_ky7rv"]
+[ext_resource type="Theme" uid="uid://eobcj5e6lxtm" path="res://technical/terminal.tres" id="1_ydc1b"]
+[ext_resource type="Texture2D" uid="uid://47joq1qp1fd5" path="res://assets/images/areas/interstate/terminal.png" id="2_j26w2"]
+[ext_resource type="Shader" uid="uid://dc2b8oen3gshi" path="res://technical/terminal.gdshader" id="2_mt27j"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6n3b8"]
+shader = ExtResource("1_ky7rv")
+shader_parameter/shine_color = Color(0, 0, 0, 1)
+shader_parameter/alpha_limit = 0.2
+shader_parameter/cycle_speed = 0.1
+shader_parameter/full_pulse_cycle = true
+shader_parameter/mode = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_km12q"]
+shader = ExtResource("2_mt27j")
+shader_parameter/res = Vector2(600, 600)
+shader_parameter/mask_type = 1
+shader_parameter/bloom_type = 0
+shader_parameter/hardScan = -8.0
+shader_parameter/hardPix = -2.0
+shader_parameter/hardBloomScan = -2.0
+shader_parameter/hardBloomPix = -1.5
+shader_parameter/bloomAmount = 16.0
+shader_parameter/warp = Vector2(64, 24)
+shader_parameter/maskDark = 0.5
+shader_parameter/maskLight = 1.5
+
+[node name="Interstate" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1153.0
+offset_bottom = 651.0
+color = Color(0, 0, 0, 1)
+
+[node name="Veins" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.25098)
+material = SubResource("ShaderMaterial_6n3b8")
+position = Vector2(576, 324)
+texture = ExtResource("1_km12q")
+
+[node name="Screen" type="Control" parent="."]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 293.0
+offset_top = 45.0
+offset_right = 859.0
+offset_bottom = 604.0
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Screen"]
+offset_left = -293.0
+offset_top = -45.0
+offset_right = 860.0
+offset_bottom = 606.0
+color = Color(0, 0, 0, 1)
+
+[node name="Text" type="Label" parent="Screen"]
+offset_left = 3.0
+offset_top = 30.0
+offset_right = 560.0
+offset_bottom = 490.0
+theme = ExtResource("1_ydc1b")
+text = "The Interstate:
+
+A Place to find your global stats, and other things of the sort.
+enter a section to get started!
+
+You can type the section name (The Captialized Part) at the bottom to enter a section
+
+> STATS (global stats)
+
+> FILES (files)
+
+> RECYCLING (achievements)
+
+> CODES (uhm. codes.)
+"
+autowrap_mode = 3
+
+[node name="Block" type="Label" parent="Screen"]
+offset_top = 498.0
+offset_right = 566.0
+offset_bottom = 521.0
+theme = ExtResource("1_ydc1b")
+text = "============================================================"
+
+[node name="Block2" type="Label" parent="Screen"]
+offset_top = 6.0
+offset_right = 702.0
+offset_bottom = 30.0
+theme = ExtResource("1_ydc1b")
+text = "============================================================"
+
+[node name="Caret" type="Label" parent="Screen"]
+offset_left = 5.0
+offset_top = 516.0
+offset_right = 23.0
+offset_bottom = 554.0
+theme = ExtResource("1_ydc1b")
+theme_override_colors/font_color = Color(0, 0.32549, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = ">"
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="Screen"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 516.0
+offset_right = 561.0
+offset_bottom = 554.0
+theme = ExtResource("1_ydc1b")
+context_menu_enabled = false
+emoji_menu_enabled = false
+virtual_keyboard_enabled = false
+
+[node name="Border" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+texture = ExtResource("2_j26w2")
+
+[node name="shader" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_km12q")
+offset_right = 1153.0
+offset_bottom = 651.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)

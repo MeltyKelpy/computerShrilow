@@ -1,4 +1,4 @@
-[gd_scene load_steps=185 format=3 uid="uid://bgw557ttv6noe"]
+[gd_scene load_steps=186 format=3 uid="uid://bgw557ttv6noe"]
 
 [ext_resource type="Script" uid="uid://ddatxm3oli8qs" path="res://scenes/t_computer.gd" id="1_swrb7"]
 [ext_resource type="Texture2D" uid="uid://dajex7cpt7k4p" path="res://assets/images/bg/background.png" id="2_u0da7"]
@@ -85,6 +85,7 @@
 [ext_resource type="AudioStream" uid="uid://bwqy4bdtncyqd" path="res://assets/music/melvin.ogg" id="43_sou4k"]
 [ext_resource type="Texture2D" uid="uid://ch73g8yvav0am" path="res://assets/images/areas/storage/storageBg.png" id="45_uhupd"]
 [ext_resource type="Texture2D" uid="uid://b4sehpse6a35m" path="res://assets/images/ui/transitions/elevator0.png" id="45_wo732"]
+[ext_resource type="Texture2D" uid="uid://cjvel5aeqa72k" path="res://assets/images/areas/melanies/melanie/smokeBreak.png" id="45_ycke0"]
 [ext_resource type="Texture2D" uid="uid://cg4s4o4vbdqyc" path="res://assets/images/ui/transitions/elevator1.png" id="46_p35b6"]
 [ext_resource type="AudioStream" uid="uid://cpuevowyq7ag7" path="res://assets/sounds/wind.ogg" id="47_ejbio"]
 [ext_resource type="Texture2D" uid="uid://bb25yyj5us8e0" path="res://assets/images/areas/blackMarket/market/bg.png" id="48_2duj5"]
@@ -223,6 +224,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("45_ycke0")
+}],
+"loop": true,
+"name": &"smoke",
 "speed": 5.0
 }, {
 "frames": [{
@@ -1685,6 +1694,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
 position = Vector2(1152, 0)
 
 [node name="Bricks" type="Node2D" parent="Shop"]
+visible = false
 
 [node name="talkOptions" type="ScrollContainer" parent="Shop/Bricks"]
 offset_left = 35.0
@@ -1748,10 +1758,10 @@ autowrap_mode = 3
 [node name="ScrollContainer" type="ScrollContainer" parent="Shop/Melanie"]
 offset_left = 68.0
 offset_top = 112.0
-offset_right = 598.0
+offset_right = 605.0
 offset_bottom = 461.0
-horizontal_scroll_mode = 3
-vertical_scroll_mode = 3
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
 
 [node name="GridContainer" type="GridContainer" parent="Shop/Melanie/ScrollContainer"]
 layout_mode = 2
@@ -1776,6 +1786,7 @@ texture = ExtResource("23_1b4os")
 [node name="Mel" type="AnimatedSprite2D" parent="Shop/Melanie"]
 position = Vector2(577, 324)
 sprite_frames = SubResource("SpriteFrames_ugrh1")
+animation = &"smoke"
 
 [node name="Description" type="Sprite2D" parent="Shop"]
 position = Vector2(576, 324)
@@ -1886,6 +1897,9 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_kvmat")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iq0t2")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
 disabled = true
+
+[node name="Timer" type="Timer" parent="Shop"]
+wait_time = 300.0
 
 [node name="Market" type="Node2D" parent="."]
 position = Vector2(1923, 1167)
@@ -2843,6 +2857,7 @@ autostart = true
 [connection signal="pressed" from="Shop/melinteract" to="." method="melShopToggle"]
 [connection signal="pressed" from="Shop/BackButtonSHOP" to="." method="_on_back_button_shop_pressed"]
 [connection signal="pressed" from="Shop/EnterMarket" to="." method="marketState" binds= ["enter"]]
+[connection signal="timeout" from="Shop/Timer" to="." method="smoke_break"]
 [connection signal="pressed" from="Market/LeaveMarket" to="." method="marketState" binds= ["leave"]]
 [connection signal="pressed" from="Market/openVoid" to="." method="marketState" binds= ["void"]]
 [connection signal="pressed" from="Market/openVoid2" to="." method="box"]
