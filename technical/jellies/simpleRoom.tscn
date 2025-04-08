@@ -52,5 +52,6 @@ position = Vector2(887, -6)
 position = Vector2(411, 513)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(739, 318)
 texture = ExtResource("5_0h1d5")

@@ -65,7 +65,7 @@ func _ready() -> void:
 		showMoney = showMoney * 3
 		showSeconds = showSeconds / 2
 	$nameShit/Stats.text = rarity+"\n"+str(showMoney)+"$ per "+str(seconds)+" Seconds"
-	$FirstTimer.wait_time = showSeconds - 0.2
+	$FirstTimer.wait_time = float(showSeconds - 0.2)
 	$SecondTimer.wait_time = 0.2
 	$FirstTimer.start()
 	$SecondTimer.start()
@@ -112,14 +112,11 @@ func _physics_process(delta: float) -> void:
 		if showSeconds < 1:
 			showSeconds = 0.5
 	$nameShit/Stats.text = rarity+"\n"+str(showMoney)+"$ per "+str(showSeconds)+" Seconds"
-	if Settings.setting_state("animationsOptimization"):
-		$FirstTimer.wait_time = 3
-	else:
-		$FirstTimer.wait_time = float(showSeconds - 0.2)
-		$SecondTimer.wait_time = 0.2
 	$RigidBody2D/mange.rotation = (-1) * $RigidBody2D.rotation
 	mouse_pin.global_position = get_global_mouse_position()
 	$nameShit.global_position = get_global_mouse_position()
+	$FirstTimer.wait_time = float(showSeconds - 0.2)
+	$SecondTimer.wait_time = 0.2
 	$nameShit/Name.rotation = 0
 	$nameShit/Stats.rotation = 0
 	if $/root/computerShrilow.rebirthProtocol == true and rarity == "Market":
@@ -166,14 +163,14 @@ func getJelly(num):
 	#position.y = 0
 
 func _on_timer_timeout() -> void:
-	$RigidBody2D/Squeak.play()
 	ItemValues.money += showMoney
-	if !Settings.setting_state("animationsOptimization"):
+	if Settings.setting_state("animationsOptimization"):
+		$RigidBody2D/Squeak.play()
 		$RigidBody2D/jelly.texture = load("res://assets/images/jellies/"+jelly+"/jelly1.png")
 		$SecondTimer.start()
 
 func _on_second_timer_timeout() -> void:
-	if !Settings.setting_state("animationsOptimization"):
+	if Settings.setting_state("animationsOptimization"):
 		$RigidBody2D/jelly.texture = load("res://assets/images/jellies/"+jelly+"/jelly0.png")
 		$FirstTimer.start()
 

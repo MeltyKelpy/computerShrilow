@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://60vhnfaawi87"]
+[gd_scene load_steps=9 format=3 uid="uid://60vhnfaawi87"]
 
 [ext_resource type="Texture2D" uid="uid://7nd51l0gqsv5" path="res://assets/images/areas/jellies/rooms/simpleRoom/chan3.png" id="1_qimpq"]
 [ext_resource type="Texture2D" uid="uid://byc0ytjcqtg43" path="res://assets/images/areas/jellies/rooms/simpleRoom/chan1.png" id="1_s1087"]
-[ext_resource type="Script" path="res://technical/jellies/chan_beads.gd" id="2_ed0k0"]
 [ext_resource type="Texture2D" uid="uid://c73peoixvttyu" path="res://assets/images/areas/jellies/rooms/simpleRoom/chan2.png" id="2_p5cy1"]
 [ext_resource type="PackedScene" uid="uid://g8436k7dpk10" path="res://technical/jellies/chanBeads.tscn" id="3_xb74p"]
 
@@ -28,7 +27,6 @@ shape = SubResource("RectangleShape2D_7sqe1")
 
 [node name="ChanBeads9" parent="." instance=ExtResource("3_xb74p")]
 position = Vector2(0, 156)
-script = ExtResource("2_ed0k0")
 
 [node name="chanPoint1" type="PinJoint2D" parent="ChanBeads9"]
 node_a = NodePath("../../chan3")
@@ -54,7 +52,6 @@ shape = SubResource("RectangleShape2D_b5rf6")
 
 [node name="ChanBeads6" parent="." instance=ExtResource("3_xb74p")]
 position = Vector2(-26, 118)
-script = ExtResource("2_ed0k0")
 
 [node name="chanPoint1" type="PinJoint2D" parent="ChanBeads6"]
 node_a = NodePath("../../chan2")
@@ -62,7 +59,6 @@ node_b = NodePath("..")
 
 [node name="ChanBeads7" parent="." instance=ExtResource("3_xb74p")]
 position = Vector2(0, 123)
-script = ExtResource("2_ed0k0")
 
 [node name="chanPoint1" type="PinJoint2D" parent="ChanBeads7"]
 node_a = NodePath("../../chan2")
@@ -70,7 +66,6 @@ node_b = NodePath("..")
 
 [node name="ChanBeads8" parent="." instance=ExtResource("3_xb74p")]
 position = Vector2(26, 117)
-script = ExtResource("2_ed0k0")
 
 [node name="chanPoint1" type="PinJoint2D" parent="ChanBeads8"]
 node_a = NodePath("../../chan2")
@@ -96,7 +91,6 @@ shape = SubResource("RectangleShape2D_j3h2f")
 
 [node name="ChanBeads" parent="." instance=ExtResource("3_xb74p")]
 position = Vector2(-40, 85)
-script = ExtResource("2_ed0k0")
 
 [node name="chanPoint1" type="PinJoint2D" parent="ChanBeads"]
 node_a = NodePath("../../chan1")
@@ -104,7 +98,6 @@ node_b = NodePath("..")
 
 [node name="ChanBeads2" parent="." instance=ExtResource("3_xb74p")]
 position = Vector2(-20, 89)
-script = ExtResource("2_ed0k0")
 
 [node name="chanPoint1" type="PinJoint2D" parent="ChanBeads2"]
 node_a = NodePath("../../chan1")
@@ -112,7 +105,6 @@ node_b = NodePath("..")
 
 [node name="ChanBeads3" parent="." instance=ExtResource("3_xb74p")]
 position = Vector2(-1, 90)
-script = ExtResource("2_ed0k0")
 
 [node name="chanPoint1" type="PinJoint2D" parent="ChanBeads3"]
 node_a = NodePath("../../chan1")
@@ -120,7 +112,6 @@ node_b = NodePath("..")
 
 [node name="ChanBeads4" parent="." instance=ExtResource("3_xb74p")]
 position = Vector2(18, 88)
-script = ExtResource("2_ed0k0")
 
 [node name="chanPoint1" type="PinJoint2D" parent="ChanBeads4"]
 node_a = NodePath("../../chan1")
@@ -128,7 +119,6 @@ node_b = NodePath("../../ChanBeads4")
 
 [node name="ChanBeads5" parent="." instance=ExtResource("3_xb74p")]
 position = Vector2(37, 82)
-script = ExtResource("2_ed0k0")
 
 [node name="chanPoint1" type="PinJoint2D" parent="ChanBeads5"]
 node_a = NodePath("../../chan1")

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgp5g6bjdtfv0"]
+
+[ext_resource type="Texture2D" uid="uid://70jwx6x4rugt" path="res://assets/images/mainMenu/credits/ppl/hekza.png" id="1_j2w50"]
+[ext_resource type="Script" uid="uid://c16l3b8w48oi" path="res://technical/contributer.gd" id="2_icof8"]
+
+[node name="Contributer" type="TextureRect"]
+offset_right = 150.0
+offset_bottom = 150.0
+texture = ExtResource("1_j2w50")
+script = ExtResource("2_icof8")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

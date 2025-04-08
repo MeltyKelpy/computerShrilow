@@ -20,6 +20,7 @@ script = ExtResource("1_yxt21")
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_yxt21")
+layout_mode = 0
 offset_left = -410.0
 offset_top = -261.0
 offset_right = 753.0
@@ -30,6 +31,7 @@ mouse_filter = 2
 [node name="ColorRect3" type="ColorRect" parent="."]
 visible = false
 material = SubResource("ShaderMaterial_ewe1r")
+layout_mode = 0
 offset_left = -410.0
 offset_top = -261.0
 offset_right = 753.0

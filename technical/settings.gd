@@ -1,12 +1,17 @@
 extends Node
 
 var settings = [
+	#{
+	#"name":"General",
+	#"id":"general",
+	#"type":"category",
+	#"desc":"General Settings",
+	#},
 	{
-	"name":"Kiwami Mode",
-	"id":"kiwami",
-	"type":"boolean",
-	"desc":"dont search kiwami in the discord gif search",
-	"enabled?":false,
+	"name":"Accessibility",
+	"id":"accessibility",
+	"type":"category",
+	"desc":"Accessibility Settings",
 	},
 	{
 	"name":"Seperator Type",
@@ -25,6 +30,12 @@ var settings = [
 	"selection":0,
 	"choices":{"Default":0, "Protanopia":0, "Deuteranopia":1, "Tritanopia":2, "Literal":3},
 	"selectionNum":0,
+	},
+	{
+	"name":"Performance",
+	"id":"performance",
+	"type":"category",
+	"desc":"Performance Settings",
 	},
 	{
 	"name":"Optimize Mines",
@@ -46,6 +57,19 @@ var settings = [
 	"type":"boolean",
 	"desc":"Toggle if the Money-Makers (Jellies, Mines, Greasepuppies) should have animations. It may help to disable this if you find the game to be lagging.",
 	"enabled?":true,
+	},
+	{
+	"name":"uhm. Stuff?",
+	"id":"secretsettings",
+	"type":"category",
+	"desc":"Uhhhhhhh",
+	},
+	{
+	"name":"Kiwami Mode",
+	"id":"kiwami",
+	"type":"boolean",
+	"desc":"dont search kiwami in the discord gif search",
+	"enabled?":false,
 	},
 	]
 

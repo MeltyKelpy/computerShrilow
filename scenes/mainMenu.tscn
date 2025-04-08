@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=3 uid="uid://ba4g00sxw1ioe"]
+[gd_scene load_steps=87 format=3 uid="uid://ba4g00sxw1ioe"]
 
 [ext_resource type="Texture2D" uid="uid://dajex7cpt7k4p" path="res://assets/images/bg/background.png" id="1_i2qlv"]
 [ext_resource type="Script" uid="uid://du5kurp8y3jde" path="res://scenes/main_menu.gd" id="1_ihte6"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://bbtc0ul1d7fn5" path="res://assets/images/mainMenu/credits/border.png" id="12_u15cr"]
 [ext_resource type="Theme" uid="uid://dr1wna4c2ab2h" path="res://technical/textStyle.tres" id="14_q2cbi"]
 [ext_resource type="Texture2D" uid="uid://c42ce4ntcagjk" path="res://assets/images/mainMenu/credits/arrows.png" id="15_vaslp"]
+[ext_resource type="Texture2D" uid="uid://70jwx6x4rugt" path="res://assets/images/mainMenu/credits/ppl/hekza.png" id="16_3ut01"]
 [ext_resource type="Texture2D" uid="uid://x4tqkgm40s3d" path="res://assets/images/mainMenu/credits/sectionDot.png" id="16_cjgcw"]
 [ext_resource type="Texture2D" uid="uid://cwladsljiqill" path="res://assets/images/ui/backDown.png" id="17_q8ob8"]
 [ext_resource type="Texture2D" uid="uid://msvb6jrm45iv" path="res://assets/images/ui/backUp.png" id="20_tauat"]
@@ -1120,34 +1121,31 @@ color = Color(0.121569, 0.0470588, 0, 1)
 [node name="Credits" type="Node2D" parent="."]
 position = Vector2(0, 648)
 
-[node name="fade" type="Sprite2D" parent="Credits"]
-modulate = Color(1, 1, 1, 0)
-position = Vector2(576, 324)
-scale = Vector2(0.9, 0.9)
-texture = ExtResource("12_u15cr")
+[node name="Main" type="Node2D" parent="Credits"]
 
-[node name="bg" type="ColorRect" parent="Credits"]
+[node name="bg" type="ColorRect" parent="Credits/Main"]
 offset_left = 289.0
 offset_top = 149.0
 offset_right = 1039.0
 offset_bottom = 517.0
 color = Color(1, 0.905882, 0.85098, 1)
 
-[node name="person" type="Sprite2D" parent="Credits"]
+[node name="person" type="Sprite2D" parent="Credits/Main"]
 position = Vector2(329, 313)
 texture = ExtResource("11_4c4kp")
 
-[node name="Name" type="Label" parent="Credits"]
+[node name="Name" type="Label" parent="Credits/Main"]
 offset_left = 540.0
 offset_top = 162.0
 offset_right = 1027.0
-offset_bottom = 232.0
+offset_bottom = 237.0
 scale = Vector2(1, 0.7)
 theme = ExtResource("14_q2cbi")
+theme_override_font_sizes/font_size = 70
 text = "MeltyKelpy"
 horizontal_alignment = 2
 
-[node name="Pronouns" type="Label" parent="Credits"]
+[node name="Pronouns" type="Label" parent="Credits/Main"]
 offset_left = 540.0
 offset_top = 213.0
 offset_right = 1027.0
@@ -1158,7 +1156,7 @@ theme_override_font_sizes/font_size = 35
 text = "It/Star"
 horizontal_alignment = 2
 
-[node name="JBF" type="Label" parent="Credits"]
+[node name="JBF" type="Label" parent="Credits/Main"]
 offset_left = 540.0
 offset_top = 257.0
 offset_right = 1027.0
@@ -1169,7 +1167,7 @@ theme_override_font_sizes/font_size = 45
 text = "Click our evil links:"
 horizontal_alignment = 2
 
-[node name="BlueSky" type="Button" parent="Credits/JBF"]
+[node name="BlueSky" type="Button" parent="Credits/Main/JBF"]
 layout_mode = 0
 offset_left = 377.0
 offset_top = 64.2857
@@ -1196,7 +1194,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_pet0d")
 text = "BlueSky"
 alignment = 2
 
-[node name="Twitter" type="Button" parent="Credits/JBF"]
+[node name="Twitter" type="Button" parent="Credits/Main/JBF"]
 layout_mode = 0
 offset_left = 398.0
 offset_top = 121.0
@@ -1223,7 +1221,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_pet0d")
 text = "Twitter"
 alignment = 2
 
-[node name="YouTube" type="Button" parent="Credits/JBF"]
+[node name="YouTube" type="Button" parent="Credits/Main/JBF"]
 layout_mode = 0
 offset_left = 368.0
 offset_top = 177.143
@@ -1250,7 +1248,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_pet0d")
 text = "YouTube"
 alignment = 2
 
-[node name="Website" type="Button" parent="Credits/JBF"]
+[node name="Website" type="Button" parent="Credits/Main/JBF"]
 layout_mode = 0
 offset_left = 320.0
 offset_top = 231.429
@@ -1277,7 +1275,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_pet0d")
 text = "Our Website"
 alignment = 2
 
-[node name="Jobs" type="Label" parent="Credits"]
+[node name="Jobs" type="Label" parent="Credits/Main"]
 offset_left = 540.0
 offset_top = 257.0
 offset_right = 1027.0
@@ -1289,7 +1287,7 @@ text = "What Did"
 horizontal_alignment = 2
 autowrap_mode = 3
 
-[node name="Quote" type="Label" parent="Credits"]
+[node name="Quote" type="Label" parent="Credits/Main"]
 offset_left = 540.0
 offset_top = 431.0
 offset_right = 1027.0
@@ -1300,6 +1298,79 @@ theme_override_font_sizes/font_size = 45
 text = "Quote"
 horizontal_alignment = 2
 autowrap_mode = 3
+
+[node name="Contributers" type="Node2D" parent="Credits"]
+visible = false
+
+[node name="bg" type="ColorRect" parent="Credits/Contributers"]
+offset_left = 684.0
+offset_top = 149.0
+offset_right = 1039.0
+offset_bottom = 517.0
+color = Color(1, 0.905882, 0.85098, 1)
+
+[node name="Name" type="Label" parent="Credits/Contributers"]
+offset_left = 698.0
+offset_top = 162.0
+offset_right = 1027.0
+offset_bottom = 237.0
+scale = Vector2(1, 0.7)
+theme = ExtResource("14_q2cbi")
+theme_override_font_sizes/font_size = 70
+text = "Hekza"
+horizontal_alignment = 1
+
+[node name="Name2" type="Label" parent="Credits/Contributers"]
+offset_left = 214.0
+offset_top = 94.0
+offset_right = 543.0
+offset_bottom = 169.0
+scale = Vector2(1, 0.7)
+theme = ExtResource("14_q2cbi")
+theme_override_font_sizes/font_size = 70
+text = "Contributers!"
+horizontal_alignment = 1
+
+[node name="Icon" type="Sprite2D" parent="Credits/Contributers"]
+position = Vector2(861, 296)
+texture = ExtResource("16_3ut01")
+
+[node name="backshots" type="ColorRect" parent="Credits/Contributers"]
+offset_left = 153.0
+offset_top = 149.0
+offset_right = 636.0
+offset_bottom = 517.0
+color = Color(1, 0.905882, 0.85098, 1)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Credits/Contributers"]
+offset_left = 164.0
+offset_top = 164.0
+offset_right = 631.0
+offset_bottom = 504.0
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="Credits/Contributers/ScrollContainer"]
+layout_mode = 2
+columns = 3
+
+[node name="Text" type="Label" parent="Credits/Contributers"]
+offset_left = 696.0
+offset_top = 377.0
+offset_right = 1027.0
+offset_bottom = 563.0
+scale = Vector2(1, 0.7)
+theme = ExtResource("14_q2cbi")
+theme_override_font_sizes/font_size = 35
+text = "Quote"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="fade" type="Sprite2D" parent="Credits"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(576, 324)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("12_u15cr")
 
 [node name="left" type="Button" parent="Credits"]
 offset_left = 930.0
@@ -1340,30 +1411,34 @@ position = Vector2(986, 116)
 texture = ExtResource("15_vaslp")
 
 [node name="dot1" type="Sprite2D" parent="Credits"]
-position = Vector2(740, 133)
+position = Vector2(711, 133)
 texture = ExtResource("16_cjgcw")
 
 [node name="dot2" type="Sprite2D" parent="Credits"]
-position = Vector2(769, 133)
+position = Vector2(740, 133)
 texture = ExtResource("16_cjgcw")
 
 [node name="dot3" type="Sprite2D" parent="Credits"]
-position = Vector2(798, 133)
+position = Vector2(769, 133)
 texture = ExtResource("16_cjgcw")
 
 [node name="dot4" type="Sprite2D" parent="Credits"]
-position = Vector2(827, 133)
+position = Vector2(798, 133)
 texture = ExtResource("16_cjgcw")
 
 [node name="dot5" type="Sprite2D" parent="Credits"]
-position = Vector2(856, 133)
+position = Vector2(827, 133)
 texture = ExtResource("16_cjgcw")
 
 [node name="dot6" type="Sprite2D" parent="Credits"]
-position = Vector2(885, 133)
+position = Vector2(856, 133)
 texture = ExtResource("16_cjgcw")
 
 [node name="dot7" type="Sprite2D" parent="Credits"]
+position = Vector2(885, 133)
+texture = ExtResource("16_cjgcw")
+
+[node name="dot8" type="Sprite2D" parent="Credits"]
 position = Vector2(914, 133)
 texture = ExtResource("16_cjgcw")
 
@@ -1508,10 +1583,10 @@ volume_db = 0.952
 [connection signal="pressed" from="stuff/Left/shit/settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="stuff/Left/shit/credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="settings/back2" to="." method="_on_backSettings"]
-[connection signal="pressed" from="Credits/JBF/BlueSky" to="." method="openLink" binds= ["BlueSky"]]
-[connection signal="pressed" from="Credits/JBF/Twitter" to="." method="openLink" binds= ["Twitter"]]
-[connection signal="pressed" from="Credits/JBF/YouTube" to="." method="openLink" binds= ["YouTube"]]
-[connection signal="pressed" from="Credits/JBF/Website" to="." method="openLink" binds= ["Our Website"]]
+[connection signal="pressed" from="Credits/Main/JBF/BlueSky" to="." method="openLink" binds= ["BlueSky"]]
+[connection signal="pressed" from="Credits/Main/JBF/Twitter" to="." method="openLink" binds= ["Twitter"]]
+[connection signal="pressed" from="Credits/Main/JBF/YouTube" to="." method="openLink" binds= ["YouTube"]]
+[connection signal="pressed" from="Credits/Main/JBF/Website" to="." method="openLink" binds= ["Our Website"]]
 [connection signal="pressed" from="Credits/left" to="." method="changeSelection" binds= [-1]]
 [connection signal="pressed" from="Credits/right" to="." method="changeSelection" binds= [1]]
 [connection signal="pressed" from="Credits/back2" to="." method="_on_backCredit_pressed"]

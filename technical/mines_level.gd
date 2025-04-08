@@ -33,9 +33,9 @@ var characterInfos = [
 	},
 	{
 		"Name":"Charlotte",
-		"Desc":"2$ per Pickaxe Swing.\nBase Speed: 1.5/s a second",
+		"Desc":"3$ per Pickaxe Swing.\nBase Speed: 1.5/s a second",
 		"BasePrice":900,
-		"MoneyGain":2,
+		"MoneyGain":3,
 		"Speed":1.500,
 	},
 	]

@@ -321,7 +321,6 @@ theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_n3ntu")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_yepir")
 
 [node name="CharName" type="Label" parent="."]
-z_index = 1
 offset_left = -1.0
 offset_top = 217.0
 offset_right = 323.0
@@ -335,7 +334,6 @@ horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="CharDesc" type="Label" parent="."]
-z_index = 1
 offset_left = 17.0
 offset_top = 240.0
 offset_right = 306.0

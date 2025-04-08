@@ -1,15 +1,17 @@
 extends Node2D
 
 var ItemID : int
+var hello
 
 func _ready() -> void:
+	hello = FizzyDrink.clickPower+FizzyDrink.clickPowerP1+FizzyDrink.clickPowerP1R+FizzyDrink.clickPowerClothingBuffs
 	reparent($/root)
 	var cacapoopyGOD3 = preload("res://technical/events/eventIndicator.tscn")
 	var caca2 = cacapoopyGOD3.instantiate()
 	add_child(caca2)
 	caca2.reparent($/root)
 	caca2.warn("You bought a Bone! your click power is currently doubled for a limited time.")
-	FizzyDrink.clickPowerAdditions += (FizzyDrink.clickPower+FizzyDrink.clickPowerP1+FizzyDrink.clickPowerP1R+FizzyDrink.clickPowerClothingBuffs)
+	FizzyDrink.clickPowerAdditions += (hello)
 	var cacapoopyGOD2 = preload("res://technical/clock.tscn")
 	var caca = cacapoopyGOD2.instantiate()
 	add_child(caca)
@@ -29,7 +31,7 @@ func _endEffect() -> void:
 	add_child(caca2)
 	caca2.reparent($/root)
 	caca2.warn("oops! bone effect all gone")
-	FizzyDrink.clickPowerAdditions -= (FizzyDrink.clickPower+FizzyDrink.clickPowerP1+FizzyDrink.clickPowerP1R+FizzyDrink.clickPowerClothingBuffs)
+	FizzyDrink.clickPowerAdditions -= hello
 	print(FizzyDrink.clickPower)
 
 func _kill() -> void:

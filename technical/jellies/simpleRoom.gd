@@ -33,11 +33,11 @@ func getID(num):
 func _process(delta: float) -> void:
 	
 	if Settings.setting_state("jelliesOptimization"):
-		$Chandelier.process_mode = Node.PROCESS_MODE_DISABLED
+		$Chandelier.process_mode = 4
 		$Chandelier.visible = false
 		$Sprite2D.visible = true
 	else:
-		$Chandelier.process_mode = Node.PROCESS_MODE_INHERIT
+		$Chandelier.process_mode = 0
 		$Chandelier.visible = true
 		$Sprite2D.visible = false
 	

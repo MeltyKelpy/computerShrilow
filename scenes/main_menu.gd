@@ -59,12 +59,53 @@ var creditors = [
 	"Commits":0,
 	"Quote":"",
 	},
+	{
+	"Name":"ContributerSpot",
+	"Image":"res://assets/images/mainMenu/credits/ppl/juicebox.png",
+	"Pronouns":"fuck you",
+	"Roles":"nothing btw -",
+	"Commits":"all of them btw",
+	"Quote":"YOU SHOULDNT BE SEEING THIS!",
+	},
+	]
+var contributers = [
+	{
+	"Name":"Nobody",
+	"Image":"res://assets/images/mainMenu/credits/ppl/none.png",
+	"Text":'hover over a contributer!',
+	},
+	{
+	"Name":"SkyHighSilly",
+	"Image":"res://assets/images/mainMenu/credits/ppl/sky.png",
+	"Text":'Playtester\n\n""',
+	},
+	{
+	"Name":"Hekza",
+	"Image":"res://assets/images/mainMenu/credits/ppl/hekza.png",
+	"Text":'Playtester\n\n""',
+	},
+	{
+	"Name":"Jocapelt",
+	"Image":"res://assets/images/mainMenu/credits/ppl/jocaused.png",
+	"Text":'Playtester\n\n""',
+	},
+	{
+	"Name":"Kawo",
+	"Image":"res://assets/images/mainMenu/credits/ppl/kawo.png",
+	"Text":'Artist\n\n""',
+	},
+	{
+	"Name":"lilrougedragon",
+	"Image":"res://assets/images/mainMenu/credits/ppl/henry.png",
+	"Text":'Artist\n\n""',
+	}
 	]
 
 var selectedCredit = 0
 var commits = 141
 
 var evil = []
+var contributerSel = 0
 
 var intro = true
 var can = true
@@ -79,10 +120,11 @@ var config = ConfigFile.new()
 	$Credits/dot5,
 	$Credits/dot6,
 	$Credits/dot7,
+	$Credits/dot8,
 	]
 
 func _ready() -> void:
-	$stuff/TXT.text = "beta build: "+Game.gameVersion+"\nExported: April 5th, 2025"
+	$stuff/TXT.text = "beta build: "+Game.gameVersion+"\nExported: April 7th, 2025"
 	Settings.loadData()
 	for i in range(0,3):
 		var cacapoopyFUCK = load("res://technical/saveBox.tscn")
@@ -91,31 +133,49 @@ func _ready() -> void:
 		caca.position.x = 109
 		caca.position.y = 204 + (163 * i)
 		$SaveFiles.add_child(caca)
+	for i in range(0, contributers.size()-1):
+		if i != 0:
+			var cacapoopyFUCK = load("res://technical/contributer.tscn")
+			var caca = cacapoopyFUCK.instantiate()
+			caca.parent = self
+			caca.id = i
+			caca.textures = contributers[i]["Image"]
+			$Credits/Contributers/ScrollContainer/GridContainer.add_child(caca)
 
 func _process(delta: float) -> void:
 	for i in dots.size():
 		dots[i].modulate = Color(1,1,1,0.5)
-	if selectedCredit > creditors.size()-1:
+	if selectedCredit > dots.size()-1:
 		selectedCredit = 0
 	if selectedCredit < 0:
-		selectedCredit = creditors.size()-1
+		selectedCredit = dots.size()-1
 	dots[selectedCredit].modulate = Color(1,1,1,1)
 	$ParallaxBackground.scroll_base_offset.y -= 10 * delta/0.5
 	
-	if creditors[selectedCredit]["Name"] != "JuiceBoxFactory":
-		$Credits/JBF.position.y = 1200
-		$Credits/Name.text = creditors[selectedCredit]["Name"]
-		$Credits/Pronouns.text = creditors[selectedCredit]["Pronouns"]
-		$Credits/Jobs.text = creditors[selectedCredit]["Roles"]+"\nGithub Commits: "+str(creditors[selectedCredit]["Commits"])+"/"+str(commits)+" -"
-		$Credits/Quote.text = '"'+creditors[selectedCredit]["Quote"]+'"'
-		$Credits/person.texture = load(creditors[selectedCredit]["Image"])
+	if creditors[selectedCredit]["Name"] != "JuiceBoxFactory" and creditors[selectedCredit]["Name"] != "ContributerSpot":
+		$Credits/Main.visible = true
+		$Credits/Contributers.visible = false
+		$Credits/Main/JBF.position.y = 1200
+		$Credits/Main/Name.text = creditors[selectedCredit]["Name"]
+		$Credits/Main/Pronouns.text = creditors[selectedCredit]["Pronouns"]
+		$Credits/Main/Jobs.text = creditors[selectedCredit]["Roles"]+"\nGithub Commits: "+str(creditors[selectedCredit]["Commits"])+"/"+str(commits)+" -"
+		$Credits/Main/Quote.text = '"'+creditors[selectedCredit]["Quote"]+'"'
+		$Credits/Main/person.texture = load(creditors[selectedCredit]["Image"])
+	elif creditors[selectedCredit]["Name"] == "JuiceBoxFactory":
+		$Credits/Main.visible = true
+		$Credits/Contributers.visible = false
+		$Credits/Main/JBF.position.y = 257
+		$Credits/Main/Name.text = creditors[selectedCredit]["Name"]
+		$Credits/Main/Pronouns.text = creditors[selectedCredit]["Pronouns"]
+		$Credits/Main/Jobs.text = ""
+		$Credits/Main/Quote.text = ""
+		$Credits/Main/person.texture = load(creditors[selectedCredit]["Image"])
 	else:
-		$Credits/JBF.position.y = 257
-		$Credits/Name.text = creditors[selectedCredit]["Name"]
-		$Credits/Pronouns.text = creditors[selectedCredit]["Pronouns"]
-		$Credits/Jobs.text = ""
-		$Credits/Quote.text = ""
-		$Credits/person.texture = load(creditors[selectedCredit]["Image"])
+		$Credits/Main.visible = false
+		$Credits/Contributers.visible = true
+		$Credits/Contributers/Name.text = contributers[contributerSel]["Name"]
+		$Credits/Contributers/Icon.texture = load(contributers[contributerSel]["Image"])
+		$Credits/Contributers/Text.text = contributers[contributerSel]["Text"]
 	
 	if Input.is_action_just_pressed("Click") and intro == true:
 		_endIntro(true)
