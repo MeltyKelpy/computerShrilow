@@ -936,7 +936,7 @@ func _ready():
 			if i == "autoclicker":
 				if config.get_value("Shop", "autoClickerUpgrade") > 0:
 					var cacaFUCK = load("res://technical/items/"+i+".tscn").instantiate()
-					cacaFUCK.ItemId = 3
+					cacaFUCK.ItemId = 34
 					add_child(cacaFUCK)
 			elif i == "plusone":
 				if config.get_value("Shop", "PlusOneUpgrade") > 0:
@@ -975,6 +975,8 @@ func _ready():
 					var cacaFUCK = load("res://technical/rebirthShit/"+i+".tscn").instantiate()
 					cacaFUCK.number = 2
 					add_child(cacaFUCK)
+			ItemValues.marketItems[3]["Owned"] = Game.evilMines
+	
 	
 	if DirAccess.dir_exists_absolute("user://saveData/nodeSaves/file"+str(Game.curFile+1)) == true:
 		rooms = load("user://saveData/nodeSaves/file"+str(Game.curFile+1)+"/Rooms.tscn").instantiate()
@@ -1030,9 +1032,9 @@ func _process(_delta : float) -> void:
 	
 	if Game.saveFileClicks >= 100000:
 		Game.unlock_achievement("carpaltunnel")
-		Game.unlock_outfit("Coka")
 	elif Game.saveFileClicks >= 10000:
 		Game.unlock_achievement("sorefingers")
+		Game.unlock_outfit("Coka")
 	
 	if Game.gumballsBought >= 100:
 		Game.unlock_achievement("90percent")
@@ -2133,3 +2135,15 @@ func box() -> void:
 
 func smoke_break() -> void:
 	melSmoke = !melSmoke
+
+func _on_first_timeout() -> void:
+	if $ShrilowScreen/puppies.get_child_count() > 0:
+		ItemValues.money += 5
+		for i in range(0, $ShrilowScreen/puppies.get_child_count()-1):
+			$ShrilowScreen/puppies.get_child(i)._update(true)
+	$ShrilowScreen/GPSecond.start()
+
+func _on_gp_second_timeout() -> void:
+	if $ShrilowScreen/puppies.get_child_count() > 0:
+		for i in range(0, $ShrilowScreen/puppies.get_child_count()-1):
+			$ShrilowScreen/puppies.get_child(i)._update(false)

@@ -24,7 +24,7 @@ func getID(num):
 
 func _on_timer_timeout() -> void:
 	$AudioListener2D.play()
-	ItemValues.money += 1
+	ItemValues.money += 5
 	$puppy.texture = load("res://assets/images/items/gp1.png")
 	$Timer2.start()
 

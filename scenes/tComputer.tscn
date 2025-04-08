@@ -1517,6 +1517,13 @@ theme = ExtResource("8_oskpf")
 theme_override_font_sizes/font_size = 70
 text = "CLICKS:"
 
+[node name="GPFirst" type="Timer" parent="ShrilowScreen"]
+wait_time = 2.6
+autostart = true
+
+[node name="GPSecond" type="Timer" parent="ShrilowScreen"]
+wait_time = 0.4
+
 [node name="puppies" type="Node2D" parent="ShrilowScreen"]
 
 [node name="gpButton" type="CheckButton" parent="ShrilowScreen"]
@@ -2852,6 +2859,8 @@ autostart = true
 [connection signal="pressed" from="ShrilowScreen/WardrobeButton" to="." method="_on_wardrobe_button_pressed"]
 [connection signal="pressed" from="ShrilowScreen/NotebookButton" to="." method="_on_trophies_button_pressed"]
 [connection signal="pressed" from="ShrilowScreen/MinesButton" to="." method="_on_mines_button_pressed"]
+[connection signal="timeout" from="ShrilowScreen/GPFirst" to="." method="_on_first_timeout"]
+[connection signal="timeout" from="ShrilowScreen/GPSecond" to="." method="_on_gp_second_timeout"]
 [connection signal="pressed" from="ShrilowScreen/Rebirth" to="." method="_Rebirth"]
 [connection signal="pressed" from="Jelly/BackButtonJELLY" to="." method="_on_back_button_jelly_pressed"]
 [connection signal="pressed" from="Shop/melinteract" to="." method="melShopToggle"]

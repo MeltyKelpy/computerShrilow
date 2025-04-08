@@ -17,16 +17,16 @@ shader_parameter/mode = 1
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_km12q"]
 shader = ExtResource("2_mt27j")
 shader_parameter/res = Vector2(600, 600)
-shader_parameter/mask_type = 1
+shader_parameter/mask_type = 0
 shader_parameter/bloom_type = 0
-shader_parameter/hardScan = -8.0
-shader_parameter/hardPix = -2.0
-shader_parameter/hardBloomScan = -2.0
-shader_parameter/hardBloomPix = -1.5
+shader_parameter/hardScan = -3.842
+shader_parameter/hardPix = -4.0
+shader_parameter/hardBloomScan = -0.835
+shader_parameter/hardBloomPix = -1.28
 shader_parameter/bloomAmount = 16.0
 shader_parameter/warp = Vector2(64, 24)
-shader_parameter/maskDark = 0.5
-shader_parameter/maskLight = 1.5
+shader_parameter/maskDark = 0.303
+shader_parameter/maskLight = 2.0
 
 [node name="Interstate" type="Node2D"]
 

@@ -41,7 +41,7 @@ func _process(_delta: float) -> void:
 			var multi = FizzyDrink.greasepuppies - 4
 			if multi < 0:
 				multi = 0
-			$Cost.text = str(Game.commizeNumber(hearMeOut[0][type][ItemID]["Cost"] + ((hearMeOut[0][type][ItemID]["Cost"] * 0.5) * multi)))+"$"
+			$Cost.text = str(Game.commizeNumber(hearMeOut[0][type][ItemID]["Cost"] + ((hearMeOut[0][type][ItemID]["Cost"] * 0.1) * multi)))+"$"
 	elif (hearMeOut[0][type][ItemID]["Type"] == "Generic" and hearMeOut[0][type][ItemID]["CurUpgrade"] == 0 and MaxedOut == false) or hearMeOut[0][type][ItemID]["Type"] == "Consumable":
 		$Cost.text = str(Game.commizeNumber(hearMeOut[0][type][ItemID]["Cost"]))+"$"
 	
@@ -80,7 +80,7 @@ func _on_button_pressed() -> void:
 			var multi = FizzyDrink.greasepuppies - 4
 			if multi < 0:
 				multi = 0
-			if (ItemValues.money >= (hearMeOut[0][type][ItemID]["Cost"] + (hearMeOut[0][type][ItemID]["Cost"] * 0.5) * multi)):
+			if (ItemValues.money >= (hearMeOut[0][type][ItemID]["Cost"] + (hearMeOut[0][type][ItemID]["Cost"] * 0.1) * multi)):
 				calculate()
 		elif hearMeOut[0][type][ItemID]["CurUpgrade"] != 0:
 			if (ItemValues.money >= hearMeOut[0][type][ItemID]["Cost"]*(hearMeOut[0][type][ItemID]["CurUpgrade"]+1)) and MaxedOut == false:
@@ -102,11 +102,12 @@ func calculate():
 				caca.getID(ItemID)
 				add_child(caca)
 		else:
-			cacapoopyGOD = load(hearMeOut[0][type][ItemID]["ScenePath"])
-			caca = cacapoopyGOD.instantiate()
-			add_child(caca)
-			caca.getID(ItemID)
-	if hearMeOut[0][type][ItemID]["Name"] == "Greasepuppy":
+			if hearMeOut[0][type][ItemID]["Name"] != "Greasepuppy" or (FizzyDrink.greasepuppies + 1) < 7:
+				cacapoopyGOD = load(hearMeOut[0][type][ItemID]["ScenePath"])
+				caca = cacapoopyGOD.instantiate()
+				add_child(caca)
+				caca.getID(ItemID)
+	if hearMeOut[0][type][ItemID]["Name"] == "Greasepuppy" and (FizzyDrink.greasepuppies + 1) < 7:
 		caca.buy()
 		caca.getPuppy(FizzyDrink.greasepuppies)
 	if hearMeOut[0][type][ItemID]["CurUpgrade"] != 0:
@@ -116,7 +117,7 @@ func calculate():
 			var multi = FizzyDrink.greasepuppies - 4
 			if multi < 0:
 				multi = 0
-			ItemValues.money -= hearMeOut[0][type][ItemID]["Cost"] + (hearMeOut[0][type][ItemID]["Cost"] * 0.5) * multi
+			ItemValues.money -= hearMeOut[0][type][ItemID]["Cost"] + (hearMeOut[0][type][ItemID]["Cost"] * 0.1) * multi
 			FizzyDrink.greasepuppies += 1
 		else:
 			ItemValues.money -= hearMeOut[0][type][ItemID]["Cost"]
