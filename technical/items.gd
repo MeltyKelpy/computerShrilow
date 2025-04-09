@@ -104,7 +104,7 @@ var itemInfomation = [
 	# Greasepuppy
 	"Image":"res://assets/images/areas/melanies/items/greasepuppy.png",
 	"Name":"Greasepuppy",
-	"Desc":'"spawns in the main shrilow area, they only give you $1 every 3 seconds, but you can buy as many as you want." -Mel ',
+	"Desc":'"spawns in the main shrilow area, they only give you $3 every 3 seconds, but you can buy as many as you want." -Mel ',
 	"Upgradeable?":false,
 	"MaxUpgrade":1,
 	"CurUpgrade":0,
@@ -287,14 +287,14 @@ var shopTUTORIAL = [
 	# Greasepuppy
 	"Image":"res://assets/images/areas/melanies/items/greasepuppy.png",
 	"Name":"Greasepuppy",
-	"Desc":'"spawns in the main shrilow area, they only give you $1 every 3 seconds, but you can buy as many as you want." -Mel ',
+	"Desc":'"spawns in the main shrilow area, they only give you $3 every 3 seconds, but you can buy as many as you want." -Mel ',
 	"Upgradeable?":false,
 	"MaxUpgrade":1,
 	"CurUpgrade":0,
 	"BaseValue":0,
 	"UpgradeIncrease":0,
 	"Owned":false,
-	"Cost":100,
+	"Cost":50,
 	"ScenePath":"res://technical/items/GreasepuppyTUTORIAL.tscn",
 	"Type":"Consumable",
 	}]

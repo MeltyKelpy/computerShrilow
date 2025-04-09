@@ -191,7 +191,8 @@ func manageScenes():
 	match dialogKey:
 		"none":
 			if alongTheDialogue == 0:
-				$Shop/ItemDescription.text = "u should NOT be seeing this."
+				$Shop/ItemDescription.text = "Still Listening!"
+				setShopBase("melanie")
 			if alongTheDialogue == 1:
 				$Shop/ItemDescription.text = "this also worked as a test, which is cool"
 			if alongTheDialogue == 2:
@@ -347,7 +348,7 @@ func manageScenes():
 	match dialogKey:
 		"none":
 			if alongTheDialogue == 0:
-				$Shop/ItemDescription.text = "u should NOT be seeing this."
+				$Shop/ItemDescription.text = "Fine! no gambling! dialogue it is!... loser."
 			if alongTheDialogue == 1:
 				$Shop/ItemDescription.text = "this also worked as a test, which is cool"
 			if alongTheDialogue == 2:
@@ -2138,7 +2139,8 @@ func smoke_break() -> void:
 
 func _on_first_timeout() -> void:
 	if $ShrilowScreen/puppies.get_child_count() > 0:
-		ItemValues.money += 5
+		ItemValues.money += 3 * FizzyDrink.greasepuppies
+		$ShrilowScreen/AudioListener2D.play()
 		for i in range(0, $ShrilowScreen/puppies.get_child_count()-1):
 			$ShrilowScreen/puppies.get_child(i)._update(true)
 	$ShrilowScreen/GPSecond.start()

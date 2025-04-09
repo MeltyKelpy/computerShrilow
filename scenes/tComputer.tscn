@@ -1517,6 +1517,13 @@ theme = ExtResource("8_oskpf")
 theme_override_font_sizes/font_size = 70
 text = "CLICKS:"
 
+[node name="AudioListener2D" type="AudioStreamPlayer2D" parent="ShrilowScreen"]
+position = Vector2(872, 455)
+stream = ExtResource("49_3tmq2")
+volume_db = -0.713
+max_distance = 800.0
+attenuation = 1.31951
+
 [node name="GPFirst" type="Timer" parent="ShrilowScreen"]
 wait_time = 2.6
 autostart = true

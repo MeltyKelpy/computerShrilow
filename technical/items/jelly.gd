@@ -59,6 +59,7 @@ func setParent():
 
 func _ready() -> void:
 	$nameShit/Name.text = jelly
+	$RigidBody2D/jelly.texture = load("res://assets/images/jellies/"+jelly+"/jelly0.png")
 	showMoney = money 
 	var showSeconds = seconds 
 	if FizzyDrink.enabledCrystal == "jelly":

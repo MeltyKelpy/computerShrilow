@@ -350,7 +350,6 @@ func saveData():
 			if ItemValues.itemInfomation[e].has("Name"):
 					if ItemValues.itemInfomation[e]["Name"] == i:
 						config.set_value("Shop", lazy[i], ItemValues.itemInfomation[e]["CurUpgrade"])
-	FizzyDrink.enabledCrystal = config.get_value("Shop", "selectedCrystal", "")
 	
 	var shopPurchases = []
 	shopPurchases.resize(ItemValues.itemInfomation.size())

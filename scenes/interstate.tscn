@@ -1,10 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://ccf01kj6665ym"]
+[gd_scene load_steps=11 format=3 uid="uid://ccf01kj6665ym"]
 
+[ext_resource type="Script" uid="uid://x3rj20dkpxuo" path="res://scenes/interstate.gd" id="1_6n3b8"]
 [ext_resource type="Texture2D" uid="uid://wa8ckju1rl61" path="res://assets/images/areas/interstate/veins.png" id="1_km12q"]
 [ext_resource type="Shader" uid="uid://dokpqajxsjnrx" path="res://technical/veins.gdshader" id="1_ky7rv"]
 [ext_resource type="Theme" uid="uid://eobcj5e6lxtm" path="res://technical/terminal.tres" id="1_ydc1b"]
 [ext_resource type="Texture2D" uid="uid://47joq1qp1fd5" path="res://assets/images/areas/interstate/terminal.png" id="2_j26w2"]
 [ext_resource type="Shader" uid="uid://dc2b8oen3gshi" path="res://technical/terminal.gdshader" id="2_mt27j"]
+[ext_resource type="AudioStream" uid="uid://c85rsh1hpftvr" path="res://assets/sounds/startUp.ogg" id="7_1gwdh"]
+[ext_resource type="AudioStream" uid="uid://32knuqevqvpg" path="res://assets/sounds/interstateambience.ogg" id="8_7w4f0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6n3b8"]
 shader = ExtResource("1_ky7rv")
@@ -29,6 +32,7 @@ shader_parameter/maskDark = 0.303
 shader_parameter/maskLight = 2.0
 
 [node name="Interstate" type="Node2D"]
+script = ExtResource("1_6n3b8")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1153.0
@@ -58,30 +62,30 @@ offset_right = 860.0
 offset_bottom = 606.0
 color = Color(0, 0, 0, 1)
 
+[node name="OPENINGTEXT" type="Label" parent="Screen"]
+offset_left = 3.0
+offset_top = 7.0
+offset_right = 560.0
+offset_bottom = 550.0
+theme = ExtResource("1_ydc1b")
+text = "THE INTERSTATE
+now loading"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
 [node name="Text" type="Label" parent="Screen"]
+visible = false
 offset_left = 3.0
 offset_top = 30.0
 offset_right = 560.0
 offset_bottom = 490.0
 theme = ExtResource("1_ydc1b")
-text = "The Interstate:
-
-A Place to find your global stats, and other things of the sort.
-enter a section to get started!
-
-You can type the section name (The Captialized Part) at the bottom to enter a section
-
-> STATS (global stats)
-
-> FILES (files)
-
-> RECYCLING (achievements)
-
-> CODES (uhm. codes.)
-"
+text = "hello gc"
 autowrap_mode = 3
 
 [node name="Block" type="Label" parent="Screen"]
+visible = false
 offset_top = 498.0
 offset_right = 566.0
 offset_bottom = 521.0
@@ -89,6 +93,7 @@ theme = ExtResource("1_ydc1b")
 text = "============================================================"
 
 [node name="Block2" type="Label" parent="Screen"]
+visible = false
 offset_top = 6.0
 offset_right = 702.0
 offset_bottom = 30.0
@@ -96,6 +101,7 @@ theme = ExtResource("1_ydc1b")
 text = "============================================================"
 
 [node name="Caret" type="Label" parent="Screen"]
+visible = false
 offset_left = 5.0
 offset_top = 516.0
 offset_right = 23.0
@@ -107,6 +113,7 @@ text = ">"
 vertical_alignment = 1
 
 [node name="LineEdit" type="LineEdit" parent="Screen"]
+visible = false
 layout_mode = 0
 offset_left = 25.0
 offset_top = 516.0
@@ -127,3 +134,18 @@ offset_right = 1153.0
 offset_bottom = 651.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_right = 1158.0
+offset_bottom = 652.0
+color = Color(0, 0, 0, 1)
+
+[node name="Alt" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_1gwdh")
+volume_db = -14.658
+
+[node name="Ambience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_7w4f0")
+volume_db = -5.584
+
+[connection signal="text_submitted" from="Screen/LineEdit" to="." method="_on_line_edit_text_submitted"]

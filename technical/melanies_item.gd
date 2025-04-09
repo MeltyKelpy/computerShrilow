@@ -102,12 +102,11 @@ func calculate():
 				caca.getID(ItemID)
 				add_child(caca)
 		else:
-			if hearMeOut[0][type][ItemID]["Name"] != "Greasepuppy" or (FizzyDrink.greasepuppies + 1) < 7:
-				cacapoopyGOD = load(hearMeOut[0][type][ItemID]["ScenePath"])
-				caca = cacapoopyGOD.instantiate()
-				add_child(caca)
-				caca.getID(ItemID)
-	if hearMeOut[0][type][ItemID]["Name"] == "Greasepuppy" and (FizzyDrink.greasepuppies + 1) < 7:
+			cacapoopyGOD = load(hearMeOut[0][type][ItemID]["ScenePath"])
+			caca = cacapoopyGOD.instantiate()
+			add_child(caca)
+			caca.getID(ItemID)
+	if hearMeOut[0][type][ItemID]["Name"] == "Greasepuppy":
 		caca.buy()
 		caca.getPuppy(FizzyDrink.greasepuppies)
 	if hearMeOut[0][type][ItemID]["CurUpgrade"] != 0:
