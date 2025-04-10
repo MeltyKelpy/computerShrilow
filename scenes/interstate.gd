@@ -4,8 +4,7 @@ var curMenu = "main"
 var validChoices = []
 var filePage = 0
 var pageHistory = []
-var pagePlacementHistory = 0
-
+var pagePlacementHistory = -1
 var files = [
 	{
 	"FILENAME":"placeholderfile bello!",
@@ -29,6 +28,7 @@ var files = [
 	"ATTACHMENT":"test",
 	},
 	]
+var fileOpen = false
 
 func _ready() -> void:
 	_update_menu("main")
@@ -79,6 +79,9 @@ func _update_menu(menu : String) -> void:
 		$Screen/Text.text = "NEXT to progress a page. LAST to go back a page."
 		_spawn_files(filePage)
 
+func _close_file():
+	pass # HAVENT CODED YET LOL
+
 func _on_line_edit_text_submitted(new_text: String) -> void:
 	$AudioStreamPlayer2D.play()
 	$Screen/VBoxContainer.visible = false
@@ -86,11 +89,12 @@ func _on_line_edit_text_submitted(new_text: String) -> void:
 	if new_text.containsn("EXIT"):
 		$AnimationPlayer.play("leaving")
 	if new_text.containsn("BACK"):
-		_kill_files()
-		if pagePlacementHistory != 0:
-			pageHistory.resize(pageHistory.size()-1)
-			pagePlacementHistory -= 2
-			_update_menu(pageHistory[pagePlacementHistory])
+		if !fileOpen:
+			_kill_files()
+			if pagePlacementHistory != 0:
+				pageHistory.resize(pageHistory.size()-1)
+				pagePlacementHistory -= 1
+				_update_menu(pageHistory[pagePlacementHistory])
 	if new_text.containsn("FILES"):
 		_kill_files()
 		filePage = 0
