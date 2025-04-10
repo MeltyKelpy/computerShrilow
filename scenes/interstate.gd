@@ -78,13 +78,10 @@ func _update_menu(menu : String) -> void:
 	if menu == "files":
 		$Screen/Text.text = "NEXT to progress a page. LAST to go back a page."
 		_spawn_files(filePage)
-		await get_tree().create_timer(1).timeout
-		$Screen/VBoxContainer.visible = true
-	else:
-		$Screen/VBoxContainer.visible = false
 
 func _on_line_edit_text_submitted(new_text: String) -> void:
 	$AudioStreamPlayer2D.play()
+	$Screen/VBoxContainer.visible = false
 	$Screen/Text.visible = false
 	if new_text.containsn("EXIT"):
 		$AnimationPlayer.play("leaving")
@@ -98,8 +95,10 @@ func _on_line_edit_text_submitted(new_text: String) -> void:
 		_kill_files()
 		filePage = 0
 		_update_menu("files")
-	await get_tree().create_timer(1).timeout
-	$Screen/Text.visible = true
+	if !new_text.containsn("EXIT"):
+		await get_tree().create_timer(1).timeout
+		$Screen/Text.visible = true
+		$Screen/VBoxContainer.visible = true
 
 func _change_text(textie):
 	$file.modulate = Color(1,1,1,0)
