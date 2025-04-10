@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ccf01kj6665ym"]
+[gd_scene load_steps=18 format=3 uid="uid://ccf01kj6665ym"]
 
 [ext_resource type="Script" uid="uid://x3rj20dkpxuo" path="res://scenes/interstate.gd" id="1_6n3b8"]
 [ext_resource type="Texture2D" uid="uid://wa8ckju1rl61" path="res://assets/images/areas/interstate/veins.png" id="1_km12q"]
@@ -8,6 +8,9 @@
 [ext_resource type="Shader" uid="uid://dc2b8oen3gshi" path="res://technical/terminal.gdshader" id="2_mt27j"]
 [ext_resource type="AudioStream" uid="uid://c85rsh1hpftvr" path="res://assets/sounds/startUp.ogg" id="7_1gwdh"]
 [ext_resource type="AudioStream" uid="uid://32knuqevqvpg" path="res://assets/sounds/interstateambience.ogg" id="8_7w4f0"]
+[ext_resource type="AudioStream" uid="uid://b75eku73xb3m6" path="res://assets/sounds/stopDown.ogg" id="8_uq6yf"]
+[ext_resource type="AudioStream" uid="uid://cqvsk1akjgkme" path="res://assets/sounds/shutdown.ogg" id="9_dc4lu"]
+[ext_resource type="AudioStream" uid="uid://bogtilk4b83ay" path="res://assets/sounds/press.ogg" id="9_vvorl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6n3b8"]
 shader = ExtResource("1_ky7rv")
@@ -31,6 +34,528 @@ shader_parameter/warp = Vector2(64, 24)
 shader_parameter/maskDark = 0.303
 shader_parameter/maskLight = 2.0
 
+[sub_resource type="Animation" id="Animation_vvorl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect2:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Alt:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Ambience:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Screen/OPENINGTEXT:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Screen/Text:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Screen/Block:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(-0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Screen/Block2:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Screen/Caret:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Screen/LineEdit:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Screen/OPENINGTEXT:text")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["THE INTERSTATE
+now loading"]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Alt3:playing")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Alt2:playing")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Veins:modulate")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.25098)]
+}
+
+[sub_resource type="Animation" id="Animation_hoerl"]
+resource_name = "leaving"
+length = 18.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect2:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(14.2, 17.3667),
+"transitions": PackedFloat32Array(1, 0.31864),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Screen/OPENINGTEXT:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 8.69598, 9.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Screen/Text:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Screen/Block:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Screen/Block2:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Screen/Caret:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Screen/LineEdit:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Screen/OPENINGTEXT:text")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.0666667, 4.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["THE INTERSTATE
+now shutting down", ""]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Alt3:playing")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.166667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Alt2:playing")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(4.4),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Veins:modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 4.53333, 8.13333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.25098), Color(1, 1, 1, 0.25098), Color(1, 1, 1, 0)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Ambience:playing")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(4.56667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_7w4f0"]
+resource_name = "opening"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect2:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.31864, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Alt:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0483048),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Ambience:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0483048),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.297302, 1),
+"update": 0,
+"values": [Vector2(1.7, 1.7), Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.297302, 1),
+"update": 0,
+"values": [Vector2(-395, -232), Vector2(0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Screen/OPENINGTEXT:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 8.69598, 9.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Screen/Text:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 8.69598, 9.19953),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Screen/Block:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 8.69598, 9.19953),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Screen/Block2:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 8.69598, 9.19953),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Screen/Caret:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 8.69598, 9.19953),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Screen/LineEdit:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 8.69598, 9.19953),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Screen/OPENINGTEXT:text")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 8.60189),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["THE INTERSTATE
+now loading", "THE INTERSTATE
+now loading.", "THE INTERSTATE
+now loading..", "THE INTERSTATE
+now loading...", "THE INTERSTATE
+now loading", "THE INTERSTATE
+now loading.", "THE INTERSTATE
+now loading..", "THE INTERSTATE
+now loading...", "THE INTERSTATE
+now loading", "THE INTERSTATE
+now loading."]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hoerl"]
+_data = {
+&"RESET": SubResource("Animation_vvorl"),
+&"leaving": SubResource("Animation_hoerl"),
+&"opening": SubResource("Animation_7w4f0")
+}
+
 [node name="Interstate" type="Node2D"]
 script = ExtResource("1_6n3b8")
 
@@ -50,12 +575,13 @@ clip_contents = true
 layout_mode = 3
 anchors_preset = 0
 offset_left = 293.0
-offset_top = 45.0
+offset_top = 28.0
 offset_right = 859.0
-offset_bottom = 604.0
+offset_bottom = 587.0
 metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect" type="ColorRect" parent="Screen"]
+layout_mode = 0
 offset_left = -293.0
 offset_top = -45.0
 offset_right = 860.0
@@ -63,6 +589,8 @@ offset_bottom = 606.0
 color = Color(0, 0, 0, 1)
 
 [node name="OPENINGTEXT" type="Label" parent="Screen"]
+visible = false
+layout_mode = 0
 offset_left = 3.0
 offset_top = 7.0
 offset_right = 560.0
@@ -75,7 +603,7 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="Text" type="Label" parent="Screen"]
-visible = false
+layout_mode = 0
 offset_left = 3.0
 offset_top = 30.0
 offset_right = 560.0
@@ -85,7 +613,7 @@ text = "hello gc"
 autowrap_mode = 3
 
 [node name="Block" type="Label" parent="Screen"]
-visible = false
+layout_mode = 0
 offset_top = 498.0
 offset_right = 566.0
 offset_bottom = 521.0
@@ -93,7 +621,7 @@ theme = ExtResource("1_ydc1b")
 text = "============================================================"
 
 [node name="Block2" type="Label" parent="Screen"]
-visible = false
+layout_mode = 0
 offset_top = 6.0
 offset_right = 702.0
 offset_bottom = 30.0
@@ -101,19 +629,17 @@ theme = ExtResource("1_ydc1b")
 text = "============================================================"
 
 [node name="Caret" type="Label" parent="Screen"]
-visible = false
+layout_mode = 0
 offset_left = 5.0
 offset_top = 516.0
 offset_right = 23.0
 offset_bottom = 554.0
 theme = ExtResource("1_ydc1b")
-theme_override_colors/font_color = Color(0, 0.32549, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = ">"
 vertical_alignment = 1
 
 [node name="LineEdit" type="LineEdit" parent="Screen"]
-visible = false
 layout_mode = 0
 offset_left = 25.0
 offset_top = 516.0
@@ -124,8 +650,28 @@ context_menu_enabled = false
 emoji_menu_enabled = false
 virtual_keyboard_enabled = false
 
+[node name="VBoxContainer" type="VBoxContainer" parent="Screen"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 58.0
+offset_right = 561.0
+offset_bottom = 504.0
+
+[node name="file" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 9.0
+offset_top = 613.0
+offset_right = 1142.0
+offset_bottom = 639.0
+theme = ExtResource("1_ydc1b")
+theme_override_colors/font_color = Color(0.411765, 0, 0, 1)
+text = "maybe i can recover this file somehow..."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
 [node name="Border" type="Sprite2D" parent="."]
-position = Vector2(576, 324)
+position = Vector2(576, 307)
 texture = ExtResource("2_j26w2")
 
 [node name="shader" type="ColorRect" parent="."]
@@ -138,14 +684,33 @@ color = Color(0, 0, 0, 1)
 [node name="ColorRect2" type="ColorRect" parent="."]
 offset_right = 1158.0
 offset_bottom = 652.0
-color = Color(0, 0, 0, 1)
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
 
 [node name="Alt" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_1gwdh")
-volume_db = -14.658
+
+[node name="Alt2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_uq6yf")
+volume_db = -5.209
+
+[node name="Alt3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_dc4lu")
 
 [node name="Ambience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_7w4f0")
-volume_db = -5.584
+volume_db = 10.47
+parameters/looping = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_hoerl")
+}
+autoplay = "opening"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(594, 684)
+stream = ExtResource("9_vvorl")
+volume_db = 8.727
 
 [connection signal="text_submitted" from="Screen/LineEdit" to="." method="_on_line_edit_text_submitted"]
