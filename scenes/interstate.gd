@@ -42,8 +42,10 @@ func _process(delta: float) -> void:
 	if curMenu == "files":
 		if Input.is_action_just_pressed("ui_down") and selectedFile < pageLength:
 			selectedFile += 1
+			$AudioStreamPlayer2D.play()
 		if Input.is_action_just_pressed("ui_up") and selectedFile > 0:
 			selectedFile -= 1
+			$AudioStreamPlayer2D.play()
 
 func _spawn_files(page):
 	var firstFile = (0 + (7 * filePage))
@@ -69,6 +71,8 @@ func open_png(png):
 	print(png)
 
 func _update_menu(menu : String) -> void:
+	$Screen/Node2D.visible = false
+	$Screen/Node2D/LineEdit.editable = false
 	if pagePlacementHistory == -1 or pageHistory[pagePlacementHistory] != menu:
 		pageHistory.append(menu)
 		pagePlacementHistory += 1
@@ -95,6 +99,12 @@ func _update_menu(menu : String) -> void:
 		$Screen/Text.text = "NEXT to progress a page. LAST to go back a page.\nuse keyboard to navigate, and OPEN to open a file."
 		await get_tree().create_timer(1).timeout
 		_spawn_files(filePage)
+	
+	if menu == "codes":
+		$Screen/Text.text = ""
+		await get_tree().create_timer(1).timeout
+		$Screen/Node2D.visible = true
+		$Screen/Node2D/LineEdit.editable = true
 
 func _close_file():
 	pass # HAVENT CODED YET LOL
@@ -118,6 +128,10 @@ func _on_line_edit_text_submitted(new_text: String) -> void:
 				locationFound = true
 		if new_text.containsn("EXIT"):
 			$AnimationPlayer.play("leaving")
+		if new_text.containsn("CODE"):
+			_kill_files()
+			_update_menu("codes")
+			locationFound = true
 		if new_text.containsn("BACK"):
 			if !fileOpen:
 				_kill_files()
@@ -150,3 +164,21 @@ func _change_text(textie):
 	$file.modulate = Color(1,1,1,1)
 	var tween = create_tween()
 	tween.tween_property($file, "modulate", Color(1,1,1,0), 10).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
+
+func code_input(new_text: String) -> void:
+	var code_recognized = false
+	
+	if new_text.containsn("4baldi"):
+		_change_text("Something changed in the setting... I feel a little heavier.")
+		Interstate.baldiModeUnlocked = true
+		Interstate.saveData()
+		code_recognized = true
+	
+	if new_text.containsn("saayo"):
+		_change_text("Something changed in the setting... suddenly the color purple fascinates me...")
+		Interstate.saayoModeUnlocked = true
+		Interstate.saveData()
+		code_recognized = true
+	
+	if code_recognized == false:
+		_change_text("i dont think that worked...")
