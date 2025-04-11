@@ -35,6 +35,7 @@ var pageLength = 0
 @onready var line_edit = $Screen/LineEdit
 
 func _ready() -> void:
+	Interstate.loadData()
 	_update_menu("main")
 
 func _process(delta: float) -> void:
