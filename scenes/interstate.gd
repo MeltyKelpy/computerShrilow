@@ -100,7 +100,6 @@ func _close_file():
 
 func _on_line_edit_text_submitted(new_text: String) -> void:
 	if !(curMenu == "files" and new_text.containsn("OPEN")):
-		filePage = 0
 		var locationFound = false
 		$AudioStreamPlayer2D.play()
 		$Screen/VBoxContainer.visible = false
@@ -129,12 +128,13 @@ func _on_line_edit_text_submitted(new_text: String) -> void:
 				else:
 					locationFound = false
 		if new_text.containsn("FILES"):
+			filePage = 0
 			_kill_files()
 			_update_menu("files")
 			locationFound = true
 		if new_text.containsn("MENU"):
 			_kill_files()
-			_update_menu("menu")
+			_update_menu("main")
 			locationFound = true
 		if !new_text.containsn("EXIT"):
 			await get_tree().create_timer(1).timeout

@@ -248,11 +248,11 @@ shape = SubResource("RectangleShape2D_3bnkc")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_iiqyl")
+&"": SubResource("AnimationLibrary_iiqyl")
 }
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
-position = Vector2(347, 408)
+position = Vector2(347, 406)
 mass = 0.009
 physics_material_override = SubResource("PhysicsMaterial_gbbob")
 gravity_scale = 0.543
@@ -301,5 +301,11 @@ stream = ExtResource("10_85137")
 volume_db = -16.865
 autoplay = true
 parameters/looping = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_right = 1177.0
+offset_bottom = 683.0
+color = Color(0, 0, 0, 1)
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

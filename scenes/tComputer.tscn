@@ -1,4 +1,4 @@
-[gd_scene load_steps=186 format=3 uid="uid://bgw557ttv6noe"]
+[gd_scene load_steps=182 format=3 uid="uid://bgw557ttv6noe"]
 
 [ext_resource type="Script" uid="uid://ddatxm3oli8qs" path="res://scenes/t_computer.gd" id="1_swrb7"]
 [ext_resource type="Texture2D" uid="uid://dajex7cpt7k4p" path="res://assets/images/bg/background.png" id="2_u0da7"]
@@ -184,18 +184,6 @@ texture = ExtResource("17_1xfnv")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t4wdy"]
 texture = ExtResource("18_1cdo7")
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ugy5"]
-size = Vector2(1774, 62)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_c61rj"]
-size = Vector2(1771.75, 44.7499)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8o1fv"]
-size = Vector2(66.0613, 1156.31)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ficg7"]
-size = Vector2(292, 1164)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ecty7"]
 animations = [{
@@ -1663,25 +1651,6 @@ position = Vector2(619, 477)
 
 [node name="Elevator" parent="Jelly" instance=ExtResource("25_y45oj")]
 position = Vector2(-333, 506)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Jelly"]
-position = Vector2(0, -9.53674e-07)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Jelly/StaticBody2D"]
-position = Vector2(267, 639)
-shape = SubResource("RectangleShape2D_0ugy5")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Jelly/StaticBody2D"]
-position = Vector2(266, -523)
-shape = SubResource("RectangleShape2D_c61rj")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Jelly/StaticBody2D"]
-position = Vector2(1119.03, 28.1563)
-shape = SubResource("RectangleShape2D_8o1fv")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Jelly/StaticBody2D"]
-position = Vector2(-476, 47)
-shape = SubResource("RectangleShape2D_ficg7")
 
 [node name="rooms" type="Control" parent="Jelly"]
 layout_mode = 3

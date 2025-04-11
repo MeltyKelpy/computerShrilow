@@ -81,6 +81,7 @@ func _process(delta: float) -> void:
 		_load_properly()
 
 func _on_load_pressed() -> void:
+	Game.curFile = ID
 	var config = ConfigFile.new()
 	
 	var err = config.load(Game.files[ID])
