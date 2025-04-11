@@ -56,7 +56,7 @@ func _ready() -> void:
 
 func _startDialog():
 	$AnimationPlayer.play("beamLoop")
-	Game.rebirths = 4
+	#Game.rebirths = 4
 	if Game.rebirths <= 2:
 		dialog = Game.rebirths
 		$Label.text = lines[dialog][prog]

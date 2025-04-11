@@ -98,7 +98,7 @@ var contributers = [
 	"Name":"lilrougedragon",
 	"Image":"res://assets/images/mainMenu/credits/ppl/henry.png",
 	"Text":'Artist\n\n""',
-	}
+	},
 	]
 
 var selectedCredit = 0
@@ -133,7 +133,7 @@ func _ready() -> void:
 		caca.position.x = 109
 		caca.position.y = 204 + (163 * i)
 		$SaveFiles.add_child(caca)
-	for i in range(0, contributers.size()-1):
+	for i in range(0, contributers.size()):
 		if i != 0:
 			var cacapoopyFUCK = load("res://technical/contributer.tscn")
 			var caca = cacapoopyFUCK.instantiate()
