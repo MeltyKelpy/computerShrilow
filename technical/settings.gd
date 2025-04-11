@@ -1,12 +1,26 @@
 extends Node
 
 var settings = [
-	#{
-	#"name":"General",
-	#"id":"general",
-	#"type":"category",
-	#"desc":"General Settings",
-	#},
+	{
+	"name":"General",
+	"id":"general",
+	"type":"category",
+	"desc":"General Settings",
+	},
+	{
+	"name":"Menu Transitions",
+	"id":"menuTrans",
+	"type":"boolean",
+	"desc":"Uses menu transitions when going between places",
+	"enabled?":true,
+	},
+	{
+	"name":"File Timer",
+	"id":"fileTimer",
+	"type":"boolean",
+	"desc":"Displays file timer",
+	"enabled?":false,
+	},
 	{
 	"name":"Accessibility",
 	"id":"accessibility",
@@ -113,11 +127,15 @@ func loadData():
 		var minesOptimization = config.get_value("Settings", "MinesOptimization", false)
 		var jelliesOptimization = config.get_value("Settings", "JelliesOptimization", false)
 		var animationOptimization = config.get_value("Settings", "AnimationsOptimization", true)
+		var menuTrans = config.get_value("Settings", "menuTrans", true)
+		var fileTimer = config.get_value("Settings", "fileTimer", false)
 		
 		Settings.settings[get_setting("kiwami")]["enabled?"] = kiwamiState
 		Settings.settings[get_setting("minesOptimization")]["enabled?"] = minesOptimization
 		Settings.settings[get_setting("jelliesOptimization")]["enabled?"] = jelliesOptimization
 		Settings.settings[get_setting("animationsOptimization")]["enabled?"] = animationOptimization
+		Settings.settings[get_setting("menuTrans")]["enabled?"] = menuTrans
+		Settings.settings[get_setting("fileTimer")]["enabled?"] = fileTimer
 		
 		if SeperatorType != null:
 			Settings.settings[get_setting("seperator")]["selection"] = SeperatorType[0]
@@ -142,4 +160,6 @@ func saveData():
 	config.set_value("Settings", "MinesOptimization", Settings.settings[get_setting("minesOptimization")]["enabled?"])
 	config.set_value("Settings", "JelliesOptimization", Settings.settings[get_setting("jelliesOptimization")]["enabled?"])
 	config.set_value("Settings", "AnimationsOptimization", Settings.settings[get_setting("animationsOptimization")]["enabled?"])
+	config.set_value("Settings", "menuTrans", Settings.settings[get_setting("menuTrans")]["enabled?"])
+	config.set_value("Settings", "fileTimer", Settings.settings[get_setting("fileTimer")]["enabled?"])
 	config.save("user://settings.cfg")

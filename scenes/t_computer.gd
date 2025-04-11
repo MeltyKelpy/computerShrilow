@@ -1117,7 +1117,9 @@ func _process(_delta : float) -> void:
 	var config2 = ConfigFile.new()
 	
 	$Camera2D/kiwami.visible = Settings.setting_state("kiwami")
-
+	
+	$"ShrilowScreen/Time Display".visible = Settings.setting_state("fileTimer")
+	
 	if Input.is_action_just_pressed("ui_cancel"):
 		var cacapoopyGOD2 = preload("res://technical/pauseMenu.tscn")
 		var caca = cacapoopyGOD2.instantiate()
@@ -1423,7 +1425,10 @@ func _on_shop_button_pressed() -> void:
 		can = false
 		print("shop")
 		area = "melanie"
-		$sectionTransitions.play("toShop")
+		if Settings.setting_state("menuTrans"):
+			$sectionTransitions.play("toShop")
+		else:
+			$sectionTransitions.play("toShop", -1, 100)
 
 func _on_back_button_shop_pressed() -> void:
 	if can == true:
@@ -1431,30 +1436,45 @@ func _on_back_button_shop_pressed() -> void:
 		if melShopState != true:
 			melShopToggle()
 		area = "notJellies"
-		$sectionTransitions.play("leaveShop")
+		if Settings.setting_state("menuTrans"):
+			$sectionTransitions.play("leaveShop")
+		else:
+			$sectionTransitions.play("leaveShop", -1, 100)
 
 func _on_wardrobe_button_pressed() -> void:
 	if can == true:
 		can = false
 		print("wardrobe")
-		$sectionTransitions.play("toWard")
+		if Settings.setting_state("menuTrans"):
+			$sectionTransitions.play("toWard")
+		else:
+			$sectionTransitions.play("toWard", -1, 100)
 
 func _on_back_button_ward_pressed() -> void:
 	if can == true:
 		can = false
-		$sectionTransitions.play("leaveWard")
+		if Settings.setting_state("menuTrans"):
+			$sectionTransitions.play("leaveWard")
+		else:
+			$sectionTransitions.play("leaveWard", -1, 100)
 
 func _on_back_button_ward2_pressed() -> void:
 	if can == true:
 		can = false
-		$sectionTransitions.play("leaveMines")
+		if Settings.setting_state("menuTrans"):
+			$sectionTransitions.play("leaveMines")
+		else:
+			$sectionTransitions.play("leaveMines", -1, 100)
 
 func _on_mines_button_pressed() -> void:
 	if !Game.contains_curse("blacklung"):
 		if can == true:
 			can = false
 			print("mines")
-			$sectionTransitions.play("toMines")
+			if Settings.setting_state("menuTrans"):
+				$sectionTransitions.play("toMines")
+			else:
+				$sectionTransitions.play("toMines", -1, 100)
 
 func _on_trophies_button_pressed() -> void:
 	var cacapoopyGOD3 = preload("res://technical/rooms/playerJournal.tscn")
@@ -1518,13 +1538,19 @@ func _on_back_button_jelly_pressed() -> void:
 	$Camera2D/storg.visible = false
 	if can == true:
 		can = false
-		$sectionTransitions.play("leaveJellies")
+		if Settings.setting_state("menuTrans"):
+			$sectionTransitions.play("leaveJellies")
+		else:
+			$sectionTransitions.play("leaveJellies", -1, 100)
 
 func _on_jellies_button_pressed() -> void:
 	if !Game.contains_curse("jelly"):
 		if can == true:
 			can = false
-			$sectionTransitions.play("toJellies")
+			if Settings.setting_state("menuTrans"):
+				$sectionTransitions.play("toJellies")
+			else:
+				$sectionTransitions.play("toJellies", -1, 100)
 
 func _on_right_move_mouse_entered() -> void:
 	if $Camera2D.position.x < (FizzyDrink.scrollLimitRIGHT):
@@ -1580,7 +1606,12 @@ func cameraAnimation(Varea, positionX, positionY, allowMove):
 		$Camera2D/bg/icon.play("elevator")
 	AnimPosCamX = positionX
 	AnimPosCamY = positionY
-	$Camera2D/AnimationPlayer.play("open")
+	if Settings.setting_state("menuTrans"):
+		$Camera2D/bg.visible = true
+		$Camera2D/AnimationPlayer.play("open")
+	else:
+		$Camera2D/bg.visible = false
+		$Camera2D/AnimationPlayer.play("open", -1, 500)
 	allowing = allowMove
 
 func moveCam():
@@ -1829,7 +1860,6 @@ func setShopBase(char : String):
 		$Melvin/ItemName.text = "MELVIN:"
 		$Melvin/ItemDescription.text = openingMessages[rng.randi_range(0, openingMessages.size()-1)]
 
-
 func marketShopToggle() -> void:
 	if dialogKey == "none":
 		$BlackMarket/talk.text = ""
@@ -1956,6 +1986,33 @@ func _on_set_names_timeout() -> void:
 
 func _on_timer_timeout() -> void:
 	Game.gameTime += 1.0
+	if Settings.setting_state("fileTimer"):
+		var time_dict = {"H" : 0, "M" : 0, "S" : 0}
+		var time = int(Game.gameTime)
+		while time >= 60:
+			time -= 60
+			time_dict["M"] += 1
+		time_dict["S"] = time
+		while time_dict["M"] >= 60:
+			time_dict["M"] -= 60
+			time_dict["H"] += 1
+		var finH
+		if time_dict["H"] < 10:
+			finH = "0"+str(time_dict["H"])
+		else:
+			finH = time_dict["H"]
+		var finM
+		if time_dict["M"] < 10:
+			finM = "0"+str(time_dict["M"])
+		else:
+			finM = time_dict["M"]
+		var finS
+		if time_dict["S"] < 10:
+			finS = "0"+str(time_dict["S"])
+		else:
+			finS = time_dict["S"]
+		var final = str(finH) + ":" + str(finM) + ":" + str(finS)
+		$"ShrilowScreen/Time Display".text = final
 
 func _spawnStorage() -> void:
 	for i in Jelly.storedJellys.size():
@@ -1991,12 +2048,20 @@ func storageCamShit(type : String):
 			_spawnStorage()
 		if type == "leave":
 			cameraAnimation(storageReturnA, storageReturnX, storageReturnY, false)
-			var timer2 = Timer.new()
-			timer2.wait_time = 3.1
-			timer2.one_shot = true
-			timer2.autostart = true
-			timer2.connect("timeout", changeArea)
-			add_child(timer2)
+			if Settings.setting_state("menuTrans"):
+				var timer2 = Timer.new()
+				timer2.wait_time = 3.1
+				timer2.one_shot = true
+				timer2.autostart = true
+				timer2.connect("timeout", changeArea)
+				add_child(timer2)
+			else:
+				var timer2 = Timer.new()
+				timer2.wait_time = 0.1
+				timer2.one_shot = true
+				timer2.autostart = true
+				timer2.connect("timeout", changeArea)
+				add_child(timer2)
 	can = false
 
 func changeArea():

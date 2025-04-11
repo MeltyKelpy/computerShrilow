@@ -1622,6 +1622,17 @@ text = "ROUND: 1
 TIME LEFT: 10:00"
 horizontal_alignment = 1
 
+[node name="Time Display" type="Label" parent="ShrilowScreen"]
+visible = false
+offset_left = 507.0
+offset_top = 580.0
+offset_right = 661.0
+offset_bottom = 645.0
+theme = ExtResource("8_oskpf")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Jelly" type="Node2D" parent="."]
 position = Vector2(-1152, 0)
 
