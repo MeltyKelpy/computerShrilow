@@ -1,4 +1,4 @@
-[gd_scene load_steps=182 format=3 uid="uid://bgw557ttv6noe"]
+[gd_scene load_steps=186 format=3 uid="uid://bgw557ttv6noe"]
 
 [ext_resource type="Script" uid="uid://ddatxm3oli8qs" path="res://scenes/t_computer.gd" id="1_swrb7"]
 [ext_resource type="Texture2D" uid="uid://dajex7cpt7k4p" path="res://assets/images/bg/background.png" id="2_u0da7"]
@@ -49,7 +49,9 @@
 [ext_resource type="Texture2D" uid="uid://dkxpmi3v4ilpw" path="res://assets/images/areas/gumball/coins/common.png" id="30_1fn55"]
 [ext_resource type="Texture2D" uid="uid://6gdisqedcy4y" path="res://assets/images/areas/journal/bg.png" id="30_a6r5c"]
 [ext_resource type="AudioStream" uid="uid://cquw41xvj2yne" path="res://assets/sounds/typeSFX.ogg" id="30_av4u0"]
+[ext_resource type="Texture2D" uid="uid://c1iw80xybelgx" path="res://assets/images/areas/jellies/PLINKERDAYCARE.png" id="30_qmvf0"]
 [ext_resource type="Texture2D" uid="uid://bxgq31xls5ffr" path="res://assets/images/areas/gumball/selArrows.png" id="31_1xbpg"]
+[ext_resource type="Texture2D" uid="uid://b1fmjun1wgvp3" path="res://assets/images/areas/jellies/sheldon.png" id="31_e7hep"]
 [ext_resource type="Texture2D" uid="uid://cm3clkbxuthio" path="res://assets/images/areas/gumball/buyButton.png" id="32_6505f"]
 [ext_resource type="AudioStream" uid="uid://b8er53yeuc5lq" path="res://assets/music/skate.ogg" id="32_rrknt"]
 [ext_resource type="Texture2D" uid="uid://cyl5tq8jp5j0t" path="res://assets/images/ui/transitions/gumball0.png" id="33_ltk4g"]
@@ -89,6 +91,7 @@
 [ext_resource type="Texture2D" uid="uid://cg4s4o4vbdqyc" path="res://assets/images/ui/transitions/elevator1.png" id="46_p35b6"]
 [ext_resource type="AudioStream" uid="uid://cpuevowyq7ag7" path="res://assets/sounds/wind.ogg" id="47_ejbio"]
 [ext_resource type="Texture2D" uid="uid://bb25yyj5us8e0" path="res://assets/images/areas/blackMarket/market/bg.png" id="48_2duj5"]
+[ext_resource type="Texture2D" uid="uid://c3wvudfv052ff" path="res://assets/images/areas/melanies/saayo.png" id="48_ayg40"]
 [ext_resource type="AudioStream" uid="uid://blfksn5wuyk14" path="res://assets/sounds/chaching.ogg" id="49_3tmq2"]
 [ext_resource type="Texture2D" uid="uid://c6wc7c80442t8" path="res://assets/images/areas/blackMarket/market/anphan/base.png" id="49_wvpqh"]
 [ext_resource type="Texture2D" uid="uid://cc2llud3fviy" path="res://assets/images/areas/blackMarket/market/box.png" id="50_ekqsy"]
@@ -102,6 +105,7 @@
 [ext_resource type="Texture2D" uid="uid://1wa4musg8sh5" path="res://assets/images/ui/transitions/market0.png" id="65_frjgo"]
 [ext_resource type="Texture2D" uid="uid://cqo6ln3nnbvqj" path="res://assets/images/areas/jellies/melvin/melvs/talk.png" id="65_x28qq"]
 [ext_resource type="Texture2D" uid="uid://dten384haeri1" path="res://assets/images/ui/transitions/market1.png" id="66_747lq"]
+[ext_resource type="Texture2D" uid="uid://etr1t4s6888b" path="res://assets/images/areas/jellies/melvin/sheldon.png" id="82_1butm"]
 [ext_resource type="AudioStream" uid="uid://d4nxr0v17co87" path="res://assets/sounds/click.ogg" id="83_hn3h7"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p6f28"]
@@ -1632,9 +1636,19 @@ texture = ExtResource("17_km8e8")
 position = Vector2(266, 324)
 texture = ExtResource("18_w041t")
 
+[node name="lgo2" type="Sprite2D" parent="Jelly"]
+visible = false
+position = Vector2(266, 324)
+texture = ExtResource("30_qmvf0")
+
 [node name="melvin" type="Sprite2D" parent="Jelly"]
 position = Vector2(494, 428)
 texture = ExtResource("20_elrg5")
+
+[node name="sheldon" type="Sprite2D" parent="Jelly"]
+visible = false
+position = Vector2(494, 428)
+texture = ExtResource("31_e7hep")
 
 [node name="desk" type="Sprite2D" parent="Jelly"]
 position = Vector2(266, 324)
@@ -1688,7 +1702,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
 position = Vector2(1152, 0)
 
 [node name="Bricks" type="Node2D" parent="Shop"]
-visible = false
+position = Vector2(0, -648)
 
 [node name="talkOptions" type="ScrollContainer" parent="Shop/Bricks"]
 offset_left = 35.0
@@ -1781,6 +1795,11 @@ texture = ExtResource("23_1b4os")
 position = Vector2(577, 324)
 sprite_frames = SubResource("SpriteFrames_ugrh1")
 animation = &"smoke"
+
+[node name="SaayoBaldi" type="Sprite2D" parent="Shop/Melanie"]
+visible = false
+position = Vector2(577, 324)
+texture = ExtResource("48_ayg40")
 
 [node name="Description" type="Sprite2D" parent="Shop"]
 position = Vector2(576, 324)
@@ -2321,6 +2340,11 @@ texture = ExtResource("17_obgyp")
 [node name="melvin" type="AnimatedSprite2D" parent="Melvin"]
 position = Vector2(576, 392)
 sprite_frames = SubResource("SpriteFrames_1f25w")
+
+[node name="sheldon" type="Sprite2D" parent="Melvin"]
+visible = false
+position = Vector2(576, 392)
+texture = ExtResource("82_1butm")
 
 [node name="BackButton" type="Button" parent="Melvin"]
 offset_left = 20.0

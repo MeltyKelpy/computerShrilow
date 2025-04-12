@@ -32,6 +32,14 @@ func _ready() -> void:
 	$jelly.texture = load("res://assets/images/jellies/"+jelly+"/jelly0.png")
 	$Label.text = jelly+"\n"+rarity+"\n"+str(money)+"$ per "+str(seconds)+" Seconds"
 
+func _process(delta: float) -> void:
+		if !Settings.setting_state("saayo"):
+			$jelly.texture = load("res://assets/images/jellies/"+jelly+"/jelly0.png")
+			$Label.text = jelly+"\n"+rarity+"\n"+str(money)+"$ per "+str(seconds)+" Seconds"
+		else:
+			$jelly.texture = load("res://assets/images/jellies/Plinker Jelly/jelly0.png")
+			$Label.text = "Plinker Jelly\n"+rarity+"\n"+str(money)+"$ per "+str(seconds)+" Seconds"
+
 func spawnRepos():
 	for i in $/root/computerShrilow/Jelly/rooms.get_child_count():
 		var hi = $/root/computerShrilow/Jelly/rooms.get_child(i)

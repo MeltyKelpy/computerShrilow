@@ -124,6 +124,7 @@ var config = ConfigFile.new()
 	]
 
 func _ready() -> void:
+	Interstate.loadData()
 	Interstate.saveData()
 	$stuff/TXT.text = "beta build: "+Game.gameVersion+"\nExported: April 10th, 2025"
 	Settings.loadData()

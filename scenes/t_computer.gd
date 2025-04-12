@@ -190,13 +190,14 @@ func manageScenes():
 	# MELANIE DIALOGUE BELOW
 	match dialogKey:
 		"none":
-			if alongTheDialogue == 0:
-				$Shop/ItemDescription.text = "Still Listening!"
-				setShopBase("melanie")
-			if alongTheDialogue == 1:
-				$Shop/ItemDescription.text = "this also worked as a test, which is cool"
-			if alongTheDialogue == 2:
-				endDialogue()
+			if !Game.contains_curse("gambling"):
+				if alongTheDialogue == 0:
+					$Shop/ItemDescription.text = "Still Listening!"
+					setShopBase("melanie")
+				if alongTheDialogue == 1:
+					$Shop/ItemDescription.text = "this also worked as a test, which is cool"
+				if alongTheDialogue == 2:
+					endDialogue()
 		"HOW":
 			if alongTheDialogue == 0:
 				$Shop/ItemDescription.text = "Honestly? i dont really remember"
@@ -347,12 +348,13 @@ func manageScenes():
 	# BRICKS DIALOGUE BELOW
 	match dialogKey:
 		"none":
-			if alongTheDialogue == 0:
-				$Shop/ItemDescription.text = "Fine! no gambling! dialogue it is!... loser."
-			if alongTheDialogue == 1:
-				$Shop/ItemDescription.text = "this also worked as a test, which is cool"
-			if alongTheDialogue == 2:
-				endDialogue()
+			if Game.contains_curse("gambling"):
+				if alongTheDialogue == 0:
+					$Shop/ItemDescription.text = "Fine! no gambling! dialogue it is!... loser."
+				if alongTheDialogue == 1:
+					$Shop/ItemDescription.text = "this also worked as a test, which is cool"
+				if alongTheDialogue == 2:
+					endDialogue()
 		"ABTYOUBRICKS":
 			if alongTheDialogue == 0:
 				$Shop/ItemDescription.text = "i am bricks. ghostybricks"
@@ -887,6 +889,7 @@ func generateHoes():
 func _ready():
 	
 	Game.loadData()
+	Interstate.loadData()
 	
 	if Game.contains_curse("gambling"):
 		$Shop/ShopMusic.stream = load("res://assets/music/screensaver.ogg")
@@ -1009,6 +1012,35 @@ func _process(_delta : float) -> void:
 		$ShrilowScreen/Shop.texture = load("res://assets/images/ui/shop.png")
 		$Shop/Bricks.position.y = -648.0
 		$Shop/Melanie.position.y = -0
+	
+	if Settings.setting_state("saayo") == true:
+		if $Shop/Melanie/Mel.visible == true:
+			$Shop/Melanie/Mel.visible = false
+			$Shop/Melanie/Sign.visible = false
+			$Melvin/sheldon.visible = true
+			$Melvin/melvin.visible = false
+			$Jelly/lgo.visible = false
+			$Jelly/lgo2.visible = true
+			$Jelly/sheldon.visible = true
+			$Jelly/melvin.visible = false
+			$Shop/Melanie/SaayoBaldi.texture = load("res://assets/images/areas/melanies/saayo.png")
+			$Shop/Melanie/SaayoBaldi.visible = true
+	elif Settings.setting_state("4baldi") == true:
+		if $Shop/Melanie/Mel.visible == true:
+			$Shop/Melanie/Mel.visible = false
+			$Shop/Melanie/Sign.visible = false
+			$Shop/Melanie/SaayoBaldi.texture = load("res://assets/images/areas/melanies/baldi.png")
+			$Shop/Melanie/SaayoBaldi.visible = true
+	else:
+		$Melvin/sheldon.visible = false
+		$Melvin/melvin.visible = true
+		$Jelly/lgo.visible = true
+		$Jelly/lgo2.visible = false
+		$Jelly/sheldon.visible = false
+		$Jelly/melvin.visible = true
+		$Shop/Melanie/Mel.visible = true
+		$Shop/Melanie/Sign.visible = true
+		$Shop/Melanie/SaayoBaldi.visible = false
 	
 	if ItemValues.money >= 1000000000:
 		Game.unlock_achievement("billionare")
@@ -1367,7 +1399,19 @@ func _process(_delta : float) -> void:
 		$DEBUGVALUES/ScrollContainer/Control/Label.text = "DEBUG MODE\n================\nEvent Timer: "+str($EventTimer.time_left)+"\nStop Events Timer: "+str($noEventsTimer.time_left)
 
 func loadShrilow():
-	textu = "res://assets/images/computershrilows/shrilowBases/"+ClothingObjects.clothes[ClothingObjects.equippedClothing]["Image"]+shrilowState+".png"
+	if Settings.setting_state("saayo") == false and Settings.setting_state("4baldi") == false:
+		textu = "res://assets/images/computershrilows/shrilowBases/"+ClothingObjects.clothes[ClothingObjects.equippedClothing]["Image"]+shrilowState+".png"
+		$ParallaxBackground/ParallaxLayer/background.texture = load("res://assets/images/bg/background.png")
+		$fade.texture = load("res://assets/images/bg/fade.png")
+	elif Settings.setting_state("saayo") == true:
+		textu = "res://assets/images/computershrilows/shrilowBases/saayo"+shrilowState+".png"
+		$ParallaxBackground/ParallaxLayer/background.texture = load("res://assets/images/bg/background-saayo.png")
+		$fade.texture = load("res://assets/images/bg/fade-saayo.png")
+	elif Settings.setting_state("4baldi") == true:
+		textu = "res://assets/images/computershrilows/shrilowBases/baldi"+shrilowState+".png"
+		$ParallaxBackground/ParallaxLayer/background.texture = load("res://assets/images/bg/background-baldi.png")
+		$fade.texture = load("res://assets/images/bg/fade-baldi.png")
+	
 	if ResourceLoader.exists(textu):
 		$Shrilow/Shrilow.texture = load(textu)
 	else:
@@ -2206,11 +2250,11 @@ func _on_first_timeout() -> void:
 	if $ShrilowScreen/puppies.get_child_count() > 0:
 		ItemValues.money += 3 * FizzyDrink.greasepuppies
 		$ShrilowScreen/AudioListener2D.play()
-		for i in range(0, $ShrilowScreen/puppies.get_child_count()-1):
+		for i in range(0, $ShrilowScreen/puppies.get_child_count()):
 			$ShrilowScreen/puppies.get_child(i)._update(true)
 	$ShrilowScreen/GPSecond.start()
 
 func _on_gp_second_timeout() -> void:
 	if $ShrilowScreen/puppies.get_child_count() > 0:
-		for i in range(0, $ShrilowScreen/puppies.get_child_count()-1):
+		for i in range(0, $ShrilowScreen/puppies.get_child_count()):
 			$ShrilowScreen/puppies.get_child(i)._update(false)

@@ -114,9 +114,15 @@ func _process(_delta: float) -> void:
 	$ManageMenu.visible = managing
 	
 	if Settings.setting_state("animationsOptimization"):
-		$CharacterSprite.texture = load("res://assets/images/areas/mines/"+Name+str(state)+".png")
+		if !Settings.setting_state("saayo"):
+			$CharacterSprite.texture = load("res://assets/images/areas/mines/"+Name+str(state)+".png")
+		else:
+			$CharacterSprite.texture = load("res://assets/images/areas/mines/Saayo"+str(state)+".png")
 	else:
-		$CharacterSprite.texture = load("res://assets/images/areas/mines/"+Name+"0.png")
+		if !Settings.setting_state("saayo"):
+			$CharacterSprite.texture = load("res://assets/images/areas/mines/"+Name+"0.png")
+		else:
+			$CharacterSprite.texture = load("res://assets/images/areas/mines/Saayo0.png")
 	
 	$ManageMenu.visible = managing
 	

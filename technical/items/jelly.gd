@@ -18,6 +18,8 @@ var hi = true
 var is_dragging = false
 var showMoney = 0
 
+var state = 0
+
 var colorsIgLOL = [
 	{
 	"Common":Color(1, 0.9058823529, 0.8509803922),
@@ -87,6 +89,17 @@ func _ready() -> void:
 		$RigidBody2D/jelly.material.set_shader_parameter("rainbow", false)
 
 func _physics_process(delta: float) -> void:
+	
+	if Settings.setting_state("animationsOptimization"):
+		if !Settings.setting_state("saayo"):
+			$RigidBody2D/jelly.texture = load("res://assets/images/jellies/"+jelly+"/jelly"+str(state)+".png")
+		else:
+			$RigidBody2D/jelly.texture = load("res://assets/images/jellies/Plinker Jelly/jelly"+str(state)+".png")
+	else:
+		if !Settings.setting_state("saayo"):
+			$RigidBody2D/jelly.texture = load("res://assets/images/jellies/"+jelly+"/jelly0.png")
+		else:
+			$RigidBody2D/jelly.texture = load("res://assets/images/jellies/Plinker Jelly/jelly0.png")
 	
 	if Settings.setting_state("jelliesOptimization"):
 		rigid_body_2d.set_collision_mask_value(2, false)
@@ -167,12 +180,12 @@ func _on_timer_timeout() -> void:
 	ItemValues.money += showMoney
 	if Settings.setting_state("animationsOptimization"):
 		$RigidBody2D/Squeak.play()
-		$RigidBody2D/jelly.texture = load("res://assets/images/jellies/"+jelly+"/jelly1.png")
+		state = 1
 		$SecondTimer.start()
 
 func _on_second_timer_timeout() -> void:
 	if Settings.setting_state("animationsOptimization"):
-		$RigidBody2D/jelly.texture = load("res://assets/images/jellies/"+jelly+"/jelly0.png")
+		state = 0
 		$FirstTimer.start()
 
 func _jelly_spawn() -> void:

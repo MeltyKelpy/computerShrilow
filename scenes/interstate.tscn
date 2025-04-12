@@ -657,6 +657,7 @@ offset_right = 561.0
 offset_bottom = 504.0
 
 [node name="Node2D" type="Node2D" parent="Screen"]
+visible = false
 position = Vector2(0, 32)
 
 [node name="Text" type="Label" parent="Screen/Node2D"]

@@ -169,15 +169,23 @@ func code_input(new_text: String) -> void:
 	var code_recognized = false
 	
 	if new_text.containsn("4baldi"):
-		_change_text("Something changed in the setting... I feel a little heavier.")
+		_change_text("Something changed in the settings... I feel a little heavier.")
 		Interstate.baldiModeUnlocked = true
 		Interstate.saveData()
 		code_recognized = true
 	
 	if new_text.containsn("saayo"):
-		_change_text("Something changed in the setting... suddenly the color purple fascinates me...")
+		_change_text("Something changed in the settings... suddenly the color purple fascinates me...")
 		Interstate.saayoModeUnlocked = true
 		Interstate.saveData()
+		code_recognized = true
+	
+	if new_text.containsn("spencer") or new_text.containsn("stargod"):
+		_change_text("Pretty......")
+		code_recognized = true
+	
+	if new_text.containsn("melanie") or new_text.containsn("melty"):
+		_change_text("Stars....")
 		code_recognized = true
 	
 	if code_recognized == false:

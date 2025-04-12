@@ -85,24 +85,36 @@ var settings = [
 	"desc":"dont search kiwami in the discord gif search",
 	"enabled?":false,
 	},
+	{
+	"name":"Saayo Mode",
+	"id":"saayo",
+	"type":"boolean",
+	"desc":"ur welcome",
+	"enabled?":false,
+	},
+	{
+	"name":"4baldi Mode",
+	"id":"4baldi",
+	"type":"boolean",
+	"desc":"spellsspells is fat",
+	"enabled?":false,
+	},
 	]
 
 func setting_state(id):
-	var output
+	var output = get_setting(id)
 	var desired_output
 	
-	for i in settings.size():
-		if settings[i]["id"] == id:
-			output = i
-			break
-	
-	if settings[output]["type"] == "boolean":
-		desired_output = settings[output]["enabled?"]
-	
-	if settings[output]["type"] == "multiChoice":
-		desired_output = settings[output]["selectionNum"]
-	
-	return desired_output
+	if output != null:
+		if settings[output]["type"] == "boolean":
+			desired_output = settings[output]["enabled?"]
+		
+		if settings[output]["type"] == "multiChoice":
+			desired_output = settings[output]["selectionNum"]
+		
+		return desired_output
+	else:
+		return false
 
 func get_setting(id):
 	var output
@@ -129,6 +141,8 @@ func loadData():
 		var animationOptimization = config.get_value("Settings", "AnimationsOptimization", true)
 		var menuTrans = config.get_value("Settings", "menuTrans", true)
 		var fileTimer = config.get_value("Settings", "fileTimer", false)
+		var saayoMode = config.get_value("Settings", "saayoMode", false)
+		var baldiMode = config.get_value("Settings", "baldiMode", false)
 		
 		Settings.settings[get_setting("kiwami")]["enabled?"] = kiwamiState
 		Settings.settings[get_setting("minesOptimization")]["enabled?"] = minesOptimization
@@ -136,6 +150,8 @@ func loadData():
 		Settings.settings[get_setting("animationsOptimization")]["enabled?"] = animationOptimization
 		Settings.settings[get_setting("menuTrans")]["enabled?"] = menuTrans
 		Settings.settings[get_setting("fileTimer")]["enabled?"] = fileTimer
+		Settings.settings[get_setting("saayo")]["enabled?"] = saayoMode
+		Settings.settings[get_setting("4baldi")]["enabled?"] = baldiMode
 		
 		if SeperatorType != null:
 			Settings.settings[get_setting("seperator")]["selection"] = SeperatorType[0]
@@ -162,4 +178,6 @@ func saveData():
 	config.set_value("Settings", "AnimationsOptimization", Settings.settings[get_setting("animationsOptimization")]["enabled?"])
 	config.set_value("Settings", "menuTrans", Settings.settings[get_setting("menuTrans")]["enabled?"])
 	config.set_value("Settings", "fileTimer", Settings.settings[get_setting("fileTimer")]["enabled?"])
+	config.set_value("Settings", "saayoMode", Settings.settings[get_setting("saayo")]["enabled?"])
+	config.set_value("Settings", "baldiMode", Settings.settings[get_setting("4baldi")]["enabled?"])
 	config.save("user://settings.cfg")

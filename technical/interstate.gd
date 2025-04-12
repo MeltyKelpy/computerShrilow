@@ -12,6 +12,12 @@ func _ready() -> void:
 	if err != OK:
 		saveData()
 
+func _process(delta: float) -> void:
+	if $Timer.is_stopped():
+		$Timer.start()
+	if $autoSaveTimer.is_stopped():
+		$autoSaveTimer.start()
+
 func saveData():
 	var config = ConfigFile.new()
 	
