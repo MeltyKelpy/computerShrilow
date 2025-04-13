@@ -1014,23 +1014,27 @@ func _process(_delta : float) -> void:
 		$Shop/Melanie.position.y = -0
 	
 	if Settings.setting_state("saayo") == true:
-		if $Shop/Melanie/Mel.visible == true:
-			$Shop/Melanie/Mel.visible = false
-			$Shop/Melanie/Sign.visible = false
-			$Melvin/sheldon.visible = true
-			$Melvin/melvin.visible = false
-			$Jelly/lgo.visible = false
-			$Jelly/lgo2.visible = true
-			$Jelly/sheldon.visible = true
-			$Jelly/melvin.visible = false
-			$Shop/Melanie/SaayoBaldi.texture = load("res://assets/images/areas/melanies/saayo.png")
-			$Shop/Melanie/SaayoBaldi.visible = true
+		$Shop/Melanie/Mel.visible = false
+		$Shop/Melanie/Sign.visible = false
+		$Melvin/sheldon.visible = true
+		$Melvin/melvin.visible = false
+		$Jelly/lgo.visible = false
+		$Jelly/lgo2.visible = true
+		$Jelly/sheldon.visible = true
+		$Jelly/melvin.visible = false
+		$Shop/Melanie/SaayoBaldi.texture = load("res://assets/images/areas/melanies/saayo.png")
+		$Shop/Melanie/SaayoBaldi.visible = true
 	elif Settings.setting_state("4baldi") == true:
-		if $Shop/Melanie/Mel.visible == true:
-			$Shop/Melanie/Mel.visible = false
-			$Shop/Melanie/Sign.visible = false
-			$Shop/Melanie/SaayoBaldi.texture = load("res://assets/images/areas/melanies/baldi.png")
-			$Shop/Melanie/SaayoBaldi.visible = true
+		$Melvin/sheldon.visible = false
+		$Melvin/melvin.visible = true
+		$Jelly/lgo.visible = true
+		$Jelly/lgo2.visible = false
+		$Jelly/sheldon.visible = false
+		$Jelly/melvin.visible = true
+		$Shop/Melanie/Mel.visible = false
+		$Shop/Melanie/Sign.visible = false
+		$Shop/Melanie/SaayoBaldi.texture = load("res://assets/images/areas/melanies/baldi.png")
+		$Shop/Melanie/SaayoBaldi.visible = true
 	else:
 		$Melvin/sheldon.visible = false
 		$Melvin/melvin.visible = true

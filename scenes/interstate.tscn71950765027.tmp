@@ -726,19 +726,18 @@ text = "=
 
 [node name="png" type="Sprite2D" parent="Screen/png"]
 visible = false
-position = Vector2(281, 232.8)
+position = Vector2(281, 226.8)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("5_y5hd8")
 
 [node name="Label" type="Label" parent="Screen/png"]
 visible = false
 offset_left = 61.0
-offset_top = 438.8
+offset_top = 432.8
 offset_right = 502.0
-offset_bottom = 489.8
+offset_bottom = 456.8
 theme = ExtResource("1_ydc1b")
-text = "FILE NAME
-hi"
+text = "FILE NAME"
 horizontal_alignment = 1
 
 [node name="file" type="Label" parent="."]

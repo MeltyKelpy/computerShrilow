@@ -24,10 +24,15 @@ func _ready() -> void:
 		$jelly.material.set_shader_parameter("rainbow", false)
 	else:
 		$jelly.material.set_shader_parameter("rainbow", true)
-	$jelly.texture = load("res://assets/images/jellies/"+jelly+"/jelly0.png")
-	$jellyCover.texture = load("res://assets/images/jellies/"+jelly+"/jelly0.png")
 
 func _process(_delta: float) -> void:
+	
+	if Settings.setting_state("saayo"):
+		$jelly.texture = load("res://assets/images/jellies/Plinker Jelly/jelly0.png")
+		$jellyCover.texture = load("res://assets/images/jellies/Plinker Jelly/jelly0.png")
+	else:
+		$jelly.texture = load("res://assets/images/jellies/"+jelly+"/jelly0.png")
+		$jellyCover.texture = load("res://assets/images/jellies/"+jelly+"/jelly0.png")
 	
 	if rarity == "Blue":
 		if Jelly.blueJellies[jellyNum]["Discovered"] == false:
@@ -95,8 +100,12 @@ func _on_mouse_entered() -> void:
 		Jelly.jellyName = "???"
 		Jelly.jellyDesc = "???"
 	else:
-		Jelly.jellyName = jelly
-		Jelly.jellyDesc = desc
+		if !Settings.setting_state("saayo"):
+			Jelly.jellyName = jelly
+			Jelly.jellyDesc = desc
+		else:
+			Jelly.jellyName = "Plinker Jelly"
+			Jelly.jellyDesc = "saayo!"
 
 func _on_mouse_exited() -> void:
 	Jelly.jellyName = "Hover over a jelly to see its description!"

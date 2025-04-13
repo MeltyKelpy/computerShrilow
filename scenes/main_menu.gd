@@ -111,6 +111,7 @@ var intro = true
 var can = true
 
 var config = ConfigFile.new()
+var loadingFile = false
 
 @onready var dots = [
 	$Credits/dot1,
@@ -132,6 +133,7 @@ func _ready() -> void:
 		var cacapoopyFUCK = load("res://technical/saveBox.tscn")
 		var caca = cacapoopyFUCK.instantiate()
 		caca.ID = i
+		caca.parent = self
 		caca.position.x = 109
 		caca.position.y = 204 + (163 * i)
 		$SaveFiles.add_child(caca)

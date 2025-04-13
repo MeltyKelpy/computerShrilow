@@ -1,6 +1,8 @@
 extends Node2D
 
 var curMenu = "main"
+var txtFile = "test"
+var txtPage = 0
 var validChoices = []
 var filePage = 0
 var pageHistory = []
@@ -27,8 +29,133 @@ var files = [
 	"LOCKEDTEXT":"",
 	"ATTACHMENT":"test",
 	},
+	{
+	"FILENAME":"placeholderfile3 bello!",
+	"FILETYPE":".png",
+	"LOCKED":true,
+	"LOCKEDTEXT":"bello!",
+	"ATTACHMENT":"test",
+	},
+	{
+	"FILENAME":"placeholderfile2 bello!",
+	"FILETYPE":".txt",
+	"LOCKED":false,
+	"LOCKEDTEXT":"",
+	"ATTACHMENT":"test",
+	},
+	{
+	"FILENAME":"placeholderfile3 bello!",
+	"FILETYPE":".png",
+	"LOCKED":true,
+	"LOCKEDTEXT":"bello!",
+	"ATTACHMENT":"test",
+	},
+	{
+	"FILENAME":"placeholderfile2 bello!",
+	"FILETYPE":".txt",
+	"LOCKED":false,
+	"LOCKEDTEXT":"",
+	"ATTACHMENT":"test",
+	},
+	{
+	"FILENAME":"placeholderfile3 bello!",
+	"FILETYPE":".png",
+	"LOCKED":true,
+	"LOCKEDTEXT":"bello!",
+	"ATTACHMENT":"test",
+	},
+	{
+	"FILENAME":"placeholderfile2 bello!",
+	"FILETYPE":".txt",
+	"LOCKED":false,
+	"LOCKEDTEXT":"",
+	"ATTACHMENT":"test",
+	},
+	{
+	"FILENAME":"placeholderfile3 bello!",
+	"FILETYPE":".png",
+	"LOCKED":true,
+	"LOCKEDTEXT":"bello!",
+	"ATTACHMENT":"test",
+	},
+	{
+	"FILENAME":"placeholderfile2 bello!",
+	"FILETYPE":".txt",
+	"LOCKED":false,
+	"LOCKEDTEXT":"",
+	"ATTACHMENT":"test",
+	},
+	{
+	"FILENAME":"placeholderfile3 bello!",
+	"FILETYPE":".png",
+	"LOCKED":true,
+	"LOCKEDTEXT":"bello!",
+	"ATTACHMENT":"test",
+	},
+	{
+	"FILENAME":"placeholderfile2 bello!",
+	"FILETYPE":".txt",
+	"LOCKED":false,
+	"LOCKEDTEXT":"",
+	"ATTACHMENT":"test",
+	},
+	{
+	"FILENAME":"placeholderfile3 bello!",
+	"FILETYPE":".png",
+	"LOCKED":true,
+	"LOCKEDTEXT":"bello!",
+	"ATTACHMENT":"test",
+	},
+	{
+	"FILENAME":"placeholderfile2 bello!",
+	"FILETYPE":".txt",
+	"LOCKED":false,
+	"LOCKEDTEXT":"",
+	"ATTACHMENT":"test",
+	},
+	{
+	"FILENAME":"placeholderfile3 bello!",
+	"FILETYPE":".png",
+	"LOCKED":true,
+	"LOCKEDTEXT":"bello!",
+	"ATTACHMENT":"test",
+	},
+	{
+	"FILENAME":"placeholderfile2 bello!",
+	"FILETYPE":".txt",
+	"LOCKED":false,
+	"LOCKEDTEXT":"",
+	"ATTACHMENT":"test",
+	},
+	{
+	"FILENAME":"placeholderfile3 bello!",
+	"FILETYPE":".png",
+	"LOCKED":true,
+	"LOCKEDTEXT":"bello!",
+	"ATTACHMENT":"test",
+	},
+	{
+	"FILENAME":"placeholderfile2 bello!",
+	"FILETYPE":".txt",
+	"LOCKED":false,
+	"LOCKEDTEXT":"",
+	"ATTACHMENT":"test",
+	},
+	{
+	"FILENAME":"placeholderfile3 bello!",
+	"FILETYPE":".png",
+	"LOCKED":true,
+	"LOCKEDTEXT":"bello!",
+	"ATTACHMENT":"test",
+	},
+	{
+	"FILENAME":"placeholderfile2 bello!",
+	"FILETYPE":".txt",
+	"LOCKED":false,
+	"LOCKEDTEXT":"",
+	"ATTACHMENT":"test",
+	},
 	]
-var fileOpen = false
 var selectedFile = 0
 var pageLength = 0
 
@@ -36,7 +163,7 @@ var pageLength = 0
 
 func _ready() -> void:
 	Interstate.loadData()
-	_update_menu("main")
+	_update_menu("main", false)
 
 func _process(delta: float) -> void:
 	if curMenu == "files":
@@ -48,8 +175,8 @@ func _process(delta: float) -> void:
 			$AudioStreamPlayer2D.play()
 
 func _spawn_files(page):
-	var firstFile = (0 + (7 * filePage))
-	for i in range(firstFile, firstFile+7):
+	var firstFile = (0 + (8 * filePage))
+	for i in range(firstFile, firstFile+8):
 		if (files.size()-1) >= i:
 			var cacapoopyFUCK = load("res://technical/interstateFile.tscn")
 			var caca = cacapoopyFUCK.instantiate()
@@ -67,96 +194,131 @@ func _kill_files():
 	for i in $Screen/VBoxContainer.get_child_count():
 		$Screen/VBoxContainer.get_child(i).queue_free()
 
-func open_png(png):
-	print(png)
+func open_png(fileName, png):
+	$Screen/Text.text = ""
+	curMenu = "png"
+	_kill_files()
+	_set_terminal(false)
+	await get_tree().create_timer(1).timeout
+	_set_terminal(true)
+	$Screen/png/Label.text = fileName+".png\nBACK to close."
+	if ResourceLoader.exists("res://assets/images/areas/interstate/pngs/"+png+".png"):
+		$Screen/png/png.texture = load("res://assets/images/areas/interstate/pngs/"+png+".png")
+	else:
+		$Screen/png/png.texture = load("res://assets/images/areas/interstate/pngs/temp.png")
+	$Screen/png/png.visible = true
+	$Screen/png/Label.visible = true
 
-func _update_menu(menu : String) -> void:
+func _update_menu(menu : String,  subMenu : bool) -> void:
 	$Screen/Node2D.visible = false
 	$Screen/Node2D/LineEdit.editable = false
 	if pagePlacementHistory == -1 or pageHistory[pagePlacementHistory] != menu:
 		pageHistory.append(menu)
 		pagePlacementHistory += 1
-	curMenu = menu
-	if menu == "main":
-		$Screen/Text.text = """The Interstate:
+	if subMenu == false:
+		curMenu = menu
+		if menu == "main":
+			$Screen/Text.text = """The Interstate:
+			
+			A Place to find your global stats, and other things of the sort.
+			enter a section to get started!
+			
+			You can type the section name (The Captialized Part) at the bottom to enter a section
+			MENU allows you to return here, and BACK will take you back to whatever your last page was. EXIT leaves the interstate.
+			
+			> STATS (global stats)
+			
+			> FILES (files)
+			
+			> RECYCLING (achievements)
+			
+			> CODES (uhm. codes.)
+			"""
 		
-		A Place to find your global stats, and other things of the sort.
-		enter a section to get started!
+		if menu == "files":
+			$Screen/Text.text = "NEXT to progress a page. LAST to go back a page.\nuse keyboard to navigate, and OPEN to open a file."
+			await get_tree().create_timer(1).timeout
+			_spawn_files(filePage)
 		
-		You can type the section name (The Captialized Part) at the bottom to enter a section
-		MENU allows you to return here, and BACK will take you back to whatever your last page was. EXIT leaves the interstate.
-		
-		> STATS (global stats)
-		
-		> FILES (files)
-		
-		> RECYCLING (achievements)
-		
-		> CODES (uhm. codes.)
-		"""
-	
-	if menu == "files":
-		$Screen/Text.text = "NEXT to progress a page. LAST to go back a page.\nuse keyboard to navigate, and OPEN to open a file."
+		if menu == "codes":
+			$Screen/Text.text = ""
+			await get_tree().create_timer(1).timeout
+			$Screen/Node2D.visible = true
+			$Screen/Node2D/LineEdit.editable = true
+	else:
+		_set_terminal(false)
 		await get_tree().create_timer(1).timeout
-		_spawn_files(filePage)
-	
-	if menu == "codes":
-		$Screen/Text.text = ""
-		await get_tree().create_timer(1).timeout
-		$Screen/Node2D.visible = true
-		$Screen/Node2D/LineEdit.editable = true
+		_set_terminal(true)
+		curMenu = "txtFile"
+		txtFile = menu
+		menu += str(txtPage)
+		$Screen/Text.text = "NEXT for next page, LAST for last page (if applicable)\nBACK to return to files.\n\n"
+		if menu == "test0":
+			_kill_files()
+			$Screen/Text.text += "Test for TXT File!"
+		else:
+			_change_text("nothing...")
 
 func _close_file():
-	pass # HAVENT CODED YET LOL
+	$Screen/png/png.visible = false
+	$Screen/png/Label.visible = false
+
+func _set_terminal(type):
+	if type == false:
+		$AudioStreamPlayer2D.play()
+		$Screen/VBoxContainer.visible = false
+		$Screen/Text.visible = false
+		$Screen/png.visible = false
+	if type == true:
+		$Screen/VBoxContainer.visible = true
+		$Screen/Text.visible = true
+		$Screen/png.visible = true
 
 func _on_line_edit_text_submitted(new_text: String) -> void:
 	if !(curMenu == "files" and new_text.containsn("OPEN")):
 		var locationFound = false
-		$AudioStreamPlayer2D.play()
-		$Screen/VBoxContainer.visible = false
-		$Screen/Text.visible = false
+		_set_terminal(false)
+		_kill_files()
 		if curMenu == "files":
-			if new_text.containsn("NEXT") and files.size() <= (0 + (7 * (filePage+1))):
-				_kill_files()
+			if new_text.containsn("NEXT") and files.size() >= (0 + (8 * (filePage+1))):
 				filePage += 1
-				_update_menu("files")
+				_update_menu("files", false)
 				locationFound = true
-			if new_text.containsn("LAST") and (0 + (7 * (filePage-1))) >= 0:
-				_kill_files()
+			if new_text.containsn("LAST") and filePage > 0:
 				filePage -= 1
-				_update_menu("files")
+				_update_menu("files", false)
 				locationFound = true
+			elif (new_text.containsn("LAST") or new_text.containsn("NEXT")) and filePage <= 0:
+				_update_menu("files", false)
 		if new_text.containsn("EXIT"):
 			$AnimationPlayer.play("leaving")
 		if new_text.containsn("CODE"):
-			_kill_files()
-			_update_menu("codes")
+			_update_menu("codes", false)
 			locationFound = true
 		if new_text.containsn("BACK"):
-			if !fileOpen:
-				_kill_files()
-				if pagePlacementHistory != 0:
-					pageHistory.resize(pageHistory.size()-1)
-					pagePlacementHistory -= 1
-					_update_menu(pageHistory[pagePlacementHistory])
-					locationFound = true
-				else:
-					locationFound = false
+			if curMenu == "png":
+				_close_file()
+				locationFound = true
+			if pagePlacementHistory != 0:
+				pageHistory.resize(pageHistory.size()-1)
+				pagePlacementHistory -= 1
+				_update_menu(pageHistory[pagePlacementHistory], false)
+				locationFound = true
+			else:
+				locationFound = false
 		if new_text.containsn("FILES"):
 			filePage = 0
-			_kill_files()
-			_update_menu("files")
+			_update_menu("files", false)
 			locationFound = true
 		if new_text.containsn("MENU"):
-			_kill_files()
-			_update_menu("main")
+			_update_menu("main", false)
 			locationFound = true
 		if !new_text.containsn("EXIT"):
 			await get_tree().create_timer(1).timeout
 			if locationFound == false:
 				_change_text("That doesnt seem to exist...")
-			$Screen/Text.visible = true
-			$Screen/VBoxContainer.visible = true
+			_close_file()
+			_set_terminal(true)
 
 func _change_text(textie):
 	$file.modulate = Color(1,1,1,0)
@@ -186,6 +348,11 @@ func code_input(new_text: String) -> void:
 	
 	if new_text.containsn("melanie") or new_text.containsn("melty"):
 		_change_text("Stars....")
+		code_recognized = true
+	
+	if new_text.containsn("ghost"):
+		_change_text("hmm...")
+		$AudioStreamPlayer.play()
 		code_recognized = true
 	
 	if code_recognized == false:

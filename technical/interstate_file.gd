@@ -26,6 +26,6 @@ func _on_pressed() -> void:
 		parent._change_text(lockText)
 	else:
 		if fileType == ".png":
-			parent.open_png(attachedFile)
+			parent.open_png(fileName, attachedFile)
 		if fileType == ".txt":
-			parent._update_menu(attachedFile)
+			parent._update_menu(attachedFile, true)

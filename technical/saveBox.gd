@@ -4,6 +4,7 @@ var ID = 0
 var time_dict = {"H" : 0, "M" : 0, "S" : 0}
 var icon = 0
 var load = false
+var parent : Node
 
 func _ready() -> void:
 	Game.reloadGlobals()
@@ -44,7 +45,7 @@ func _ready() -> void:
 		icon = config.get_value("Fiscal", "Icon")
 	else:
 		$Icon.visible = false
-		$FileName.text = "FILE "+str(ID+1)
+		$FileName.text = "UNNAMED (FILE "+str(ID+1)+")"
 		$Desc.text = ""
 		Game.curFile = ID
 		icon = 0
@@ -81,26 +82,28 @@ func _process(delta: float) -> void:
 		_load_properly()
 
 func _on_load_pressed() -> void:
-	Game.curFile = ID
-	var config = ConfigFile.new()
-	
-	var err = config.load(Game.files[ID])
-	
-	if config.get_value("Fiscal", "gameVersion") != null:
-		var fileVersion = config.get_value("Fiscal", "gameVersion")
-		if fileVersion < Game.gameVersion or fileVersion > Game.gameVersion:
-			var caca = load("res://technical/popup.tscn").instantiate()
-			if fileVersion < Game.gameVersion:
-				caca.create("This File's game version ("+fileVersion+") is older than the current build! ("+Game.gameVersion+").\nThis could create errors if you try to load this file in its original older version, are you sure?\n(note: it will work fine in this build!)")
-			if fileVersion > Game.gameVersion:
-				caca.create("This File's game version ("+fileVersion+") is from a build later than this current build! ("+Game.gameVersion+").\nLoading it on this build could create errors when trying to load this file on its original (new) build, are you sure?\n(note: it will work fine in this build!)")
-			add_child(caca)
+	if parent.loadingFile == false:
+		Game.curFile = ID
+		var config = ConfigFile.new()
+		
+		var err = config.load(Game.files[ID])
+		
+		if config.get_value("Fiscal", "gameVersion") != null:
+			var fileVersion = config.get_value("Fiscal", "gameVersion")
+			if fileVersion < Game.gameVersion or fileVersion > Game.gameVersion:
+				var caca = load("res://technical/popup.tscn").instantiate()
+				if fileVersion < Game.gameVersion:
+					caca.create("This File's game version ("+fileVersion+") is older than the current build! ("+Game.gameVersion+").\nThis could create errors if you try to load this file in its original older version, are you sure?\n(note: it will work fine in this build!)")
+				if fileVersion > Game.gameVersion:
+					caca.create("This File's game version ("+fileVersion+") is from a build later than this current build! ("+Game.gameVersion+").\nLoading it on this build could create errors when trying to load this file on its original (new) build, are you sure?\n(note: it will work fine in this build!)")
+				add_child(caca)
+			else:
+				_load_properly()
 		else:
-			_load_properly()
-	else:
-			_load_properly()
+				_load_properly()
 
 func _load_properly():
+	parent.loadingFile = true
 	Game.curFile = ID
 	var hi1 = get_parent()
 	var hi2 = hi1.get_parent()
