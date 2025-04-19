@@ -109,17 +109,24 @@ func calculate():
 	if hearMeOut[type][ItemID]["Name"] == "Greasepuppy":
 		caca.buy()
 		caca.getPuppy(FizzyDrink.greasepuppies)
+	if hearMeOut[type][ItemID]["Name"] == "Plus One" or hearMeOut[type][ItemID]["Name"] == "Plus One Auto":
+		Interstate.plusones += 1
 	if hearMeOut[type][ItemID]["CurUpgrade"] != 0:
-		ItemValues.money -= hearMeOut[type][ItemID]["Cost"]*(hearMeOut[type][ItemID]["CurUpgrade"]+1)
+		var ammo = hearMeOut[type][ItemID]["Cost"]*(hearMeOut[type][ItemID]["CurUpgrade"]+1)
+		ItemValues.money -= ammo
+		Interstate.totallost -= ammo
 	if hearMeOut[type][ItemID]["CurUpgrade"] == 0:
 		if hearMeOut[type][ItemID]["Name"] == "Greasepuppy":
 			var multi = FizzyDrink.greasepuppies - 4
 			if multi < 0:
 				multi = 0
-			ItemValues.money -= hearMeOut[type][ItemID]["Cost"] + (hearMeOut[type][ItemID]["Cost"] * 0.1) * multi
+			var ammo = hearMeOut[type][ItemID]["Cost"] + (hearMeOut[type][ItemID]["Cost"] * 0.1) * multi
+			ItemValues.money -= ammo
+			Interstate.totallost -= ammo
 			FizzyDrink.greasepuppies += 1
 		else:
 			ItemValues.money -= hearMeOut[type][ItemID]["Cost"]
+			Interstate.totallost -= hearMeOut[type][ItemID]["Cost"]
 	if hearMeOut[type][ItemID]["Type"] == "Generic":
 		hearMeOut[type][ItemID]["CurUpgrade"] += 1
 	ItemValues.itemExtra = ItemSpecificString

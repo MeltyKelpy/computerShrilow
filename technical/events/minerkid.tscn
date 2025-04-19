@@ -75,6 +75,18 @@ process_mode = 3
 z_index = 4096
 script = ExtResource("1_cfsla")
 
+[node name="omi" type="Label" parent="."]
+visible = false
+offset_left = 165.0
+offset_top = 587.0
+offset_right = 437.0
+offset_bottom = 642.0
+theme = ExtResource("4_skn8a")
+theme_override_font_sizes/font_size = 50
+text = "not this time."
+vertical_alignment = 1
+autowrap_mode = 3
+
 [node name="miner" type="Sprite2D" parent="."]
 position = Vector2(83, 828)
 texture = ExtResource("2_4wqpm")

@@ -211,6 +211,7 @@ func showResults():
 				$typeBox/Show.text = $typeBox/Show.text + "[color=red]"+deterministic[i]["sectionOfText"]+"[/color]"
 				hi = false
 				stars -= 1
+				Interstate.starslost += 1
 			if deterministic[i]["Result"] == "Correct":
 				$typeBox/Show.text = $typeBox/Show.text + "[color=green]"+deterministic[i]["sectionOfText"]+"[/color]"
 	print($typeBox/Show.text)

@@ -1,11 +1,13 @@
-[gd_scene load_steps=87 format=3 uid="uid://ba4g00sxw1ioe"]
+[gd_scene load_steps=94 format=3 uid="uid://ba4g00sxw1ioe"]
 
 [ext_resource type="Texture2D" uid="uid://dajex7cpt7k4p" path="res://assets/images/bg/background.png" id="1_i2qlv"]
 [ext_resource type="Script" uid="uid://du5kurp8y3jde" path="res://scenes/main_menu.gd" id="1_ihte6"]
 [ext_resource type="Texture2D" uid="uid://dmejwlv6huvgn" path="res://assets/images/mainMenu/menuThing.png" id="2_nwupt"]
 [ext_resource type="Texture2D" uid="uid://dhml6kkc1kfmj" path="res://assets/images/logo.png" id="3_d2eh3"]
 [ext_resource type="Texture2D" uid="uid://lkr43upikbvy" path="res://assets/images/mainMenu/menulow.png" id="3_h3k78"]
+[ext_resource type="Texture2D" uid="uid://d3yvr0wb7d14s" path="res://assets/images/ui/interstateHover.png" id="5_hib5h"]
 [ext_resource type="FontFile" uid="uid://brn7smfq0l6ao" path="res://assets/fonts/TwCen.ttf" id="6_fvg6h"]
+[ext_resource type="Texture2D" uid="uid://gr8m6jphx54y" path="res://assets/images/ui/interstateUnhover.png" id="6_jprvy"]
 [ext_resource type="Texture2D" uid="uid://brkdf8hawsefn" path="res://assets/images/mainMenu/pressedHover.png" id="6_qkmjp"]
 [ext_resource type="Texture2D" uid="uid://b3xebwynw0fcw" path="res://assets/images/mainMenu/button.png" id="7_3dr8n"]
 [ext_resource type="Texture2D" uid="uid://cp81860qk7d68" path="res://assets/images/mainMenu/hover.png" id="7_kemul"]
@@ -38,9 +40,22 @@
 [ext_resource type="AudioStream" uid="uid://dltkivelchtpm" path="res://assets/music/the loopmen.ogg" id="33_mskd6"]
 [ext_resource type="AudioStream" uid="uid://l8qig4llw231" path="res://assets/sounds/cancel.ogg" id="36_h5ho6"]
 [ext_resource type="AudioStream" uid="uid://cyqyuiknf31t7" path="res://assets/sounds/confirm.ogg" id="37_h5ho6"]
+[ext_resource type="AudioStream" uid="uid://d4nxr0v17co87" path="res://assets/sounds/click.ogg" id="37_jprvy"]
 [ext_resource type="AudioStream" uid="uid://1tnj3u0y0scp" path="res://assets/sounds/scroll.ogg" id="37_wnp8d"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b1kt2"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sgylp"]
+texture = ExtResource("5_hib5h")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2ba43"]
+texture = ExtResource("5_hib5h")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lu4ia"]
+texture = ExtResource("5_hib5h")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fv6j0"]
+texture = ExtResource("6_jprvy")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xxf8v"]
 texture = ExtResource("6_qkmjp")
@@ -936,6 +951,26 @@ texture = ExtResource("1_i2qlv")
 position = Vector2(614, 325)
 texture = ExtResource("2_nwupt")
 
+[node name="interstate" type="Button" parent="stuff/Left/shit"]
+offset_left = 2.0
+offset_top = 574.0
+offset_right = 71.0
+offset_bottom = 643.0
+theme_override_colors/font_hover_pressed_color = Color(0.0352941, 0.333333, 0.356863, 1)
+theme_override_colors/font_hover_color = Color(0.0352941, 0.333333, 0.356863, 1)
+theme_override_colors/font_outline_color = Color(0.827451, 1, 0, 1)
+theme_override_colors/font_color = Color(0.0627451, 0.333333, 0.290196, 1)
+theme_override_colors/font_focus_color = Color(0.0352941, 0.333333, 0.356863, 1)
+theme_override_colors/font_pressed_color = Color(0.0392157, 0.027451, 0.360784, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("6_fvg6h")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/focus = SubResource("StyleBoxEmpty_b1kt2")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_sgylp")
+theme_override_styles/hover = SubResource("StyleBoxTexture_2ba43")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lu4ia")
+theme_override_styles/normal = SubResource("StyleBoxTexture_fv6j0")
+
 [node name="start" type="Button" parent="stuff/Left/shit"]
 custom_minimum_size = Vector2(232, 67)
 offset_left = 121.0
@@ -1536,6 +1571,11 @@ stream = ExtResource("33_mskd6")
 volume_db = 5.428
 parameters/looping = true
 
+[node name="click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("37_jprvy")
+volume_db = 5.428
+parameters/looping = false
+
 [node name="intro" type="Node2D" parent="."]
 position = Vector2(576, 324)
 scale = Vector2(0.9, 0.9)
@@ -1578,6 +1618,7 @@ volume_db = 6.19
 stream = ExtResource("37_wnp8d")
 volume_db = 0.952
 
+[connection signal="pressed" from="stuff/Left/shit/interstate" to="." method="_on_interstate_pressed"]
 [connection signal="pressed" from="stuff/Left/shit/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="stuff/Left/shit/tutorial" to="." method="_on_tutorial_pressed"]
 [connection signal="pressed" from="stuff/Left/shit/settings" to="." method="_on_settings_pressed"]

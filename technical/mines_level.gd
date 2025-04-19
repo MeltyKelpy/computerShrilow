@@ -266,6 +266,7 @@ func _on_buy_button_pressed() -> void:
 				amountOfDwellers += 1
 				caca.listPlacement(i)
 				ItemValues.money -= moneyValues[selected]
+				Interstate.totallost -= moneyValues[selected]
 				caca.position.x = 401+(101*i)
 				caca.position.y = 213
 
@@ -279,7 +280,9 @@ func _on_button_mouse_exited() -> void:
 
 func _on_button_pressed() -> void:
 	if ItemValues.money >= 1000+(1000*caveNumber):
-		ItemValues.money -= 1000+(1000*caveNumber)
+		var ammo = 1000+(1000*caveNumber)
+		ItemValues.money -= ammo
+		Interstate.totallost -= ammo
 		var cacapoopyGOD = preload("res://technical/minesLevel.tscn")
 		var caca = cacapoopyGOD.instantiate()
 		add_child(caca)
@@ -296,7 +299,9 @@ func _on_up_grade_button_pressed() -> void:
 		mineLevel += 1
 		#texturer = load("res://assets/images/areas/mines/upgradr/level"+str(mineLevel)+".png")
 		#$VisualCodeSpaghetti/MinesLevel.texture = texturer
-		ItemValues.money -= 5000 * mineLevel
+		var mineCost = 5000 * mineLevel
+		ItemValues.money -= mineCost
+		Interstate.totallost -= mineCost
 
 func _on_timer_timeout() -> void:
 	if Settings.setting_state("minesOptimization"):
@@ -304,4 +309,5 @@ func _on_timer_timeout() -> void:
 		for i in miners.size():
 			if miners[i] != null:
 				outputMonsey += miners[i].optimizeMoney * miners[i].optimizeSpeed
+		Interstate.totalmoney += outputMonsey
 		ItemValues.money += outputMonsey

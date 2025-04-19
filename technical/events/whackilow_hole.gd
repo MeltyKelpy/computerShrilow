@@ -35,6 +35,7 @@ func killChar():
 			$Node2D/Control/char.play("shrilowBonk")
 			click = false
 			ItemValues.money += 5
+			Interstate.totalmoney += 5
 			var cacapoopyGOD = load("res://technical/moneyGet.tscn")
 			var caca = cacapoopyGOD.instantiate()
 			add_child(caca)
@@ -46,7 +47,9 @@ func killChar():
 			$Squeak.play()
 			$Node2D/Control/char.play("melBonk")
 			ItemValues.money -= 5
+			Interstate.totallost -= 5
 			hi.stars -= 1
+			Interstate.starslost += 1
 			$AnimationPlayer.play("goDown")
 
 func _on_appear_timer_timeout() -> void:
@@ -58,6 +61,7 @@ func resetShit():
 	var hi = get_parent()
 	if chara == "shrilow" and click == true:
 		hi.stars -= 1
+		Interstate.starslost += 1
 	chara = "none"
 	$AnimationPlayer.play("RESET")
 	click = true

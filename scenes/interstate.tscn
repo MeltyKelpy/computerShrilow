@@ -48,7 +48,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0, 0, 0, 0)]
+"values": [Color(0, 0, 0, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -222,7 +222,7 @@ tracks/14/keys = {
 
 [sub_resource type="Animation" id="Animation_hoerl"]
 resource_name = "leaving"
-length = 18.0
+length = 19.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -230,10 +230,10 @@ tracks/0/path = NodePath("ColorRect2:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(14.2, 17.3667),
-"transitions": PackedFloat32Array(1, 0.31864),
+"times": PackedFloat32Array(14.2, 17.3667, 18.49, 19),
+"transitions": PackedFloat32Array(1, 0.31864, 0.31864, 0.31864),
 "update": 0,
-"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0.121569, 0.0470588, 0, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -403,7 +403,7 @@ tracks/0/path = NodePath("ColorRect2:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 3),
 "transitions": PackedFloat32Array(0.31864, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
@@ -769,7 +769,7 @@ color = Color(0, 0, 0, 1)
 offset_right = 1158.0
 offset_bottom = 652.0
 mouse_filter = 2
-color = Color(0, 0, 0, 0)
+color = Color(0, 0, 0, 1)
 
 [node name="Alt" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_1gwdh")
@@ -803,3 +803,4 @@ volume_db = -1.396
 
 [connection signal="text_submitted" from="Screen/LineEdit" to="." method="_on_line_edit_text_submitted"]
 [connection signal="text_submitted" from="Screen/Node2D/LineEdit" to="." method="code_input"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

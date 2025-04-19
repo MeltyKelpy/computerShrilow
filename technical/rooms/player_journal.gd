@@ -18,7 +18,8 @@ func _ready():
 		$Entries/ScrollContainer2/VBoxContainer.add_child(caca2)
 
 func _process(delta: float) -> void:
-	$Entries/ScrollContainer/Label2.text = str(Journal.entries[Journal.selectedJournal]["EntryName"])+"\n\n"+str(Journal.entries[Journal.selectedJournal]["Text"])
+	if Journal.entries.size() != 0:
+		$Entries/ScrollContainer/Label2.text = str(Journal.entries[Journal.selectedJournal]["EntryName"])+"\n\n"+str(Journal.entries[Journal.selectedJournal]["Text"])
 	if $Entries.visible == true:
 		$achievementsButton.button_pressed = false
 		$entriesButton.button_pressed = true

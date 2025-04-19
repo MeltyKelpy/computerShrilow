@@ -149,7 +149,7 @@ var gambleTickets = [
 	"Desc":"Medium Gambling Ticket. Gives medium level quality items.",
 	"Cost":400,
 	"imagePath":"res://assets/images/areas/bricks/tickets/medium.png",
-	"possibilities":["Greasepuppy","Greasepuppy"],
+	"possibilities":["GreasepuppyEvil","GreasepuppyEvil"],
 	},
 	{
 	"Name":"High Ticket",
@@ -160,13 +160,14 @@ var gambleTickets = [
 	},
 	{
 	"Name":"Spice Ticket",
-	"Desc":"High Gambling Ticket. Gives any possible item.",
+	"Desc":"Spice Gambling Ticket. Gives any possible item.",
 	"Cost":1500,
 	"imagePath":"res://assets/images/areas/bricks/tickets/spice.png",
 	"possibilities":["Antivirus","Antivirus"],
 	},
 	]
-
+var ItemNameDisplay = ""
+var ItemDescDisplay = ""
 var selTicket = 0
 var canGamble = true
 
@@ -209,6 +210,11 @@ var jellies
 var mines
 var puppies
 var rooms
+
+var marketIntro = false
+
+var doctorCalled = false
+var lawsInformed = false
 
 var coconut
 
@@ -927,10 +933,47 @@ func _ready():
 	Game.loadData()
 	Interstate.loadData()
 	
+	Journal.updateEntryContents()
+	
+	if Game.rebirths >= 1:
+		if Game.achievement_unlocked("rebirth"):
+			Game.unlock_achievement("rebirth")
+			$Shrilow.visible = false
+			$ShrilowScreen.visible = false
+			$Shop/Melanie.visible = false
+			$Shop/Bricks.visible = false
+			$Shop/ItemName.visible = false
+			$Shop/ItemDescription.visible = false
+			$Shop/ItemExtra.visible = false
+			$Shop/Description.visible = false
+			$USD.visible = false
+			$USDText.visible = false
+			$Cutscene.visible = true
+			$Shop/ShopMusic.playing = false
+		else:
+			$Shrilow.visible = true
+			$ShrilowScreen.visible = true
+			$Shop/Melanie.visible = true
+			$Shop/Bricks.visible = false
+			$Shop/ItemName.visible = true
+			$Shop/ItemDescription.visible = true
+			$Shop/ItemExtra.visible = true
+			$Shop/Description.visible = true
+			$USD.visible = true
+			$USDText.visible = true
+			$Cutscene.visible = false
+			$Shop/ShopMusic.playing = true
+	if Game.rebirths >= 5:
+		Game.unlock_achievement("rebirth10")
+	
+	if ItemValues.money >= 250000:
+		lawsInformed = true
+	if ItemValues.money >= 500000:
+		doctorCalled = true
+	
 	if Game.contains_curse("gambling"):
 		$Shop/ShopMusic.stream = load("res://assets/music/screensaver.ogg")
-		ItemValues.itemName = "Welcome to the Casino!"
-		ItemValues.itemDesc = "Need Help? Click on the GhostyBricks!"
+		revert_bricks_text()
 	else:
 		$Shop/ShopMusic.stream = load("res://assets/music/skate.ogg")
 	$Shop/ShopMusic.play()
@@ -1037,6 +1080,13 @@ func _ready():
 		
 		$setNames.start()
 	
+	if Journal._entry_state("Curses") and Game.rebirths >= 2:
+		Journal._unlock_entry("Curses")
+	await get_tree().create_timer(6).timeout
+	if Journal._entry_state("QuickTime-Event") and Game.rebirths >= 2:
+		Journal._unlock_entry("QuickTime-Event")
+		#Game.notify("You've unlocked the 'QuickTime-Event' entry.", "notebook")
+	
 	Game.saveData()
 
 func _process(_delta : float) -> void:
@@ -1052,6 +1102,21 @@ func _process(_delta : float) -> void:
 		$Shop/Melanie/talkOptions.mouse_filter = 1
 		$Shop/Bricks.position.y = -648.0
 		$Shop/Melanie.position.y = 0
+	
+	if can == true:
+		if ItemValues.money >= 500000 and !doctorCalled and Game.rebirths == 1:
+			doctorCalled = true
+			var cacapoopyGOD2 = load("res://technical/events/minerkid.tscn")
+			var caca2 = cacapoopyGOD2.instantiate()
+			add_child(caca2)
+			caca2.swapTo("doctor")
+			Game.warn("Oh? Whats this...")
+		if ItemValues.money >= 250000 and !lawsInformed and Game.rebirths == 1:
+			Game.inform("someone named 'QuickTime-Event' has made some new laws! absolutely despicable. whos this guy think he is? you can find these laws by looking in The Journal!\n\nhopefully none of these become a problem later...")
+			lawsInformed = true
+			Journal._unlock_entry("My QuickTime-Laws!")
+			#await get_tree().create_timer(10).timeout
+			#Game.notify("You've unlocked a Journal Entry!", "notebook")
 	
 	if Settings.setting_state("saayo") == true:
 		$Shop/Melanie/Mel.visible = false
@@ -1469,7 +1534,9 @@ func _on_shrilow_squeak_autoclick() -> void:
 		shrilowState = "-clicked"
 	if curClicks >= 150:
 		shrilowState = "-dizzy"
-	ItemValues.money += FizzyDrink.AUTOclickPower+FizzyDrink.AUTOclickPowerP1+FizzyDrink.AUTOclickPowerP1R+FizzyDrink.AUTOclickPowerAdditions+FizzyDrink.AUTOclickPowerClothingBuffs+FizzyDrink.shrilowPowerAuto
+	var ammo = FizzyDrink.AUTOclickPower+FizzyDrink.AUTOclickPowerP1+FizzyDrink.AUTOclickPowerP1R+FizzyDrink.AUTOclickPowerAdditions+FizzyDrink.AUTOclickPowerClothingBuffs+FizzyDrink.shrilowPowerAuto
+	Interstate.totalmoney += ammo
+	ItemValues.money += ammo
 	$Shrilow/Squeak2.play()
 
 func _on_shrilow_squeak_pressed() -> void:
@@ -1487,7 +1554,9 @@ func _on_shrilow_squeak_pressed() -> void:
 			if curClicks >= 150:
 				shrilowState = "-dizzy"
 			$Shrilow/Squeak.play()
-			ItemValues.money += FizzyDrink.clickPower+FizzyDrink.clickPowerP1+FizzyDrink.clickPowerP1R+FizzyDrink.clickPowerAdditions+FizzyDrink.clickPowerClothingBuffs+FizzyDrink.shrilowPower
+			var ammo = FizzyDrink.clickPower+FizzyDrink.clickPowerP1+FizzyDrink.clickPowerP1R+FizzyDrink.clickPowerAdditions+FizzyDrink.clickPowerClothingBuffs+FizzyDrink.shrilowPower
+			Interstate.totalmoney += ammo
+			ItemValues.money += ammo
 			FizzyDrink.clicks += 1
 			Game.saveFileClicks += 1
 			curClicks += 1
@@ -1731,6 +1800,7 @@ func _buyGumball_pressed() -> void:
 		if gumballInfo[gumballSelection]["Name"] == "Platinum Coin":
 			Game.platinumGumballsBought += 1
 		Game.gumballsBought += 1
+		Interstate.jelliesbought += 1
 		
 		if (type <= 1 and gumballInfo[gumballSelection]["Name"] == "Queer Coin") or (type <= 1 and gumballInfo[gumballSelection]["Name"] == "Platinum Coin"):
 			jellyTypeToBe = "BlueChance"
@@ -1822,6 +1892,7 @@ func _buyGumball_pressed() -> void:
 		caca.getID(0)
 		
 		ItemValues.money -= gumballInfo[gumballSelection]["Cost"]
+		Interstate.totallost -= gumballInfo[gumballSelection]["Cost"]
 		
 		#var num
 		#if type == 0:
@@ -2176,6 +2247,19 @@ func marketState(type : String) -> void:
 		for i in FizzyDrink.melDialogue.size():
 			if FizzyDrink.melDialogue[i]["dialogKey"] == "MARKETCONTINUED":
 				FizzyDrink.melDialogue[i]["unlocked"] = true
+		await get_tree().create_timer(1.5).timeout
+		$Shrilow.visible = true
+		$ShrilowScreen.visible = true
+		$Shop/Melanie.visible = true
+		$Shop/Bricks.visible = true
+		$Shop/ItemName.visible = true
+		$Shop/ItemDescription.visible = true
+		$Shop/ItemExtra.visible = true
+		$Shop/Description.visible = true
+		$USD.visible = true
+		$Shop/ShopMusic.playing = true
+		$USDText.visible = true
+		$Cutscene.visible = false
 	if type == "leave":
 		$Camera2D/bg.self_modulate = Color(1,1,1,1)
 		cameraAnimation("market", 577, 324, false)
@@ -2286,7 +2370,9 @@ func smoke_break() -> void:
 
 func _on_first_timeout() -> void:
 	if $ShrilowScreen/puppies.get_child_count() > 0:
-		ItemValues.money += 3 * FizzyDrink.greasepuppies
+		var ammo = 3 * FizzyDrink.greasepuppies
+		ItemValues.money += ammo
+		Interstate.totalmoney += ammo
 		$ShrilowScreen/AudioListener2D.play()
 		for i in range(0, $ShrilowScreen/puppies.get_child_count()):
 			$ShrilowScreen/puppies.get_child(i)._update(true)
@@ -2306,45 +2392,77 @@ func ticketSwap(swap: int) -> void:
 		selTicket = gambleTickets.size()-1
 
 func gambleRoll() -> void:
-	print("hello")
-	print(canGamble)
-	print(ItemValues.money >= gambleTickets[selTicket]["Cost"])
 	if canGamble == true and ItemValues.money >= gambleTickets[selTicket]["Cost"]:
 		ItemValues.money -= gambleTickets[selTicket]["Cost"]
+		Interstate.totallost -= gambleTickets[selTicket]["Cost"]
 		canGamble = false
+		var usedArray = "items"
 		var possibles = gambleTickets[selTicket]["possibilities"]
 		var itemPicked = possibles[rng.randi_range(0, possibles.size()-1)]
 		var itemId = ItemValues._find_item(itemPicked)
-		var cacaFUCK = load(ItemValues.itemInfomation[itemId]["ScenePath"])
-		if itemPicked == "Autoclick" or itemPicked == "Plus One" or itemPicked == "Plus One Auto":
-			if ItemValues.itemInfomation[itemId]["CurUpgrade"] > 0:
+		if itemId == 0:
+			usedArray = "gamblecore"
+			itemId = ItemValues._find_item_in_array(itemPicked, ItemValues.gambleCore)
+		var cacaFUCK
+		var img
+		if usedArray == "items":
+			cacaFUCK = load(ItemValues.itemInfomation[itemId]["ScenePath"])
+			if ItemValues.itemInfomation[itemId]["Upgradeable?"]:
+				if ItemValues.itemInfomation[itemId]["CurUpgrade"] > 0:
+					ItemValues.itemInfomation[itemId]["CurUpgrade"] += 1
+				else:
+					ItemValues.itemInfomation[itemId]["CurUpgrade"] += 1
+					var caca = cacaFUCK.instantiate()
+					caca.getID(itemId)
+					add_child(caca)
+			elif itemPicked == "Greasepuppy":
 				ItemValues.itemInfomation[itemId]["CurUpgrade"] += 1
+				var caca = cacaFUCK.instantiate()
+				add_child(caca)
+				caca.buy()
+				caca.getPuppy(FizzyDrink.greasepuppies)
+				FizzyDrink.greasepuppies += 1
+			elif ItemValues.itemInfomation[itemId]["Owned"] == true:
+				print("lol u already own that!!! tough luck!!!")
 			else:
 				ItemValues.itemInfomation[itemId]["CurUpgrade"] += 1
 				var caca = cacaFUCK.instantiate()
 				caca.getID(itemId)
 				add_child(caca)
-		elif ItemValues.itemInfomation[itemId]["Owned"] == true:
-			print("lol u already own that!!! tough luck!!!")
-		elif itemPicked == "Greasepuppy":
-			ItemValues.itemInfomation[itemId]["CurUpgrade"] += 1
-			var caca = cacaFUCK.instantiate()
-			add_child(caca)
-			caca.buy()
-			caca.getPuppy(FizzyDrink.greasepuppies)
-			FizzyDrink.greasepuppies += 1
-		else:
-			ItemValues.itemInfomation[itemId]["CurUpgrade"] += 1
-			ItemValues.itemInfomation[itemId]["Owned?"] = true
+			print(ItemValues.itemInfomation[itemId])
+		if usedArray == "gamblecore":
+			cacaFUCK = load(ItemValues.gambleCore[itemId]["ScenePath"])
+			ItemValues.gambleCore[itemId]["CurUpgrade"] += 1
 			var caca = cacaFUCK.instantiate()
 			caca.getID(itemId)
 			add_child(caca)
-		print(ItemValues.itemInfomation[itemId])
-		var img = ItemValues.itemInfomation[itemId]["Image"]
+			print(ItemValues.gambleCore[itemId])
+		if usedArray == "items":
+			img = ItemValues.itemInfomation[itemId]["Image"]
+			ItemNameDisplay = ItemValues.itemInfomation[itemId]["Name"]
+			ItemDescDisplay = ItemValues.itemInfomation[itemId]["Desc"]
+		if usedArray == "gamblecore":
+			img = ItemValues.gambleCore[itemId]["Image"]
+			ItemNameDisplay = ItemValues.gambleCore[itemId]["Name"]
+			ItemDescDisplay = ItemValues.gambleCore[itemId]["Desc"]
 		if img.containsn(".png"):
 			$Shop/Bricks/Gambling/item.texture = load(img)
 		else:
 			$Shop/Bricks/Gambling/item.texture = load(img+"0.png")
+		ItemValues.itemName = ItemNameDisplay
+		ItemValues.itemDesc = ItemDescDisplay
 		await get_tree().create_timer(5).timeout
 		$Shop/Bricks/Gambling/item.texture = load("res://assets/images/areas/melanies/itemBox.png")
 		canGamble = true
+		ItemValues.itemName = "Ticket"
+		revert_bricks_text()
+
+func _on_ticket_mouse_entered() -> void:
+	if ItemValues.itemName.containsn("Ticket") or ItemValues.itemName.containsn("Casino"):
+		ItemValues.itemName = gambleTickets[selTicket]["Name"]
+		ItemValues.itemDesc = gambleTickets[selTicket]["Desc"]
+
+func revert_bricks_text() -> void:
+	if ItemValues.itemName.containsn("Ticket"):
+		ItemValues.itemName = "Welcome to the Casino!"
+		ItemValues.itemDesc = "Need help? Click on the GhostyBricks!"

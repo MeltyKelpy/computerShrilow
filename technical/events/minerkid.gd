@@ -6,6 +6,7 @@ var minute = 0
 var second = 0
 var chosen = "accept"
 var streamTo = ""
+var caller = "minerkid"
 
 func _ready() -> void:
 	reparent($/root/computerShrilow/Camera2D)
@@ -13,15 +14,23 @@ func _ready() -> void:
 	position.y = -324
 
 func _process(delta: float) -> void:
+	manageSubtitles()
 	if second < 10:
 		$miner/time.text = str(minute)+":0"+str(second)
 	else:
 		$miner/time.text = str(minute)+":"+str(second)
 	if phoneCalling == true and $phonecall.volume_db <= 0:
 		$phonecall.volume_db += 5 + (5 * delta)
-		manageSubtitles()
 	if $phonecall.volume_db > 0:
 		$phonecall.volume_db = 0
+
+func swapTo(call):
+	caller = call
+	if caller == "minerkid":
+		$miner.texture = load("res://assets/images/events/theminerkid/isCalling.png")
+	if caller == "doctor":
+		$miner/thing/onCall.text = "ON CALL WITH:\nTHE DOCTOR"
+		$miner.texture = load("res://assets/images/events/theminerkid/isCallingHOUSE.png")
 
 func manageSubtitles():
 	var time = $minerKid.get_playback_position()
@@ -63,29 +72,37 @@ func _on_theminerkid_timeout() -> void:
 	$AnimationPlayer.play("pop")
 
 func accept() -> void:
+	$omi.visible = false
 	chosen = "accept"
 	$miner/call.disabled = true
 	$miner/decline.disabled = true
-	streamTo = "res://assets/sounds/minerkid0.mp3"
+	if caller == "minerkid":
+		streamTo = "res://assets/sounds/minerkid0.mp3"
+		$miner.texture = load("res://assets/images/events/theminerkid/inCall.png")
+	if caller == "doctor":
+		streamTo = "res://assets/sounds/doctorcall.ogg"
+		$miner.texture = load("res://assets/images/events/theminerkid/inCallHOUSE.png")
 	$countTheWays.start()
 	$phonecall.stop()
 	$minerKid.stream = load(streamTo)
 	$minerKid.play()
 	$miner/time.visible = true
 	$miner/thing.visible = true
-	$miner.texture = load("res://assets/images/events/theminerkid/inCall.png")
 
 func decline() -> void:
-	chosen = "decline"
-	$miner/call.disabled = true
-	$miner/decline.disabled = true
-	streamTo = "res://assets/sounds/decline0.mp3"
-	$phonecall.stop()
-	$minerKid.stream = load(streamTo)
-	$minerKid.play()
-	$miner/thing.visible = true
-	$miner.texture = load("res://assets/images/events/theminerkid/inCall.png")
-	#queue_free()
+	if caller == "minerkid":
+		chosen = "decline"
+		$miner/call.disabled = true
+		$miner/decline.disabled = true
+		streamTo = "res://assets/sounds/decline0.mp3"
+		$phonecall.stop()
+		$minerKid.stream = load(streamTo)
+		$minerKid.play()
+		$miner/thing.visible = true
+		$miner.texture = load("res://assets/images/events/theminerkid/inCall.png")
+		#queue_free()
+	else:
+		$omi.visible = true
 
 func addSecond() -> void:
 	if phoneCalling == true:

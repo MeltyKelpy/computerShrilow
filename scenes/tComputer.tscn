@@ -1,4 +1,4 @@
-[gd_scene load_steps=197 format=3 uid="uid://bgw557ttv6noe"]
+[gd_scene load_steps=198 format=3 uid="uid://bgw557ttv6noe"]
 
 [ext_resource type="Script" uid="uid://ddatxm3oli8qs" path="res://scenes/t_computer.gd" id="1_swrb7"]
 [ext_resource type="Texture2D" uid="uid://dajex7cpt7k4p" path="res://assets/images/bg/background.png" id="2_u0da7"]
@@ -45,6 +45,7 @@
 [ext_resource type="PackedScene" uid="uid://cc62swwttf6t2" path="res://technical/jellies/elevator.tscn" id="25_y45oj"]
 [ext_resource type="FontFile" uid="uid://brn7smfq0l6ao" path="res://assets/fonts/TwCen.ttf" id="26_qadl1"]
 [ext_resource type="Texture2D" uid="uid://dv1knrxoff866" path="res://assets/images/ui/transitions/bg.png" id="27_e5v8d"]
+[ext_resource type="Texture2D" uid="uid://doxmuiv4mud2u" path="res://assets/images/ui/sign.png" id="28_4wcep"]
 [ext_resource type="Texture2D" uid="uid://bb0hqhdgonp44" path="res://assets/images/areas/gumball/realBg.png" id="29_50vaf"]
 [ext_resource type="Texture2D" uid="uid://dkxpmi3v4ilpw" path="res://assets/images/areas/gumball/coins/common.png" id="30_1fn55"]
 [ext_resource type="Texture2D" uid="uid://6gdisqedcy4y" path="res://assets/images/areas/journal/bg.png" id="30_a6r5c"]
@@ -526,6 +527,18 @@ tracks/11/keys = {
 "update": 0,
 "values": [Vector2(577, 324)]
 }
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Cutscene:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_niq0t"]
 resource_name = "leaveJellies"
@@ -717,6 +730,18 @@ tracks/7/keys = {
 "transitions": PackedFloat32Array(1, 0.329877),
 "update": 1,
 "values": [1, 0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Cutscene:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(0.31864, 1),
+"update": 0,
+"values": [Vector2(-1152, 0), Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_eejxq"]
@@ -987,6 +1012,18 @@ tracks/7/keys = {
 "transitions": PackedFloat32Array(0.329877, 1),
 "update": 1,
 "values": [0, 2]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Cutscene:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(0.31864, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-1152, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_ok3bo"]
@@ -1647,6 +1684,34 @@ theme_override_font_sizes/font_size = 40
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Cutscene" type="Node2D" parent="."]
+visible = false
+
+[node name="sign" type="Sprite2D" parent="Cutscene"]
+position = Vector2(593, 324)
+texture = ExtResource("28_4wcep")
+
+[node name="Shop" type="Sprite2D" parent="Cutscene"]
+position = Vector2(1065, 93)
+texture = ExtResource("8_kysej")
+
+[node name="ShopButton" type="Button" parent="Cutscene"]
+offset_left = 980.0
+offset_top = 3.0
+offset_right = 1150.0
+offset_bottom = 167.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_714v8")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_l4fde")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_b1ngq")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_bnx5p")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_m4q2a")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_6g67g")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_cbusq")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_5hpjx")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_jaggv")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_7e2gc")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_v5e17")
+
 [node name="Jelly" type="Node2D" parent="."]
 position = Vector2(-1152, 0)
 
@@ -1761,8 +1826,11 @@ texture = ExtResource("39_ecty7")
 position = Vector2(418, 288.5)
 texture = ExtResource("40_j6y8p")
 
-[node name="ticket" type="Sprite2D" parent="Shop/Bricks/Gambling"]
-position = Vector2(419, 288.5)
+[node name="ticket" type="TextureRect" parent="Shop/Bricks/Gambling"]
+offset_left = 376.0
+offset_top = 234.0
+offset_right = 462.0
+offset_bottom = 344.0
 texture = ExtResource("41_ycke0")
 
 [node name="roll" type="Sprite2D" parent="Shop/Bricks/Gambling"]
@@ -2794,16 +2862,21 @@ clip_text = true
 [node name="faceRevert2" type="Timer" parent="."]
 
 [node name="Label" type="Label" parent="."]
-offset_left = 2245.0
-offset_top = -2325.0
-offset_right = 3223.0
-offset_bottom = -1968.0
+offset_left = 1182.0
+offset_top = -1522.0
+offset_right = 2296.0
+offset_bottom = -805.0
 theme_override_font_sizes/font_size = 50
 text = "THE GAMBLING UPDATE WILL COME........
 AND IT'LL BE OVER HERE.........
-- Mel :3
+- Mel november 2024 :3
 
-blame ghost."
+blame ghost.
+
+
+IT ALREADY FUCKING HAPPENED IDIOT
+- Mel april 2025 >:c
+(curses were not planned at this point okay....)"
 
 [node name="noEventsTimer" type="Timer" parent="."]
 one_shot = true
@@ -2946,17 +3019,32 @@ autostart = true
 [connection signal="timeout" from="ShrilowScreen/GPFirst" to="." method="_on_first_timeout"]
 [connection signal="timeout" from="ShrilowScreen/GPSecond" to="." method="_on_gp_second_timeout"]
 [connection signal="pressed" from="ShrilowScreen/Rebirth" to="." method="_Rebirth"]
+[connection signal="pressed" from="Cutscene/ShopButton" to="." method="_on_shop_button_pressed"]
 [connection signal="pressed" from="Jelly/BackButtonJELLY" to="." method="_on_back_button_jelly_pressed"]
+[connection signal="mouse_entered" from="Shop/Bricks/Gambling/ticket" to="." method="_on_ticket_mouse_entered"]
+[connection signal="mouse_exited" from="Shop/Bricks/Gambling/ticket" to="." method="revert_bricks_text"]
 [connection signal="pressed" from="Shop/Bricks/Gambling/rollBut" to="." method="gambleRoll"]
 [connection signal="pressed" from="Shop/Bricks/Gambling/ticketBack" to="." method="ticketSwap" binds= [-1]]
 [connection signal="pressed" from="Shop/Bricks/Gambling/ticketForeskin" to="." method="ticketSwap" binds= [1]]
 [connection signal="pressed" from="Shop/melinteract" to="." method="melShopToggle"]
 [connection signal="pressed" from="Shop/BackButtonSHOP" to="." method="_on_back_button_shop_pressed"]
+[connection signal="pressed" from="Shop/EnterMarket" to="." method="marketState" binds= ["enter"]]
 [connection signal="timeout" from="Shop/Timer" to="." method="smoke_break"]
+[connection signal="pressed" from="Market/LeaveMarket" to="." method="marketState" binds= ["leave"]]
+[connection signal="pressed" from="Market/openVoid" to="." method="marketState" binds= ["void"]]
 [connection signal="pressed" from="Market/openVoid2" to="." method="box"]
+[connection signal="pressed" from="Market/openMarket" to="." method="marketState" binds= ["blackmarket"]]
+[connection signal="pressed" from="theVoid/LeaveVoid" to="." method="marketState" binds= ["voidLeave"]]
+[connection signal="pressed" from="BlackMarket/LeaveBlack" to="." method="marketState" binds= ["blackmarketLeave"]]
 [connection signal="pressed" from="BlackMarket/marketinteract" to="." method="marketShopToggle"]
 [connection signal="pressed" from="Wardrobe/BackButtonWARD" to="." method="_on_back_button_ward_pressed"]
+[connection signal="pressed" from="Melvin/BackButton" to="." method="cameraAnimation" binds= ["bell", -576, 324, true]]
 [connection signal="pressed" from="Melvin/melvinteract" to="." method="melvShopToggle"]
+[connection signal="pressed" from="Journal/BackJOURNAL" to="." method="cameraAnimation" binds= ["journal", -576, 324, true]]
+[connection signal="pressed" from="storage/BackSTORAGE" to="." method="storageCamShit" binds= ["leave"]]
+[connection signal="pressed" from="Gumball/BackButton" to="." method="cameraAnimation" binds= ["gumballMachine", -576, 324, true]]
+[connection signal="pressed" from="Gumball/NextCoin" to="." method="coinSelectionChange" binds= [1]]
+[connection signal="pressed" from="Gumball/LastCoin" to="." method="coinSelectionChange" binds= [-1]]
 [connection signal="pressed" from="Gumball/Button" to="." method="_buyGumball_pressed"]
 [connection signal="animation_finished" from="sectionTransitions" to="." method="_on_section_transitions_animation_finished"]
 [connection signal="timeout" from="EventTimer" to="." method="_event"]
@@ -2966,6 +3054,7 @@ autostart = true
 [connection signal="mouse_exited" from="Camera2D/leftMove" to="." method="_on_left_move_mouse_exited"]
 [connection signal="mouse_entered" from="Camera2D/rightMove" to="." method="_on_right_move_mouse_entered"]
 [connection signal="mouse_exited" from="Camera2D/rightMove" to="." method="_on_right_move_mouse_exited"]
+[connection signal="pressed" from="Camera2D/storg" to="." method="storageCamShit" binds= ["enter"]]
 [connection signal="animation_finished" from="Camera2D/intro/anim" to="." method="_on_anim_animation_finished"]
 [connection signal="timeout" from="Camera2D/autoPoop/poopTimer" to="." method="killPoop"]
 [connection signal="timeout" from="Camera2D/Timer" to="." method="rebirth"]

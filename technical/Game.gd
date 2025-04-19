@@ -20,7 +20,7 @@ var rebirths = 0
 var gameTime = 0.0
 var icon = 0
 var saveFileClicks = 0
-var gameVersion = "00.02.72"
+var gameVersion = "00.02.80"
 
 var rebirthJellyProtocol = []
 
@@ -58,6 +58,10 @@ func reloadGlobals():
 	Curses.set_script(null)
 	Curses.set_script(s)
 	
+	s = Journal.get_script()
+	Journal.set_script(null)
+	Journal.set_script(s)
+	
 	s = get_script()
 	set_script(null)
 	set_script(s)
@@ -84,6 +88,15 @@ func unlock_achievement(id : String):
 		if Achievements.achievements[achievementID]["unlocked?"] == false:
 			Achievements.achievements[achievementID]["unlocked?"] = true
 			Game.notify('you got the "'+Achievements.achievements[achievementID]["name"]+'" achievement!\n'+Achievements.achievements[achievementID]["desc"], "trophy")
+
+func achievement_unlocked(id):
+	var achievementID
+	for i in Achievements.achievements.size():
+		if Achievements.achievements[i]["ID"] == id:
+			achievementID = i
+			break
+	if achievementID != null:
+		return Achievements.achievements[achievementID]["unlocked?"] == false
 
 func commizeNumber(value: int) -> String:
 	# Convert value to string.
@@ -123,6 +136,12 @@ func warn(text : String):
 	caca2.reparent($/root)
 	caca2.warn(text)
 
+func inform(text : String):
+	var cacapoopyGOD3 = preload("res://technical/informational.tscn")
+	var caca2 = cacapoopyGOD3.instantiate()
+	caca2.text = text
+	$/root.add_child(caca2)
+
 func load():
 	loadData()
 
@@ -156,6 +175,14 @@ func loadData():
 		Curses.curses = []
 		Curses.curses = config.get_value("Rebirth", "Curses", [])
 		
+		if config.get_value("Journal", "journalShit").size() == Journal.entriesText.size():
+			for i in Journal.entriesText.size():
+				for e in Journal.entriesText[Journal.entriesText.keys()[i]].size():
+					var that_one_fucking_array = Journal.entriesText[Journal.entriesText.keys()[i]]
+					if e == 0:
+						that_one_fucking_array[e] = config.get_value("Journal", "journalShit")[Journal.entriesText.keys()[i]]["locked"]
+					else:
+						that_one_fucking_array[e]["revealed?"] = config.get_value("Journal", "journalShit")[Journal.entriesText.keys()[i]][that_one_fucking_array[e]["id"]]
 		
 		var lazy = {
 			"Autoclick":"autoClickerUpgrade",
@@ -287,6 +314,18 @@ func saveData():
 	config.set_value("Rebirth", "Curses", Curses.curses)
 	config.set_value("Rebirth", "RebirthBoxTokens", boxed)
 	config.set_value("Rebirth", "EvilMinesAvaliable", evilMines)
+	
+	var entryStatsToSave = {}
+	for i in Journal.entriesText.size():
+		var shit = {}
+		for e in Journal.entriesText[Journal.entriesText.keys()[i]].size():
+			var motherfuckingarray = Journal.entriesText[Journal.entriesText.keys()[i]]
+			if e == 0:
+				shit["locked"] = motherfuckingarray[e]
+			else:
+				shit[motherfuckingarray[e]["id"]] = motherfuckingarray[e]["revealed?"]
+		entryStatsToSave[Journal.entriesText.keys()[i]] = shit
+	config.set_value("Journal", "journalShit", entryStatsToSave)
 	
 	var lazymarket = {
 		"MARKETCLICKER":"RebirthAutoClickerLevel",

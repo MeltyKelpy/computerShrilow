@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cs3v5y2ea0a2h"
+path="res://.godot/imported/qte.wav-c8e34a7f0f6eb51371906bfd353bc57d.sample"
+
+[deps]
+
+source_file="res://assets/sounds/really funny folder/qte.wav"
+dest_files=["res://.godot/imported/qte.wav-c8e34a7f0f6eb51371906bfd353bc57d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

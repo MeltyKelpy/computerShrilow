@@ -37,6 +37,7 @@ func loadMinigame():
 			check += 1
 			if check == Events.justMinigames.size()-1:
 				ItemValues.money += 300
+				Interstate.totalmoney += 300
 				var cacapoopyGOD3 = preload("res://technical/events/eventIndicator.tscn")
 				var caca2 = cacapoopyGOD3.instantiate()
 				add_child(caca2)

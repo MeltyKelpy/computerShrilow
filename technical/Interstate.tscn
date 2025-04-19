@@ -11,5 +11,12 @@ autostart = true
 [node name="autoSaveTimer" type="Timer" parent="."]
 wait_time = 120.0
 
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+z_index = 4096
+offset_right = 1173.0
+offset_bottom = 665.0
+color = Color(0, 0, 0, 1)
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="autoSaveTimer" to="." method="_on_auto_save_timer_timeout"]

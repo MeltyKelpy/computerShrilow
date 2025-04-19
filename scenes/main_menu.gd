@@ -8,7 +8,7 @@ var creditors = [
 	"Image":"res://assets/images/mainMenu/credits/ppl/mel.png",
 	"Pronouns":"It/Star",
 	"Roles":"Game Creator -\nMain Artist -\nMain Coder -",
-	"Commits":132,
+	"Commits":185,
 	"Quote":"jesus = false",
 	},
 	{
@@ -102,13 +102,13 @@ var contributers = [
 	]
 
 var selectedCredit = 0
-var commits = 141
+var commits = 192
 
 var evil = []
 var contributerSel = 0
 
 var intro = true
-var can = true
+var can = false
 
 var config = ConfigFile.new()
 var loadingFile = false
@@ -125,8 +125,16 @@ var loadingFile = false
 	]
 
 func _ready() -> void:
-	Interstate.loadData()
 	Interstate.saveData()
+	Interstate.loadData()
+	
+	if Interstate.fullRebirths >= 1:
+		$stuff/Left/shit/interstate.visible = true
+		$stuff/Left/shit/interstate.disabled = false
+	else:
+		$stuff/Left/shit/interstate.visible = false
+		$stuff/Left/shit/interstate.disabled = true
+	
 	$stuff/TXT.text = "beta build: "+Game.gameVersion+"\nExported: April 10th, 2025"
 	Settings.loadData()
 	for i in range(0,3):
@@ -191,6 +199,8 @@ func _endIntro(manual : bool):
 		$AudioStreamPlayer.playing = false
 		_on_audio_stream_player_finished()
 		$AnimationPlayer2.play("skip")
+	await get_tree().create_timer(0.1).timeout
+	can = true
 
 func endMenu():
 	if loading == "game":
@@ -210,8 +220,8 @@ func changeSelection(toChange):
 	selectedCredit += toChange
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	can = true
 	print(anim_name)
+	can = true
 	if anim_name == "leaveSettings":
 		$settings/SettingsScene.kill()
 
@@ -267,3 +277,11 @@ func _on_tutorial_pressed() -> void:
 
 func _on_audio_stream_player_finished() -> void:
 	$song.play()
+
+func _on_interstate_pressed() -> void:
+	Interstate.color.visible = true
+	$AudioStreamPlayer.volume_db = -80
+	$song.volume_db = -80
+	$click.play()
+	await get_tree().create_timer(4).timeout
+	get_tree().change_scene_to_file("res://scenes/interstate.tscn")

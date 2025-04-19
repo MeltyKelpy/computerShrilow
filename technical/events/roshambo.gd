@@ -98,6 +98,7 @@ func _process(_delta: float) -> void:
 	
 	if Input.is_action_just_pressed("DebugMode"):
 		stars -= 1
+		Interstate.starslost += 1
 	
 	if stars != starsPrev:
 		starsUpdate()
@@ -187,6 +188,7 @@ func _on_ponder_time_timeout() -> void:
 		lastWinner = "ro"
 		winsRo += 1
 		stars -= 1
+		Interstate.starslost += 1
 	else:
 		lastWinner = "you"
 		winsYou += 1

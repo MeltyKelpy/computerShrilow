@@ -83,6 +83,7 @@ func _endEvent():
 func _on_sphere_body_shape_entered(body: Node2D) -> void:
 	if $HardestGamePlayer.alive == true:
 		stars -= 1
+		Interstate.starslost += 1
 		$HardestGamePlayer._on_sphere_body_shape_entered()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

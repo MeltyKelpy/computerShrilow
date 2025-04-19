@@ -2,7 +2,21 @@ extends Node
 
 var entries = []
 var entriesText = {
+	"My QuickTime-Laws!":[
+		true,
+		{
+		"text":"HELLO T.COMPUTER! I, am quicktime-event. and since i kinda RULE your stupid COMPUTER ASS im going to be putting in place NEW LAWS!\n\nLAW 1:\n\nYou will never ever insult me (Quick-Time Event) please\n\nLAW 31:\n\nYour 'Computer Shrilow' needs REGULAR. DOCTOR VISITS. IM MANDATING IT. mwahhaha!!\n\n",
+		"id":0,
+		"revealed?":true,
+		},
+		{
+		"text":"",
+		"id":1,
+		"revealed?":false,
+		},
+		],
 	"The Computer":[
+		false,
 		{
 		"text":"'The Computer' is what this place is called by its dwellers, though it",
 		"id":0,
@@ -25,6 +39,7 @@ var entriesText = {
 		},
 		],
 	"Melanie // Melvin":[
+		false,
 		{
 		"text":"oogly googly",
 		"id":0,
@@ -42,6 +57,7 @@ var entriesText = {
 		},
 		],
 	"Jellies":[
+		false,
 		{
 		"text":"oogly googly",
 		"id":0,
@@ -59,6 +75,7 @@ var entriesText = {
 		},
 		],
 	"Minigames":[
+		false,
 		{
 		"text":"oogly googly",
 		"id":0,
@@ -76,6 +93,7 @@ var entriesText = {
 		},
 		],
 	"Mines":[
+		false,
 		{
 		"text":"oogly googly",
 		"id":0,
@@ -93,6 +111,7 @@ var entriesText = {
 		},
 		],
 	"Black Market":[
+		true,
 		{
 		"text":"oogly googly",
 		"id":0,
@@ -110,6 +129,7 @@ var entriesText = {
 		},
 		],
 	"QuickTime-Event":[
+		true,
 		{
 		"text":"oogly googly",
 		"id":0,
@@ -127,6 +147,7 @@ var entriesText = {
 		},
 		],
 	"Curses":[
+		true,
 		{
 		"text":"Curse of Gambling:\nReplace's Melanies Shop with GAMBLING!!! run by THE ghostybricks. my goat. you HAVE to gamble to buy ANYTHING at all, literally anything! at all! and you're forced to buy whatever you get, even if its... bad.\n\n",
 		"id":"gambling",
@@ -148,9 +169,36 @@ var entriesText = {
 		"revealed?":false,
 		},
 		],
-}
+	"fuck you":[
+		false,
+		{
+		"text":"fuck you",
+		"id":3,
+		"revealed?":false,
+		},
+		]
+	}
+
 var selectedJournal = 0
 var journalTextToDisplay = ""
+
+func _unlock_entry(entryName):
+	entriesText[entryName][0] = false
+	updateEntryContents()
+
+func _lock_entry(entryName):
+	entriesText[entryName][0] = true
+	updateEntryContents()
+
+func _entry_state(entryName):
+	return entriesText[entryName][0]
+
+func _unlock_line(entryName, lineID):
+	for i in entriesText[entryName].size():
+		if entriesText[entryName][i].has("id"):
+			entriesText[entryName][i]["revealed?"] = true
+			break
+	updateEntryContents()
 
 func _ready():
 	updateEntryContents()
@@ -160,11 +208,12 @@ func updateEntryContents():
 	for e in entriesText.size():
 		var completeEntry = ""
 		print(entriesText[entriesText.keys()[e]][0])
-		for i in range(0, entriesText[entriesText.keys()[e]].size()):
-			if entriesText[entriesText.keys()[e]][i]["revealed?"] == true:
-				completeEntry = completeEntry+entriesText[entriesText.keys()[e]][i]["text"]+" "
-			if entriesText[entriesText.keys()[e]][i]["revealed?"] == false:
-				completeEntry = completeEntry+"[bgcolor=black][color=black]"+entriesText[entriesText.keys()[e]][i]["text"]+"[/color][/bgcolor] "
-		print(entriesText[entriesText.keys()[e]])
-		entries.append({"EntryName":entriesText.keys()[e], "Text":completeEntry})
+		if entriesText[entriesText.keys()[e]][0] == false:
+			for i in range(1, entriesText[entriesText.keys()[e]].size()):
+				if entriesText[entriesText.keys()[e]][i]["revealed?"] == true:
+					completeEntry = completeEntry+entriesText[entriesText.keys()[e]][i]["text"]+" "
+				if entriesText[entriesText.keys()[e]][i]["revealed?"] == false:
+					completeEntry = completeEntry+"[bgcolor=black][color=black]"+entriesText[entriesText.keys()[e]][i]["text"]+"[/color][/bgcolor] "
+			print(entriesText[entriesText.keys()[e]])
+			entries.append({"EntryName":entriesText.keys()[e], "Text":completeEntry})
 	print(entries)

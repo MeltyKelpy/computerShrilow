@@ -178,6 +178,7 @@ func getJelly(num):
 
 func _on_timer_timeout() -> void:
 	ItemValues.money += showMoney
+	Interstate.totalmoney += showMoney
 	if Settings.setting_state("animationsOptimization"):
 		$RigidBody2D/Squeak.play()
 		state = 1
@@ -219,6 +220,7 @@ func _on_kill_pressed() -> void:
 		caca.position.x = rigid_body_2d.position.x
 		caca.position.y = rigid_body_2d.position.y
 		ItemValues.money += moneyTo
+		Interstate.totalmoney += moneyTo
 		$RigidBody2D/mange.visible = false
 		$deathTime.start()
 

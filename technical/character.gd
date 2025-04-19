@@ -146,7 +146,9 @@ func _swingTimerEnd():
 		var caca = cacapoopyGOD.instantiate()
 		add_child(caca)
 		caca.determine((MoneyGain+(((mineLevelMONEY))*MoneyGain))*adds)
-		ItemValues.money += (MoneyGain+(((mineLevelMONEY))*MoneyGain))*adds
+		var ammo = (MoneyGain+(((mineLevelMONEY))*MoneyGain))*adds
+		Interstate.totalmoney += ammo
+		ItemValues.money += ammo
 		caca.position.x = -30
 		caca.position.y = -70
 		curSwing = 0
@@ -164,6 +166,7 @@ func _on_money_up_button_pressed() -> void:
 		Level += 1
 		upTokens -= 1
 		ItemValues.money -= moneyCost
+		Interstate.totallost -= moneyCost
 		MoneyGain = MoneyGain + (BaseMoneyGain * 2)
 
 func _on_money_up_button_mouse_entered() -> void:
@@ -177,6 +180,7 @@ func _on_speed_up_button_pressed() -> void:
 		Level += 1
 		upTokens -= 1
 		ItemValues.money -= speedCost
+		Interstate.totallost -= speedCost
 		Speed = Speed + (BaseSpeed * 2)
 
 func _on_speed_up_button_mouse_entered() -> void:
@@ -190,7 +194,9 @@ func _on_cancel_button_pressed() -> void:
 
 func _on_sell_button_2_pressed() -> void:
 	var hey = get_parent()
-	ItemValues.money += BasePrice + (BasePrice * (Level / 2))
+	var ammo = BasePrice + (BasePrice * (Level / 2))
+	Interstate.totalmoney += ammo
+	ItemValues.money += ammo
 	hey.miners[ID] = null
 	hey.amountOfDwellers -= 1
 	hey._on_buy_button_mouse_exited()

@@ -112,7 +112,7 @@ var itemInfomation = [
 	"UpgradeIncrease":0,
 	"Owned":false,
 	"Purchased":false,
-	"Cost":150,
+	"Cost":50,
 	"ScenePath":"res://technical/items/Greasepuppy.tscn",
 	"Type":"Consumable",
 	},
@@ -279,6 +279,25 @@ var itemInfomation = [
 	"Cost":300000,
 	"ScenePath":"res://technical/items/mineCrystal.tscn",
 	"Type":"Generic",
+	},
+	]
+
+var gambleCore = [
+	{
+	# Greasepuppy
+	"Image":"res://assets/images/areas/melanies/items/greasepuppy.png",
+	"Name":"GreasepuppyEvil",
+	"Desc":'"spawns in the main shrilow area, they only give you $3 every 3 seconds, but you can buy as many as you want." -Mel ',
+	"Upgradeable?":false,
+	"MaxUpgrade":1,
+	"CurUpgrade":0,
+	"BaseValue":0,
+	"UpgradeIncrease":0,
+	"Owned":false,
+	"Purchased":false,
+	"Cost":50,
+	"ScenePath":"res://technical/items/Greasepuppy.tscn",
+	"Type":"Consumable",
 	},
 	]
 
@@ -519,7 +538,15 @@ func _find_item(id):
 			if itemInfomation[i]["Name"] == id:
 				result = i
 	return result
-	
+
+func _find_item_in_array(id, array):
+	var result = 0
+	for i in array.size():
+		if array[i]["Type"] != "Title":
+			if array[i]["Name"] == id:
+				result = i
+	return result
+
 func _process(_delta: float) -> void:
 	if money > maxMoney:
 		maxMoney = money

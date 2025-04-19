@@ -19,6 +19,7 @@ var lines = {
 		"So, forgive me.",
 		"hm... tell you what.",
 		"Come find me again, and i'll have something ready this time! promise.",
+		"In the meantime, i'll leave something for you on the main menu. to hold you over!",
 		"Dont keep me waiting...",
 		"-QT.E",
 		],
@@ -32,7 +33,8 @@ var lines = {
 		],
 	2:[
 		"",
-		"welcome back!",
+		"Here we are again.",
+		"Lets get to it it, shall we?",
 		],
 	}
 
@@ -56,7 +58,7 @@ func _ready() -> void:
 
 func _startDialog():
 	$AnimationPlayer.play("beamLoop")
-	Game.rebirths = 4
+	#Game.rebirths = 1
 	if Game.rebirths <= 2:
 		dialog = Game.rebirths
 		$Label.text = lines[dialog][prog]
@@ -175,18 +177,14 @@ func restart():
 	#Game.resetables(true)
 	Game.loadData()
 	Game.rebirths += 1
+	Interstate.fullRebirths += 1
+	Interstate.saveData()
 	var config = ConfigFile.new()
 	config.load(Game.files[Game.curFile])
 	Game.rebirthTokens += recievedTokens
 	config.set_value("Rebirth", "RebirthTokens", recievedTokens)
 	config.set_value("Fiscal", "Rebirths", Game.rebirths)
 	config.save(Game.files[Game.curFile])
-	if Game.rebirths >= 5 and Achievements.achievements[1]["unlocked?"] == false:
-		Game.notify('You unlocked the "5 Lifetimes Past" achievement!\nProve your worth.', "trophy")
-		Achievements.achievements[1]["unlocked?"] = true
-	if Achievements.achievements[0]["unlocked?"] == false:
-		Game.notify('You unlocked the "Rebirth" achievement!\nData Wipe.', "trophy")
-		Achievements.achievements[0]["unlocked?"] = true
 	Achievements.save()
 	Achievements.load()
 	Game.saveData()

@@ -9,6 +9,13 @@ var pageHistory = []
 var pagePlacementHistory = -1
 var files = [
 	{
+	"FILENAME":"Gangnum-Style",
+	"FILETYPE":".png",
+	"LOCKED":false,
+	"LOCKEDTEXT":"",
+	"ATTACHMENT":"gangnumstyle",
+	},
+	{
 	"FILENAME":"placeholderfile bello!",
 	"FILETYPE":".png",
 	"LOCKED":false,
@@ -162,6 +169,7 @@ var pageLength = 0
 @onready var line_edit = $Screen/LineEdit
 
 func _ready() -> void:
+	Interstate.color.visible = false
 	Interstate.loadData()
 	_update_menu("main", false)
 
@@ -235,6 +243,34 @@ func _update_menu(menu : String,  subMenu : bool) -> void:
 			> CODES (uhm. codes.)
 			"""
 		
+		if menu == "stats":
+			var time_dict = {"H" : 0, "M" : 0, "S" : 0}
+			var time = int(round(Interstate.fullTime))
+			while time >= 60:
+				time -= 60
+				time_dict["M"] += 1
+			time_dict["S"] = time
+			while time_dict["M"] >= 60:
+				time_dict["M"] -= 60
+				time_dict["H"] += 1
+			var finH
+			if time_dict["H"] < 10:
+				finH = "0"+str(time_dict["H"])
+			else:
+				finH = time_dict["H"]
+			var finM
+			if time_dict["M"] < 10:
+				finM = "0"+str(time_dict["M"])
+			else:
+				finM = time_dict["M"]
+			var finS
+			if time_dict["S"] < 10:
+				finS = "0"+str(time_dict["S"])
+			else:
+				finS = time_dict["S"]
+			var final = str(finH) + ":" + str(finM) + ":" + str(finS)
+			$Screen/Text.text = "The Interstate: Global Stats\nBACK to return to previous page.\n\nCurrent ANY% Record Holder: Hekza\n\nTime Played: "+str(final)+"\nTotal Rebirths: "+str(Interstate.fullRebirths)+"\nStars Lost: "+str(Interstate.starslost)+"\nTotal Money Gained: "+str(Interstate.totalmoney)+"\nTotal Money Spent: "+str(Interstate.totallost)+"\nPlus Ones Bought: "+str(Interstate.plusones)+"\nJellies Bought: "+str(Interstate.jelliesbought)+"\nIQ: "+str(Interstate.iq)
+		
 		if menu == "files":
 			$Screen/Text.text = "NEXT to progress a page. LAST to go back a page.\nuse keyboard to navigate, and OPEN to open a file."
 			await get_tree().create_timer(1).timeout
@@ -294,6 +330,9 @@ func _on_line_edit_text_submitted(new_text: String) -> void:
 			$AnimationPlayer.play("leaving")
 		if new_text.containsn("CODE"):
 			_update_menu("codes", false)
+			locationFound = true
+		if new_text.containsn("STATS"):
+			_update_menu("stats", false)
 			locationFound = true
 		if new_text.containsn("BACK"):
 			if curMenu == "png":
@@ -361,3 +400,7 @@ func code_input(new_text: String) -> void:
 	
 	if code_recognized == false:
 		_change_text("i dont think that worked...")
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "leaving":
+		get_tree().change_scene_to_file("res://scenes/mainMenu.tscn")

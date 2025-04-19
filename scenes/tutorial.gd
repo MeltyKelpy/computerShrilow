@@ -268,8 +268,10 @@ func shrilClicked() -> void:
 			dialogManagement(dialougeState)
 		clicks += 1
 		ItemValues.money += 1
+		Interstate.totalmoney += 1
 		if ClothingObjects.equippedClothing == 1:
 			ItemValues.money += 1
+			Interstate.totalmoney += 1
 
 func _on_face_revert_timeout() -> void:
 	$Shrilow/Shrilow/ShrilowFace.visible = true

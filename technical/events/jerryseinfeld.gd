@@ -55,8 +55,10 @@ func _process(delta: float) -> void:
 			$jerry/jerryTail.play("tail")
 			if ItemValues.money > 100:
 				ItemValues.money -= 0.5 * (ItemValues.money / 700)
+				Interstate.totallost -= 0.5 * (ItemValues.money / 700)
 			else:
 				ItemValues.money -= 0.5
+				Interstate.totallost -= 0.5
 		elif hurt == true:
 			if $jerry.frame != 1:
 				$jerry.play("punch")

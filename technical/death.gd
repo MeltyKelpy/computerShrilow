@@ -13,6 +13,7 @@ func _process(delta: float) -> void:
 		FizzyDrink.health = 100
 		get_tree().paused = false
 		ItemValues.money -= moneyLost
+		Interstate.totallost -= moneyLost
 		$AnimationPlayer.play("new_animation_2")
 
 func calcCost():

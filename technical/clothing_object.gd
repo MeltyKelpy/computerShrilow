@@ -52,6 +52,7 @@ func _on_button_pressed() -> void:
 		if array[arrayToUse][ItemID]["Owned"] == false:
 			if ItemValues.money >= array[arrayToUse][ItemID]["Cost"]:
 				ItemValues.money -= array[arrayToUse][ItemID]["Cost"]
+				Interstate.totallost -= array[arrayToUse][ItemID]["Cost"]
 				array[arrayToUse][ItemID]["Owned"] = true
 		if array[arrayToUse][ItemID]["Owned"] == true:
 			PlaceholderID = ItemID

@@ -44,6 +44,7 @@ func _process(_delta: float) -> void:
 			var caca = cacapoopyGOD.instantiate()
 			add_child(caca)
 			caca.determineResult(false, 0, ItemValues.money+1)
+			Interstate.starslost += 5
 			caca.reparent($/root)
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
