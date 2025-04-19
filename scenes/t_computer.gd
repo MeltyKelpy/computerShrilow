@@ -952,7 +952,7 @@ func _ready():
 	
 	var err = config.load(Game.files[Game.curFile])
 	
-	if Game.contains_curse("smokebreak"):
+	if Game.contains_curse("smokebreak") and !Game.contains_curse("gambling"):
 		$Shop/Timer.start()
 	
 	# AWFUL CASE OF SPAGHETTI CODE IM JUST TOO LAZY TO WRITE THIS WELL LMAO
