@@ -5,6 +5,8 @@ var toolText = [
 	"im feeling goated",
 	"do you like my game",
 	"bladeninja",
+	"The king of curses drained all his efforts and energy because of his opponent who was very strong",
+	"make it so that way you can breed the jellies - ghost",
 	]
 var savePressedTimes = 0
 

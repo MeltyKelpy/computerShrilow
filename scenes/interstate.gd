@@ -350,6 +350,10 @@ func code_input(new_text: String) -> void:
 		_change_text("Stars....")
 		code_recognized = true
 	
+	if new_text.containsn("joca"):
+		_change_text("faggot")
+		code_recognized = true
+	
 	if new_text.containsn("ghost"):
 		_change_text("hmm...")
 		$AudioStreamPlayer.play()

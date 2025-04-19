@@ -1,4 +1,4 @@
-[gd_scene load_steps=186 format=3 uid="uid://bgw557ttv6noe"]
+[gd_scene load_steps=197 format=3 uid="uid://bgw557ttv6noe"]
 
 [ext_resource type="Script" uid="uid://ddatxm3oli8qs" path="res://scenes/t_computer.gd" id="1_swrb7"]
 [ext_resource type="Texture2D" uid="uid://dajex7cpt7k4p" path="res://assets/images/bg/background.png" id="2_u0da7"]
@@ -207,6 +207,28 @@ animations = [{
 "name": &"talkBase",
 "speed": 5.0
 }]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1butm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4wcep"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_57sgw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_unafi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xvhrt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n611r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kakli"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y014b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eldld"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f0xc5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rrw60"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ugrh1"]
 animations = [{
@@ -1761,6 +1783,57 @@ text = "$100"
 horizontal_alignment = 1
 autowrap_mode = 3
 
+[node name="rollBut" type="Button" parent="Shop/Bricks/Gambling"]
+offset_left = 184.0
+offset_top = 331.0
+offset_right = 357.0
+offset_bottom = 430.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1butm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_4wcep")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_57sgw")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_unafi")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_xvhrt")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_n611r")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_kakli")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_y014b")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_eldld")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_f0xc5")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rrw60")
+
+[node name="ticketBack" type="Button" parent="Shop/Bricks/Gambling"]
+offset_left = 389.0
+offset_top = 197.0
+offset_right = 456.0
+offset_bottom = 233.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1butm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_4wcep")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_57sgw")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_unafi")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_xvhrt")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_n611r")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_kakli")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_y014b")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_eldld")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_f0xc5")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rrw60")
+
+[node name="ticketForeskin" type="Button" parent="Shop/Bricks/Gambling"]
+offset_left = 380.0
+offset_top = 344.0
+offset_right = 447.0
+offset_bottom = 380.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1butm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_4wcep")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_57sgw")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_unafi")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_xvhrt")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_n611r")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_kakli")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_y014b")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_eldld")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_f0xc5")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rrw60")
+
 [node name="Melanie" type="Node2D" parent="Shop"]
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Shop/Melanie"]
@@ -2874,25 +2947,16 @@ autostart = true
 [connection signal="timeout" from="ShrilowScreen/GPSecond" to="." method="_on_gp_second_timeout"]
 [connection signal="pressed" from="ShrilowScreen/Rebirth" to="." method="_Rebirth"]
 [connection signal="pressed" from="Jelly/BackButtonJELLY" to="." method="_on_back_button_jelly_pressed"]
+[connection signal="pressed" from="Shop/Bricks/Gambling/rollBut" to="." method="gambleRoll"]
+[connection signal="pressed" from="Shop/Bricks/Gambling/ticketBack" to="." method="ticketSwap" binds= [-1]]
+[connection signal="pressed" from="Shop/Bricks/Gambling/ticketForeskin" to="." method="ticketSwap" binds= [1]]
 [connection signal="pressed" from="Shop/melinteract" to="." method="melShopToggle"]
 [connection signal="pressed" from="Shop/BackButtonSHOP" to="." method="_on_back_button_shop_pressed"]
-[connection signal="pressed" from="Shop/EnterMarket" to="." method="marketState" binds= ["enter"]]
 [connection signal="timeout" from="Shop/Timer" to="." method="smoke_break"]
-[connection signal="pressed" from="Market/LeaveMarket" to="." method="marketState" binds= ["leave"]]
-[connection signal="pressed" from="Market/openVoid" to="." method="marketState" binds= ["void"]]
 [connection signal="pressed" from="Market/openVoid2" to="." method="box"]
-[connection signal="pressed" from="Market/openMarket" to="." method="marketState" binds= ["blackmarket"]]
-[connection signal="pressed" from="theVoid/LeaveVoid" to="." method="marketState" binds= ["voidLeave"]]
-[connection signal="pressed" from="BlackMarket/LeaveBlack" to="." method="marketState" binds= ["blackmarketLeave"]]
 [connection signal="pressed" from="BlackMarket/marketinteract" to="." method="marketShopToggle"]
 [connection signal="pressed" from="Wardrobe/BackButtonWARD" to="." method="_on_back_button_ward_pressed"]
-[connection signal="pressed" from="Melvin/BackButton" to="." method="cameraAnimation" binds= ["bell", -576, 324, true]]
 [connection signal="pressed" from="Melvin/melvinteract" to="." method="melvShopToggle"]
-[connection signal="pressed" from="Journal/BackJOURNAL" to="." method="cameraAnimation" binds= ["journal", -576, 324, true]]
-[connection signal="pressed" from="storage/BackSTORAGE" to="." method="storageCamShit" binds= ["leave"]]
-[connection signal="pressed" from="Gumball/BackButton" to="." method="cameraAnimation" binds= ["gumballMachine", -576, 324, true]]
-[connection signal="pressed" from="Gumball/NextCoin" to="." method="coinSelectionChange" binds= [1]]
-[connection signal="pressed" from="Gumball/LastCoin" to="." method="coinSelectionChange" binds= [-1]]
 [connection signal="pressed" from="Gumball/Button" to="." method="_buyGumball_pressed"]
 [connection signal="animation_finished" from="sectionTransitions" to="." method="_on_section_transitions_animation_finished"]
 [connection signal="timeout" from="EventTimer" to="." method="_event"]
@@ -2902,7 +2966,6 @@ autostart = true
 [connection signal="mouse_exited" from="Camera2D/leftMove" to="." method="_on_left_move_mouse_exited"]
 [connection signal="mouse_entered" from="Camera2D/rightMove" to="." method="_on_right_move_mouse_entered"]
 [connection signal="mouse_exited" from="Camera2D/rightMove" to="." method="_on_right_move_mouse_exited"]
-[connection signal="pressed" from="Camera2D/storg" to="." method="storageCamShit" binds= ["enter"]]
 [connection signal="animation_finished" from="Camera2D/intro/anim" to="." method="_on_anim_animation_finished"]
 [connection signal="timeout" from="Camera2D/autoPoop/poopTimer" to="." method="killPoop"]
 [connection signal="timeout" from="Camera2D/Timer" to="." method="rebirth"]

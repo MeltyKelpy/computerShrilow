@@ -136,6 +136,40 @@ var gumballInfo = [
 	},
 	]
 
+var gambleTickets = [
+	{
+	"Name":"Basic Ticket",
+	"Desc":"Basic Gambling Ticket. Doesn't give anything crazy.",
+	"Cost":100,
+	"imagePath":"res://assets/images/areas/bricks/tickets/basic.png",
+	"possibilities":["Autoclick","Autoclick"],
+	},
+	{
+	"Name":"Medium Ticket",
+	"Desc":"Medium Gambling Ticket. Gives medium level quality items.",
+	"Cost":400,
+	"imagePath":"res://assets/images/areas/bricks/tickets/medium.png",
+	"possibilities":["Greasepuppy","Greasepuppy"],
+	},
+	{
+	"Name":"High Ticket",
+	"Desc":"High Gambling Ticket. Gives high level quality items.",
+	"Cost":800,
+	"imagePath":"res://assets/images/areas/bricks/tickets/high.png",
+	"possibilities":["Plus One","Plus One"],
+	},
+	{
+	"Name":"Spice Ticket",
+	"Desc":"High Gambling Ticket. Gives any possible item.",
+	"Cost":1500,
+	"imagePath":"res://assets/images/areas/bricks/tickets/spice.png",
+	"possibilities":["Antivirus","Antivirus"],
+	},
+	]
+
+var selTicket = 0
+var canGamble = true
+
 var talker = "Phantom"
 
 var shitShrilowCanSay = [
@@ -175,6 +209,8 @@ var jellies
 var mines
 var puppies
 var rooms
+
+var coconut
 
 var textu
 
@@ -1008,10 +1044,14 @@ func _process(_delta : float) -> void:
 		$ShrilowScreen/Shop.texture = load("res://assets/images/ui/bricks.png")
 		$Shop/Melanie.position.y = -648.0
 		$Shop/Bricks.position.y = 0
+		$Shop/Melanie/talkOptions.mouse_filter = 2
+		$Shop/Bricks/Gambling/ticket.texture = load(gambleTickets[selTicket]["imagePath"])
+		$Shop/Bricks/Gambling/price.text = "$"+str(gambleTickets[selTicket]["Cost"])
 	else:
 		$ShrilowScreen/Shop.texture = load("res://assets/images/ui/shop.png")
+		$Shop/Melanie/talkOptions.mouse_filter = 1
 		$Shop/Bricks.position.y = -648.0
-		$Shop/Melanie.position.y = -0
+		$Shop/Melanie.position.y = 0
 	
 	if Settings.setting_state("saayo") == true:
 		$Shop/Melanie/Mel.visible = false
@@ -1080,14 +1120,8 @@ func _process(_delta : float) -> void:
 	if Game.platinumGumballsBought >= 10:
 		Game.unlock_achievement("10plat")
 	
-	if $ShrilowScreen/puppies != null:
-		#if $ShrilowScreen/puppies.get_child_count() >= 8:
-			#$ShrilowScreen/gpButton.visible = false
-			#$ShrilowScreen/puppies.visible = $ShrilowScreen/gpButton.button_pressed
-		#else:
-			#$ShrilowScreen/gpButton.visible = true
-		if $ShrilowScreen/puppies.get_child_count() >= 500:
-			Game.unlock_achievement("500gp")
+	if FizzyDrink.greasepuppies >= 500:
+		Game.unlock_achievement("500gp")
 	
 	var clothes = true
 	for i in ClothingObjects.clothes.size():
@@ -1937,38 +1971,39 @@ func marketShopToggle() -> void:
 			$BlackMarket/icon.visible = false
 
 func melShopToggle() -> void:
-	if dialogKey == "none":
-		$Shop/ItemDescription.visible_characters = -1
-		$Shop/ItemDescription.visible_ratio = 1
-		melShopState = !melShopState
-		if melShopState == false:
-			$Shop/ItemDescription.visible_ratio = 0
-			if Game.contains_curse("gambling"):
-				spawnDialogueOptionsMelanie("bricks")
-				$Shop/Bricks/talkOptions.position.y = 112
-				$Shop/Bricks/Gambling.position.y = 872
-				setShopBase("bricks")
-			else:
-				spawnDialogueOptionsMelanie("melanie")
-				$Shop/Melanie/ScrollContainer.position.y = 872
-				$Shop/Melanie/talkOptions.position.y = 112
-				setShopBase("melanie")
-			$USD.visible = false
-			$USDText.visible = false
-		if melShopState == true:
-			clearDialogItems()
-			if Game.contains_curse("gambling"):
-				$Shop/Bricks/talkOptions.position.y = 872
-				$Shop/Bricks/Gambling.position.y = 0
-				$Shop/Bricks/Bricks.play("base")
-			else:
-				$Shop/Melanie/talkOptions.position.y = 872
-				$Shop/Melanie/ScrollContainer.position.y = 112
-				$Shop/Melanie/Mel.play("default")
-			$USD.visible = true
-			$USDText.visible = true
-			$Shop/ItemDescription.visible_characters = 100000
+	if canGamble == true:
+		if dialogKey == "none":
+			$Shop/ItemDescription.visible_characters = -1
 			$Shop/ItemDescription.visible_ratio = 1
+			melShopState = !melShopState
+			if melShopState == false:
+				$Shop/ItemDescription.visible_ratio = 0
+				if Game.contains_curse("gambling"):
+					spawnDialogueOptionsMelanie("bricks")
+					$Shop/Bricks/talkOptions.position.y = 112
+					$Shop/Bricks/Gambling.position.y = 872
+					setShopBase("bricks")
+				else:
+					spawnDialogueOptionsMelanie("melanie")
+					$Shop/Melanie/ScrollContainer.position.y = 872
+					$Shop/Melanie/talkOptions.position.y = 112
+					setShopBase("melanie")
+				$USD.visible = false
+				$USDText.visible = false
+			if melShopState == true:
+				clearDialogItems()
+				if Game.contains_curse("gambling"):
+					$Shop/Bricks/talkOptions.position.y = 872
+					$Shop/Bricks/Gambling.position.y = 0
+					$Shop/Bricks/Bricks.play("base")
+				else:
+					$Shop/Melanie/talkOptions.position.y = 872
+					$Shop/Melanie/ScrollContainer.position.y = 112
+					$Shop/Melanie/Mel.play("default")
+				$USD.visible = true
+				$USDText.visible = true
+				$Shop/ItemDescription.visible_characters = 100000
+				$Shop/ItemDescription.visible_ratio = 1
 
 func melvShopToggle() -> void:
 	if dialogKey == "none":
@@ -2245,7 +2280,6 @@ func box() -> void:
 		Game.boxed = true
 		Game.rebirthTokens += 25
 		Game.warn("You found Phantom's secret stash of 25 Rebirth Tokens!...")
-	
 
 func smoke_break() -> void:
 	melSmoke = !melSmoke
@@ -2262,3 +2296,55 @@ func _on_gp_second_timeout() -> void:
 	if $ShrilowScreen/puppies.get_child_count() > 0:
 		for i in range(0, $ShrilowScreen/puppies.get_child_count()):
 			$ShrilowScreen/puppies.get_child(i)._update(false)
+
+func ticketSwap(swap: int) -> void:
+	selTicket += swap
+	
+	if selTicket > gambleTickets.size()-1:
+		selTicket = 0
+	if selTicket < 0:
+		selTicket = gambleTickets.size()-1
+
+func gambleRoll() -> void:
+	print("hello")
+	print(canGamble)
+	print(ItemValues.money >= gambleTickets[selTicket]["Cost"])
+	if canGamble == true and ItemValues.money >= gambleTickets[selTicket]["Cost"]:
+		ItemValues.money -= gambleTickets[selTicket]["Cost"]
+		canGamble = false
+		var possibles = gambleTickets[selTicket]["possibilities"]
+		var itemPicked = possibles[rng.randi_range(0, possibles.size()-1)]
+		var itemId = ItemValues._find_item(itemPicked)
+		var cacaFUCK = load(ItemValues.itemInfomation[itemId]["ScenePath"])
+		if itemPicked == "Autoclick" or itemPicked == "Plus One" or itemPicked == "Plus One Auto":
+			if ItemValues.itemInfomation[itemId]["CurUpgrade"] > 0:
+				ItemValues.itemInfomation[itemId]["CurUpgrade"] += 1
+			else:
+				ItemValues.itemInfomation[itemId]["CurUpgrade"] += 1
+				var caca = cacaFUCK.instantiate()
+				caca.getID(itemId)
+				add_child(caca)
+		elif ItemValues.itemInfomation[itemId]["Owned"] == true:
+			print("lol u already own that!!! tough luck!!!")
+		elif itemPicked == "Greasepuppy":
+			ItemValues.itemInfomation[itemId]["CurUpgrade"] += 1
+			var caca = cacaFUCK.instantiate()
+			add_child(caca)
+			caca.buy()
+			caca.getPuppy(FizzyDrink.greasepuppies)
+			FizzyDrink.greasepuppies += 1
+		else:
+			ItemValues.itemInfomation[itemId]["CurUpgrade"] += 1
+			ItemValues.itemInfomation[itemId]["Owned?"] = true
+			var caca = cacaFUCK.instantiate()
+			caca.getID(itemId)
+			add_child(caca)
+		print(ItemValues.itemInfomation[itemId])
+		var img = ItemValues.itemInfomation[itemId]["Image"]
+		if img.containsn(".png"):
+			$Shop/Bricks/Gambling/item.texture = load(img)
+		else:
+			$Shop/Bricks/Gambling/item.texture = load(img+"0.png")
+		await get_tree().create_timer(5).timeout
+		$Shop/Bricks/Gambling/item.texture = load("res://assets/images/areas/melanies/itemBox.png")
+		canGamble = true

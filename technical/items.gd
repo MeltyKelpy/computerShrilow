@@ -512,6 +512,14 @@ var itemExtra = ""
 var money = 0
 var maxMoney = 0
 
+func _find_item(id):
+	var result = 0
+	for i in itemInfomation.size():
+		if itemInfomation[i]["Type"] != "Title":
+			if itemInfomation[i]["Name"] == id:
+				result = i
+	return result
+	
 func _process(_delta: float) -> void:
 	if money > maxMoney:
 		maxMoney = money
