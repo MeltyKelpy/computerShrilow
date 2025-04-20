@@ -9,6 +9,9 @@ var comics = [
 	["redhat","quickshot"],
 	["stalkcore","kyssing"],
 	["topsurgery","familiar"],
+	["origin1","origin2"],
+	["origin3","origin4"],
+	["origin5","origin6"],
 	]
 
 func _ready():

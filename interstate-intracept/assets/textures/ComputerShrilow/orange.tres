@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b1gxe8lspvhjv"]
+
+[ext_resource type="Texture2D" uid="uid://da0ip6hpfbq6n" path="res://interstate-intracept/assets/textures/ComputerShrilow/orange.png" id="1_rtdeo"]
+
+[resource]
+albedo_texture = ExtResource("1_rtdeo")
+metallic_specular = 0.0
+texture_filter = 2

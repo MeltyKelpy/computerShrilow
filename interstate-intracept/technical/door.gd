@@ -1,12 +1,16 @@
 extends StaticBody3D
 class_name door
 
-@export var interactMessage = "Open Door"
+@export var interactMessage = "Use Door"
 @export var lockRequirement = 0
 @export var button_to_interact = "interact"
+var baseRotation = 0.0
 var state = true
 var hovered = false
 var can = true
+
+func _ready() -> void:
+	baseRotation = rad_to_deg(rotation.y)
 
 func shouldOutline():
 	hovered = true
@@ -44,9 +48,11 @@ func interact():
 			state = !state
 			print(state)
 			if state == true:
-				$AnimationPlayer.play("close")
+				var tweenie = get_tree().create_tween()
+				tweenie.tween_property(self, "rotation", Vector3(rotation.x, deg_to_rad(baseRotation), rotation.z), 1).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
 			if state == false:
-				$AnimationPlayer.play("open")
+				var tweenie = get_tree().create_tween()
+				tweenie.tween_property(self, "rotation", Vector3(rotation.x, deg_to_rad(baseRotation+90.0), rotation.z), 1).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
 			can = false
 			$Timer.start()
 

@@ -351,8 +351,9 @@ func _on_line_edit_text_submitted(new_text: String) -> void:
 		if new_text.containsn("BACK"):
 			if curMenu == "png":
 				_close_file()
+				_update_menu("files", false)
 				locationFound = true
-			if pagePlacementHistory != 0:
+			elif pagePlacementHistory != 0:
 				pageHistory.resize(pageHistory.size()-1)
 				pagePlacementHistory -= 1
 				_update_menu(pageHistory[pagePlacementHistory], false)

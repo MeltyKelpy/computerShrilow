@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://bxpyeluqwguhx"
+path="res://.godot/imported/streets.map-49dd7a3d92068ecb7664eba39f7ef512.tres"
+
+[deps]
+
+source_file="res://interstate-intracept/assets/maps/streets.map"
+dest_files=["res://.godot/imported/streets.map-49dd7a3d92068ecb7664eba39f7ef512.tres"]
+
+[params]
+

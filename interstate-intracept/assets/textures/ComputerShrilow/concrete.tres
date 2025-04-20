@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dmdxeun58qy16"]
+
+[ext_resource type="Texture2D" uid="uid://dp4c8ygho0sqh" path="res://interstate-intracept/assets/textures/ComputerShrilow/concrete.png" id="1_1vflf"]
+
+[resource]
+albedo_texture = ExtResource("1_1vflf")
+metallic_specular = 0.0
+texture_filter = 2

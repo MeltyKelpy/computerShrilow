@@ -10,20 +10,22 @@
 [ext_resource type="Texture2D" uid="uid://dxyk6cgs4ks50" path="res://interstate-intracept/assets/ui/shit_u_hold/squeak.png" id="6_7o3jg"]
 [ext_resource type="FontFile" uid="uid://brn7smfq0l6ao" path="res://assets/fonts/TwCen.ttf" id="7_kat5x"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gdd1w"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_l7vnq"]
+size = Vector3(0.911682, 1.84473, 0.883789)
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kat5x"]
-height = 1.34165
+[sub_resource type="BoxShape3D" id="BoxShape3D_vkiot"]
+size = Vector3(0.92334, 1, 0.884521)
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_gdd1w")
 
 [node name="mainCol" type="CollisionShape3D" parent="."]
-shape = SubResource("CapsuleShape3D_gdd1w")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0387268, 0.00244141, 0.00927734)
+shape = SubResource("BoxShape3D_l7vnq")
 
 [node name="crouchCol" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.326905, 0)
-shape = SubResource("CapsuleShape3D_kat5x")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0373535, -0.326905, 0.0140381)
+shape = SubResource("BoxShape3D_vkiot")
 
 [node name="Neck" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.411136, 0)

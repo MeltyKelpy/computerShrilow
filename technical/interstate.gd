@@ -34,7 +34,6 @@ func saveData():
 	config.set_value("Stats", "Time", fullTime)
 	config.set_value("Stats", "Rebirths", fullRebirths)
 	config.set_value("Stats", "IQ", iq)
-	config.set_value("Stats", "Rebirths", fullRebirths)
 	config.set_value("Stats", "totalMoney", totalmoney)
 	config.set_value("Stats", "totalSpent", totallost)
 	config.set_value("Stats", "starsLost", starslost)

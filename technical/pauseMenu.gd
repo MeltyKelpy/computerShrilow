@@ -15,6 +15,7 @@ var dying = false
 func _ready():
 	$AudioStreamPlayer.play()
 	$SFXCan.play()
+	Interstate.saveData()
 
 func _process(delta: float) -> void:
 	var config = ConfigFile.new()

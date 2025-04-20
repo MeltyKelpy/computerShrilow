@@ -560,8 +560,9 @@ theme_override_font_sizes/font_size = 34
 text = "This notebook contains alot of stuff, primarily:
 - Journal Entries
 - Achievements
-You can access either of these by using the tabs on the top left, the journal entries will fill themselves out as you learn information, and the achievements have descriptions once howevered over, helping you achieve them! obviously.
-(You can flip pages in the Achievements in the bottom corners)"
+- Comics
+You can access any of these by using the tabs on the top left, the journal entries will fill themselves out as you learn information, and the achievements have descriptions once howevered over, helping you achieve them! obviously.
+(You can flip pages in the bottom corners)"
 horizontal_alignment = 1
 autowrap_mode = 2
 
