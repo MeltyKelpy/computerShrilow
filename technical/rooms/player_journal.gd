@@ -3,12 +3,19 @@ extends Node2D
 var pageLeftVal = 1
 var pageRightVal = 2
 var displayPage = 1
+var comicPage = 0
 var bookOpen = false
+var comics = [
+	["redhat","quickshot"],
+	["stalkcore","kyssing"],
+	["topsurgery","familiar"],
+	]
 
 func _ready():
 	$MainPage/Label4.text = "NOTEBOOK OWNED BY:\n"+str(Game.namee)
 	$openBook.position.y = 15.0
 	spawnAchievementsPls()
+	_comic_swap(0)
 	tabPressed("cover")
 	for i in range(0, Journal.entries.size()-1):
 		var cacapoopyGOD3 = preload("res://technical/rooms/entry.tscn")
@@ -20,18 +27,28 @@ func _ready():
 func _process(delta: float) -> void:
 	if Journal.entries.size() != 0:
 		$Entries/ScrollContainer/Label2.text = str(Journal.entries[Journal.selectedJournal]["EntryName"])+"\n\n"+str(Journal.entries[Journal.selectedJournal]["Text"])
+	
 	if $Entries.visible == true:
 		$achievementsButton.button_pressed = false
 		$entriesButton.button_pressed = true
 		$mainPageButton.button_pressed = false
+		$comicsButton.button_pressed = false
 	if $Achievements.visible == true:
 		$achievementsButton.button_pressed = true
 		$entriesButton.button_pressed = false
 		$mainPageButton.button_pressed = false
+		$comicsButton.button_pressed = false
 	if $MainPage.visible == true:
 		$achievementsButton.button_pressed = false
 		$entriesButton.button_pressed = false
 		$mainPageButton.button_pressed = true
+		$comicsButton.button_pressed = false
+	if $Comics.visible == true:
+		$achievementsButton.button_pressed = false
+		$entriesButton.button_pressed = false
+		$mainPageButton.button_pressed = false
+		$comicsButton.button_pressed = true
+	
 	if get_tree().paused == true:
 		$Entries/ScrollContainer2.visible = false
 	else:
@@ -80,12 +97,14 @@ func tabPressed(which: String) -> void:
 	$Entries.visible = false
 	$Achievements.visible = false
 	$MainPage.visible = false
+	$Comics.visible = false
 	if which == "cover":
 		$back.visible = false
 		$pages.visible = false
 		$mainPageButton.visible = false
 		$entriesButton.visible = false
 		$achievementsButton.visible = false
+		$comicsButton.visible = false
 		$closed.visible = true
 	else:
 		$back.visible = true
@@ -93,16 +112,17 @@ func tabPressed(which: String) -> void:
 		$mainPageButton.visible = true
 		$entriesButton.visible = true
 		$achievementsButton.visible = true
+		$comicsButton.visible = true
 		$closed.visible = false
+	$paper.play()
 	if which == "mainpage":
-		$paper.play()
 		$MainPage.visible = true
 	if which == "entries":
-		$paper.play()
 		$Entries.visible = true
 	if which == "achievements":
-		$paper.play()
 		$Achievements.visible = true
+	if which == "comics":
+		$Comics.visible = true
 
 func flipPage(howMuch : int):
 	$paper.play()
@@ -117,3 +137,10 @@ func _on_open_book_pressed() -> void:
 	$openBook.position.y = 1000
 	$AnimationPlayer.play("openBook")
 	bookOpen = true
+
+func _comic_swap(howMuch : int):
+	if (howMuch == -1 and comicPage > 0) or (howMuch == 1 and comicPage < comics.size()-1):
+		$paper.play()
+		comicPage += howMuch
+	$Comics/leftComic.texture = load("res://assets/images/areas/notebook/comics/"+comics[comicPage][0]+".png")
+	$Comics/rightComic.texture = load("res://assets/images/areas/notebook/comics/"+comics[comicPage][1]+".png")

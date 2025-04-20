@@ -175,14 +175,15 @@ func loadData():
 		Curses.curses = []
 		Curses.curses = config.get_value("Rebirth", "Curses", [])
 		
-		if config.get_value("Journal", "journalShit").size() == Journal.entriesText.size():
-			for i in Journal.entriesText.size():
-				for e in Journal.entriesText[Journal.entriesText.keys()[i]].size():
-					var that_one_fucking_array = Journal.entriesText[Journal.entriesText.keys()[i]]
-					if e == 0:
-						that_one_fucking_array[e] = config.get_value("Journal", "journalShit")[Journal.entriesText.keys()[i]]["locked"]
-					else:
-						that_one_fucking_array[e]["revealed?"] = config.get_value("Journal", "journalShit")[Journal.entriesText.keys()[i]][that_one_fucking_array[e]["id"]]
+		if config.get_value("Journal", "journalShit") != null:
+			if config.get_value("Journal", "journalShit").size() == Journal.entriesText.size():
+				for i in Journal.entriesText.size():
+					for e in Journal.entriesText[Journal.entriesText.keys()[i]].size():
+						var that_one_fucking_array = Journal.entriesText[Journal.entriesText.keys()[i]]
+						if e == 0:
+							that_one_fucking_array[e] = config.get_value("Journal", "journalShit")[Journal.entriesText.keys()[i]]["locked"]
+						else:
+							that_one_fucking_array[e]["revealed?"] = config.get_value("Journal", "journalShit")[Journal.entriesText.keys()[i]][that_one_fucking_array[e]["id"]]
 		
 		var lazy = {
 			"Autoclick":"autoClickerUpgrade",

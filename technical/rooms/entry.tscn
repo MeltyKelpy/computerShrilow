@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://blpl7hmlaxaxo"]
+[gd_scene load_steps=13 format=3 uid="uid://blpl7hmlaxaxo"]
 
 [ext_resource type="Script" uid="uid://othauxix6rge" path="res://technical/rooms/entry.gd" id="1_s4lct"]
 [ext_resource type="Theme" uid="uid://dr1wna4c2ab2h" path="res://technical/textStyle.tres" id="2_a532w"]
 [ext_resource type="Texture2D" uid="uid://dw511n4u4srfv" path="res://assets/images/areas/notebook/entrybOxSel.png" id="2_kaivt"]
 [ext_resource type="FontFile" uid="uid://brn7smfq0l6ao" path="res://assets/fonts/TwCen.ttf" id="3_0jt80"]
 [ext_resource type="Texture2D" uid="uid://bc5htw6fsybeg" path="res://assets/images/areas/notebook/entrybOx.png" id="3_gt7xx"]
+[ext_resource type="FontFile" uid="uid://b4k2dmq5merir" path="res://assets/fonts/Seagirl-Regular.ttf" id="6_pvio8"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eqxvt"]
 
@@ -48,6 +49,7 @@ offset_right = 484.0
 offset_bottom = 65.0
 theme = ExtResource("2_a532w")
 theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("6_pvio8")
 theme_override_font_sizes/font_size = 40
 text = "entry name here"
 horizontal_alignment = 1

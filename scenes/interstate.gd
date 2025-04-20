@@ -16,6 +16,20 @@ var files = [
 	"ATTACHMENT":"gangnumstyle",
 	},
 	{
+	"FILENAME":"Memorial",
+	"FILETYPE":".png",
+	"LOCKED":false,
+	"LOCKEDTEXT":"",
+	"ATTACHMENT":"memorium",
+	},
+	{
+	"FILENAME":"oh",
+	"FILETYPE":".png",
+	"LOCKED":false,
+	"LOCKEDTEXT":"",
+	"ATTACHMENT":"oh",
+	},
+	{
 	"FILENAME":"placeholderfile bello!",
 	"FILETYPE":".png",
 	"LOCKED":false,

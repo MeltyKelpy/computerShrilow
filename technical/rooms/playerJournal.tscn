@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://breajdhvvyjm3"]
+[gd_scene load_steps=68 format=3 uid="uid://breajdhvvyjm3"]
 
 [ext_resource type="Script" uid="uid://c4avbb8usspk5" path="res://technical/rooms/player_journal.gd" id="1_x36x3"]
 [ext_resource type="Texture2D" uid="uid://dkx3j1h7db7t6" path="res://assets/images/areas/notebook/openBACK.png" id="2_18d3f"]
@@ -12,11 +12,15 @@
 [ext_resource type="Texture2D" uid="uid://bh2aku0b6gtqq" path="res://assets/images/areas/notebook/achievementsUp.png" id="5_7pjs2"]
 [ext_resource type="Texture2D" uid="uid://c1wwkfic8471f" path="res://assets/images/areas/notebook/achievementsDown.png" id="6_2k4s6"]
 [ext_resource type="Texture2D" uid="uid://uby20y7wi0vy" path="res://assets/images/areas/notebook/curl.png" id="9_rjm0f"]
+[ext_resource type="Texture2D" uid="uid://4hg8jelcerbe" path="res://assets/images/areas/notebook/comicsUp.png" id="9_x4tj3"]
+[ext_resource type="Texture2D" uid="uid://f7i7eqt4q1ag" path="res://assets/images/areas/notebook/comicsDown.png" id="10_01pp3"]
 [ext_resource type="Texture2D" uid="uid://di8ufln27gebo" path="res://assets/images/areas/notebook/mainPageDoodles.png" id="10_rb0i3"]
 [ext_resource type="Texture2D" uid="uid://d1v0xi2hbvoky" path="res://assets/images/areas/notebook/leftUh.png" id="10_v7itm"]
 [ext_resource type="Texture2D" uid="uid://ddm6lf1bu04gi" path="res://assets/images/areas/notebook/curlRight.png" id="11_qhrg7"]
+[ext_resource type="FontFile" uid="uid://b4k2dmq5merir" path="res://assets/fonts/Seagirl-Regular.ttf" id="12_70lni"]
 [ext_resource type="Texture2D" uid="uid://gtei8og1jcrp" path="res://assets/images/areas/notebook/rightUh.png" id="12_h3i1u"]
 [ext_resource type="Texture2D" uid="uid://bgpcvev1o56hk" path="res://assets/images/areas/notebook/closed.png" id="14_xrhpj"]
+[ext_resource type="Texture2D" uid="uid://clye74ftubpvi" path="res://assets/images/areas/notebook/comics/kyssing.png" id="15_01pp3"]
 [ext_resource type="AudioStream" uid="uid://bn0kao6t8fdjm" path="res://assets/sounds/pageTurn.ogg" id="18_g6gna"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k0w3k"]
@@ -58,6 +62,18 @@ texture = ExtResource("5_7pjs2")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mn75g"]
 texture = ExtResource("6_2k4s6")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_15mm2"]
+texture = ExtResource("9_x4tj3")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2nw8w"]
+texture = ExtResource("9_x4tj3")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6xvkc"]
+texture = ExtResource("9_x4tj3")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h4n3h"]
+texture = ExtResource("10_01pp3")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1y107"]
 
@@ -486,6 +502,20 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_mn75g")
 toggle_mode = true
 autowrap_mode = 1
 
+[node name="comicsButton" type="Button" parent="."]
+visible = false
+offset_left = 384.0
+offset_top = 16.0
+offset_right = 465.0
+offset_bottom = 72.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ucif8")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_15mm2")
+theme_override_styles/hover = SubResource("StyleBoxTexture_2nw8w")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_6xvkc")
+theme_override_styles/normal = SubResource("StyleBoxTexture_h4n3h")
+toggle_mode = true
+autowrap_mode = 1
+
 [node name="pages" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(576, 324)
@@ -499,30 +529,33 @@ position = Vector2(576, 324)
 texture = ExtResource("10_rb0i3")
 
 [node name="Label" type="Label" parent="MainPage"]
-offset_left = 156.0
+offset_left = 101.0
 offset_top = 183.0
-offset_right = 454.0
+offset_right = 507.0
 offset_bottom = 258.0
 theme = ExtResource("4_e1be2")
+theme_override_fonts/font = ExtResource("12_70lni")
 theme_override_font_sizes/font_size = 70
 text = "MY NOTEBOOK"
 
 [node name="Label2" type="Label" parent="MainPage"]
-offset_left = 732.0
+offset_left = 697.0
 offset_top = 105.0
-offset_right = 990.0
+offset_right = 1017.0
 offset_bottom = 157.0
 theme = ExtResource("4_e1be2")
+theme_override_fonts/font = ExtResource("12_70lni")
 theme_override_font_sizes/font_size = 48
 text = "Table of Contents:"
 
 [node name="Label3" type="Label" parent="MainPage"]
-offset_left = 608.0
+offset_left = 603.0
 offset_top = 157.0
-offset_right = 1106.0
+offset_right = 1101.0
 offset_bottom = 605.0
 theme = ExtResource("4_e1be2")
 theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("12_70lni")
 theme_override_font_sizes/font_size = 34
 text = "This notebook contains alot of stuff, primarily:
 - Journal Entries
@@ -533,14 +566,54 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="Label4" type="Label" parent="MainPage"]
-offset_left = 55.0
-offset_top = 254.0
-offset_right = 548.0
-offset_bottom = 293.0
+offset_left = 52.0
+offset_top = 242.0
+offset_right = 545.0
+offset_bottom = 281.0
 theme = ExtResource("4_e1be2")
+theme_override_fonts/font = ExtResource("12_70lni")
 theme_override_font_sizes/font_size = 36
 text = "NOTEBOOK OWNED BY:"
 horizontal_alignment = 1
+
+[node name="Comics" type="Node2D" parent="."]
+visible = false
+
+[node name="leftComic" type="Sprite2D" parent="Comics"]
+texture_filter = 2
+position = Vector2(301, 340)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("15_01pp3")
+
+[node name="rightComic" type="Sprite2D" parent="Comics"]
+texture_filter = 2
+position = Vector2(854, 340)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("15_01pp3")
+
+[node name="lastPage" type="Button" parent="Comics"]
+offset_left = 23.0
+offset_top = 567.0
+offset_right = 95.0
+offset_bottom = 624.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1y107")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_jtvv7")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ey27x")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_hnjqv")
+theme_override_styles/normal = SubResource("StyleBoxTexture_nnxmu")
+autowrap_mode = 1
+
+[node name="nextPage" type="Button" parent="Comics"]
+offset_left = 1056.0
+offset_top = 572.0
+offset_right = 1128.0
+offset_bottom = 624.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jj7w4")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_pcifj")
+theme_override_styles/hover = SubResource("StyleBoxTexture_co5do")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_inuyc")
+theme_override_styles/normal = SubResource("StyleBoxTexture_nddci")
+autowrap_mode = 1
 
 [node name="Entries" type="Node2D" parent="."]
 visible = false
@@ -567,6 +640,7 @@ layout_mode = 2
 theme = ExtResource("4_e1be2")
 theme_override_colors/default_color = Color(0.121569, 0.0470588, 0, 1)
 theme_override_colors/font_selected_color = Color(1, 0.905882, 0.85098, 1)
+theme_override_fonts/normal_font = ExtResource("12_70lni")
 bbcode_enabled = true
 text = "[bgcolor=black][color=black]Text to redact[/color][/bgcolor] le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall le epic joruanall vv"
 fit_content = true
@@ -669,6 +743,9 @@ volume_db = -14.667
 [connection signal="pressed" from="mainPageButton" to="." method="tabPressed" binds= ["mainpage"]]
 [connection signal="pressed" from="entriesButton" to="." method="tabPressed" binds= ["entries"]]
 [connection signal="pressed" from="achievementsButton" to="." method="tabPressed" binds= ["achievements"]]
+[connection signal="pressed" from="comicsButton" to="." method="tabPressed" binds= ["comics"]]
+[connection signal="pressed" from="Comics/lastPage" to="." method="_comic_swap" binds= [-1]]
+[connection signal="pressed" from="Comics/nextPage" to="." method="_comic_swap" binds= [1]]
 [connection signal="pressed" from="Achievements/lastPage" to="." method="flipPage" binds= [-1]]
 [connection signal="pressed" from="Achievements/nextPage" to="." method="flipPage" binds= [1]]
 [connection signal="pressed" from="openBook" to="." method="_on_open_book_pressed"]
