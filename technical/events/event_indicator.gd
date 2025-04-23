@@ -10,6 +10,10 @@ func _process(_delta: float) -> void:
 	if Game.contains_curse("senselessness"):
 		visible = false
 
+func _is_event():
+	$AudioStreamPlayer.play()
+	self.z_index = 4069
+
 func warn(message : String):
 	$AnimationPlayer.play("POPUP")
 	$eventer/Warning.text = message

@@ -6,6 +6,7 @@ var difference : Vector2
 var dead : bool
 
 func _ready():
+	self.reparent($/root/computerShrilow)
 	self.position.x = -29
 	self.position.y = -303
 

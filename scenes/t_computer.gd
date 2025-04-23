@@ -1656,6 +1656,7 @@ func _startEvent(numberPicked, type) -> void:
 	if type == 0:
 		caca2.warn(Events.justMinigames[numberPicked]["WarningMessage"])
 	if type == 1:
+		caca2._is_event()
 		caca2.warn(Events.eventList[numberPicked]["WarningMessage"])
 		Events.eventList[numberPicked]["Played?"] = true
 	if type == 0:

@@ -189,6 +189,7 @@ func restart():
 	Achievements.load()
 	Game.saveData()
 	Game.resetables()
+	Game.reloadGlobals()
 	Game.loadData()
 	$Timer.start()
 

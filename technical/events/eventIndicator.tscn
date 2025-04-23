@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://c6toq5a3ihyny"]
+[gd_scene load_steps=8 format=3 uid="uid://c6toq5a3ihyny"]
 
 [ext_resource type="Script" uid="uid://bls8gk64qy3b1" path="res://technical/events/event_indicator.gd" id="1_a2766"]
 [ext_resource type="Texture2D" uid="uid://wpciqec4n52g" path="res://assets/images/ui/warning.png" id="1_dpthf"]
 [ext_resource type="Theme" uid="uid://dr1wna4c2ab2h" path="res://technical/textStyle.tres" id="2_hswlr"]
+[ext_resource type="AudioStream" uid="uid://6kf15cuwcfdr" path="res://assets/sounds/pa.ogg" id="4_xd0ut"]
 
 [sub_resource type="Animation" id="Animation_4vel4"]
 resource_name = "POPUP"
@@ -86,3 +87,7 @@ metadata/_edit_use_anchors_ = true
 libraries = {
 &"": SubResource("AnimationLibrary_hso7e")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_xd0ut")
+volume_db = -1.525
