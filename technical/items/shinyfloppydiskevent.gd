@@ -10,7 +10,7 @@ func getID(num) -> void:
 	loadMinigame()
 
 func loadMinigame():
-	for i in range(0, Events.justMinigames.size()-1):
+	for i in Events.justMinigames.size():
 		if Events.justMinigames[i]["Played?"] == false:
 			if gamePlayed == false:
 				var cacapoopyGOD2 = load(Events.justMinigames[i]["AttachedScene"])
@@ -35,7 +35,7 @@ func loadMinigame():
 				gamePlayed = true
 		else:
 			check += 1
-			if check == Events.justMinigames.size()-1:
+			if check == Events.justMinigames.size():
 				ItemValues.money += 300
 				Interstate.totalmoney += 300
 				var cacapoopyGOD3 = preload("res://technical/events/eventIndicator.tscn")

@@ -3,9 +3,10 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Interstate.loadData()
 	if Interstate.iq == 0:
 		Interstate.iq = randi_range(-4,200)
-	Interstate.loadData()
+	Interstate.saveData()
 	Settings.loadData()
 	Settings.saveData()
 	$AnimationPlayer.play("opening")
