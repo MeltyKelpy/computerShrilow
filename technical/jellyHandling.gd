@@ -94,6 +94,13 @@ var uncommonJellies = [
 	"Seconds":6,
 	"Discovered":false,
 	},
+	{
+	"Name":"Wing Jelly",
+	"Desc":"i wanna shatter this thing across time and space\n(Jelly based on uhhmmm... who..........)",
+	"MoneyGain":10,
+	"Seconds":6,
+	"Discovered":false,
+	},
 	]
 var rareJellies = [
 	{
@@ -187,6 +194,27 @@ var rareJellies = [
 	"Seconds":3,
 	"Discovered":false,
 	},
+	{
+	"Name":"Domino Jelly",
+	"Desc":"you got bacteria near a wound? call that mass infection.\n(Inspired by Betrayed 1x1x1x1 from Forsaken)",
+	"MoneyGain":15,
+	"Seconds":3,
+	"Discovered":false,
+	},
+	{
+	"Name":"Double Jelly",
+	"Desc":"you die twice? what are you, a shadow?\n(Inspired by Twotime from Forsaken)",
+	"MoneyGain":15,
+	"Seconds":3,
+	"Discovered":false,
+	},
+	{
+	"Name":"Dude Jelly",
+	"Desc":"you meet your soulmate, the most perfect person you could imagine. however, there's a catch.\n(Jelly based on Dudeman, the hit character.)",
+	"MoneyGain":15,
+	"Seconds":3,
+	"Discovered":false,
+	},
 	]
 var awesomeJellies = [
 	{
@@ -260,6 +288,27 @@ var awesomeJellies = [
 	"Discovered":false,
 	},
 	{
+	"Name":"Biblically Accurate Peanut Butter",
+	"Desc":"fuuuuck dude.. its like... duuuude.. its so... accurate.. holy shit..\n(inspired by Saayo's OC, Kathy)",
+	"MoneyGain":30,
+	"Seconds":2,
+	"Discovered":false,
+	},
+	{
+	"Name":"Jelvial Meltyment",
+	"Desc":"ABOJM (Always bet on Jelvial Meltyment)\n(Jovial Merryment Jelly)",
+	"MoneyGain":30,
+	"Seconds":2,
+	"Discovered":false,
+	},
+	{
+	"Name":"Replink Jelly",
+	"Desc":"evil plinker also yuri\n(Jelly based on Saayo OC, SH4D3)",
+	"MoneyGain":30,
+	"Seconds":2,
+	"Discovered":false,
+	},
+	{
 	"Name":"Mirrored Peanut Butter",
 	"Desc":"guess you could say I'm proud of this one\n(based on Yourself created by Divide)",
 	"MoneyGain":20,
@@ -278,6 +327,13 @@ var awesomeJellies = [
 	"Desc":"Visit my bouncy castle in the outskirts of JellyTown",
 	"MoneyGain":25,
 	"Seconds":2,
+	"Discovered":false,
+	},
+	{
+	"Name":"Second Life Jelly",
+	"Desc":"im dead\n(Based on Azure from Forsaken)",
+	"MoneyGain":25,
+	"Seconds":3,
 	"Discovered":false,
 	},
 	]
@@ -336,6 +392,13 @@ var blueJellies = [
 	{
 	"Name":"Those who Jelly",
 	"Desc":"brazilian phonk",
+	"MoneyGain":200,
+	"Seconds":1,
+	"Discovered":false,
+	},
+	{
+	"Name":"Pibby Jelly",
+	"Desc":"fuck you bro",
 	"MoneyGain":200,
 	"Seconds":1,
 	"Discovered":false,

@@ -1234,7 +1234,7 @@ func _process(_delta : float) -> void:
 	var minigamesAchieve2 = true
 	
 	for e in Events.justMinigames.size():
-		if Events.justMinigames[e]["BestStars"] == false:
+		if Events.justMinigames[e]["BestStars"] == 5:
 			minigamesAchieve2 = false
 			break
 	

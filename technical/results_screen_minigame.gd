@@ -99,13 +99,14 @@ func countMoney():
 	countingMoney = true
 
 func allowExit():
-	$/root/computerShrilow.visible = true
+	if get_node_or_null(^"$/root/computerShrilow"):
+		$/root/computerShrilow.visible = true
+		$/root/computerShrilow/Camera2D.position.x = $/root/computerShrilow.returnPosCamX
+		$/root/computerShrilow/Camera2D.position.y = $/root/computerShrilow.returnPosCamY
+		position.x = $/root/computerShrilow.returnPosCamX - 576
+		position.y = $/root/computerShrilow.returnPosCamY - 324
+		$/root/computerShrilow.visible = true
 	$resultsscreen/INFO.text = "\n\n\nSTARS:\n"+str(starr)+"/5\n\nTOTAL MONEY:\n"
-	$/root/computerShrilow/Camera2D.position.x = $/root/computerShrilow.returnPosCamX
-	$/root/computerShrilow/Camera2D.position.y = $/root/computerShrilow.returnPosCamY
-	position.x = $/root/computerShrilow.returnPosCamX - 576
-	position.y = $/root/computerShrilow.returnPosCamY - 324
-	$/root/computerShrilow.visible = true
 	if resultt == "LOSE.":
 		countingMoney = false
 		allowExiting = true

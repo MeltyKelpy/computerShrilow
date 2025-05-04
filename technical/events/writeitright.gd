@@ -32,11 +32,14 @@ var prompts = [
 	"Well, I guess that means im pwetty sigma...",
 	"Melty found DEAD in the bronx.",
 	]
+var saayoprompts = ["", "saayo", "saayo again", "saayo but again maybe just a little bit"]
 var lastResultDETERMINE = ""
 var section = 0
 
 func _ready() -> void:
-	$/root/computerShrilow.visible = false
+	Settings.loadData()
+	if get_node_or_null(^"$/root/computerShrilow"):
+		$/root/computerShrilow.visible = false
 	Events.justMinigames[4]["Played?"] = true
 	$opening/Label.position.y = 5000
 	$AnimationPlayer.play("pop")
@@ -246,6 +249,8 @@ func _on_show_prompt_timeout() -> void:
 	var prompppt = calcPrompt()
 	prevPrompts[round] = prompppt
 	$Game/exBox/Text.text = prompts[prompppt]
+	if Settings.get_setting("saayo"):
+		$Game/exBox/Text.text = saayoprompts[round] 
 	#tween.tween_callback($Sprite.queue_free)
 	$ShowTextBox.start()
 

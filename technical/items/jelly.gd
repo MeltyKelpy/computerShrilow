@@ -10,8 +10,9 @@ extends Node2D
 var hi = true
 @export var room = 0
 @export var id = 0
+var rng = RandomNumberGenerator.new()
 
-var jellyState = ""
+@export var jellyState = ""
 var body_entered = false
 var canDetect = false
 
@@ -31,6 +32,7 @@ var colorsIgLOL = [
 	"Rare":Color(0.9333333333, 0.4196078431, 0.4980392157),
 	"Awesome":Color(0.5921568627, 0.4196078431, 0.9333333333),
 	"Blue":Color(0.2941176471, 0.4509803922, 1),
+	"Ultra Fucking Rare":Color(0.951, 0.544, 0.065),
 	},
 	]
 
@@ -46,18 +48,27 @@ func buy():
 	var caca2 = cacapoopyGOD3.instantiate()
 	add_child(caca2)
 	caca2.reparent($/root)
-	for i in FizzyDrink.melDialogue.size():
-		if FizzyDrink.melDialogue[i]["dialogKey"] == "JELLIES":
-			FizzyDrink.melDialogue[i]["unlocked"] = true
-	if new == true:
-		if selfDiscoveredVar == true:
-			caca2.warn("You bought a Gumball, and you got a "+rarity+" Jelly!")
-		else:
-			caca2.warn("You bought a Gumball, and you got a "+rarity+" Jelly, and its one you havent seen before!")
-			Game.jellies += 1
-			selfDiscoveredVar = true
-		new = false
-	_on_storage_pressed(true)
+	var chanceForsaken = 2
+	if rarity == "Common":
+		chanceForsaken = rng.randi_range(1, 4096)
+		if chanceForsaken == 1:
+			caca2.warn("You bought a Gumball, and you got a SHINY JELLLYLYYYYYY!!!!!!!")
+			jelly = "Shiny Jelly"
+			rarity = "Ultra Fucking Rare"
+			_on_storage_pressed(true)
+	if chanceForsaken != 1:
+		for i in FizzyDrink.melDialogue.size():
+			if FizzyDrink.melDialogue[i]["dialogKey"] == "JELLIES":
+				FizzyDrink.melDialogue[i]["unlocked"] = true
+		if new == true:
+			if selfDiscoveredVar == true:
+				caca2.warn("You bought a Gumball, and you got a "+rarity+" Jelly!")
+			else:
+				caca2.warn("You bought a Gumball, and you got a "+rarity+" Jelly, and its one you havent seen before!")
+				Game.jellies += 1
+				selfDiscoveredVar = true
+			new = false
+		_on_storage_pressed(true)
 
 func setParent():
 	reparent($/root/computerShrilow/Jelly/Control)
@@ -135,6 +146,7 @@ func _physics_process(delta: float) -> void:
 			showSeconds = 0.5
 	$nameShit/Stats.text = rarity+"\n"+str(showMoney)+"$ per "+str(showSeconds)+" Seconds"
 	$RigidBody2D/mange.rotation = (-1) * $RigidBody2D.rotation
+	$RigidBody2D/fingers.rotation = (-1) * $RigidBody2D.rotation
 	mouse_pin.global_position = get_global_mouse_position()
 	$nameShit.global_position = get_global_mouse_position()
 	$FirstTimer.wait_time = float(showSeconds - 0.2)
@@ -264,17 +276,42 @@ func _on_storage_pressed(type) -> void:
 
 func _on_proximity_body_entered(body: Node2D) -> void:
 	var parent = body.get_parent()
-	body_entered = true
-	if parent.jelly == "Bun Lovebird Jelly" and jelly == "Bug Lovebird Jelly":
-		jellyState = "blush"
-	elif parent.jelly == "Bug Lovebird Jelly" and jelly == "Bun Lovebird Jelly":
-		jellyState = "blush"
-	elif jelly == "Bug Lovebird Jelly":
-		if canDetect == true:
-			jellyState = "touch"
-	else:
-		jellyState = ""
+	if body.name == "RigidBody2D":
+		body_entered = true
+		if parent.jelly == "Bun Lovebird Jelly" and jelly == "Bug Lovebird Jelly":
+			jellyState = "blush"
+		elif parent.jelly == "Bug Lovebird Jelly" and jelly == "Bun Lovebird Jelly":
+			jellyState = "blush"
+		elif parent.jelly == "Biblically Accurate Peanut Butter" and jelly == "Dude Jelly":
+			$RigidBody2D/fingers.texture = load("res://assets/images/jellies/Dude Jelly/finger.png")
+			$RigidBody2D/fingers.visible = true
+		elif parent.jelly == "Replink Jelly" and jelly == "Plinker Jelly":
+			jellyState = "blush"
+		elif parent.jelly == "Wing Jelly" and jelly == "Dude Jelly":
+			jellyState = "angry"
+		elif parent.jelly == "Plinker Jelly" and jelly == "Replink Jelly":
+			jellyState = "blush"
+		elif parent.jelly == "Second Life Jelly" and jelly == "Double Jelly":
+			jellyState = "blush"
+		elif parent.jelly == "Double Jelly" and jelly == "Second Life Jelly":
+			jellyState = "blush"
+		elif parent.jelly == "Domino Jelly" and jelly == "Double Jelly":
+			jellyState = "secondlife"
+		elif parent.jelly == "Plinker Jelly" and jelly == "Bun Lovebird Jelly":
+			$RigidBody2D/fingers.texture = load("res://assets/images/jellies/Bun Lovebird Jelly/finger.png")
+			$RigidBody2D/fingers.visible = true
+		elif parent.jelly == "Bun Lovebird Jelly" and jelly == "Plinker Jelly":
+			$RigidBody2D/fingers.texture = load("res://assets/images/jellies/Plinker Jelly/finger.png")
+			$RigidBody2D/fingers.visible = true
+		elif jelly == "Bug Lovebird Jelly":
+			if canDetect == true:
+				jellyState = "touch"
+		else:
+			jellyState = ""
 
 func _on_proximity_body_exited(body: Node2D) -> void:
-	body_entered = false
-	jellyState = ""
+	if body.name == "RigidBody2D":
+		if (body.get_parent().jelly == "Plinker Jelly" and jelly == "Bun Lovebird Jelly") or (body.get_parent().jelly == "Bun Lovebird Jelly" and jelly == "Plinker Jelly") or (body.get_parent().jelly == "Biblically Accurate Peanut Butter" and jelly == "Dude Jelly"):
+			$RigidBody2D/fingers.visible = false
+		body_entered = false
+		jellyState = ""

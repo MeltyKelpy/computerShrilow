@@ -61,8 +61,9 @@ func reloadGlobals():
 	s = Journal.get_script()
 	Journal.set_script(null)
 	Journal.set_script(s)
-	
-	s = get_script()
+
+func reset():
+	var s = get_script()
 	set_script(null)
 	set_script(s)
 
@@ -232,12 +233,15 @@ func loadData():
 				if ItemValues.marketItems[i].has("Purchased"):
 					ItemValues.marketItems[i]["Purchased"] = myPretties2[i]
 		
-		var minigameStars = config.get_value("Fiscal", "minigameStars")
-		for i in Events.justMinigames.size():
-			Events.justMinigames[i]["BestStars"] = minigameStars[i]
-		var minigamePlayed = config.get_value("Fiscal", "minigamePlayed")
-		for i in Events.justMinigames.size():
-			Events.justMinigames[i]["Played?"] = minigamePlayed[i]
+		var minigameStars = config.get_value("Fiscal", "minigameStars", null)
+		if minigameStars != null:
+			for i in Events.justMinigames.size():
+				Events.justMinigames[i]["BestStars"] = minigameStars[i]
+		
+		var minigamePlayed = config.get_value("Fiscal", "minigamePlayed", null)
+		if minigamePlayed != null:
+			for i in Events.justMinigames.size():
+				Events.justMinigames[i]["Played?"] = minigamePlayed[i]
 		
 		# config.set_value("Stats", "amountOfMines", FizzyDrink.minesLength)
 		FizzyDrink.minesLength = config.get_value("Stats", "amountOfMines")
@@ -335,12 +339,12 @@ func saveData():
 		entryStatsToSave[Journal.entriesText.keys()[i]] = shit
 	config.set_value("Journal", "journalShit", entryStatsToSave)
 	
-	var minigameStars 
+	var minigameStars = []
 	for i in Events.justMinigames.size():
 		minigameStars.append(Events.justMinigames[i]["BestStars"])
 	config.set_value("Fiscal", "minigameStars", minigameStars)
 	
-	var minigamePlayed
+	var minigamePlayed = []
 	for i in Events.justMinigames.size():
 		minigamePlayed.append(Events.justMinigames[i]["Played?"])
 	config.set_value("Fiscal", "minigamePlayed", minigamePlayed)
