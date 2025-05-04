@@ -5,7 +5,7 @@ func getID(num):
 
 func _ready() -> void:
 	reparent($/root/computerShrilow/ShrilowScreen)
-	position.x = 223
+	position.x = 338
 	position.y = 515
 
 func _process(delta: float) -> void:

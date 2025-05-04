@@ -405,12 +405,13 @@ func saveData():
 		"Shrilow Crystal":"shrilowCry",
 		"Jelly Crystal":"jellyCry",
 		"Mine Crystal":"mineCry",
+		"Puppy Crystal":"puppyCry",
 		}
-	for i in ["Autoclick", "Plus One", "Plus One Auto", "Shrilow Crystal", "Jelly Crystal", "Mine Crystal"]:
+	for i in ["Autoclick", "Plus One", "Plus One Auto", "Shrilow Crystal", "Jelly Crystal", "Mine Crystal", "Puppy Crystal"]:
 		for e in ItemValues.itemInfomation.size():
 			if ItemValues.itemInfomation[e].has("Name"):
-					if ItemValues.itemInfomation[e]["Name"] == i:
-						config.set_value("Shop", lazy[i], ItemValues.itemInfomation[e]["CurUpgrade"])
+				if ItemValues.itemInfomation[e]["Name"] == i:
+					config.set_value("Shop", lazy[i], ItemValues.itemInfomation[e]["CurUpgrade"])
 	
 	var shopPurchases = []
 	shopPurchases.resize(ItemValues.itemInfomation.size())

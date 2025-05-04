@@ -1017,14 +1017,14 @@ func _ready():
 			$Shop/MarektIndicator.visible = false
 			$Shop/EnterMarket.disabled = true
 		
-		for i in ["autoClickerUpgrade", "PlusOneUpgrade", "PlusOneAUTOUpgrade", "shrilowCry", "jellyCry", "mineCry"]:
+		for i in ["autoClickerUpgrade", "PlusOneUpgrade", "PlusOneAUTOUpgrade", "shrilowCry", "crystal", "mineCry", "puppyCry"]:
 			if config.get_value("Shop", i) == null:
 				config.set_value("Shop", i, 0)
 		for i in ["RebirthAutoClickerLevel", "PresistantPlusOne", "PlusOneMC"]:
 			if config.get_value("Rebirth", i) == null:
 				config.set_value("Rebirth", i, 0)
 		
-		for i in ["autoclicker", "plusone", "plusoneauto", "shrilowCrystal", "crystal", "mineCrystal", "Rautoclicker", "Rplusone", "Rplusoneauto"]:
+		for i in ["autoclicker", "plusone", "plusoneauto", "shrilowCrystal", "jellyCrystal", "mineCrystal", "Rautoclicker", "Rplusone", "Rplusoneauto"]:
 			if i == "autoclicker":
 				if config.get_value("Shop", "autoClickerUpgrade") > 0:
 					var cacaFUCK = load("res://technical/items/"+i+".tscn").instantiate()
@@ -1050,6 +1050,14 @@ func _ready():
 					add_child(cacaFUCK)
 			elif i == "mineCrystal":
 				if config.get_value("Shop", "mineCry") > 0:
+					var cacaFUCK = load("res://technical/items/"+i+".tscn").instantiate()
+					add_child(cacaFUCK)
+			elif i == "mineCrystal":
+				if config.get_value("Shop", "mineCry") > 0:
+					var cacaFUCK = load("res://technical/items/"+i+".tscn").instantiate()
+					add_child(cacaFUCK)
+			elif i == "puppyCrystal":
+				if config.get_value("Shop", "puppyCry") > 0:
 					var cacaFUCK = load("res://technical/items/"+i+".tscn").instantiate()
 					add_child(cacaFUCK)
 			elif i == "Rautoclicker":
@@ -2391,6 +2399,8 @@ func smoke_break() -> void:
 func _on_first_timeout() -> void:
 	if $ShrilowScreen/puppies.get_child_count() > 0:
 		var ammo = 3 * FizzyDrink.greasepuppies
+		if FizzyDrink.enabledCrystal == "puppy":
+			ammo = (FizzyDrink.clickPowerP1 + FizzyDrink.clickPowerP1R) * FizzyDrink.greasepuppies
 		ItemValues.money += ammo
 		Interstate.totalmoney += ammo
 		$ShrilowScreen/AudioListener2D.play()

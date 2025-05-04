@@ -31,6 +31,22 @@ var prompts = [
 	"Hawk 1: hi im hawk 1. Hawk 2: uhm. Those who know: Skull.",
 	"Well, I guess that means im pwetty sigma...",
 	"Melty found DEAD in the bronx.",
+	"I feel better! no more nose blood. thank you doctor!",
+	"Have you ever tried... mouse bites? I have. and I LOVE mouse bites.",
+	"Do you know who ate all the donuts?",
+	"Together, we are computer shrilow!",
+	"Hello, Gordan!",
+	"repost if u cum glitter",
+	"what is WRONG with you. why are you blue.",
+	"Witterwy? what the fuck.",
+	"erm",
+	"what do you think of my original character. her name is. green reimu. do you like my original character.",
+	"NO SHRILOW DON'T HOLD IT IN IT DOESN'T DO ANYTHING",
+	"saayo",
+	"I love abiding by the laws of the green white and red freedom-puter!",
+	"where am I? who are you.",
+	"I do not like Phantom and Antag. They are homosapual.",
+	"cum joke",
 	]
 var saayoprompts = ["", "saayo", "saayo again", "saayo but again maybe just a little bit"]
 var lastResultDETERMINE = ""
@@ -184,6 +200,8 @@ func checkSpelling():
 			lastResultDETERMINE = "Correct"
 	else:
 		print("Letter is Wrong")
+		stars -= 1
+		Interstate.starslost += 1
 		if lastResultDETERMINE == "Wrong":
 			deterministic[section]["sectionOfText"] = deterministic[section]["sectionOfText"]+typed.substr(letterToCheck, 1)
 			lastResultDETERMINE = "Wrong"
@@ -216,8 +234,6 @@ func showResults():
 					deterministic[i]["sectionOfText"] = "_"
 				$typeBox/Show.text = $typeBox/Show.text + "[color=red]"+deterministic[i]["sectionOfText"]+"[/color]"
 				hi = false
-				stars -= 1
-				Interstate.starslost += 1
 			if deterministic[i]["Result"] == "Correct":
 				$typeBox/Show.text = $typeBox/Show.text + "[color=green]"+deterministic[i]["sectionOfText"]+"[/color]"
 	print($typeBox/Show.text)

@@ -288,7 +288,7 @@ func _update_menu(menu : String,  subMenu : bool) -> void:
 			else:
 				finS = time_dict["S"]
 			var final = str(finH) + ":" + str(finM) + ":" + str(finS)
-			$Screen/Text.text = "The Interstate: Global Stats\nBACK to return to previous page.\n\nCurrent ANY% Record Holder: Hekza\n\nTime Played: "+str(final)+"\nTotal Rebirths: "+str(Interstate.fullRebirths)+"\nStars Lost: "+str(Interstate.starslost)+"\nTotal Money Gained: "+str(Interstate.totalmoney)+"\nTotal Money Spent: "+str(abs(int(Interstate.totallost)))+"\nPlus Ones Bought: "+str(Interstate.plusones)+"\nJellies Bought: "+str(Interstate.jelliesbought)+"\nIQ: "+str(Interstate.iq)
+			$Screen/Text.text = "The Interstate: Global Stats\nBACK to return to previous page.\n\nCurrent ANY% Record Holder: Hekza\n\nTime Played: "+str(final)+"\nTotal Rebirths: "+str(Interstate.fullRebirths)+"\nStars Lost: "+str(Interstate.starslost)+"\nTotal Money Gained: "+str(int(Interstate.totalmoney))+"\nTotal Money Spent: "+str(abs(int(Interstate.totallost)))+"\nPlus Ones Bought: "+str(Interstate.plusones)+"\nJellies Bought: "+str(Interstate.jelliesbought)+"\nIQ: "+str(Interstate.iq)
 		
 		if menu == "files":
 			$Screen/Text.text = "NEXT to progress a page. LAST to go back a page.\nuse keyboard to navigate, and OPEN to open a file."

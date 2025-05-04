@@ -1,8 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://b2vma6cljcdqb"]
+[gd_scene load_steps=15 format=3 uid="uid://biss2mto6b6cf"]
 
-[ext_resource type="Script" uid="uid://6fvbpityqvls" path="res://technical/items/shrilowCrystal.gd" id="1_0eyqh"]
-[ext_resource type="Material" uid="uid://bilp3b7bbie4k" path="res://technical/shrilowOutlineMat.tres" id="2_8hc4g"]
-[ext_resource type="Texture2D" uid="uid://qovk4vpqdfml" path="res://assets/images/ui/shrilowCry.png" id="2_kb4bo"]
+[ext_resource type="Script" uid="uid://be4os2jgr74c3" path="res://technical/items/puppyCrystal.gd" id="1_r3h5a"]
+[ext_resource type="Material" uid="uid://bilp3b7bbie4k" path="res://technical/shrilowOutlineMat.tres" id="2_6hbc7"]
+[ext_resource type="Texture2D" uid="uid://cfxjwskhoppby" path="res://assets/images/ui/puppyCry.png" id="2_r3h5a"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i8qs6"]
 
@@ -26,14 +26,14 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_srgu8"]
 
-[node name="ShrilowCrystal" type="Node2D"]
-script = ExtResource("1_0eyqh")
+[node name="PuppyCrystal" type="Node2D"]
+script = ExtResource("1_r3h5a")
 
-[node name="shrilowCry" type="Sprite2D" parent="."]
-material = ExtResource("2_8hc4g")
-texture = ExtResource("2_kb4bo")
+[node name="Cry" type="Sprite2D" parent="."]
+material = ExtResource("2_6hbc7")
+texture = ExtResource("2_r3h5a")
 
-[node name="shrilowButton" type="Button" parent="."]
+[node name="Button" type="Button" parent="."]
 offset_left = -51.0
 offset_top = -71.0
 offset_right = 53.0
@@ -50,4 +50,4 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_28hcf")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_l5j6j")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_srgu8")
 
-[connection signal="pressed" from="shrilowButton" to="." method="_on_shrilow_button_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_shrilow_button_pressed"]

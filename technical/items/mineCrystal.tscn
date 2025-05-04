@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://5fsppkoaemgd"]
+[gd_scene load_steps=15 format=3 uid="uid://5fsppkoaemgd"]
 
 [ext_resource type="Script" uid="uid://d2a0arwke3dlt" path="res://technical/items/mineCrystal.gd" id="1_6swax"]
+[ext_resource type="Material" uid="uid://bilp3b7bbie4k" path="res://technical/shrilowOutlineMat.tres" id="2_2gh5c"]
 [ext_resource type="Texture2D" uid="uid://dwr3k0pwc2ive" path="res://assets/images/ui/minesCry.png" id="2_ggdw4"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i8qs6"]
@@ -29,6 +30,7 @@
 script = ExtResource("1_6swax")
 
 [node name="mineCry" type="Sprite2D" parent="."]
+material = ExtResource("2_2gh5c")
 texture = ExtResource("2_ggdw4")
 
 [node name="mineButton" type="Button" parent="."]

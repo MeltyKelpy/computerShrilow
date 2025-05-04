@@ -233,10 +233,26 @@ var itemInfomation = [
 	"Type":"Title",
 	},
 	{
+	# PUPPYCRYSTAL
+	"Image":"res://assets/images/areas/melanies/items/puppyCrystal",
+	"Name":"Puppy Crystal",
+	"Desc":'"Mid-Game upgrade for your greasepuppies, makes their $ per 3 seconds be your plusone value!. only one crystal can be on at once." -Mel ',
+	"Upgradeable?":true,
+	"MaxUpgrade":1,
+	"CurUpgrade":0,
+	"BaseValue":0,
+	"UpgradeIncrease":0,
+	"Owned":false,
+	"Purchased":false,
+	"Cost":50000,
+	"ScenePath":"res://technical/items/puppyCrystal.tscn",
+	"Type":"Generic",
+	},
+	{
 	# SHRILOWCRYSTAL
 	"Image":"res://assets/images/areas/melanies/items/shrilowCrystal",
 	"Name":"Shrilow Crystal",
-	"Desc":'"Late-game upgrade for your $ per click/auto-click. only one crystal can be on at once." -Mel ',
+	"Desc":'"Late-game upgrade for your $ per click/auto-click, doubles it!. only one crystal can be on at once." -Mel ',
 	"Upgradeable?":true,
 	"MaxUpgrade":1,
 	"CurUpgrade":0,
@@ -252,7 +268,7 @@ var itemInfomation = [
 	# JELLYCRYSTAL
 	"Image":"res://assets/images/areas/melanies/items/jellyCrystal",
 	"Name":"Jelly Crystal",
-	"Desc":'"Late-game upgrade for your overall jelly $ per second amounts. only one crystal can be on at once." -Mel ',
+	"Desc":'"Late-game upgrade for your overall jelly $ per second amounts, triples the money and halves the time!. only one crystal can be on at once." -Mel ',
 	"Upgradeable?":true,
 	"MaxUpgrade":1,
 	"CurUpgrade":0,
@@ -268,7 +284,7 @@ var itemInfomation = [
 	# MINECRYSTAL
 	"Image":"res://assets/images/areas/melanies/items/mineCrystal",
 	"Name":"Mine Crystal",
-	"Desc":'"Late-game upgrade for your miners income. only one crystal can be on at once." -Mel ',
+	"Desc":'"Late-game upgrade for your miners income, doubles it! only one crystal can be on at once." -Mel ',
 	"Upgradeable?":true,
 	"MaxUpgrade":1,
 	"CurUpgrade":0,
