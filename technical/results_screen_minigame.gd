@@ -8,6 +8,11 @@ var allowExiting = false
 var countingMoney = false
 var toCountTo = 0
 var baseMoney
+var minigameId = 0
+
+func _setId(id):
+	minigameId = id
+	Events.justMinigames[id]["BestStars"] = starr
 
 func _ready():
 	$AnimationPlayer.play("animation")

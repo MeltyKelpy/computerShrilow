@@ -28,7 +28,9 @@ var prompts = [
 	"Supercalifragilisticexpealadocious",
 	"Theres a man on the wing.",
 	"It's beginning to look alot like a white christmas in here",
-	"Hawk 1: hi im hawk 1. Hawk 2: uhm. Those who know: Skull",
+	"Hawk 1: hi im hawk 1. Hawk 2: uhm. Those who know: Skull.",
+	"Well, I guess that means im pwetty sigma...",
+	"Melty found DEAD in the bronx.",
 	]
 var lastResultDETERMINE = ""
 var section = 0
@@ -146,6 +148,7 @@ func _endEvent():
 		money = 100 + (ItemValues.maxMoney / 1000)
 		add_child(caca)
 	caca.determineResult(winOrLose, stars, money)
+	caca._setId(Events.find_minigame("Write-it-Right!"))
 	caca.reparent($/root)
 
 func _acceptText(event: InputEvent) -> void:

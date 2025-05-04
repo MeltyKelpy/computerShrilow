@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bi2vavtgj3rcf"
 path.s3tc="res://.godot/imported/gold.png-85861ea26cdd54dfcab00a2c02f17de6.s3tc.ctex"
+path.etc2="res://.godot/imported/gold.png-85861ea26cdd54dfcab00a2c02f17de6.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://interstate-intracept/assets/textures/ComputerShrilow/gold.png"
-dest_files=["res://.godot/imported/gold.png-85861ea26cdd54dfcab00a2c02f17de6.s3tc.ctex"]
+dest_files=["res://.godot/imported/gold.png-85861ea26cdd54dfcab00a2c02f17de6.s3tc.ctex", "res://.godot/imported/gold.png-85861ea26cdd54dfcab00a2c02f17de6.etc2.ctex"]
 
 [params]
 

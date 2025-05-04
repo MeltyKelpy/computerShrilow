@@ -11,6 +11,10 @@ var hi = true
 @export var room = 0
 @export var id = 0
 
+var jellyState = ""
+var body_entered = false
+var canDetect = false
+
 @onready var mouse_pin: PinJoint2D = $MousePin
 @onready var fake_body: StaticBody2D = $MousePin/FakeBody
 @onready var rigid_body_2d: RigidBody2D = $RigidBody2D
@@ -87,17 +91,21 @@ func _ready() -> void:
 	elif jelly == "Antag Jelly":
 		$RigidBody2D/jelly.material.set_shader_parameter("line_color", Color(1.0, 0.376, 0.851, 1))
 		$RigidBody2D/jelly.material.set_shader_parameter("rainbow", false)
+	await get_tree().create_timer(1).timeout
+	canDetect = true
 
 func _physics_process(delta: float) -> void:
 	
 	if Settings.setting_state("animationsOptimization"):
 		if !Settings.setting_state("saayo"):
-			$RigidBody2D/jelly.texture = load("res://assets/images/jellies/"+jelly+"/jelly"+str(state)+".png")
+			if body_entered == false:
+				jellyState = ""
+			$RigidBody2D/jelly.texture = load("res://assets/images/jellies/"+jelly+"/jelly"+str(state)+jellyState+".png")
 		else:
 			$RigidBody2D/jelly.texture = load("res://assets/images/jellies/Plinker Jelly/jelly"+str(state)+".png")
 	else:
 		if !Settings.setting_state("saayo"):
-			$RigidBody2D/jelly.texture = load("res://assets/images/jellies/"+jelly+"/jelly0.png")
+			$RigidBody2D/jelly.texture = load("res://assets/images/jellies/"+jelly+"/jelly0"+jellyState+".png")
 		else:
 			$RigidBody2D/jelly.texture = load("res://assets/images/jellies/Plinker Jelly/jelly0.png")
 	
@@ -133,17 +141,18 @@ func _physics_process(delta: float) -> void:
 	$SecondTimer.wait_time = 0.2
 	$nameShit/Name.rotation = 0
 	$nameShit/Stats.rotation = 0
-	if $/root/computerShrilow.rebirthProtocol == true and rarity == "Market":
-		var awesomsmee = {
-			"Name":jelly,
-			"MoneyGain":money,
-			"Seconds":seconds,
-			"Rarity":rarity,
-			"ID":id
-			}
-		Game.rebirthJellyProtocol.append(awesomsmee)
-		print(Game.rebirthJellyProtocol[Game.rebirthJellyProtocol.size()-1])
-		queue_free()
+	if get_node_or_null(^"$/root/computerShrilow"):
+		if $/root/computerShrilow.rebirthProtocol == true and rarity == "Market":
+			var awesomsmee = {
+				"Name":jelly,
+				"MoneyGain":money,
+				"Seconds":seconds,
+				"Rarity":rarity,
+				"ID":id
+				}
+			Game.rebirthJellyProtocol.append(awesomsmee)
+			print(Game.rebirthJellyProtocol[Game.rebirthJellyProtocol.size()-1])
+			queue_free()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if is_dragging and event is InputEventMouseButton and not event.is_pressed():
@@ -252,3 +261,20 @@ func _on_storage_pressed(type) -> void:
 	Jelly.storedJellys[Jelly.storedJellys.size()-1] = awesomsmee
 	print(Jelly.storedJellys[Jelly.storedJellys.size()-1])
 	queue_free()
+
+func _on_proximity_body_entered(body: Node2D) -> void:
+	var parent = body.get_parent()
+	body_entered = true
+	if parent.jelly == "Bun Lovebird Jelly" and jelly == "Bug Lovebird Jelly":
+		jellyState = "blush"
+	elif parent.jelly == "Bug Lovebird Jelly" and jelly == "Bun Lovebird Jelly":
+		jellyState = "blush"
+	elif jelly == "Bug Lovebird Jelly":
+		if canDetect == true:
+			jellyState = "touch"
+	else:
+		jellyState = ""
+
+func _on_proximity_body_exited(body: Node2D) -> void:
+	body_entered = false
+	jellyState = ""

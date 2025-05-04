@@ -219,6 +219,9 @@ func _kill_files():
 func open_png(fileName, png):
 	$Screen/Text.text = ""
 	curMenu = "png"
+	if pagePlacementHistory == -1 or pageHistory[pagePlacementHistory] != curMenu:
+		pageHistory.append(curMenu)
+		pagePlacementHistory += 1
 	_kill_files()
 	_set_terminal(false)
 	await get_tree().create_timer(1).timeout
@@ -230,6 +233,8 @@ func open_png(fileName, png):
 		$Screen/png/png.texture = load("res://assets/images/areas/interstate/pngs/temp.png")
 	$Screen/png/png.visible = true
 	$Screen/png/Label.visible = true
+	if png == "bell_toll":
+		$AudioStreamPlayer2.play()
 
 func _update_menu(menu : String,  subMenu : bool) -> void:
 	$Screen/Node2D.visible = false
@@ -283,7 +288,7 @@ func _update_menu(menu : String,  subMenu : bool) -> void:
 			else:
 				finS = time_dict["S"]
 			var final = str(finH) + ":" + str(finM) + ":" + str(finS)
-			$Screen/Text.text = "The Interstate: Global Stats\nBACK to return to previous page.\n\nCurrent ANY% Record Holder: Hekza\n\nTime Played: "+str(final)+"\nTotal Rebirths: "+str(Interstate.fullRebirths)+"\nStars Lost: "+str(Interstate.starslost)+"\nTotal Money Gained: "+str(Interstate.totalmoney)+"\nTotal Money Spent: "+str(Interstate.totallost)+"\nPlus Ones Bought: "+str(Interstate.plusones)+"\nJellies Bought: "+str(Interstate.jelliesbought)+"\nIQ: "+str(Interstate.iq)
+			$Screen/Text.text = "The Interstate: Global Stats\nBACK to return to previous page.\n\nCurrent ANY% Record Holder: Hekza\n\nTime Played: "+str(final)+"\nTotal Rebirths: "+str(Interstate.fullRebirths)+"\nStars Lost: "+str(Interstate.starslost)+"\nTotal Money Gained: "+str(Interstate.totalmoney)+"\nTotal Money Spent: "+str(abs(int(Interstate.totallost)))+"\nPlus Ones Bought: "+str(Interstate.plusones)+"\nJellies Bought: "+str(Interstate.jelliesbought)+"\nIQ: "+str(Interstate.iq)
 		
 		if menu == "files":
 			$Screen/Text.text = "NEXT to progress a page. LAST to go back a page.\nuse keyboard to navigate, and OPEN to open a file."
@@ -351,7 +356,9 @@ func _on_line_edit_text_submitted(new_text: String) -> void:
 		if new_text.containsn("BACK"):
 			if curMenu == "png":
 				_close_file()
-				_update_menu("files", false)
+				pageHistory.resize(pageHistory.size()-1)
+				pagePlacementHistory -= 1
+				_update_menu(pageHistory[pagePlacementHistory], false)
 				locationFound = true
 			elif pagePlacementHistory != 0:
 				pageHistory.resize(pageHistory.size()-1)
@@ -411,6 +418,12 @@ func code_input(new_text: String) -> void:
 	if new_text.containsn("ghost"):
 		_change_text("hmm...")
 		$AudioStreamPlayer.play()
+		code_recognized = true
+	
+	if new_text.containsn("bell"):
+		_change_text("i dont think that worked...")
+		await get_tree().create_timer(1).timeout
+		open_png("bell_toll", "bell_toll")
 		code_recognized = true
 	
 	if code_recognized == false:

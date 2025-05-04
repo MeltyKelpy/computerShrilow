@@ -125,6 +125,7 @@ func _endEvent():
 		money = 100 + (ItemValues.maxMoney / 1000)
 		add_child(caca)
 	caca.determineResult(winOrLose, stars, money)
+	caca._setId(Events.find_minigame("Roshambo"))
 	caca.reparent($/root)
 	if stars == 0:
 		var achievementID
@@ -173,14 +174,16 @@ func _on_ponder_time_timeout() -> void:
 	var toChoose = rng.randi_range(1, 100)
 	print(toChoose)
 	
-	if toChoose >= 50 and yourPick != roChoiceWeight[0][3]:
+	if toChoose >= 20:
 		hisPick = roChoiceWeight[0][3]
-	elif toChoose >= 25 and yourPick != roChoiceWeight[0][2]:
+	elif toChoose >= 10:
 		hisPick = roChoiceWeight[0][2]
-	elif toChoose >= 0 and yourPick != roChoiceWeight[0][1]:
+	elif toChoose >= 0:
 		hisPick = roChoiceWeight[0][1]
 	else:
 		hisPick = roChoiceWeight[0][3]
+	
+	playerLastPlay = yourPick
 	
 	roState = "choose"
 	
@@ -189,6 +192,8 @@ func _on_ponder_time_timeout() -> void:
 		winsRo += 1
 		stars -= 1
 		Interstate.starslost += 1
+	elif hisPick == yourPick:
+		lastWinner = "tie"
 	else:
 		lastWinner = "you"
 		winsYou += 1
@@ -206,6 +211,11 @@ func react():
 		$reactionAudio.play()
 		roState = "lose"
 		$TURN.text = "You Win!"
+	if lastWinner == "tie":
+		$reactionAudio.stream = load("res://assets/sounds/awh.ogg")
+		$reactionAudio.play()
+		roState = "lose"
+		$TURN.text = "Tie.."
 	if lastWinner == "ro":
 		$reactionAudio.stream = load("res://assets/sounds/awh.ogg")
 		$reactionAudio.play()
@@ -231,6 +241,7 @@ func reset():
 	hisPick = "empty"
 	yourPick = "empty"
 	roState = "idle"
-	turn += 1
+	if lastWinner != "tie":
+		turn += 1
 	$TURN.text = "Turn "+str(turn)
 	state = "interactable"

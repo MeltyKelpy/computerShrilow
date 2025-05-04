@@ -7,6 +7,8 @@ var second = 0
 var chosen = "accept"
 var streamTo = ""
 var caller = "minerkid"
+var parent
+var clocked_in = false
 
 func _ready() -> void:
 	reparent($/root/computerShrilow/Camera2D)
@@ -65,6 +67,35 @@ func manageSubtitles():
 			$miner/thing/transcript.text = "you're making me quite upset."
 		elif time >= 3.61:
 			$miner/thing/transcript.text = "i am summoning 3 jerry seinfelds on you."
+	
+	if streamTo == "res://assets/sounds/doctorcall.ogg":
+		if time >= 0 and time <= 2.6:
+			$miner/thing/transcript.text = "hi there, I am calling regarding your 'Shrilow'."
+		elif time >= 2.6 and time <= 7.6:
+			$miner/thing/transcript.text = "its mandated in quicklaw under section 31 that you take your shrilow in for a doctor's appointment."
+		elif time >= 7.6 and time <= 11.58:
+			$miner/thing/transcript.text = "and i ALWAYS abide by the laws of the GREEN WHITE AND RED... FREEDOM-PUTER..."
+		elif time >= 11.58 and time <= 15.50:
+			$miner/thing/transcript.text = "in like 10 minutes or sum'in, i'll be taking him to have his appointment."
+			if clocked_in == false:
+				parent.timer_3.start()
+				var cacapoopyGOD2 = preload("res://technical/clock.tscn")
+				var caca = cacapoopyGOD2.instantiate()
+				add_child(caca)
+				caca.create("Dr's Appointment", 600, "not")
+				clocked_in = true
+		elif time >= 15.50 and time <= 17.75:
+			$miner/thing/transcript.text = "i will grab him by a big hook and steal him"
+		elif time >= 17.75 and time <= 18.99:
+			$miner/thing/transcript.text = "you better be okay with that"
+		elif time >= 18.99 and time <= 19.50:
+			$miner/thing/transcript.text = "ok?"
+		elif time >= 19.50 and time <= 20.20:
+			$miner/thing/transcript.text = "ok."
+		elif time >= 20.20 and time <= 21.50:
+			$miner/thing/transcript.text = "I apologize for the lack of"
+		elif time >= 21.50:
+			$miner/thing/transcript.text = "more mouse bites."
 
 func _on_theminerkid_timeout() -> void:
 	$phonecall.play()

@@ -240,7 +240,21 @@ var awesomeJellies = [
 	},
 	{
 	"Name":"Clumsy Alien Jelly",
-	"Desc":"Silly alien creature! where'd you come from, lil guy??\n(Based on the sona of KlutzyBugzy)",
+	"Desc":"Silly alien creature! where'd you come from, lil guy??\n(Based on the old sona of KlutzyBugzy)",
+	"MoneyGain":30,
+	"Seconds":2,
+	"Discovered":false,
+	},
+	{
+	"Name":"Bug Lovebird Jelly",
+	"Desc":"QT!!!!\n(Based on the sona of KlutzyBugzy)",
+	"MoneyGain":30,
+	"Seconds":2,
+	"Discovered":false,
+	},
+	{
+	"Name":"Bun Lovebird Jelly",
+	"Desc":"QT!!!!\n(Based on the alt-sona of MeltyKelpy)",
 	"MoneyGain":30,
 	"Seconds":2,
 	"Discovered":false,

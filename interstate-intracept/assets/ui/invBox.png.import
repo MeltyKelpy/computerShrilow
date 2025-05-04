@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c4rh5da01r70n"
 path.s3tc="res://.godot/imported/invBox.png-c9ede27a19f8315708375bae9603237e.s3tc.ctex"
+path.etc2="res://.godot/imported/invBox.png-c9ede27a19f8315708375bae9603237e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://interstate-intracept/assets/ui/invBox.png"
-dest_files=["res://.godot/imported/invBox.png-c9ede27a19f8315708375bae9603237e.s3tc.ctex"]
+dest_files=["res://.godot/imported/invBox.png-c9ede27a19f8315708375bae9603237e.s3tc.ctex", "res://.godot/imported/invBox.png-c9ede27a19f8315708375bae9603237e.etc2.ctex"]
 
 [params]
 

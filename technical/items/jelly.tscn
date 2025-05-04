@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bvxn7n144a812"]
+[gd_scene load_steps=15 format=3 uid="uid://bvxn7n144a812"]
 
 [ext_resource type="Script" uid="uid://dliyexff7yg8o" path="res://technical/items/jelly.gd" id="1_3rnah"]
 [ext_resource type="Shader" uid="uid://csehigfpjnq1r" path="res://technical/jellyOutline.gdshader" id="2_lc331"]
@@ -12,6 +12,9 @@
 friction = 0.91
 bounce = 0.68
 absorbent = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g0p80"]
+size = Vector2(300, 200)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i58en"]
 resource_local_to_scene = true
@@ -43,6 +46,13 @@ script = ExtResource("1_3rnah")
 collision_layer = 2
 collision_mask = 3
 physics_material_override = SubResource("PhysicsMaterial_qn6m5")
+
+[node name="proximity" type="Area2D" parent="RigidBody2D"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="bugbuncollision" type="CollisionShape2D" parent="RigidBody2D/proximity"]
+shape = SubResource("RectangleShape2D_g0p80")
 
 [node name="jelly" type="Sprite2D" parent="RigidBody2D"]
 material = SubResource("ShaderMaterial_i58en")
@@ -147,6 +157,8 @@ autostart = true
 [node name="deathTime" type="Timer" parent="."]
 wait_time = 2.5
 
+[connection signal="body_entered" from="RigidBody2D/proximity" to="." method="_on_proximity_body_entered"]
+[connection signal="body_exited" from="RigidBody2D/proximity" to="." method="_on_proximity_body_exited"]
 [connection signal="pressed" from="RigidBody2D/mange/ColorRect/Storage" to="." method="_on_storage_pressed" binds= [false]]
 [connection signal="pressed" from="RigidBody2D/mange/ColorRect/Sell" to="." method="_on_kill_pressed"]
 [connection signal="timeout" from="FirstTimer" to="." method="_on_timer_timeout"]

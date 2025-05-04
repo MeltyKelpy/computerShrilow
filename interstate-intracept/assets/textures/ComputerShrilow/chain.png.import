@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b6wo4krauvip7"
 path.s3tc="res://.godot/imported/chain.png-501080bf511b3da9e5cc86fab0e06994.s3tc.ctex"
+path.etc2="res://.godot/imported/chain.png-501080bf511b3da9e5cc86fab0e06994.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://interstate-intracept/assets/textures/ComputerShrilow/chain.png"
-dest_files=["res://.godot/imported/chain.png-501080bf511b3da9e5cc86fab0e06994.s3tc.ctex"]
+dest_files=["res://.godot/imported/chain.png-501080bf511b3da9e5cc86fab0e06994.s3tc.ctex", "res://.godot/imported/chain.png-501080bf511b3da9e5cc86fab0e06994.etc2.ctex"]
 
 [params]
 

@@ -5,6 +5,8 @@
 [ext_resource type="Theme" uid="uid://dr1wna4c2ab2h" path="res://technical/textStyle.tres" id="3_yogqa"]
 
 [node name="ShopTitle" type="TextureRect"]
+offset_right = 173.0
+offset_bottom = 158.0
 texture = ExtResource("1_w5eoy")
 script = ExtResource("2_yogqa")
 

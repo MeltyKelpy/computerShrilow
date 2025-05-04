@@ -20,7 +20,7 @@ var rebirths = 0
 var gameTime = 0.0
 var icon = 0
 var saveFileClicks = 0
-var gameVersion = "00.02.80"
+var gameVersion = "00.02.76"
 
 var rebirthJellyProtocol = []
 
@@ -232,6 +232,13 @@ func loadData():
 				if ItemValues.marketItems[i].has("Purchased"):
 					ItemValues.marketItems[i]["Purchased"] = myPretties2[i]
 		
+		var minigameStars = config.get_value("Fiscal", "minigameStars")
+		for i in Events.justMinigames.size():
+			Events.justMinigames[i]["BestStars"] = minigameStars[i]
+		var minigamePlayed = config.get_value("Fiscal", "minigamePlayed")
+		for i in Events.justMinigames.size():
+			Events.justMinigames[i]["Played?"] = minigamePlayed[i]
+		
 		# config.set_value("Stats", "amountOfMines", FizzyDrink.minesLength)
 		FizzyDrink.minesLength = config.get_value("Stats", "amountOfMines")
 		FizzyDrink.greasepuppies = config.get_value("Stats", "greasepuppies")
@@ -327,6 +334,16 @@ func saveData():
 				shit[motherfuckingarray[e]["id"]] = motherfuckingarray[e]["revealed?"]
 		entryStatsToSave[Journal.entriesText.keys()[i]] = shit
 	config.set_value("Journal", "journalShit", entryStatsToSave)
+	
+	var minigameStars 
+	for i in Events.justMinigames.size():
+		minigameStars.append(Events.justMinigames[i]["BestStars"])
+	config.set_value("Fiscal", "minigameStars", minigameStars)
+	
+	var minigamePlayed
+	for i in Events.justMinigames.size():
+		minigamePlayed.append(Events.justMinigames[i]["Played?"])
+	config.set_value("Fiscal", "minigamePlayed", minigamePlayed)
 	
 	var lazymarket = {
 		"MARKETCLICKER":"RebirthAutoClickerLevel",

@@ -4,7 +4,7 @@ var volume = 6
 
 func _process(_delta: float) -> void:
 	var sfx_index= AudioServer.get_bus_index("Master")
-	AudioServer.set_bus_volume_db(sfx_index, ((volume-4)*5)-30)
+	AudioServer.set_bus_volume_db(sfx_index, ((volume-4)*5)-20)
 	if volume == 0:
 		AudioServer.set_bus_volume_db(sfx_index, -80)
 	

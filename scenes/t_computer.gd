@@ -215,10 +215,13 @@ var marketIntro = false
 
 var doctorCalled = false
 var lawsInformed = false
+var shrilowHere = true
 
 var coconut
 
 var textu
+
+@onready var timer_3 = $Timer3
 
 func manageScenes():
 	dialougeMode = true
@@ -229,6 +232,12 @@ func manageScenes():
 	if marketShopState == false:
 		$BlackMarket/talk.visible_ratio = 0
 	clearDialogItems()
+	
+	# LISTEN. ITS NOT A DIALOGUE HEAVY GAME. I WASNT MAKING A WHOLE FILE 4 THAT
+	# in all fairness, i wouldnt do smth like this nowadays. im prty sure i made
+	# this system pre-2025? but either way its still fair enough given the
+	# fact this part of the game isnt dialogue heavy.
+	
 	# MELANIE DIALOGUE BELOW
 	match dialogKey:
 		"none":
@@ -1109,6 +1118,7 @@ func _process(_delta : float) -> void:
 			var cacapoopyGOD2 = load("res://technical/events/minerkid.tscn")
 			var caca2 = cacapoopyGOD2.instantiate()
 			add_child(caca2)
+			caca2.parent = self
 			caca2.swapTo("doctor")
 			Game.warn("Oh? Whats this...")
 		if ItemValues.money >= 250000 and !lawsInformed and Game.rebirths == 1:
@@ -1219,6 +1229,13 @@ func _process(_delta : float) -> void:
 	for e in Events.justMinigames.size():
 		if Events.justMinigames[e]["Played?"] == false:
 			minigamesAchieve = false
+			break
+	
+	var minigamesAchieve2 = true
+	
+	for e in Events.justMinigames.size():
+		if Events.justMinigames[e]["BestStars"] == false:
+			minigamesAchieve2 = false
 			break
 	
 	if minigamesAchieve == true:
@@ -1516,60 +1533,62 @@ func loadShrilow():
 		$fade.texture = load("res://assets/images/bg/fade-baldi.png")
 	
 	if ResourceLoader.exists(textu):
-		$Shrilow/Shrilow.texture = load(textu)
+		$Shrilow/Control/Shrilow.texture = load(textu)
 	else:
 		textu = "res://assets/images/computershrilows/shrilowBases/shrilowBase.png"
-		$Shrilow/Shrilow.texture = load(textu)
+		$Shrilow/Control/Shrilow.texture = load(textu)
 
 func killIntro():
 	$Camera2D/intro.queue_free()
 
 func _on_shrilow_squeak_autoclick() -> void:
-	$faceRevert.stop()
-	$faceRevert.start()
-	$Shrilow.scale.x = 1.2
-	$Shrilow.scale.y = 0.85
-	$Shrilow/Shrilow/ShrilowFace.visible = false
-	if curClicks < 150:
-		shrilowState = "-clicked"
-	if curClicks >= 150:
-		shrilowState = "-dizzy"
-	var ammo = FizzyDrink.AUTOclickPower+FizzyDrink.AUTOclickPowerP1+FizzyDrink.AUTOclickPowerP1R+FizzyDrink.AUTOclickPowerAdditions+FizzyDrink.AUTOclickPowerClothingBuffs+FizzyDrink.shrilowPowerAuto
-	Interstate.totalmoney += ammo
-	ItemValues.money += ammo
-	$Shrilow/Squeak2.play()
+	if shrilowHere == true:
+		$faceRevert.stop()
+		$faceRevert.start()
+		$Shrilow.scale.x = 1.2
+		$Shrilow.scale.y = 0.85
+		$Shrilow/Control/Shrilow/ShrilowFace.visible = false
+		if curClicks < 150:
+			shrilowState = "-clicked"
+		if curClicks >= 150:
+			shrilowState = "-dizzy"
+		var ammo = FizzyDrink.AUTOclickPower+FizzyDrink.AUTOclickPowerP1+FizzyDrink.AUTOclickPowerP1R+FizzyDrink.AUTOclickPowerAdditions+FizzyDrink.AUTOclickPowerClothingBuffs+FizzyDrink.shrilowPowerAuto
+		Interstate.totalmoney += ammo
+		ItemValues.money += ammo
+		$Shrilow/Squeak2.play()
 
 func _on_shrilow_squeak_pressed() -> void:
-	if Input.is_action_just_pressed("Click"):
-		if !Game.contains_curse("kindness"):
-			$faceRevert.stop()
-			$faceRevert.start()
-			$faceRevert2.stop()
-			$faceRevert2.start()
-			$Shrilow.scale.x = 1.2
-			$Shrilow.scale.y = 0.85
-			$Shrilow/Shrilow/ShrilowFace.visible = false
-			if curClicks < 150:
-				shrilowState = "-clicked"
-			if curClicks >= 150:
-				shrilowState = "-dizzy"
-			$Shrilow/Squeak.play()
-			var ammo = FizzyDrink.clickPower+FizzyDrink.clickPowerP1+FizzyDrink.clickPowerP1R+FizzyDrink.clickPowerAdditions+FizzyDrink.clickPowerClothingBuffs+FizzyDrink.shrilowPower
-			Interstate.totalmoney += ammo
-			ItemValues.money += ammo
-			FizzyDrink.clicks += 1
-			Game.saveFileClicks += 1
-			curClicks += 1
-	if Input.is_action_just_pressed("rightClick"):
-		$Shrilow/textBox/box/dialog.text = str(shitShrilowCanSay[rng.randi_range(0, shitShrilowCanSay.size()-1)])
-		var tween = create_tween()
-		tween.tween_property($Shrilow/textBox, "scale", Vector2(1,1), 1).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
-		$Shrilow/Timer.start()
+	if shrilowHere == true:
+		if Input.is_action_just_pressed("Click"):
+			if !Game.contains_curse("kindness"):
+				$faceRevert.stop()
+				$faceRevert.start()
+				$faceRevert2.stop()
+				$faceRevert2.start()
+				$Shrilow.scale.x = 1.2
+				$Shrilow.scale.y = 0.85
+				$Shrilow/Control/Shrilow/ShrilowFace.visible = false
+				if curClicks < 150:
+					shrilowState = "-clicked"
+				if curClicks >= 150:
+					shrilowState = "-dizzy"
+				$Shrilow/Squeak.play()
+				var ammo = FizzyDrink.clickPower+FizzyDrink.clickPowerP1+FizzyDrink.clickPowerP1R+FizzyDrink.clickPowerAdditions+FizzyDrink.clickPowerClothingBuffs+FizzyDrink.shrilowPower
+				Interstate.totalmoney += ammo
+				ItemValues.money += ammo
+				FizzyDrink.clicks += 1
+				Game.saveFileClicks += 1
+				curClicks += 1
+		if Input.is_action_just_pressed("rightClick"):
+			$Shrilow/textBox/box/dialog.text = str(shitShrilowCanSay[rng.randi_range(0, shitShrilowCanSay.size()-1)])
+			var tween = create_tween()
+			tween.tween_property($Shrilow/textBox, "scale", Vector2(1,1), 1).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+			$Shrilow/Timer.start()
 
 func _on_face_revert_timeout() -> void:
 	shrilowState = ""
 	loadShrilow()
-	$Shrilow/Shrilow/ShrilowFace.visible = true
+	$Shrilow/Control/Shrilow/ShrilowFace.visible = true
 
 func _on_shop_button_pressed() -> void:
 	if can == true:
@@ -1671,17 +1690,17 @@ func _startEvent(numberPicked, type) -> void:
 
 func shrilowColor(color) -> void:
 	if color == "base":
-		$Shrilow/Shrilow.modulate = Color(1,1,1)
-		$Shrilow/Shrilow/ShrilowFace.modulate = Color(1,1,1)
+		$Shrilow/Control/Shrilow.modulate = Color(1,1,1)
+		$Shrilow/Control/Shrilow/ShrilowFace.modulate = Color(1,1,1)
 	if color == "yellow":
-		$Shrilow/Shrilow.modulate = Color(1,1,0)
-		$Shrilow/Shrilow/ShrilowFace.modulate = Color(1,1,0)
+		$Shrilow/Control/Shrilow.modulate = Color(1,1,0)
+		$Shrilow/Control/Shrilow/ShrilowFace.modulate = Color(1,1,0)
 
 func _on_face_revert_2_timeout() -> void:
 	curClicks = 0
 	shrilowState = ""
 	loadShrilow()
-	$Shrilow/Shrilow/ShrilowFace.visible = true
+	$Shrilow/Control/Shrilow/ShrilowFace.visible = true
 
 func _on_back_button_jelly_pressed() -> void:
 	area = "notJellies"
@@ -2467,3 +2486,67 @@ func revert_bricks_text() -> void:
 	if ItemValues.itemName.containsn("Ticket"):
 		ItemValues.itemName = "Welcome to the Casino!"
 		ItemValues.itemDesc = "Need help? Click on the GhostyBricks!"
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	$Shrilow/Control.clip_contents = true
+	$Camera2D.position.x = returnPosCamX
+	$Camera2D.position.y = returnPosCamY
+	area = storageReturnA
+	can = true
+	$ShrilowScreen.visible = true
+	$Shrilow/AnimatedSprite2D.visible = false
+	if shrilowHere == false:
+		var cacapoopyGOD2 = preload("res://technical/clock.tscn")
+		var caca = cacapoopyGOD2.instantiate()
+		add_child(caca)
+		caca.create("Dr's Appointment", 600, "not")
+		$Timer2.start()
+	else:
+		$Shrilow/cone.visible = true
+		$Shrilow/textBox/box/dialog.text = "I just got top surgery!"
+		var tween = create_tween()
+		tween.tween_property($Shrilow/textBox, "scale", Vector2(1,1), 1).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+		$Shrilow/Timer.start()
+		$Shrilow/AnimatedSprite2D.visible = false
+		$Shrilow/Control/Shrilow.visible = true
+		$Shrilow/ShrilowSqueak.disabled = false
+
+func _on_timer_2_timeout() -> void:
+	Game.warn("Guess who's back!")
+	await get_tree().create_timer(4).timeout
+	returnPosCamX = $Camera2D.position.x
+	returnPosCamY = $Camera2D.position.y
+	storageReturnA = area
+	area = "notJellies"
+	can = false
+	$sectionTransitions.play("setToMain")
+	$sectionTransitions.play("RESET")
+	$ShrilowScreen.visible = false
+	$Camera2D.position.x = 576
+	$Camera2D.position.y = 324
+	$Shrilow/AnimatedSprite2D.visible = true
+	$Camera2D/storgImg.visible = false
+	$Shrilow/Control/Shrilow.visible = false
+	$Shrilow/ShrilowSqueak.disabled = true
+	shrilowHere = true
+	$Shrilow/AnimatedSprite2D.play("anim_two")
+
+func _on_timer_3_timeout() -> void:
+	Game.warn("The Doctor's here! its time for your appointment...")
+	await get_tree().create_timer(4).timeout
+	returnPosCamX = $Camera2D.position.x
+	returnPosCamY = $Camera2D.position.y
+	storageReturnA = area
+	area = "notJellies"
+	can = false
+	$sectionTransitions.play("setToMain")
+	$sectionTransitions.play("RESET")
+	$ShrilowScreen.visible = false
+	$Camera2D.position.x = 576
+	$Camera2D.position.y = 324
+	$Shrilow/AnimatedSprite2D.visible = true
+	$Camera2D/storgImg.visible = false
+	$Shrilow/Control/Shrilow.visible = false
+	$Shrilow/ShrilowSqueak.disabled = true
+	shrilowHere = false
+	$Shrilow/AnimatedSprite2D.play("anim_one")

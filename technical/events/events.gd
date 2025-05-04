@@ -51,6 +51,7 @@ var justMinigames = [
 	"WarningMessage":"It's just like that one game",
 	"Type":"Minigame",
 	"Played?":false,
+	"BestStars":0,
 	},
 	{
 	"Event":"Hardest Game Ever",
@@ -58,6 +59,7 @@ var justMinigames = [
 	"WarningMessage":"Dude... you're never gonna beat this... trust me....",
 	"Type":"Minigame",
 	"Played?":false,
+	"BestStars":0,
 	},
 	{
 	"Event":"Roshambo",
@@ -65,6 +67,7 @@ var justMinigames = [
 	"WarningMessage":"ITS NOT CALLED ROCK PAPER SCISSOERS, IDIOT! ITS ROSHAMBO! IDIOT!",
 	"Type":"Minigame",
 	"Played?":false,
+	"BestStars":0,
 	},
 	{
 	"Event":"Whack-ilow",
@@ -72,6 +75,7 @@ var justMinigames = [
 	"WarningMessage":"Boink! right on the head! bet that'll leave a cartoonish bump on your head. heh. yup.",
 	"Type":"Minigame",
 	"Played?":false,
+	"BestStars":0,
 	},
 	{
 	"Event":"Write-it-Right!",
@@ -79,5 +83,12 @@ var justMinigames = [
 	"WarningMessage":"I love typing im so good at typing my teacher made me use typing.com in 2nd grade so im like. rly good at it yeah",
 	"Type":"Minigame",
 	"Played?":false,
+	"BestStars":0,
 	},
 	]
+
+func find_minigame(namev):
+	for i in justMinigames.size():
+		if justMinigames[i]["Event"] == namev:
+			return i
+			break

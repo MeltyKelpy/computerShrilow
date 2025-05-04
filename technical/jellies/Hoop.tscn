@@ -22,6 +22,7 @@ size = Vector2(129, 20)
 script = ExtResource("1_fs31a")
 
 [node name="Hop" type="StaticBody2D" parent="."]
+collision_mask = 3
 
 [node name="cheer" type="AudioStreamPlayer2D" parent="Hop"]
 position = Vector2(6, -58)

@@ -100,6 +100,11 @@ func _on_load_pressed() -> void:
 			else:
 				_load_properly()
 		else:
+			if $Icon.visible == true:
+				var caca = load("res://technical/popup.tscn").instantiate()
+				caca.create("This File's game version is from a build way earlier than the current build ("+Game.gameVersion+").\nIt is very likely that loading this file will cause bugs that havent been tested for, if you wish to use this file then proceed with caution.")
+				add_child(caca)
+			else:
 				_load_properly()
 
 func _load_properly():

@@ -87,7 +87,7 @@ var contributers = [
 	{
 	"Name":"Jocapelt",
 	"Image":"res://assets/images/mainMenu/credits/ppl/jocaused.png",
-	"Text":'Playtester\n\n""',
+	"Text":'Playtester\n\n"my bad teach.. ahahha..."',
 	},
 	{
 	"Name":"Kawo",
@@ -98,6 +98,11 @@ var contributers = [
 	"Name":"lilrougedragon",
 	"Image":"res://assets/images/mainMenu/credits/ppl/henry.png",
 	"Text":'Artist\n\n""',
+	},
+	{
+	"Name":"gurt",
+	"Image":"res://assets/images/mainMenu/credits/ppl/whotf.png",
+	"Text":'ts gurt\n\nwho the fuck is this guy',
 	},
 	]
 
@@ -135,7 +140,7 @@ func _ready() -> void:
 		$stuff/Left/shit/interstate.visible = false
 		$stuff/Left/shit/interstate.disabled = true
 	
-	$stuff/TXT.text = "beta build: "+Game.gameVersion+"\nExported: April 10th, 2025"
+	$stuff/TXT.text = "beta build: "+Game.gameVersion+"\nExported: May 3rd, 2025"
 	Settings.loadData()
 	for i in range(0,3):
 		var cacapoopyFUCK = load("res://technical/saveBox.tscn")
@@ -155,6 +160,10 @@ func _ready() -> void:
 			$Credits/Contributers/ScrollContainer/GridContainer.add_child(caca)
 
 func _process(delta: float) -> void:
+	
+	if Input.is_action_just_pressed("DebugMode"):
+		get_tree().reload_current_scene()
+	
 	for i in dots.size():
 		dots[i].modulate = Color(1,1,1,0.5)
 	if selectedCredit > dots.size()-1:

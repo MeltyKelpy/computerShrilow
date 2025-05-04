@@ -44,6 +44,7 @@ func _process(_delta: float) -> void:
 			var caca = cacapoopyGOD.instantiate()
 			add_child(caca)
 			caca.determineResult(false, 0, ItemValues.money+1)
+			caca._setId(Events.find_minigame("Mario"))
 			Interstate.starslost += 5
 			caca.reparent($/root)
 

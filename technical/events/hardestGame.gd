@@ -78,6 +78,7 @@ func _endEvent():
 		money = 200 + (ItemValues.maxMoney / 1000)
 		add_child(caca)
 	caca.determineResult(winOrLose, stars, money)
+	caca._setId(Events.find_minigame("Hardest Game Ever"))
 	caca.reparent($/root)
 
 func _on_sphere_body_shape_entered(body: Node2D) -> void:

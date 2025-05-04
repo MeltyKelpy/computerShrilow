@@ -117,6 +117,7 @@ func _endEvent():
 		money = 300 + (ItemValues.maxMoney / 1000)
 		add_child(caca)
 	caca.determineResult(winOrLose, stars, money)
+	caca._setId(Events.find_minigame("Whack-ilow"))
 	caca.reparent($/root)
 
 func _on_char_timer_timeout() -> void:

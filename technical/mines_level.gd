@@ -295,10 +295,10 @@ func _on_button_pressed() -> void:
 
 func _on_up_grade_button_pressed() -> void:
 	if ItemValues.money >= 5000 * (mineLevel + 1) and (mineLevel < maxMineLevel):
-		#var texturer
+		var texturer
 		mineLevel += 1
-		#texturer = load("res://assets/images/areas/mines/upgradr/level"+str(mineLevel)+".png")
-		#$VisualCodeSpaghetti/MinesLevel.texture = texturer
+		texturer = load("res://assets/images/areas/mines/upgradr/usedLevels/"+str(mineLevel)+".png")
+		$VisualCodeSpaghetti/MinesLevel.texture = texturer
 		var mineCost = 5000 * mineLevel
 		ItemValues.money -= mineCost
 		Interstate.totallost -= mineCost
