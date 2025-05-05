@@ -103,8 +103,8 @@ func _process(_delta: float) -> void:
 		mineLevelSPEED = 2
 	
 	if $CharName.visible == true and Input.is_action_just_pressed("Click"):
-		managing = true
-		$CharName.visible = false
+		managing = !managing
+		$CharName.visible = !managing
 	
 	speedCost = ((Speed / 2) * 500) * Level
 	moneyCost = (MoneyGain * 200) * Level

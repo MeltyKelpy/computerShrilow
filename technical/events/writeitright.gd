@@ -37,6 +37,7 @@ var prompts = [
 	"Together, we are computer shrilow!",
 	"Hello, Gordan!",
 	"repost if u cum glitter",
+	"repost it u cum confetti",
 	"what is WRONG with you. why are you blue.",
 	"Witterwy? what the fuck.",
 	"erm",
@@ -47,6 +48,7 @@ var prompts = [
 	"where am I? who are you.",
 	"I do not like Phantom and Antag. They are homosapual.",
 	"cum joke",
+	"hi!",
 	]
 var saayoprompts = ["", "saayo", "saayo again", "saayo but again maybe just a little bit"]
 var lastResultDETERMINE = ""
@@ -265,7 +267,7 @@ func _on_show_prompt_timeout() -> void:
 	var prompppt = calcPrompt()
 	prevPrompts[round] = prompppt
 	$Game/exBox/Text.text = prompts[prompppt]
-	if Settings.get_setting("saayo"):
+	if Settings.setting_state("saayo") == true:
 		$Game/exBox/Text.text = saayoprompts[round] 
 	#tween.tween_callback($Sprite.queue_free)
 	$ShowTextBox.start()

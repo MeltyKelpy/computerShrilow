@@ -5,7 +5,7 @@ var entriesText = {
 	"My QuickTime-Laws!":[
 		true,
 		{
-		"text":"HELLO T.COMPUTER! I, am quicktime-event. and since i kinda RULE your stupid COMPUTER ASS im going to be putting in place NEW LAWS!\n\nLAW 1:\n\nYou will never ever insult me (Quick-Time Event) please\n\nLAW 31:\n\nYour 'Computer Shrilow' needs REGULAR. DOCTOR VISITS. IM MANDATING IT. mwahhaha!!\n\n",
+		"text":"HELLO T.COMPUTER! I, am quicktime-event. and since i kinda RULE your stupid COMPUTER ASS im going to be putting in place NEW LAWS!\n\nLAW 1:\n\nYou will never ever insult me (Quick-Time Event) please\n\nLAW 2:\n\nif i ask you for 5 bucks you HAVE TO GIVE ME 5 BUCKS\n\nLAW 5:\n\nGetting Boobed is now slang for Getting Stabbed (came up with this one after going to the uk)\n\nLAW 31:\n\nYour 'Computer Shrilow' needs REGULAR. DOCTOR VISITS. IM MANDATING IT. mwahhaha!!\n\n",
 		"id":0,
 		"revealed?":true,
 		},
