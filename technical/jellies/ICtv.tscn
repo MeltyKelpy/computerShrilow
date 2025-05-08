@@ -1,0 +1,89 @@
+[gd_scene load_steps=6 format=3 uid="uid://bxghgl5wk7uyx"]
+
+[ext_resource type="Script" uid="uid://be33p8phuw15t" path="res://technical/jellies/i_ctv.gd" id="1_2p8ab"]
+[ext_resource type="Texture2D" uid="uid://dxgbsopr2uk0l" path="res://assets/images/areas/jellies/blank.png" id="1_mspn8"]
+[ext_resource type="Material" uid="uid://b0vm5nqd7edf1" path="res://technical/ISterm.tres" id="2_hri2r"]
+[ext_resource type="Theme" uid="uid://eobcj5e6lxtm" path="res://technical/terminal.tres" id="2_k8ul6"]
+[ext_resource type="Texture2D" uid="uid://0km8ed2j0sus" path="res://assets/images/areas/jellies/IS.png" id="2_lwf71"]
+
+[node name="ICtv" type="Node2D"]
+script = ExtResource("1_2p8ab")
+
+[node name="tvBack" type="Sprite2D" parent="."]
+texture = ExtResource("1_mspn8")
+
+[node name="Screen" type="Control" parent="tvBack"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -198.0
+offset_top = -131.0
+offset_right = 198.0
+offset_bottom = 104.0
+
+[node name="ColorRect2" type="ColorRect" parent="tvBack/Screen"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 101.0
+offset_right = 362.0
+offset_bottom = 222.0
+color = Color(2.03052e-08, 0.0218026, 0.0385763, 1)
+
+[node name="Label" type="Label" parent="tvBack/Screen/ColorRect2"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 4.0
+offset_right = 328.0
+offset_bottom = 115.0
+theme = ExtResource("2_k8ul6")
+theme_override_font_sizes/font_size = 18
+text = "there doesnt seem to be any results.."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="tvBack/Screen"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 101.0
+offset_right = 378.0
+offset_bottom = 222.0
+theme = ExtResource("2_k8ul6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="tvBack/Screen/ScrollContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="tvBack/Screen"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 381.0
+offset_bottom = 57.0
+theme = ExtResource("2_k8ul6")
+text = "Welcome to the
+Jelly Daycare INC Elevator System"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="tvBack/Screen"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 68.0
+offset_right = 358.0
+offset_bottom = 99.0
+theme = ExtResource("2_k8ul6")
+placeholder_text = "type here to search!"
+alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="tvBack/Screen"]
+material = ExtResource("2_hri2r")
+layout_mode = 0
+offset_left = 2.0
+offset_top = -2.0
+offset_right = 400.0
+offset_bottom = 237.0
+mouse_filter = 2
+
+[node name="tv" type="Sprite2D" parent="."]
+texture = ExtResource("2_lwf71")
+
+[connection signal="text_changed" from="tvBack/Screen/LineEdit" to="." method="_on_line_edit_text_changed"]

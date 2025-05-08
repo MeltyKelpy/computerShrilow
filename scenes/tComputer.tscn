@@ -1,4 +1,4 @@
-[gd_scene load_steps=277 format=3 uid="uid://bgw557ttv6noe"]
+[gd_scene load_steps=279 format=3 uid="uid://bgw557ttv6noe"]
 
 [ext_resource type="Script" uid="uid://ddatxm3oli8qs" path="res://scenes/t_computer.gd" id="1_swrb7"]
 [ext_resource type="Texture2D" uid="uid://dajex7cpt7k4p" path="res://assets/images/bg/background.png" id="2_u0da7"]
@@ -185,6 +185,8 @@
 [ext_resource type="Texture2D" uid="uid://ca8x3y7rallsa" path="res://assets/images/events/laws/doctor/animation2used/026.png" id="90_mbm56"]
 [ext_resource type="Texture2D" uid="uid://dan0qxbl4a36f" path="res://assets/images/events/laws/doctor/animation2used/027.png" id="91_57ivm"]
 [ext_resource type="Texture2D" uid="uid://bufp1fmflgbw7" path="res://assets/images/computershrilows/cone.png" id="94_8n1uj"]
+[ext_resource type="PackedScene" uid="uid://bxghgl5wk7uyx" path="res://technical/jellies/ICtv.tscn" id="117_wwoko"]
+[ext_resource type="Theme" uid="uid://ccvo34nxrj5tl" path="res://technical/scrollBar.tres" id="125_n8ncf"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p6f28"]
 
@@ -1437,7 +1439,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0, 1.5),
 "transitions": PackedFloat32Array(0.329877, 1),
 "update": 0,
-"values": [Vector2(108, 46), Vector2(430, 41)]
+"values": [Vector2(108, 46), Vector2(284, 41)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -1446,7 +1448,7 @@ tracks/7/path = NodePath("USDText:horizontal_alignment")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0, 0.3),
+"times": PackedFloat32Array(0, 0.333333),
 "transitions": PackedFloat32Array(0.329877, 1),
 "update": 1,
 "values": [0, 2]
@@ -1775,7 +1777,7 @@ scale = Vector2(1.04023, 1)
 texture = ExtResource("3_8qufc")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Mines"]
-offset_right = 1167.0
+offset_right = 1168.0
 offset_bottom = 648.0
 horizontal_scroll_mode = 0
 
@@ -2246,6 +2248,10 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_kvmat")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iq0t2")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
 
+[node name="ICtv" parent="Jelly" node_paths=PackedStringArray("assignedElevator") instance=ExtResource("117_wwoko")]
+position = Vector2(39, 304)
+assignedElevator = NodePath("../Elevator")
+
 [node name="Shop" type="Node2D" parent="."]
 position = Vector2(1152, 0)
 
@@ -2257,6 +2263,7 @@ offset_left = 35.0
 offset_top = 872.0
 offset_right = 623.0
 offset_bottom = 1221.0
+theme = ExtResource("125_n8ncf")
 horizontal_scroll_mode = 3
 vertical_scroll_mode = 3
 
@@ -2370,6 +2377,7 @@ offset_left = 68.0
 offset_top = 112.0
 offset_right = 605.0
 offset_bottom = 461.0
+theme = ExtResource("125_n8ncf")
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 2
 
@@ -2382,6 +2390,7 @@ offset_left = 35.0
 offset_top = 872.0
 offset_right = 623.0
 offset_bottom = 1221.0
+theme = ExtResource("125_n8ncf")
 horizontal_scroll_mode = 3
 vertical_scroll_mode = 3
 
@@ -2693,6 +2702,7 @@ offset_left = -24.0
 offset_top = 365.0
 offset_right = 564.0
 offset_bottom = 714.0
+theme = ExtResource("125_n8ncf")
 horizontal_scroll_mode = 3
 vertical_scroll_mode = 3
 
@@ -2705,6 +2715,7 @@ offset_left = 1.0
 offset_top = -183.0
 offset_right = 531.0
 offset_bottom = 166.0
+theme = ExtResource("125_n8ncf")
 horizontal_scroll_mode = 3
 vertical_scroll_mode = 3
 
@@ -2840,6 +2851,7 @@ offset_left = 533.0
 offset_top = 138.0
 offset_right = 1012.0
 offset_bottom = 459.0
+theme = ExtResource("125_n8ncf")
 horizontal_scroll_mode = 3
 vertical_scroll_mode = 3
 
@@ -2916,6 +2928,7 @@ offset_left = 524.0
 offset_top = 113.0
 offset_right = 1112.0
 offset_bottom = 462.0
+theme = ExtResource("125_n8ncf")
 horizontal_scroll_mode = 3
 vertical_scroll_mode = 3
 
@@ -2928,6 +2941,7 @@ offset_left = 558.0
 offset_top = 116.0
 offset_right = 1088.0
 offset_bottom = 465.0
+theme = ExtResource("125_n8ncf")
 horizontal_scroll_mode = 3
 vertical_scroll_mode = 3
 
@@ -3044,6 +3058,7 @@ offset_left = 17.0
 offset_top = 183.0
 offset_right = 572.0
 offset_bottom = 615.0
+theme = ExtResource("125_n8ncf")
 theme_override_styles/panel = SubResource("StyleBoxEmpty_0bpyy")
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 2
@@ -3110,6 +3125,7 @@ offset_left = 58.0
 offset_top = 181.0
 offset_right = 1111.0
 offset_bottom = 607.0
+theme = ExtResource("125_n8ncf")
 
 [node name="GridContainer" type="GridContainer" parent="storage/ScrollContainer"]
 layout_mode = 2
@@ -3265,7 +3281,7 @@ texture = ExtResource("7_0u6ge")
 [node name="USDText" type="Label" parent="."]
 offset_left = 108.0
 offset_top = 46.0
-offset_right = 212.0
+offset_right = 360.0
 offset_bottom = 116.0
 scale = Vector2(1, 0.6)
 theme = ExtResource("8_oskpf")
@@ -3337,7 +3353,7 @@ blame ghost.
 
 IT ALREADY FUCKING HAPPENED IDIOT
 - Mel april 2025 >:c
-(curses were not planned at this point okay....)"
+(curses were not planned at that point okay....)"
 
 [node name="noEventsTimer" type="Timer" parent="."]
 one_shot = true

@@ -1013,6 +1013,7 @@ theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_xxf8v")
 theme_override_styles/hover = SubResource("StyleBoxTexture_o1vg1")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_30h8g")
 theme_override_styles/normal = SubResource("StyleBoxTexture_u1a3i")
+disabled = true
 text = "TUTORIAL"
 
 [node name="settings" type="Button" parent="stuff/Left/shit"]
@@ -1515,14 +1516,14 @@ text = "SAVE FILES"
 [node name="explainTexty" type="Label" parent="SaveFiles/TITLE"]
 layout_mode = 0
 offset_left = 1.0
-offset_top = 95.7143
-offset_right = 342.0
-offset_bottom = 188.714
+offset_top = 87.1428
+offset_right = 919.0
+offset_bottom = 142.143
 theme = ExtResource("14_q2cbi")
 theme_override_constants/line_spacing = -9
-theme_override_constants/outline_size = 8
-theme_override_font_sizes/font_size = 26
-text = "Rename File by clicking on Name"
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/font_size = 50
+text = "Note: Files can be renamed, and the icon can change!"
 
 [node name="back" type="Sprite2D" parent="SaveFiles"]
 position = Vector2(1061.5, 88.5)

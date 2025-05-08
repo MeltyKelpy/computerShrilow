@@ -1,13 +1,14 @@
-[gd_scene load_steps=18 format=3 uid="uid://4o71hxuqkoa0"]
+[gd_scene load_steps=19 format=3 uid="uid://4o71hxuqkoa0"]
 
 [ext_resource type="Script" uid="uid://56tvcvirkcv5" path="res://technical/jellies/floor.gd" id="1_h1eae"]
+[ext_resource type="Theme" uid="uid://eobcj5e6lxtm" path="res://technical/terminal.tres" id="2_0srov"]
 
 [sub_resource type="Gradient" id="Gradient_nny8f"]
-colors = PackedColorArray(0, 0, 0, 0.827451, 0, 0, 0, 0.647059)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_bempj"]
 gradient = SubResource("Gradient_nny8f")
-width = 133
+width = 330
 height = 104
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_71uyt"]
@@ -51,35 +52,44 @@ script = ExtResource("1_h1eae")
 [node name="name" type="LineEdit" parent="."]
 layout_mode = 0
 offset_left = 6.0
-offset_top = 1.0
-offset_right = 128.0
-offset_bottom = 35.0
+offset_top = 4.0
+offset_right = 323.0
+offset_bottom = 38.0
+theme = ExtResource("2_0srov")
+theme_override_colors/caret_color = Color(0, 0.4, 0.4, 1)
 theme_override_colors/font_uneditable_color = Color(1, 1, 1, 1)
 theme_override_constants/caret_width = 3
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 25
 theme_override_styles/focus = SubResource("StyleBoxEmpty_71uyt")
 theme_override_styles/read_only = SubResource("StyleBoxEmpty_2imuf")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ynaxn")
 text = "floor name"
 placeholder_text = "name here!"
+alignment = 1
 caret_blink = true
 text_direction = 1
 
 [node name="jellies" type="Label" parent="."]
 layout_mode = 0
 offset_left = 7.0
-offset_top = 30.0
-offset_right = 55.0
-offset_bottom = 43.0
-theme_override_font_sizes/font_size = 9
+offset_top = 36.0
+offset_right = 324.0
+offset_bottom = 64.0
+theme = ExtResource("2_0srov")
+theme_override_font_sizes/font_size = 16
 text = "jellies: 0"
+horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 25.0
-offset_top = 65.0
-offset_right = 111.0
-offset_bottom = 100.0
+offset_left = 95.0
+offset_top = 68.0
+offset_right = 232.0
+offset_bottom = 103.0
+theme_override_colors/font_hover_pressed_color = Color(0, 0.639216, 0.639216, 1)
+theme_override_colors/font_hover_color = Color(0, 0.4, 0.4, 1)
+theme_override_colors/icon_pressed_color = Color(1.34766e-06, 0.637896, 0.637896, 1)
+theme_override_colors/font_color = Color(0, 0.4, 0.4, 1)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_g5ex0")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_iifll")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_lmc40")
@@ -91,7 +101,13 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_cbyn4")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_a7grc")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ijibi")
 theme_override_styles/normal = SubResource("StyleBoxFlat_4l2jn")
-text = "GO"
+text = "SET DESTINATION"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 330.0
+offset_bottom = 3.0
+color = Color(0, 0.396078, 0.396078, 1)
 
 [connection signal="text_changed" from="name" to="." method="_on_name_text_changed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

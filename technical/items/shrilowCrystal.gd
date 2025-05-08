@@ -5,7 +5,11 @@ func getID(num):
 
 func _ready() -> void:
 	reparent($/root/computerShrilow/ShrilowScreen)
-	position.x = 338
+	if FizzyDrink.amountOfHomeCrystals == 1:
+		position.x = 338
+	else:
+		position.x = 223
+	FizzyDrink.amountOfHomeCrystals += 1
 	position.y = 515
 
 func _process(delta: float) -> void:

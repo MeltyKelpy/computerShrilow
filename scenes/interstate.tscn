@@ -1,12 +1,12 @@
-[gd_scene load_steps=21 format=3 uid="uid://ccf01kj6665ym"]
+[gd_scene load_steps=20 format=3 uid="uid://ccf01kj6665ym"]
 
 [ext_resource type="Script" uid="uid://x3rj20dkpxuo" path="res://scenes/interstate.gd" id="1_6n3b8"]
 [ext_resource type="Texture2D" uid="uid://wa8ckju1rl61" path="res://assets/images/areas/interstate/veins.png" id="1_km12q"]
 [ext_resource type="Shader" uid="uid://dokpqajxsjnrx" path="res://technical/veins.gdshader" id="1_ky7rv"]
 [ext_resource type="Theme" uid="uid://eobcj5e6lxtm" path="res://technical/terminal.tres" id="1_ydc1b"]
 [ext_resource type="Texture2D" uid="uid://47joq1qp1fd5" path="res://assets/images/areas/interstate/terminal.png" id="2_j26w2"]
-[ext_resource type="Shader" uid="uid://dc2b8oen3gshi" path="res://technical/terminal.gdshader" id="2_mt27j"]
 [ext_resource type="Texture2D" uid="uid://ucvxwyxplo1t" path="res://assets/images/areas/interstate/pngs/temp.png" id="5_y5hd8"]
+[ext_resource type="Material" uid="uid://b0vm5nqd7edf1" path="res://technical/ISterm.tres" id="7_1ff24"]
 [ext_resource type="AudioStream" uid="uid://c85rsh1hpftvr" path="res://assets/sounds/startUp.ogg" id="7_1gwdh"]
 [ext_resource type="AudioStream" uid="uid://32knuqevqvpg" path="res://assets/sounds/interstateambience.ogg" id="8_7w4f0"]
 [ext_resource type="AudioStream" uid="uid://b75eku73xb3m6" path="res://assets/sounds/stopDown.ogg" id="8_uq6yf"]
@@ -22,20 +22,6 @@ shader_parameter/alpha_limit = 0.2
 shader_parameter/cycle_speed = 0.1
 shader_parameter/full_pulse_cycle = true
 shader_parameter/mode = 1
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_km12q"]
-shader = ExtResource("2_mt27j")
-shader_parameter/res = Vector2(600, 600)
-shader_parameter/mask_type = 0
-shader_parameter/bloom_type = 0
-shader_parameter/hardScan = -3.842
-shader_parameter/hardPix = -4.0
-shader_parameter/hardBloomScan = -0.835
-shader_parameter/hardBloomPix = -1.28
-shader_parameter/bloomAmount = 16.0
-shader_parameter/warp = Vector2(64, 24)
-shader_parameter/maskDark = 0.303
-shader_parameter/maskLight = 2.0
 
 [sub_resource type="Animation" id="Animation_vvorl"]
 length = 0.001
@@ -760,7 +746,7 @@ position = Vector2(576, 307)
 texture = ExtResource("2_j26w2")
 
 [node name="shader" type="ColorRect" parent="."]
-material = SubResource("ShaderMaterial_km12q")
+material = ExtResource("7_1ff24")
 offset_right = 1153.0
 offset_bottom = 651.0
 mouse_filter = 2

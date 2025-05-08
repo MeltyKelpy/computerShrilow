@@ -1,0 +1,17 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://b0vm5nqd7edf1"]
+
+[ext_resource type="Shader" uid="uid://dc2b8oen3gshi" path="res://technical/terminal.gdshader" id="1_8vp8r"]
+
+[resource]
+shader = ExtResource("1_8vp8r")
+shader_parameter/res = Vector2(600, 600)
+shader_parameter/mask_type = 0
+shader_parameter/bloom_type = 0
+shader_parameter/hardScan = -3.842
+shader_parameter/hardPix = -4.0
+shader_parameter/hardBloomScan = -0.835
+shader_parameter/hardBloomPix = -1.28
+shader_parameter/bloomAmount = 16.0
+shader_parameter/warp = Vector2(64, 24)
+shader_parameter/maskDark = 0.303
+shader_parameter/maskLight = 2.0

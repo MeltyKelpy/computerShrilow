@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bo44ialli0p3c"]
+[gd_scene load_steps=25 format=3 uid="uid://bo44ialli0p3c"]
 
 [ext_resource type="Texture2D" uid="uid://1gwacl7qcqd0" path="res://assets/images/jellies/storedBox.png" id="1_5hl41"]
 [ext_resource type="Script" uid="uid://ftlhqsxkkltg" path="res://technical/jellies/storedJelly.gd" id="2_sbvgx"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://do83g4rd3ekwu" path="res://assets/images/ui/floor.png" id="6_0co1j"]
 [ext_resource type="Texture2D" uid="uid://v78n30r6dcbx" path="res://assets/images/events/roshambo/icons/X.png" id="6_7s63s"]
 [ext_resource type="Texture2D" uid="uid://b63etwwjhi806" path="res://assets/images/ui/sell.png" id="7_ktv5q"]
+[ext_resource type="Theme" uid="uid://eobcj5e6lxtm" path="res://technical/terminal.tres" id="7_ps570"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i58en"]
 resource_local_to_scene = true
@@ -119,12 +120,12 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_snx5g")
 theme_override_styles/normal = SubResource("StyleBoxTexture_fqg23")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
-visible = false
 layout_mode = 0
 offset_left = 28.0
 offset_top = 274.0
 offset_right = 228.0
 offset_bottom = 332.0
+theme = ExtResource("7_ps570")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer"]
 layout_mode = 2

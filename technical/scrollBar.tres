@@ -1,0 +1,25 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://ccvo34nxrj5tl"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_l0sop"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wwoko"]
+bg_color = Color(0.0862745, 0.32549, 0.286275, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n8ncf"]
+bg_color = Color(0.270588, 0.623529, 0.309804, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l0sop"]
+bg_color = Color(0.941176, 0.992157, 0.333333, 1)
+
+[resource]
+VScrollBar/icons/decrement = SubResource("ImageTexture_l0sop")
+VScrollBar/icons/decrement_highlight = SubResource("ImageTexture_l0sop")
+VScrollBar/icons/decrement_pressed = SubResource("ImageTexture_l0sop")
+VScrollBar/icons/increment = SubResource("ImageTexture_l0sop")
+VScrollBar/icons/increment_highlight = SubResource("ImageTexture_l0sop")
+VScrollBar/icons/increment_pressed = SubResource("ImageTexture_l0sop")
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_wwoko")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_n8ncf")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_l0sop")
+VScrollBar/styles/scroll = null
+VScrollBar/styles/scroll_focus = null

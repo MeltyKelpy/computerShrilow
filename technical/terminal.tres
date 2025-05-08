@@ -1,6 +1,17 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://eobcj5e6lxtm"]
+[gd_resource type="Theme" load_steps=13 format=3 uid="uid://eobcj5e6lxtm"]
 
 [ext_resource type="FontFile" uid="uid://cpx5bbh068e1y" path="res://assets/fonts/ARIAL.TTF" id="1_apiop"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ryhv"]
+bg_color = Color(0, 0.4, 0.4, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_whu7c"]
+bg_color = Color(0, 0.6, 0.6, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tqdpt"]
+bg_color = Color(0, 0.6, 0.6, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ebc6p"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_apiop"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -11,7 +22,22 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wfqe1"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t8mme"]
+bg_color = Color(0, 0.4, 0.4, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_utss3"]
+bg_color = Color(3.85046e-07, 0.601831, 0.601831, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ebc6p"]
+bg_color = Color(0, 0.6, 0.6, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_apiop"]
+
 [resource]
+HScrollBar/styles/grabber = SubResource("StyleBoxFlat_3ryhv")
+HScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_whu7c")
+HScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_tqdpt")
+HScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_ebc6p")
 Label/colors/font_color = Color(0, 0.4, 0.4, 1)
 Label/font_sizes/font_size = 20
 Label/fonts/font = ExtResource("1_apiop")
@@ -27,3 +53,7 @@ LineEdit/fonts/font = ExtResource("1_apiop")
 LineEdit/styles/focus = SubResource("StyleBoxFlat_apiop")
 LineEdit/styles/normal = SubResource("StyleBoxFlat_2piky")
 LineEdit/styles/read_only = SubResource("StyleBoxFlat_wfqe1")
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_t8mme")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_utss3")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_ebc6p")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_apiop")

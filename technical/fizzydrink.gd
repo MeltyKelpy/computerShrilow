@@ -200,8 +200,13 @@ var bricksDialogue = [
 
 var descriptionSetting = ""
 
+var amountOfHomeCrystals = 0
+
 var scrollLimitLEFT = 0
 var scrollLimitRIGHT = 0
+
+func _ready() -> void:
+	Input.set_custom_mouse_cursor(load("res://assets/images/ibeam.png"), Input.CURSOR_IBEAM)
 
 func _process(float) -> void:
 	if str(enabledCrystal) == str(0):
