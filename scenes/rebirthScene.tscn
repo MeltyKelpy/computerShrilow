@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://bsaobsf7sfhkj"]
+[gd_scene load_steps=59 format=3 uid="uid://bsaobsf7sfhkj"]
 
 [ext_resource type="Texture2D" uid="uid://d3xwuakjymg2g" path="res://assets/images/ui/rebirth.png" id="1_6xcba"]
 [ext_resource type="Script" uid="uid://d1k6bwxqri7l4" path="res://scenes/rebirthScene.gd" id="1_i0unl"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://b1jn56k6ronkj" path="res://assets/images/areas/rebirth/QTELaugh.png" id="12_ikk70"]
 [ext_resource type="AudioStream" uid="uid://dptdjtj2athmr" path="res://assets/sounds/poppeer.ogg" id="12_nwc3x"]
 [ext_resource type="Texture2D" uid="uid://3pcgtga8iqyw" path="res://assets/images/areas/rebirth/QTELook.png" id="13_bcfrp"]
+[ext_resource type="Texture2D" uid="uid://dmdt74ao4ajql" path="res://assets/images/areas/rebirth/QTEBow.png" id="14_8athj"]
 [ext_resource type="Texture2D" uid="uid://cklgdvewskh66" path="res://assets/images/areas/rebirth/QTEPoint.png" id="14_e25hp"]
 [ext_resource type="Texture2D" uid="uid://b7hpe8wsujvcw" path="res://assets/images/areas/rebirth/QTEFeign.png" id="14_o8uot"]
 [ext_resource type="Texture2D" uid="uid://pjobsd5tj0g0" path="res://assets/images/areas/rebirth/QTEGiddy.png" id="15_f0pfj"]
@@ -29,7 +30,17 @@
 [ext_resource type="Texture2D" uid="uid://cisly6in2qdj3" path="res://assets/images/areas/rebirth/curses/frame_3_delay-0.05s.png" id="25_t03k1"]
 [ext_resource type="Texture2D" uid="uid://bj3qll701uhc" path="res://assets/images/areas/rebirth/curses/frame_4_delay-0.05s.png" id="26_je5m3"]
 [ext_resource type="AudioStream" uid="uid://co2yjbtbpdgm5" path="res://assets/music/wheelspin.ogg" id="29_kf1rl"]
+[ext_resource type="AudioStream" uid="uid://cn4q5sn0n6f4" path="res://assets/sounds/hit.ogg" id="30_0in0p"]
 [ext_resource type="AudioStream" uid="uid://blfksn5wuyk14" path="res://assets/sounds/chaching.ogg" id="30_t03k1"]
+[ext_resource type="AudioStream" uid="uid://dsy0lupc2saed" path="res://assets/sounds/coininsert.ogg" id="31_a5v0l"]
+[ext_resource type="Texture2D" uid="uid://cx4d7xp8c0ux6" path="res://assets/images/areas/rebirth/spiceBar/ove.png" id="32_8athj"]
+[ext_resource type="Texture2D" uid="uid://boimhnlxsu208" path="res://assets/images/areas/rebirth/spiceBar/flash.png" id="33_0in0p"]
+[ext_resource type="Texture2D" uid="uid://bkbymebprjwck" path="res://assets/images/areas/rebirth/spiceBar/0.png" id="34_a5v0l"]
+[ext_resource type="Texture2D" uid="uid://bxftlidae0j4r" path="res://assets/images/areas/rebirth/spiceBar/1.png" id="35_j1bjs"]
+[ext_resource type="Texture2D" uid="uid://c0w1v0a4ajxvc" path="res://assets/images/areas/rebirth/spiceBar/2.png" id="36_c04ah"]
+[ext_resource type="Texture2D" uid="uid://c8bwwtty3v7ul" path="res://assets/images/areas/rebirth/spiceBar/3.png" id="37_alkvu"]
+[ext_resource type="Texture2D" uid="uid://dyy4xsqc5rgtw" path="res://assets/images/areas/rebirth/spiceBar/4.png" id="38_7b7op"]
+[ext_resource type="Texture2D" uid="uid://cm4pkab7ju5bg" path="res://assets/images/areas/rebirth/spiceBar/5.png" id="39_ss3ck"]
 
 [sub_resource type="Animation" id="Animation_fc60p"]
 length = 0.001
@@ -983,6 +994,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("14_8athj")
+}],
+"loop": true,
+"name": &"Bow",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("10_p0hkg")
 }],
 "loop": true,
@@ -1086,6 +1105,75 @@ animations = [{
 [sub_resource type="Gradient" id="Gradient_6mhug"]
 offsets = PackedFloat32Array(0, 0.14433, 0.309278, 0.536082, 0.773196, 0.958763)
 colors = PackedColorArray(1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 1, 0.667824, 0.313533, 1, 1, 0.860565, 0.690718, 0, 1, 0.858824, 0, 0, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iura4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("33_0in0p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_a5v0l")
+}],
+"loop": false,
+"name": &"0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("33_0in0p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_j1bjs")
+}],
+"loop": false,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("33_0in0p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_c04ah")
+}],
+"loop": false,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("33_0in0p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_alkvu")
+}],
+"loop": false,
+"name": &"3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("33_0in0p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_7b7op")
+}],
+"loop": false,
+"name": &"4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("33_0in0p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_ss3ck")
+}],
+"loop": false,
+"name": &"5",
+"speed": 5.0
+}]
 
 [node name="RebirthScene" type="Node2D"]
 script = ExtResource("1_i0unl")
@@ -1301,6 +1389,15 @@ hue_variation_max = 0.75
 anim_speed_min = 16.0
 anim_speed_max = 82.7
 
+[node name="Spice" type="Sprite2D" parent="curses"]
+position = Vector2(577, 85)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("32_8athj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="curses/Spice"]
+sprite_frames = SubResource("SpriteFrames_iura4")
+animation = &"0"
+
 [node name="ColorRect" type="ColorRect" parent="curses"]
 offset_right = 1155.0
 offset_bottom = 653.0
@@ -1331,6 +1428,14 @@ stream = ExtResource("20_u8ivg")
 [node name="popper" type="AudioStreamPlayer" parent="curses"]
 stream = ExtResource("12_nwc3x")
 volume_db = -12.0
+
+[node name="hit" type="AudioStreamPlayer" parent="curses"]
+stream = ExtResource("30_0in0p")
+volume_db = 5.45
+
+[node name="spiceLevel" type="AudioStreamPlayer" parent="curses"]
+stream = ExtResource("31_a5v0l")
+volume_db = -0.832
 
 [node name="spin" type="AudioStreamPlayer" parent="curses"]
 stream = ExtResource("29_kf1rl")

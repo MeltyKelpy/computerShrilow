@@ -140,7 +140,7 @@ func _ready() -> void:
 		$stuff/Left/shit/interstate.visible = false
 		$stuff/Left/shit/interstate.disabled = true
 	
-	$stuff/TXT.text = "beta build: "+Game.gameVersion+"\nExported: May 3rd, 2025"
+	$stuff/TXT.text = "beta build: "+Game.gameVersion+"\nExported: May 8th, 2025, 5:34pm"
 	Settings.loadData()
 	for i in range(0,3):
 		var cacapoopyFUCK = load("res://technical/saveBox.tscn")

@@ -12,6 +12,9 @@ var saayoModeUnlocked = false
 var baldiModeUnlocked = false
 @onready var color = $ColorRect
 
+func _enter_tree() -> void:
+	loadData()
+
 func _ready() -> void:
 	var config = ConfigFile.new()
 	

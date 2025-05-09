@@ -1,0 +1,478 @@
+[gd_scene load_steps=52 format=3 uid="uid://db88hre3td1yc"]
+
+[ext_resource type="Texture2D" uid="uid://cu5d7bsyuhvjm" path="res://assets/images/areas/interstate/coinfactory/images/backdrop.png" id="1_pp5q4"]
+[ext_resource type="Script" uid="uid://c6uorii5jvpxa" path="res://scenes/coinfactory.gd" id="1_vye2a"]
+[ext_resource type="Texture2D" uid="uid://d0lbewdam2mnj" path="res://assets/images/areas/interstate/coinfactory/images/tabs.png" id="2_ij1jl"]
+[ext_resource type="Texture2D" uid="uid://bw83txtsllg00" path="res://assets/images/areas/interstate/coinfactory/images/moneybox.png" id="3_nkeeh"]
+[ext_resource type="Texture2D" uid="uid://cx7bhousu4kkl" path="res://assets/images/areas/interstate/coinfactory/images/coinunusued.png" id="3_vynwr"]
+[ext_resource type="Texture2D" uid="uid://djpvra18qad3l" path="res://assets/images/areas/interstate/coinfactory/images/minerkid.png" id="4_mkxxg"]
+[ext_resource type="Texture2D" uid="uid://dquakhgxlwjb8" path="res://assets/images/areas/interstate/coinfactory/minecoin0.png" id="5_hghvx"]
+[ext_resource type="Texture2D" uid="uid://d18yrfxkejmfo" path="res://assets/images/areas/interstate/coinfactory/minecoin1.png" id="6_nlcmm"]
+[ext_resource type="Texture2D" uid="uid://jtebry6m0lnk" path="res://assets/images/areas/interstate/coinfactory/minecoin2.png" id="7_ddme0"]
+[ext_resource type="Texture2D" uid="uid://cw8yqkuvon55h" path="res://assets/images/areas/interstate/coinfactory/images/shopbutton.png" id="8_m8y5n"]
+[ext_resource type="Texture2D" uid="uid://c5jmekhtw6o50" path="res://assets/images/areas/interstate/coinfactory/images/coin14.png" id="8_mr4km"]
+[ext_resource type="Texture2D" uid="uid://vunax1qa0dnd" path="res://assets/images/areas/interstate/coinfactory/saayogames.png" id="9_375o7"]
+[ext_resource type="Texture2D" uid="uid://bb2kwfpmtvbo7" path="res://assets/images/areas/interstate/coinfactory/images/coin15.png" id="9_a3a3r"]
+[ext_resource type="Texture2D" uid="uid://vwmn2lau4rtg" path="res://assets/images/areas/interstate/coinfactory/images/coin3.png" id="10_fnn50"]
+[ext_resource type="Texture2D" uid="uid://cdnodw40gp4oj" path="res://assets/images/areas/interstate/coinfactory/images/coin0.png" id="11_lamxw"]
+[ext_resource type="Texture2D" uid="uid://cp2orl1fllcch" path="res://assets/images/areas/interstate/coinfactory/images/coin11.png" id="12_ryyvd"]
+[ext_resource type="Texture2D" uid="uid://c63ia0yw7sxr4" path="res://assets/images/areas/interstate/coinfactory/images/coin12.png" id="13_brrgr"]
+[ext_resource type="Texture2D" uid="uid://ytcnomd667fm" path="res://assets/images/areas/interstate/coinfactory/images/coin6.png" id="14_c0hb3"]
+[ext_resource type="Texture2D" uid="uid://b2oprchs2g1cx" path="res://assets/images/areas/interstate/coinfactory/images/coin7.png" id="15_vpc2a"]
+[ext_resource type="Texture2D" uid="uid://dyvs7dqog27fy" path="res://assets/images/areas/interstate/coinfactory/images/coin1.png" id="16_am5qo"]
+[ext_resource type="Texture2D" uid="uid://jki724he1qon" path="res://assets/images/areas/interstate/coinfactory/images/coin10.png" id="17_gs88y"]
+[ext_resource type="Texture2D" uid="uid://colwrpba0ikr1" path="res://assets/images/areas/interstate/coinfactory/images/coin5.png" id="18_qh58c"]
+[ext_resource type="Texture2D" uid="uid://ccvsc0uq0pjff" path="res://assets/images/areas/interstate/coinfactory/images/coin4.png" id="19_vynwr"]
+[ext_resource type="Texture2D" uid="uid://bad3kp6rb5yxy" path="res://assets/images/areas/interstate/coinfactory/images/coin9.png" id="20_csd5w"]
+[ext_resource type="Texture2D" uid="uid://dgca4q32ykgqo" path="res://assets/images/areas/interstate/coinfactory/images/factory/006.png" id="22_csd5w"]
+[ext_resource type="Texture2D" uid="uid://v1o4qvt1bdmy" path="res://assets/images/areas/interstate/coinfactory/images/factory/001.png" id="23_vye2a"]
+[ext_resource type="Texture2D" uid="uid://b5e3skl35m657" path="res://assets/images/areas/interstate/coinfactory/images/factory/002.png" id="24_d81q6"]
+[ext_resource type="Texture2D" uid="uid://cbtu3mxva6ixo" path="res://assets/images/areas/interstate/coinfactory/images/factory/003.png" id="25_utrx5"]
+[ext_resource type="Texture2D" uid="uid://bh3w58j6jmcjq" path="res://assets/images/areas/interstate/coinfactory/images/factory/005.png" id="26_g8k5v"]
+[ext_resource type="Texture2D" uid="uid://bkjckthws1rc1" path="res://assets/images/areas/interstate/coinfactory/images/factory/007.png" id="27_iftc4"]
+[ext_resource type="Texture2D" uid="uid://dqx3vc2y8o2y8" path="res://assets/images/areas/interstate/coinfactory/images/factory/004.png" id="28_txydm"]
+[ext_resource type="Texture2D" uid="uid://pejvn55bvsip" path="res://assets/images/areas/interstate/coinfactory/images/factory/008.png" id="29_ao8kj"]
+[ext_resource type="Texture2D" uid="uid://bpojdhy8rv7o2" path="res://assets/images/areas/interstate/coinfactory/images/factory/010.png" id="30_ffm14"]
+[ext_resource type="Texture2D" uid="uid://d0tmud48vg45n" path="res://assets/images/areas/interstate/coinfactory/images/factory/000.png" id="31_852vw"]
+[ext_resource type="Texture2D" uid="uid://leivtbruyu74" path="res://assets/images/areas/interstate/coinfactory/images/cursor.png" id="33_d81q6"]
+[ext_resource type="FontFile" uid="uid://b4i46syat6s5e" path="res://assets/fonts/times.ttf" id="34_csd5w"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j8v3d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_hghvx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_nlcmm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ddme0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_hghvx")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vye2a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_mr4km")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_a3a3r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_fnn50")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_lamxw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ryyvd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_brrgr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_c0hb3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_vpc2a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_am5qo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_gs88y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_qh58c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_vynwr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_csd5w")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ffm14"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("22_csd5w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_vye2a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_d81q6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_utrx5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_g8k5v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_iftc4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_txydm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_ao8kj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_ffm14")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_852vw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_agxc0"]
+resource_name = "shop"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("main/shop:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(432, 329), Vector2(432, 337), Vector2(432, 329)]
+}
+
+[sub_resource type="Animation" id="Animation_s2ssk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("main/shop:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(432, 329)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_af7cx"]
+_data = {
+&"RESET": SubResource("Animation_s2ssk"),
+&"shop": SubResource("Animation_agxc0")
+}
+
+[sub_resource type="Animation" id="Animation_ij1jl"]
+resource_name = "mine"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("main/minerkid/minerkid:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.533333, 0.633333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(57.2, 63), Vector2(54.2, 57), Vector2(60, 65), Vector2(60, 65)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("main/minerkid/minerkid:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.533333, 0.633333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.169297, 0.174533, 0.20944]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("main/minerkid/AnimatedSprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.466667, 0.533333, 0.766667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(112, 54), Vector2(112, 54), Vector2(112, 60), Vector2(112, 54)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("main/minerkid/AnimatedSprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.513158, 0.629785, 0.844378),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_nkeeh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("main/minerkid/minerkid:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(57.2, 63)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("main/minerkid/minerkid:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("main/minerkid/AnimatedSprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(117.2, 54)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("main/minerkid/AnimatedSprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mkxxg"]
+_data = {
+&"RESET": SubResource("Animation_nkeeh"),
+&"mine": SubResource("Animation_ij1jl")
+}
+
+[sub_resource type="Animation" id="Animation_6dm4g"]
+resource_name = "coin"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("main/coins:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -0.0872665, 0.0872665]
+}
+
+[sub_resource type="Animation" id="Animation_vye2a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("main/coins:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_igyl4"]
+_data = {
+&"RESET": SubResource("Animation_vye2a"),
+&"coin": SubResource("Animation_6dm4g")
+}
+
+[sub_resource type="Animation" id="Animation_utrx5"]
+resource_name = "goaround"
+length = 8.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("main/cursoricon:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_d81q6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("main/cursoricon:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g8k5v"]
+_data = {
+&"RESET": SubResource("Animation_d81q6"),
+&"goaround": SubResource("Animation_utrx5")
+}
+
+[node name="Coinfactory" type="Control"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 480.0
+offset_bottom = 360.0
+script = ExtResource("1_vye2a")
+
+[node name="main" type="Node2D" parent="."]
+
+[node name="backdrop" type="Sprite2D" parent="main"]
+position = Vector2(240, 178)
+texture = ExtResource("1_pp5q4")
+
+[node name="tabs" type="Sprite2D" parent="main"]
+position = Vector2(56, 178)
+texture = ExtResource("2_ij1jl")
+
+[node name="coins" type="Sprite2D" parent="main"]
+texture_filter = 2
+position = Vector2(324, 161)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("3_vynwr")
+
+[node name="minerkid" type="Node2D" parent="main"]
+visible = false
+position = Vector2(8, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="main/minerkid"]
+texture_filter = 3
+position = Vector2(117.2, 54)
+scale = Vector2(2.1, 2.1)
+sprite_frames = SubResource("SpriteFrames_j8v3d")
+
+[node name="minerkid" type="Sprite2D" parent="main/minerkid"]
+texture_filter = 3
+position = Vector2(57.2, 63)
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("4_mkxxg")
+
+[node name="coin" type="AnimatedSprite2D" parent="main"]
+visible = false
+position = Vector2(87, 191)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_vye2a")
+frame_progress = 0.258471
+
+[node name="factory" type="AnimatedSprite2D" parent="main"]
+visible = false
+position = Vector2(87, 311)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_ffm14")
+frame_progress = 0.472159
+
+[node name="shop" type="Sprite2D" parent="main"]
+position = Vector2(432, 329)
+texture = ExtResource("8_m8y5n")
+
+[node name="cursoricon" type="Sprite2D" parent="main"]
+visible = false
+position = Vector2(324, 160)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("33_d81q6")
+
+[node name="splash" type="Sprite2D" parent="main"]
+visible = false
+z_index = 1000
+position = Vector2(240, 180)
+texture = ExtResource("9_375o7")
+
+[node name="shopButton" type="AnimationPlayer" parent="main"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_af7cx")
+}
+autoplay = "shop"
+
+[node name="miner" type="AnimationPlayer" parent="main"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_mkxxg")
+}
+autoplay = "mine"
+
+[node name="coinanim" type="AnimationPlayer" parent="main"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_igyl4")
+}
+autoplay = "coin"
+
+[node name="cursor" type="AnimationPlayer" parent="main"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_g8k5v")
+}
+autoplay = "goaround"
+
+[node name="moneybox" type="Sprite2D" parent="."]
+position = Vector2(285, 330)
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("3_nkeeh")
+
+[node name="moneylabel" type="Label" parent="moneybox"]
+offset_left = -53.125
+offset_top = -8.125
+offset_right = -13.125
+offset_bottom = 10.875
+theme_override_colors/font_color = Color(0.619608, 0.513726, 0.00392157, 1)
+theme_override_fonts/font = ExtResource("34_csd5w")
+text = "10000"

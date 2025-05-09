@@ -1,10 +1,14 @@
 extends Node2D
 
+var crystal
+
 func getID(num):
 	pass
 
 func _ready() -> void:
 	reparent($/root/computerShrilow/ShrilowScreen)
+	if crystal == null:
+		crystal = FizzyDrink.amountOfHomeCrystals
 	if FizzyDrink.amountOfHomeCrystals == 1:
 		position.x = 338
 	else:

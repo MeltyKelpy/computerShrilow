@@ -34,14 +34,25 @@ var lines = {
 	2:[
 		"",
 		"Here we are again.",
-		"Lets get to it it, shall we?",
+		"Lets get to it, shall we?",
+		],
+	3:[
+		"",
+		"And right back! you sure know what you're doing, dont you?",
+		],
+	4:[
+		"",
+		"You dont know when to quit, do you?",
 		],
 	}
+
+var spiceLevel = 1
 
 var dialog = 0
 
 func _ready() -> void:
 	$curses/logo.position.y = -88.0
+	$curses/Spice.position.y = -95.0
 	Curses.curses = []
 	if FizzyDrink.jellys == null:
 		FizzyDrink.jellys = 0
@@ -58,19 +69,23 @@ func _ready() -> void:
 
 func _startDialog():
 	$AnimationPlayer.play("beamLoop")
-	#Game.rebirths = 1
-	if Game.rebirths <= 2:
+	Game.rebirths = 3
+	if Game.rebirths <= 4:
 		dialog = Game.rebirths
 		$Label.text = lines[dialog][prog]
 	else:
-		dialog = 2
-		$Label.text = lines[2][prog]
+		dialog = 4
+		$Label.text = lines[dialog][prog]
 	var tween = get_tree().create_tween()
 	tween.tween_property($Label, "modulate", Color(1,1,1,1), 1.5)
 	canProg = true
 	$Timer2.start()
 
 func _process(delta: float) -> void:
+	
+	if $curses/Spice/AnimatedSprite2D.animation != str(spiceLevel):
+		$curses/Spice/AnimatedSprite2D.play(str(spiceLevel))
+	
 	if Input.is_action_just_pressed("DebugMode"):
 		prog -= 2
 		_scene2()
@@ -206,6 +221,10 @@ func _on_button_pressed() -> void:
 		Curses.curses.append(oop)
 		curses.append(oop)
 	Game.saveData()
+	var printText = "This Run will Have: "
+	for i in Curses.curses.size():
+		printText += "["+Curses.curses[i]["Name"]+"], "
+	print(printText)
 
 func _pick_a_curse(curseNum):
 	var curseOutput
@@ -215,25 +234,22 @@ func _pick_a_curse(curseNum):
 	else:
 		var picker = randi_range(1, 100)
 		if picker > 50:
+			var avaliableCurses = Curses.mainCurses
+			for i in range(curseNum):
+				for e in avaliableCurses.size():
+					if avaliableCurses[e] == Curses.curses[i]:
+						avaliableCurses.remove_at(e)
+						break
 			curseOutput = Curses.mainCurses[randi_range(0, Curses.mainCurses.size()-1)]
 		else:
+			var avaliableCurses : Array = Curses.passiveCurses
+			for i in range(curseNum):
+				for e in avaliableCurses.size():
+					if avaliableCurses[e] == Curses.curses[i]:
+						avaliableCurses.remove_at(e)
+						break
 			curseOutput = Curses.passiveCurses[randi_range(0, Curses.passiveCurses.size()-1)]
-	
-	var output = true
-	for i in range(0, Curses.curses.size()-1):
-		if output != false:
-			if Curses.curses[i] != curseOutput:
-				output = true
-			else:
-				break
-				print(Curses.curses[i])
-				print(curseOutput)
-				while Curses.curses[i] == curseOutput:
-					curseOutput = _pick_a_curse(curseNum)
-		
-	if output == true:
-		print(curseOutput)
-		return curseOutput
+	return curseOutput
 
 func _scene2():
 	scene = "curses"
@@ -349,9 +365,74 @@ func _scene2():
 		amountOfCurses = 2
 		match prog:
 			0:
-				say("Well, what do you know!", "Default")
+				say("And welcome back... you!", "Annouce")
 				canProg = true
 			1:
+				say("I must say, i'm extremely impressed with how you managed to handle that curse. good work!", "Default")
+				canProg = true
+			2:
+				say("You're quite amusing to watch, you know that?", "LaughAnim")
+				canProg = true
+			3:
+				say("Now, we should get to buisness!", "Default")
+				canProg = true
+			4:
+				say("Since you managed that first curse as well as you did, what do you say we spice it up FURTHER?", "Default")
+				canProg = true
+			5:
+				say("", "Bow")
+				await get_tree().create_timer(1).timeout
+				$curses/ThemeSong.volume_db = -20
+				$curses/hit.play()
+				$curses/Spice.position.y = 85.0
+				await get_tree().create_timer(1).timeout
+				say("The SPICE METER!", "Laugh")
+				canProg = true
+			6:
+				var tween3 = create_tween()
+				tween3.tween_property($curses/ThemeSong, "volume_db", 0, 2).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN_OUT)
+				say("With this, i can change the amount of curses the wheel gives you!", "Annouce")
+				canProg = true
+			7:
+				var tween2 = create_tween()
+				tween2.tween_property($curses/ThemeSong, "volume_db", -20, 2).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN_OUT)
+				say("And all I have to do is..", "Default")
+				await get_tree().create_timer(2).timeout
+				spiceLevel = 2
+				$curses/spiceLevel.play()
+				await get_tree().create_timer(1).timeout
+				say("BAM! you'll be getting two curses this time!", "Annouce")
+				var tween3 = create_tween()
+				tween3.tween_property($curses/ThemeSong, "volume_db", 0, 2).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN_OUT)
+				canProg = true
+			8:
+				say("And i know what you're thinking...", "Default")
+				canProg = true
+			9:
+				say('"TWO curses? well thats just abSURD! how could you ever do that to me?"', "Feign")
+				canProg = true
+			10:
+				say("Well, Theres one reason!", "Default")
+				canProg = true
+			11:
+				say("I just think its really fun to watch you struggle!", "Giddy")
+				canProg = true
+			12:
+				say("So, lets keep that struggle going! I need my entertainment!", "Annouce")
+				canProg = true
+			13:
+				say("Someone whos as awesome and important as me needs their trashy reality TV!", "Feign")
+				canProg = true
+			14:
+				say("I hope you can understand! Although, who wouldnt be running to fulfill a request like that from me?", "LaughAnim")
+				canProg = true
+			15:
+				say("I have something important to plan for, so i'd say its time we begin your next run-through!", "Default")
+				canProg = true
+			15:
+				say("Are you ready?", "Bow")
+				canProg = true
+			16:
 				say("3", "LaughAnim")
 				await get_tree().create_timer(0.1).timeout
 				say("2", "LaughAnim")
@@ -372,9 +453,15 @@ func _scene2():
 				await get_tree().create_timer(2).timeout
 				var tween3 = create_tween()
 				tween3.tween_property($curses/ThemeSong, "volume_db", 0, 2).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN_OUT)
-				say("Wow! look at them curses!", "Default")
+				say("With that out of the way, off you go!", "Default")
 				canProg = true
-			2:
+			17:
+				say("Oh, and dont forget! you can always check what curses do in your Notebook! be sure to do that.", "Default")
+				canProg = true
+			18:
+				say("Dont disapoint me.", "Default")
+				canProg = true
+			19:
 				var tween2 = create_tween()
 				tween2.tween_property($curses/ThemeSong, "volume_db", -80, 2).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN_OUT)
 				$curses/AnimationPlayer.play("end")
@@ -382,7 +469,7 @@ func _scene2():
 		amountOfCurses = 3
 		match prog:
 			0:
-				say("Well, what do you know!", "Default")
+				say("this dialgoue is not yet written.", "Default")
 				canProg = true
 			1:
 				say("3", "LaughAnim")
@@ -415,7 +502,7 @@ func _scene2():
 		amountOfCurses = 5
 		match prog:
 			0:
-				say("Well, what do you know!", "Default")
+				say("this dialogue will not occur at all in the final game.", "Default")
 				canProg = true
 			1:
 				say("3", "LaughAnim")

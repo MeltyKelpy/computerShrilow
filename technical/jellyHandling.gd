@@ -46,7 +46,7 @@ var uncommonJellies = [
 	"Discovered":false,
 	},
 	{
-	"Name":"Retarded Gambler Jelly",
+	"Name":"Gambler Jelly",
 	"Desc":"GIVE ME THAT MONEY, BABY! I LOVE GAMBLING! AND I ALSO LOVE PILLAR CHASE 2! AND ANIME! AND GAMBLING!\n(Based on the roblox avatar of Mikeyunstoppable)",
 	"MoneyGain":5,
 	"Seconds":5,

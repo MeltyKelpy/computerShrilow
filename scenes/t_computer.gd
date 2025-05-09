@@ -175,7 +175,6 @@ var talker = "Phantom"
 
 var shitShrilowCanSay = [
 	"Whos leg do i gotta hump to get a dry martini around here?",
-	"FAGGOT. FAGGOT. FAGGOT.",
 	"I wouldnt have missed",
 	"I hope everyone who dies goes to hell no matter what",
 	"I love moka dot coka",
@@ -191,11 +190,8 @@ var shitShrilowCanSay = [
 	"who are you.",
 	"IVE BEEN FUCKING PETRIFIED HELP ME",
 	"I LOVE eating bones. but its not cuz im a dog, i just LOVE feeling the cartilage melt in my stomach acid",
-	"luigi was right",
 	"this is slander, im suing you.",
 	"when you click me in-game, i feel all the pain in real life. all of it. its like a voodoo doll",
-	"my dick is HARD",
-	"my dick is soft",
 	"i will never become youtube kids slop, because i will say, fuck! yurp. thats a bad word.",
 	"of montreal",
 	"hello",
@@ -1044,12 +1040,9 @@ func _ready():
 				if config.get_value("Shop", "shrilowCry") > 0:
 					var cacaFUCK = load("res://technical/items/"+i+".tscn").instantiate()
 					add_child(cacaFUCK)
+					cacaFUCK.crystal = 0
 			elif i == "crystal":
 				if config.get_value("Shop", "jellyCry") > 0:
-					var cacaFUCK = load("res://technical/items/"+i+".tscn").instantiate()
-					add_child(cacaFUCK)
-			elif i == "mineCrystal":
-				if config.get_value("Shop", "mineCry") > 0:
 					var cacaFUCK = load("res://technical/items/"+i+".tscn").instantiate()
 					add_child(cacaFUCK)
 			elif i == "mineCrystal":
@@ -1060,6 +1053,7 @@ func _ready():
 				if config.get_value("Shop", "puppyCry") > 0:
 					var cacaFUCK = load("res://technical/items/"+i+".tscn").instantiate()
 					add_child(cacaFUCK)
+					cacaFUCK.crystal = 1
 			elif i == "Rautoclicker":
 				if config.get_value("Rebirth", "RebirthAutoClickerLevel") > 0:
 					var cacaFUCK = load("res://technical/rebirthShit/"+i+".tscn").instantiate()

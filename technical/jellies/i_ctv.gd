@@ -12,6 +12,7 @@ func _process(delta: float) -> void:
 	if $/root/computerShrilow/Jelly/rooms != null:
 		if $/root/computerShrilow/Jelly/rooms.get_child_count() > appendage.size():
 			repo_management("destory")
+	$tvBack/Screen/Label2.text = "Destination: "+str(assignedElevator.loco)
 
 func repo_management(type):
 	if type == "create":
