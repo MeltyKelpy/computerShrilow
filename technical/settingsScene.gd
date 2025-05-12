@@ -26,6 +26,8 @@ func spawnSettings():
 			caca.reparent($ScrollContainer/Control)
 
 func _process(_delta : float):
+	if Input.is_action_just_pressed("ui_cancel"):
+		Settings.saveData()
 	$Description.text = FizzyDrink.descriptionSetting
 
 func kill():

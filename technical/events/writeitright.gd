@@ -56,7 +56,7 @@ var section = 0
 
 func _ready() -> void:
 	Settings.loadData()
-	if get_node_or_null(^"$/root/computerShrilow"):
+	if get_node_or_null(^"$/root/computerShrilow") != null:
 		$/root/computerShrilow.visible = false
 	Events.justMinigames[4]["Played?"] = true
 	$opening/Label.position.y = 5000

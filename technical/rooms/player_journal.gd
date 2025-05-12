@@ -5,6 +5,7 @@ var pageRightVal = 2
 var displayPage = 1
 var comicPage = 0
 var bookOpen = false
+var parent
 var comics = [
 	["redhat","quickshot"],
 	["stalkcore","kyssing"],
@@ -68,6 +69,7 @@ func _on_back_button_ward_pressed() -> void:
 		tabPressed("cover")
 
 func _evil():
+	parent.journal = null
 	queue_free()
 
 func spawnAchievementsPls():

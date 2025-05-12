@@ -25,6 +25,8 @@ var melSmoke = false
 var rebirthIndicated = false
 var rebirthProtocol = false
 
+var journal
+
 var storageReturnX = 0
 var storageReturnY = 0
 var storageReturnA = ""
@@ -1101,6 +1103,11 @@ func _ready():
 	Game.saveData()
 
 func _process(_delta : float) -> void:
+	
+	if journal != null:
+		if can:
+			journal.visible = visible
+	
 	if Game.contains_curse("gambling"):
 		$ShrilowScreen/Shop.texture = load("res://assets/images/ui/bricks.png")
 		$Shop/Melanie.position.y = -648.0
@@ -1651,6 +1658,8 @@ func _on_mines_button_pressed() -> void:
 func _on_trophies_button_pressed() -> void:
 	var cacapoopyGOD3 = preload("res://technical/rooms/playerJournal.tscn")
 	var caca2 = cacapoopyGOD3.instantiate()
+	journal = caca2
+	caca2.parent = self
 	$/root.add_child(caca2)
 
 func _event() -> void:
@@ -2492,6 +2501,8 @@ func revert_bricks_text() -> void:
 		ItemValues.itemDesc = "Need help? Click on the GhostyBricks!"
 
 func _on_animated_sprite_2d_animation_finished() -> void:
+	if journal != null:
+		journal.visible = true
 	$Shrilow/Control.clip_contents = true
 	$Camera2D.position.x = returnPosCamX
 	$Camera2D.position.y = returnPosCamY
@@ -2553,4 +2564,6 @@ func _on_timer_3_timeout() -> void:
 	$Shrilow/Control/Shrilow.visible = false
 	$Shrilow/ShrilowSqueak.disabled = true
 	shrilowHere = false
+	if journal != null:
+		journal.visible = false
 	$Shrilow/AnimatedSprite2D.play("anim_one")
