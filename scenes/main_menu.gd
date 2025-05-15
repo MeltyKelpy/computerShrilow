@@ -273,7 +273,7 @@ func openLink(site : String) -> void:
 	if site == "YouTube":
 		OS.shell_open("https://www.youtube.com/@juiceboxfactoryReal")
 	if site == "Our Website":
-		OS.shell_open("https://bsky.app/profile/juiceboxfactory.bsky.social")
+		OS.shell_open("https://juiceboxfactory.neocities.org")
 
 func _on_button_pressed(type) -> void:
 	$SFXPick.play()
