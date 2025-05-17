@@ -106,7 +106,7 @@ var clothes = [
 	{
 	# LEGACY
 	"Name":"Legacy",
-	"Desc":"The Original.\n[color=green]does do anything. i hate you.[/color]",
+	"Desc":"The Original.\n[color=green]doesnt do anything. i hate you.[/color]",
 	"Owned":false,
 	"Unlocked":false,
 	"IconKey":"res://assets/images/areas/wardrobe/clothing/legacy.png",
@@ -114,7 +114,7 @@ var clothes = [
 	"eyes":"legacyEyes",
 	"UnlockReq":"[color=red]?\n(Unlocks Alongside an Achievement)[/color]",
 	"maxDistance":15,
-	"Cost":500
+	"Cost":1
 	},
 ]
 

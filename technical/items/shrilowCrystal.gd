@@ -9,7 +9,7 @@ func _ready() -> void:
 	reparent($/root/computerShrilow/ShrilowScreen)
 	if crystal == null:
 		crystal = FizzyDrink.amountOfHomeCrystals
-	if FizzyDrink.amountOfHomeCrystals == 1:
+	if crystal == 1:
 		position.x = 338
 	else:
 		position.x = 223

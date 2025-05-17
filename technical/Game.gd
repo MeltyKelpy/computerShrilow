@@ -199,10 +199,11 @@ func loadData():
 			"Plus One":"PlusOneUpgrade",
 			"Plus One Auto":"PlusOneAUTOUpgrade",
 			"Shrilow Crystal":"shrilowCry",
+			"Puppy Crystal":"puppyCry",
 			"Jelly Crystal":"jellyCry",
 			"Mine Crystal":"mineCry",
 			}
-		for i in ["Autoclick", "Plus One", "Plus One Auto", "Shrilow Crystal", "Jelly Crystal", "Mine Crystal"]:
+		for i in ["Autoclick", "Plus One", "Plus One Auto", "Shrilow Crystal", "Jelly Crystal", "Mine Crystal", "Puppy Crystal"]:
 			for e in ItemValues.itemInfomation.size():
 				if ItemValues.itemInfomation[e].has("Name"):
 					if ItemValues.itemInfomation[e]["Name"] == i:
@@ -490,6 +491,7 @@ func resetables():
 	config.set_value("Shop", "shrilowCry", 0)
 	config.set_value("Shop", "jellyCry", 0)
 	config.set_value("Shop", "mineCry", 0)
+	config.set_value("Shop", "puppyCry", 0)
 	config.set_value("Shop", "selectedCrystal", "none")
 	config.set_value("Story", "DialogueUnlockedMELANIE", [])
 	config.set_value("Story", "DialogueDoneMELANIE", [])

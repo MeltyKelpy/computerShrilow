@@ -1026,7 +1026,7 @@ func _ready():
 			if config.get_value("Rebirth", i) == null:
 				config.set_value("Rebirth", i, 0)
 		
-		for i in ["autoclicker", "plusone", "plusoneauto", "shrilowCrystal", "jellyCrystal", "mineCrystal", "Rautoclicker", "Rplusone", "Rplusoneauto"]:
+		for i in ["autoclicker", "plusone", "plusoneauto", "puppyCrystal", "shrilowCrystal", "crystal", "mineCrystal", "Rautoclicker", "Rplusone", "Rplusoneauto"]:
 			if i == "autoclicker":
 				if config.get_value("Shop", "autoClickerUpgrade") > 0:
 					var cacaFUCK = load("res://technical/items/"+i+".tscn").instantiate()
@@ -1042,11 +1042,16 @@ func _ready():
 					var cacaFUCK = load("res://technical/items/"+i+".tscn").instantiate()
 					cacaFUCK.number = 5
 					add_child(cacaFUCK)
+			elif i == "puppyCrystal":
+				if config.get_value("Shop", "puppyCry") > 0:
+					var cacaFUCK = load("res://technical/items/"+i+".tscn").instantiate()
+					add_child(cacaFUCK)
+					cacaFUCK.crystal = 0
 			if i == "shrilowCrystal":
 				if config.get_value("Shop", "shrilowCry") > 0:
 					var cacaFUCK = load("res://technical/items/"+i+".tscn").instantiate()
 					add_child(cacaFUCK)
-					cacaFUCK.crystal = 0
+					cacaFUCK.crystal = 1
 			elif i == "crystal":
 				if config.get_value("Shop", "jellyCry") > 0:
 					var cacaFUCK = load("res://technical/items/"+i+".tscn").instantiate()
@@ -1055,11 +1060,6 @@ func _ready():
 				if config.get_value("Shop", "mineCry") > 0:
 					var cacaFUCK = load("res://technical/items/"+i+".tscn").instantiate()
 					add_child(cacaFUCK)
-			elif i == "puppyCrystal":
-				if config.get_value("Shop", "puppyCry") > 0:
-					var cacaFUCK = load("res://technical/items/"+i+".tscn").instantiate()
-					add_child(cacaFUCK)
-					cacaFUCK.crystal = 1
 			elif i == "Rautoclicker":
 				if config.get_value("Rebirth", "RebirthAutoClickerLevel") > 0:
 					var cacaFUCK = load("res://technical/rebirthShit/"+i+".tscn").instantiate()
@@ -1472,7 +1472,7 @@ func _process(_delta : float) -> void:
 	if $theVoid/mus.volume_db > -100 and area != "void":
 		$theVoid/mus.volume_db -= 1 + (1 * _delta)
 	
-	$Mines/ScrollContainer/Control.custom_minimum_size.y = (648 * FizzyDrink.minesLength) + 100
+	$Mines/ScrollContainer/Control.custom_minimum_size.y = 424 + (305 * FizzyDrink.minesLength)
 	
 	#$Mines/MinesBackground.position.y = $Mines/ScrollContainer.scroll_vertical
 	

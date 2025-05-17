@@ -1777,12 +1777,13 @@ scale = Vector2(1.04023, 1)
 texture = ExtResource("3_8qufc")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Mines"]
-offset_right = 1168.0
+offset_right = 1152.0
 offset_bottom = 648.0
+theme = ExtResource("125_n8ncf")
 horizontal_scroll_mode = 0
 
 [node name="Control" type="Control" parent="Mines/ScrollContainer"]
-custom_minimum_size = Vector2(1152, 2000)
+custom_minimum_size = Vector2(1140, 2000)
 layout_mode = 2
 
 [node name="BackWARD" type="Sprite2D" parent="Mines/ScrollContainer/Control"]
@@ -2856,8 +2857,7 @@ offset_top = 138.0
 offset_right = 1012.0
 offset_bottom = 459.0
 theme = ExtResource("125_n8ncf")
-horizontal_scroll_mode = 3
-vertical_scroll_mode = 3
+horizontal_scroll_mode = 0
 
 [node name="GridContainer" type="GridContainer" parent="Wardrobe/ScrollContainer"]
 layout_mode = 2

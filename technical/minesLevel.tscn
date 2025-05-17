@@ -61,6 +61,7 @@
 script = ExtResource("1_2a0p1")
 
 [node name="VisualCodeSpaghetti" type="Node2D" parent="."]
+position = Vector2(-18, 0)
 
 [node name="Upgrade" type="Node2D" parent="VisualCodeSpaghetti"]
 position = Vector2(1028, 40)
@@ -323,7 +324,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_yepir")
 [node name="CharName" type="Label" parent="."]
 offset_left = -1.0
 offset_top = 217.0
-offset_right = 323.0
+offset_right = 288.0
 offset_bottom = 255.0
 scale = Vector2(1, 0.6)
 theme = ExtResource("4_2fpvo")
@@ -334,9 +335,8 @@ horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="CharDesc" type="Label" parent="."]
-offset_left = 17.0
 offset_top = 240.0
-offset_right = 306.0
+offset_right = 286.0
 offset_bottom = 358.0
 scale = Vector2(1, 0.6)
 theme = ExtResource("4_2fpvo")
@@ -347,8 +347,10 @@ horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="newMine" type="Node2D" parent="."]
+position = Vector2(-18, 0)
 
 [node name="NewMines" type="Sprite2D" parent="newMine"]
+modulate = Color(0, 1, 0, 1)
 position = Vector2(576, 324)
 texture = ExtResource("3_0neni")
 

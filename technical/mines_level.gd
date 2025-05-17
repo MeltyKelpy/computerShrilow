@@ -212,7 +212,6 @@ func _on_moka_button_mouse_exited() -> void:
 func _on_moka_button_pressed() -> void:
 	selected = 1
 
-
 func _on_mel_button_mouse_entered() -> void:
 	hoverSelected = 2
 
