@@ -67,7 +67,7 @@ var moneyValues = [
 	750,
 	]
 
-var newMineExists = true
+@export var newMineExists = true
 
 func getMineLevel(num):
 	caveNumber = num
@@ -84,7 +84,7 @@ func _process(_delta: float) -> void:
 	
 	if mineLevel >= 4:
 		Game.unlock_achievement("minecraft")
-		Game.unlock_outfit("Space Freighter")
+		Game.unlock_outfit("Jacklow")
 	
 	var config = ConfigFile.new()
 	

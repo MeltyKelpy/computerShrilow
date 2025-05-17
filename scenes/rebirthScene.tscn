@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://bsaobsf7sfhkj"]
+[gd_scene load_steps=61 format=3 uid="uid://bsaobsf7sfhkj"]
 
 [ext_resource type="Texture2D" uid="uid://d3xwuakjymg2g" path="res://assets/images/ui/rebirth.png" id="1_6xcba"]
 [ext_resource type="Script" uid="uid://d1k6bwxqri7l4" path="res://scenes/rebirthScene.gd" id="1_i0unl"]
@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://b4mui0wnocc51" path="res://assets/images/areas/rebirth/curses/frame_2_delay-0.05s.png" id="24_kf1rl"]
 [ext_resource type="Texture2D" uid="uid://cisly6in2qdj3" path="res://assets/images/areas/rebirth/curses/frame_3_delay-0.05s.png" id="25_t03k1"]
 [ext_resource type="Texture2D" uid="uid://bj3qll701uhc" path="res://assets/images/areas/rebirth/curses/frame_4_delay-0.05s.png" id="26_je5m3"]
+[ext_resource type="Shader" uid="uid://csehigfpjnq1r" path="res://technical/jellyOutline.gdshader" id="28_a5v0l"]
 [ext_resource type="AudioStream" uid="uid://co2yjbtbpdgm5" path="res://assets/music/wheelspin.ogg" id="29_kf1rl"]
 [ext_resource type="AudioStream" uid="uid://cn4q5sn0n6f4" path="res://assets/sounds/hit.ogg" id="30_0in0p"]
 [ext_resource type="AudioStream" uid="uid://blfksn5wuyk14" path="res://assets/sounds/chaching.ogg" id="30_t03k1"]
@@ -1106,6 +1107,15 @@ animations = [{
 offsets = PackedFloat32Array(0, 0.14433, 0.309278, 0.536082, 0.773196, 0.958763)
 colors = PackedColorArray(1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 1, 0.667824, 0.313533, 1, 1, 0.860565, 0.690718, 0, 1, 0.858824, 0, 0, 1)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j1bjs"]
+shader = ExtResource("28_a5v0l")
+shader_parameter/rainbow = false
+shader_parameter/line_color = Color(1, 0.905882, 0.85098, 1)
+shader_parameter/line_scale = 6.0
+shader_parameter/frequency = 0.5
+shader_parameter/light_offset = 0.5
+shader_parameter/alpha = 1.0
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_iura4"]
 animations = [{
 "frames": [{
@@ -1390,8 +1400,9 @@ anim_speed_min = 16.0
 anim_speed_max = 82.7
 
 [node name="Spice" type="Sprite2D" parent="curses"]
+material = SubResource("ShaderMaterial_j1bjs")
 position = Vector2(577, 85)
-scale = Vector2(0.9, 0.9)
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("32_8athj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="curses/Spice"]

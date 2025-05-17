@@ -195,9 +195,10 @@ func _entry_state(entryName):
 
 func _unlock_line(entryName, lineID):
 	for i in entriesText[entryName].size():
-		if entriesText[entryName][i].has("id"):
-			entriesText[entryName][i]["revealed?"] = true
-			break
+		if i != 0:
+			if entriesText[entryName][i].has("id"):
+				entriesText[entryName][i]["revealed?"] = true
+				break
 	updateEntryContents()
 
 func _ready():

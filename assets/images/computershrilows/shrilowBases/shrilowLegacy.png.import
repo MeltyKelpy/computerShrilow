@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4q7utaq6chqm"
-path="res://.godot/imported/jelly1.png-dbe66c1aeb36a2056004e4c3f7ce4f76.ctex"
+uid="uid://diu1m2xi1oeeb"
+path="res://.godot/imported/shrilowLegacy.png-88bd2b780d59c7c205f38fc2bc862f5e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/jellies/Retarded Gambler Jelly/jelly1.png"
-dest_files=["res://.godot/imported/jelly1.png-dbe66c1aeb36a2056004e4c3f7ce4f76.ctex"]
+source_file="res://assets/images/computershrilows/shrilowBases/shrilowLegacy.png"
+dest_files=["res://.godot/imported/shrilowLegacy.png-88bd2b780d59c7c205f38fc2bc862f5e.ctex"]
 
 [params]
 

@@ -942,9 +942,13 @@ func _ready():
 	
 	Journal.updateEntryContents()
 	
+	FizzyDrink.updateClothes()
+	
 	if Game.rebirths >= 1:
+		Game.unlock_achievement("rebirth")
+	
+	if Game.rebirths == 1:
 		if Game.achievement_unlocked("rebirth"):
-			Game.unlock_achievement("rebirth")
 			$Shrilow.visible = false
 			$ShrilowScreen.visible = false
 			$Shop/Melanie.visible = false
@@ -973,9 +977,9 @@ func _ready():
 	if Game.rebirths >= 5:
 		Game.unlock_achievement("rebirth10")
 	
-	if ItemValues.money >= 250000:
+	if ItemValues.money >= 100000:
 		lawsInformed = true
-	if ItemValues.money >= 500000:
+	if ItemValues.money >= 250000:
 		doctorCalled = true
 	
 	if Game.contains_curse("gambling"):
@@ -1104,6 +1108,17 @@ func _ready():
 
 func _process(_delta : float) -> void:
 	
+	if FizzyDrink.properlySeled == "GPLow":
+		$ShrilowScreen/GPFirst.wait_time = 0.6
+	else:
+		$ShrilowScreen/GPFirst.wait_time = 2.6
+	
+	if ClothingObjects.clothes[ClothingObjects.find_outfit("Space Freighter")]["Unlocked"] == false:
+		Game.unlock_outfit("Space Freighter")
+	
+	if Game.achievement_unlocked("minecraft") and ClothingObjects.clothes[ClothingObjects.find_outfit("Jacklow")]["Unlocked"] == false:
+		Game.unlock_outfit("Jacklow")
+	
 	if journal != null:
 		if can:
 			journal.visible = visible
@@ -1122,7 +1137,7 @@ func _process(_delta : float) -> void:
 		$Shop/Melanie.position.y = 0
 	
 	if can == true:
-		if ItemValues.money >= 500000 and !doctorCalled and Game.rebirths == 1:
+		if ItemValues.money >= 250000 and !doctorCalled and Game.rebirths == 1:
 			doctorCalled = true
 			var cacapoopyGOD2 = load("res://technical/events/minerkid.tscn")
 			var caca2 = cacapoopyGOD2.instantiate()
@@ -1130,7 +1145,7 @@ func _process(_delta : float) -> void:
 			caca2.parent = self
 			caca2.swapTo("doctor")
 			Game.warn("Oh? Whats this...")
-		if ItemValues.money >= 250000 and !lawsInformed and Game.rebirths == 1:
+		if ItemValues.money >= 100000 and !lawsInformed and Game.rebirths == 1:
 			Game.inform("someone named 'QuickTime-Event' has made some new laws! absolutely despicable. whos this guy think he is? you can find these laws by looking in The Journal!\n\nhopefully none of these become a problem later...")
 			lawsInformed = true
 			Journal._unlock_entry("My QuickTime-Laws!")
@@ -1206,6 +1221,7 @@ func _process(_delta : float) -> void:
 	
 	if FizzyDrink.greasepuppies >= 500:
 		Game.unlock_achievement("500gp")
+		Game.unlock_outfit("GPLow")
 	
 	var clothes = true
 	for i in ClothingObjects.clothes.size():
@@ -1543,9 +1559,11 @@ func loadShrilow():
 	
 	if ResourceLoader.exists(textu):
 		$Shrilow/Control/Shrilow.texture = load(textu)
+		$Shrilow/Control/ShrilowBorderShitFUCKYOUGODOT.texture = load(textu)
 	else:
 		textu = "res://assets/images/computershrilows/shrilowBases/shrilowBase.png"
 		$Shrilow/Control/Shrilow.texture = load(textu)
+		$Shrilow/Control/ShrilowBorderShitFUCKYOUGODOT.texture = load(textu)
 
 func killIntro():
 	$Camera2D/intro.queue_free()
@@ -1702,10 +1720,8 @@ func _startEvent(numberPicked, type) -> void:
 func shrilowColor(color) -> void:
 	if color == "base":
 		$Shrilow/Control/Shrilow.modulate = Color(1,1,1)
-		$Shrilow/Control/Shrilow/ShrilowFace.modulate = Color(1,1,1)
 	if color == "yellow":
-		$Shrilow/Control/Shrilow.modulate = Color(1,1,0)
-		$Shrilow/Control/Shrilow/ShrilowFace.modulate = Color(1,1,0)
+		$Shrilow/Control/Shrilow.modulate = Color(1,0.769,0)
 
 func _on_face_revert_2_timeout() -> void:
 	curClicks = 0
@@ -2401,7 +2417,7 @@ func smoke_break() -> void:
 
 func _on_first_timeout() -> void:
 	if $ShrilowScreen/puppies.get_child_count() > 0:
-		var ammo = 3 * FizzyDrink.greasepuppies
+		var ammo = 1 * FizzyDrink.greasepuppies
 		if FizzyDrink.enabledCrystal == "puppy":
 			ammo = (FizzyDrink.clickPowerP1 + FizzyDrink.clickPowerP1R) * FizzyDrink.greasepuppies
 		ItemValues.money += ammo
@@ -2514,7 +2530,7 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		var cacapoopyGOD2 = preload("res://technical/clock.tscn")
 		var caca = cacapoopyGOD2.instantiate()
 		add_child(caca)
-		caca.create("Dr's Appointment", 600, "not")
+		caca.create("Dr's Appointment", 200, "not")
 		$Timer2.start()
 	else:
 		$Shrilow/cone.visible = true

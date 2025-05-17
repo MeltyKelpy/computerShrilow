@@ -25,6 +25,7 @@ var optimizeSpeed = 0.0
 @export var mineLevelSPEED = 0.0
 @export var mineLevelMONEY = 0.0
 var adds = 1
+var jackBlack = 1
 
 func listPlacement(num):
 	ID = num
@@ -66,19 +67,31 @@ func _process(_delta: float) -> void:
 	optimizeSpeed = Speed+((mineLevelSPEED)*Speed)
 	
 	if Settings.setting_state("minesOptimization") == true:
-		if Settings.setting_state("animationsOptimization") == true:
+		if Settings.setting_state("animationsOptimization") == false:
 			timer.paused = true
 			timer2.paused = true
 		else:
+			if timer.is_stopped() == true and timer2.is_stopped() == true:
+				timer.start()
+			timer.paused = false
+			timer2.paused = false
 			waitTime = (1.0 / BaseSpeed) - ((1.0 / BaseSpeed) / 4.0)
 			timer.wait_time = waitTime
 			waitTime2 = (1.0 / BaseSpeed) / 4.0
 			timer2.wait_time = waitTime2
+	else:
+		if timer.is_stopped() == true and timer2.is_stopped() == true:
+			timer.start()
 	
 	if FizzyDrink.enabledCrystal == "mine":
 		adds = 2
 	else:
 		adds = 1
+	
+	if FizzyDrink.properlySeled == "Jacklow":
+		jackBlack = 1.5
+	else:
+		jackBlack = 1
 	
 	if timer.time_left == 0 and timer2.time_left == 0:
 		timer.start()
@@ -108,9 +121,18 @@ func _process(_delta: float) -> void:
 	
 	speedCost = ((Speed / 2) * 500) * Level
 	moneyCost = (MoneyGain * 200) * Level
-	$ManageMenu/speedUp.text = str(int(round(speedCost)))
-	$ManageMenu/moneyUp.text = str(int(round(moneyCost)))
-	$ManageMenu/UpgradeInfo.text = "Speed:"+str(Speed+((mineLevelSPEED)*Speed))+"\nMoney:"+str((MoneyGain+((mineLevelMONEY)*MoneyGain))*adds)+"\nLevel:"+str(Level)+"\n\nUpTokens:"+str(upTokens)
+	if Level != 5:
+		$ManageMenu/speedUp.text = str(int(round(speedCost)))+"$"
+		$ManageMenu/moneyUp.text = str(int(round(moneyCost)))+"$"
+	else:
+		$ManageMenu/speedUp.text = ""
+		$ManageMenu/moneyUp.text = ""
+	$ManageMenu/UpgradeInfo.text = "Speed:"+str(int((Speed+(((mineLevelSPEED)*Speed)))*jackBlack))+"\nMoney:"+str(int(((MoneyGain+((mineLevelMONEY)*MoneyGain))*adds)*jackBlack))+"\nLevel:"+str(Level)
+	$ManageMenu/UpgradeInfo3.text = "UpTokens:"+str(upTokens)
+	if Level == 1:
+		$ManageMenu/UpgradeInfo2.visible = true
+	else:
+		$ManageMenu/UpgradeInfo2.visible = false
 	$ManageMenu.visible = managing
 	
 	if Settings.setting_state("animationsOptimization"):
@@ -138,15 +160,15 @@ func _on_selection_mouse_exited() -> void:
 func _swingTimerEnd():
 	var hey = get_parent()
 	if Settings.setting_state("minesOptimization") == false:
-		waitTime = (1.0 / (Speed+((mineLevelSPEED)*Speed))) - ((1.0 / (Speed+((mineLevelSPEED)*Speed))) / 4.0)
+		waitTime = ((1.0 / (Speed+((mineLevelSPEED)*Speed))) - ((1.0 / (Speed+((mineLevelSPEED)*Speed))) / 4.0))*jackBlack
 		timer.wait_time = waitTime
 	state = 1
 	if Settings.setting_state("minesOptimization") == false:
 		var cacapoopyGOD = load("res://technical/moneyGet.tscn")
 		var caca = cacapoopyGOD.instantiate()
 		add_child(caca)
-		caca.determine((MoneyGain+(((mineLevelMONEY))*MoneyGain))*adds)
-		var ammo = (MoneyGain+(((mineLevelMONEY))*MoneyGain))*adds
+		caca.determine(((MoneyGain+(((mineLevelMONEY))*MoneyGain))*adds)*jackBlack)
+		var ammo = ((MoneyGain+(((mineLevelMONEY))*MoneyGain))*adds)*jackBlack
 		Interstate.totalmoney += ammo
 		ItemValues.money += ammo
 		caca.position.x = -30

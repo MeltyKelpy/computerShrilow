@@ -248,6 +248,7 @@ func _pick_a_curse(curseNum):
 						avaliableCurses.remove_at(e)
 						break
 			curseOutput = Curses.passiveCurses[randi_range(0, Curses.passiveCurses.size()-1)]
+	Journal._unlock_line("Curses", curseOutput["ID"])
 	return curseOutput
 
 func _scene2():

@@ -13,17 +13,22 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	
+	
 	if array[arrayToUse][ItemID]["Cost"] == 0:
 		array[arrayToUse][ItemID]["Owned"] = true
 	
-	if array[arrayToUse][ItemID]["Owned"] == true:
+	if array[arrayToUse][ItemID]["Name"] == FizzyDrink.properlySeled:
+		$Clothing/Cost.text = "Selected!"
+	elif array[arrayToUse][ItemID]["Owned"] == true:
 		$Clothing/Cost.text = "Owned!"
 	elif array[arrayToUse][ItemID]["Unlocked"] == false:
 		$Clothing/Cost.text = "Locked!"
 	else:
 		$Clothing/Cost.text = str(array[arrayToUse][ItemID]["Cost"])+"$"
 	
-	if array[arrayToUse][ItemID]["Owned"] == true:
+	if array[arrayToUse][ItemID]["Name"] == FizzyDrink.properlySeled:
+		modulate = Color(0,1,0)
+	elif array[arrayToUse][ItemID]["Owned"] == true:
 		modulate = Color(1,1,0)
 	elif PlaceholderID == ItemID and array[arrayToUse][ItemID]["Unlocked"] == true:
 		modulate = Color(0,1,1)

@@ -205,6 +205,8 @@ var amountOfHomeCrystals = 0
 var scrollLimitLEFT = 0
 var scrollLimitRIGHT = 0
 
+var properlySeled = ""
+
 func _ready() -> void:
 	Input.set_custom_mouse_cursor(load("res://assets/images/ibeam.png"), Input.CURSOR_IBEAM)
 
@@ -219,6 +221,7 @@ func _process(float) -> void:
 		shrilowPowerAuto = 0
 
 func updateClothes() -> void:
+	properlySeled = ClothingObjects.clothes[ClothingObjects.equippedClothing]["Name"]
 	clickPowerClothingBuffs = 0
 	AUTOclickPowerClothingBuffs = 0
 	if ClothingObjects.clothes[ClothingObjects.equippedClothing]["Name"] == "Date Night":

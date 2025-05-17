@@ -97,7 +97,15 @@ func achievement_unlocked(id):
 			achievementID = i
 			break
 	if achievementID != null:
-		return Achievements.achievements[achievementID]["unlocked?"] == false
+		return Achievements.achievements[achievementID]["unlocked?"]
+
+func _find_achievement(id):
+	var achievementID = false
+	for i in Achievements.achievements.size():
+		if Achievements.achievements[i]["ID"] == id:
+			achievementID = i
+			break
+	return achievementID
 
 func commizeNumber(value: int) -> String:
 	# Convert value to string.
