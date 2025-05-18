@@ -24,7 +24,7 @@ func _process(_delta: float) -> void:
 	elif array[arrayToUse][ItemID]["Unlocked"] == false:
 		$Clothing/Cost.text = "Locked!"
 	else:
-		$Clothing/Cost.text = str(array[arrayToUse][ItemID]["Cost"])+"$"
+		$Clothing/Cost.text = str(Game.commizeNumber(array[arrayToUse][ItemID]["Cost"]))+"$"
 	
 	if array[arrayToUse][ItemID]["Name"] == FizzyDrink.properlySeled:
 		modulate = Color(0,1,0)

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://ceij1xnameg6m" path="res://technical/shrilow_face.gd" id="1_cl7c4"]
 [ext_resource type="Script" uid="uid://cx2dt7m88nh8i" path="res://technical/mouseFollow.gd" id="1_l4jf7"]
 [ext_resource type="Texture2D" uid="uid://oxm2v06l1np6" path="res://assets/images/computershrilows/faces/rigEyes/pupil.png" id="1_uq362"]
-[ext_resource type="Texture2D" uid="uid://nidbbns8g4a8" path="res://assets/images/computershrilows/faces/baseEyes/pupilCove.png" id="4_cl7c4"]
+[ext_resource type="Texture2D" uid="uid://nidbbns8g4a8" path="res://assets/images/computershrilows/faces/legacyEyes/pupilCove.png" id="4_cl7c4"]
 
 [node name="ShrilowFace" type="Node2D"]
 script = ExtResource("1_cl7c4")

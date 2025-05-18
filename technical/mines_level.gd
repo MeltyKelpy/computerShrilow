@@ -266,7 +266,7 @@ func _on_buy_button_pressed() -> void:
 				caca.listPlacement(i)
 				ItemValues.money -= moneyValues[selected]
 				Interstate.totallost -= moneyValues[selected]
-				caca.position.x = 401+(101*i)
+				caca.position.x = 387+(101*i)
 				caca.position.y = 213
 
 func _on_button_mouse_entered() -> void:
