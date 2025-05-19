@@ -276,8 +276,8 @@ func manageScenes():
 					$Shop/ItemDescription.text = "Anyway, i'll just let us get back to our buisness stuff. unless you'd like to talk more, im always willing."
 				if alongTheDialogue == 5:
 					rebirth2intro = false
-					melShopState = false
 					endDialogue()
+					melShopToggle()
 			"COMPUTEROPINIONS":
 				if alongTheDialogue == 0:
 					$Shop/ItemDescription.text = "Its kinda chill, Jerry is annoying as fuck but i can handle him."
@@ -438,16 +438,16 @@ func manageScenes():
 					$Shop/ItemDescription.text = "Technically, nobody acctuallly told ME to, since i think this was intended for melanie; but. uhm. shut up."
 				if alongTheDialogue == 3:
 					$Shop/ItemDescription.text = "but uh, this flyer had a sticky note on it that said: 'Plz give this to my baby girl '"+Game.namee+" <3'. so. im going to give you that now"
-				if alongTheDialogue == 2:
+				if alongTheDialogue == 4:
 					Game.flyer("electionflyer")
 					$Shop/ItemDescription.text = "Yeah"
-				if alongTheDialogue == 3:
-					$Shop/ItemDescription.text = "I didnt know we were doing democracy in computers now, but it doesnt matter to me because i'll personally be voting for whoever has the funniest campaign."
-				if alongTheDialogue == 4:
-					$Shop/ItemDescription.text = "ok back to gambling, no talking only gamble! unless you really wanna talk to me then i guess you can do that i guess abit"
 				if alongTheDialogue == 5:
-					melShopState = false
+					$Shop/ItemDescription.text = "I didnt know we were doing democracy in computers now, but it doesnt matter to me because i'll personally be voting for whoever has the funniest campaign."
+				if alongTheDialogue == 6:
+					$Shop/ItemDescription.text = "ok back to gambling, no talking only gamble! unless you really wanna talk to me then i guess you can do that i guess abit"
+				if alongTheDialogue == 7:
 					endDialogue()
+					melShopToggle()
 					rebirth2intro = false
 	
 	# MELVIN DIALOGUE BELOW
