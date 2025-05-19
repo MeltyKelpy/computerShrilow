@@ -1,0 +1,279 @@
+[gd_scene load_steps=10 format=3 uid="uid://x46u75wc1kll"]
+
+[ext_resource type="Texture2D" uid="uid://cm11xcgqbfxub" path="res://assets/images/events/laws/election/flyer1.png" id="1_hym3r"]
+[ext_resource type="Script" uid="uid://8tnwyqs5esrr" path="res://technical/flyer.gd" id="1_t10x2"]
+[ext_resource type="Theme" uid="uid://dr1wna4c2ab2h" path="res://technical/textStyle.tres" id="2_t10x2"]
+
+[sub_resource type="Gradient" id="Gradient_hym3r"]
+offsets = PackedFloat32Array(0, 0.339056)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.909804)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_t10x2"]
+gradient = SubResource("Gradient_hym3r")
+
+[sub_resource type="Animation" id="Animation_hym3r"]
+resource_name = "pop"
+length = 1.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flyer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.329877, 1),
+"update": 0,
+"values": [Vector2(1728, 324), Vector2(576, 324)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Head:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.333333, 1.3),
+"transitions": PackedFloat32Array(0.34151, 1),
+"update": 0,
+"values": [Vector2(1635, 16), Vector2(483, 16)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.333333, 1.3),
+"transitions": PackedFloat32Array(0.34151, 1),
+"update": 0,
+"values": [Vector2(1635, 98), Vector2(483, 98)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Close:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.333333, 1.3),
+"transitions": PackedFloat32Array(0.34151, 1),
+"update": 0,
+"values": [Vector2(1635, 572), Vector2(483, 572)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TextureRect:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.0333333, 1.26667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1.7),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_load_can"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_t10x2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flyer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(576, 324)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Head:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(483, 16)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(483, 98)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Close:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(483, 572)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TextureRect:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_r0xjb"]
+resource_name = "depop"
+length = 1.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flyer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.266667, 1.26667),
+"transitions": PackedFloat32Array(4.28709, 4.28709),
+"update": 0,
+"values": [Vector2(576, 324), Vector2(1728, 324)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Head:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(3.36358, 1),
+"update": 0,
+"values": [Vector2(483, 16), Vector2(1635, 16)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(3.36358, 1),
+"update": 0,
+"values": [Vector2(483, 98), Vector2(1635, 98)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Close:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(3.36358, 1),
+"update": 0,
+"values": [Vector2(483, 572), Vector2(1635, 572)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TextureRect:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r0xjb"]
+_data = {
+&"RESET": SubResource("Animation_t10x2"),
+&"depop": SubResource("Animation_r0xjb"),
+&"pop": SubResource("Animation_hym3r")
+}
+
+[node name="Flyer" type="Node2D"]
+process_mode = 3
+z_index = 2000
+script = ExtResource("1_t10x2")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1160.0
+offset_bottom = 648.0
+texture = SubResource("GradientTexture2D_t10x2")
+
+[node name="Flyer" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+texture = ExtResource("1_hym3r")
+
+[node name="Head" type="Label" parent="."]
+offset_left = 483.0
+offset_top = 16.0
+offset_right = 1130.0
+offset_bottom = 81.0
+theme = ExtResource("2_t10x2")
+theme_override_font_sizes/font_size = 40
+text = "Title"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Body" type="Label" parent="."]
+offset_left = 483.0
+offset_top = 98.0
+offset_right = 1130.0
+offset_bottom = 559.0
+theme = ExtResource("2_t10x2")
+theme_override_font_sizes/font_size = 40
+text = "This is body text"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Close" type="Label" parent="."]
+offset_left = 483.0
+offset_top = 572.0
+offset_right = 1130.0
+offset_bottom = 632.0
+theme = ExtResource("2_t10x2")
+theme_override_font_sizes/font_size = 40
+text = "Click here to close."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_r0xjb")
+}
+autoplay = "pop"
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

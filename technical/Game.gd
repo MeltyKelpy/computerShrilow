@@ -138,6 +138,12 @@ func notify(text : String, hashtagicon : String):
 	caca2.text = text
 	$/root.add_child(caca2)
 
+func flyer(flyer : String):
+	var cacapoopyGOD3 = preload("res://technical/flyer.tscn")
+	var caca2 = cacapoopyGOD3.instantiate()
+	$/root.add_child(caca2)
+	caca2._load(flyer)
+
 func warn(text : String):
 	var cacapoopyGOD3 = preload("res://technical/events/eventIndicator.tscn")
 	var caca2 = cacapoopyGOD3.instantiate()

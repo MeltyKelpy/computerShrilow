@@ -214,6 +214,7 @@ var marketIntro = false
 var doctorCalled = false
 var lawsInformed = false
 var shrilowHere = true
+var rebirth2intro = false
 
 var coconut
 
@@ -237,9 +238,9 @@ func manageScenes():
 	# fact this part of the game isnt dialogue heavy.
 	
 	# MELANIE DIALOGUE BELOW
-	match dialogKey:
-		"none":
-			if !Game.contains_curse("gambling"):
+	if !Game.contains_curse("gambling"):
+		match dialogKey:
+			"none":
 				if alongTheDialogue == 0:
 					$Shop/ItemDescription.text = "Still Listening!"
 					setShopBase("melanie")
@@ -247,170 +248,207 @@ func manageScenes():
 					$Shop/ItemDescription.text = "this also worked as a test, which is cool"
 				if alongTheDialogue == 2:
 					endDialogue()
-		"HOW":
-			if alongTheDialogue == 0:
-				$Shop/ItemDescription.text = "Honestly? i dont really remember"
-				for i in FizzyDrink.melDialogue.size():
-					if FizzyDrink.melDialogue[i]["dialogKey"] == "COMPUTEROPINIONS":
-						FizzyDrink.melDialogue[i]["unlocked"] = true
-			if alongTheDialogue == 1:
-				$Shop/ItemDescription.text = "just sortaaa... woke up here?? i guess??"
-			if alongTheDialogue == 2:
-				$Shop/ItemDescription.text = "not too insanely pressed, alot of my other friends are here, like shrilow! and thats cool!!.. I guess?"
-			if alongTheDialogue == 3:
-				$Shop/ItemDescription.text = "does it make up for being trapped inside a computer? no LOL but its good enough if im gonna be here anyways."
-			if alongTheDialogue == 4:
-				endDialogue()
-		"COMPUTEROPINIONS":
-			if alongTheDialogue == 0:
-				$Shop/ItemDescription.text = "Its kinda chill, Jerry is annoying as fuck but i can handle him."
-			if alongTheDialogue == 1:
-				$Shop/ItemDescription.text = "That quick time event prick is a littleee bit annoying tho, same with those black market guys GOD FORBID someone do something original around here, huh?"
-			if alongTheDialogue == 2:
-				$Shop/ItemDescription.text = "but yeah, its fine, i guess"
-			if alongTheDialogue == 3:
-				$Shop/ItemDescription.text = "Never in my life did i think i'd be scared of a recycling bin, though. eugh. its SCARY in there."
-			if alongTheDialogue == 4:
-				endDialogue()
-		"MELVIN":
-			if alongTheDialogue == 0:
-				$Shop/ItemDescription.text = "woah haha uhm whatareyou talking about idk who that is haha"
-			if alongTheDialogue == 1:
-				$Shop/ItemDescription.text = "ha!... haha....... ha... SHUT UP"
-			if alongTheDialogue == 2:
-				endDialogue()
-		"ABTYOU":
-			if alongTheDialogue == 0:
-				$Shop/ItemDescription.text = "Sure, im Melanie"
-			if alongTheDialogue == 1:
-				$Shop/ItemDescription.text = "average shopkeeper around the computer, its all i really do now that im here"
-			if alongTheDialogue == 2:
-				$Shop/ItemDescription.text = "i hope to do something more than just this someday, but if i dont then whatever"
-			if alongTheDialogue == 3:
-				$Shop/ItemDescription.text = "also my pronouns are she/it, if thats smth u care abt"
-			if alongTheDialogue == 4:
-				endDialogue()
-		"INTERESTS":
-			if alongTheDialogue == 0:
-				$Shop/ItemDescription.text = "i really like drawing, and also coding, and listening to music, and getting high"
-				for i in FizzyDrink.melDialogue.size():
-					if FizzyDrink.melDialogue[i]["dialogKey"] == "CODING" or FizzyDrink.melDialogue[i]["dialogKey"] == "MLP" or FizzyDrink.melDialogue[i]["dialogKey"] == "WEED":
-						FizzyDrink.melDialogue[i]["unlocked"] = true
-			if alongTheDialogue == 1:
-				$Shop/ItemDescription.text = "and also girls, and also boys, one very specific alien boy to be exact"
-			if alongTheDialogue == 2:
-				$Shop/ItemDescription.text = "i also really like my little pony gen 4, SPECIFICALLY gen 4"
-			if alongTheDialogue == 3:
-				$Shop/ItemDescription.text = "thats about it, I guess?"
-			if alongTheDialogue == 4:
-				endDialogue()
-		"CODING":
-			if alongTheDialogue == 0:
-				$Shop/ItemDescription.text = "coding is like. 10x easier than people make it seem"
-			if alongTheDialogue == 1:
-				$Shop/ItemDescription.text = "i've been coding for about 2 years now, and it's been real fun"
-			if alongTheDialogue == 2:
-				$Shop/ItemDescription.text = "except for when its not."
-			if alongTheDialogue == 3:
-				$Shop/ItemDescription.text = "like the one time i sobbed while coding Enemy AI"
-			if alongTheDialogue == 4:
-				endDialogue()
-		"MLP":
-			if alongTheDialogue == 0:
-				$Shop/ItemDescription.text = "i like MLP Gen 4 alot, been a fan for awhile now"
-			if alongTheDialogue == 1:
-				$Shop/ItemDescription.text = "pinkie pie is my favorite probably, but i like all of the mane 6 and the extended mane 6 aswell"
-			if alongTheDialogue == 2:
-				$Shop/ItemDescription.text = "despite being a kids show its still really good, and that makes sense cuz it was made when kid's television wasnt TRASH AND ASS so yk"
-			if alongTheDialogue == 3:
-				endDialogue()
-		"WEED":
-			if alongTheDialogue == 0:
-				$Shop/ItemDescription.text = "what's there to say? i like smoking weed"
-			if alongTheDialogue == 1:
-				$Shop/ItemDescription.text = "im high off my mind as we speak, actually"
-			if alongTheDialogue == 2:
-				$Shop/ItemDescription.text = "you tryna get some? i know a guy"
-			if alongTheDialogue == 3:
-				$Shop/ItemDescription.text = "offers there, just saying"
-			if alongTheDialogue == 4:
-				endDialogue()
-		#"STILLWAKES":
-			#if alongTheDialogue == 0:
-				#$Shop/ItemDescription.text = "genuinely the best game of 2024, no competition"
-			#if alongTheDialogue == 1:
-				#$Shop/ItemDescription.text = "beautiful sound design, genuinely scary, and visually beautiful aswell, what more could you want?"
-			#if alongTheDialogue == 2:
-				#$Shop/ItemDescription.text = "it's pretty linear, though. so it depends if thats something you fuck with or not"
-			#if alongTheDialogue == 3:
-				#$Shop/ItemDescription.text = "its kind of on the more expensive side, i suppose. if you dont got 50ish bucks laying around then i personally recommend jacksepticeye's playthrough of it, i really enjoyed that one"
-			#if alongTheDialogue == 4:
-				#endDialogue()
-		"JERRY":
-			if alongTheDialogue == 0:
-				$Shop/ItemDescription.text = "oh. yeah. that guy."
-			if alongTheDialogue == 1:
-				$Shop/ItemDescription.text = "nobody likes him around here, espesically shoprunners."
-			if alongTheDialogue == 2:
-				$Shop/ItemDescription.text = "its almost like he exists PURELY to steal all our money ( its all he does anyway, might as well be. )"
-			if alongTheDialogue == 3:
-				$Shop/ItemDescription.text = "i can say for CERTAIN that anyone around here fucking hates that guy. fact check me if you want, or dont. i dont rly care"
-			if alongTheDialogue == 4:
-				endDialogue()
-		"SKIBIDI":
-			if alongTheDialogue == 0:
-				$Shop/ItemDescription.text = "...."
-			if alongTheDialogue == 1:
-				$Shop/ItemDescription.text = "consider jumping off a building, maybe ?"
-			if alongTheDialogue == 2:
-				endDialogue()
-		"JELLIES":
-			if alongTheDialogue == 0:
-				$Shop/ItemDescription.text = "oh, yeah those things"
-			if alongTheDialogue == 1:
-				$Shop/ItemDescription.text = "i have no goddamn clue why they look like me, they just do."
-			if alongTheDialogue == 2:
-				$Shop/ItemDescription.text = "but, because of that fact; when they seen me for the first time they declared me as their fucking QUEEN?!??!"
-			if alongTheDialogue == 3:
-				$Shop/ItemDescription.text = "so yeah idk i've been hiding from them ever since"
-			if alongTheDialogue == 4:
-				$Shop/ItemDescription.text = "theres so fucking many of them, and they're alot more evil than they seem dude."
-			if alongTheDialogue == 5:
-				$Shop/ItemDescription.text = "they tried to give me a dead bird as a royal offering. where are they finding birds in the computer ??"
-			if alongTheDialogue == 6:
-				endDialogue()
-		"MARKETCONTINUED":
-			if alongTheDialogue == 0:
-				$Shop/ItemDescription.text = "Ugh. those guys"
-			if alongTheDialogue == 1:
-				$Shop/ItemDescription.text = "look, i dont HATE them, but im JUSTTT SAYIN' they only started doin their shit after I did."
-			if alongTheDialogue == 2:
-				$Shop/ItemDescription.text = "like, c'mon, do something original."
-			if alongTheDialogue == 3:
-				$Shop/ItemDescription.text = "cant hate em too bad though, i mean, they're the only ones who have a sembalance of whats going on. i kinda need them around."
-			if alongTheDialogue == 4:
-				for i in FizzyDrink.marketDialogue.size():
-					if FizzyDrink.marketDialogue[i]["dialogKey"] == "MELANIN":
-						FizzyDrink.marketDialogue[i]["unlocked"] = true
-				endDialogue()
-	
-	# BRICKS DIALOGUE BELOW
-	match dialogKey:
-		"none":
-			if Game.contains_curse("gambling"):
+			"HOW":
 				if alongTheDialogue == 0:
-					$Shop/ItemDescription.text = "Fine! no gambling! dialogue it is!... loser."
+					$Shop/ItemDescription.text = "Honestly? i dont really remember"
+					for i in FizzyDrink.melDialogue.size():
+						if FizzyDrink.melDialogue[i]["dialogKey"] == "COMPUTEROPINIONS":
+							FizzyDrink.melDialogue[i]["unlocked"] = true
 				if alongTheDialogue == 1:
-					$Shop/ItemDescription.text = "this also worked as a test, which is cool"
+					$Shop/ItemDescription.text = "just sortaaa... woke up here?? i guess??"
+				if alongTheDialogue == 2:
+					$Shop/ItemDescription.text = "not too insanely pressed, alot of my other friends are here, like shrilow! and thats cool!!.. I guess?"
+				if alongTheDialogue == 3:
+					$Shop/ItemDescription.text = "does it make up for being trapped inside a computer? no LOL but its good enough if im gonna be here anyways."
+				if alongTheDialogue == 4:
+					endDialogue()
+			"REBIRTH2":
+				if alongTheDialogue == 0:
+					$Shop/ItemDescription.text = "Hey uhm."
+				if alongTheDialogue == 1:
+					$Shop/ItemDescription.text = "Sorry to bother, but this flyer was given to me with a sticky note attached that said: 'Plz give this to my baby girl '"+Game.namee+" <3'. so. uhm."
+				if alongTheDialogue == 2:
+					Game.flyer("electionflyer")
+					$Shop/ItemDescription.text = "So theres that."
+				if alongTheDialogue == 3:
+					$Shop/ItemDescription.text = "Didnt know they did democracy in computers now, but if there was going to be politics in here i'd rather it be that anyway."
+				if alongTheDialogue == 4:
+					$Shop/ItemDescription.text = "Anyway, i'll just let us get back to our buisness stuff. unless you'd like to talk more, im always willing."
+				if alongTheDialogue == 5:
+					rebirth2intro = false
+					melShopState = false
+					endDialogue()
+			"COMPUTEROPINIONS":
+				if alongTheDialogue == 0:
+					$Shop/ItemDescription.text = "Its kinda chill, Jerry is annoying as fuck but i can handle him."
+				if alongTheDialogue == 1:
+					$Shop/ItemDescription.text = "That quick time event prick is a littleee bit annoying tho, same with those black market guys GOD FORBID someone do something original around here, huh?"
+				if alongTheDialogue == 2:
+					$Shop/ItemDescription.text = "but yeah, its fine, i guess"
+				if alongTheDialogue == 3:
+					$Shop/ItemDescription.text = "Never in my life did i think i'd be scared of a recycling bin, though. eugh. its SCARY in there."
+				if alongTheDialogue == 4:
+					endDialogue()
+			"MELVIN":
+				if alongTheDialogue == 0:
+					$Shop/ItemDescription.text = "woah haha uhm whatareyou talking about idk who that is haha"
+				if alongTheDialogue == 1:
+					$Shop/ItemDescription.text = "ha!... haha....... ha... SHUT UP"
 				if alongTheDialogue == 2:
 					endDialogue()
-		"ABTYOUBRICKS":
-			if alongTheDialogue == 0:
-				$Shop/ItemDescription.text = "i am bricks. ghostybricks"
-			if alongTheDialogue == 1:
-				$Shop/ItemDescription.text = "im feeling quite. bricked! up! heh."
-			if alongTheDialogue == 2:
-				endDialogue()
+			"ABTYOU":
+				if alongTheDialogue == 0:
+					$Shop/ItemDescription.text = "Sure, im Melanie"
+				if alongTheDialogue == 1:
+					$Shop/ItemDescription.text = "average shopkeeper around the computer, its all i really do now that im here"
+				if alongTheDialogue == 2:
+					$Shop/ItemDescription.text = "i hope to do something more than just this someday, but if i dont then whatever"
+				if alongTheDialogue == 3:
+					$Shop/ItemDescription.text = "also my pronouns are she/it, if thats smth u care abt"
+				if alongTheDialogue == 4:
+					endDialogue()
+			"INTERESTS":
+				if alongTheDialogue == 0:
+					$Shop/ItemDescription.text = "i really like drawing, and also coding, and listening to music, and getting high"
+					for i in FizzyDrink.melDialogue.size():
+						if FizzyDrink.melDialogue[i]["dialogKey"] == "CODING" or FizzyDrink.melDialogue[i]["dialogKey"] == "MLP" or FizzyDrink.melDialogue[i]["dialogKey"] == "WEED":
+							FizzyDrink.melDialogue[i]["unlocked"] = true
+				if alongTheDialogue == 1:
+					$Shop/ItemDescription.text = "and also girls, and also boys, one very specific alien boy to be exact"
+				if alongTheDialogue == 2:
+					$Shop/ItemDescription.text = "i also really like my little pony gen 4, SPECIFICALLY gen 4"
+				if alongTheDialogue == 3:
+					$Shop/ItemDescription.text = "thats about it, I guess?"
+				if alongTheDialogue == 4:
+					endDialogue()
+			"CODING":
+				if alongTheDialogue == 0:
+					$Shop/ItemDescription.text = "coding is like. 10x easier than people make it seem"
+				if alongTheDialogue == 1:
+					$Shop/ItemDescription.text = "i've been coding for about 2 years now, and it's been real fun"
+				if alongTheDialogue == 2:
+					$Shop/ItemDescription.text = "except for when its not."
+				if alongTheDialogue == 3:
+					$Shop/ItemDescription.text = "like the one time i sobbed while coding Enemy AI"
+				if alongTheDialogue == 4:
+					endDialogue()
+			"MLP":
+				if alongTheDialogue == 0:
+					$Shop/ItemDescription.text = "i like MLP Gen 4 alot, been a fan for awhile now"
+				if alongTheDialogue == 1:
+					$Shop/ItemDescription.text = "pinkie pie is my favorite probably, but i like all of the mane 6 and the extended mane 6 aswell"
+				if alongTheDialogue == 2:
+					$Shop/ItemDescription.text = "despite being a kids show its still really good, and that makes sense cuz it was made when kid's television wasnt TRASH AND ASS so yk"
+				if alongTheDialogue == 3:
+					endDialogue()
+			"WEED":
+				if alongTheDialogue == 0:
+					$Shop/ItemDescription.text = "what's there to say? i like smoking weed"
+				if alongTheDialogue == 1:
+					$Shop/ItemDescription.text = "im high off my mind as we speak, actually"
+				if alongTheDialogue == 2:
+					$Shop/ItemDescription.text = "you tryna get some? i know a guy"
+				if alongTheDialogue == 3:
+					$Shop/ItemDescription.text = "offers there, just saying"
+				if alongTheDialogue == 4:
+					endDialogue()
+			#"STILLWAKES":
+				#if alongTheDialogue == 0:
+					#$Shop/ItemDescription.text = "genuinely the best game of 2024, no competition"
+				#if alongTheDialogue == 1:
+					#$Shop/ItemDescription.text = "beautiful sound design, genuinely scary, and visually beautiful aswell, what more could you want?"
+				#if alongTheDialogue == 2:
+					#$Shop/ItemDescription.text = "it's pretty linear, though. so it depends if thats something you fuck with or not"
+				#if alongTheDialogue == 3:
+					#$Shop/ItemDescription.text = "its kind of on the more expensive side, i suppose. if you dont got 50ish bucks laying around then i personally recommend jacksepticeye's playthrough of it, i really enjoyed that one"
+				#if alongTheDialogue == 4:
+					#endDialogue()
+			"JERRY":
+				if alongTheDialogue == 0:
+					$Shop/ItemDescription.text = "oh. yeah. that guy."
+				if alongTheDialogue == 1:
+					$Shop/ItemDescription.text = "nobody likes him around here, espesically shoprunners."
+				if alongTheDialogue == 2:
+					$Shop/ItemDescription.text = "its almost like he exists PURELY to steal all our money ( its all he does anyway, might as well be. )"
+				if alongTheDialogue == 3:
+					$Shop/ItemDescription.text = "i can say for CERTAIN that anyone around here fucking hates that guy. fact check me if you want, or dont. i dont rly care"
+				if alongTheDialogue == 4:
+					endDialogue()
+			"SKIBIDI":
+				if alongTheDialogue == 0:
+					$Shop/ItemDescription.text = "...."
+				if alongTheDialogue == 1:
+					$Shop/ItemDescription.text = "consider jumping off a building, maybe ?"
+				if alongTheDialogue == 2:
+					endDialogue()
+			"JELLIES":
+				if alongTheDialogue == 0:
+					$Shop/ItemDescription.text = "oh, yeah those things"
+				if alongTheDialogue == 1:
+					$Shop/ItemDescription.text = "i have no goddamn clue why they look like me, they just do."
+				if alongTheDialogue == 2:
+					$Shop/ItemDescription.text = "but, because of that fact; when they seen me for the first time they declared me as their fucking QUEEN?!??!"
+				if alongTheDialogue == 3:
+					$Shop/ItemDescription.text = "so yeah idk i've been hiding from them ever since"
+				if alongTheDialogue == 4:
+					$Shop/ItemDescription.text = "theres so fucking many of them, and they're alot more evil than they seem dude."
+				if alongTheDialogue == 5:
+					$Shop/ItemDescription.text = "they tried to give me a dead bird as a royal offering. where are they finding birds in the computer ??"
+				if alongTheDialogue == 6:
+					endDialogue()
+			"MARKETCONTINUED":
+				if alongTheDialogue == 0:
+					$Shop/ItemDescription.text = "Ugh. those guys"
+				if alongTheDialogue == 1:
+					$Shop/ItemDescription.text = "look, i dont HATE them, but im JUSTTT SAYIN' they only started doin their shit after I did."
+				if alongTheDialogue == 2:
+					$Shop/ItemDescription.text = "like, c'mon, do something original."
+				if alongTheDialogue == 3:
+					$Shop/ItemDescription.text = "cant hate em too bad though, i mean, they're the only ones who have a sembalance of whats going on. i kinda need them around."
+				if alongTheDialogue == 4:
+					for i in FizzyDrink.marketDialogue.size():
+						if FizzyDrink.marketDialogue[i]["dialogKey"] == "MELANIN":
+							FizzyDrink.marketDialogue[i]["unlocked"] = true
+					endDialogue()
+	
+	# BRICKS DIALOGUE BELOW
+	if Game.contains_curse("gambling"):
+		match dialogKey:
+			"none":
+				if Game.contains_curse("gambling"):
+					if alongTheDialogue == 0:
+						$Shop/ItemDescription.text = "Fine! no gambling! dialogue it is!... loser."
+					if alongTheDialogue == 1:
+						$Shop/ItemDescription.text = "this also worked as a test, which is cool"
+					if alongTheDialogue == 2:
+						endDialogue()
+			"ABTYOUBRICKS":
+				if alongTheDialogue == 0:
+					$Shop/ItemDescription.text = "i am bricks. ghostybricks"
+				if alongTheDialogue == 1:
+					$Shop/ItemDescription.text = "im feeling quite. bricked! up! heh."
+				if alongTheDialogue == 2:
+					endDialogue()
+			"REBIRTH2":
+				if alongTheDialogue == 0:
+					$Shop/ItemDescription.text = "Hey so."
+				if alongTheDialogue == 1:
+					$Shop/ItemDescription.text = "I dont really know you, but i was told to give you a flyer."
+				if alongTheDialogue == 2:
+					$Shop/ItemDescription.text = "Technically, nobody acctuallly told ME to, since i think this was intended for melanie; but. uhm. shut up."
+				if alongTheDialogue == 3:
+					$Shop/ItemDescription.text = "but uh, this flyer had a sticky note on it that said: 'Plz give this to my baby girl '"+Game.namee+" <3'. so. im going to give you that now"
+				if alongTheDialogue == 2:
+					Game.flyer("electionflyer")
+					$Shop/ItemDescription.text = "Yeah"
+				if alongTheDialogue == 3:
+					$Shop/ItemDescription.text = "I didnt know we were doing democracy in computers now, but it doesnt matter to me because i'll personally be voting for whoever has the funniest campaign."
+				if alongTheDialogue == 4:
+					$Shop/ItemDescription.text = "ok back to gambling, no talking only gamble! unless you really wanna talk to me then i guess you can do that i guess abit"
+				if alongTheDialogue == 5:
+					melShopState = false
+					endDialogue()
+					rebirth2intro = false
 	
 	# MELVIN DIALOGUE BELOW
 	match dialogKey:
@@ -947,6 +985,11 @@ func _ready():
 	if Game.rebirths >= 1:
 		Game.unlock_achievement("rebirth")
 	
+	if Game.rebirths == 3 and ItemValues.money == 0:
+		rebirth2intro = true
+	else:
+		rebirth2intro = false
+	
 	if Game.rebirths == 1:
 		if Game.achievement_unlocked("rebirth"):
 			$Shrilow.visible = false
@@ -1012,12 +1055,8 @@ func _ready():
 	# AWFUL CASE OF SPAGHETTI CODE IM JUST TOO LAZY TO WRITE THIS WELL LMAO
 	if err == OK:
 		
-		if Game.rebirths > 0:
-			$Shop/MarektIndicator.visible = true
-			$Shop/EnterMarket.disabled = false
-		else:
-			$Shop/MarektIndicator.visible = false
-			$Shop/EnterMarket.disabled = true
+		$Shop/MarektIndicator.visible = Game.rebirths > 0
+		$Shop/EnterMarket.disabled = not Game.rebirths > 0
 		
 		for i in ["autoClickerUpgrade", "PlusOneUpgrade", "PlusOneAUTOUpgrade", "shrilowCry", "crystal", "mineCry", "puppyCry"]:
 			if config.get_value("Shop", i) == null:
@@ -1352,8 +1391,6 @@ func _process(_delta : float) -> void:
 		if $Melvin/ItemDescription.visible_ratio < 1:
 			if $Melvin/ItemDescription.visible_ratio < 0.9:
 				$Shop/type.play()
-			else:
-				$Shop/type.volume_db = -1000
 			var numToUse
 			if _delta < 0.05:
 				numToUse = 0.05
@@ -1619,6 +1656,10 @@ func _on_face_revert_timeout() -> void:
 
 func _on_shop_button_pressed() -> void:
 	if can == true:
+		if rebirth2intro == true:
+			melShopToggle()
+			dialogKey = "REBIRTH2"
+			manageScenes()
 		can = false
 		print("shop")
 		area = "melanie"
