@@ -151,7 +151,7 @@ var gambleTickets = [
 	"Desc":"Medium Gambling Ticket. Gives medium level quality items.",
 	"Cost":400,
 	"imagePath":"res://assets/images/areas/bricks/tickets/medium.png",
-	"possibilities":["GreasepuppyEvil","GreasepuppyEvil"],
+	"possibilities":["Greasepuppy","Greasepuppy"],
 	},
 	{
 	"Name":"High Ticket",
