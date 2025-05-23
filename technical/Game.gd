@@ -206,18 +206,19 @@ func loadData():
 						else:
 							that_one_fucking_array[e]["revealed?"] = config.get_value("Journal", "journalShit")[Journal.entriesText.keys()[i]][that_one_fucking_array[e]["id"]]
 		
-		for i in config.get_value("Story", "DialogueDoneMELANIE").size():
-			FizzyDrink.melDialogue[i]["unlocked"] = config.get_value("Story", "DialogueUnlockedMELANIE")
-			FizzyDrink.melDialogue[i]["interacted"] = config.get_value("Story", "DialogueDoneMELANIE")
-		for i in config.get_value("Story", "DialogueDoneBRICKS").size():
-			FizzyDrink.bricksDialogue[i]["unlocked"] = config.get_value("Story", "DialogueUnlockedBRICKS")
-			FizzyDrink.bricksDialogue[i]["interacted"] = config.get_value("Story", "DialogueDoneBRICKS")
-		for i in config.get_value("Story", "DialogueDoneMELVIN").size():
-			FizzyDrink.melvinDialogue[i]["unlocked"] = config.get_value("Story", "DialogueUnlockedMELVIN")
-			FizzyDrink.melvinDialogue[i]["interacted"] = config.get_value("Story", "DialogueDoneMELVIN")
-		for i in config.get_value("Story", "DialogueDoneMARKET").size():
-			FizzyDrink.marketDialogue[i]["unlocked"] = config.get_value("Story", "DialogueUnlockedMARKET")
-			FizzyDrink.marketDialogue[i]["interacted"] = config.get_value("Story", "DialogueDoneMARKET")
+		if typeof(config.get_value("Story", "DialogueDoneMELANIE")) == 19:
+			for i in config.get_value("Story", "DialogueDoneMELANIE").size():
+				FizzyDrink.melDialogue[i]["unlocked"] = config.get_value("Story", "DialogueUnlockedMELANIE")[i]
+				FizzyDrink.melDialogue[i]["interacted"] = config.get_value("Story", "DialogueDoneMELANIE")[i]
+			for i in config.get_value("Story", "DialogueDoneBRICKS").size():
+				FizzyDrink.bricksDialogue[i]["unlocked"] = config.get_value("Story", "DialogueUnlockedBRICKS")[i]
+				FizzyDrink.bricksDialogue[i]["interacted"] = config.get_value("Story", "DialogueDoneBRICKS")[i]
+			for i in config.get_value("Story", "DialogueDoneMELVIN").size():
+				FizzyDrink.melvinDialogue[i]["unlocked"] = config.get_value("Story", "DialogueUnlockedMELVIN")[i]
+				FizzyDrink.melvinDialogue[i]["interacted"] = config.get_value("Story", "DialogueDoneMELVIN")[i]
+			for i in config.get_value("Story", "DialogueDoneMARKET").size():
+				FizzyDrink.marketDialogue[i]["unlocked"] = config.get_value("Story", "DialogueUnlockedMARKET")[i]
+				FizzyDrink.marketDialogue[i]["interacted"] = config.get_value("Story", "DialogueDoneMARKET")[i]
 		
 		var lazy = {
 			"Autoclick":"autoClickerUpgrade",
@@ -477,11 +478,19 @@ func saveData():
 		{"array":FizzyDrink.marketDialogue,"notation":"MARKET"},
 		]
 	
+	var outputArrayUnlocked = []
+	var outputArrayDone = []
+	
 	for e in my_fuckin_dialogue_LOL.size():
+		outputArrayUnlocked = []
+		outputArrayDone = []
 		for i in my_fuckin_dialogue_LOL[e]["array"].size():
 			var notation = my_fuckin_dialogue_LOL[e]["notation"]
-			config.set_value("Story", "DialogueUnlocked"+notation, my_fuckin_dialogue_LOL[e]["array"][i]["unlocked"])
-			config.set_value("Story", "DialogueDone"+notation, my_fuckin_dialogue_LOL[e]["array"][i]["interacted"])
+			outputArrayUnlocked.append(my_fuckin_dialogue_LOL[e]["array"][i]["unlocked"])
+			outputArrayDone.append(my_fuckin_dialogue_LOL[e]["array"][i]["interacted"])
+			if i == my_fuckin_dialogue_LOL[e]["array"].size()-1:
+				config.set_value("Story", "DialogueUnlocked"+notation, outputArrayUnlocked)
+				config.set_value("Story", "DialogueDone"+notation, outputArrayDone)
 	
 	config.set_value("Shop", "selectedCrystal", FizzyDrink.enabledCrystal)
 	config.set_value("Achievements", "All-Time-Clicks", saveFileClicks)

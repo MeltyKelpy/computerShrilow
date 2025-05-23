@@ -201,6 +201,7 @@ var shitShrilowCanSay = [
 	"y'know, its been awhile since ive felt human body heat",
 	"it aint easy being a computer...",
 	]
+var shitMelanieCanSay = ["this is BULLSHIT","this sucks i hate quicktime event"]
 
 var cacapoopyGOD = preload("res://technical/MelaniesItem.tscn")
 
@@ -1020,9 +1021,9 @@ func _ready():
 	if Game.rebirths >= 5:
 		Game.unlock_achievement("rebirth10")
 	
-	if ItemValues.money >= 100000:
+	if ItemValues.money >= 10000:
 		lawsInformed = true
-	if ItemValues.money >= 250000:
+	if ItemValues.money >= 200000:
 		doctorCalled = true
 	
 	if Game.contains_curse("gambling"):
@@ -1176,7 +1177,7 @@ func _process(_delta : float) -> void:
 		$Shop/Melanie.position.y = 0
 	
 	if can == true:
-		if ItemValues.money >= 250000 and !doctorCalled and Game.rebirths == 1:
+		if ItemValues.money >= 200000 and !doctorCalled and Game.rebirths == 1:
 			doctorCalled = true
 			var cacapoopyGOD2 = load("res://technical/events/minerkid.tscn")
 			var caca2 = cacapoopyGOD2.instantiate()
@@ -1184,7 +1185,7 @@ func _process(_delta : float) -> void:
 			caca2.parent = self
 			caca2.swapTo("doctor")
 			Game.warn("Oh? Whats this...")
-		if ItemValues.money >= 100000 and !lawsInformed and Game.rebirths == 1:
+		if ItemValues.money >= 10000 and !lawsInformed and Game.rebirths == 1:
 			Game.inform("someone named 'QuickTime-Event' has made some new laws! absolutely despicable. whos this guy think he is? you can find these laws by looking in The Journal!\n\nhopefully none of these become a problem later...")
 			lawsInformed = true
 			Journal._unlock_entry("My QuickTime-Laws!")
@@ -2186,9 +2187,13 @@ func melvShopToggle() -> void:
 			$Melvin/ItemDescription.visible_characters = 100000
 			$Melvin/ItemDescription.visible_ratio = 1
 
-func dialogueGoAway() -> void:
-	var tween = create_tween()
-	tween.tween_property($Shrilow/textBox, "scale", Vector2(0,0), 1).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+func dialogueGoAway(who) -> void:
+	if who == "shrilow":
+		var tween = create_tween()
+		tween.tween_property($Shrilow/textBox, "scale", Vector2(0,0), 1).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+	if who == "melanie":
+		var tween = create_tween()
+		tween.tween_property($ShrilowScreen/melTextBox, "scale", Vector2(0,0), 1).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
 
 func _on_section_transitions_animation_finished(anim_name: StringName) -> void:
 	can = true
@@ -2571,7 +2576,7 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		var cacapoopyGOD2 = preload("res://technical/clock.tscn")
 		var caca = cacapoopyGOD2.instantiate()
 		add_child(caca)
-		caca.create("Dr's Appointment", 200, "not")
+		caca.create("Dr's Appointment", 300, "not")
 		$Timer2.start()
 	else:
 		$Shrilow/cone.visible = true
@@ -2624,3 +2629,9 @@ func _on_timer_3_timeout() -> void:
 	if journal != null:
 		journal.visible = false
 	$Shrilow/AnimatedSprite2D.play("anim_one")
+
+func _on_melinteract_pressed() -> void:
+	$ShrilowScreen/melTextBox/Timer.start()
+	$ShrilowScreen/melTextBox/box/dialog.text = str(shitMelanieCanSay[rng.randi_range(0, shitMelanieCanSay.size()-1)])
+	var tween = create_tween()
+	tween.tween_property($ShrilowScreen/melTextBox, "scale", Vector2(0.7,0.7), 1).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)

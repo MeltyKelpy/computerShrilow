@@ -1,4 +1,4 @@
-[gd_scene load_steps=279 format=3 uid="uid://bgw557ttv6noe"]
+[gd_scene load_steps=280 format=3 uid="uid://bgw557ttv6noe"]
 
 [ext_resource type="Script" uid="uid://ddatxm3oli8qs" path="res://scenes/t_computer.gd" id="1_swrb7"]
 [ext_resource type="Texture2D" uid="uid://dajex7cpt7k4p" path="res://assets/images/bg/background.png" id="2_u0da7"]
@@ -184,6 +184,7 @@
 [ext_resource type="Texture2D" uid="uid://17lc8v5uicmh" path="res://assets/images/events/laws/doctor/animation2used/025.png" id="89_rhiqj"]
 [ext_resource type="Texture2D" uid="uid://ca8x3y7rallsa" path="res://assets/images/events/laws/doctor/animation2used/026.png" id="90_mbm56"]
 [ext_resource type="Texture2D" uid="uid://dan0qxbl4a36f" path="res://assets/images/events/laws/doctor/animation2used/027.png" id="91_57ivm"]
+[ext_resource type="Texture2D" uid="uid://biykwq42wfv1p" path="res://assets/images/computershrilows/shrilowBases/kickedoutmelty.png" id="93_8n1uj"]
 [ext_resource type="Texture2D" uid="uid://bufp1fmflgbw7" path="res://assets/images/computershrilows/cone.png" id="94_8n1uj"]
 [ext_resource type="PackedScene" uid="uid://bxghgl5wk7uyx" path="res://technical/jellies/ICtv.tscn" id="117_wwoko"]
 [ext_resource type="Theme" uid="uid://ccvo34nxrj5tl" path="res://technical/scrollBar.tres" id="125_n8ncf"]
@@ -1765,6 +1766,7 @@ position = Vector2(-36.5218, 48.6956)
 texture = ExtResource("2_u0da7")
 
 [node name="fade" type="Sprite2D" parent="."]
+z_index = -2
 position = Vector2(576, 324)
 texture = ExtResource("3_x0lxa")
 
@@ -2050,6 +2052,55 @@ autostart = true
 wait_time = 0.4
 
 [node name="puppies" type="Node2D" parent="ShrilowScreen"]
+
+[node name="Melinteract" type="Button" parent="ShrilowScreen"]
+offset_left = 714.0
+offset_top = 343.0
+offset_right = 968.0
+offset_bottom = 643.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_714v8")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_l4fde")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_b1ngq")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_bnx5p")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_m4q2a")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_6g67g")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_cbusq")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_5hpjx")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_jaggv")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_7e2gc")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_v5e17")
+button_mask = 3
+
+[node name="MelKicked" type="Sprite2D" parent="ShrilowScreen"]
+visible = false
+material = ExtResource("7_t7slg")
+position = Vector2(850, 438)
+texture = ExtResource("93_8n1uj")
+
+[node name="melTextBox" type="Node2D" parent="ShrilowScreen"]
+visible = false
+position = Vector2(850, 305)
+scale = Vector2(1e-05, 1e-05)
+
+[node name="box" type="Sprite2D" parent="ShrilowScreen/melTextBox"]
+position = Vector2(0, -73)
+texture = ExtResource("12_pyedg")
+
+[node name="dialog" type="Label" parent="ShrilowScreen/melTextBox/box"]
+offset_left = -211.0
+offset_top = -126.0
+offset_right = 212.0
+offset_bottom = 122.0
+scale = Vector2(1, 0.6)
+theme = ExtResource("8_oskpf")
+theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Timer" type="Timer" parent="ShrilowScreen/melTextBox"]
+wait_time = 5.0
+one_shot = true
 
 [node name="gpButton" type="CheckButton" parent="ShrilowScreen"]
 visible = false
@@ -3495,12 +3546,12 @@ wait_time = 600.0
 one_shot = true
 
 [node name="Timer3" type="Timer" parent="."]
-wait_time = 200.0
+wait_time = 300.0
 one_shot = true
 
 [connection signal="pressed" from="Mines/ScrollContainer/Control/BackButtonWARD" to="." method="_on_back_button_ward2_pressed"]
 [connection signal="pressed" from="Shrilow/ShrilowSqueak" to="." method="_on_shrilow_squeak_pressed"]
-[connection signal="timeout" from="Shrilow/Timer" to="." method="dialogueGoAway"]
+[connection signal="timeout" from="Shrilow/Timer" to="." method="dialogueGoAway" binds= ["shrilow"]]
 [connection signal="animation_finished" from="Shrilow/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="pressed" from="ShrilowScreen/ShopButton" to="." method="_on_shop_button_pressed"]
 [connection signal="pressed" from="ShrilowScreen/JelliesButton" to="." method="_on_jellies_button_pressed"]
@@ -3509,6 +3560,8 @@ one_shot = true
 [connection signal="pressed" from="ShrilowScreen/MinesButton" to="." method="_on_mines_button_pressed"]
 [connection signal="timeout" from="ShrilowScreen/GPFirst" to="." method="_on_first_timeout"]
 [connection signal="timeout" from="ShrilowScreen/GPSecond" to="." method="_on_gp_second_timeout"]
+[connection signal="pressed" from="ShrilowScreen/Melinteract" to="." method="_on_melinteract_pressed"]
+[connection signal="timeout" from="ShrilowScreen/melTextBox/Timer" to="." method="dialogueGoAway" binds= ["melanie"]]
 [connection signal="pressed" from="ShrilowScreen/Rebirth" to="." method="_Rebirth"]
 [connection signal="pressed" from="Cutscene/ShopButton" to="." method="_on_shop_button_pressed"]
 [connection signal="pressed" from="Jelly/BackButtonJELLY" to="." method="_on_back_button_jelly_pressed"]
