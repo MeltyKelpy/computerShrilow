@@ -50,7 +50,7 @@ func buy():
 	caca2.reparent($/root)
 	var chanceForsaken = 2
 	if rarity == "Common":
-		chanceForsaken = rng.randi_range(1, 4096)
+		chanceForsaken = rng.randi_range(1, 4047)
 		if chanceForsaken == 1:
 			caca2.warn("You bought a Gumball, and you got a SHINY JELLLYLYYYYYY!!!!!!!")
 			jelly = "Shiny Jelly"
@@ -200,15 +200,13 @@ func getJelly(num):
 func _on_timer_timeout() -> void:
 	ItemValues.money += showMoney
 	Interstate.totalmoney += showMoney
-	if Settings.setting_state("animationsOptimization"):
-		$RigidBody2D/Squeak.play()
-		state = 1
-		$SecondTimer.start()
+	$RigidBody2D/Squeak.play()
+	state = 1
+	$SecondTimer.start()
 
 func _on_second_timer_timeout() -> void:
-	if Settings.setting_state("animationsOptimization"):
-		state = 0
-		$FirstTimer.start()
+	state = 0
+	$FirstTimer.start()
 
 func _jelly_spawn() -> void:
 	visible = true
