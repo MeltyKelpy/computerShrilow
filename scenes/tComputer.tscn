@@ -3582,6 +3582,7 @@ one_shot = true
 [connection signal="pressed" from="BlackMarket/LeaveBlack" to="." method="marketState" binds= ["blackmarketLeave"]]
 [connection signal="pressed" from="BlackMarket/marketinteract" to="." method="marketShopToggle"]
 [connection signal="pressed" from="Wardrobe/BackButtonWARD" to="." method="_on_back_button_ward_pressed"]
+[connection signal="pressed" from="Melvin/BackButton" to="." method="cameraAnimation" binds= ["bell", -576, 324, true]]
 [connection signal="pressed" from="Melvin/melvinteract" to="." method="melvShopToggle"]
 [connection signal="pressed" from="Journal/BackJOURNAL" to="." method="cameraAnimation" binds= ["journal", -576, 324, true]]
 [connection signal="pressed" from="storage/BackSTORAGE" to="." method="storageCamShit" binds= ["leave"]]
@@ -3606,4 +3607,3 @@ one_shot = true
 [connection signal="timeout" from="autosave" to="." method="autosave"]
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
 [connection signal="timeout" from="Timer3" to="." method="_on_timer_3_timeout"]
-[connection signal="pressed" from="Melvin/BackButton" to="." method="cameraAnimation" binds= ["bell", -576, 324, true]]
