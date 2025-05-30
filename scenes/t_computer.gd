@@ -38,6 +38,8 @@ var storage = []
 
 var myEvilClockExists = false
 
+var canDiaProg = true
+
 var gumballSelection = 0
 var gumballInfo = [
 	{
@@ -216,6 +218,8 @@ var doctorCalled = false
 var lawsInformed = false
 var shrilowHere = true
 var rebirth2intro = false
+var rebirth3intro = false
+var stupidSetting = "none"
 
 var coconut
 
@@ -224,6 +228,8 @@ var textu
 @onready var timer_3 = $Timer3
 
 func manageScenes():
+	canDiaProg = true
+	
 	dialougeMode = true
 	if melShopState == false:
 		$Shop/ItemDescription.visible_ratio = 0
@@ -249,6 +255,80 @@ func manageScenes():
 					$Shop/ItemDescription.text = "this also worked as a test, which is cool"
 				if alongTheDialogue == 2:
 					endDialogue()
+			"REBIRTH2EVENT":
+				if alongTheDialogue == 0:
+					$Shop/ItemDescription.text = "hey, do you hear that??"
+				if alongTheDialogue == 1:
+					$Shop/ItemDescription.text = "I know you're probably just here for buisness as usual, but i SWEAR i hear something banging around up there. is that just me?"
+				if alongTheDialogue == 2:
+					$Shop/ItemName.text = "QTE:"
+					$Shop/ItemDescription.text = "Hi Again!"
+				if alongTheDialogue == 3:
+					$Shop/ItemName.text = "MELANIE:"
+					$Shop/ItemDescription.text = "Woah what the fuck are you doing in my store?"
+				if alongTheDialogue == 4:
+					$Shop/ItemName.text = "QTE:"
+					$Shop/ItemDescription.text = "I'm taking over for the time being!"
+				if alongTheDialogue == 5:
+					$Shop/ItemName.text = "MELANIE:"
+					$Shop/ItemDescription.text = "you can just take over MY shop! its MY shop! in case you hadn't noticed!"
+				if alongTheDialogue == 6:
+					$Shop/ItemName.text = "QTE:"
+					$Shop/ItemDescription.text = "as true as that may be; i have a reason for this temporary acquisition of your shop!"
+				if alongTheDialogue == 7:
+					$Shop/ItemName.text = "MELANIE:"
+					$Shop/ItemDescription.text = "Oh yeah? and whats that?"
+				if alongTheDialogue == 8:
+					$Shop/ItemName.text = "QTE:"
+					$Shop/ItemDescription.text = "you are REALLY boring"
+				if alongTheDialogue == 9:
+					canDiaProg = false
+					$Shop/ItemName.text = "MELANIE:"
+					$Shop/ItemDescription.text = ""
+					await get_tree().create_timer(2).timeout
+					$Shop/ItemDescription.visible_ratio = 0
+					$Shop/ItemDescription.text = "oh"
+					canDiaProg = true
+				if alongTheDialogue == 9:
+					$Shop/ItemName.text = "MELANIE:"
+					$Shop/ItemDescription.text = "So, what im getting here is that you're coming into MY store, and INSULTING me, and then TAKING OVER?"
+				if alongTheDialogue == 10:
+					$Shop/ItemName.text = "MELANIE:"
+					$Shop/ItemDescription.text = "Well gee, for someone who's supposedly the computer president now you sure are ''great'' at speaking for us"
+				if alongTheDialogue == 11:
+					$Shop/ItemName.text = "MELANIE:"
+					$Shop/ItemDescription.text = "I feel REALLY represented right now!"
+				if alongTheDialogue == 12:
+					$Shop/ItemName.text = "QTE:"
+					$Shop/ItemDescription.text = "Yeah I know, right?? im so awesome!"
+				if alongTheDialogue == 13:
+					$Shop/ItemName.text = "MELANIE:"
+					$Shop/ItemDescription.text = "you need a lesson on sarcasm."
+				if alongTheDialogue == 14:
+					$Shop/ItemName.text = "QTE:"
+					$Shop/ItemDescription.text = "I dont know what that word means!"
+				if alongTheDialogue == 15:
+					canDiaProg = false
+					$Shop/ItemName.text = "MELANIE:"
+					$Shop/ItemDescription.text = "okay yknow what? fuck you man. you better leave me the hell alone or i swear to god im gonna sell that mask of yours as a shop item. im going to rip out your cords how about that? huh? HUH?"
+					$Shop/ItemDescription.visible_ratio = 0
+					await get_tree().create_timer(3).timeout
+					$Shop/ItemDescription.visible_ratio = 0
+					$Shop/ItemName.text = ""
+					$Shop/ItemDescription.text = ""
+					$Shop/Melanie/Mel.visible = false
+					$ShrilowScreen/MelKicked.visible = true
+					$ShrilowScreen/melTextBox.visible = true
+					await get_tree().create_timer(1).timeout
+					$Shop/ItemName.text = "QTE:"
+					$Shop/ItemDescription.text = "Wow shes really annoying! i dont know how you put up with her!"
+					canDiaProg = true
+				if alongTheDialogue == 16:
+					$Shop/ItemName.text = "QTE:"
+					$Shop/ItemDescription.text = "Well, guess i own the shop now!"
+				if alongTheDialogue == 17:
+					rebirth2intro = false
+					endDialogue()
 			"HOW":
 				if alongTheDialogue == 0:
 					$Shop/ItemDescription.text = "Honestly? i dont really remember"
@@ -263,7 +343,7 @@ func manageScenes():
 					$Shop/ItemDescription.text = "does it make up for being trapped inside a computer? no LOL but its good enough if im gonna be here anyways."
 				if alongTheDialogue == 4:
 					endDialogue()
-			"REBIRTH2":
+			"REBIRTH3":
 				if alongTheDialogue == 0:
 					$Shop/ItemDescription.text = "Hey uhm."
 				if alongTheDialogue == 1:
@@ -276,7 +356,7 @@ func manageScenes():
 				if alongTheDialogue == 4:
 					$Shop/ItemDescription.text = "Anyway, i'll just let us get back to our buisness stuff. unless you'd like to talk more, im always willing."
 				if alongTheDialogue == 5:
-					rebirth2intro = false
+					rebirth3intro = false
 					endDialogue()
 					melShopToggle()
 			"COMPUTEROPINIONS":
@@ -449,7 +529,7 @@ func manageScenes():
 				if alongTheDialogue == 7:
 					endDialogue()
 					melShopToggle()
-					rebirth2intro = false
+					rebirth3intro = false
 	
 	# MELVIN DIALOGUE BELOW
 	match dialogKey:
@@ -986,10 +1066,8 @@ func _ready():
 	if Game.rebirths >= 1:
 		Game.unlock_achievement("rebirth")
 	
-	if Game.rebirths == 3 and ItemValues.money == 0:
-		rebirth2intro = true
-	else:
-		rebirth2intro = false
+	rebirth3intro = (Game.rebirths == 3 and ItemValues.money <= 0)
+	rebirth2intro = (Game.rebirths == 2 and ItemValues.money <= 1000000)
 	
 	if Game.rebirths == 1:
 		if Game.achievement_unlocked("rebirth"):
@@ -1193,37 +1271,43 @@ func _process(_delta : float) -> void:
 			#Game.notify("You've unlocked a Journal Entry!", "notebook")
 	
 	if Settings.setting_state("saayo") == true:
-		$Shop/Melanie/Mel.visible = false
-		$Shop/Melanie/Sign.visible = false
-		$Melvin/sheldon.visible = true
-		$Melvin/melvin.visible = false
-		$Jelly/lgo.visible = false
-		$Jelly/lgo2.visible = true
-		$Jelly/sheldon.visible = true
-		$Jelly/melvin.visible = false
-		$Shop/Melanie/SaayoBaldi.texture = load("res://assets/images/areas/melanies/saayo.png")
-		$Shop/Melanie/SaayoBaldi.visible = true
+		if stupidSetting != "saayo":
+			$Shop/Melanie/Mel.visible = false
+			$Shop/Melanie/Sign.visible = false
+			$Melvin/sheldon.visible = true
+			$Melvin/melvin.visible = false
+			$Jelly/lgo.visible = false
+			$Jelly/lgo2.visible = true
+			$Jelly/sheldon.visible = true
+			$Jelly/melvin.visible = false
+			$Shop/Melanie/SaayoBaldi.texture = load("res://assets/images/areas/melanies/saayo.png")
+			$Shop/Melanie/SaayoBaldi.visible = true
+			stupidSetting = "saayo"
 	elif Settings.setting_state("4baldi") == true:
-		$Melvin/sheldon.visible = false
-		$Melvin/melvin.visible = true
-		$Jelly/lgo.visible = true
-		$Jelly/lgo2.visible = false
-		$Jelly/sheldon.visible = false
-		$Jelly/melvin.visible = true
-		$Shop/Melanie/Mel.visible = false
-		$Shop/Melanie/Sign.visible = false
-		$Shop/Melanie/SaayoBaldi.texture = load("res://assets/images/areas/melanies/baldi.png")
-		$Shop/Melanie/SaayoBaldi.visible = true
+		if stupidSetting != "4baldi":
+			$Melvin/sheldon.visible = false
+			$Melvin/melvin.visible = true
+			$Jelly/lgo.visible = true
+			$Jelly/lgo2.visible = false
+			$Jelly/sheldon.visible = false
+			$Jelly/melvin.visible = true
+			$Shop/Melanie/Mel.visible = false
+			$Shop/Melanie/Sign.visible = false
+			$Shop/Melanie/SaayoBaldi.texture = load("res://assets/images/areas/melanies/baldi.png")
+			$Shop/Melanie/SaayoBaldi.visible = true
+			stupidSetting = "4baldi"
 	else:
-		$Melvin/sheldon.visible = false
-		$Melvin/melvin.visible = true
-		$Jelly/lgo.visible = true
-		$Jelly/lgo2.visible = false
-		$Jelly/sheldon.visible = false
-		$Jelly/melvin.visible = true
-		$Shop/Melanie/Mel.visible = true
-		$Shop/Melanie/Sign.visible = true
-		$Shop/Melanie/SaayoBaldi.visible = false
+		if stupidSetting != "none":
+			$Melvin/sheldon.visible = false
+			$Melvin/melvin.visible = true
+			$Jelly/lgo.visible = true
+			$Jelly/lgo2.visible = false
+			$Jelly/sheldon.visible = false
+			$Jelly/melvin.visible = true
+			$Shop/Melanie/Mel.visible = true
+			$Shop/Melanie/Sign.visible = true
+			$Shop/Melanie/SaayoBaldi.visible = false
+			stupidSetting = "none"
 	
 	if ItemValues.money >= 1000000000:
 		Game.unlock_achievement("billionare")
@@ -1344,7 +1428,7 @@ func _process(_delta : float) -> void:
 		caca.reparent($/root)
 		get_tree().paused = true
 	
-	if dialougeMode == true and Input.is_action_just_pressed("Click"):
+	if dialougeMode == true and Input.is_action_just_pressed("Click") and canDiaProg == true:
 		if $Shop/ItemDescription.visible_ratio < 0.9 or $Melvin/ItemDescription.visible_ratio < 0.9 or $BlackMarket/talk.visible_ratio < 0.9:
 			$Shop/ItemDescription.visible_ratio = 1
 			$Melvin/ItemDescription.visible_ratio = 1
@@ -1366,7 +1450,7 @@ func _process(_delta : float) -> void:
 			else:
 				numToUse = _delta
 			$Shop/ItemDescription.visible_characters += 50 * numToUse
-	else:
+	elif canDiaProg:
 		$Shop/ItemDescription.visible_ratio = 1
 		$Shop/ItemDescription.visible_characters = -1
 	if marketShopState == false:
@@ -1376,7 +1460,7 @@ func _process(_delta : float) -> void:
 			$Shop/type.pitch_scale = 0.5
 		if $BlackMarket/talk.visible_ratio > 1.0:
 			$BlackMarket/talk.visible_ratio = 1.0
-		if $BlackMarket/talk.visible_ratio < 1.0:
+		if $BlackMarket/tlk.visible_ratio < 1.0:
 			if $BlackMarket/talk.visible_ratio < 0.9:
 				$Shop/type.play()
 			var numToUse
@@ -1385,6 +1469,9 @@ func _process(_delta : float) -> void:
 			else:
 				numToUse = _delta
 			$BlackMarket/talk.visible_characters += 50 * numToUse
+	elif canDiaProg:
+		$BlackMarket/talk.visible_ratio = 1
+		$BlackMarket/talk.visible_characters = -1
 	if melvinShopState == false:
 		$Shop/type.pitch_scale = 1.0
 		if $Melvin/ItemDescription.visible_ratio > 1:
@@ -1398,7 +1485,7 @@ func _process(_delta : float) -> void:
 			else:
 				numToUse = _delta
 			$Melvin/ItemDescription.visible_characters += 50 * numToUse
-	else:
+	elif canDiaProg:
 		$Melvin/ItemDescription.visible_ratio = 1
 		$Melvin/ItemDescription.visible_characters = -1
 	
@@ -1657,9 +1744,13 @@ func _on_face_revert_timeout() -> void:
 
 func _on_shop_button_pressed() -> void:
 	if can == true:
-		if rebirth2intro == true:
+		if rebirth3intro == true:
 			melShopToggle()
-			dialogKey = "REBIRTH2"
+			dialogKey = "REBIRTH3"
+			manageScenes()
+		if rebirth2intro == true and ItemValues.money >= 1000000:
+			melShopToggle()
+			dialogKey = "REBIRTH2EVENT"
 			manageScenes()
 		can = false
 		print("shop")
