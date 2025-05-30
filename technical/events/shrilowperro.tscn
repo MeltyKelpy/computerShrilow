@@ -1,0 +1,231 @@
+[gd_scene load_steps=15 format=3 uid="uid://bk48bx867fpaw"]
+
+[ext_resource type="Script" uid="uid://benn5nysp3248" path="res://technical/events/shrilowperro.gd" id="1_2f72j"]
+[ext_resource type="Texture2D" uid="uid://da3ntaauopehr" path="res://icon.svg" id="2_w6pgr"]
+[ext_resource type="Texture2D" uid="uid://cmnt1krj1vlva" path="res://assets/images/events/shrilowperro/fatcar.png" id="3_rdiic"]
+[ext_resource type="AudioStream" uid="uid://ge4nohpi0f36" path="res://assets/music/shrilowperrost.ogg" id="4_fxymf"]
+[ext_resource type="AudioStream" uid="uid://cuka4bofijx81" path="res://assets/music/perrorelude.ogg" id="5_1d230"]
+[ext_resource type="Texture2D" uid="uid://bucepb3oy8gmh" path="res://assets/images/events/minigameTitle.png" id="6_tqgyf"]
+[ext_resource type="Texture2D" uid="uid://2ev78xyj0cfp" path="res://assets/images/events/shrilowperro/infoboy.png" id="7_up6iu"]
+[ext_resource type="Texture2D" uid="uid://b7vwl06n822wl" path="res://assets/images/events/shrilowperro/bg.png" id="8_1d230"]
+
+[sub_resource type="Animation" id="Animation_i05b4"]
+resource_name = "pop"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer3/open/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.45098)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer3/open/minigameLogo:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.03333, 2, 3),
+"transitions": PackedFloat32Array(0.42, 1, 2.07053, 1),
+"update": 0,
+"values": [Vector2(565, 993), Vector2(565, 324), Vector2(565, 324), Vector2(565, -345)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer3/open/paper:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3, 5),
+"transitions": PackedFloat32Array(1, 0.297302, 1),
+"update": 0,
+"values": [Vector2(559, 952), Vector2(559, 952), Vector2(559, 324)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:goforth")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.0333333, 3.33333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_ervfx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer3/open/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer3/open/minigameLogo:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(565, 993)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer3/open/paper:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(559, 952)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:goforth")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_fxymf"]
+resource_name = "warmpoop"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fgrli"]
+_data = {
+&"RESET": SubResource("Animation_ervfx"),
+&"pop": SubResource("Animation_i05b4"),
+&"warmpoop": SubResource("Animation_fxymf")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yoebc"]
+size = Vector2(117, 116)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fxymf"]
+size = Vector2(115.842, 115.321)
+
+[node name="shrilowperro" type="Node2D"]
+script = ExtResource("1_2f72j")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_fgrli")
+}
+
+[node name="srillow" type="Sprite2D" parent="."]
+position = Vector2(559, 560)
+texture = ExtResource("2_w6pgr")
+
+[node name="Area2D" type="Area2D" parent="srillow"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="srillow/Area2D"]
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_yoebc")
+
+[node name="giantCAR1" type="Sprite2D" parent="."]
+position = Vector2(189, -224)
+scale = Vector2(0.975, 0.873125)
+texture = ExtResource("3_rdiic")
+
+[node name="Area2D" type="Area2D" parent="giantCAR1"]
+position = Vector2(-2.56412, 19.4703)
+scale = Vector2(3.03686, 3.79384)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="giantCAR1/Area2D"]
+position = Vector2(3.8147e-06, -0.905663)
+shape = SubResource("RectangleShape2D_fxymf")
+
+[node name="giantCAR2" type="Sprite2D" parent="."]
+position = Vector2(559, -224)
+scale = Vector2(0.975, 0.873125)
+texture = ExtResource("3_rdiic")
+
+[node name="Area2D" type="Area2D" parent="giantCAR2"]
+position = Vector2(-2.56412, 19.4703)
+scale = Vector2(3.03686, 3.79384)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="giantCAR2/Area2D"]
+position = Vector2(3.8147e-06, -0.905663)
+shape = SubResource("RectangleShape2D_fxymf")
+
+[node name="giantCAR3" type="Sprite2D" parent="."]
+position = Vector2(944, -224)
+scale = Vector2(0.975, 0.873125)
+texture = ExtResource("3_rdiic")
+
+[node name="Area2D" type="Area2D" parent="giantCAR3"]
+position = Vector2(-2.56412, 19.4703)
+scale = Vector2(3.03686, 3.79384)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="giantCAR3/Area2D"]
+position = Vector2(3.8147e-06, -0.905663)
+shape = SubResource("RectangleShape2D_fxymf")
+
+[node name="songe" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_fxymf")
+volume_db = -2.506
+
+[node name="endvox" type="AudioStreamPlayer" parent="."]
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="open" type="Node2D" parent="CanvasLayer3"]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer3/open"]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="prelude" type="AudioStreamPlayer" parent="CanvasLayer3/open"]
+stream = ExtResource("5_1d230")
+volume_db = 1.874
+autoplay = true
+
+[node name="minigameLogo" type="Sprite2D" parent="CanvasLayer3/open"]
+position = Vector2(565, 993)
+texture = ExtResource("6_tqgyf")
+
+[node name="paper" type="Sprite2D" parent="CanvasLayer3/open"]
+position = Vector2(559, 952)
+texture = ExtResource("7_up6iu")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="bg" type="Sprite2D" parent="CanvasLayer2"]
+position = Vector2(576, 328)
+texture = ExtResource("8_1d230")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[connection signal="finished" from="CanvasLayer3/open/prelude" to="." method="_on_prelude_finished"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cnmbkr3syanhc"
+path="res://.godot/imported/fuck yes.ogg-2dc73350e08188dd30eb86ba89d22f1b.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/shrilowperro/fuck yes.ogg"
+dest_files=["res://.godot/imported/fuck yes.ogg-2dc73350e08188dd30eb86ba89d22f1b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

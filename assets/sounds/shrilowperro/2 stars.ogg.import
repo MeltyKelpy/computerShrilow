@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://002kl53i2cyf"
+path="res://.godot/imported/2 stars.ogg-80142df84bfb99a930333c54d11db42c.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/shrilowperro/2 stars.ogg"
+dest_files=["res://.godot/imported/2 stars.ogg-80142df84bfb99a930333c54d11db42c.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
