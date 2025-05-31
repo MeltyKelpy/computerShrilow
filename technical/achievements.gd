@@ -23,7 +23,7 @@ var achievements = [
 	"ID":"spicy",
 	},
 	{
-	"name":"NOT SPICY. JUST. HURT.",
+	"name":"Less Spice, More Pain!",
 	"requirement":"Go through a playthrough with 5 curses",
 	"desc":"Gotta get some milk for that...",
 	"unlocked?":false,

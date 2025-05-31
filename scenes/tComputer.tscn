@@ -2239,6 +2239,39 @@ animation = &"anim_two"
 
 [node name="ShrilowScreen" type="Node2D" parent="."]
 
+[node name="puppies" type="Node2D" parent="ShrilowScreen"]
+
+[node name="MelKicked" type="Sprite2D" parent="ShrilowScreen"]
+visible = false
+material = ExtResource("7_t7slg")
+position = Vector2(850, 438)
+texture = ExtResource("93_8n1uj")
+
+[node name="melTextBox" type="Node2D" parent="ShrilowScreen"]
+visible = false
+position = Vector2(850, 305)
+scale = Vector2(1e-05, 1e-05)
+
+[node name="box" type="Sprite2D" parent="ShrilowScreen/melTextBox"]
+position = Vector2(0, -73)
+texture = ExtResource("12_pyedg")
+
+[node name="dialog" type="Label" parent="ShrilowScreen/melTextBox/box"]
+offset_left = -211.0
+offset_top = -126.0
+offset_right = 212.0
+offset_bottom = 122.0
+scale = Vector2(1, 0.6)
+theme = ExtResource("8_oskpf")
+theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Timer" type="Timer" parent="ShrilowScreen/melTextBox"]
+wait_time = 5.0
+one_shot = true
+
 [node name="Shop" type="Sprite2D" parent="ShrilowScreen"]
 position = Vector2(1065, 93)
 texture = ExtResource("8_kysej")
@@ -2368,8 +2401,6 @@ autostart = true
 [node name="GPSecond" type="Timer" parent="ShrilowScreen"]
 wait_time = 0.4
 
-[node name="puppies" type="Node2D" parent="ShrilowScreen"]
-
 [node name="Melinteract" type="Button" parent="ShrilowScreen"]
 offset_left = 714.0
 offset_top = 343.0
@@ -2387,37 +2418,6 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_jaggv")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_7e2gc")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_v5e17")
 button_mask = 3
-
-[node name="MelKicked" type="Sprite2D" parent="ShrilowScreen"]
-visible = false
-material = ExtResource("7_t7slg")
-position = Vector2(850, 438)
-texture = ExtResource("93_8n1uj")
-
-[node name="melTextBox" type="Node2D" parent="ShrilowScreen"]
-visible = false
-position = Vector2(850, 305)
-scale = Vector2(1e-05, 1e-05)
-
-[node name="box" type="Sprite2D" parent="ShrilowScreen/melTextBox"]
-position = Vector2(0, -73)
-texture = ExtResource("12_pyedg")
-
-[node name="dialog" type="Label" parent="ShrilowScreen/melTextBox/box"]
-offset_left = -211.0
-offset_top = -126.0
-offset_right = 212.0
-offset_bottom = 122.0
-scale = Vector2(1, 0.6)
-theme = ExtResource("8_oskpf")
-theme_override_font_sizes/font_size = 50
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-
-[node name="Timer" type="Timer" parent="ShrilowScreen/melTextBox"]
-wait_time = 5.0
-one_shot = true
 
 [node name="gpButton" type="CheckButton" parent="ShrilowScreen"]
 visible = false
@@ -3906,6 +3906,7 @@ one_shot = true
 [connection signal="pressed" from="Shrilow/ShrilowSqueak" to="." method="_on_shrilow_squeak_pressed"]
 [connection signal="timeout" from="Shrilow/Timer" to="." method="dialogueGoAway" binds= ["shrilow"]]
 [connection signal="animation_finished" from="Shrilow/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="timeout" from="ShrilowScreen/melTextBox/Timer" to="." method="dialogueGoAway" binds= ["melanie"]]
 [connection signal="pressed" from="ShrilowScreen/ShopButton" to="." method="_on_shop_button_pressed"]
 [connection signal="pressed" from="ShrilowScreen/JelliesButton" to="." method="_on_jellies_button_pressed"]
 [connection signal="pressed" from="ShrilowScreen/WardrobeButton" to="." method="_on_wardrobe_button_pressed"]
@@ -3914,7 +3915,6 @@ one_shot = true
 [connection signal="timeout" from="ShrilowScreen/GPFirst" to="." method="_on_first_timeout"]
 [connection signal="timeout" from="ShrilowScreen/GPSecond" to="." method="_on_gp_second_timeout"]
 [connection signal="pressed" from="ShrilowScreen/Melinteract" to="." method="_on_melinteract_pressed"]
-[connection signal="timeout" from="ShrilowScreen/melTextBox/Timer" to="." method="dialogueGoAway" binds= ["melanie"]]
 [connection signal="pressed" from="ShrilowScreen/Rebirth" to="." method="_Rebirth"]
 [connection signal="pressed" from="Cutscene/ShopButton" to="." method="_on_shop_button_pressed"]
 [connection signal="pressed" from="Jelly/BackButtonJELLY" to="." method="_on_back_button_jelly_pressed"]
