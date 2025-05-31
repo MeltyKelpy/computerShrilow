@@ -133,6 +133,11 @@ func _ready() -> void:
 	Interstate.saveData()
 	Interstate.loadData()
 	
+	$stuff/Left/shit/start.disabled = !Interstate.tutorialDone
+	
+	if $stuff/Left/shit/start.disabled == true:
+		$stuff/Left/shit/start.add_theme_constant_override("outline_size", 0) 
+	
 	if Interstate.fullRebirths >= 1:
 		$stuff/Left/shit/interstate.visible = true
 		$stuff/Left/shit/interstate.disabled = false

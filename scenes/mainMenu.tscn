@@ -1,4 +1,4 @@
-[gd_scene load_steps=94 format=3 uid="uid://ba4g00sxw1ioe"]
+[gd_scene load_steps=97 format=3 uid="uid://ba4g00sxw1ioe"]
 
 [ext_resource type="Texture2D" uid="uid://dajex7cpt7k4p" path="res://assets/images/bg/background.png" id="1_i2qlv"]
 [ext_resource type="Script" uid="uid://du5kurp8y3jde" path="res://scenes/main_menu.gd" id="1_ihte6"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://brkdf8hawsefn" path="res://assets/images/mainMenu/pressedHover.png" id="6_qkmjp"]
 [ext_resource type="Texture2D" uid="uid://b3xebwynw0fcw" path="res://assets/images/mainMenu/button.png" id="7_3dr8n"]
 [ext_resource type="Texture2D" uid="uid://cp81860qk7d68" path="res://assets/images/mainMenu/hover.png" id="7_kemul"]
+[ext_resource type="Texture2D" uid="uid://b2ybgdfw8q766" path="res://assets/images/mainMenu/disabled.png" id="7_sgylp"]
 [ext_resource type="Texture2D" uid="uid://6jl2v3awijit" path="res://assets/images/mainMenu/pressed.png" id="7_wjw70"]
 [ext_resource type="Texture2D" uid="uid://bf5nxu26qx66x" path="res://assets/images/loadingLow.png" id="11_0hksq"]
 [ext_resource type="Texture2D" uid="uid://ev78l3naksn8" path="res://assets/images/mainMenu/credits/ppl/kose.png" id="11_4c4kp"]
@@ -57,6 +58,9 @@ texture = ExtResource("5_hib5h")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fv6j0"]
 texture = ExtResource("6_jprvy")
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mod7y"]
+texture = ExtResource("7_sgylp")
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xxf8v"]
 texture = ExtResource("6_qkmjp")
 
@@ -68,6 +72,9 @@ texture = ExtResource("7_wjw70")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u1a3i"]
 texture = ExtResource("7_3dr8n")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ncccr"]
+texture = ExtResource("7_sgylp")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rgsxh"]
 
@@ -977,6 +984,7 @@ offset_left = 121.0
 offset_top = 357.0
 offset_right = 353.0
 offset_bottom = 424.0
+theme_override_colors/font_disabled_color = Color(0.133333, 0.133333, 0.133333, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.0352941, 0.333333, 0.356863, 1)
 theme_override_colors/font_hover_color = Color(0.0352941, 0.333333, 0.356863, 1)
 theme_override_colors/font_outline_color = Color(0.827451, 1, 0, 1)
@@ -987,10 +995,12 @@ theme_override_constants/outline_size = 15
 theme_override_fonts/font = ExtResource("6_fvg6h")
 theme_override_font_sizes/font_size = 35
 theme_override_styles/focus = SubResource("StyleBoxEmpty_b1kt2")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_mod7y")
 theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_xxf8v")
 theme_override_styles/hover = SubResource("StyleBoxTexture_o1vg1")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_30h8g")
 theme_override_styles/normal = SubResource("StyleBoxTexture_u1a3i")
+disabled = true
 text = "START GAME"
 
 [node name="tutorial" type="Button" parent="stuff/Left/shit"]
@@ -999,6 +1009,7 @@ offset_left = 121.0
 offset_top = 428.0
 offset_right = 353.0
 offset_bottom = 495.0
+theme_override_colors/font_disabled_color = Color(0.133333, 0.133333, 0.133333, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.0352941, 0.333333, 0.356863, 1)
 theme_override_colors/font_hover_color = Color(0.0352941, 0.333333, 0.356863, 1)
 theme_override_colors/font_outline_color = Color(0.827451, 1, 0, 1)
@@ -1009,11 +1020,11 @@ theme_override_constants/outline_size = 15
 theme_override_fonts/font = ExtResource("6_fvg6h")
 theme_override_font_sizes/font_size = 35
 theme_override_styles/focus = SubResource("StyleBoxEmpty_b1kt2")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_ncccr")
 theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_xxf8v")
 theme_override_styles/hover = SubResource("StyleBoxTexture_o1vg1")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_30h8g")
 theme_override_styles/normal = SubResource("StyleBoxTexture_u1a3i")
-disabled = true
 text = "TUTORIAL"
 
 [node name="settings" type="Button" parent="stuff/Left/shit"]

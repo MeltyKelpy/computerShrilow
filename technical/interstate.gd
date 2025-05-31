@@ -10,6 +10,7 @@ var jelliesbought = 0
 var plusones = 0
 var saayoModeUnlocked = false
 var baldiModeUnlocked = false
+var tutorialDone = false
 @onready var color = $ColorRect
 
 func _enter_tree() -> void:
@@ -42,6 +43,7 @@ func saveData():
 	config.set_value("Stats", "starsLost", starslost)
 	config.set_value("Stats", "jelliesBought", jelliesbought)
 	config.set_value("Stats", "plusOnes", plusones)
+	config.set_value("Game", "tutorialOpened", tutorialDone)
 	config.set_value("Game", "saayoModeUnlocked", saayoModeUnlocked)
 	config.set_value("Game", "baldiModeUnlocked", baldiModeUnlocked)
 	

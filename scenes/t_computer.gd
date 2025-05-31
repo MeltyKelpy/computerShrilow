@@ -1684,8 +1684,12 @@ func _process(_delta : float) -> void:
 	
 	if $Shrilow.scale.x > 1:
 		$Shrilow.scale.x -= 0.05
+	if $Shrilow.scale.x < 1:
+		$Shrilow.scale.x += 0.05
 	if $Shrilow.scale.y < 1:
 		$Shrilow.scale.y += 0.05
+	if $Shrilow.scale.y > 1:
+		$Shrilow.scale.y -= 0.05
 	
 	#if Input.is_action_just_pressed("eventText"):
 		#$Camera2D.position.y = 324

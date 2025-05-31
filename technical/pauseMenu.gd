@@ -18,6 +18,11 @@ func _ready():
 	Interstate.saveData()
 
 func _process(delta: float) -> void:
+	
+	$save.disabled = (get_node_or_null("/root/computerShrilow") == null)
+	if $save.disabled == true:
+		$save.add_theme_constant_override("outline_size", 0) 
+	
 	var config = ConfigFile.new()
 	
 	var err = config.load(Game.files[Game.curFile])
@@ -30,8 +35,11 @@ func _process(delta: float) -> void:
 		$AudioStreamPlayer.volume_db -= 1 + (1 * delta)
 	else:
 		$AudioStreamPlayer.volume_db -= 1 + (1 * delta)
-	position.x = $/root/computerShrilow/Camera2D.position.x - 576
-	position.y = $/root/computerShrilow/Camera2D.position.y - 324
+	if not get_node_or_null("/root/computerShrilow") == null:
+		position.x = $/root/computerShrilow/Camera2D.position.x - 576
+		position.y = $/root/computerShrilow/Camera2D.position.y - 324
+	else:
+		$file.visible = false
 	z_index = 4000
 	if Input.is_action_just_pressed("ui_cancel"):
 		$AnimationPlayer.play("resume")

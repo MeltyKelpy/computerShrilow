@@ -2176,6 +2176,7 @@ volume_db = -0.239
 max_distance = 500.0
 
 [node name="ShrilowSqueak" type="Button" parent="Shrilow"]
+visible = false
 offset_left = -158.75
 offset_top = -421.25
 offset_right = 153.25

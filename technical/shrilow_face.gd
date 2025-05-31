@@ -2,9 +2,14 @@ extends Node2D
 
 @onready var rightOriginBase = $Control/rightOrigin.position
 @onready var leftOriginBase = $Control/leftOrigin.position
+@export var force_eyes = ""
 
 func _process(delta: float) -> void:
 	var eyePath = ClothingObjects.clothes[ClothingObjects.equippedClothing]["eyes"]
+	if force_eyes == "":
+		eyePath = ClothingObjects.clothes[ClothingObjects.equippedClothing]["eyes"]
+	else:
+		eyePath = force_eyes
 	var covePath = "res://assets/images/computershrilows/faces/"+eyePath+"/pupilCove.png"
 	var pupilPath = "res://assets/images/computershrilows/faces/"+eyePath+"/pupil.png"
 	var backupCove = load("res://assets/images/computershrilows/faces/baseEyes/pupilCove.png")

@@ -1,3 +1,616 @@
-[gd_scene format=3 uid="uid://dwlqnfve7vj6j"]
+[gd_scene load_steps=30 format=3 uid="uid://dwlqnfve7vj6j"]
+
+[ext_resource type="Script" uid="uid://b1txob5ddclte" path="res://scenes/tutorialnew.gd" id="1_ph3nu"]
+[ext_resource type="Texture2D" uid="uid://b8ft2a3ways43" path="res://assets/images/tutorial/thelows.png" id="2_4kmhl"]
+[ext_resource type="Texture2D" uid="uid://i1rqolh5vj7h" path="res://assets/images/tutorial/slideshowImages/questionmark.png" id="3_ckvwl"]
+[ext_resource type="Theme" uid="uid://dr1wna4c2ab2h" path="res://technical/textStyle.tres" id="3_cq4me"]
+[ext_resource type="Texture2D" uid="uid://d3b1qb3i07urm" path="res://assets/images/computershrilows/shrilowBases/shrilowBase.png" id="4_0epgs"]
+[ext_resource type="Texture2D" uid="uid://ch15utivrk57m" path="res://assets/images/ui/goggleSlidesLogo.png" id="4_4kmhl"]
+[ext_resource type="AudioStream" uid="uid://ccc37t8ig3t6t" path="res://assets/sounds/projecterclick.ogg" id="5_6yjpi"]
+[ext_resource type="AudioStream" uid="uid://c3kjik4bt0ge3" path="res://assets/music/tutorialbgm.ogg" id="5_cq4me"]
+[ext_resource type="PackedScene" uid="uid://dctfcin0koae7" path="res://technical/shrilowFace.tscn" id="5_g2equ"]
+[ext_resource type="AudioStream" uid="uid://o0fq5njk38ru" path="res://assets/sounds/squeak.ogg" id="6_g2equ"]
+[ext_resource type="AudioStream" uid="uid://3gout0oov5o2" path="res://assets/sounds/projecterbgm.ogg" id="6_gbqnl"]
+[ext_resource type="Texture2D" uid="uid://brs8k5prrtxmq" path="res://assets/images/ui/wardrobe.png" id="7_tbcdj"]
+[ext_resource type="Texture2D" uid="uid://b6txtlxhjfw2b" path="res://assets/images/computershrilows/shrilowBases/shrilowDate Night.png" id="8_wr8iv"]
+[ext_resource type="Texture2D" uid="uid://cchxqf8rucr1x" path="res://assets/images/computershrilows/shrilowBases/shrilowGP.png" id="9_e13mp"]
+[ext_resource type="Texture2D" uid="uid://dnxtr4idok0le" path="res://assets/images/computershrilows/shrilowBases/shrilowCaz.png" id="10_vrdqu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6yjpi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gbqnl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ckvwl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nlqja"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0epgs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g2equ"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tbcdj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ej4tf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0hilk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wr8iv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e13mp"]
+
+[sub_resource type="Animation" id="Animation_4kmhl"]
+resource_name = "pop"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("lgoo:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 1, 4, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.121569, 0.0470588, 0, 1), Color(0.121569, 0.0470588, 0, 1), Color(0.121569, 0.0470588, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_cq4me"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("lgoo:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.121569, 0.0470588, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6yjpi"]
+_data = {
+&"RESET": SubResource("Animation_cq4me"),
+&"pop": SubResource("Animation_4kmhl")
+}
 
 [node name="Tutorial" type="Node2D"]
+script = ExtResource("1_ph3nu")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(1, 0.909804, 0.854902, 1)
+
+[node name="slides" type="Node2D" parent="."]
+
+[node name="0" type="Node2D" parent="slides"]
+visible = false
+
+[node name="Title" type="Label" parent="slides/0"]
+visible = false
+offset_top = 224.0
+offset_right = 1152.0
+offset_bottom = 289.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 90
+text = "Hello!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Subtitle" type="Label" parent="slides/0"]
+visible = false
+offset_top = 317.0
+offset_right = 1152.0
+offset_bottom = 382.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 50
+text = "Welcome to The Computer!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AltText" type="Label" parent="slides/0"]
+visible = false
+offset_top = 381.0
+offset_right = 1152.0
+offset_bottom = 446.0
+theme = ExtResource("3_cq4me")
+theme_override_colors/font_color = Color(0.619608, 0.537255, 0.482353, 1)
+theme_override_font_sizes/font_size = 35
+text = "Click the Shrilows to switch slides!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="1" type="Node2D" parent="slides"]
+visible = false
+
+[node name="Title" type="Label" parent="slides/1"]
+visible = false
+offset_top = 41.0
+offset_right = 1152.0
+offset_bottom = 138.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 90
+text = "Now, you may be thinking:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Subtitle" type="Label" parent="slides/1"]
+visible = false
+offset_top = 140.0
+offset_right = 1152.0
+offset_bottom = 195.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 50
+text = "\"Why the hell does a clicker game need a tutorial?\""
+horizontal_alignment = 1
+
+[node name="img" type="Sprite2D" parent="slides/1"]
+position = Vector2(572, 351)
+rotation = 3.14159
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("3_ckvwl")
+
+[node name="Subtitle2" type="Label" parent="slides/1"]
+visible = false
+offset_top = 509.0
+offset_right = 1152.0
+offset_bottom = 564.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 50
+text = "Well, i'll show you!"
+horizontal_alignment = 1
+
+[node name="2" type="Node2D" parent="slides"]
+visible = false
+
+[node name="Subtitle" type="Label" parent="slides/2"]
+visible = false
+offset_top = 13.0
+offset_right = 1152.0
+offset_bottom = 68.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 41
+text = "Now, not everyone in the world is familar with clicker games!"
+horizontal_alignment = 1
+
+[node name="Subtitle2" type="Label" parent="slides/2"]
+visible = false
+offset_top = 56.0
+offset_right = 1152.0
+offset_bottom = 111.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 41
+text = "So lets start with the basics."
+horizontal_alignment = 1
+
+[node name="Subtitle3" type="Label" parent="slides/2"]
+visible = false
+offset_left = 2.0
+offset_top = 123.0
+offset_right = 1154.0
+offset_bottom = 178.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 41
+text = "This is Shrilow!"
+horizontal_alignment = 1
+
+[node name="Subtitle4" type="Label" parent="slides/2"]
+visible = false
+offset_left = 2.0
+offset_top = 166.0
+offset_right = 1154.0
+offset_bottom = 221.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 41
+text = "in this game, your objective is to click him! try that now!"
+horizontal_alignment = 1
+
+[node name="Subtitle5" type="Label" parent="slides/2"]
+visible = false
+offset_left = -7.0
+offset_top = 38.0
+offset_right = 1145.0
+offset_bottom = 93.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 41
+text = "Good job!"
+horizontal_alignment = 1
+
+[node name="Subtitle6" type="Label" parent="slides/2"]
+visible = false
+offset_top = 90.0
+offset_right = 1152.0
+offset_bottom = 145.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 41
+text = "Everytime you do that, you'll gain 1 USD! (United Shrilow Dollars)"
+horizontal_alignment = 1
+
+[node name="Subtitle7" type="Label" parent="slides/2"]
+visible = false
+offset_left = 7.0
+offset_top = 143.0
+offset_right = 1137.0
+offset_bottom = 234.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 41
+text = "Theres ways to increase that and automate your money gain, but early on, this'll be your best friend!"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="shrilowNode" type="Node2D" parent="slides/2"]
+position = Vector2(569, 1064)
+
+[node name="Shrilow" type="Sprite2D" parent="slides/2/shrilowNode"]
+position = Vector2(-2, -211)
+texture = ExtResource("4_0epgs")
+
+[node name="ShrilowFace" parent="slides/2/shrilowNode/Shrilow" instance=ExtResource("5_g2equ")]
+position = Vector2(-210.25, -211.5)
+force_eyes = "baseEyes"
+
+[node name="clickHim" type="Button" parent="slides/2/shrilowNode/Shrilow"]
+offset_left = -160.0
+offset_top = -210.0
+offset_right = 159.0
+offset_bottom = 214.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6yjpi")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_gbqnl")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ckvwl")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_nlqja")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_0epgs")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_g2equ")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_tbcdj")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_ej4tf")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_0hilk")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_wr8iv")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_e13mp")
+
+[node name="Squeak" type="AudioStreamPlayer2D" parent="slides/2/shrilowNode/Shrilow"]
+stream = ExtResource("6_g2equ")
+volume_db = -0.239
+max_distance = 500.0
+
+[node name="faceRevert" type="Timer" parent="slides/2/shrilowNode/Shrilow"]
+one_shot = true
+
+[node name="3" type="Node2D" parent="slides"]
+visible = false
+
+[node name="Subtitle" type="Label" parent="slides/3"]
+visible = false
+offset_top = 49.0
+offset_right = 1152.0
+offset_bottom = 104.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 46
+text = "but, theres more that you can do with shrilow himself than just that!"
+horizontal_alignment = 1
+
+[node name="Subtitle2" type="Label" parent="slides/3"]
+visible = false
+offset_top = 116.0
+offset_right = 1152.0
+offset_bottom = 171.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 46
+text = "our first unique feature is...."
+horizontal_alignment = 1
+
+[node name="img" type="Sprite2D" parent="slides/3"]
+visible = false
+position = Vector2(575, 314)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("7_tbcdj")
+
+[node name="Subtitle3" type="Label" parent="slides/3"]
+visible = false
+offset_top = 452.0
+offset_right = 1152.0
+offset_bottom = 507.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 46
+text = "The WARDROBE!"
+horizontal_alignment = 1
+
+[node name="4" type="Node2D" parent="slides"]
+visible = false
+
+[node name="Subtitle" type="Label" parent="slides/4"]
+visible = false
+offset_top = 49.0
+offset_right = 1152.0
+offset_bottom = 104.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 46
+text = "The WARDROBE is a place to pick out OUTFITS for shrilow!"
+horizontal_alignment = 1
+
+[node name="Subtitle2" type="Label" parent="slides/4"]
+visible = false
+offset_top = 115.0
+offset_right = 1152.0
+offset_bottom = 170.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 46
+text = "outfits arent just for looks, they also provide \"buffs\"!"
+horizontal_alignment = 1
+
+[node name="AltText" type="Label" parent="slides/4/Subtitle2"]
+offset_top = 48.0
+offset_right = 1152.0
+offset_bottom = 86.0
+theme = ExtResource("3_cq4me")
+theme_override_colors/font_color = Color(0.619608, 0.537255, 0.482353, 1)
+theme_override_font_sizes/font_size = 35
+text = "for a price, of course! nothings free in this world."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Subtitle3" type="Label" parent="slides/4"]
+visible = false
+offset_top = 223.0
+offset_right = 1152.0
+offset_bottom = 328.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 46
+text = "in The WARDROBE, you can find VARIOUS different types of outifts!
+"
+horizontal_alignment = 1
+
+[node name="Subtitle4" type="Label" parent="slides/4"]
+visible = false
+offset_top = 274.0
+offset_right = 1152.0
+offset_bottom = 412.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 40
+text = "- ones that increase dollar per click
+- ones that have special effects on other aspects
+- ones that dont do anything for some reason"
+horizontal_alignment = 1
+
+[node name="Subtitle5" type="Label" parent="slides/4"]
+visible = false
+offset_top = 416.0
+offset_right = 1152.0
+offset_bottom = 460.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 46
+text = "and many more!"
+horizontal_alignment = 1
+
+[node name="Subtitle6" type="Label" parent="slides/4"]
+visible = false
+offset_top = 467.0
+offset_right = 1152.0
+offset_bottom = 518.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 46
+text = "but, obviously, you may only use one at a time. so pick wisely!"
+horizontal_alignment = 1
+
+[node name="5" type="Node2D" parent="slides"]
+
+[node name="Subtitle" type="Label" parent="slides/5"]
+offset_top = 34.0
+offset_right = 1152.0
+offset_bottom = 89.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 46
+text = "Heres some examples!"
+horizontal_alignment = 1
+
+[node name="datelow" type="Sprite2D" parent="slides/5"]
+position = Vector2(249, 437)
+texture = ExtResource("8_wr8iv")
+
+[node name="ShrilowFace" parent="slides/5/datelow" instance=ExtResource("5_g2equ")]
+position = Vector2(-210.25, -211.5)
+force_eyes = "dateEyes"
+
+[node name="Name" type="Label" parent="slides/5/datelow"]
+offset_left = -170.0
+offset_top = -300.0
+offset_right = 171.0
+offset_bottom = -245.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 46
+text = "Date Night"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Occupation" type="Label" parent="slides/5/datelow/Name"]
+offset_left = -3.0
+offset_top = 48.0
+offset_right = 339.0
+offset_bottom = 86.0
+theme = ExtResource("3_cq4me")
+theme_override_colors/font_color = Color(0.619608, 0.537255, 0.482353, 1)
+theme_override_font_sizes/font_size = 35
+text = "increases $/click by 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="gplow" type="Sprite2D" parent="slides/5"]
+position = Vector2(573, 437)
+texture = ExtResource("9_e13mp")
+
+[node name="ShrilowFace" parent="slides/5/gplow" instance=ExtResource("5_g2equ")]
+position = Vector2(-210.25, -211.5)
+force_eyes = "gpEyes"
+
+[node name="Name" type="Label" parent="slides/5/gplow"]
+offset_left = -170.0
+offset_top = -300.0
+offset_right = 171.0
+offset_bottom = -245.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 46
+text = "GPLow"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Occupation" type="Label" parent="slides/5/gplow/Name"]
+offset_left = -3.0
+offset_top = 41.0
+offset_right = 339.0
+offset_bottom = 104.0
+theme = ExtResource("3_cq4me")
+theme_override_colors/font_color = Color(0.619608, 0.537255, 0.482353, 1)
+theme_override_constants/paragraph_spacing = -16
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 35
+text = "decreases GP money time to 1/s!
+(we'll get to GPs later...)"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="riglow" type="Sprite2D" parent="slides/5"]
+position = Vector2(893, 437)
+texture = ExtResource("10_vrdqu")
+
+[node name="ShrilowFace" parent="slides/5/riglow" instance=ExtResource("5_g2equ")]
+position = Vector2(-210.25, -211.5)
+force_eyes = "rigEyes"
+
+[node name="Name" type="Label" parent="slides/5/riglow"]
+offset_left = -170.0
+offset_top = -298.0
+offset_right = 171.0
+offset_bottom = -243.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 46
+text = "Rig Mechanic"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Occupation" type="Label" parent="slides/5/riglow/Name"]
+offset_left = -3.0
+offset_top = 48.0
+offset_right = 339.0
+offset_bottom = 86.0
+theme = ExtResource("3_cq4me")
+theme_override_colors/font_color = Color(0.619608, 0.537255, 0.482353, 1)
+theme_override_font_sizes/font_size = 35
+text = "increases $/autoclick by 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="TheLows" type="Node2D" parent="."]
+position = Vector2(0, 122)
+
+[node name="thelows" type="Sprite2D" parent="TheLows"]
+position = Vector2(576, 324)
+texture = ExtResource("2_4kmhl")
+
+[node name="BackPage" type="Button" parent="TheLows"]
+offset_left = 10.0
+offset_top = 547.0
+offset_right = 59.0
+offset_bottom = 642.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6yjpi")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_gbqnl")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ckvwl")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_nlqja")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_0epgs")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_g2equ")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_tbcdj")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_ej4tf")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_0hilk")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_wr8iv")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_e13mp")
+
+[node name="NextPage" type="Button" parent="TheLows"]
+offset_left = 1097.0
+offset_top = 547.0
+offset_right = 1146.0
+offset_bottom = 642.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6yjpi")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_gbqnl")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ckvwl")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_nlqja")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_0epgs")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_g2equ")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_tbcdj")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_ej4tf")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_0hilk")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_wr8iv")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_e13mp")
+
+[node name="pageNum" type="Label" parent="."]
+visible = false
+offset_left = 567.0
+offset_top = 584.0
+offset_right = 585.0
+offset_bottom = 639.0
+theme = ExtResource("3_cq4me")
+theme_override_colors/font_color = Color(0.619608, 0.537255, 0.482353, 1)
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 50
+text = "1"
+
+[node name="covah" type="ColorRect" parent="."]
+visible = false
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(0.121569, 0.0470588, 0, 1)
+
+[node name="lgoo" type="Sprite2D" parent="covah"]
+position = Vector2(576, 324)
+texture = ExtResource("4_4kmhl")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="covah"]
+libraries = {
+&"": SubResource("AnimationLibrary_6yjpi")
+}
+autoplay = "pop"
+
+[node name="sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_6yjpi")
+
+[node name="projecterhum" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_gbqnl")
+volume_db = -15.947
+parameters/looping = true
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_cq4me")
+volume_db = -9.014
+parameters/looping = true
+
+[connection signal="pressed" from="slides/2/shrilowNode/Shrilow/clickHim" to="." method="slideInteraction" binds= ["clickShrilow"]]
+[connection signal="timeout" from="slides/2/shrilowNode/Shrilow/faceRevert" to="." method="_on_face_revert_timeout"]
+[connection signal="pressed" from="TheLows/BackPage" to="." method="_slide_swap" binds= [-1]]
+[connection signal="pressed" from="TheLows/NextPage" to="." method="_slide_swap" binds= [1]]
+[connection signal="animation_finished" from="covah/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
