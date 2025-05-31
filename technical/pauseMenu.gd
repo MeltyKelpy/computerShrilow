@@ -29,7 +29,7 @@ func _process(delta: float) -> void:
 	
 	$file.text = "CURRENT FILE: "+config.get_value("Fiscal", "Name")
 	
-	if dying == false and $AudioStreamPlayer.volume_db < -5:
+	if dying == false and $AudioStreamPlayer.volume_db < -15:
 		$AudioStreamPlayer.volume_db += 1 + (1 * delta)
 	elif dying == true and $AudioStreamPlayer.volume_db > -100:
 		$AudioStreamPlayer.volume_db -= 1 + (1 * delta)

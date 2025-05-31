@@ -9,6 +9,14 @@ var slideAttributes = {
 	2:["animated", false, false],
 	3:["animated", false],
 	4:["animated", false],
+	6:["animated", false],
+	7:["animated", false],
+	8:["animated", false],
+	9:["animated", false],
+	10:["animated", false],
+	11:["animated", false],
+	12:["animated", false],
+	13:["animated", false],
 	}
 
 var canInteractWithSlide = false
@@ -88,6 +96,80 @@ func _animated_slide_handling(slide):
 			$"slides/4/Subtitle5".visible = true
 			await get_tree().create_timer(2).timeout
 			$"slides/4/Subtitle6".visible = true
+			await get_tree().create_timer(2).timeout
+			_exist_the_lows()
+		6:
+			await get_tree().create_timer(1).timeout
+			$"slides/6/Subtitle".visible = true
+			await get_tree().create_timer(2).timeout
+			$sfx.stream = load("res://assets/sounds/poppeer.ogg")
+			$sfx.play()
+			$"slides/6/img".visible = true
+			await get_tree().create_timer(2).timeout
+			$"slides/6/Subtitle2".visible = true
+			await get_tree().create_timer(2).timeout
+			_exist_the_lows()
+		7:
+			await get_tree().create_timer(1).timeout
+			$"slides/7/Subtitle".visible = true
+			await get_tree().create_timer(2).timeout
+			$"slides/7/Subtitle2".visible = true
+			await get_tree().create_timer(2).timeout
+			$"slides/7/Subtitle3".visible = true
+			await get_tree().create_timer(1).timeout
+			var tween = create_tween()
+			tween.tween_property($"slides/7/Melanie", "position", Vector2(576.0,324.0), 1).set_trans(Tween.TRANS_QUART)
+			await get_tree().create_timer(2).timeout
+			_exist_the_lows()
+		8:
+			await get_tree().create_timer(1).timeout
+			$"slides/8/Title".visible = true
+			var tween = create_tween()
+			tween.tween_property($"slides/8/shit", "position", Vector2(-3.0,-10), 1).set_trans(Tween.TRANS_QUART)
+			var tween2 = create_tween()
+			tween2.tween_property($"slides/8/shit", "modulate", Color(1,1,1,1), 0.8).set_trans(Tween.TRANS_QUART)
+			tween.tween_property($"slides/8/shit2", "position", Vector2(-3.0,-10), 1).set_trans(Tween.TRANS_QUART)
+			tween2.tween_property($"slides/8/shit2", "modulate", Color(1,1,1,1), 0.8).set_trans(Tween.TRANS_QUART)
+			await get_tree().create_timer(2).timeout
+			_exist_the_lows()
+		9:
+			await get_tree().create_timer(1).timeout
+			$"slides/9/Subtitle".visible = true
+			await get_tree().create_timer(2).timeout
+			$sfx.stream = load("res://assets/sounds/poppeer.ogg")
+			$sfx.play()
+			$"slides/9/img".visible = true
+			await get_tree().create_timer(2).timeout
+			$"slides/9/Subtitle2".visible = true
+			await get_tree().create_timer(2).timeout
+			_exist_the_lows()
+		10:
+			await get_tree().create_timer(1).timeout
+			$"slides/10/Subtitle".visible = true
+			await get_tree().create_timer(2).timeout
+			$"slides/10/noteboo".visible = true
+			await get_tree().create_timer(2).timeout
+			$"slides/10/Subtitle2".visible = true
+			await get_tree().create_timer(2).timeout
+			_exist_the_lows()
+		11:
+			await get_tree().create_timer(1).timeout
+			$"slides/11/Subtitle".visible = true
+			await get_tree().create_timer(2).timeout
+			$"slides/11/Subtitle2".visible = true
+			await get_tree().create_timer(2).timeout
+			_exist_the_lows()
+		12:
+			await get_tree().create_timer(1).timeout
+			$"slides/12/Subtitle".visible = true
+			await get_tree().create_timer(2).timeout
+			$sfx.stream = load("res://assets/sounds/poppeer.ogg")
+			$sfx.play()
+			$"slides/12/img".visible = true
+			await get_tree().create_timer(2).timeout
+			$"slides/12/Subtitle2".visible = true
+			await get_tree().create_timer(2).timeout
+			$"slides/12/AltText".visible = true
 			await get_tree().create_timer(2).timeout
 			_exist_the_lows()
 

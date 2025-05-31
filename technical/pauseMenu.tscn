@@ -568,9 +568,11 @@ autostart = true
 
 [node name="SFXCan" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_m7ppn")
+volume_db = -52.229
 
 [node name="SFXPick" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_m7ppn")
+volume_db = -14.688
 
 [connection signal="pressed" from="resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="save" to="." method="_on_save_pressed"]

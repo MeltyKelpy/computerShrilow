@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dwlqnfve7vj6j"]
+[gd_scene load_steps=39 format=3 uid="uid://dwlqnfve7vj6j"]
 
 [ext_resource type="Script" uid="uid://b1txob5ddclte" path="res://scenes/tutorialnew.gd" id="1_ph3nu"]
 [ext_resource type="Texture2D" uid="uid://b8ft2a3ways43" path="res://assets/images/tutorial/thelows.png" id="2_4kmhl"]
@@ -15,6 +15,15 @@
 [ext_resource type="Texture2D" uid="uid://b6txtlxhjfw2b" path="res://assets/images/computershrilows/shrilowBases/shrilowDate Night.png" id="8_wr8iv"]
 [ext_resource type="Texture2D" uid="uid://cchxqf8rucr1x" path="res://assets/images/computershrilows/shrilowBases/shrilowGP.png" id="9_e13mp"]
 [ext_resource type="Texture2D" uid="uid://dnxtr4idok0le" path="res://assets/images/computershrilows/shrilowBases/shrilowCaz.png" id="10_vrdqu"]
+[ext_resource type="Texture2D" uid="uid://ddsp35hv5mq4k" path="res://assets/images/ui/shop.png" id="11_e13mp"]
+[ext_resource type="Texture2D" uid="uid://i56e4q3q5h8" path="res://assets/images/areas/melanies/melanie/base.png" id="12_cmspm"]
+[ext_resource type="Texture2D" uid="uid://yaivbhdq4dxn" path="res://assets/images/areas/melanies/itemBox.png" id="13_ikfo1"]
+[ext_resource type="Texture2D" uid="uid://d1axlhq1ks2ra" path="res://assets/images/areas/melanies/items/autoclick0.png" id="14_bl2xa"]
+[ext_resource type="Texture2D" uid="uid://d3gewm5kaqfvq" path="res://assets/images/areas/melanies/items/plus10.png" id="15_15kfc"]
+[ext_resource type="Texture2D" uid="uid://bo26sux3joao7" path="res://assets/images/areas/melanies/items/greasepuppy.png" id="16_7a100"]
+[ext_resource type="Texture2D" uid="uid://bc36iksrorduf" path="res://assets/images/ui/notebook.png" id="17_15kfc"]
+[ext_resource type="Texture2D" uid="uid://bcyflh8l81trx" path="res://assets/images/tutorial/slideshowImages/notebook.png" id="18_7a100"]
+[ext_resource type="Texture2D" uid="uid://8e0gyo2yjajj" path="res://assets/images/ui/mines.png" id="19_feaue"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6yjpi"]
 
@@ -294,7 +303,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_e13mp")
 
 [node name="Squeak" type="AudioStreamPlayer2D" parent="slides/2/shrilowNode/Shrilow"]
 stream = ExtResource("6_g2equ")
-volume_db = -0.239
+volume_db = -5.33
 max_distance = 500.0
 
 [node name="faceRevert" type="Timer" parent="slides/2/shrilowNode/Shrilow"]
@@ -417,6 +426,7 @@ text = "but, obviously, you may only use one at a time. so pick wisely!"
 horizontal_alignment = 1
 
 [node name="5" type="Node2D" parent="slides"]
+visible = false
 
 [node name="Subtitle" type="Label" parent="slides/5"]
 offset_top = 34.0
@@ -526,6 +536,394 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
+[node name="6" type="Node2D" parent="slides"]
+visible = false
+
+[node name="Subtitle" type="Label" parent="slides/6"]
+visible = false
+offset_top = 122.0
+offset_right = 1152.0
+offset_bottom = 177.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 46
+text = "Next on our list..."
+horizontal_alignment = 1
+
+[node name="img" type="Sprite2D" parent="slides/6"]
+visible = false
+position = Vector2(575, 314)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("11_e13mp")
+
+[node name="Subtitle2" type="Label" parent="slides/6"]
+visible = false
+offset_top = 452.0
+offset_right = 1152.0
+offset_bottom = 507.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 46
+text = "The SHOP!"
+horizontal_alignment = 1
+
+[node name="7" type="Node2D" parent="slides"]
+visible = false
+
+[node name="Subtitle" type="Label" parent="slides/7"]
+visible = false
+offset_top = 15.0
+offset_right = 1152.0
+offset_bottom = 70.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 46
+text = "The SHOP is your OTHER best friend! and keeps that role for any playthrough."
+horizontal_alignment = 1
+
+[node name="Subtitle2" type="Label" parent="slides/7"]
+visible = false
+offset_left = 42.0
+offset_top = 85.0
+offset_right = 1103.0
+offset_bottom = 190.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 46
+text = "In The SHOP, you can buy items that upgrade your automation, and generally, your income!"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Subtitle3" type="Label" parent="slides/7"]
+visible = false
+offset_left = 42.0
+offset_top = 314.0
+offset_right = 596.0
+offset_bottom = 473.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 46
+text = "You'll be going there often, so you're likely to get well acquainted with the shoprunner, Melanie!"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Melanie" type="Sprite2D" parent="slides/7"]
+position = Vector2(576, 972)
+texture = ExtResource("12_cmspm")
+
+[node name="8" type="Node2D" parent="slides"]
+visible = false
+
+[node name="Title" type="Label" parent="slides/8"]
+visible = false
+offset_top = 17.0
+offset_right = 1152.0
+offset_bottom = 114.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 90
+text = "Some items worth mentioning:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="shit" type="Node2D" parent="slides/8"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-3, -20)
+
+[node name="img" type="Sprite2D" parent="slides/8/shit"]
+position = Vector2(235, 216)
+texture = ExtResource("13_ikfo1")
+
+[node name="img" type="Sprite2D" parent="slides/8/shit/img"]
+texture = ExtResource("14_bl2xa")
+
+[node name="img2" type="Sprite2D" parent="slides/8/shit"]
+position = Vector2(463, 217)
+texture = ExtResource("13_ikfo1")
+
+[node name="img" type="Sprite2D" parent="slides/8/shit/img2"]
+texture = ExtResource("15_15kfc")
+
+[node name="img3" type="Sprite2D" parent="slides/8/shit"]
+position = Vector2(683, 216)
+texture = ExtResource("13_ikfo1")
+
+[node name="img" type="Sprite2D" parent="slides/8/shit/img3"]
+texture = ExtResource("15_15kfc")
+
+[node name="img4" type="Sprite2D" parent="slides/8/shit"]
+position = Vector2(906, 216)
+texture = ExtResource("13_ikfo1")
+
+[node name="img" type="Sprite2D" parent="slides/8/shit/img4"]
+texture = ExtResource("16_7a100")
+
+[node name="shit2" type="Node2D" parent="slides/8"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-3, -20)
+
+[node name="autoclick" type="Label" parent="slides/8/shit2"]
+offset_left = 175.0
+offset_top = 294.0
+offset_right = 297.0
+offset_bottom = 349.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 46
+text = "Autoclick"
+horizontal_alignment = 1
+
+[node name="AltText" type="Label" parent="slides/8/shit2/autoclick"]
+offset_left = -46.0
+offset_top = 52.0
+offset_right = 167.0
+offset_bottom = 347.0
+theme = ExtResource("3_cq4me")
+theme_override_colors/font_color = Color(0.619608, 0.537255, 0.482353, 1)
+theme_override_font_sizes/font_size = 35
+text = "The \"Autoclick\" is an item that clicks shrilow for you! starts at once every 3s, and decreases by 0.4 for each level (max 8)"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="plusone" type="Label" parent="slides/8/shit2"]
+offset_left = 406.0
+offset_top = 294.0
+offset_right = 528.0
+offset_bottom = 349.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 46
+text = "Plus One"
+horizontal_alignment = 1
+
+[node name="AltText" type="Label" parent="slides/8/shit2/plusone"]
+offset_left = -48.0
+offset_top = 52.0
+offset_right = 166.0
+offset_bottom = 336.0
+theme = ExtResource("3_cq4me")
+theme_override_colors/font_color = Color(0.619608, 0.537255, 0.482353, 1)
+theme_override_font_sizes/font_size = 35
+text = "Increases your 
+$/click by 1 each level. no level cap!"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="plusoneauto" type="Label" parent="slides/8/shit2"]
+offset_left = 584.0
+offset_top = 294.0
+offset_right = 791.0
+offset_bottom = 349.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 46
+text = "Plus One (auto)"
+horizontal_alignment = 1
+
+[node name="AltText" type="Label" parent="slides/8/shit2/plusoneauto"]
+offset_left = -7.0
+offset_top = 52.0
+offset_right = 207.0
+offset_bottom = 336.0
+theme = ExtResource("3_cq4me")
+theme_override_colors/font_color = Color(0.619608, 0.537255, 0.482353, 1)
+theme_override_font_sizes/font_size = 35
+text = "Increases your autoclick's $/click by 1 each level. no level cap!"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="GP" type="Label" parent="slides/8/shit2"]
+offset_left = 809.0
+offset_top = 294.0
+offset_right = 1007.0
+offset_bottom = 349.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 46
+text = "Greasepuppy"
+horizontal_alignment = 1
+
+[node name="AltText" type="Label" parent="slides/8/shit2/GP"]
+offset_left = -7.0
+offset_top = 52.0
+offset_right = 207.0
+offset_bottom = 336.0
+theme = ExtResource("3_cq4me")
+theme_override_colors/font_color = Color(0.619608, 0.537255, 0.482353, 1)
+theme_override_font_sizes/font_size = 35
+text = "otherwise known as GP. gives you $1 every 3 seconds and only costs $75! you can buy as many as you want!"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="9" type="Node2D" parent="slides"]
+visible = false
+
+[node name="Subtitle" type="Label" parent="slides/9"]
+visible = false
+offset_top = 122.0
+offset_right = 1152.0
+offset_bottom = 177.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 46
+text = "Next..."
+horizontal_alignment = 1
+
+[node name="img" type="Sprite2D" parent="slides/9"]
+visible = false
+position = Vector2(575, 314)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("17_15kfc")
+
+[node name="Subtitle2" type="Label" parent="slides/9"]
+visible = false
+offset_top = 452.0
+offset_right = 1152.0
+offset_bottom = 507.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 46
+text = "The NOTEBOOK!"
+horizontal_alignment = 1
+
+[node name="10" type="Node2D" parent="slides"]
+visible = false
+
+[node name="Subtitle" type="Label" parent="slides/10"]
+visible = false
+offset_top = 15.0
+offset_right = 1152.0
+offset_bottom = 70.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 46
+text = "The NOTEBOOK is a place where you can find information about The Computer, Your Achievements, and even some Comics!"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Subtitle2" type="Label" parent="slides/10"]
+visible = false
+offset_left = 476.0
+offset_top = 173.0
+offset_right = 1142.0
+offset_bottom = 420.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 41
+text = "- Main Page holds simple instructions for the notebook
+- Entries holds Journal Entries about various things
+- Achievements holds... your achievements
+- Comics holds some small comics! some come with the book, and some can be unlocked through playing!"
+autowrap_mode = 3
+
+[node name="noteboo" type="Sprite2D" parent="slides/10"]
+visible = false
+position = Vector2(576, 324)
+texture = ExtResource("18_7a100")
+
+[node name="11" type="Node2D" parent="slides"]
+visible = false
+
+[node name="Subtitle" type="Label" parent="slides/11"]
+visible = false
+offset_top = 264.0
+offset_right = 1152.0
+offset_bottom = 315.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 46
+text = "The NOTEBOOK is used many times for various purposes, so dont forget to check it!"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Subtitle2" type="Label" parent="slides/11"]
+visible = false
+offset_left = 6.0
+offset_top = 319.0
+offset_right = 1144.0
+offset_bottom = 363.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 35
+text = "You never know what information it could provide you!"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="12" type="Node2D" parent="slides"]
+visible = false
+
+[node name="Subtitle" type="Label" parent="slides/12"]
+visible = false
+offset_top = 122.0
+offset_right = 1152.0
+offset_bottom = 177.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 46
+text = "Next..."
+horizontal_alignment = 1
+
+[node name="img" type="Sprite2D" parent="slides/12"]
+visible = false
+position = Vector2(575, 314)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("19_feaue")
+
+[node name="Subtitle2" type="Label" parent="slides/12"]
+visible = false
+offset_top = 452.0
+offset_right = 1152.0
+offset_bottom = 507.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 46
+text = "The MINES!"
+horizontal_alignment = 1
+
+[node name="AltText" type="Label" parent="slides/12"]
+visible = false
+offset_left = 11.0
+offset_top = 486.0
+offset_right = 1163.0
+offset_bottom = 551.0
+theme = ExtResource("3_cq4me")
+theme_override_colors/font_color = Color(0.619608, 0.537255, 0.482353, 1)
+theme_override_font_sizes/font_size = 35
+text = "Getting to some longer ones..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="13" type="Node2D" parent="slides"]
+
+[node name="Subtitle" type="Label" parent="slides/13"]
+offset_top = 122.0
+offset_right = 1152.0
+offset_bottom = 177.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 46
+text = "Next..."
+horizontal_alignment = 1
+
+[node name="img" type="Sprite2D" parent="slides/13"]
+position = Vector2(575, 314)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("19_feaue")
+
+[node name="Subtitle2" type="Label" parent="slides/13"]
+offset_top = 452.0
+offset_right = 1152.0
+offset_bottom = 507.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 46
+text = "The MINES!"
+horizontal_alignment = 1
+
+[node name="AltText" type="Label" parent="slides/13"]
+offset_left = 11.0
+offset_top = 486.0
+offset_right = 1163.0
+offset_bottom = 551.0
+theme = ExtResource("3_cq4me")
+theme_override_colors/font_color = Color(0.619608, 0.537255, 0.482353, 1)
+theme_override_font_sizes/font_size = 35
+text = "Getting to some longer ones..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="pageNum" type="Label" parent="."]
+offset_left = 12.0
+offset_top = 584.0
+offset_right = 1145.0
+offset_bottom = 639.0
+theme = ExtResource("3_cq4me")
+theme_override_colors/font_color = Color(0.619608, 0.537255, 0.482353, 1)
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 50
+text = "1"
+horizontal_alignment = 1
+
 [node name="TheLows" type="Node2D" parent="."]
 position = Vector2(0, 122)
 
@@ -567,18 +965,6 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_0hilk")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_wr8iv")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_e13mp")
 
-[node name="pageNum" type="Label" parent="."]
-visible = false
-offset_left = 567.0
-offset_top = 584.0
-offset_right = 585.0
-offset_bottom = 639.0
-theme = ExtResource("3_cq4me")
-theme_override_colors/font_color = Color(0.619608, 0.537255, 0.482353, 1)
-theme_override_constants/outline_size = 0
-theme_override_font_sizes/font_size = 50
-text = "1"
-
 [node name="covah" type="ColorRect" parent="."]
 visible = false
 offset_right = 1152.0
@@ -598,15 +984,16 @@ autoplay = "pop"
 
 [node name="sfx" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_6yjpi")
+volume_db = -8.376
 
 [node name="projecterhum" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_gbqnl")
-volume_db = -15.947
+volume_db = -10.363
 parameters/looping = true
 
 [node name="music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_cq4me")
-volume_db = -9.014
+volume_db = -4.826
 parameters/looping = true
 
 [connection signal="pressed" from="slides/2/shrilowNode/Shrilow/clickHim" to="." method="slideInteraction" binds= ["clickShrilow"]]
