@@ -228,8 +228,6 @@ var textu
 @onready var timer_3 = $Timer3
 
 func manageScenes():
-	canDiaProg = true
-	
 	dialougeMode = true
 	if melShopState == false:
 		$Shop/ItemDescription.visible_ratio = 0
@@ -257,13 +255,29 @@ func manageScenes():
 					endDialogue()
 			"REBIRTH2EVENT":
 				if alongTheDialogue == 0:
+					var tween = create_tween()
+					tween.tween_property($Shop/ShopMusic, "volume_db", -40, 0.75)
 					$Shop/ItemDescription.text = "hey, do you hear that??"
 				if alongTheDialogue == 1:
 					$Shop/ItemDescription.text = "I know you're probably just here for buisness as usual, but i SWEAR i hear something banging around up there. is that just me?"
 				if alongTheDialogue == 2:
+					canDiaProg = false
+					$Shop/ItemDescription.text = ""
+					$Shop/Melanie/Mel.play("crash")
+					await get_tree().create_timer(1.1).timeout
+					$Shop/Melanie/cutsceneAudios.stream = load("res://assets/sounds/doorBreak.ogg")
+					$Shop/Melanie/debris.play("default")
+					$Shop/Melanie/cutsceneAudios.stop()
+					$Shop/Melanie/cutsceneAudios.volume_db = 5
+					$Shop/Melanie/cutsceneAudios.play()
+					var tween = create_tween()
+					tween.tween_property($Shop/Melanie/QTE, "position", Vector2(633.0,487.0), 0.75).set_trans(Tween.TRANS_QUART)
+					await get_tree().create_timer(1).timeout
 					$Shop/ItemName.text = "QTE:"
-					$Shop/ItemDescription.text = "Hi Again!"
+					$Shop/ItemDescription.text = "Hi Again"
+					$Shop/ItemDescription.visible_ratio = 0
 				if alongTheDialogue == 3:
+					$Shop/Melanie/Mel.play("bro")
 					$Shop/ItemName.text = "MELANIE:"
 					$Shop/ItemDescription.text = "Woah what the fuck are you doing in my store?"
 				if alongTheDialogue == 4:
@@ -271,7 +285,7 @@ func manageScenes():
 					$Shop/ItemDescription.text = "I'm taking over for the time being!"
 				if alongTheDialogue == 5:
 					$Shop/ItemName.text = "MELANIE:"
-					$Shop/ItemDescription.text = "you can just take over MY shop! its MY shop! in case you hadn't noticed!"
+					$Shop/ItemDescription.text = "you cant just take over MY shop! its MY shop! in case you hadn't noticed!"
 				if alongTheDialogue == 6:
 					$Shop/ItemName.text = "QTE:"
 					$Shop/ItemDescription.text = "as true as that may be; i have a reason for this temporary acquisition of your shop!"
@@ -280,18 +294,20 @@ func manageScenes():
 					$Shop/ItemDescription.text = "Oh yeah? and whats that?"
 				if alongTheDialogue == 8:
 					$Shop/ItemName.text = "QTE:"
+					$Shop/Melanie/Mel.play("awh")
 					$Shop/ItemDescription.text = "you are REALLY boring"
 				if alongTheDialogue == 9:
 					canDiaProg = false
 					$Shop/ItemName.text = "MELANIE:"
 					$Shop/ItemDescription.text = ""
 					await get_tree().create_timer(2).timeout
-					$Shop/ItemDescription.visible_ratio = 0
 					$Shop/ItemDescription.text = "oh"
-					canDiaProg = true
-				if alongTheDialogue == 9:
+					$Shop/ItemDescription.visible_ratio = 0
+					await get_tree().create_timer(2).timeout
 					$Shop/ItemName.text = "MELANIE:"
+					$Shop/Melanie/Mel.play("bro")
 					$Shop/ItemDescription.text = "So, what im getting here is that you're coming into MY store, and INSULTING me, and then TAKING OVER?"
+					$Shop/ItemDescription.visible_ratio = 0
 				if alongTheDialogue == 10:
 					$Shop/ItemName.text = "MELANIE:"
 					$Shop/ItemDescription.text = "Well gee, for someone who's supposedly the computer president now you sure are ''great'' at speaking for us"
@@ -302,33 +318,45 @@ func manageScenes():
 					$Shop/ItemName.text = "QTE:"
 					$Shop/ItemDescription.text = "Yeah I know, right?? im so awesome!"
 				if alongTheDialogue == 13:
+					$Shop/Melanie/Mel.play("smug")
 					$Shop/ItemName.text = "MELANIE:"
 					$Shop/ItemDescription.text = "you need a lesson on sarcasm."
 				if alongTheDialogue == 14:
+					$Shop/Melanie/Mel.play("bro")
 					$Shop/ItemName.text = "QTE:"
 					$Shop/ItemDescription.text = "I dont know what that word means!"
 				if alongTheDialogue == 15:
 					canDiaProg = false
 					$Shop/ItemName.text = "MELANIE:"
-					$Shop/ItemDescription.text = "okay yknow what? fuck you man. you better leave me the hell alone or i swear to god im gonna sell that mask of yours as a shop item. im going to rip out your cords how about that? huh? HUH?"
+					$Shop/ItemDescription.text = ""
+					await get_tree().create_timer(2).timeout
+					$Shop/ItemName.text = "MELANIE:"
+					$Shop/ItemDescription.text = "okay dude. you better leave me the hell alone or i swear to god im gonna sell that mask of yours as a shop item. im going to rip out your cords how about that? huh? HUH?"
 					$Shop/ItemDescription.visible_ratio = 0
-					await get_tree().create_timer(3).timeout
-					$Shop/ItemDescription.visible_ratio = 0
+					await get_tree().create_timer(2).timeout
 					$Shop/ItemName.text = ""
 					$Shop/ItemDescription.text = ""
+					$Shop/ItemDescription.visible_ratio = 0
+					$Shop/Melanie/outline.visible = true
+					$Shop/Melanie/desk.visible = true
 					$Shop/Melanie/Mel.visible = false
 					$ShrilowScreen/MelKicked.visible = true
 					$ShrilowScreen/melTextBox.visible = true
 					await get_tree().create_timer(1).timeout
 					$Shop/ItemName.text = "QTE:"
 					$Shop/ItemDescription.text = "Wow shes really annoying! i dont know how you put up with her!"
-					canDiaProg = true
+					$Shop/ItemDescription.visible_ratio = 0
 				if alongTheDialogue == 16:
+					var tween = create_tween()
+					tween.tween_property($Shop/Melanie/QTE, "position", Vector2(1239.0,487.0), 1).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 					$Shop/ItemName.text = "QTE:"
 					$Shop/ItemDescription.text = "Well, guess i own the shop now!"
 				if alongTheDialogue == 17:
+					var tween = create_tween()
+					tween.tween_property($Shop/ShopMusic, "volume_db", 7, 0.75)
 					rebirth2intro = false
 					endDialogue()
+					melShopToggle()
 			"HOW":
 				if alongTheDialogue == 0:
 					$Shop/ItemDescription.text = "Honestly? i dont really remember"
@@ -940,6 +968,7 @@ func manageScenes():
 				endDialogue()
 	
 	$BlackMarket/icon.texture = load("res://assets/images/areas/blackMarket/market/anphan/"+talker+"Icon.png")
+	canDiaProg = true
 
 func endDialogue():
 	$Shop/ItemDescription.visible_ratio = 0
@@ -1428,7 +1457,7 @@ func _process(_delta : float) -> void:
 		caca.reparent($/root)
 		get_tree().paused = true
 	
-	if dialougeMode == true and Input.is_action_just_pressed("Click") and canDiaProg == true:
+	if dialougeMode == true and Input.is_action_just_pressed("Click") and canDiaProg:
 		if $Shop/ItemDescription.visible_ratio < 0.9 or $Melvin/ItemDescription.visible_ratio < 0.9 or $BlackMarket/talk.visible_ratio < 0.9:
 			$Shop/ItemDescription.visible_ratio = 1
 			$Melvin/ItemDescription.visible_ratio = 1
@@ -1443,16 +1472,20 @@ func _process(_delta : float) -> void:
 			$Shop/ItemDescription.visible_ratio = 1
 		if $Shop/ItemDescription.visible_ratio < 1:
 			if $Shop/ItemDescription.visible_ratio < 0.9:
-				$Shop/type.play()
+				if $Shop/ItemName.text == "QTE:":
+					$Shop/type2.play()
+				else:
+					$Shop/type.play()
 			var numToUse
 			if _delta < 0.05:
 				numToUse = 0.05
 			else:
 				numToUse = _delta
 			$Shop/ItemDescription.visible_characters += 50 * numToUse
-	elif canDiaProg:
+	else:
 		$Shop/ItemDescription.visible_ratio = 1
 		$Shop/ItemDescription.visible_characters = -1
+	
 	if marketShopState == false:
 		if talker == "Phantom":
 			$Shop/type.pitch_scale = 1.0
@@ -1469,9 +1502,10 @@ func _process(_delta : float) -> void:
 			else:
 				numToUse = _delta
 			$BlackMarket/talk.visible_characters += 50 * numToUse
-	elif canDiaProg:
+	else:
 		$BlackMarket/talk.visible_ratio = 1
 		$BlackMarket/talk.visible_characters = -1
+	
 	if melvinShopState == false:
 		$Shop/type.pitch_scale = 1.0
 		if $Melvin/ItemDescription.visible_ratio > 1:
@@ -1485,7 +1519,7 @@ func _process(_delta : float) -> void:
 			else:
 				numToUse = _delta
 			$Melvin/ItemDescription.visible_characters += 50 * numToUse
-	elif canDiaProg:
+	else:
 		$Melvin/ItemDescription.visible_ratio = 1
 		$Melvin/ItemDescription.visible_characters = -1
 	
@@ -1587,7 +1621,7 @@ func _process(_delta : float) -> void:
 	if $Market/ShopMusic.volume_db > -100 and area != "market":
 		$Market/ShopMusic.volume_db -= 1 + (1 * _delta)
 	
-	if $Shop/ShopMusic.volume_db < 0 and area == "melanie":
+	if $Shop/ShopMusic.volume_db < 0 and area == "melanie" and dialougeMode == false:
 		$Shop/ShopMusic.volume_db += 1 + (1 * _delta)
 	if $Shop/ShopMusic.volume_db > -100 and area != "melanie":
 		$Shop/ShopMusic.volume_db -= 1 + (1 * _delta)
@@ -1749,6 +1783,8 @@ func _on_shop_button_pressed() -> void:
 			dialogKey = "REBIRTH3"
 			manageScenes()
 		if rebirth2intro == true and ItemValues.money >= 1000000:
+			$Shop/Melanie/QTE.visible = true
+			$Shop/Melanie/cutsceneAudios.play()
 			melShopToggle()
 			dialogKey = "REBIRTH2EVENT"
 			manageScenes()

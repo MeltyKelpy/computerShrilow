@@ -270,12 +270,12 @@ func loadData():
 		
 		var minigameStars = config.get_value("Fiscal", "minigameStars", null)
 		if minigameStars != null:
-			for i in Events.justMinigames.size():
+			for i in minigameStars.size():
 				Events.justMinigames[i]["BestStars"] = minigameStars[i]
 		
 		var minigamePlayed = config.get_value("Fiscal", "minigamePlayed", null)
 		if minigamePlayed != null:
-			for i in Events.justMinigames.size():
+			for i in minigamePlayed.size():
 				Events.justMinigames[i]["Played?"] = minigamePlayed[i]
 		
 		# config.set_value("Stats", "amountOfMines", FizzyDrink.minesLength)
