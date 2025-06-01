@@ -5,37 +5,37 @@ extends Node2D
 var characterInfos = [
 	{
 		"Name":"Shrilow",
-		"Desc":"0.3$ per Pickaxe Swing.\nBase Speed: 1/s a second",
+		"Desc":"0.4$ per Pickaxe Swing.\nBase Speed: 1/s a second",
 		"BasePrice":200,
-		"MoneyGain":0.3,
+		"MoneyGain":0.4,
 		"Speed":1.000,
 	},
 	{
 		"Name":"Moka",
-		"Desc":"0.5$ per Pickaxe Swing.\nBase Speed: 1.2/s a second",
-		"BasePrice":350,
-		"MoneyGain":0.5,
-		"Speed":1.200,
+		"Desc":"0.6$ per Pickaxe Swing.\nBase Speed: 1.3/s a second",
+		"BasePrice":250,
+		"MoneyGain":0.6,
+		"Speed":1.300,
 	},
 	{
 		"Name":"Mel",
-		"Desc":"1$ per Pickaxe Swing.\nBase Speed: 1.6/s a second",
-		"BasePrice":500,
-		"MoneyGain":1,
-		"Speed":1.600,
+		"Desc":"1.2$ per Pickaxe Swing.\nBase Speed: 1.4/s a second",
+		"BasePrice":300,
+		"MoneyGain":1.2,
+		"Speed":1.400,
 	},
 	{
 		"Name":"Blair",
-		"Desc":"1.5$ per Pickaxe Swing.\nBase Speed: 2.5/s a second",
-		"BasePrice":750,
-		"MoneyGain":1.5,
-		"Speed":2.50,
+		"Desc":"1.3$ per Pickaxe Swing.\nBase Speed: 2/s a second",
+		"BasePrice":600,
+		"MoneyGain":1.3,
+		"Speed":2.000,
 	},
 	{
 		"Name":"Charlotte",
-		"Desc":"3$ per Pickaxe Swing.\nBase Speed: 1.5/s a second",
-		"BasePrice":900,
-		"MoneyGain":3,
+		"Desc":"2$ per Pickaxe Swing.\nBase Speed: 1.5/s a second",
+		"BasePrice":1100,
+		"MoneyGain":2,
 		"Speed":1.500,
 	},
 	]
@@ -186,7 +186,7 @@ func _process(_delta: float) -> void:
 	
 	if newMineExists == true:
 		if get_node_or_null(^"newMine"):
-			$newMine/NewLevelCost.text = str(1000+(1000*caveNumber))+"$"
+			$newMine/NewLevelCost.text = str(5000+(5000*caveNumber))+"$"
 			$newMine.visible = true
 	if newMineExists == false:
 		if get_node_or_null(^"newMine"):
