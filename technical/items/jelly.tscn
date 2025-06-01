@@ -72,6 +72,7 @@ shape = SubResource("RectangleShape2D_edxbq")
 stream = ExtResource("3_howpp")
 volume_db = -35.362
 max_distance = 750.0
+bus = &"SFX"
 
 [node name="mange" type="Node2D" parent="RigidBody2D"]
 visible = false

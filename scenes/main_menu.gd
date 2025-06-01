@@ -100,6 +100,11 @@ var contributers = [
 	"Text":'Artist\n\n""',
 	},
 	{
+	"Name":"amydoesthings",
+	"Image":"res://assets/images/mainMenu/credits/ppl/aussie.png",
+	"Text":'Menu SFX\n\n"my favorite part of the game was when i was in it"',
+	},
+	{
 	"Name":"gurt",
 	"Image":"res://assets/images/mainMenu/credits/ppl/whotf.png",
 	"Text":'ts gurt\n\nwho the fuck is this guy',
@@ -145,7 +150,7 @@ func _ready() -> void:
 		$stuff/Left/shit/interstate.visible = false
 		$stuff/Left/shit/interstate.disabled = true
 	
-	$stuff/TXT.text = "beta build: "+Game.gameVersion+"\nExported: May 8th, 2025, 5:34pm"
+	$stuff/TXT.text = "beta build: "+Game.gameVersion+"\nExported: May 31th, 2025, 10:43pm"
 	Settings.loadData()
 	for i in range(0,3):
 		var cacapoopyFUCK = load("res://technical/saveBox.tscn")

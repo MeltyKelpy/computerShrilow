@@ -1080,15 +1080,18 @@ autoplay = "pop"
 [node name="sfx" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_6yjpi")
 volume_db = -8.376
+bus = &"SFX"
 
 [node name="projecterhum" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_gbqnl")
 volume_db = -10.363
+bus = &"SFX"
 parameters/looping = true
 
 [node name="music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_cq4me")
 volume_db = -4.826
+bus = &"Music"
 parameters/looping = true
 
 [connection signal="pressed" from="slides/2/shrilowNode/Shrilow/clickHim" to="." method="slideInteraction" binds= ["clickShrilow"]]

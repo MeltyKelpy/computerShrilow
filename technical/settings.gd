@@ -8,6 +8,42 @@ var settings = [
 	"desc":"General Settings",
 	},
 	{
+	"name":"Master Volume",
+	"id":"masterVolume",
+	"type":"bar",
+	"desc":"Control Master Volume.",
+	"value":1,
+	"max":8,
+	"min":0,
+	},
+	{
+	"name":"Music Volume",
+	"id":"musicVolume",
+	"type":"bar",
+	"desc":"Control Music Volume.",
+	"value":8,
+	"max":8,
+	"min":0,
+	},
+	{
+	"name":"SFX Volume",
+	"id":"sfxVolume",
+	"type":"bar",
+	"desc":"Control SFX Volume.",
+	"value":8,
+	"max":8,
+	"min":0,
+	},
+	{
+	"name":"Talk Sound Volume",
+	"id":"tsVolume",
+	"type":"bar",
+	"desc":"Control Talk Sound Volume.",
+	"value":8,
+	"max":8,
+	"min":0,
+	},
+	{
 	"name":"Menu Transitions",
 	"id":"menuTrans",
 	"type":"boolean",
@@ -143,12 +179,24 @@ func loadData():
 		var fileTimer = config.get_value("Settings", "fileTimer", false)
 		var saayoMode = config.get_value("Settings", "saayoMode", false)
 		var baldiMode = config.get_value("Settings", "baldiMode", false)
+		var masterVolume = config.get_value("Settings", "masterVolume", 1)
+		var musicVolume = config.get_value("Settings", "musicVolume", 1)
+		var sfxVolume = config.get_value("Settings", "sfxVolume", 1)
+		var tsVolume = config.get_value("Settings", "tsVolume", 1)
 		
 		Settings.settings[get_setting("kiwami")]["enabled?"] = kiwamiState
 		Settings.settings[get_setting("minesOptimization")]["enabled?"] = minesOptimization
 		Settings.settings[get_setting("jelliesOptimization")]["enabled?"] = jelliesOptimization
 		Settings.settings[get_setting("animationsOptimization")]["enabled?"] = animationOptimization
 		Settings.settings[get_setting("menuTrans")]["enabled?"] = menuTrans
+		Settings.settings[get_setting("fileTimer")]["enabled?"] = fileTimer
+		SoundBar.volume = masterVolume
+		var sfx_index = AudioServer.get_bus_index("SFX")
+		AudioServer.set_bus_volume_db(sfx_index, ((sfxVolume-4)*5)-10)
+		var ts_index = AudioServer.get_bus_index("TalkSounds")
+		AudioServer.set_bus_volume_db(ts_index, ((tsVolume-4)*5)-10)
+		var mus_index = AudioServer.get_bus_index("TalkSounds")
+		AudioServer.set_bus_volume_db(mus_index, ((musicVolume-4)*5)-10)
 		Settings.settings[get_setting("fileTimer")]["enabled?"] = fileTimer
 		Settings.settings[get_setting("saayo")]["enabled?"] = saayoMode
 		Settings.settings[get_setting("4baldi")]["enabled?"] = baldiMode
@@ -180,4 +228,8 @@ func saveData():
 	config.set_value("Settings", "fileTimer", Settings.settings[get_setting("fileTimer")]["enabled?"])
 	config.set_value("Settings", "saayoMode", Settings.settings[get_setting("saayo")]["enabled?"])
 	config.set_value("Settings", "baldiMode", Settings.settings[get_setting("4baldi")]["enabled?"])
+	config.set_value("Settings", "masterVolume", Settings.settings[get_setting("masterVolume")]["value"])
+	config.set_value("Settings", "musicVolume", Settings.settings[get_setting("musicVolume")]["value"])
+	config.set_value("Settings", "sfxVolume", Settings.settings[get_setting("sfxVolume")]["value"])
+	config.set_value("Settings", "tsVolume", Settings.settings[get_setting("tsVolume")]["value"])
 	config.save("user://settings.cfg")

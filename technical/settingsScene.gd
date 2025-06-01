@@ -28,10 +28,12 @@ func spawnSettings():
 func _process(_delta : float):
 	if Input.is_action_just_pressed("ui_cancel"):
 		Settings.saveData()
+		Settings.loadData()
 	$Description.text = FizzyDrink.descriptionSetting
 
 func kill():
 	Settings.saveData()
+	Settings.loadData()
 	for i in evil.size():
 		evil[i].queue_free()
 	evil.resize(0)

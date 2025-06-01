@@ -1577,15 +1577,18 @@ color = Color(0, 0, 0, 1)
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("32_fm4j0")
 volume_db = 5.428
+bus = &"Music"
 
 [node name="song" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("33_mskd6")
 volume_db = 5.428
+bus = &"Music"
 parameters/looping = true
 
 [node name="click" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("37_jprvy")
 volume_db = 5.428
+bus = &"SFX"
 parameters/looping = false
 
 [node name="intro" type="Node2D" parent="."]
@@ -1621,14 +1624,17 @@ show_percentage = false
 [node name="SFXCan" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("36_h5ho6")
 volume_db = 6.19
+bus = &"SFX"
 
 [node name="SFXPick" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("37_h5ho6")
 volume_db = 6.19
+bus = &"SFX"
 
 [node name="SFXScroll" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("37_wnp8d")
 volume_db = 0.952
+bus = &"SFX"
 
 [connection signal="pressed" from="stuff/Left/shit/interstate" to="." method="_on_interstate_pressed"]
 [connection signal="pressed" from="stuff/Left/shit/start" to="." method="_on_start_pressed"]

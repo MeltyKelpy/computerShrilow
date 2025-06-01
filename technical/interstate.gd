@@ -63,6 +63,7 @@ func loadData():
 		totalmoney = config.get_value("Stats", "totalMoney", 0)
 		totallost = config.get_value("Stats", "totalSpent", 0)
 		starslost = config.get_value("Stats", "starsLost", 0)
+		tutorialDone = config.get_value("Game", "tutorialOpened", false)
 		jelliesbought = config.get_value("Stats", "jelliesBought", 0)
 		plusones = config.get_value("Stats", "plusOnes", 0)
 

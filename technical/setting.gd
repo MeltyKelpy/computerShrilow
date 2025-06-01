@@ -9,10 +9,14 @@ var choices = {
 	"hello2":"hi guys",
 	}
 var multiChoiceChoice = 0
+var baseValue
 
 func _ready():
 	if uhmg != null:
 		$button.button_pressed = uhmg
+	
+	if type == "bar":
+		$Bar/HSlider.value = Settings.settings[ID]["value"]
 
 func _process(delta: float) -> void:
 	
@@ -30,6 +34,14 @@ func _process(delta: float) -> void:
 		$altName.visible = false
 		$button.disabled = false
 		$button.visible = true
+		$Title.visible = false
+	elif type == "bar":
+		Settings.settings[ID]["value"] = $Bar/HSlider.value
+		$Bar/HSlider.max_value = Settings.settings[ID]["max"]
+		$Bar.visible = true
+		$button.disabled = true
+		$button.visible = false
+		$altName.visible = true
 		$Title.visible = false
 	elif type == "multiChoice":
 		keys = choices.keys()
@@ -70,3 +82,7 @@ func _on_right_pressed() -> void:
 
 func _on_button_pressed() -> void:
 	Settings.saveData()
+
+func _on_h_slider_value_changed(value: float) -> void:
+	Settings.saveData()
+	Settings.loadData()

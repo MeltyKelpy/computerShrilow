@@ -739,6 +739,7 @@ autoplay = "opening"
 [node name="paper" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("18_g6gna")
 volume_db = -14.667
+bus = &"SFX"
 
 [connection signal="pressed" from="mainPageButton" to="." method="tabPressed" binds= ["mainpage"]]
 [connection signal="pressed" from="entriesButton" to="." method="tabPressed" binds= ["entries"]]

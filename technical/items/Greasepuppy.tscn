@@ -15,6 +15,7 @@ stream = ExtResource("3_hnw2g")
 volume_db = -10.895
 max_distance = 800.0
 attenuation = 1.31951
+bus = &"SFX"
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.6
