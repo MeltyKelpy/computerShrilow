@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://dwlqnfve7vj6j"]
+[gd_scene load_steps=42 format=3 uid="uid://dwlqnfve7vj6j"]
 
 [ext_resource type="Script" uid="uid://b1txob5ddclte" path="res://scenes/tutorialnew.gd" id="1_ph3nu"]
 [ext_resource type="Texture2D" uid="uid://b8ft2a3ways43" path="res://assets/images/tutorial/thelows.png" id="2_4kmhl"]
@@ -24,6 +24,9 @@
 [ext_resource type="Texture2D" uid="uid://bc36iksrorduf" path="res://assets/images/ui/notebook.png" id="17_15kfc"]
 [ext_resource type="Texture2D" uid="uid://bcyflh8l81trx" path="res://assets/images/tutorial/slideshowImages/notebook.png" id="18_7a100"]
 [ext_resource type="Texture2D" uid="uid://8e0gyo2yjajj" path="res://assets/images/ui/mines.png" id="19_feaue"]
+[ext_resource type="Texture2D" uid="uid://b17wod7uw7ut5" path="res://assets/images/areas/mines/minesLevel.png" id="20_210s6"]
+[ext_resource type="Texture2D" uid="uid://iu3eruu7vpxl" path="res://assets/images/areas/mines/Shrilow0.png" id="21_qbchm"]
+[ext_resource type="Texture2D" uid="uid://c3j11nto3a0s3" path="res://assets/images/tutorial/slideshowImages/minerInfo.png" id="22_gxgfo"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6yjpi"]
 
@@ -46,6 +49,33 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wr8iv"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e13mp"]
+
+[sub_resource type="Animation" id="Animation_cq4me"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("lgoo:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.121569, 0.0470588, 0, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_4kmhl"]
 resource_name = "pop"
@@ -73,33 +103,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(0.121569, 0.0470588, 0, 1), Color(0.121569, 0.0470588, 0, 1), Color(0.121569, 0.0470588, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_cq4me"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("lgoo:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.121569, 0.0470588, 0, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6yjpi"]
@@ -372,6 +375,7 @@ text = "outfits arent just for looks, they also provide \"buffs\"!"
 horizontal_alignment = 1
 
 [node name="AltText" type="Label" parent="slides/4/Subtitle2"]
+layout_mode = 0
 offset_top = 48.0
 offset_right = 1152.0
 offset_bottom = 86.0
@@ -457,6 +461,7 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="Occupation" type="Label" parent="slides/5/datelow/Name"]
+layout_mode = 0
 offset_left = -3.0
 offset_top = 48.0
 offset_right = 339.0
@@ -489,6 +494,7 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="Occupation" type="Label" parent="slides/5/gplow/Name"]
+layout_mode = 0
 offset_left = -3.0
 offset_top = 41.0
 offset_right = 339.0
@@ -524,6 +530,7 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="Occupation" type="Label" parent="slides/5/riglow/Name"]
+layout_mode = 0
 offset_left = -3.0
 offset_top = 48.0
 offset_right = 339.0
@@ -667,6 +674,7 @@ text = "Autoclick"
 horizontal_alignment = 1
 
 [node name="AltText" type="Label" parent="slides/8/shit2/autoclick"]
+layout_mode = 0
 offset_left = -46.0
 offset_top = 52.0
 offset_right = 167.0
@@ -689,6 +697,7 @@ text = "Plus One"
 horizontal_alignment = 1
 
 [node name="AltText" type="Label" parent="slides/8/shit2/plusone"]
+layout_mode = 0
 offset_left = -48.0
 offset_top = 52.0
 offset_right = 166.0
@@ -712,6 +721,7 @@ text = "Plus One (auto)"
 horizontal_alignment = 1
 
 [node name="AltText" type="Label" parent="slides/8/shit2/plusoneauto"]
+layout_mode = 0
 offset_left = -7.0
 offset_top = 52.0
 offset_right = 207.0
@@ -734,6 +744,7 @@ text = "Greasepuppy"
 horizontal_alignment = 1
 
 [node name="AltText" type="Label" parent="slides/8/shit2/GP"]
+layout_mode = 0
 offset_left = -7.0
 offset_top = 52.0
 offset_right = 207.0
@@ -876,41 +887,125 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="13" type="Node2D" parent="slides"]
+visible = false
 
 [node name="Subtitle" type="Label" parent="slides/13"]
-offset_top = 122.0
-offset_right = 1152.0
-offset_bottom = 177.0
+visible = false
+offset_left = 5.0
+offset_top = 56.0
+offset_right = 1157.0
+offset_bottom = 111.0
 theme = ExtResource("3_cq4me")
 theme_override_font_sizes/font_size = 46
-text = "Next..."
+text = "The MINES are where you'll lose all your morality!"
 horizontal_alignment = 1
-
-[node name="img" type="Sprite2D" parent="slides/13"]
-position = Vector2(575, 314)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("19_feaue")
 
 [node name="Subtitle2" type="Label" parent="slides/13"]
-offset_top = 452.0
-offset_right = 1152.0
-offset_bottom = 507.0
+visible = false
+offset_left = 5.0
+offset_top = 121.0
+offset_right = 1157.0
+offset_bottom = 176.0
 theme = ExtResource("3_cq4me")
 theme_override_font_sizes/font_size = 46
-text = "The MINES!"
+text = "In the mines, you can buy MINERS who will mine for USD!"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="img" type="Sprite2D" parent="slides/13"]
+visible = false
+position = Vector2(498, 481)
+texture = ExtResource("20_210s6")
+
+[node name="Subtitle3" type="Label" parent="slides/13"]
+visible = false
+offset_left = 5.0
+offset_top = 486.0
+offset_right = 1157.0
+offset_bottom = 541.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 46
+text = "THIS is a mine! you'll be able to see your miners mining in one of these."
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="14" type="Node2D" parent="slides"]
+visible = false
+
+[node name="Subtitle" type="Label" parent="slides/14"]
+visible = false
+offset_left = 137.0
+offset_top = 104.0
+offset_right = 424.0
+offset_bottom = 159.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 46
+text = "This is a MINER."
 horizontal_alignment = 1
 
-[node name="AltText" type="Label" parent="slides/13"]
-offset_left = 11.0
-offset_top = 486.0
-offset_right = 1163.0
-offset_bottom = 551.0
+[node name="img" type="Sprite2D" parent="slides/14"]
+visible = false
+position = Vector2(274, 339)
+texture = ExtResource("21_qbchm")
+
+[node name="Subtitle2" type="Label" parent="slides/14"]
+visible = false
+offset_left = 130.0
+offset_top = 160.0
+offset_right = 417.0
+offset_bottom = 215.0
 theme = ExtResource("3_cq4me")
-theme_override_colors/font_color = Color(0.619608, 0.537255, 0.482353, 1)
-theme_override_font_sizes/font_size = 35
-text = "Getting to some longer ones..."
+theme_override_font_sizes/font_size = 46
+text = "its shrilow! how cool!"
 horizontal_alignment = 1
-vertical_alignment = 1
+
+[node name="Subtitle3" type="Label" parent="slides/14"]
+visible = false
+offset_left = 688.0
+offset_top = 51.0
+offset_right = 994.0
+offset_bottom = 106.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 46
+text = "This is an upgrade box"
+horizontal_alignment = 1
+
+[node name="img2" type="Sprite2D" parent="slides/14"]
+visible = false
+position = Vector2(839, 208)
+texture = ExtResource("22_gxgfo")
+
+[node name="Subtitle4" type="Label" parent="slides/14"]
+visible = false
+offset_left = 689.0
+offset_top = 309.0
+offset_right = 995.0
+offset_bottom = 468.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 46
+text = "You click on the green
+prices to upgrade the
+respective stat!"
+horizontal_alignment = 1
+
+[node name="Subtitle5" type="Label" parent="slides/14"]
+visible = false
+offset_left = 594.0
+offset_top = 470.0
+offset_right = 1116.0
+offset_bottom = 521.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 46
+text = "you can only upgrade a miner 4 times."
+horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="slides/14"]
+wait_time = 0.7
+one_shot = true
+
+[node name="Timer2" type="Timer" parent="slides/14"]
+wait_time = 0.3
+one_shot = true
 
 [node name="pageNum" type="Label" parent="."]
 offset_left = 12.0
@@ -998,6 +1093,8 @@ parameters/looping = true
 
 [connection signal="pressed" from="slides/2/shrilowNode/Shrilow/clickHim" to="." method="slideInteraction" binds= ["clickShrilow"]]
 [connection signal="timeout" from="slides/2/shrilowNode/Shrilow/faceRevert" to="." method="_on_face_revert_timeout"]
+[connection signal="timeout" from="slides/14/Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="slides/14/Timer2" to="." method="_on_timer_2_timeout"]
 [connection signal="pressed" from="TheLows/BackPage" to="." method="_slide_swap" binds= [-1]]
 [connection signal="pressed" from="TheLows/NextPage" to="." method="_slide_swap" binds= [1]]
 [connection signal="animation_finished" from="covah/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -17,6 +17,7 @@ var slideAttributes = {
 	11:["animated", false],
 	12:["animated", false],
 	13:["animated", false],
+	14:["animated", false],
 	}
 
 var canInteractWithSlide = false
@@ -172,6 +173,35 @@ func _animated_slide_handling(slide):
 			$"slides/12/AltText".visible = true
 			await get_tree().create_timer(2).timeout
 			_exist_the_lows()
+		13:
+			await get_tree().create_timer(1).timeout
+			$"slides/13/Subtitle".visible = true
+			await get_tree().create_timer(2).timeout
+			$"slides/13/Subtitle2".visible = true
+			await get_tree().create_timer(2).timeout
+			$"slides/13/img".visible = true
+			await get_tree().create_timer(2).timeout
+			$"slides/13/Subtitle3".visible = true
+			await get_tree().create_timer(2).timeout
+			_exist_the_lows()
+		14:
+			await get_tree().create_timer(1).timeout
+			$"slides/14/Subtitle".visible = true
+			await get_tree().create_timer(2).timeout
+			$"slides/14/img".visible = true
+			$"slides/14/Timer".start()
+			await get_tree().create_timer(2).timeout
+			$"slides/14/Subtitle2".visible = true
+			await get_tree().create_timer(2).timeout
+			$"slides/14/Subtitle3".visible = true
+			await get_tree().create_timer(2).timeout
+			$"slides/14/img2".visible = true
+			await get_tree().create_timer(2).timeout
+			$"slides/14/Subtitle4".visible = true
+			await get_tree().create_timer(2).timeout
+			$"slides/14/Subtitle5".visible = true
+			await get_tree().create_timer(2).timeout
+			_exist_the_lows()
 
 func _exist_the_lows():
 	var tween = create_tween()
@@ -258,3 +288,11 @@ func slideInteraction(interaction: String) -> void:
 func _on_face_revert_timeout() -> void:
 	$"slides/2/shrilowNode/Shrilow".texture = load("res://assets/images/computershrilows/shrilowBases/shrilowBase.png")
 	$"slides/2/shrilowNode/Shrilow/ShrilowFace".visible = true
+
+func _on_timer_timeout() -> void:
+	$"slides/14/img".texture = load("res://assets/images/areas/mines/Shrilow1.png")
+	$"slides/14/Timer2".start()
+
+func _on_timer_2_timeout() -> void:
+	$"slides/14/img".texture = load("res://assets/images/areas/mines/Shrilow0.png")
+	$"slides/14/Timer".start()
