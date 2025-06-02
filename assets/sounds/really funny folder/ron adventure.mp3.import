@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b50mdq2xcl1mw"
+path="res://.godot/imported/ron adventure.mp3-a99c0f0157c69bd99d8e2928e4e08f2a.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/really funny folder/ron adventure.mp3"
+dest_files=["res://.godot/imported/ron adventure.mp3-a99c0f0157c69bd99d8e2928e4e08f2a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
