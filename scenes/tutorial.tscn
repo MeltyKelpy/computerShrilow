@@ -1689,53 +1689,80 @@ visible = false
 [node name="Subtitle" type="Label" parent="slides/22"]
 visible = false
 offset_left = -3.0
-offset_top = 184.0
+offset_top = 194.0
 offset_right = 1149.0
-offset_bottom = 239.0
+offset_bottom = 249.0
 theme = ExtResource("3_cq4me")
 theme_override_font_sizes/font_size = 46
-text = "Well, that should be all you need to know!"
+text = "Before we end this, theres a few bits of misc info I'd like to give!"
 horizontal_alignment = 1
 
 [node name="Subtitle2" type="Label" parent="slides/22"]
 visible = false
 offset_left = -3.0
-offset_top = 249.0
+offset_top = 275.0
 offset_right = 1149.0
-offset_bottom = 304.0
+offset_bottom = 413.0
 theme = ExtResource("3_cq4me")
-theme_override_font_sizes/font_size = 46
-text = "I wish you luck in your clicking endeavours!"
-horizontal_alignment = 1
-
-[node name="Subtitle3" type="Label" parent="slides/22"]
-visible = false
-offset_left = -3.0
-offset_top = 366.0
-offset_right = 1149.0
-offset_bottom = 421.0
-theme = ExtResource("3_cq4me")
-theme_override_font_sizes/font_size = 46
-text = "and dont forget..."
+theme_override_font_sizes/font_size = 41
+text = "- You can click people to talk to them! this applies to ANY shopkeep. 
+(right-click for shrilow.)
+- You can pause by pressing ESC."
 horizontal_alignment = 1
 
 [node name="23" type="Node2D" parent="slides"]
 visible = false
 
-[node name="ColorRect3" type="ColorRect" parent="slides/23"]
+[node name="Subtitle" type="Label" parent="slides/23"]
+visible = false
+offset_left = -3.0
+offset_top = 209.0
+offset_right = 1149.0
+offset_bottom = 264.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 46
+text = "Alright, with that, its time to send you off!"
+horizontal_alignment = 1
+
+[node name="Subtitle3" type="Label" parent="slides/23"]
+visible = false
+offset_left = -3.0
+offset_top = 266.0
+offset_right = 1149.0
+offset_bottom = 321.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 46
+text = "I wish you luck in your clicking endeavours!"
+horizontal_alignment = 1
+
+[node name="Subtitle2" type="Label" parent="slides/23"]
+visible = false
+offset_left = -3.0
+offset_top = 393.0
+offset_right = 1149.0
+offset_bottom = 444.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 47
+text = "And dont forget..."
+horizontal_alignment = 1
+
+[node name="24" type="Node2D" parent="slides"]
+visible = false
+
+[node name="ColorRect3" type="ColorRect" parent="slides/24"]
 visible = false
 offset_right = 1152.0
 offset_bottom = 648.0
 mouse_filter = 2
 color = Color(0.121569, 0.0470588, 0, 1)
 
-[node name="qteFace" type="Sprite2D" parent="slides/23"]
+[node name="qteFace" type="Sprite2D" parent="slides/24"]
 visible = false
 modulate = Color(1, 1, 1, 0)
 position = Vector2(576, 324)
 texture = ExtResource("40_7artv")
 
-[node name="Subtitle" type="Label" parent="slides/23"]
+[node name="Subtitle" type="Label" parent="slides/24"]
 visible = false
 offset_left = 378.0
 offset_top = 301.0
@@ -1748,12 +1775,12 @@ theme_override_font_sizes/font_size = 40
 text = "Dont disappoint me."
 horizontal_alignment = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="slides/23"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="slides/24"]
 libraries = {
 &"": SubResource("AnimationLibrary_7kfc1")
 }
 
-[node name="sfx" type="AudioStreamPlayer" parent="slides/23"]
+[node name="sfx" type="AudioStreamPlayer" parent="slides/24"]
 stream = ExtResource("25_4gq6d")
 volume_db = 8.376
 bus = &"SFX"
@@ -1862,7 +1889,7 @@ parameters/looping = true
 [connection signal="timeout" from="slides/2/shrilowNode/Shrilow/faceRevert" to="." method="_on_face_revert_timeout"]
 [connection signal="timeout" from="slides/14/Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="slides/14/Timer2" to="." method="_on_timer_2_timeout"]
-[connection signal="finished" from="slides/23/sfx" to="." method="_on_sfx_finished"]
+[connection signal="finished" from="slides/24/sfx" to="." method="_on_sfx_finished"]
 [connection signal="pressed" from="TheLows/BackPage" to="." method="_slide_swap" binds= [-1]]
 [connection signal="pressed" from="TheLows/NextPage" to="." method="_slide_swap" binds= [1]]
 [connection signal="animation_finished" from="covah/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

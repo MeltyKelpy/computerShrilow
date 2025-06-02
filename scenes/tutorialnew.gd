@@ -26,6 +26,7 @@ var slideAttributes = {
 	20:["animated", false],
 	22:["animated", false],
 	23:["animated", false],
+	24:["animated", false],
 	}
 
 var canInteractWithSlide = false
@@ -301,16 +302,23 @@ func _animated_slide_handling(slide):
 			await get_tree().create_timer(2).timeout
 			$"slides/22/Subtitle2".visible = true
 			await get_tree().create_timer(2).timeout
-			$"slides/22/Subtitle3".visible = true
-			await get_tree().create_timer(2).timeout
 			_slide_swap(1)
 		23:
-			$pageNum.visible = false
-			$music.stop()
-			$"slides/23/ColorRect3".visible = true
+			await get_tree().create_timer(1).timeout
 			$"slides/23/Subtitle".visible = true
 			await get_tree().create_timer(2).timeout
-			$"slides/23/AnimationPlayer".play("popout")
+			$"slides/23/Subtitle3".visible = true
+			await get_tree().create_timer(2).timeout
+			$"slides/23/Subtitle2".visible = true
+			await get_tree().create_timer(2).timeout
+			_slide_swap(1)
+		24:
+			$pageNum.visible = false
+			$music.stop()
+			$"slides/24/ColorRect3".visible = true
+			$"slides/24/Subtitle".visible = true
+			await get_tree().create_timer(2).timeout
+			$"slides/24/AnimationPlayer".play("popout")
 
 func _exist_the_lows():
 	var tween = create_tween()
