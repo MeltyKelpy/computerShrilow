@@ -18,6 +18,14 @@ var slideAttributes = {
 	12:["animated", false],
 	13:["animated", false],
 	14:["animated", false],
+	15:["animated", false],
+	16:["animated", false],
+	17:["animated", false],
+	18:["animated", false],
+	19:["animated", false],
+	20:["animated", false],
+	22:["animated", false],
+	23:["animated", false],
 	}
 
 var canInteractWithSlide = false
@@ -202,6 +210,107 @@ func _animated_slide_handling(slide):
 			$"slides/14/Subtitle5".visible = true
 			await get_tree().create_timer(2).timeout
 			_exist_the_lows()
+		15:
+			await get_tree().create_timer(1).timeout
+			$"slides/15/Subtitle".visible = true
+			await get_tree().create_timer(2).timeout
+			$"slides/15/img".visible = true
+			await get_tree().create_timer(2).timeout
+			$"slides/15/AltText".visible = true
+			await get_tree().create_timer(2).timeout
+			$"slides/15/Subtitle2".visible = true
+			await get_tree().create_timer(2).timeout
+			$"slides/15/Subtitle3".visible = true
+			await get_tree().create_timer(2).timeout
+			$"slides/15/Subtitle4".visible = true
+			await get_tree().create_timer(2).timeout
+			_exist_the_lows()
+		16:
+			await get_tree().create_timer(1).timeout
+			$"slides/16/Subtitle".visible = true
+			await get_tree().create_timer(2).timeout
+			$sfx.stream = load("res://assets/sounds/poppeer.ogg")
+			$sfx.play()
+			$"slides/16/img".visible = true
+			await get_tree().create_timer(2).timeout
+			$"slides/16/Subtitle2".visible = true
+			await get_tree().create_timer(2).timeout
+			$"slides/16/AltText".visible = true
+			await get_tree().create_timer(2).timeout
+			_exist_the_lows()
+		17:
+			await get_tree().create_timer(1).timeout
+			$"slides/17/Subtitle".visible = true
+			await get_tree().create_timer(2).timeout
+			$"slides/17/img".visible = true
+			await get_tree().create_timer(2).timeout
+			$"slides/17/Subtitle2".visible = true
+			await get_tree().create_timer(2).timeout
+			$"slides/17/Subtitle3".visible = true
+			await get_tree().create_timer(2).timeout
+			$"slides/17/img2".visible = true
+			await get_tree().create_timer(2).timeout
+			$"slides/17/Subtitle4".visible = true
+			await get_tree().create_timer(2).timeout
+			$"slides/17/AltText".visible = true
+			await get_tree().create_timer(2).timeout
+			_exist_the_lows()
+		18:
+			await get_tree().create_timer(1).timeout
+			$"slides/18/Subtitle".visible = true
+			await get_tree().create_timer(2).timeout
+			$"slides/18/img".visible = true
+			await get_tree().create_timer(2).timeout
+			$"slides/18/Subtitle2".visible = true
+			await get_tree().create_timer(2).timeout
+			$"slides/18/AltText".visible = true
+			await get_tree().create_timer(2).timeout
+			_exist_the_lows()
+		19:
+			await get_tree().create_timer(1).timeout
+			$"slides/19/Subtitle".visible = true
+			await get_tree().create_timer(2).timeout
+			$"slides/19/img".visible = true
+			await get_tree().create_timer(2).timeout
+			$"slides/19/Subtitle2".visible = true
+			await get_tree().create_timer(2).timeout
+			$"slides/19/Subtitle3".visible = true
+			await get_tree().create_timer(2).timeout
+			$"slides/19/Subtitle4".visible = true
+			await get_tree().create_timer(2).timeout
+			_exist_the_lows()
+		20:
+			await get_tree().create_timer(1).timeout
+			$"slides/20/Subtitle".visible = true
+			await get_tree().create_timer(2).timeout
+			$"slides/20/tvBack".visible = true
+			$"slides/20/img".visible = true
+			await get_tree().create_timer(2).timeout
+			$"slides/20/Subtitle2".visible = true
+			await get_tree().create_timer(2).timeout
+			$"slides/20/AltText".visible = true
+			await get_tree().create_timer(2).timeout
+			$"slides/20/Subtitle3".visible = true
+			await get_tree().create_timer(2).timeout
+			$"slides/20/img2".visible = true
+			await get_tree().create_timer(2).timeout
+			_exist_the_lows()
+		22:
+			await get_tree().create_timer(1).timeout
+			$"slides/22/Subtitle".visible = true
+			await get_tree().create_timer(2).timeout
+			$"slides/22/Subtitle2".visible = true
+			await get_tree().create_timer(2).timeout
+			$"slides/22/Subtitle3".visible = true
+			await get_tree().create_timer(2).timeout
+			_slide_swap(1)
+		23:
+			$pageNum.visible = false
+			$music.stop()
+			$"slides/23/ColorRect3".visible = true
+			$"slides/23/Subtitle".visible = true
+			await get_tree().create_timer(2).timeout
+			$"slides/23/AnimationPlayer".play("popout")
 
 func _exist_the_lows():
 	var tween = create_tween()
@@ -256,6 +365,8 @@ func _slide_swap(amount):
 	if slideAttributes[curSlide][0] == "animated" and slideAttributes[curSlide][1] == false:
 		$TheLows.position.y = 122.0
 		_animated_slide_handling(curSlide)
+	else:
+		_exist_the_lows()
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	_slide_swap(0)
@@ -264,7 +375,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	$music.play()
 
 func slideInteraction(interaction: String) -> void:
-	if interaction == "clickShrilow":
+	if interaction == "clickShrilow" and canInteractWithSlide == true:
 		$"slides/2/shrilowNode/Shrilow/Squeak".play()
 		$"slides/2/shrilowNode".scale.x = 1.2
 		$"slides/2/shrilowNode".scale.y = 0.85
@@ -296,3 +407,6 @@ func _on_timer_timeout() -> void:
 func _on_timer_2_timeout() -> void:
 	$"slides/14/img".texture = load("res://assets/images/areas/mines/Shrilow0.png")
 	$"slides/14/Timer".start()
+
+func _on_sfx_finished() -> void:
+	get_tree().change_scene_to_file("res://scenes/mainMenu.tscn")

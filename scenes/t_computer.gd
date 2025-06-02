@@ -1255,6 +1255,8 @@ func _ready():
 
 func _process(_delta : float) -> void:
 	
+	$Shrilow/Control/ShrilowBorderShitFUCKYOUGODOT.visible = $Shrilow/Control/Shrilow.visible
+	
 	if FizzyDrink.properlySeled == "GPLow":
 		$ShrilowScreen/GPFirst.wait_time = 0.6
 	else:
@@ -1493,7 +1495,7 @@ func _process(_delta : float) -> void:
 			$Shop/type.pitch_scale = 0.5
 		if $BlackMarket/talk.visible_ratio > 1.0:
 			$BlackMarket/talk.visible_ratio = 1.0
-		if $BlackMarket/tlk.visible_ratio < 1.0:
+		if $BlackMarket/talk.visible_ratio < 1.0:
 			if $BlackMarket/talk.visible_ratio < 0.9:
 				$Shop/type.play()
 			var numToUse

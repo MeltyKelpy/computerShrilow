@@ -1,6 +1,6 @@
 extends TextureRect
 
-var naame : String = "Floor"
+@export var naame : String = "Floor"
 var type = ""
 var jelly = 0
 var maxJells = 0
@@ -20,8 +20,9 @@ func _process(delta: float) -> void:
 		$jellies.text = ""
 
 func _on_button_pressed() -> void:
-	assignedElevator.loco = $name.text
-	assignedElevator.loco_id = ID
+	if assignedElevator != null:
+		assignedElevator.loco = $name.text
+		assignedElevator.loco_id = ID
 
 func _on_name_text_changed(new_text: String) -> void:
 	if $name.text != "Lobby":

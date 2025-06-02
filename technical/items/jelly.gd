@@ -10,6 +10,7 @@ extends Node2D
 var hi = true
 @export var room = 0
 @export var id = 0
+@export var tutorial = false
 var rng = RandomNumberGenerator.new()
 
 @export var jellyState = ""
@@ -124,6 +125,11 @@ func _physics_process(delta: float) -> void:
 		rigid_body_2d.set_collision_mask_value(2, false)
 	else:
 		rigid_body_2d.set_collision_mask_value(2, true)
+	
+	if visible == false:
+		$RigidBody2D/Squeak.volume_db = -80
+	else:
+		$RigidBody2D/Squeak.volume_db = -35.362
 	
 	if jelly == "Phantom Jelly":
 		money = round(1 + (1 * (ItemValues.marketItems[id]["CurUpgrade"])))

@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://dwlqnfve7vj6j"]
+[gd_scene load_steps=67 format=3 uid="uid://dwlqnfve7vj6j"]
 
 [ext_resource type="Script" uid="uid://b1txob5ddclte" path="res://scenes/tutorialnew.gd" id="1_ph3nu"]
 [ext_resource type="Texture2D" uid="uid://b8ft2a3ways43" path="res://assets/images/tutorial/thelows.png" id="2_4kmhl"]
@@ -27,6 +27,26 @@
 [ext_resource type="Texture2D" uid="uid://b17wod7uw7ut5" path="res://assets/images/areas/mines/minesLevel.png" id="20_210s6"]
 [ext_resource type="Texture2D" uid="uid://iu3eruu7vpxl" path="res://assets/images/areas/mines/Shrilow0.png" id="21_qbchm"]
 [ext_resource type="Texture2D" uid="uid://c3j11nto3a0s3" path="res://assets/images/tutorial/slideshowImages/minerInfo.png" id="22_gxgfo"]
+[ext_resource type="Texture2D" uid="uid://bnnvf1stoehqa" path="res://assets/images/areas/mines/upgradr/upgradeBase.png" id="23_sbw1o"]
+[ext_resource type="Texture2D" uid="uid://xk5uw86f11md" path="res://assets/images/areas/mines/upgradr/upGrade.png" id="24_06rsu"]
+[ext_resource type="AudioStream" uid="uid://br1hximhwnfxg" path="res://assets/sounds/dont disapoint me..ogg" id="25_4gq6d"]
+[ext_resource type="Texture2D" uid="uid://jlc36tcyv84" path="res://assets/images/ui/jellies.png" id="25_mjrbb"]
+[ext_resource type="Texture2D" uid="uid://c3ehplshjo8fq" path="res://assets/images/areas/jellies/gumballMachine.png" id="26_6wmvi"]
+[ext_resource type="Texture2D" uid="uid://b2hc0jmvf0qfi" path="res://assets/images/jellies/Jelly/jelly0.png" id="27_7muwt"]
+[ext_resource type="Shader" uid="uid://ui13ary1n2i5" path="res://technical/glitch_trans.gdshader" id="28_06rsu"]
+[ext_resource type="Texture2D" uid="uid://d3d3t8abbtv8h" path="res://assets/images/ui/storage.png" id="28_liift"]
+[ext_resource type="Texture2D" uid="uid://ch5divq2tt5lo" path="res://assets/images/areas/jellies/melvin.png" id="29_2urjh"]
+[ext_resource type="Texture2D" uid="uid://bymsocpxxxn4o" path="res://assets/images/areas/jellies/receptionDesk.png" id="30_x6vwi"]
+[ext_resource type="Texture2D" uid="uid://5rxkas8dxnjy" path="res://assets/images/areas/jellies/bell.png" id="31_coeiu"]
+[ext_resource type="Texture2D" uid="uid://cpgu3n66srcn6" path="res://assets/images/areas/jellies/journal.png" id="32_16x21"]
+[ext_resource type="Texture2D" uid="uid://dxgbsopr2uk0l" path="res://assets/images/areas/jellies/blank.png" id="33_2urjh"]
+[ext_resource type="Theme" uid="uid://eobcj5e6lxtm" path="res://technical/terminal.tres" id="34_x6vwi"]
+[ext_resource type="Texture2D" uid="uid://0km8ed2j0sus" path="res://assets/images/areas/jellies/IS.png" id="35_coeiu"]
+[ext_resource type="PackedScene" uid="uid://4o71hxuqkoa0" path="res://technical/jellies/floor.tscn" id="35_x6vwi"]
+[ext_resource type="Texture2D" uid="uid://bwbx2j1d11lbj" path="res://assets/images/areas/jellies/elevator.png" id="37_coeiu"]
+[ext_resource type="PackedScene" uid="uid://bvxn7n144a812" path="res://technical/items/jelly.tscn" id="38_16x21"]
+[ext_resource type="Texture2D" uid="uid://cgy3jm8xbvhc7" path="res://assets/images/tutorial/jellybox.png" id="39_edwa4"]
+[ext_resource type="Texture2D" uid="uid://d3hcoxwwmb0kx" path="res://assets/images/tutorial/QTEfade.png" id="40_7artv"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6yjpi"]
 
@@ -49,6 +69,142 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wr8iv"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e13mp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_edwa4"]
+size = Vector2(1258, 231)
+
+[sub_resource type="Animation" id="Animation_4gq6d"]
+resource_name = "popout"
+length = 4.9
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../ColorRect2:material:shader_parameter/fade")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 2.7, 3.51694, 4.03333, 4.6, 4.86667),
+"transitions": PackedFloat32Array(7.72747, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.00833559, 0.021, 0.00833559, 0.0, 0.122]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sfx:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333334),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect3:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0666667, 4.83333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.121569, 0.0470588, 0, 1), Color(0, 0, 0, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("qteFace:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(4.03333, 4.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.407843)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../../projecterhum:volume_db")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.06667, 4.03333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-10.363, -80.0]
+}
+
+[sub_resource type="Animation" id="Animation_mjrbb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../ColorRect2:material:shader_parameter/fade")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sfx:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect3:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.121569, 0.0470588, 0, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("qteFace:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../../projecterhum:volume_db")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-10.363]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7kfc1"]
+_data = {
+&"RESET": SubResource("Animation_mjrbb"),
+&"popout": SubResource("Animation_4gq6d")
+}
 
 [sub_resource type="Animation" id="Animation_cq4me"]
 length = 0.001
@@ -111,12 +267,22 @@ _data = {
 &"pop": SubResource("Animation_4kmhl")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4gq6d"]
+shader = ExtResource("28_06rsu")
+shader_parameter/shake_power = 1.0
+shader_parameter/shake_block_size = 100.0
+shader_parameter/fade = 0.0
+shader_parameter/direction_r = Vector2(1, 0)
+shader_parameter/direction_g = Vector2(0.4, 1)
+shader_parameter/direction_b = Vector2(-0.7, -0.3)
+
 [node name="Tutorial" type="Node2D"]
 script = ExtResource("1_ph3nu")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1152.0
 offset_bottom = 648.0
+mouse_filter = 2
 color = Color(1, 0.909804, 0.854902, 1)
 
 [node name="slides" type="Node2D" parent="."]
@@ -1007,6 +1173,591 @@ one_shot = true
 wait_time = 0.3
 one_shot = true
 
+[node name="15" type="Node2D" parent="slides"]
+visible = false
+
+[node name="Subtitle" type="Label" parent="slides/15"]
+visible = false
+offset_left = 104.0
+offset_top = 146.0
+offset_right = 487.0
+offset_bottom = 201.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 46
+text = "This is the Mine Upgrade UI!"
+horizontal_alignment = 1
+
+[node name="img" type="Sprite2D" parent="slides/15"]
+visible = false
+position = Vector2(293, 335)
+texture = ExtResource("23_sbw1o")
+
+[node name="img" type="Sprite2D" parent="slides/15/img"]
+position = Vector2(0, -53)
+texture = ExtResource("24_06rsu")
+
+[node name="AltText" type="Label" parent="slides/15"]
+visible = false
+offset_left = 108.0
+offset_top = 424.0
+offset_right = 480.0
+offset_bottom = 489.0
+theme = ExtResource("3_cq4me")
+theme_override_colors/font_color = Color(0.619608, 0.537255, 0.482353, 1)
+theme_override_font_sizes/font_size = 35
+text = "Yes, you can upgrade the mines too!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Subtitle2" type="Label" parent="slides/15"]
+visible = false
+offset_left = 524.0
+offset_top = 37.0
+offset_right = 1100.0
+offset_bottom = 142.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 46
+text = "Upgrading a Mine increases its minerSpeed and minerMoney Multiplers!"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Subtitle3" type="Label" parent="slides/15"]
+visible = false
+offset_left = 646.0
+offset_top = 160.0
+offset_right = 1010.0
+offset_bottom = 409.0
+theme = ExtResource("3_cq4me")
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0.321569, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Level 1                             Level 2
+Speed = x1                     Speed = x1.5      
+Money = x1.5                Money = x1.5
+
+Level 3                             Level 4
+Speed = x1.5                 Speed = x2
+Money = x2                   Money = x2"
+
+[node name="Subtitle4" type="Label" parent="slides/15"]
+visible = false
+offset_left = 565.0
+offset_top = 429.0
+offset_right = 1087.0
+offset_bottom = 534.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 46
+text = "it may not seem like much, but it
+makes a huge difference!"
+horizontal_alignment = 1
+
+[node name="16" type="Node2D" parent="slides"]
+visible = false
+
+[node name="Subtitle" type="Label" parent="slides/16"]
+visible = false
+offset_top = 122.0
+offset_right = 1152.0
+offset_bottom = 177.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 46
+text = "Next..."
+horizontal_alignment = 1
+
+[node name="img" type="Sprite2D" parent="slides/16"]
+visible = false
+position = Vector2(575, 314)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("25_mjrbb")
+
+[node name="Subtitle2" type="Label" parent="slides/16"]
+visible = false
+offset_top = 452.0
+offset_right = 1152.0
+offset_bottom = 507.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 46
+text = "The DAYCARE!"
+horizontal_alignment = 1
+
+[node name="AltText" type="Label" parent="slides/16"]
+visible = false
+offset_left = 2.0
+offset_top = 484.0
+offset_right = 1154.0
+offset_bottom = 549.0
+theme = ExtResource("3_cq4me")
+theme_override_colors/font_color = Color(0.619608, 0.537255, 0.482353, 1)
+theme_override_font_sizes/font_size = 35
+text = "This one is a doozy! (its long)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="17" type="Node2D" parent="slides"]
+visible = false
+
+[node name="Subtitle" type="Label" parent="slides/17"]
+visible = false
+offset_left = 128.0
+offset_top = 115.0
+offset_right = 457.0
+offset_bottom = 170.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 46
+text = "This is a Gumball Machine!"
+horizontal_alignment = 1
+
+[node name="img" type="Sprite2D" parent="slides/17"]
+visible = false
+position = Vector2(289, 346)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("26_6wmvi")
+
+[node name="Subtitle2" type="Label" parent="slides/17"]
+visible = false
+offset_left = 31.0
+offset_top = 167.0
+offset_right = 555.0
+offset_bottom = 210.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 39
+text = "You can buy Jellies for your daycare at these!"
+horizontal_alignment = 1
+
+[node name="Subtitle3" type="Label" parent="slides/17"]
+visible = false
+offset_left = 675.0
+offset_top = 115.0
+offset_right = 1004.0
+offset_bottom = 170.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 46
+text = "This is a Jelly"
+horizontal_alignment = 1
+
+[node name="img2" type="Sprite2D" parent="slides/17"]
+visible = false
+position = Vector2(838.2, 346)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("27_7muwt")
+
+[node name="Subtitle4" type="Label" parent="slides/17"]
+visible = false
+offset_left = 613.0
+offset_top = 167.0
+offset_right = 1084.0
+offset_bottom = 210.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 39
+text = "They're cool and make you money! yeah!
+and you can throw them around!"
+horizontal_alignment = 1
+
+[node name="AltText" type="Label" parent="slides/17"]
+visible = false
+offset_left = 767.2
+offset_top = 493.0
+offset_right = 913.2
+offset_bottom = 531.0
+theme = ExtResource("3_cq4me")
+theme_override_colors/font_color = Color(0.619608, 0.537255, 0.482353, 1)
+theme_override_font_sizes/font_size = 35
+text = "(this is a jelly)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="18" type="Node2D" parent="slides"]
+visible = false
+
+[node name="Subtitle" type="Label" parent="slides/18"]
+visible = false
+offset_left = 273.0
+offset_top = 80.0
+offset_right = 877.0
+offset_bottom = 135.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 46
+text = "When you buy a Jelly, They'll go to STORAGE!"
+horizontal_alignment = 1
+
+[node name="img" type="Sprite2D" parent="slides/18"]
+visible = false
+position = Vector2(574, 332)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("28_liift")
+
+[node name="Subtitle2" type="Label" parent="slides/18"]
+visible = false
+offset_left = 303.0
+offset_top = 138.0
+offset_right = 827.0
+offset_bottom = 181.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 39
+text = "In the STORAGE, you can send them to rooms!"
+horizontal_alignment = 1
+
+[node name="AltText" type="Label" parent="slides/18"]
+visible = false
+offset_left = 503.0
+offset_top = 498.0
+offset_right = 649.0
+offset_bottom = 536.0
+theme = ExtResource("3_cq4me")
+theme_override_colors/font_color = Color(0.619608, 0.537255, 0.482353, 1)
+theme_override_font_sizes/font_size = 35
+text = "speaking of...."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="19" type="Node2D" parent="slides"]
+visible = false
+
+[node name="Subtitle" type="Label" parent="slides/19"]
+visible = false
+offset_left = 310.0
+offset_top = 16.0
+offset_right = 884.0
+offset_bottom = 71.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 46
+text = "But... those Jellies need ROOMS to stay in!"
+horizontal_alignment = 1
+
+[node name="img" type="Sprite2D" parent="slides/19"]
+visible = false
+position = Vector2(251, 337)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("29_2urjh")
+
+[node name="img2" type="Sprite2D" parent="slides/19/img"]
+position = Vector2(-209.091, -89.0909)
+scale = Vector2(0.909091, 0.909091)
+texture = ExtResource("30_x6vwi")
+
+[node name="img3" type="Sprite2D" parent="slides/19/img"]
+position = Vector2(-106.364, 50)
+scale = Vector2(0.909091, 0.909091)
+texture = ExtResource("31_coeiu")
+flip_h = true
+
+[node name="img4" type="Sprite2D" parent="slides/19/img"]
+position = Vector2(103.636, 53.6364)
+scale = Vector2(0.909091, 0.909091)
+texture = ExtResource("32_16x21")
+
+[node name="Subtitle2" type="Label" parent="slides/19"]
+visible = false
+offset_left = 96.0
+offset_top = 123.0
+offset_right = 414.0
+offset_bottom = 178.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 46
+text = "For that, theres Melvin!"
+horizontal_alignment = 1
+
+[node name="Subtitle3" type="Label" parent="slides/19"]
+visible = false
+offset_left = 479.0
+offset_top = 152.0
+offset_right = 1108.0
+offset_bottom = 473.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 46
+text = "By talking to Melvin (done by clicking the bell)
+You can buy ROOMS for your jellies!"
+horizontal_alignment = 1
+
+[node name="Subtitle4" type="Label" parent="slides/19"]
+visible = false
+offset_left = 479.0
+offset_top = 152.0
+offset_right = 1108.0
+offset_bottom = 473.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 46
+text = "
+
+
+The room price and capacity varies, but the
+jellies can only make you money if you
+have them in a room! so GET THEM!"
+horizontal_alignment = 1
+
+[node name="20" type="Node2D" parent="slides"]
+visible = false
+
+[node name="Subtitle" type="Label" parent="slides/20"]
+visible = false
+offset_left = -236.0
+offset_top = 57.0
+offset_right = 916.0
+offset_bottom = 112.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 46
+text = "And Lastly, this is the I.S. TV!"
+horizontal_alignment = 1
+
+[node name="tvBack" type="Sprite2D" parent="slides/20"]
+visible = false
+position = Vector2(339, 267)
+texture = ExtResource("33_2urjh")
+
+[node name="Screen" type="Control" parent="slides/20/tvBack"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -198.0
+offset_top = -130.0
+offset_right = 198.0
+offset_bottom = 105.0
+
+[node name="ColorRect2" type="ColorRect" parent="slides/20/tvBack/Screen"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 107.0
+offset_right = 362.0
+offset_bottom = 228.0
+color = Color(2.03052e-08, 0.0218026, 0.0385763, 1)
+
+[node name="Label" type="Label" parent="slides/20/tvBack/Screen/ColorRect2"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 4.0
+offset_right = 328.0
+offset_bottom = 115.0
+theme = ExtResource("34_x6vwi")
+theme_override_font_sizes/font_size = 18
+text = "Rooms would show up here!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="slides/20/tvBack/Screen"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 107.0
+offset_right = 378.0
+offset_bottom = 228.0
+theme = ExtResource("34_x6vwi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="slides/20/tvBack/Screen/ScrollContainer"]
+layout_mode = 2
+
+[node name="Floor" parent="slides/20/tvBack/Screen/ScrollContainer/VBoxContainer" instance=ExtResource("35_x6vwi")]
+layout_mode = 2
+naame = "A Floor!"
+
+[node name="Label" type="Label" parent="slides/20/tvBack/Screen"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 381.0
+offset_bottom = 57.0
+theme = ExtResource("34_x6vwi")
+text = "Welcome to the
+Jelly Daycare INC Elevator System"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="slides/20/tvBack/Screen"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 55.0
+offset_right = 381.0
+offset_bottom = 79.0
+theme = ExtResource("34_x6vwi")
+theme_override_font_sizes/font_size = 15
+text = "destination: no room selected!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="slides/20/tvBack/Screen"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 74.0
+offset_right = 358.0
+offset_bottom = 105.0
+theme = ExtResource("34_x6vwi")
+placeholder_text = "type here to search!"
+alignment = 1
+
+[node name="img" type="Sprite2D" parent="slides/20"]
+visible = false
+position = Vector2(339, 267)
+texture = ExtResource("35_coeiu")
+
+[node name="Subtitle2" type="Label" parent="slides/20"]
+visible = false
+offset_left = 71.0
+offset_top = 421.0
+offset_right = 640.0
+offset_bottom = 526.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 46
+text = "using this, you can set the destination the
+elevator will take you to."
+horizontal_alignment = 1
+
+[node name="AltText" type="Label" parent="slides/20"]
+visible = false
+offset_left = -239.0
+offset_top = 516.0
+offset_right = 913.0
+offset_bottom = 581.0
+theme = ExtResource("3_cq4me")
+theme_override_colors/font_color = Color(0.619608, 0.537255, 0.482353, 1)
+theme_override_font_sizes/font_size = 35
+text = "rooms can also be renamed!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Subtitle3" type="Label" parent="slides/20"]
+visible = false
+offset_left = 678.0
+offset_top = 135.0
+offset_right = 1069.0
+offset_bottom = 190.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 46
+text = "This is the elevator btw <3"
+horizontal_alignment = 1
+
+[node name="img2" type="Sprite2D" parent="slides/20"]
+visible = false
+position = Vector2(864, 379)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("37_coeiu")
+
+[node name="21" type="Node2D" parent="slides"]
+visible = false
+
+[node name="img" type="Sprite2D" parent="slides/21"]
+position = Vector2(582, 324)
+texture = ExtResource("39_edwa4")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="slides/21"]
+position = Vector2(0, -18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="slides/21/StaticBody2D"]
+position = Vector2(562, 29.5)
+shape = SubResource("RectangleShape2D_edwa4")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="slides/21"]
+position = Vector2(0, 550)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="slides/21/StaticBody2D4"]
+position = Vector2(562, 29.5)
+shape = SubResource("RectangleShape2D_edwa4")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="slides/21"]
+position = Vector2(136, -29)
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="slides/21/StaticBody2D2"]
+position = Vector2(562, 32.5)
+shape = SubResource("RectangleShape2D_edwa4")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="slides/21"]
+position = Vector2(1079, -29)
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="slides/21/StaticBody2D3"]
+position = Vector2(562, 29.5)
+shape = SubResource("RectangleShape2D_edwa4")
+
+[node name="Jelly" parent="slides/21" instance=ExtResource("38_16x21")]
+position = Vector2(575, 252)
+rarity = "Common"
+money = 1
+seconds = 8
+tutorial = true
+
+[node name="Subtitle" type="Label" parent="slides/21"]
+offset_left = -3.0
+offset_top = 39.0
+offset_right = 1149.0
+offset_bottom = 94.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 46
+text = "You can throw Jellies around when they're in ROOMS! Try it!"
+horizontal_alignment = 1
+
+[node name="22" type="Node2D" parent="slides"]
+visible = false
+
+[node name="Subtitle" type="Label" parent="slides/22"]
+visible = false
+offset_left = -3.0
+offset_top = 184.0
+offset_right = 1149.0
+offset_bottom = 239.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 46
+text = "Well, that should be all you need to know!"
+horizontal_alignment = 1
+
+[node name="Subtitle2" type="Label" parent="slides/22"]
+visible = false
+offset_left = -3.0
+offset_top = 249.0
+offset_right = 1149.0
+offset_bottom = 304.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 46
+text = "I wish you luck in your clicking endeavours!"
+horizontal_alignment = 1
+
+[node name="Subtitle3" type="Label" parent="slides/22"]
+visible = false
+offset_left = -3.0
+offset_top = 366.0
+offset_right = 1149.0
+offset_bottom = 421.0
+theme = ExtResource("3_cq4me")
+theme_override_font_sizes/font_size = 46
+text = "and dont forget..."
+horizontal_alignment = 1
+
+[node name="23" type="Node2D" parent="slides"]
+visible = false
+
+[node name="ColorRect3" type="ColorRect" parent="slides/23"]
+visible = false
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(0.121569, 0.0470588, 0, 1)
+
+[node name="qteFace" type="Sprite2D" parent="slides/23"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+position = Vector2(576, 324)
+texture = ExtResource("40_7artv")
+
+[node name="Subtitle" type="Label" parent="slides/23"]
+visible = false
+offset_left = 378.0
+offset_top = 301.0
+offset_right = 761.0
+offset_bottom = 356.0
+theme = ExtResource("3_cq4me")
+theme_override_colors/font_color = Color(1, 0.905882, 0.85098, 1)
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 40
+text = "Dont disappoint me."
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="slides/23"]
+libraries = {
+&"": SubResource("AnimationLibrary_7kfc1")
+}
+
+[node name="sfx" type="AudioStreamPlayer" parent="slides/23"]
+stream = ExtResource("25_4gq6d")
+volume_db = 8.376
+bus = &"SFX"
+
 [node name="pageNum" type="Label" parent="."]
 offset_left = 12.0
 offset_top = 584.0
@@ -1082,6 +1833,19 @@ stream = ExtResource("5_6yjpi")
 volume_db = -8.376
 bus = &"SFX"
 
+[node name="ColorRect2" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_4gq6d")
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+z_index = -6
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
 [node name="projecterhum" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_gbqnl")
 volume_db = -10.363
@@ -1098,6 +1862,7 @@ parameters/looping = true
 [connection signal="timeout" from="slides/2/shrilowNode/Shrilow/faceRevert" to="." method="_on_face_revert_timeout"]
 [connection signal="timeout" from="slides/14/Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="slides/14/Timer2" to="." method="_on_timer_2_timeout"]
+[connection signal="finished" from="slides/23/sfx" to="." method="_on_sfx_finished"]
 [connection signal="pressed" from="TheLows/BackPage" to="." method="_slide_swap" binds= [-1]]
 [connection signal="pressed" from="TheLows/NextPage" to="." method="_slide_swap" binds= [1]]
 [connection signal="animation_finished" from="covah/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
