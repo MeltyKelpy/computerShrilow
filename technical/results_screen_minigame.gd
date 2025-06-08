@@ -58,7 +58,8 @@ func _kill():
 func _killMiniGame():
 	$resultsscreen/AudioStreamPlayer.play()
 	$AnimationPlayer.play("choose")
-	$/root/minigame.queue_free()
+	if get_node_or_null(^"$/root/minigame"):
+		$/root/minigame.queue_free()
 
 func _resultsStart():
 	if resultt == "WIN!":

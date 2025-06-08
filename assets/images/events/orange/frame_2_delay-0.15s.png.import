@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2syuq7t2r2mf"
-path="res://.godot/imported/autoclick.png-5a8f8791e35322c6b3b30796893b6640.ctex"
+uid="uid://cmicaab6csq5w"
+path="res://.godot/imported/frame_2_delay-0.15s.png-d05299694a1c100cd5d8ca346b4d4369.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/areas/melanies/items/autoclick.png"
-dest_files=["res://.godot/imported/autoclick.png-5a8f8791e35322c6b3b30796893b6640.ctex"]
+source_file="res://assets/images/events/orange/frame_2_delay-0.15s.png"
+dest_files=["res://.godot/imported/frame_2_delay-0.15s.png-d05299694a1c100cd5d8ca346b4d4369.ctex"]
 
 [params]
 

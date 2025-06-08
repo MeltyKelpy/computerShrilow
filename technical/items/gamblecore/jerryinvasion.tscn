@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://5ojo6buxrhat"]
+
+[ext_resource type="Script" uid="uid://dtx4emy66700" path="res://technical/items/gamblecore/jerryinvasion.gd" id="1_t3sy1"]
+
+[node name="Jerryinvasion" type="Node2D"]
+script = ExtResource("1_t3sy1")

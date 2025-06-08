@@ -11,6 +11,7 @@ var plusones = 0
 var saayoModeUnlocked = false
 var baldiModeUnlocked = false
 var tutorialDone = false
+var orangeProgress = 0
 @onready var color = $ColorRect
 
 func _enter_tree() -> void:
@@ -72,3 +73,18 @@ func _on_timer_timeout() -> void:
 
 func _on_auto_save_timer_timeout() -> void:
 	saveData()
+
+func _orangeify():
+	orangeProgress += 1
+	if $orange.visible == false:
+		$orange.modulate = Color8(255, 95, 0, 0)
+	if orangeProgress > 7:
+		orangeProgress = 7
+	var tweening_time = create_tween()
+	tweening_time.tween_property($orange, "modulate", Color8(255, 95, 0, 50*orangeProgress), 2).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	$orange.visible = true
+	$orangeTime.stop()
+	$orangeTime.start()
+
+func _on_orange_time_timeout() -> void:
+	$orange.visible = false

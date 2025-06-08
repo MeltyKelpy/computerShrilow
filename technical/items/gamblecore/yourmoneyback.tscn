@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfeuksac4jq3r"]
+
+[ext_resource type="Script" uid="uid://dfvxorp8bfkd4" path="res://technical/items/gamblecore/yourmoneyback.gd" id="1_mlf8w"]
+
+[node name="Yourmoneyback" type="Node2D"]
+script = ExtResource("1_mlf8w")

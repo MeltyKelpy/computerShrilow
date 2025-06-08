@@ -1667,6 +1667,7 @@ position = Vector2(562, 29.5)
 shape = SubResource("RectangleShape2D_edwa4")
 
 [node name="Jelly" parent="slides/21" instance=ExtResource("38_16x21")]
+visible = false
 position = Vector2(575, 252)
 rarity = "Common"
 money = 1

@@ -302,7 +302,7 @@ func _animated_slide_handling(slide):
 			await get_tree().create_timer(2).timeout
 			$"slides/22/Subtitle2".visible = true
 			await get_tree().create_timer(2).timeout
-			_slide_swap(1)
+			_exist_the_lows()
 		23:
 			await get_tree().create_timer(1).timeout
 			$"slides/23/Subtitle".visible = true
@@ -325,7 +325,6 @@ func _exist_the_lows():
 	tween.tween_property($TheLows, "position", Vector2(0,0), 0.75).set_trans(Tween.TRANS_QUART)
 
 func _process(delta: float) -> void:
-	
 	if Input.is_action_just_pressed("ui_cancel"):
 		var cacapoopyGOD2 = preload("res://technical/pauseMenu.tscn")
 		var caca = cacapoopyGOD2.instantiate()
@@ -354,6 +353,8 @@ func _slide_swap(amount):
 	if curSlide > amount_of_slides-1:
 		curSlide = amount_of_slides-1
 	
+	$"slides/21/Jelly".visible = (curSlide == 21)
+	
 	if not prevSlide == curSlide:
 		$sfx.stream = load("res://assets/sounds/projecterclick.ogg")
 		$sfx.play()
@@ -362,10 +363,8 @@ func _slide_swap(amount):
 	$pageNum.text = str(curSlide+1)
 	for i in $slides.get_children():
 		i.visible = false
-		i.position.y = 648
 	var currentSlideNode = $slides.get_node(str(curSlide))
 	currentSlideNode.visible = true
-	currentSlideNode.position.y = 0
 	
 	if not slideAttributes.has(curSlide):
 		slideAttributes[curSlide] = ["non-animated", true]

@@ -1,0 +1,108 @@
+[gd_scene load_steps=15 format=3 uid="uid://cyxp1hognrqml"]
+
+[ext_resource type="Script" uid="uid://cxdq7gp7f3h0y" path="res://technical/items/gamblecore/orange.gd" id="1_166lk"]
+[ext_resource type="Texture2D" uid="uid://dyy4i14ten5ek" path="res://assets/images/events/orange.png" id="2_y3rc7"]
+[ext_resource type="Texture2D" uid="uid://d4g2vdc3q5xqj" path="res://assets/images/events/orange/frame_0_delay-0.15s.png" id="3_w8l3n"]
+[ext_resource type="Texture2D" uid="uid://bu66sjplnkvl0" path="res://assets/images/events/orange/frame_1_delay-0.15s.png" id="4_rm2sn"]
+[ext_resource type="Texture2D" uid="uid://cmicaab6csq5w" path="res://assets/images/events/orange/frame_2_delay-0.15s.png" id="5_kerm5"]
+[ext_resource type="Texture2D" uid="uid://7dipx51br6fn" path="res://assets/images/events/orange/frame_3_delay-0.15s.png" id="6_m0gti"]
+[ext_resource type="Texture2D" uid="uid://d2v08ip2cprew" path="res://assets/images/events/orange/frame_4_delay-0.15s.png" id="7_h88oy"]
+[ext_resource type="Texture2D" uid="uid://cankq15d864ts" path="res://assets/images/events/orange/frame_5_delay-0.15s.png" id="8_1dglo"]
+[ext_resource type="Texture2D" uid="uid://b1dx7tdihdmb" path="res://assets/images/events/orange/frame_6_delay-0.15s.png" id="9_6oe50"]
+[ext_resource type="Texture2D" uid="uid://btavoqj13i0jv" path="res://assets/images/events/orange/frame_7_delay-0.15s.png" id="10_phahj"]
+
+[sub_resource type="Animation" id="Animation_166lk"]
+resource_name = "orange"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("orange:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2.5, 4),
+"transitions": PackedFloat32Array(0.378929, 1, 0.378929, 1),
+"update": 0,
+"values": [Vector2(562, 878), Vector2(562, 307), Vector2(562, 307), Vector2(562, -300)]
+}
+
+[sub_resource type="Animation" id="Animation_t7l87"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("orange:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(562, 878)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y3rc7"]
+_data = {
+&"RESET": SubResource("Animation_t7l87"),
+&"orange": SubResource("Animation_166lk")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5apia"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_w8l3n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_rm2sn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_kerm5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_m0gti")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_h88oy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_1dglo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_6oe50")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_phahj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Orange" type="Node2D"]
+z_index = 4094
+script = ExtResource("1_166lk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_y3rc7")
+}
+
+[node name="orange" type="Sprite2D" parent="."]
+position = Vector2(562, 878)
+texture = ExtResource("2_y3rc7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="orange"]
+position = Vector2(0, 177)
+sprite_frames = SubResource("SpriteFrames_5apia")
+autoplay = "default"
+frame_progress = 0.0175488
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="orange"]
+position = Vector2(0, -181)
+sprite_frames = SubResource("SpriteFrames_5apia")
+autoplay = "default"
+frame_progress = 0.258416
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

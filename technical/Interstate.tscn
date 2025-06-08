@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bvv7wr6hoapmi" path="res://technical/interstate.gd" id="1_70bi8"]
 
 [node name="Interstate" type="Node"]
+process_mode = 3
 script = ExtResource("1_70bi8")
 
 [node name="Timer" type="Timer" parent="."]
@@ -11,6 +12,13 @@ autostart = true
 [node name="autoSaveTimer" type="Timer" parent="."]
 wait_time = 120.0
 
+[node name="orange" type="ColorRect" parent="."]
+visible = false
+z_index = 4095
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(1, 0.372549, 0, 0.431373)
+
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
 z_index = 4096
@@ -18,5 +26,10 @@ offset_right = 1173.0
 offset_bottom = 665.0
 color = Color(0, 0, 0, 1)
 
+[node name="orangeTime" type="Timer" parent="."]
+wait_time = 300.0
+one_shot = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="autoSaveTimer" to="." method="_on_auto_save_timer_timeout"]
+[connection signal="timeout" from="orangeTime" to="." method="_on_orange_time_timeout"]

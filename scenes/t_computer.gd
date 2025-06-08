@@ -143,31 +143,31 @@ var gumballInfo = [
 var gambleTickets = [
 	{
 	"Name":"Basic Ticket",
-	"Desc":"Basic Gambling Ticket. Doesn't give anything crazy.",
+	"Desc":"Basic Level Gambling Ticket. Doesn't give anything crazy.",
 	"Cost":100,
 	"imagePath":"res://assets/images/areas/bricks/tickets/basic.png",
-	"possibilities":["Autoclick","Autoclick"],
+	"possibilities":["Autoclick","Plus One","Greasepuppy","orange","Jerry Seinfeld!","Your Money Back!"],
 	},
 	{
 	"Name":"Medium Ticket",
-	"Desc":"Medium Gambling Ticket. Gives medium level quality items.",
-	"Cost":400,
+	"Desc":"Medium Level Gambling Ticket. Gives medium level quality items.",
+	"Cost":500,
 	"imagePath":"res://assets/images/areas/bricks/tickets/medium.png",
-	"possibilities":["Greasepuppy","Greasepuppy"],
+	"possibilities":["Plus One Auto","Antivirus","Floppy Disk","Bone","Jerry Bomb!"],
 	},
 	{
 	"Name":"High Ticket",
-	"Desc":"High Gambling Ticket. Gives high level quality items.",
-	"Cost":800,
+	"Desc":"High Level Gambling Ticket. Gives high level quality items.",
+	"Cost":2500,
 	"imagePath":"res://assets/images/areas/bricks/tickets/high.png",
-	"possibilities":["Plus One","Plus One"],
+	"possibilities":["Auto-Bone","Shrilow Crystal", "MASSIVE Jerry Bomb!"],
 	},
 	{
 	"Name":"Spice Ticket",
-	"Desc":"Spice Gambling Ticket. Gives any possible item.",
-	"Cost":1500,
+	"Desc":"Spice Level Gambling Ticket. Gives any possible item.",
+	"Cost":7500,
 	"imagePath":"res://assets/images/areas/bricks/tickets/spice.png",
-	"possibilities":["Antivirus","Antivirus"],
+	"possibilities":["Jelly Crystal","Mine Crystal","Puppy Crystal","JERRY INVASION"],
 	},
 	]
 var ItemNameDisplay = ""
@@ -538,7 +538,7 @@ func manageScenes():
 					$Shop/ItemDescription.text = "im feeling quite. bricked! up! heh."
 				if alongTheDialogue == 2:
 					endDialogue()
-			"REBIRTH2":
+			"REBIRTH3":
 				if alongTheDialogue == 0:
 					$Shop/ItemDescription.text = "Hey so."
 				if alongTheDialogue == 1:
@@ -558,6 +558,13 @@ func manageScenes():
 					endDialogue()
 					melShopToggle()
 					rebirth3intro = false
+			_:
+				if alongTheDialogue == 0:
+					$Shop/ItemDescription.text = "Fine! no gambling! dialogue it is!... loser."
+				if alongTheDialogue == 1:
+					$Shop/ItemDescription.text = "this also worked as a test, which is cool"
+				if alongTheDialogue == 2:
+					endDialogue()
 	
 	# MELVIN DIALOGUE BELOW
 	match dialogKey:
@@ -2625,7 +2632,11 @@ func gambleRoll() -> void:
 		Interstate.totallost -= gambleTickets[selTicket]["Cost"]
 		canGamble = false
 		var usedArray = "items"
-		var possibles = gambleTickets[selTicket]["possibilities"]
+		var possibles = []
+		for i in range(selTicket+1):
+			for e in gambleTickets[i]["possibilities"]:
+				possibles.append(e)
+		print(possibles)
 		var itemPicked = possibles[rng.randi_range(0, possibles.size()-1)]
 		var itemId = ItemValues._find_item(itemPicked)
 		if itemId == 0:

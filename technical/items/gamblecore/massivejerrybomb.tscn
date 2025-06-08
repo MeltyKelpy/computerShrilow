@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwx7usu0ji6ug"]
+
+[ext_resource type="Script" uid="uid://bwo7eip2jdol" path="res://technical/items/gamblecore/massivejerrybomb.gd" id="1_pidjt"]
+
+[node name="Massivejerrybomb" type="Node2D"]
+script = ExtResource("1_pidjt")
