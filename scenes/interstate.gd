@@ -411,6 +411,11 @@ func code_input(new_text: String) -> void:
 		_change_text("Stars....")
 		code_recognized = true
 	
+	if new_text.containsn("tunnels"):
+		var tunnelpuzzle = load("res://scenes/tunnelpuzzle.tscn").instantiate()
+		$/root.add_child(tunnelpuzzle)
+		code_recognized = true
+	
 	if new_text.containsn("joca"):
 		_change_text("faggot")
 		code_recognized = true

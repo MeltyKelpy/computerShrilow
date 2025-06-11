@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=3 uid="uid://de8cnhlkdthhf"]
+
+[ext_resource type="PackedScene" uid="uid://ccqsk4v8ki1t7" path="res://scenes/tunnelpuzzle/tp_ui.tscn" id="1_0x14n"]
+[ext_resource type="Script" uid="uid://ctyoe01somiyu" path="res://scenes/tunnelpuzzle.gd" id="1_ctjyk"]
+[ext_resource type="PackedScene" uid="uid://c6ubc4c0t6v5i" path="res://scenes/tunnelpuzzle/thetunnelpuzzle.tscn" id="2_1opog"]
+[ext_resource type="Shader" uid="uid://cer8j6mx2tv1t" path="res://scenes/tunnelpuzzle/tunnelpuzzle.gdshader" id="3_d6wds"]
+[ext_resource type="Texture2D" uid="uid://domkot5j4ynr" path="res://assets/images/tp_pallette.png" id="4_ctjyk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wq57b"]
+shader = ExtResource("3_d6wds")
+shader_parameter/palette = ExtResource("4_ctjyk")
+
+[node name="Tunnelpuzzle" type="Window"]
+title = "TunnelPuzzle!"
+initial_position = 2
+size = Vector2i(400, 400)
+unresizable = true
+transparent = true
+script = ExtResource("1_ctjyk")
+
+[node name="TpUi" parent="." instance=ExtResource("1_0x14n")]
+
+[node name="Thetunnelpuzzle" parent="." instance=ExtResource("2_1opog")]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_wq57b")
+offset_right = 400.0
+offset_bottom = 400.0
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]

@@ -2,7 +2,7 @@ extends Node
 
 var fullTime = 0
 var fullRebirths = 0
-var iq = 0
+var iq = "luke fucking sucks i fucking hate him  :yum: hi :yum: gren"
 var totalmoney = 0
 var totallost = 0
 var starslost = 0

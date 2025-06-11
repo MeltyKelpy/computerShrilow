@@ -4,7 +4,7 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Interstate.loadData()
-	if Interstate.iq == 0:
+	if Interstate.iq == "luke fucking sucks i fucking hate him  :yum: hi :yum: gren":
 		Interstate.iq = randi_range(-4,200)
 	Interstate.saveData()
 	Settings.loadData()
