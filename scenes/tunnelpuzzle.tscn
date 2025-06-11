@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://de8cnhlkdthhf"]
+[gd_scene load_steps=7 format=3 uid="uid://c534d3g6mk6gc"]
 
 [ext_resource type="PackedScene" uid="uid://ccqsk4v8ki1t7" path="res://scenes/tunnelpuzzle/tp_ui.tscn" id="1_0x14n"]
-[ext_resource type="Script" uid="uid://ctyoe01somiyu" path="res://scenes/tunnelpuzzle.gd" id="1_ctjyk"]
+[ext_resource type="Script" path="res://scenes/tunnelpuzzle.gd" id="1_ctjyk"]
 [ext_resource type="PackedScene" uid="uid://c6ubc4c0t6v5i" path="res://scenes/tunnelpuzzle/thetunnelpuzzle.tscn" id="2_1opog"]
 [ext_resource type="Shader" uid="uid://cer8j6mx2tv1t" path="res://scenes/tunnelpuzzle/tunnelpuzzle.gdshader" id="3_d6wds"]
 [ext_resource type="Texture2D" uid="uid://domkot5j4ynr" path="res://assets/images/tp_pallette.png" id="4_ctjyk"]
@@ -11,6 +11,7 @@ shader = ExtResource("3_d6wds")
 shader_parameter/palette = ExtResource("4_ctjyk")
 
 [node name="Tunnelpuzzle" type="Window"]
+transparent_bg = true
 title = "TunnelPuzzle!"
 initial_position = 2
 size = Vector2i(400, 400)

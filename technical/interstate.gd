@@ -78,8 +78,6 @@ func _orangeify():
 	orangeProgress += 1
 	if $orange.visible == false:
 		$orange.modulate = Color8(255, 95, 0, 0)
-	if orangeProgress > 7:
-		orangeProgress = 7
 	var tweening_time = create_tween()
 	tweening_time.tween_property($orange, "modulate", Color8(255, 95, 0, 50*orangeProgress), 2).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 	$orange.visible = true
