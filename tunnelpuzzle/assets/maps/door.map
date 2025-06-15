@@ -1,0 +1,70 @@
+// Game: Generic
+// Format: Standard
+// entity 0
+{
+"classname" "worldspawn"
+"_tb_textures" "textures/ComputerShrilow"
+// brush 0
+{
+( -8 -32 0 ) ( -8 -31 0 ) ( -8 -32 6.5 ) ComputerShrilow/wood 0 0 0 1 1
+( -8 -32 0 ) ( -8 -32 6.5 ) ( -7.5 -32 0 ) ComputerShrilow/wood 0 0 0 1 1
+( -8 -32 0 ) ( -7.5 -32 0 ) ( -8 -31 0 ) ComputerShrilow/wood 0 0 0 1 1
+( 0 32 104 ) ( 0 33 104 ) ( 0.5 32 104 ) ComputerShrilow/wood 0 0 0 1 1
+( 0 32 104 ) ( 0.5 32 104 ) ( 0 32 110.49999999999999 ) ComputerShrilow/wood 0 0 0 1 1
+( 0 32 104 ) ( 0 32 110.49999999999999 ) ( 0 33 104 ) ComputerShrilow/wood 0 0 0 1 1
+}
+// brush 1
+{
+( -16 -24 48 ) ( -16 -23.5 48 ) ( -16 -24 48.5 ) ComputerShrilow/gold 0 0 0 1 1
+( -16 -24 48 ) ( -16 -24 48.5 ) ( -15.875 -24 48 ) ComputerShrilow/gold 0 0 0 1 1
+( -16 -24 48 ) ( -15.875 -24 48 ) ( -16 -23.5 48 ) ComputerShrilow/gold 0 0 0 1 1
+( -12 -16 56 ) ( -12 -15.499999999999998 56 ) ( -11.875 -16 56 ) ComputerShrilow/gold 0 0 0 1 1
+( -12 -16 56 ) ( -11.875 -16 56 ) ( -12 -16 56.5 ) ComputerShrilow/gold 0 0 0 1 1
+( -12 -16 56 ) ( -12 -16 56.5 ) ( -12 -15.499999999999998 56 ) ComputerShrilow/gold 0 0 0 1 1
+}
+// brush 2
+{
+( -10 -24 48 ) ( -10 -23.5 48 ) ( -10 -24 48.5 ) ComputerShrilow/gold 0 0 0 1 1
+( -10 -24 48 ) ( -10 -24 48.5 ) ( -9.9375 -24 48 ) ComputerShrilow/gold 0 0 0 1 1
+( -10 -24 48 ) ( -9.9375 -24 48 ) ( -10 -23.5 48 ) ComputerShrilow/gold 0 0 0 1 1
+( -8 -16 56 ) ( -8 -15.499999999999998 56 ) ( -7.9375 -16 56 ) ComputerShrilow/gold 0 0 0 1 1
+( -8 -16 56 ) ( -7.9375 -16 56 ) ( -8 -16 56.5 ) ComputerShrilow/gold 0 0 0 1 1
+( -8 -16 56 ) ( -8 -16 56.5 ) ( -8 -15.499999999999998 56 ) ComputerShrilow/gold 0 0 0 1 1
+}
+// brush 3
+{
+( -12 -22 50 ) ( -12 -21.75 50 ) ( -12 -22 50.25 ) ComputerShrilow/gold 0 0 0 1 1
+( -12 -22 50 ) ( -12 -22 50.25 ) ( -11.9375 -22 50 ) ComputerShrilow/gold 0 0 0 1 1
+( -12 -22 50 ) ( -11.9375 -22 50 ) ( -12 -21.75 50 ) ComputerShrilow/gold 0 0 0 1 1
+( -10 -18 54 ) ( -10 -17.75 54 ) ( -9.9375 -18 54 ) ComputerShrilow/gold 0 0 0 1 1
+( -10 -18 54 ) ( -9.9375 -18 54 ) ( -10 -18 54.25 ) ComputerShrilow/gold 0 0 0 1 1
+( -10 -18 54 ) ( -10 -18 54.25 ) ( -10 -17.75 54 ) ComputerShrilow/gold 0 0 0 1 1
+}
+// brush 4
+{
+( 0 -24 56 ) ( 0 -24 56.5 ) ( 0 -24.5 56 ) ComputerShrilow/gold 0 0 0 1 1
+( 0 -24 56 ) ( -0.06250000000000089 -24 56 ) ( 0 -24 56.5 ) ComputerShrilow/gold 0 0 0 1 1
+( 2 -16 48 ) ( 1.9375000000000009 -16 48 ) ( 2 -16.5 48 ) ComputerShrilow/gold 0 0 0 1 1
+( 0 -24 56 ) ( 0 -24.5 56 ) ( -0.06250000000000089 -24 56 ) ComputerShrilow/gold 0 0 0 1 1
+( 2 -16 48 ) ( 2 -16 48.5 ) ( 1.9375000000000009 -16 48 ) ComputerShrilow/gold 0 0 0 1 1
+( 2 -16 48 ) ( 2 -16.5 48 ) ( 2 -16 48.5 ) ComputerShrilow/gold 0 0 0 1 1
+}
+// brush 5
+{
+( 2 -22 54 ) ( 2 -22 54.25 ) ( 2 -22.25 54 ) ComputerShrilow/gold 0 0 0 1 1
+( 2 -22 54 ) ( 1.9375 -22 54 ) ( 2 -22 54.25 ) ComputerShrilow/gold 0 0 0 1 1
+( 4 -18 50 ) ( 3.9375 -18 50 ) ( 4 -18.25 50 ) ComputerShrilow/gold 0 0 0 1 1
+( 2 -22 54 ) ( 2 -22.25 54 ) ( 1.9375 -22 54 ) ComputerShrilow/gold 0 0 0 1 1
+( 4 -18 50 ) ( 4 -18 50.25 ) ( 3.9375 -18 50 ) ComputerShrilow/gold 0 0 0 1 1
+( 4 -18 50 ) ( 4 -18.25 50 ) ( 4 -18 50.25 ) ComputerShrilow/gold 0 0 0 1 1
+}
+// brush 6
+{
+( 4 -24 56 ) ( 4 -24 56.5 ) ( 4 -24.5 56 ) ComputerShrilow/gold 0 0 0 1 1
+( 4 -24 56 ) ( 3.874999999999999 -24 56 ) ( 4 -24 56.5 ) ComputerShrilow/gold 0 0 0 1 1
+( 8 -16 48 ) ( 7.875000000000001 -16 48 ) ( 8 -16.5 48 ) ComputerShrilow/gold 0 0 0 1 1
+( 4 -24 56 ) ( 4 -24.5 56 ) ( 3.874999999999999 -24 56 ) ComputerShrilow/gold 0 0 0 1 1
+( 8 -16 48 ) ( 8 -16 48.5 ) ( 7.875000000000001 -16 48 ) ComputerShrilow/gold 0 0 0 1 1
+( 8 -16 48 ) ( 8 -16.5 48 ) ( 8 -16 48.5 ) ComputerShrilow/gold 0 0 0 1 1
+}
+}

@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://d0armwt48e2tu"
+path="res://.godot/imported/tunnelpuzzle.2.map-880dea759ab0521de2bd72123442b96e.tres"
+
+[deps]
+
+source_file="res://tunnelpuzzle/assets/maps/autosave/tunnelpuzzle.2.map"
+dest_files=["res://.godot/imported/tunnelpuzzle.2.map-880dea759ab0521de2bd72123442b96e.tres"]
+
+[params]
+

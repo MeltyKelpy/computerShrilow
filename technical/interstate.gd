@@ -12,6 +12,7 @@ var saayoModeUnlocked = false
 var baldiModeUnlocked = false
 var tutorialDone = false
 var orangeProgress = 0
+var tp_status = ["not","not","not"]
 @onready var color = $ColorRect
 
 func _enter_tree() -> void:
@@ -47,6 +48,7 @@ func saveData():
 	config.set_value("Game", "tutorialOpened", tutorialDone)
 	config.set_value("Game", "saayoModeUnlocked", saayoModeUnlocked)
 	config.set_value("Game", "baldiModeUnlocked", baldiModeUnlocked)
+	config.set_value("Game", "tp_status", tp_status)
 	
 	config.save("user://interstate.cfg")
 
@@ -67,6 +69,7 @@ func loadData():
 		tutorialDone = config.get_value("Game", "tutorialOpened", false)
 		jelliesbought = config.get_value("Stats", "jelliesBought", 0)
 		plusones = config.get_value("Stats", "plusOnes", 0)
+		tp_status = config.get_value("Game", "tp_status", ["in-progress","not","not"])
 
 func _on_timer_timeout() -> void:
 	fullTime += 1

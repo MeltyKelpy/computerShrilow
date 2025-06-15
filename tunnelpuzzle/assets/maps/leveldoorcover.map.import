@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://ef8q26g6gjar"
+path="res://.godot/imported/leveldoorcover.map-964b3c32e4b75561c4ae987f4397b320.tres"
+
+[deps]
+
+source_file="res://tunnelpuzzle/assets/maps/leveldoorcover.map"
+dest_files=["res://.godot/imported/leveldoorcover.map-964b3c32e4b75561c4ae987f4397b320.tres"]
+
+[params]
+

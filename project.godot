@@ -40,9 +40,9 @@ Game="*res://technical/Game.gd"
 Journal="*res://technical/rooms/journalEntryManagement.gd"
 Achievements="*res://technical/Achievements.tscn"
 Curses="*res://technical/curses.gd"
-Intracept="*res://interstate-intracept/technical/IntrasceptGlobals.gd"
 ColorblindFilter="*res://technical/colorblindFilter.tscn"
 Interstate="*res://technical/Interstate.tscn"
+Tunnelpuzzle="*res://tunnelpuzzle/technical/IntrasceptGlobals.gd"
 
 [debug]
 
@@ -232,3 +232,7 @@ space={
 textures/canvas_textures/default_texture_filter=0
 textures/vram_compression/import_s3tc_bptc=true
 textures/vram_compression/import_etc2_astc=true
+
+[steam]
+
+initialization/initialize_on_startup=true

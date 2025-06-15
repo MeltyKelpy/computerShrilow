@@ -412,7 +412,7 @@ func code_input(new_text: String) -> void:
 		code_recognized = true
 	
 	if new_text.containsn("tunnels"):
-		var tunnelpuzzle = load("res://scenes/tunnelpuzzle.tscn").instantiate()
+		var tunnelpuzzle = load("res://tunnelpuzzle/scenes/tunnelpuzzle.tscn").instantiate()
 		$/root.add_child(tunnelpuzzle)
 		code_recognized = true
 	

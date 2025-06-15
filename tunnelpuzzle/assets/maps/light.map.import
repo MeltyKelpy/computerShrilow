@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://c6diftqyrwkne"
+path="res://.godot/imported/light.map-edfbcb2f09a64b795f1d6ddc74a3a25b.tres"
+
+[deps]
+
+source_file="res://tunnelpuzzle/assets/maps/light.map"
+dest_files=["res://.godot/imported/light.map-edfbcb2f09a64b795f1d6ddc74a3a25b.tres"]
+
+[params]
+

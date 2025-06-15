@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://bt8hi8p3iqhrl"
+path="res://.godot/imported/lever.2.map-385d2d04e33a3097bb230408f0715d24.tres"
+
+[deps]
+
+source_file="res://tunnelpuzzle/assets/maps/autosave/lever.2.map"
+dest_files=["res://.godot/imported/lever.2.map-385d2d04e33a3097bb230408f0715d24.tres"]
+
+[params]
+

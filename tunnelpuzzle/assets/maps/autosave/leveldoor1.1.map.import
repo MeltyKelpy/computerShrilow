@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://kraesubhrqkx"
+path="res://.godot/imported/leveldoor1.1.map-a55bef3a50bac53c16dbd0a9c9f688a8.tres"
+
+[deps]
+
+source_file="res://tunnelpuzzle/assets/maps/autosave/leveldoor1.1.map"
+dest_files=["res://.godot/imported/leveldoor1.1.map-a55bef3a50bac53c16dbd0a9c9f688a8.tres"]
+
+[params]
+

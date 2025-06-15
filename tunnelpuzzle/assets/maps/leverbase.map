@@ -1,0 +1,16 @@
+// Game: Generic
+// Format: Standard
+// entity 0
+{
+"classname" "worldspawn"
+"_tb_textures" "textures/ComputerShrilow"
+// brush 0
+{
+( -2 -4 0 ) ( -2 -2.666666666666667 0 ) ( -2 -4 8 ) ComputerShrilow/wood 0 0 0 1 1
+( -2 -4 0 ) ( -2 -4 8 ) ( -1 -4 0 ) ComputerShrilow/wood 0 0 0 1 1
+( -2 -4 0 ) ( -1 -4 0 ) ( -2 -2.666666666666667 0 ) ComputerShrilow/wood 0 0 0 1 1
+( 2 4 16 ) ( 2 5.333333333333333 16 ) ( 3 4 16 ) ComputerShrilow/wood 0 0 0 1 1
+( 2 4 16 ) ( 3 4 16 ) ( 2 4 24 ) ComputerShrilow/wood 0 0 0 1 1
+( 2 4 16 ) ( 2 4 24 ) ( 2 5.333333333333333 16 ) ComputerShrilow/wood 0 0 0 1 1
+}
+}

@@ -1,0 +1,50 @@
+// Game: Generic
+// Format: Standard
+// entity 0
+{
+"classname" "worldspawn"
+"_tb_textures" "textures/ComputerShrilow"
+// brush 0
+{
+( -2 -66 0 ) ( -2 -65 0 ) ( -2 -66 51 ) ComputerShrilow/metal 0 0 0 0.5 0.5
+( -2 -66 0 ) ( -2 -66 51 ) ( -0.5 -66 0 ) ComputerShrilow/metal 0 0 0 0.5 0.5
+( -2 -66 0 ) ( -0.5 -66 0 ) ( -2 -65 0 ) ComputerShrilow/metal 0 0 0 0.5 0.5
+( 4 -48 102 ) ( 4 -47 102 ) ( 5.5 -48 102 ) ComputerShrilow/metal 0 0 0 0.5 0.5
+( 4 -48 102 ) ( 5.5 -48 102 ) ( 4 -48 153 ) ComputerShrilow/metal 0 0 0 0.5 0.5
+( 4 -48 102 ) ( 4 -48 153 ) ( 4 -47 102 ) ComputerShrilow/metal 0 0 0 0.5 0.5
+}
+// brush 1
+{
+( -2 48 0 ) ( -2 49 0 ) ( -2 48 51 ) ComputerShrilow/metal 0 0 0 0.5 0.5
+( -2 48 0 ) ( -2 48 51 ) ( -0.5 48 0 ) ComputerShrilow/metal 0 0 0 0.5 0.5
+( -2 48 0 ) ( -0.5 48 0 ) ( -2 49 0 ) ComputerShrilow/metal 0 0 0 0.5 0.5
+( 4 66 102 ) ( 4 67 102 ) ( 5.5 66 102 ) ComputerShrilow/metal 0 0 0 0.5 0.5
+( 4 66 102 ) ( 5.5 66 102 ) ( 4 66 153 ) ComputerShrilow/metal 0 0 0 0.5 0.5
+( 4 66 102 ) ( 4 66 153 ) ( 4 67 102 ) ComputerShrilow/metal 0 0 0 0.5 0.5
+}
+// brush 2
+{
+( -2 66 154 ) ( -2 66 174 ) ( -2 0 154 ) ComputerShrilow/metal 0 0 0 0.5 0.5
+( 4 0 154 ) ( -2 0 154 ) ( -2 66 174 ) ComputerShrilow/metal 0 -308 0 0.5 0.5
+( 4 0 154 ) ( 4 66 154 ) ( -2 66 154 ) ComputerShrilow/metal 0 0 0 0.5 0.5
+( 4 66 154 ) ( 4 66 174 ) ( -2 66 174 ) ComputerShrilow/metal 0 0 0 0.5 0.5
+( 4 0 154 ) ( 4 66 174 ) ( 4 66 154 ) ComputerShrilow/metal 0 0 0 0.5 0.5
+}
+// brush 3
+{
+( -2 -66 102 ) ( -2 -63.46153846153845 102 ) ( -2 -66 128 ) ComputerShrilow/metal 0 0 0 0.5 0.5
+( -2 -66 102 ) ( -2 -66 128 ) ( -1 -66 102 ) ComputerShrilow/metal 0 0 0 0.5 0.5
+( -2 -66 102 ) ( -1 -66 102 ) ( -2 -63.46153846153845 102 ) ComputerShrilow/metal 0 0 0 0.5 0.5
+( 4 66 154 ) ( 4 68.53846153846148 154 ) ( 5 66 154 ) ComputerShrilow/metal 0 0 0 0.5 0.5
+( 4 66 154 ) ( 5 66 154 ) ( 4 66 180 ) ComputerShrilow/metal 0 0 0 0.5 0.5
+( 4 66 154 ) ( 4 66 180 ) ( 4 68.53846153846148 154 ) ComputerShrilow/metal 0 0 0 0.5 0.5
+}
+// brush 4
+{
+( -2 0 154 ) ( -2 -66 174 ) ( -2 -66 154 ) ComputerShrilow/metal 0 0 0 0.5 0.5
+( -2 -66 154 ) ( -2 -66 174 ) ( 4 -66 174 ) ComputerShrilow/metal 0 0 0 0.5 0.5
+( -2 0 154 ) ( -2 -66 154 ) ( 4 -66 154 ) ComputerShrilow/metal 0 0 0 0.5 0.5
+( -2 0 154 ) ( 4 0 154 ) ( 4 -66 174 ) ComputerShrilow/metal 0 -308 0 0.5 0.5
+( 4 -66 154 ) ( 4 -66 174 ) ( 4 0 154 ) ComputerShrilow/metal 0 0 0 0.5 0.5
+}
+}

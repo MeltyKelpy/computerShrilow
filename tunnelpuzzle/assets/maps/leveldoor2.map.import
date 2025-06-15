@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://ccovb2vjvmfyd"
+path="res://.godot/imported/leveldoor2.map-4402ee88213c975b44fe3cb4fe9ff086.tres"
+
+[deps]
+
+source_file="res://tunnelpuzzle/assets/maps/leveldoor2.map"
+dest_files=["res://.godot/imported/leveldoor2.map-4402ee88213c975b44fe3cb4fe9ff086.tres"]
+
+[params]
+

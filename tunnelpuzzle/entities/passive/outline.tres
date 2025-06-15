@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cujkjevru0ljk"]
+
+[ext_resource type="Shader" uid="uid://cuejasmieevy7" path="res://tunnelpuzzle/technical/outline.gdshader" id="1_5gcpk"]
+
+[resource]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_5gcpk")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/size = 1.02

@@ -1,0 +1,241 @@
+// Game: Generic
+// Format: Standard
+// entity 0
+{
+"classname" "worldspawn"
+"_tb_textures" "textures/ComputerShrilow"
+// brush 0
+{
+( 1202 -252 0 ) ( 1202 -251 0 ) ( 1202 -252 50 ) ComputerShrilow/concrete 0 0 0 1 1
+( 1202 -252 0 ) ( 1202 -252 50 ) ( 1203 -252 0 ) ComputerShrilow/concrete 0 0 0 1 1
+( 1202 -252 0 ) ( 1203 -252 0 ) ( 1202 -251 0 ) ComputerShrilow/concrete 0 0 0 1 1
+( 1214 -66 100 ) ( 1214 -65 100 ) ( 1215 -66 100 ) ComputerShrilow/concrete 0 0 0 1 1
+( 1214 -66 100 ) ( 1215 -66 100 ) ( 1214 -66 150 ) ComputerShrilow/concrete 0 0 0 1 1
+( 1214 -66 100 ) ( 1214 -66 150 ) ( 1214 -65 100 ) ComputerShrilow/concrete 0 0 0 1 1
+}
+// brush 1
+{
+( 1202 66 -2 ) ( 1202 66.98924731182795 -2 ) ( 1202 66 48 ) ComputerShrilow/concrete 0 0 0 1 1
+( 1202 66 -2 ) ( 1202 66 48 ) ( 1203 66 -2 ) ComputerShrilow/concrete 0 0 0 1 1
+( 1202 66 -2 ) ( 1203 66 -2 ) ( 1202 66.98924731182795 -2 ) ComputerShrilow/concrete 0 0 0 1 1
+( 1214 250 98 ) ( 1214 250.98924731182797 98 ) ( 1215 250 98 ) ComputerShrilow/concrete 0 0 0 1 1
+( 1214 250 98 ) ( 1215 250 98 ) ( 1214 250 148 ) ComputerShrilow/concrete 0 0 0 1 1
+( 1214 250 98 ) ( 1214 250 148 ) ( 1214 250.98924731182797 98 ) ComputerShrilow/concrete 0 0 0 1 1
+}
+// brush 2
+{
+( 740 128 88 ) ( 740 134.1 88 ) ( 740 128 89 ) ComputerShrilow/garbage 0 0 0 1 1
+( 740 128 88 ) ( 740 128 89 ) ( 741.3333333333335 128 88 ) ComputerShrilow/garbage 0 0 0 1 1
+( 740 128 88 ) ( 741.3333333333335 128 88 ) ( 740 134.1 88 ) ComputerShrilow/garbage 0 0 0 1 1
+( 748 250 90 ) ( 748 256.1 90 ) ( 749.3333333333335 250 90 ) ComputerShrilow/garbage 0 0 0 1 1
+( 748 250 90 ) ( 749.3333333333335 250 90 ) ( 748 250 91 ) ComputerShrilow/garbage 0 0 0 1 1
+( 748 250 90 ) ( 748 250 91 ) ( 748 256.1 90 ) ComputerShrilow/garbage 0 0 0 1 1
+}
+// brush 3
+{
+( 878 128 88 ) ( 878 134.1 88 ) ( 878 128 89 ) ComputerShrilow/garbage 0 0 0 1 1
+( 878 128 88 ) ( 878 128 89 ) ( 879.3333333333335 128 88 ) ComputerShrilow/garbage 0 0 0 1 1
+( 878 128 88 ) ( 879.3333333333335 128 88 ) ( 878 134.1 88 ) ComputerShrilow/garbage 0 0 0 1 1
+( 886 250 90 ) ( 886 256.1 90 ) ( 887.3333333333335 250 90 ) ComputerShrilow/garbage 0 0 0 1 1
+( 886 250 90 ) ( 887.3333333333335 250 90 ) ( 886 250 91 ) ComputerShrilow/garbage 0 0 0 1 1
+( 886 250 90 ) ( 886 250 91 ) ( 886 256.1 90 ) ComputerShrilow/garbage 0 0 0 1 1
+}
+// brush 4
+{
+( 880 130 0 ) ( 880 132.85714285714255 0 ) ( 880 130 44 ) ComputerShrilow/chain 0 0 0 1 1
+( 880 130 0 ) ( 880 130 44 ) ( 882 130 0 ) ComputerShrilow/chain 0 0 0 1 1
+( 880 130 0 ) ( 882 130 0 ) ( 880 132.85714285714255 0 ) ComputerShrilow/chain 0 0 0 1 1
+( 884 250 88 ) ( 884 252.85714285714275 88 ) ( 886 250 88 ) ComputerShrilow/chain 0 0 0 1 1
+( 884 250 88 ) ( 886 250 88 ) ( 884 250 132 ) ComputerShrilow/chain 0 0 0 1 1
+( 884 250 88 ) ( 884 250 132 ) ( 884 252.85714285714275 88 ) ComputerShrilow/chain 0 0 0 1 1
+}
+// brush 5
+{
+( 742 130 0 ) ( 742 132.85714285714255 0 ) ( 742 130 44 ) ComputerShrilow/chain 0 0 0 1 1
+( 742 130 0 ) ( 742 130 44 ) ( 744 130 0 ) ComputerShrilow/chain 0 0 0 1 1
+( 742 130 0 ) ( 744 130 0 ) ( 742 132.85714285714255 0 ) ComputerShrilow/chain 0 0 0 1 1
+( 746 250 88 ) ( 746 252.85714285714275 88 ) ( 748 250 88 ) ComputerShrilow/chain 0 0 0 1 1
+( 746 250 88 ) ( 748 250 88 ) ( 746 250 132 ) ComputerShrilow/chain 0 0 0 1 1
+( 746 250 88 ) ( 746 250 132 ) ( 746 252.85714285714275 88 ) ComputerShrilow/chain 0 0 0 1 1
+}
+// brush 6
+{
+( 848 -130 0 ) ( 848 -129 0 ) ( 848 -130 24 ) ComputerShrilow/chain 0 0 0 1 1
+( 848 -130 0 ) ( 848 -130 24 ) ( 857 -130 0 ) ComputerShrilow/chain 0 0 0 1 1
+( 848 -130 0 ) ( 857 -130 0 ) ( 848 -129 0 ) ComputerShrilow/chain 0 0 0 1 1
+( 884 -126 48 ) ( 884 -125 48 ) ( 893 -126 48 ) ComputerShrilow/chain 0 0 0 1 1
+( 884 -126 48 ) ( 893 -126 48 ) ( 884 -126 72 ) ComputerShrilow/chain 0 0 0 1 1
+( 884 -126 48 ) ( 884 -126 72 ) ( 884 -125 48 ) ComputerShrilow/chain 0 0 0 1 1
+}
+// brush 7
+{
+( 878 -250 90 ) ( 878 -250 91 ) ( 878 -256.1 90 ) ComputerShrilow/garbage 0 0 0 1 1
+( 878 -250 90 ) ( 876.6666666666665 -250 90 ) ( 878 -250 91 ) ComputerShrilow/garbage 0 0 0 1 1
+( 886 -128 88 ) ( 884.6666666666665 -128 88 ) ( 886 -134.1 88 ) ComputerShrilow/garbage 0 0 0 1 1
+( 878 -250 90 ) ( 878 -256.1 90 ) ( 876.6666666666665 -250 90 ) ComputerShrilow/garbage 0 0 0 1 1
+( 886 -128 88 ) ( 886 -128 89 ) ( 884.6666666666665 -128 88 ) ComputerShrilow/garbage 0 0 0 1 1
+( 886 -128 88 ) ( 886 -134.1 88 ) ( 886 -128 89 ) ComputerShrilow/garbage 0 0 0 1 1
+}
+// brush 8
+{
+( 880 -250 88 ) ( 880 -250 132 ) ( 880 -252.85714285714278 88 ) ComputerShrilow/chain 0 0 0 1 1
+( 880 -250 88 ) ( 878 -250 88 ) ( 880 -250 132 ) ComputerShrilow/chain 0 0 0 1 1
+( 884 -130 0 ) ( 882 -130 0 ) ( 884 -132.85714285714255 0 ) ComputerShrilow/chain 0 0 0 1 1
+( 880 -250 88 ) ( 880 -252.85714285714278 88 ) ( 878 -250 88 ) ComputerShrilow/chain 0 0 0 1 1
+( 884 -130 0 ) ( 884 -130 44 ) ( 882 -130 0 ) ComputerShrilow/chain 0 0 0 1 1
+( 884 -130 0 ) ( 884 -132.85714285714255 0 ) ( 884 -130 44 ) ComputerShrilow/chain 0 0 0 1 1
+}
+// brush 9
+{
+( 740 -250 90 ) ( 740 -250 91 ) ( 740 -256.1 90 ) ComputerShrilow/garbage 0 0 0 1 1
+( 740 -250 90 ) ( 738.6666666666665 -250 90 ) ( 740 -250 91 ) ComputerShrilow/garbage 0 0 0 1 1
+( 748 -128 88 ) ( 746.6666666666665 -128 88 ) ( 748 -134.1 88 ) ComputerShrilow/garbage 0 0 0 1 1
+( 740 -250 90 ) ( 740 -256.1 90 ) ( 738.6666666666665 -250 90 ) ComputerShrilow/garbage 0 0 0 1 1
+( 748 -128 88 ) ( 748 -128 89 ) ( 746.6666666666665 -128 88 ) ComputerShrilow/garbage 0 0 0 1 1
+( 748 -128 88 ) ( 748 -134.1 88 ) ( 748 -128 89 ) ComputerShrilow/garbage 0 0 0 1 1
+}
+// brush 10
+{
+( 740 -124 88 ) ( 740 -124 89 ) ( 740 -125.33333333333348 88 ) ComputerShrilow/garbage 0 0 0 1 1
+( 884 -132 90 ) ( 884 -132 91 ) ( 891.2 -132 90 ) ComputerShrilow/garbage 0 0 0 1 1
+( 740 -124 88 ) ( 740 -125.33333333333348 88 ) ( 747.1999999999999 -124 88 ) ComputerShrilow/garbage 0 0 0 1 1
+( 884 -132 90 ) ( 891.2 -132 90 ) ( 884 -133.3333333333336 90 ) ComputerShrilow/garbage 0 0 0 1 1
+( 740 -124 88 ) ( 747.1999999999999 -124 88 ) ( 740 -124 89 ) ComputerShrilow/garbage 0 0 0 1 1
+( 884 -132 90 ) ( 884 -133.3333333333336 90 ) ( 884 -132 91 ) ComputerShrilow/garbage 0 0 0 1 1
+}
+// brush 11
+{
+( 742 -250 88 ) ( 742 -250 132 ) ( 742 -252.85714285714278 88 ) ComputerShrilow/chain 0 0 0 1 1
+( 742 -250 88 ) ( 740 -250 88 ) ( 742 -250 132 ) ComputerShrilow/chain 0 0 0 1 1
+( 746 -130 0 ) ( 744 -130 0 ) ( 746 -132.85714285714255 0 ) ComputerShrilow/chain 0 0 0 1 1
+( 742 -250 88 ) ( 742 -252.85714285714278 88 ) ( 740 -250 88 ) ComputerShrilow/chain 0 0 0 1 1
+( 746 -130 0 ) ( 746 -130 44 ) ( 744 -130 0 ) ComputerShrilow/chain 0 0 0 1 1
+( 746 -130 0 ) ( 746 -132.85714285714255 0 ) ( 746 -130 44 ) ComputerShrilow/chain 0 0 0 1 1
+}
+// brush 12
+{
+( 742 -130 48 ) ( 742 -130 72 ) ( 742 -131 48 ) ComputerShrilow/chain 0 0 0 1 1
+( 742 -130 48 ) ( 733 -130 48 ) ( 742 -130 72 ) ComputerShrilow/chain 0 0 0 1 1
+( 778 -126 0 ) ( 769 -126 0 ) ( 778 -127 0 ) ComputerShrilow/chain 0 0 0 1 1
+( 742 -130 48 ) ( 742 -131 48 ) ( 733 -130 48 ) ComputerShrilow/chain 0 0 0 1 1
+( 778 -126 0 ) ( 778 -126 24 ) ( 769 -126 0 ) ComputerShrilow/chain 0 0 0 1 1
+( 778 -126 0 ) ( 778 -127 0 ) ( 778 -126 24 ) ComputerShrilow/chain 0 0 0 1 1
+}
+// brush 13
+{
+( 742 -126 48 ) ( 742 -126 68 ) ( 742 -128 48 ) ComputerShrilow/chain 0 0 0 1 1
+( 884 -130 88 ) ( 884 -130 108 ) ( 887.3809523809523 -130 88 ) ComputerShrilow/chain 0 0 0 1 1
+( 742 -126 48 ) ( 742 -128 48 ) ( 745.3809523809523 -126 48 ) ComputerShrilow/chain 0 0 0 1 1
+( 884 -130 88 ) ( 887.3809523809523 -130 88 ) ( 884 -132 88 ) ComputerShrilow/chain 0 0 0 1 1
+( 742 -126 48 ) ( 745.3809523809523 -126 48 ) ( 742 -126 68 ) ComputerShrilow/chain 0 0 0 1 1
+( 884 -130 88 ) ( 884 -132 88 ) ( 884 -130 108 ) ComputerShrilow/chain 0 0 0 1 1
+}
+// brush 14
+{
+( 482 -250 98 ) ( 482 -249 98 ) ( 482 -250 147 ) ComputerShrilow/concrete 0 0 0 1 1
+( 1214 -256 0 ) ( 1191.1249999999995 -256 0 ) ( 1214 -256 49 ) ComputerShrilow/concrete 0 0 0 1 1
+( 1214 -256 0 ) ( 1214 -255 0 ) ( 1191.1249999999995 -256 0 ) ComputerShrilow/concrete 0 0 0 1 1
+( 482 -250 98 ) ( 459.125 -250 98 ) ( 482 -249 98 ) ComputerShrilow/concrete 0 0 0 1 1
+( 482 -250 98 ) ( 482 -250 147 ) ( 459.125 -250 98 ) ComputerShrilow/concrete 0 0 0 1 1
+( 1214 -256 0 ) ( 1214 -256 49 ) ( 1214 -255 0 ) ComputerShrilow/concrete 0 0 0 1 1
+}
+// brush 15
+{
+( 476 -256 0 ) ( 476 -251.49999999999994 0 ) ( 476 -256 104 ) ComputerShrilow/concrete 0 0 0 1 1
+( 476 -256 0 ) ( 476 -256 104 ) ( 477 -256 0 ) ComputerShrilow/concrete 0 0 0 1 1
+( 476 -256 0 ) ( 477 -256 0 ) ( 476 -251.49999999999994 0 ) ComputerShrilow/concrete 0 0 0 1 1
+( 482 -112 208 ) ( 482 -107.49999999999987 208 ) ( 483 -112 208 ) ComputerShrilow/concrete 0 0 0 1 1
+( 482 -112 208 ) ( 483 -112 208 ) ( 482 -112 312 ) ComputerShrilow/concrete 0 0 0 1 1
+( 482 -112 208 ) ( 482 -112 312 ) ( 482 -107.49999999999987 208 ) ComputerShrilow/concrete 0 0 0 1 1
+}
+// brush 16
+{
+( 476 -112 0 ) ( 476 -105.33333333333333 0 ) ( 476 -112 52 ) ComputerShrilow/concrete 0 0 0 1 1
+( 476 -112 0 ) ( 476 -112 52 ) ( 477 -112 0 ) ComputerShrilow/concrete 0 0 0 1 1
+( 476 -112 0 ) ( 477 -112 0 ) ( 476 -105.33333333333333 0 ) ComputerShrilow/concrete 0 0 0 1 1
+( 482 -32 104 ) ( 482 -25.333333333333346 104 ) ( 483 -32 104 ) ComputerShrilow/concrete 0 0 0 1 1
+( 482 -32 104 ) ( 483 -32 104 ) ( 482 -32 156 ) ComputerShrilow/concrete 0 0 0 1 1
+( 482 -32 104 ) ( 482 -32 156 ) ( 482 -25.333333333333346 104 ) ComputerShrilow/concrete 0 0 0 1 1
+}
+// brush 17
+{
+( 476 32 0 ) ( 476 38.66666666666667 0 ) ( 476 32 52 ) ComputerShrilow/concrete 0 0 0 1 1
+( 476 32 0 ) ( 476 32 52 ) ( 477 32 0 ) ComputerShrilow/concrete 0 0 0 1 1
+( 476 32 0 ) ( 477 32 0 ) ( 476 38.66666666666667 0 ) ComputerShrilow/concrete 0 0 0 1 1
+( 482 112 104 ) ( 482 118.66666666666666 104 ) ( 483 112 104 ) ComputerShrilow/concrete 0 0 0 1 1
+( 482 112 104 ) ( 483 112 104 ) ( 482 112 156 ) ComputerShrilow/concrete 0 0 0 1 1
+( 482 112 104 ) ( 482 112 156 ) ( 482 118.66666666666666 104 ) ComputerShrilow/concrete 0 0 0 1 1
+}
+// brush 18
+{
+( 470 -112 0 ) ( 470 -108.36363636363637 0 ) ( 470 -112 52 ) ComputerShrilow/metal 0 0 0 1 1
+( 470 -112 0 ) ( 470 -112 52 ) ( 470.75 -112 0 ) ComputerShrilow/metal 0 0 0 1 1
+( 470 -112 0 ) ( 470.75 -112 0 ) ( 470 -108.36363636363637 0 ) ComputerShrilow/metal 0 0 0 1 1
+( 476 -32 104 ) ( 476 -28.363636363636374 104 ) ( 476.75 -32 104 ) ComputerShrilow/metal 0 0 0 1 1
+( 476 -32 104 ) ( 476.75 -32 104 ) ( 476 -32 156 ) ComputerShrilow/metal 0 0 0 1 1
+( 476 -32 104 ) ( 476 -32 156 ) ( 476 -28.363636363636374 104 ) ComputerShrilow/metal 0 0 0 1 1
+}
+// brush 19
+{
+( 476 -112 104 ) ( 476 -105 104 ) ( 476 -112 156 ) ComputerShrilow/concrete 0 0 0 1 1
+( 476 -112 104 ) ( 476 -112 156 ) ( 477 -112 104 ) ComputerShrilow/concrete 0 0 0 1 1
+( 476 -112 104 ) ( 477 -112 104 ) ( 476 -105 104 ) ComputerShrilow/concrete 0 0 0 1 1
+( 482 112 208 ) ( 482 119 208 ) ( 483 112 208 ) ComputerShrilow/concrete 0 0 0 1 1
+( 482 112 208 ) ( 483 112 208 ) ( 482 112 260 ) ComputerShrilow/concrete 0 0 0 1 1
+( 482 112 208 ) ( 482 112 260 ) ( 482 119 208 ) ComputerShrilow/concrete 0 0 0 1 1
+}
+// brush 20
+{
+( 470 -112 104 ) ( 470 -101.81818181818183 104 ) ( 470 -112 156 ) ComputerShrilow/metal 0 0 0 1 1
+( 470 -112 104 ) ( 470 -112 156 ) ( 470.75 -112 104 ) ComputerShrilow/metal 0 0 0 1 1
+( 470 -112 104 ) ( 470.75 -112 104 ) ( 470 -101.81818181818183 104 ) ComputerShrilow/metal 0 0 0 1 1
+( 476 112 208 ) ( 476 122.18181818181814 208 ) ( 476.75 112 208 ) ComputerShrilow/metal 0 0 0 1 1
+( 476 112 208 ) ( 476.75 112 208 ) ( 476 112 260 ) ComputerShrilow/metal 0 0 0 1 1
+( 476 112 208 ) ( 476 112 260 ) ( 476 122.18181818181814 208 ) ComputerShrilow/metal 0 0 0 1 1
+}
+// brush 21
+{
+( 470 32 0 ) ( 470 35.63636363636363 0 ) ( 470 32 52 ) ComputerShrilow/metal 0 0 0 1 1
+( 470 32 0 ) ( 470 32 52 ) ( 470.75 32 0 ) ComputerShrilow/metal 0 0 0 1 1
+( 470 32 0 ) ( 470.75 32 0 ) ( 470 35.63636363636363 0 ) ComputerShrilow/metal 0 0 0 1 1
+( 476 112 104 ) ( 476 115.63636363636363 104 ) ( 476.75 112 104 ) ComputerShrilow/metal 0 0 0 1 1
+( 476 112 104 ) ( 476.75 112 104 ) ( 476 112 156 ) ComputerShrilow/metal 0 0 0 1 1
+( 476 112 104 ) ( 476 112 156 ) ( 476 115.63636363636363 104 ) ComputerShrilow/metal 0 0 0 1 1
+}
+// brush 22
+{
+( 476 112 0 ) ( 476 116.50000000000006 0 ) ( 476 112 104 ) ComputerShrilow/concrete 0 0 0 1 1
+( 476 112 0 ) ( 476 112 104 ) ( 477 112 0 ) ComputerShrilow/concrete 0 0 0 1 1
+( 476 112 0 ) ( 477 112 0 ) ( 476 116.50000000000006 0 ) ComputerShrilow/concrete 0 0 0 1 1
+( 482 256 208 ) ( 482 260.5000000000001 208 ) ( 483 256 208 ) ComputerShrilow/concrete 0 0 0 1 1
+( 482 256 208 ) ( 483 256 208 ) ( 482 256 312 ) ComputerShrilow/concrete 0 0 0 1 1
+( 482 256 208 ) ( 482 256 312 ) ( 482 260.5000000000001 208 ) ComputerShrilow/concrete 0 0 0 1 1
+}
+// brush 23
+{
+( 482 256 98 ) ( 482 257 98 ) ( 482 256 147 ) ComputerShrilow/concrete 0 0 0 1 1
+( 1214 250 0 ) ( 1191.1249999999995 250 0 ) ( 1214 250 49 ) ComputerShrilow/concrete 0 0 0 1 1
+( 1214 250 0 ) ( 1214 251 0 ) ( 1191.1249999999995 250 0 ) ComputerShrilow/concrete 0 0 0 1 1
+( 482 256 98 ) ( 459.125 256 98 ) ( 482 257 98 ) ComputerShrilow/concrete 0 0 0 1 1
+( 482 256 98 ) ( 482 256 147 ) ( 459.125 256 98 ) ComputerShrilow/concrete 0 0 0 1 1
+( 1214 250 0 ) ( 1214 250 49 ) ( 1214 251 0 ) ComputerShrilow/concrete 0 0 0 1 1
+}
+// brush 24
+{
+( 480 -256 -16 ) ( 480 -237.7142857142857 -16 ) ( 480 -256 -8 ) ComputerShrilow/grass 0 0 0 0.1 0.1
+( 480 -256 -16 ) ( 480 -256 -8 ) ( 520.7777777777778 -256 -16 ) ComputerShrilow/grass 0 0 0 0.1 0.1
+( 480 -256 -16 ) ( 520.7777777777778 -256 -16 ) ( 480 -237.7142857142857 -16 ) ComputerShrilow/grass 0 0 0 0.1 0.1
+( 1214 256 0 ) ( 1214 274.28571428571433 0 ) ( 1254.7777777777778 256 0 ) ComputerShrilow/grass 0 0 0 0.1 0.1
+( 1214 256 0 ) ( 1254.7777777777778 256 0 ) ( 1214 256 8 ) ComputerShrilow/grass 0 0 0 0.1 0.1
+( 1214 256 0 ) ( 1214 256 8 ) ( 1214 274.28571428571433 0 ) ComputerShrilow/grass 0 0 0 0.1 0.1
+}
+// brush 25
+{
+( -112 -112 -16 ) ( -112 -110.25000000000001 -16 ) ( -112 -112 -15.5 ) ComputerShrilow/sidewalk 0 0 0 1 1
+( -112 -112 -16 ) ( -112 -112 -15.5 ) ( -107.375 -112 -16 ) ComputerShrilow/sidewalk 0 0 0 1 1
+( -112 -112 -16 ) ( -107.375 -112 -16 ) ( -112 -110.25000000000001 -16 ) ComputerShrilow/sidewalk 0 0 0 1 1
+( 480 112 0 ) ( 480 113.74999999999994 0 ) ( 484.62499999999994 112 0 ) ComputerShrilow/sidewalk 0 0 0 1 1
+( 480 112 0 ) ( 484.62499999999994 112 0 ) ( 480 112 0.5 ) ComputerShrilow/sidewalk 0 0 0 1 1
+( 480 112 0 ) ( 480 112 0.5 ) ( 480 113.74999999999994 0 ) ComputerShrilow/sidewalk 0 0 0 1 1
+}
+}

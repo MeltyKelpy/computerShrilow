@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://c6ubc4c0t6v5i"]
-
-[ext_resource type="PackedScene" uid="uid://dxyr4ab6ep8tn" path="res://interstate-intracept/scenes/maps/Streets1.tscn" id="1_2imos"]
-
-[node name="Thetunnelpuzzle" type="Node3D"]
-
-[node name="Streets1" parent="." instance=ExtResource("1_2imos")]

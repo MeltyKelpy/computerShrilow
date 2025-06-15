@@ -1,0 +1,154 @@
+[gd_scene load_steps=22 format=3 uid="uid://drm7418ngr06u"]
+
+[ext_resource type="Script" uid="uid://dk2o8wkq5asl0" path="res://scenes/file.gd" id="1_3xaas"]
+[ext_resource type="Texture2D" uid="uid://dhowf4o2c1tg6" path="res://assets/images/areas/interstate/file.png" id="1_wr4vy"]
+[ext_resource type="Shader" uid="uid://dokpqajxsjnrx" path="res://technical/veins.gdshader" id="2_vbtcp"]
+[ext_resource type="Texture2D" uid="uid://bhko2rytbig15" path="res://assets/images/areas/interstate/fileveins.png" id="3_30piw"]
+[ext_resource type="Texture2D" uid="uid://cl5cohwbdndi1" path="res://assets/images/areas/interstate/fileHov.png" id="4_bj4l8"]
+[ext_resource type="Material" uid="uid://b0vm5nqd7edf1" path="res://technical/ISterm.tres" id="4_vbtcp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3xaas"]
+shader = ExtResource("2_vbtcp")
+shader_parameter/shine_color = Color(0, 0, 0, 1)
+shader_parameter/alpha_limit = 0.2
+shader_parameter/cycle_speed = 0.1
+shader_parameter/full_pulse_cycle = true
+shader_parameter/mode = 1
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jlg4g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7le8u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mfg4x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wsayk"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gpod1"]
+texture = ExtResource("4_bj4l8")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3tmjw"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_63vgm"]
+texture = ExtResource("4_bj4l8")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i0akg"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uc0jy"]
+texture = ExtResource("4_bj4l8")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_myg8o"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rg3qn"]
+texture = ExtResource("1_wr4vy")
+
+[sub_resource type="Animation" id="Animation_bj4l8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Button:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect2:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3xaas"]
+resource_name = "open"
+length = 7.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Button:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.666667, 2.86667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect2:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3.7, 6.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jlg4g"]
+_data = {
+&"RESET": SubResource("Animation_bj4l8"),
+&"open": SubResource("Animation_3xaas")
+}
+
+[node name="File" type="Node2D"]
+script = ExtResource("1_3xaas")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="Veins" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_3xaas")
+position = Vector2(576, 324)
+texture = ExtResource("3_30piw")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 518.0
+offset_top = 270.0
+offset_right = 634.0
+offset_bottom = 381.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jlg4g")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_7le8u")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_mfg4x")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_wsayk")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_gpod1")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_3tmjw")
+theme_override_styles/hover = SubResource("StyleBoxTexture_63vgm")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_i0akg")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_uc0jy")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_myg8o")
+theme_override_styles/normal = SubResource("StyleBoxTexture_rg3qn")
+
+[node name="shader" type="ColorRect" parent="."]
+material = ExtResource("4_vbtcp")
+offset_right = 1153.0
+offset_bottom = 651.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_jlg4g")
+}
+autoplay = "open"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

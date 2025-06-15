@@ -1,6 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://cy511jgu2uwbt"]
 
-[ext_resource type="Script" uid="uid://bvv7wr6hoapmi" path="res://technical/interstate.gd" id="1_70bi8"]
+[ext_resource type="Script" uid="uid://brkqhdlsqi8wh" path="res://technical/interstate.gd" id="1_70bi8"]
+
 
 [node name="Interstate" type="Node"]
 process_mode = 3

@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://lmbkobpy134y"
+path="res://.godot/imported/streets.3.map-78dcb07f7d02b4f5ce99a65338e1182d.tres"
+
+[deps]
+
+source_file="res://tunnelpuzzle/assets/maps/autosave/streets.3.map"
+dest_files=["res://.godot/imported/streets.3.map-78dcb07f7d02b4f5ce99a65338e1182d.tres"]
+
+[params]
+
