@@ -1,0 +1,15 @@
+[remap]
+
+importer="import_gif_to_sprite_frames"
+type="SpriteFrames"
+uid="uid://db8mf616vvq8o"
+path="res://.godot/imported/theinside.gif-4fbaa1bae578edd69292d390a0c397e9.tres"
+
+[deps]
+
+source_file="res://assets/images/areas/rebirth/r4/theinside.gif"
+dest_files=["res://.godot/imported/theinside.gif-4fbaa1bae578edd69292d390a0c397e9.tres"]
+
+[params]
+
+frames_per_second=30

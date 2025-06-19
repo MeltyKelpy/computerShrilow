@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://bsaobsf7sfhkj"]
+[gd_scene load_steps=86 format=3 uid="uid://bsaobsf7sfhkj"]
 
 [ext_resource type="Texture2D" uid="uid://d3xwuakjymg2g" path="res://assets/images/ui/rebirth.png" id="1_6xcba"]
 [ext_resource type="Script" uid="uid://d1k6bwxqri7l4" path="res://scenes/rebirthScene.gd" id="1_i0unl"]
@@ -42,6 +42,22 @@
 [ext_resource type="Texture2D" uid="uid://c8bwwtty3v7ul" path="res://assets/images/areas/rebirth/spiceBar/3.png" id="37_alkvu"]
 [ext_resource type="Texture2D" uid="uid://dyy4xsqc5rgtw" path="res://assets/images/areas/rebirth/spiceBar/4.png" id="38_7b7op"]
 [ext_resource type="Texture2D" uid="uid://cm4pkab7ju5bg" path="res://assets/images/areas/rebirth/spiceBar/5.png" id="39_ss3ck"]
+[ext_resource type="Shader" uid="uid://bl56qrbjyxm32" path="res://technical/bloom.gdshader" id="43_jgbjp"]
+[ext_resource type="SpriteFrames" uid="uid://db8mf616vvq8o" path="res://assets/images/areas/rebirth/r4/theinside.gif" id="43_kdfu5"]
+[ext_resource type="Texture2D" uid="uid://dw8p2x7ohbqxp" path="res://assets/images/areas/rebirth/r4/acceptance.png" id="43_lnvrs"]
+[ext_resource type="Texture2D" uid="uid://cigsntk4jt2co" path="res://assets/images/areas/rebirth/r4/crack.png" id="43_tyh5j"]
+[ext_resource type="Texture2D" uid="uid://b51pf8qwqu7ki" path="res://assets/images/areas/rebirth/r4/junk.png" id="43_wtm86"]
+[ext_resource type="Texture2D" uid="uid://dsfkbjcj117l3" path="res://assets/images/areas/rebirth/r4/discontent.png" id="44_wtm86"]
+[ext_resource type="Texture2D" uid="uid://cc0lubqeaeo6l" path="res://assets/images/areas/rebirth/r4/facingheadon.png" id="45_gw6t0"]
+[ext_resource type="Texture2D" uid="uid://bqa3p6rccpvkn" path="res://assets/images/areas/rebirth/r4/anguish0.png" id="45_ixtqm"]
+[ext_resource type="Texture2D" uid="uid://cwscy6y613ndn" path="res://assets/images/areas/rebirth/r4/facing.png" id="46_ixtqm"]
+[ext_resource type="Texture2D" uid="uid://baaeac81jv1kn" path="res://assets/images/areas/rebirth/r4/anguish1.png" id="46_r2o03"]
+[ext_resource type="Texture2D" uid="uid://8f3skeky8mf4" path="res://assets/images/areas/rebirth/r4/turn0.png" id="47_r2o03"]
+[ext_resource type="Texture2D" uid="uid://dj41q6gfo73f7" path="res://assets/images/areas/rebirth/r4/turn1.png" id="48_73dwn"]
+[ext_resource type="Texture2D" uid="uid://haediyxr0oon" path="res://assets/images/areas/rebirth/r4/turn2.png" id="49_tyh5j"]
+[ext_resource type="Texture2D" uid="uid://bwf5iwnet0o5m" path="res://assets/images/areas/rebirth/r4/turn3.png" id="50_jgbjp"]
+[ext_resource type="Texture2D" uid="uid://du2gi48gnl77d" path="res://assets/images/areas/rebirth/r4/upset.png" id="54_r2o03"]
+[ext_resource type="Shader" uid="uid://cvmu7e27qf7ud" path="res://technical/crashout.gdshader" id="55_73dwn"]
 
 [sub_resource type="Animation" id="Animation_fc60p"]
 length = 0.001
@@ -356,12 +372,16 @@ tracks/4/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_wtm86"]
+resource_name = "new_animation"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hnmsn"]
 _data = {
 &"RESET": SubResource("Animation_hdpqv"),
 &"anim": SubResource("Animation_mwxex"),
 &"beamLoop": SubResource("Animation_emy6o"),
-&"kill": SubResource("Animation_yoxvo")
+&"kill": SubResource("Animation_yoxvo"),
+&"new_animation": SubResource("Animation_wtm86")
 }
 
 [sub_resource type="Animation" id="Animation_e25hp"]
@@ -629,6 +649,30 @@ tracks/21/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("../rebirth4:visible")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("../rebirth4/ColorRect:color")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_kf1rl"]
@@ -975,12 +1019,68 @@ tracks/9/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_a5v0l"]
+resource_name = "rebirth4"
+length = 10.0
+step = 0.0003
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../rebirth4:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../rebirth4/ColorRect:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("..")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(6.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_scene2"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_u8ivg"]
 _data = {
 &"RESET": SubResource("Animation_e25hp"),
 &"curse": SubResource("Animation_kf1rl"),
 &"end": SubResource("Animation_t03k1"),
-&"open": SubResource("Animation_bcfrp")
+&"open": SubResource("Animation_bcfrp"),
+&"rebirth4": SubResource("Animation_a5v0l")
 }
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_u8ivg"]
@@ -1185,6 +1285,141 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jgbjp"]
+shader = ExtResource("43_jgbjp")
+shader_parameter/BLOOM_THRESHOLD = 0.6
+shader_parameter/BLOOM_INTENSITY = 3.0
+shader_parameter/BLUR_ITERATIONS = 50
+shader_parameter/BLUR_SIZE = 0.01
+shader_parameter/BLUR_SUBDIVISIONS = 10
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kdfu5"]
+shader = ExtResource("43_jgbjp")
+shader_parameter/BLOOM_THRESHOLD = 0.5
+shader_parameter/BLOOM_INTENSITY = 3.0
+shader_parameter/BLUR_ITERATIONS = 12
+shader_parameter/BLUR_SIZE = 0.05
+shader_parameter/BLUR_SUBDIVISIONS = 10
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kdfu5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("43_lnvrs")
+}],
+"loop": true,
+"name": &"acceptance",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("45_ixtqm")
+}, {
+"duration": 2.7,
+"texture": ExtResource("46_r2o03")
+}],
+"loop": true,
+"name": &"anguish",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("44_wtm86")
+}],
+"loop": true,
+"name": &"discontent",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("45_gw6t0")
+}],
+"loop": true,
+"name": &"headon",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("46_ixtqm")
+}],
+"loop": true,
+"name": &"percieving",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 5.0,
+"texture": ExtResource("46_ixtqm")
+}, {
+"duration": 2.0,
+"texture": ExtResource("47_r2o03")
+}, {
+"duration": 2.0,
+"texture": ExtResource("48_73dwn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_tyh5j")
+}, {
+"duration": 2.0,
+"texture": ExtResource("50_jgbjp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_gw6t0")
+}],
+"loop": false,
+"name": &"turn",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("54_r2o03")
+}],
+"loop": true,
+"name": &"upset",
+"speed": 5.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tyh5j"]
+shader = ExtResource("55_73dwn")
+shader_parameter/red_boost = 1.2
+shader_parameter/green_boost = 1.1
+
+[sub_resource type="Animation" id="Animation_kdfu5"]
+resource_name = "anim"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("crack:material:shader_parameter/BLUR_SUBDIVISIONS")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [10, 11, 12]
+}
+
+[sub_resource type="Animation" id="Animation_t1vd1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("crack:material:shader_parameter/BLUR_SUBDIVISIONS")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [10]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wsete"]
+_data = {
+&"RESET": SubResource("Animation_t1vd1"),
+&"anim": SubResource("Animation_kdfu5")
+}
+
 [node name="RebirthScene" type="Node2D"]
 script = ExtResource("1_i0unl")
 
@@ -1247,7 +1482,6 @@ autoplay = "fade"
 libraries = {
 &"": SubResource("AnimationLibrary_hnmsn")
 }
-autoplay = "anim"
 
 [node name="mus" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_yplct")
@@ -1262,6 +1496,12 @@ one_shot = true
 wait_time = 10.0
 one_shot = true
 
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+root_node = NodePath("../curses")
+libraries = {
+&"": SubResource("AnimationLibrary_u8ivg")
+}
+
 [node name="curses" type="Node2D" parent="."]
 visible = false
 
@@ -1271,11 +1511,6 @@ offset_top = -239.0
 offset_right = 1744.0
 offset_bottom = 934.0
 color = Color(0, 0, 0, 1)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="curses"]
-libraries = {
-&"": SubResource("AnimationLibrary_u8ivg")
-}
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="curses"]
 stream = ExtResource("9_wfdbt")
@@ -1345,18 +1580,22 @@ offset_bottom = 263.0
 texture = ExtResource("18_bcfrp")
 
 [node name="back" type="Sprite2D" parent="curses"]
+visible = false
 position = Vector2(609, 287)
 texture = ExtResource("9_ikk70")
 
 [node name="wheel" type="Sprite2D" parent="curses"]
+visible = false
 position = Vector2(688, 309)
 texture = ExtResource("10_bcfrp")
 
 [node name="front" type="Sprite2D" parent="curses"]
+visible = false
 position = Vector2(609, 287)
 texture = ExtResource("11_e25hp")
 
 [node name="QTE" type="AnimatedSprite2D" parent="curses"]
+visible = false
 position = Vector2(576, 324)
 sprite_frames = SubResource("SpriteFrames_u8ivg")
 animation = &"Default"
@@ -1373,6 +1612,7 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="logo" type="AnimatedSprite2D" parent="curses"]
+visible = false
 position = Vector2(576, 82)
 sprite_frames = SubResource("SpriteFrames_yp200")
 autoplay = "default"
@@ -1404,6 +1644,7 @@ anim_speed_min = 16.0
 anim_speed_max = 82.7
 
 [node name="Spice" type="Sprite2D" parent="curses"]
+visible = false
 material = SubResource("ShaderMaterial_j1bjs")
 position = Vector2(577, 85)
 scale = Vector2(0.7, 0.7)
@@ -1464,6 +1705,64 @@ bus = &"SFX"
 stream = ExtResource("30_t03k1")
 volume_db = -8.32
 bus = &"SFX"
+
+[node name="rebirth4" type="Node2D" parent="."]
+visible = false
+
+[node name="theinside" type="AnimatedSprite2D" parent="rebirth4"]
+visible = false
+material = SubResource("ShaderMaterial_jgbjp")
+position = Vector2(576, 251)
+scale = Vector2(1.32, 1.32)
+sprite_frames = ExtResource("43_kdfu5")
+animation = &"gif"
+autoplay = "gif"
+frame_progress = 0.911825
+
+[node name="crack" type="Sprite2D" parent="rebirth4"]
+visible = false
+material = SubResource("ShaderMaterial_kdfu5")
+position = Vector2(576, 324)
+texture = ExtResource("43_tyh5j")
+
+[node name="junk" type="Sprite2D" parent="rebirth4"]
+position = Vector2(576, 324)
+texture = ExtResource("43_wtm86")
+
+[node name="QTE" type="AnimatedSprite2D" parent="rebirth4"]
+position = Vector2(576, 324)
+sprite_frames = SubResource("SpriteFrames_kdfu5")
+animation = &"upset"
+autoplay = "discontent"
+frame_progress = 0.365344
+
+[node name="ColorRect" type="ColorRect" parent="rebirth4"]
+offset_right = 1160.0
+offset_bottom = 661.0
+color = Color(0, 0, 0, 1)
+
+[node name="Dialogue" type="Label" parent="rebirth4"]
+offset_left = 15.0
+offset_top = 553.0
+offset_right = 1137.0
+offset_bottom = 642.0
+theme_override_fonts/font = ExtResource("3_c2huh")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="ColorRect2" type="ColorRect" parent="rebirth4"]
+visible = false
+material = SubResource("ShaderMaterial_tyh5j")
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="crack2" type="AnimationPlayer" parent="rebirth4"]
+libraries = {
+&"": SubResource("AnimationLibrary_wsete")
+}
+autoplay = "anim"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 324)

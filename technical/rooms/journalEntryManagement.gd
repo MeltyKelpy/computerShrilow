@@ -208,13 +208,10 @@ func updateEntryContents():
 	entries = []
 	for e in entriesText.size():
 		var completeEntry = ""
-		print(entriesText[entriesText.keys()[e]][0])
 		if entriesText[entriesText.keys()[e]][0] == false:
 			for i in range(1, entriesText[entriesText.keys()[e]].size()):
 				if entriesText[entriesText.keys()[e]][i]["revealed?"] == true:
 					completeEntry = completeEntry+entriesText[entriesText.keys()[e]][i]["text"]+" "
 				if entriesText[entriesText.keys()[e]][i]["revealed?"] == false:
 					completeEntry = completeEntry+"[bgcolor=black][color=black]"+entriesText[entriesText.keys()[e]][i]["text"]+"[/color][/bgcolor] "
-			print(entriesText[entriesText.keys()[e]])
 			entries.append({"EntryName":entriesText.keys()[e], "Text":completeEntry})
-	print(entries)

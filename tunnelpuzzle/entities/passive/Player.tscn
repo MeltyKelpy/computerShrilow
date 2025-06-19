@@ -55,6 +55,20 @@ texture = ExtResource("6_7o3jg")
 
 [node name="Vision" type="Camera3D" parent="Neck"]
 
+[node name="Control" type="Control" parent="."]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 500.0
+offset_bottom = 500.0
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+material = SubResource("ShaderMaterial_f0ekx")
+layout_mode = 0
+offset_right = 736.0
+offset_bottom = 656.0
+color = Color(1, 1, 1, 0.776471)
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Bars" type="Node2D" parent="CanvasLayer"]
@@ -117,17 +131,3 @@ theme_override_font_sizes/font_size = 20
 text = "Pick Up [E]"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="Control" type="Control" parent="CanvasLayer"]
-clip_contents = true
-layout_mode = 3
-anchors_preset = 0
-offset_right = 500.0
-offset_bottom = 500.0
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control"]
-material = SubResource("ShaderMaterial_f0ekx")
-layout_mode = 0
-offset_right = 736.0
-offset_bottom = 656.0
-color = Color(1, 1, 1, 0.776471)

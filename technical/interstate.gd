@@ -13,6 +13,7 @@ var baldiModeUnlocked = false
 var tutorialDone = false
 var orangeProgress = 0
 var tp_status = ["not","not","not"]
+# in-progress
 @onready var color = $ColorRect
 
 func _enter_tree() -> void:
@@ -69,7 +70,7 @@ func loadData():
 		tutorialDone = config.get_value("Game", "tutorialOpened", false)
 		jelliesbought = config.get_value("Stats", "jelliesBought", 0)
 		plusones = config.get_value("Stats", "plusOnes", 0)
-		tp_status = config.get_value("Game", "tp_status", ["in-progress","not","not"])
+		tp_status = config.get_value("Game", "tp_status", ["not","not","not"])
 
 func _on_timer_timeout() -> void:
 	fullTime += 1

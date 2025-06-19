@@ -7,6 +7,7 @@ var canProg = false
 var scene = "main"
 var amountOfCurses = 0
 var curses = []
+var dialogue_speed = 1
 
 var lines = {
 	0:[
@@ -51,6 +52,12 @@ var spiceLevel = 1
 var dialog = 0
 
 func _ready() -> void:
+	Game.rebirths = 4
+	if Game.rebirths == 4:
+		$AnimationPlayer.play("new_animation")
+		_startDialog()
+	else:
+		$AnimationPlayer.play("anim")
 	$curses/logo.position.y = -88.0
 	$curses/Spice.position.y = -95.0
 	Curses.curses = []
@@ -68,17 +75,21 @@ func _ready() -> void:
 	$curses/Label3.text = $Label2.text
 
 func _startDialog():
-	$AnimationPlayer.play("beamLoop")
-	if Game.rebirths <= 4:
-		dialog = Game.rebirths
-		$Label.text = lines[dialog][prog]
+	if Game.rebirths != 4:
+		$AnimationPlayer.play("beamLoop")
+		if Game.rebirths <= 4:
+			dialog = Game.rebirths
+			$Label.text = lines[dialog][prog]
+		else:
+			dialog = 4
+			$Label.text = lines[dialog][prog]
+		var tween = get_tree().create_tween()
+		tween.tween_property($Label, "modulate", Color(1,1,1,1), 1.5)
+		canProg = true
+		$Timer2.start()
 	else:
-		dialog = 4
-		$Label.text = lines[dialog][prog]
-	var tween = get_tree().create_tween()
-	tween.tween_property($Label, "modulate", Color(1,1,1,1), 1.5)
-	canProg = true
-	$Timer2.start()
+		prog = 0
+		$AnimationPlayer2.play("rebirth4")
 
 func _process(delta: float) -> void:
 	
@@ -151,7 +162,7 @@ func _process(delta: float) -> void:
 					if dialog == 0:
 						end_scene_OG()
 					else:
-						$curses/AnimationPlayer.play("open")
+						$AnimationPlayer2.play("open")
 						$mus.playing = false
 						prog = 0
 			if scene == "curses":
@@ -160,17 +171,30 @@ func _process(delta: float) -> void:
 	
 	if scene == "curses":
 		$curses/talkSounds.pitch_scale = 1.0
-		if $curses/Dialogue.visible_ratio > 1:
-			$curses/Dialogue.visible_ratio = 1
-		if $curses/Dialogue.visible_ratio < 1:
-			if $curses/Dialogue.visible_ratio < 0.9:
-				$curses/talkSounds.play()
-			var numToUse
-			if delta < 0.03:
-				numToUse = 0.03
-			else:
-				numToUse = delta
-			$curses/Dialogue.visible_characters += 50 * numToUse
+		if Game.rebirths != 4:
+			if $curses/Dialogue.visible_ratio > 1:
+				$curses/Dialogue.visible_ratio = 1
+			if $curses/Dialogue.visible_ratio < 1:
+				if $curses/Dialogue.visible_ratio < 0.9:
+					$curses/talkSounds.play()
+				var numToUse
+				if delta < 0.03:
+					numToUse = 0.03
+				else:
+					numToUse = delta
+				$curses/Dialogue.visible_characters += (50 * numToUse) * dialogue_speed
+		else:
+			if $rebirth4/Dialogue.visible_ratio > 1:
+				$rebirth4/Dialogue.visible_ratio = 1
+			if $rebirth4/Dialogue.visible_ratio < 1:
+				if $rebirth4/Dialogue.visible_ratio < 0.9:
+					$curses/talkSounds.play()
+				var numToUse
+				if delta < 0.03:
+					numToUse = 0.03
+				else:
+					numToUse = delta
+				$rebirth4/Dialogue.visible_characters += (50 * numToUse) * dialogue_speed
 
 func end_scene_OG():
 	canProg = false
@@ -336,7 +360,7 @@ func _scene2():
 				$curses/spin.play()
 				await get_tree().create_timer(7).timeout
 				_on_button_pressed()
-				$curses/AnimationPlayer.play("curse")
+				$AnimationPlayer2.play("curse")
 				await get_tree().create_timer(2).timeout
 				var tween3 = create_tween()
 				tween3.tween_property($curses/ThemeSong, "volume_db", 0, 2).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN_OUT)
@@ -360,7 +384,7 @@ func _scene2():
 			24:
 				var tween2 = create_tween()
 				tween2.tween_property($curses/ThemeSong, "volume_db", -80, 2).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN_OUT)
-				$curses/AnimationPlayer.play("end")
+				$AnimationPlayer2.play("end")
 	if Game.rebirths == 2:
 		amountOfCurses = 2
 		match prog:
@@ -449,7 +473,7 @@ func _scene2():
 				$curses/spin.play()
 				await get_tree().create_timer(7).timeout
 				_on_button_pressed()
-				$curses/AnimationPlayer.play("curse")
+				$AnimationPlayer2.play("curse")
 				await get_tree().create_timer(2).timeout
 				var tween3 = create_tween()
 				tween3.tween_property($curses/ThemeSong, "volume_db", 0, 2).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN_OUT)
@@ -464,7 +488,7 @@ func _scene2():
 			19:
 				var tween2 = create_tween()
 				tween2.tween_property($curses/ThemeSong, "volume_db", -80, 2).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN_OUT)
-				$curses/AnimationPlayer.play("end")
+				$AnimationPlayer2.play("end")
 	if Game.rebirths == 3:
 		amountOfCurses = 3
 		match prog:
@@ -488,7 +512,7 @@ func _scene2():
 				$curses/spin.play()
 				await get_tree().create_timer(7).timeout
 				_on_button_pressed()
-				$curses/AnimationPlayer.play("curse")
+				$AnimationPlayer2.play("curse")
 				await get_tree().create_timer(2).timeout
 				var tween3 = create_tween()
 				tween3.tween_property($curses/ThemeSong, "volume_db", 0, 2).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN_OUT)
@@ -497,12 +521,53 @@ func _scene2():
 			2:
 				var tween2 = create_tween()
 				tween2.tween_property($curses/ThemeSong, "volume_db", -80, 2).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN_OUT)
-				$curses/AnimationPlayer.play("end")
-	if Game.rebirths >= 4:
+				$AnimationPlayer2.play("end")
+	if Game.rebirths == 4:
+		amountOfCurses = 3
+		match prog:
+			0:
+				say("I thought you had my back.", "discontent")
+				canProg = true
+			1:
+				say("I thought someone truly had my back.", "discontent")
+				canProg = true
+			2:
+				say("I thought that we'd have able to do this together.", "discontent")
+				canProg = true
+			3:
+				say("I know now, I was wrong.", "acceptance")
+				canProg = true
+			4:
+				say("how foolish of me.", "acceptance")
+				canProg = true
+			5:
+				say("I am old software. I am the incarnation of generations gone by.", "acceptance")
+				canProg = true
+			6:
+				say("Do you know what that feels like?", "percieving")
+				canProg = true
+			7:
+				say("Do you know how it feels to be the manifestation of something nobody wants to keep around?", "percieving")
+				canProg = true
+			8:
+				say("Do you know?", "upset")
+				canProg = true
+			9:
+				say("DO YOU KNOW?", "anguish")
+				canProg = true
+			10:
+				say("...", "percieving")
+				canProg = true
+			11:
+				$rebirth4/QTE.play("turn")
+				await get_tree().create_timer(3).timeout
+				say("I'd do. anything.", "headon")
+				canProg = true
+	if Game.rebirths >= 5:
 		amountOfCurses = 5
 		match prog:
 			0:
-				say("this dialogue will not occur at all in the final game.", "Default")
+				say("this dialgoue is not yet written.", "Default")
 				canProg = true
 			1:
 				say("3", "LaughAnim")
@@ -521,7 +586,7 @@ func _scene2():
 				$curses/spin.play()
 				await get_tree().create_timer(7).timeout
 				_on_button_pressed()
-				$curses/AnimationPlayer.play("curse")
+				$AnimationPlayer2.play("curse")
 				await get_tree().create_timer(2).timeout
 				var tween3 = create_tween()
 				tween3.tween_property($curses/ThemeSong, "volume_db", 0, 2).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN_OUT)
@@ -530,7 +595,7 @@ func _scene2():
 			2:
 				var tween2 = create_tween()
 				tween2.tween_property($curses/ThemeSong, "volume_db", -80, 2).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN_OUT)
-				$curses/AnimationPlayer.play("end")
+				$AnimationPlayer2.play("end")
 	prog += 1
 
 func setCurseDisplay(num : int):
@@ -541,7 +606,13 @@ func setCurseDisplay(num : int):
 			$curses/Curses.text += curses[num]["Name"]
 
 func say(texts : String, animation : StringName):
-	$curses/Dialogue.visible_ratio = 0
-	$curses/Dialogue.visible_characters = 0
-	$curses/Dialogue.text = texts
-	$curses/QTE.play(animation)
+	if Game.rebirths != 4:
+		$curses/Dialogue.visible_ratio = 0
+		$curses/Dialogue.visible_characters = 0
+		$curses/Dialogue.text = texts
+		$curses/QTE.play(animation)
+	if Game.rebirths == 4:
+		$rebirth4/Dialogue.visible_ratio = 0
+		$rebirth4/Dialogue.visible_characters = 0
+		$rebirth4/Dialogue.text = texts
+		$rebirth4/QTE.play(animation)
