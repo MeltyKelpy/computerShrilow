@@ -526,43 +526,15 @@ func _scene2():
 		amountOfCurses = 3
 		match prog:
 			0:
-				say("I thought you had my back.", "discontent")
-				canProg = true
+				$rebirth4/QTE.animation = "stomp"
+				$rebirth4/QTE.stop()
+				$rebirth4/r4player.play("stomp")
 			1:
-				say("I thought someone truly had my back.", "discontent")
-				canProg = true
-			2:
-				say("I thought that we'd have able to do this together.", "discontent")
-				canProg = true
-			3:
-				say("I know now, I was wrong.", "acceptance")
-				canProg = true
-			4:
-				say("how foolish of me.", "acceptance")
-				canProg = true
-			5:
-				say("I am old software. I am the incarnation of generations gone by.", "acceptance")
-				canProg = true
-			6:
-				say("Do you know what that feels like?", "percieving")
-				canProg = true
-			7:
-				say("Do you know how it feels to be the manifestation of something nobody wants to keep around?", "percieving")
-				canProg = true
-			8:
-				say("Do you know?", "upset")
-				canProg = true
-			9:
-				say("DO YOU KNOW?", "anguish")
-				canProg = true
-			10:
-				say("...", "percieving")
-				canProg = true
-			11:
-				$rebirth4/QTE.play("turn")
+				$rebirth4/QTE.play("percieving")
 				await get_tree().create_timer(3).timeout
-				say("I'd do. anything.", "headon")
-				canProg = true
+				$rebirth4/QTE.play("turn")
+				await get_tree().create_timer(5).timeout
+				say("do you know how it feels?", "headon")
 	if Game.rebirths >= 5:
 		amountOfCurses = 5
 		match prog:

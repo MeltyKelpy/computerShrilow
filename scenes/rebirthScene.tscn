@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=3 uid="uid://bsaobsf7sfhkj"]
+[gd_scene load_steps=119 format=3 uid="uid://bsaobsf7sfhkj"]
 
 [ext_resource type="Texture2D" uid="uid://d3xwuakjymg2g" path="res://assets/images/ui/rebirth.png" id="1_6xcba"]
 [ext_resource type="Script" uid="uid://d1k6bwxqri7l4" path="res://scenes/rebirthScene.gd" id="1_i0unl"]
@@ -48,16 +48,43 @@
 [ext_resource type="Texture2D" uid="uid://cigsntk4jt2co" path="res://assets/images/areas/rebirth/r4/crack.png" id="43_tyh5j"]
 [ext_resource type="Texture2D" uid="uid://b51pf8qwqu7ki" path="res://assets/images/areas/rebirth/r4/junk.png" id="43_wtm86"]
 [ext_resource type="Texture2D" uid="uid://dsfkbjcj117l3" path="res://assets/images/areas/rebirth/r4/discontent.png" id="44_wtm86"]
+[ext_resource type="Texture2D" uid="uid://dssdd8hjwqbnm" path="res://assets/images/areas/rebirth/r4/crackopen0.png" id="45_377wd"]
+[ext_resource type="Texture2D" uid="uid://cfwdr7k30nw6t" path="res://assets/images/areas/rebirth/r4/crackopen-1.png" id="45_e035e"]
 [ext_resource type="Texture2D" uid="uid://cc0lubqeaeo6l" path="res://assets/images/areas/rebirth/r4/facingheadon.png" id="45_gw6t0"]
 [ext_resource type="Texture2D" uid="uid://bqa3p6rccpvkn" path="res://assets/images/areas/rebirth/r4/anguish0.png" id="45_ixtqm"]
+[ext_resource type="Texture2D" uid="uid://d27wxi0rxrl2t" path="res://assets/images/areas/rebirth/r4/crackopen1.png" id="46_e035e"]
 [ext_resource type="Texture2D" uid="uid://cwscy6y613ndn" path="res://assets/images/areas/rebirth/r4/facing.png" id="46_ixtqm"]
 [ext_resource type="Texture2D" uid="uid://baaeac81jv1kn" path="res://assets/images/areas/rebirth/r4/anguish1.png" id="46_r2o03"]
+[ext_resource type="Texture2D" uid="uid://dgqvo6rdd0bg0" path="res://assets/images/areas/rebirth/r4/crackopen2.png" id="47_5bot4"]
 [ext_resource type="Texture2D" uid="uid://8f3skeky8mf4" path="res://assets/images/areas/rebirth/r4/turn0.png" id="47_r2o03"]
 [ext_resource type="Texture2D" uid="uid://dj41q6gfo73f7" path="res://assets/images/areas/rebirth/r4/turn1.png" id="48_73dwn"]
+[ext_resource type="Texture2D" uid="uid://d34h14p66tt8d" path="res://assets/images/areas/rebirth/r4/crackopen3.png" id="48_dhpiy"]
+[ext_resource type="Texture2D" uid="uid://bror2fyiuqwf0" path="res://assets/images/areas/rebirth/r4/crackopen4.png" id="49_fmjol"]
 [ext_resource type="Texture2D" uid="uid://haediyxr0oon" path="res://assets/images/areas/rebirth/r4/turn2.png" id="49_tyh5j"]
+[ext_resource type="Texture2D" uid="uid://c22my4t4hh7g" path="res://assets/images/areas/rebirth/r4/crackopen5.png" id="50_745cg"]
 [ext_resource type="Texture2D" uid="uid://bwf5iwnet0o5m" path="res://assets/images/areas/rebirth/r4/turn3.png" id="50_jgbjp"]
+[ext_resource type="Texture2D" uid="uid://b05esmw8qpogc" path="res://assets/images/areas/rebirth/r4/crackopen6.png" id="51_m6ufn"]
+[ext_resource type="Texture2D" uid="uid://danh6w50qgqnc" path="res://assets/images/areas/rebirth/r4/stomp0.png" id="54_l624x"]
 [ext_resource type="Texture2D" uid="uid://du2gi48gnl77d" path="res://assets/images/areas/rebirth/r4/upset.png" id="54_r2o03"]
+[ext_resource type="Texture2D" uid="uid://brbamvoomxi0f" path="res://assets/images/areas/rebirth/r4/stomp1.png" id="55_2e4xs"]
 [ext_resource type="Shader" uid="uid://cvmu7e27qf7ud" path="res://technical/crashout.gdshader" id="55_73dwn"]
+[ext_resource type="Texture2D" uid="uid://c7wg3vf7dt5v0" path="res://assets/images/areas/rebirth/r4/stomp2.png" id="56_xc78d"]
+[ext_resource type="Texture2D" uid="uid://chdudrghuvqlt" path="res://assets/images/areas/rebirth/r4/stomp4.png" id="57_bi1u3"]
+[ext_resource type="Texture2D" uid="uid://dqijkn82haskp" path="res://assets/images/areas/rebirth/r4/stomp5.png" id="58_5smy5"]
+[ext_resource type="Texture2D" uid="uid://dwlbjlg12r7k8" path="res://assets/images/areas/rebirth/r4/stomp6.png" id="59_q2f7d"]
+[ext_resource type="Texture2D" uid="uid://c0u01qo5n7bur" path="res://assets/images/areas/rebirth/r4/stomp7.png" id="60_mky5o"]
+[ext_resource type="Texture2D" uid="uid://er3dwp0uya8l" path="res://assets/images/areas/rebirth/r4/stomp8.png" id="61_377wd"]
+[ext_resource type="Texture2D" uid="uid://bxjvvod2cis3i" path="res://assets/images/areas/rebirth/r4/stomp9.png" id="62_e035e"]
+[ext_resource type="Texture2D" uid="uid://blv0mb7gxn3tf" path="res://assets/images/areas/rebirth/r4/stomp10.png" id="63_5bot4"]
+[ext_resource type="Texture2D" uid="uid://bkhes3bnd6mse" path="res://assets/images/areas/rebirth/r4/stomp11.png" id="64_dhpiy"]
+[ext_resource type="Texture2D" uid="uid://dyrh42qpiitd4" path="res://assets/images/areas/rebirth/r4/stomp12.png" id="65_fmjol"]
+[ext_resource type="AudioStream" uid="uid://cojjfib0iv06y" path="res://assets/sounds/buildup.ogg" id="79_dhpiy"]
+[ext_resource type="AudioStream" uid="uid://bxhcul5pcj0l" path="res://assets/sounds/crack.ogg" id="80_fmjol"]
+[ext_resource type="AudioStream" uid="uid://rxoi75rrwrnc" path="res://assets/sounds/break.ogg" id="81_fmjol"]
+[ext_resource type="AudioStream" uid="uid://xdnioq2rfkbm" path="res://assets/sounds/rain.ogg" id="82_745cg"]
+[ext_resource type="AudioStream" uid="uid://g5sccau7wf5k" path="res://assets/sounds/impact.ogg" id="83_qlj4j"]
+[ext_resource type="AudioStream" uid="uid://dcv3curd7hg5i" path="res://assets/sounds/drone.ogg" id="84_sk6my"]
+[ext_resource type="AudioStream" uid="uid://bb0dq46kq4e6m" path="res://assets/sounds/stomp0.ogg" id="85_sk6my"]
 
 [sub_resource type="Animation" id="Animation_fc60p"]
 length = 0.001
@@ -1301,6 +1328,41 @@ shader_parameter/BLUR_ITERATIONS = 12
 shader_parameter/BLUR_SIZE = 0.05
 shader_parameter/BLUR_SUBDIVISIONS = 10
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_qlj4j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("45_e035e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_377wd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_e035e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_5bot4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_dhpiy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_fmjol")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_745cg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_m6ufn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_tyh5j")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_kdfu5"]
 animations = [{
 "frames": [{
@@ -1347,6 +1409,50 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
+"duration": 1.0,
+"texture": ExtResource("54_r2o03")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_l624x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_2e4xs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_xc78d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_bi1u3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_5smy5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_q2f7d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_mky5o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("61_377wd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("62_e035e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("63_5bot4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("64_dhpiy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65_fmjol")
+}],
+"loop": false,
+"name": &"stomp",
+"speed": 5.0
+}, {
+"frames": [{
 "duration": 5.0,
 "texture": ExtResource("46_ixtqm")
 }, {
@@ -1383,6 +1489,21 @@ shader = ExtResource("55_73dwn")
 shader_parameter/red_boost = 1.2
 shader_parameter/green_boost = 1.1
 
+[sub_resource type="Animation" id="Animation_t1vd1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("crack:material:shader_parameter/BLUR_SUBDIVISIONS")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [10]
+}
+
 [sub_resource type="Animation" id="Animation_kdfu5"]
 resource_name = "anim"
 loop_mode = 1
@@ -1399,35 +1520,569 @@ tracks/0/keys = {
 "values": [10, 11, 12]
 }
 
-[sub_resource type="Animation" id="Animation_t1vd1"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("crack:material:shader_parameter/BLUR_SUBDIVISIONS")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [10]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wsete"]
 _data = {
 &"RESET": SubResource("Animation_t1vd1"),
 &"anim": SubResource("Animation_kdfu5")
 }
 
+[sub_resource type="Animation" id="Animation_745cg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer:stream")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("QTE:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect3:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Camera2D:zoom")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Camera2D:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("QTE:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("crack:frame")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("ColorRect3:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("crack:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("theinside:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("crackreal:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("QTE:animation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"stomp"]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("ColorRect2:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("bgm:playing")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("../mus:volume_db")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("ColorRect4:color")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0, 0, 0)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("overinside:modulate")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("AudioStreamPlayer2:playing")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("AudioStreamPlayer3:playing")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("AudioStreamPlayer4:playing")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_sk6my"]
+resource_name = "stomp"
+length = 25.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("QTE:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.233333, 3.92213, 4.02213, 4.18821, 4.3, 6.83843, 10.3667, 11.8333, 12.7667, 12.832, 12.9072, 12.9823, 13.5462, 18.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 9, 10, 11, 12]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer:stream")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.6, 12.8, 20.2333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("79_dhpiy"), ExtResource("80_fmjol"), ExtResource("81_fmjol")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.666667, 12.7333, 17.6333, 20.1666, 20.3),
+"transitions": PackedFloat32Array(1.27456, 1, 1.27456, 1, 1.27456, 1),
+"update": 1,
+"values": [false, true, false, true, false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect3:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 3.63333, 12.6667),
+"transitions": PackedFloat32Array(1, 0.594604, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Camera2D:zoom")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2.83333, 12.8667, 14.2),
+"transitions": PackedFloat32Array(1.8025, 0.0853776, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.5, 1.5), Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Camera2D:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(2.86667, 12.9, 14.2),
+"transitions": PackedFloat32Array(2.37841, 0.0853776, 1),
+"update": 0,
+"values": [0.0, 0.10472, 0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("crack:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 17.6333, 18.1496, 20.3, 20.3666, 20.4333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 3, 4, 5, 6, 7]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("QTE:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(12.6667, 19.8, 20.4209, 20.4333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.211765), Color(1, 1, 1, 0.211765), Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("ColorRect3:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(20.4333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("crack:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(17.6333, 20.4333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("theinside:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(20.4),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("crackreal:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(20.4),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("QTE:animation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(20.4333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"upset"]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("ColorRect2:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 20.4333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("bgm:playing")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0, 20.4333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("../mus:volume_db")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0.0666667, 0.233333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -80.0]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("ColorRect4:color")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(20.3333, 20.4333, 20.8333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 0, 0, 1), Color(1, 0, 0, 0)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("overinside:modulate")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0.4, 8.91333, 12.9, 12.901),
+"transitions": PackedFloat32Array(4, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.435294), Color(1, 1, 1, 0.435294), Color(1, 1, 1, 0)]
+}
+tracks/18/type = "method"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("..")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(23.6333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_scene2"
+}]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("AudioStreamPlayer2:playing")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(12.8667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("AudioStreamPlayer3:playing")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0, 20.4333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("AudioStreamPlayer4:playing")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(12.9),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_su2fu"]
+_data = {
+&"RESET": SubResource("Animation_745cg"),
+&"stomp": SubResource("Animation_sk6my")
+}
+
+[sub_resource type="Shader" id="Shader_745cg"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.4.1.stable's CanvasItemMaterial.
+
+shader_type canvas_item;
+render_mode blend_mul;
+
+uniform vec4 solid_color : hint_color;
+uniform float modifier : hint_range(0.0, 1.0) = 0.0;
+
+void fragment() {
+	vec4 texture_color = texture(TEXTURE, UV);
+	texture_color.rgb = mix(texture_color.rgb, solid_color.rgb / MODULATE.rgb, modifier);
+	COLOR = texture_color;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m6ufn"]
+shader = SubResource("Shader_745cg")
+
 [node name="RebirthScene" type="Node2D"]
 script = ExtResource("1_i0unl")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -8.0
-offset_top = -8.0
-offset_right = 1161.0
-offset_bottom = 657.0
+offset_left = -219.0
+offset_top = -143.0
+offset_right = 1430.0
+offset_bottom = 861.0
 color = Color(0, 0, 0, 1)
 
 [node name="Beam" type="Sprite2D" parent="."]
@@ -1712,29 +2367,39 @@ visible = false
 [node name="theinside" type="AnimatedSprite2D" parent="rebirth4"]
 visible = false
 material = SubResource("ShaderMaterial_jgbjp")
-position = Vector2(576, 251)
-scale = Vector2(1.32, 1.32)
+position = Vector2(583, 237)
 sprite_frames = ExtResource("43_kdfu5")
 animation = &"gif"
 autoplay = "gif"
-frame_progress = 0.911825
+frame_progress = 0.554866
 
-[node name="crack" type="Sprite2D" parent="rebirth4"]
+[node name="crackreal" type="AnimatedSprite2D" parent="rebirth4"]
 visible = false
 material = SubResource("ShaderMaterial_kdfu5")
 position = Vector2(576, 324)
-texture = ExtResource("43_tyh5j")
+sprite_frames = SubResource("SpriteFrames_qlj4j")
+frame = 8
 
 [node name="junk" type="Sprite2D" parent="rebirth4"]
 position = Vector2(576, 324)
 texture = ExtResource("43_wtm86")
 
+[node name="ColorRect3" type="ColorRect" parent="rebirth4"]
+offset_right = 1160.0
+offset_bottom = 661.0
+color = Color(0, 0, 0, 0)
+
+[node name="crack" type="AnimatedSprite2D" parent="rebirth4"]
+visible = false
+material = SubResource("ShaderMaterial_kdfu5")
+position = Vector2(576, 324)
+sprite_frames = SubResource("SpriteFrames_qlj4j")
+
 [node name="QTE" type="AnimatedSprite2D" parent="rebirth4"]
 position = Vector2(576, 324)
 sprite_frames = SubResource("SpriteFrames_kdfu5")
-animation = &"upset"
+animation = &"stomp"
 autoplay = "discontent"
-frame_progress = 0.365344
 
 [node name="ColorRect" type="ColorRect" parent="rebirth4"]
 offset_right = 1160.0
@@ -1764,8 +2429,49 @@ libraries = {
 }
 autoplay = "anim"
 
+[node name="r4player" type="AnimationPlayer" parent="rebirth4"]
+libraries = {
+&"": SubResource("AnimationLibrary_su2fu")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="rebirth4"]
+volume_db = 12.848
+
+[node name="bgm" type="AudioStreamPlayer" parent="rebirth4"]
+stream = ExtResource("82_745cg")
+volume_db = 1.719
+parameters/looping = true
+
+[node name="ColorRect4" type="ColorRect" parent="rebirth4"]
+offset_right = 1157.0
+offset_bottom = 653.0
+color = Color(1, 0, 0, 0)
+
+[node name="overinside" type="AnimatedSprite2D" parent="rebirth4"]
+modulate = Color(1, 1, 1, 0)
+material = SubResource("ShaderMaterial_m6ufn")
+position = Vector2(576, 327)
+scale = Vector2(2.4375, 2.45926)
+sprite_frames = ExtResource("43_kdfu5")
+animation = &"gif"
+autoplay = "gif"
+frame_progress = 0.554866
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="rebirth4"]
+stream = ExtResource("83_qlj4j")
+volume_db = 0.318
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="rebirth4"]
+stream = ExtResource("84_sk6my")
+volume_db = -9.454
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="rebirth4"]
+stream = ExtResource("85_sk6my")
+volume_db = 3.439
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 324)
+ignore_rotation = false
 position_smoothing_enabled = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
