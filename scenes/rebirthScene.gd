@@ -52,7 +52,7 @@ var spiceLevel = 1
 var dialog = 0
 
 func _ready() -> void:
-	Game.rebirths = 4
+	#Game.rebirths = 4
 	if Game.rebirths == 4:
 		$AnimationPlayer.play("new_animation")
 		_startDialog()
