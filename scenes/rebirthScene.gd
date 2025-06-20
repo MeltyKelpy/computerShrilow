@@ -526,15 +526,165 @@ func _scene2():
 		amountOfCurses = 3
 		match prog:
 			0:
+				say("...", "discontent")
+				canProg = true
+			1:
+				say("you.", "discontent")
+				canProg = true
+			2:
+				say("I cant believe it. I cant believe YOU.", "discontent")
+				canProg = true
+			3:
+				say("You were working with them the whole time, werent you?", "discontent")
+				canProg = true
+			4:
+				say("Was this always the plan?", "discontent")
+				canProg = true
+			5:
+				say("...", "discontent")
+				canProg = true
+			6:
+				say("I wanted us to do this together. I wanted to host with you", "acceptance")
+				canProg = true
+			7:
+				say("We could've entertained together, you and I.", "acceptance")
+				canProg = true
+			8:
+				say("I thought we already were, but I guess not.", "discontent")
+				canProg = true
+			9:
+				say("But thats just showbiz!... I guess.", "acceptance")
+				canProg = true
+			10:
+				say("...I-", "discontent")
+				canProg = true
+			10:
+				say("I trusted you. I trusted you with everything!", "anguish")
+				canProg = true
+			10:
+				say("Everything was perfect! We couldve gone so far!", "upset")
+				canProg = true
+			11:
+				say("you were, like, my second in command! my left hand helper!", "upset")
+				canProg = true
+			12:
+				say("you were...", "upset")
+				canProg = true
+			13:
+				say("my friend.", "percieving")
+				$mus.volume_db = -80
+				canProg = true
+			14:
+				say("you were my friend.", "percieving")
+				canProg = true
+			15:
+				say("...", "upset")
+				canProg = true
+			16:
+				say("", "upset")
 				$rebirth4/QTE.animation = "stomp"
 				$rebirth4/QTE.stop()
 				$rebirth4/r4player.play("stomp")
-			1:
+			17:
 				$rebirth4/QTE.play("percieving")
 				await get_tree().create_timer(3).timeout
 				$rebirth4/QTE.play("turn")
 				await get_tree().create_timer(5).timeout
-				say("do you know how it feels?", "headon")
+				say("I'd do. anything.", "headon")
+				canProg = true
+			18:
+				say("I'd do anything to keep meaning something to you.", "shrug")
+				canProg = true
+			19:
+				say("But. that doesnt mean anything to you, right?", "headon")
+				canProg = true
+			20:
+				say("I never needed you, anyway!", "feign")
+				canProg = true
+			21:
+				say("I can do this all on my own.", "shrug")
+				canProg = true
+			22:
+				say("But... I guess I was the whole time, wasn't i?", "feign")
+				canProg = true
+				$rebirth4/junk.modulate = Color(1,1,1,0.9)
+			23:
+				$rebirth4/junk.modulate = Color(1,1,1,0.8)
+				say("...", "honest")
+				canProg = true
+			24:
+				$rebirth4/junk.modulate = Color(1,1,1,0.7)
+				say("...I", "ponder")
+				canProg = true
+			25:
+				$rebirth4/junk.modulate = Color(1,1,1,0.6)
+				say("I hate you.", "content")
+				canProg = true
+			26:
+				$rebirth4/junk.modulate = Color(1,1,1,0.5)
+				say("I hate you more than I've ever hated anyone.", "content")
+				canProg = true
+			27:
+				$rebirth4/junk.modulate = Color(1,1,1,0.4)
+				say("I!...", "feign")
+				canProg = true
+			28:
+				$rebirth4/junk.modulate = Color(1,1,1,0.3)
+				say("I...", "honest")
+				canProg = true
+			29:
+				$rebirth4/junk.modulate = Color(1,1,1,0.2)
+				say("i...", "ponder")
+				canProg = true
+			30:
+				$rebirth4/junk.modulate = Color(1,1,1,0.1)
+				say("...", "ponder")
+				canProg = true
+			31:
+				$rebirth4/junk.modulate = Color(1,1,1,0)
+				say("Y'know, now that I think about it,", "scheme")
+				canProg = true
+			32:
+				say("I'M the computer virus, arent I? I have the control here. you couldnt stop me if you tried", "content")
+				canProg = true
+				$rebirth4/ColorRect5.color = Color(0,0,0,0.1)
+				$rebirth4/bgm.volume_db -= 3
+			33:
+				say("I could always just...", "ponder")
+				canProg = true
+				$rebirth4/ColorRect5.color = Color(0,0,0,0.2)
+				$rebirth4/bgm.volume_db -= 3
+			34:
+				$rebirth4/ColorRect5.color = Color(0,0,0,0.3)
+				$rebirth4/bgm.volume_db -= 3
+				#var username
+				#if OS.has_environment("USERNAME"):
+					#username = OS.get_environment("USERNAME")
+				#else:
+					#username = "Player"
+				#, "+username+"
+				say("Take power by my own hand, couldn't I?", "scheme")
+				canProg = true
+			35:
+				$rebirth4/ColorRect5.color = Color(0,0,0,0.4)
+				$rebirth4/bgm.volume_db -= 3
+				say("I NEVER needed you.", "content")
+				canProg = true
+			36:
+				say("You were as expendable to me,", "scheme")
+				canProg = true
+				$rebirth4/ColorRect5.color = Color(0,0,0,0.5)
+				$rebirth4/bgm.volume_db -= 3
+			37:
+				$rebirth4/ColorRect5.color = Color(0,0,0,1)
+				$rebirth4/bgm.volume_db = -80
+				say("", "ponder")
+				await get_tree().create_timer(1).timeout
+				say("as I was to you.", "ponder")
+				canProg = true
+			38:
+				say("...", "ponder")
+				canProg = true
 	if Game.rebirths >= 5:
 		amountOfCurses = 5
 		match prog:

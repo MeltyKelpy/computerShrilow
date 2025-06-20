@@ -1,4 +1,4 @@
-[gd_scene load_steps=119 format=3 uid="uid://bsaobsf7sfhkj"]
+[gd_scene load_steps=124 format=3 uid="uid://bsaobsf7sfhkj"]
 
 [ext_resource type="Texture2D" uid="uid://d3xwuakjymg2g" path="res://assets/images/ui/rebirth.png" id="1_6xcba"]
 [ext_resource type="Script" uid="uid://d1k6bwxqri7l4" path="res://scenes/rebirthScene.gd" id="1_i0unl"]
@@ -54,7 +54,6 @@
 [ext_resource type="Texture2D" uid="uid://bqa3p6rccpvkn" path="res://assets/images/areas/rebirth/r4/anguish0.png" id="45_ixtqm"]
 [ext_resource type="Texture2D" uid="uid://d27wxi0rxrl2t" path="res://assets/images/areas/rebirth/r4/crackopen1.png" id="46_e035e"]
 [ext_resource type="Texture2D" uid="uid://cwscy6y613ndn" path="res://assets/images/areas/rebirth/r4/facing.png" id="46_ixtqm"]
-[ext_resource type="Texture2D" uid="uid://baaeac81jv1kn" path="res://assets/images/areas/rebirth/r4/anguish1.png" id="46_r2o03"]
 [ext_resource type="Texture2D" uid="uid://dgqvo6rdd0bg0" path="res://assets/images/areas/rebirth/r4/crackopen2.png" id="47_5bot4"]
 [ext_resource type="Texture2D" uid="uid://8f3skeky8mf4" path="res://assets/images/areas/rebirth/r4/turn0.png" id="47_r2o03"]
 [ext_resource type="Texture2D" uid="uid://dj41q6gfo73f7" path="res://assets/images/areas/rebirth/r4/turn1.png" id="48_73dwn"]
@@ -69,14 +68,20 @@
 [ext_resource type="Texture2D" uid="uid://brbamvoomxi0f" path="res://assets/images/areas/rebirth/r4/stomp1.png" id="55_2e4xs"]
 [ext_resource type="Shader" uid="uid://cvmu7e27qf7ud" path="res://technical/crashout.gdshader" id="55_73dwn"]
 [ext_resource type="Texture2D" uid="uid://c7wg3vf7dt5v0" path="res://assets/images/areas/rebirth/r4/stomp2.png" id="56_xc78d"]
+[ext_resource type="Texture2D" uid="uid://b2chlpti72tpi" path="res://assets/images/areas/rebirth/r4/happy.png" id="57_7jt1n"]
 [ext_resource type="Texture2D" uid="uid://chdudrghuvqlt" path="res://assets/images/areas/rebirth/r4/stomp4.png" id="57_bi1u3"]
 [ext_resource type="Texture2D" uid="uid://dqijkn82haskp" path="res://assets/images/areas/rebirth/r4/stomp5.png" id="58_5smy5"]
+[ext_resource type="Texture2D" uid="uid://c6h33cyvekpkb" path="res://assets/images/areas/rebirth/r4/feign.png" id="58_65aw3"]
 [ext_resource type="Texture2D" uid="uid://dwlbjlg12r7k8" path="res://assets/images/areas/rebirth/r4/stomp6.png" id="59_q2f7d"]
 [ext_resource type="Texture2D" uid="uid://c0u01qo5n7bur" path="res://assets/images/areas/rebirth/r4/stomp7.png" id="60_mky5o"]
+[ext_resource type="Texture2D" uid="uid://drdlfqu4jmxyh" path="res://assets/images/areas/rebirth/r4/honest.png" id="60_rihgw"]
+[ext_resource type="Texture2D" uid="uid://dge7n7kct7m7p" path="res://assets/images/areas/rebirth/r4/shrug.png" id="60_sk6my"]
 [ext_resource type="Texture2D" uid="uid://er3dwp0uya8l" path="res://assets/images/areas/rebirth/r4/stomp8.png" id="61_377wd"]
 [ext_resource type="Texture2D" uid="uid://bxjvvod2cis3i" path="res://assets/images/areas/rebirth/r4/stomp9.png" id="62_e035e"]
 [ext_resource type="Texture2D" uid="uid://blv0mb7gxn3tf" path="res://assets/images/areas/rebirth/r4/stomp10.png" id="63_5bot4"]
+[ext_resource type="Texture2D" uid="uid://nfvm7olbk3g3" path="res://assets/images/areas/rebirth/r4/ponder.png" id="63_g4vh8"]
 [ext_resource type="Texture2D" uid="uid://bkhes3bnd6mse" path="res://assets/images/areas/rebirth/r4/stomp11.png" id="64_dhpiy"]
+[ext_resource type="Texture2D" uid="uid://7mkgwinun6ld" path="res://assets/images/areas/rebirth/r4/scheme.png" id="64_o5ya0"]
 [ext_resource type="Texture2D" uid="uid://dyrh42qpiitd4" path="res://assets/images/areas/rebirth/r4/stomp12.png" id="65_fmjol"]
 [ext_resource type="AudioStream" uid="uid://cojjfib0iv06y" path="res://assets/sounds/buildup.ogg" id="79_dhpiy"]
 [ext_resource type="AudioStream" uid="uid://bxhcul5pcj0l" path="res://assets/sounds/crack.ogg" id="80_fmjol"]
@@ -1376,12 +1381,17 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("45_ixtqm")
-}, {
-"duration": 2.7,
-"texture": ExtResource("46_r2o03")
 }],
 "loop": true,
 "name": &"anguish",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("57_7jt1n")
+}],
+"loop": true,
+"name": &"content",
 "speed": 5.0
 }, {
 "frames": [{
@@ -1394,6 +1404,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("58_65aw3")
+}],
+"loop": true,
+"name": &"feign",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("45_gw6t0")
 }],
 "loop": true,
@@ -1402,10 +1420,42 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("60_rihgw")
+}],
+"loop": true,
+"name": &"honest",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("46_ixtqm")
 }],
 "loop": true,
 "name": &"percieving",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("63_g4vh8")
+}],
+"loop": true,
+"name": &"ponder",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("64_o5ya0")
+}],
+"loop": true,
+"name": &"scheme",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("60_sk6my")
+}],
+"loop": true,
+"name": &"shrug",
 "speed": 5.0
 }, {
 "frames": [{
@@ -1711,43 +1761,43 @@ tracks/14/keys = {
 tracks/15/type = "value"
 tracks/15/imported = false
 tracks/15/enabled = true
-tracks/15/path = NodePath("../mus:volume_db")
+tracks/15/path = NodePath("ColorRect4:color")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0]
+"values": [Color(1, 0, 0, 0)]
 }
 tracks/16/type = "value"
 tracks/16/imported = false
 tracks/16/enabled = true
-tracks/16/path = NodePath("ColorRect4:color")
+tracks/16/path = NodePath("overinside:modulate")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 0, 0, 0)]
+"values": [Color(1, 1, 1, 0)]
 }
 tracks/17/type = "value"
 tracks/17/imported = false
 tracks/17/enabled = true
-tracks/17/path = NodePath("overinside:modulate")
+tracks/17/path = NodePath("AudioStreamPlayer2:playing")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
+"update": 1,
+"values": [false]
 }
 tracks/18/type = "value"
 tracks/18/imported = false
 tracks/18/enabled = true
-tracks/18/path = NodePath("AudioStreamPlayer2:playing")
+tracks/18/path = NodePath("AudioStreamPlayer3:playing")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
@@ -1759,22 +1809,10 @@ tracks/18/keys = {
 tracks/19/type = "value"
 tracks/19/imported = false
 tracks/19/enabled = true
-tracks/19/path = NodePath("AudioStreamPlayer3:playing")
+tracks/19/path = NodePath("AudioStreamPlayer4:playing")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/20/type = "value"
-tracks/20/imported = false
-tracks/20/enabled = true
-tracks/20/path = NodePath("AudioStreamPlayer4:playing")
-tracks/20/interp = 1
-tracks/20/loop_wrap = true
-tracks/20/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -2371,7 +2409,7 @@ position = Vector2(583, 237)
 sprite_frames = ExtResource("43_kdfu5")
 animation = &"gif"
 autoplay = "gif"
-frame_progress = 0.554866
+frame_progress = 0.647366
 
 [node name="crackreal" type="AnimatedSprite2D" parent="rebirth4"]
 visible = false
@@ -2379,6 +2417,11 @@ material = SubResource("ShaderMaterial_kdfu5")
 position = Vector2(576, 324)
 sprite_frames = SubResource("SpriteFrames_qlj4j")
 frame = 8
+
+[node name="ColorRect5" type="ColorRect" parent="rebirth4"]
+offset_right = 1160.0
+offset_bottom = 661.0
+color = Color(0, 0, 0, 0)
 
 [node name="junk" type="Sprite2D" parent="rebirth4"]
 position = Vector2(576, 324)
