@@ -1,4 +1,4 @@
-[gd_scene load_steps=124 format=3 uid="uid://bsaobsf7sfhkj"]
+[gd_scene load_steps=125 format=3 uid="uid://bsaobsf7sfhkj"]
 
 [ext_resource type="Texture2D" uid="uid://d3xwuakjymg2g" path="res://assets/images/ui/rebirth.png" id="1_6xcba"]
 [ext_resource type="Script" uid="uid://d1k6bwxqri7l4" path="res://scenes/rebirthScene.gd" id="1_i0unl"]
@@ -87,6 +87,7 @@
 [ext_resource type="AudioStream" uid="uid://bxhcul5pcj0l" path="res://assets/sounds/crack.ogg" id="80_fmjol"]
 [ext_resource type="AudioStream" uid="uid://rxoi75rrwrnc" path="res://assets/sounds/break.ogg" id="81_fmjol"]
 [ext_resource type="AudioStream" uid="uid://xdnioq2rfkbm" path="res://assets/sounds/rain.ogg" id="82_745cg"]
+[ext_resource type="Texture2D" uid="uid://bigm2t8hq78hf" path="res://assets/images/areas/rebirth/r4/sole.png" id="83_g4vh8"]
 [ext_resource type="AudioStream" uid="uid://g5sccau7wf5k" path="res://assets/sounds/impact.ogg" id="83_qlj4j"]
 [ext_resource type="AudioStream" uid="uid://dcv3curd7hg5i" path="res://assets/sounds/drone.ogg" id="84_sk6my"]
 [ext_resource type="AudioStream" uid="uid://bb0dq46kq4e6m" path="res://assets/sounds/stomp0.ogg" id="85_sk6my"]
@@ -1531,6 +1532,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"upset",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("83_g4vh8")
+}],
+"loop": true,
+"name": &"virus",
 "speed": 5.0
 }]
 

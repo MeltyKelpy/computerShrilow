@@ -3842,7 +3842,6 @@ mouse_filter = 2
 color = Color(0.121569, 0.0470588, 0, 1)
 
 [node name="logo" type="Sprite2D" parent="Camera2D/intro"]
-position = Vector2(25, 0)
 texture = ExtResource("54_dab5r")
 
 [node name="anim" type="AnimationPlayer" parent="Camera2D/intro"]

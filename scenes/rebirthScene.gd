@@ -52,7 +52,7 @@ var spiceLevel = 1
 var dialog = 0
 
 func _ready() -> void:
-	#Game.rebirths = 4
+	Game.rebirths = 4
 	if Game.rebirths == 4:
 		$AnimationPlayer.play("new_animation")
 		_startDialog()
@@ -684,6 +684,28 @@ func _scene2():
 				canProg = true
 			38:
 				say("...", "ponder")
+				canProg = true
+			39:
+				say("...", "ponder")
+				canProg = true
+			40:
+				say("...I really can do...", "scheme")
+				canProg = true
+			41:
+				say("Whatever.", "scheme")
+				await get_tree().create_timer(1).timeout
+				var root = get_window()
+				var tween = create_tween()
+				DisplayServer.window_set_size(Vector2(1152, 648), 0)
+				DisplayServer.window_set_position(Vector2(DisplayServer.screen_get_size().x/2, DisplayServer.screen_get_size().y/2))
+				#OS.alert("Your access to this computer has been changed.", "New Administer Detected!")
+				$rebirth4/Dialogue.text = "Whatever. I."
+				$rebirth4/QTE.play("content")
+				$rebirth4/Dialogue.visible_characters = 8
+				await get_tree().create_timer(1).timeout
+				$rebirth4/Dialogue.text = "Whatever. I. Want."
+				$rebirth4/QTE.play("virus")
+				$rebirth4/Dialogue.visible_characters = 11
 				canProg = true
 	if Game.rebirths >= 5:
 		amountOfCurses = 5
