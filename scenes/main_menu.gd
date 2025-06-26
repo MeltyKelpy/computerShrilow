@@ -8,7 +8,7 @@ var creditors = [
 	"Image":"res://assets/images/mainMenu/credits/ppl/mel.png",
 	"Pronouns":"It/Star",
 	"Roles":"Game Creator -\nMain Artist -\nMain Coder -",
-	"Commits":185,
+	"Commits":232,
 	"Quote":"but my [color=#CC8800]g[/color][color=#CA8900]e[/color][color=#C88B00]n[/color][color=#C78C00]i[/color][color=#C58E00]u[/color][color=#C39000]s[/color] [color=#C09300]d[/color][color=#BE9500]a[/color][color=#BD9600]u[/color][color=#BB9800]g[/color][color=#B99A00]h[/color][color=#B89B00]t[/color][color=#B69D00]e[/color][color=#B49F00]r[/color] will know",
 	},
 	{
@@ -24,7 +24,7 @@ var creditors = [
 	"Image":"res://assets/images/mainMenu/credits/ppl/OJ.png",
 	"Pronouns":"They/Them",
 	"Roles":"Musician -\nCoder -",
-	"Commits":0,
+	"Commits":2,
 	"Quote":"",
 	},
 	{
@@ -40,7 +40,7 @@ var creditors = [
 	"Image":"res://assets/images/mainMenu/credits/ppl/saayo.png",
 	"Pronouns":"She/Her",
 	"Roles":"Artist -",
-	"Commits":8,
+	"Commits":9,
 	"Quote":"kill melty",
 	},
 	{
@@ -120,7 +120,7 @@ var contributers = [
 	]
 
 var selectedCredit = 0
-var commits = 192
+var commits = 245
 
 var evil = []
 var contributerSel = 0
