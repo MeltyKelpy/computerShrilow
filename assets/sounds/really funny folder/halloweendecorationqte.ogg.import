@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ylr2sx3mvdi2"
+path="res://.godot/imported/halloweendecorationqte.ogg-1f367201bd3dd473739becc92c7f4838.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/really funny folder/halloweendecorationqte.ogg"
+dest_files=["res://.godot/imported/halloweendecorationqte.ogg-1f367201bd3dd473739becc92c7f4838.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

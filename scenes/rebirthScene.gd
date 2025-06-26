@@ -8,6 +8,12 @@ var scene = "main"
 var amountOfCurses = 0
 var curses = []
 var dialogue_speed = 1
+var windowX = 0
+var windowY = 0
+var windowSX = 0
+var windowSY = 0
+var window_controlled = false
+var window_state = "whatever"
 
 var lines = {
 	0:[
@@ -52,7 +58,7 @@ var spiceLevel = 1
 var dialog = 0
 
 func _ready() -> void:
-	Game.rebirths = 4
+	#Game.rebirths = 4
 	if Game.rebirths == 4:
 		$AnimationPlayer.play("new_animation")
 		_startDialog()
@@ -92,6 +98,10 @@ func _startDialog():
 		$AnimationPlayer2.play("rebirth4")
 
 func _process(delta: float) -> void:
+	
+	if window_controlled:
+		DisplayServer.window_set_position(Vector2i(windowX, windowY))
+		DisplayServer.window_set_size(Vector2i(windowSX, windowSY))
 	
 	if $curses/Spice/AnimatedSprite2D.animation != str(spiceLevel):
 		$curses/Spice/AnimatedSprite2D.play(str(spiceLevel))
@@ -581,15 +591,16 @@ func _scene2():
 				say("...", "upset")
 				canProg = true
 			16:
-				say("", "upset")
-				$rebirth4/QTE.animation = "stomp"
-				$rebirth4/QTE.stop()
-				$rebirth4/r4player.play("stomp")
+				#say("", "upset")
+				#$rebirth4/QTE.animation = "stomp"
+				#$rebirth4/QTE.stop()
+				#$rebirth4/r4player.play("stomp")
+				canProg = true
 			17:
-				$rebirth4/QTE.play("percieving")
-				await get_tree().create_timer(3).timeout
-				$rebirth4/QTE.play("turn")
-				await get_tree().create_timer(5).timeout
+				#$rebirth4/QTE.play("percieving")
+				#await get_tree().create_timer(3).timeout
+				#$rebirth4/QTE.play("turn")
+				#await get_tree().create_timer(5).timeout
 				say("I'd do. anything.", "headon")
 				canProg = true
 			18:
@@ -692,18 +703,47 @@ func _scene2():
 				say("...I really can do...", "scheme")
 				canProg = true
 			41:
+				window_controlled = true
+				DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+				windowX = DisplayServer.window_get_position().x
+				windowY = DisplayServer.window_get_position().y
+				windowSX = DisplayServer.window_get_size().x
+				windowSY = DisplayServer.window_get_size().y
+				var desiredS = (DisplayServer.screen_get_size() / 2)
+				
+				var tweenSX = create_tween()
+				tweenSX.tween_property(self, "windowSX", desiredS.x, 2).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN_OUT)
+				var tweenSY = create_tween()
+				tweenSY.tween_property(self, "windowSY", desiredS.y, 2).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN_OUT)
+				
+				var desiredP = (DisplayServer.screen_get_size() / 2) - (desiredS/2)
+				var tweenX = create_tween()
+				tweenX.tween_property(self, "windowX", desiredP.x, 2).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN_OUT)
+				var tweenY = create_tween()
+				tweenY.tween_property(self, "windowY", (desiredP.y - 50), 2).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN_OUT)
+				
+				DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true)
+				DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_TRANSPARENT, true)
+				
 				say("Whatever.", "scheme")
 				await get_tree().create_timer(1).timeout
-				var root = get_window()
-				var tween = create_tween()
-				DisplayServer.window_set_size(Vector2(1152, 648), 0)
-				DisplayServer.window_set_position(Vector2(DisplayServer.screen_get_size().x/2, DisplayServer.screen_get_size().y/2))
-				#OS.alert("Your access to this computer has been changed.", "New Administer Detected!")
+				#DisplayServer.window_set_position(Vector2i(100,100))
 				$rebirth4/Dialogue.text = "Whatever. I."
+				OS.alert("System Files not found. Please contact support.", "System Error")
 				$rebirth4/QTE.play("content")
 				$rebirth4/Dialogue.visible_characters = 8
 				await get_tree().create_timer(1).timeout
 				$rebirth4/Dialogue.text = "Whatever. I. Want."
+				var mypretties1 = load("res://technical/evillaughwindow.tscn").instantiate()
+				var mypretties2 = load("res://technical/evillaughwindow.tscn").instantiate()
+				mypretties1.position.x = desiredP.x - (desiredP.x/2)
+				mypretties1.position.x = (desiredP.x+desiredS.x) + (desiredP.x/2)
+				mypretties1.position.y = (DisplayServer.screen_get_size().y / 2) - mypretties1.size.y / 2
+				mypretties2.position.y = (DisplayServer.screen_get_size().y / 2) - mypretties1.size.y / 2
+				mypretties1.size = Vector2i(DisplayServer.screen_get_size().x / 4, DisplayServer.screen_get_size().x / 4)
+				mypretties2.size = Vector2i(DisplayServer.screen_get_size().x / 4, DisplayServer.screen_get_size().x / 4)
+				add_child(mypretties1)
+				add_child(mypretties2)
 				$rebirth4/QTE.play("virus")
 				$rebirth4/Dialogue.visible_characters = 11
 				canProg = true

@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://dhicm1wq7ufqj"]
+
+[ext_resource type="AudioStream" uid="uid://hh1ktefolx6o" path="res://assets/sounds/hawk_tuah.ogg" id="1_gwage"]
+[ext_resource type="SpriteFrames" uid="uid://db8mf616vvq8o" path="res://assets/images/areas/rebirth/r4/theinside.gif" id="2_kycxm"]
+[ext_resource type="Texture2D" uid="uid://3s0y3hg5rglb" path="res://assets/images/areas/rebirth/r4/laugh0.png" id="3_cg40l"]
+[ext_resource type="Texture2D" uid="uid://c0sduu3ntidlc" path="res://assets/images/areas/rebirth/r4/laugh1.png" id="4_84phe"]
+[ext_resource type="Texture2D" uid="uid://2h7oark6hbtm" path="res://assets/images/areas/rebirth/r4/laugh2.png" id="5_ard60"]
+[ext_resource type="Texture2D" uid="uid://br2t610xtbsp6" path="res://assets/images/areas/rebirth/r4/laugh3.png" id="6_uyeuw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mdusk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_cg40l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_84phe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ard60")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_uyeuw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Evillaughwindow" type="Window"]
+title = "I NEVER NEEDED YOU!"
+position = Vector2i(0, 36)
+size = Vector2i(200, 200)
+unresizable = true
+unfocusable = true
+content_scale_mode = 2
+content_scale_aspect = 4
+content_scale_stretch = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_gwage")
+volume_db = -19.929
+bus = &"SFX"
+parameters/looping = true
+
+[node name="bg" type="AnimatedSprite2D" parent="."]
+position = Vector2(100, 95)
+sprite_frames = ExtResource("2_kycxm")
+animation = &"gif"
+frame_progress = 0.491144
+
+[node name="laugh" type="AnimatedSprite2D" parent="."]
+position = Vector2(100, 99)
+sprite_frames = SubResource("SpriteFrames_mdusk")
+frame_progress = 0.468653
