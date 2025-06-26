@@ -736,12 +736,12 @@ func _scene2():
 				$rebirth4/Dialogue.text = "Whatever. I. Want."
 				var mypretties1 = load("res://technical/evillaughwindow.tscn").instantiate()
 				var mypretties2 = load("res://technical/evillaughwindow.tscn").instantiate()
-				mypretties1.position.x = desiredP.x - (desiredP.x/2)
-				mypretties1.position.x = (desiredP.x+desiredS.x) + (desiredP.x/2)
+				mypretties1.position.x = (desiredP.x - (desiredP.x/2)) - mypretties1.size.x/2
+				mypretties2.position.x = (desiredP.x+desiredS.x) + (desiredP.x/2) - mypretties2.size.x/2
 				mypretties1.position.y = (DisplayServer.screen_get_size().y / 2) - mypretties1.size.y / 2
 				mypretties2.position.y = (DisplayServer.screen_get_size().y / 2) - mypretties1.size.y / 2
-				mypretties1.size = Vector2i(DisplayServer.screen_get_size().x / 4, DisplayServer.screen_get_size().x / 4)
-				mypretties2.size = Vector2i(DisplayServer.screen_get_size().x / 4, DisplayServer.screen_get_size().x / 4)
+				#mypretties1.size = Vector2i(DisplayServer.screen_get_size().x / 4, DisplayServer.screen_get_size().x / 4)
+				#mypretties2.size = Vector2i(DisplayServer.screen_get_size().x / 4, DisplayServer.screen_get_size().x / 4)
 				add_child(mypretties1)
 				add_child(mypretties2)
 				$rebirth4/QTE.play("virus")

@@ -511,9 +511,12 @@ func _give_tokens(toGive : int) -> void:
 	Game.rebirthTokens += toGive
 
 func _update_status() -> void:
-	var cacapoopyGOD2 = load("res://technical/RPCChange.tscn")
-	var caca = cacapoopyGOD2.instantiate()
-	add_child(caca)
+	DiscordRPC.app_id = 1160342090039971850
+	DiscordRPC.details = "A Computer Game about a Computer Boy"
+	DiscordRPC.state = "Developing the game"
+	DiscordRPC.large_image = "developing"
+	DiscordRPC.start_timestamp = int(Time.get_unix_time_from_system())
+	DiscordRPC.refresh()
 
 func _screenEvent(ID : int):
 	if ID <= Events.eventList.size()-1:

@@ -27,12 +27,6 @@ func _ready() -> void:
 		DiscordRPC.refresh()
 	if type == 1:
 		$AnimationPlayer.play("opening-1")
-		DiscordRPC.app_id = 1160342090039971850
-		DiscordRPC.details = "in the tunnels"
-		DiscordRPC.state = "exploring"
-		DiscordRPC.large_image = "icon2"
-		DiscordRPC.start_timestamp = int(Time.get_unix_time_from_system())
-		DiscordRPC.refresh()
 		
 	print("rpc working: " + str(DiscordRPC.get_is_discord_working()))
 

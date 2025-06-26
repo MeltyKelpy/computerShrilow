@@ -40,6 +40,7 @@ content_scale_stretch = 1
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_gwage")
 volume_db = -19.929
+autoplay = true
 bus = &"SFX"
 parameters/looping = true
 
@@ -47,9 +48,11 @@ parameters/looping = true
 position = Vector2(100, 95)
 sprite_frames = ExtResource("2_kycxm")
 animation = &"gif"
-frame_progress = 0.491144
+autoplay = "gif"
+frame_progress = 0.0218728
 
 [node name="laugh" type="AnimatedSprite2D" parent="."]
 position = Vector2(100, 99)
 sprite_frames = SubResource("SpriteFrames_mdusk")
-frame_progress = 0.468653
+autoplay = "default"
+frame_progress = 0.733942

@@ -9,7 +9,7 @@ var creditors = [
 	"Pronouns":"It/Star",
 	"Roles":"Game Creator -\nMain Artist -\nMain Coder -",
 	"Commits":185,
-	"Quote":"jesus = false",
+	"Quote":"but my [color=#CC8800]g[/color][color=#CA8900]e[/color][color=#C88B00]n[/color][color=#C78C00]i[/color][color=#C58E00]u[/color][color=#C39000]s[/color] [color=#C09300]d[/color][color=#BE9500]a[/color][color=#BD9600]u[/color][color=#BB9800]g[/color][color=#B99A00]h[/color][color=#B89B00]t[/color][color=#B69D00]e[/color][color=#B49F00]r[/color] will know",
 	},
 	{
 	"Name":"kosejumpscare",
@@ -28,6 +28,14 @@ var creditors = [
 	"Quote":"",
 	},
 	{
+	"Name":"Jocapelt",
+	"Image":"res://assets/images/mainMenu/credits/ppl/jocaproper.png",
+	"Pronouns":"Any/All",
+	"Roles":"Voice Actor (QTE) -",
+	"Commits":0,
+	"Quote":"Mah bad teach... ahahahahha...",
+	},
+	{
 	"Name":"Saayo",
 	"Image":"res://assets/images/mainMenu/credits/ppl/saayo.png",
 	"Pronouns":"She/Her",
@@ -38,7 +46,7 @@ var creditors = [
 	{
 	"Name":"GhostyBricks",
 	"Image":"res://assets/images/mainMenu/credits/ppl/ghost.png",
-	"Pronouns":"He/Him",
+	"Pronouns":"Ghosty/Bricks (he/him)",
 	"Roles":"hads very many coolideas :grin: -",
 	"Commits":0,
 	"Quote":"",
@@ -84,11 +92,11 @@ var contributers = [
 	"Image":"res://assets/images/mainMenu/credits/ppl/hekza.png",
 	"Text":'Playtester\n\n""',
 	},
-	{
-	"Name":"Jocapelt",
-	"Image":"res://assets/images/mainMenu/credits/ppl/jocaused.png",
-	"Text":'Playtester\n\n"my bad teach.. ahahha..."',
-	},
+	#{
+	#"Name":"Jocapelt",
+	#"Image":"res://assets/images/mainMenu/credits/ppl/jocaused.png",
+	#"Text":'Playtester\n\n"my bad teach.. ahahha..."',
+	#},
 	{
 	"Name":"Kawo",
 	"Image":"res://assets/images/mainMenu/credits/ppl/kawo.png",
@@ -132,6 +140,7 @@ var loadingFile = false
 	$Credits/dot6,
 	$Credits/dot7,
 	$Credits/dot8,
+	$Credits/dot9,
 	]
 
 func _ready() -> void:
