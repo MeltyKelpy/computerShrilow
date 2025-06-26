@@ -236,7 +236,7 @@ var itemInfomation = [
 	# PUPPYCRYSTAL
 	"Image":"res://assets/images/areas/melanies/items/puppyCrystal",
 	"Name":"Puppy Crystal",
-	"Desc":'"Mid-Game upgrade for your greasepuppies, makes their $ per 3 seconds be your plusone value!. only one crystal can be on at once." -Mel ',
+	"Desc":'"Mid-Game upgrade for your greasepuppies, makes their money gain 3 instead of 1. only one crystal can be on at once." -Mel ',
 	"Upgradeable?":true,
 	"MaxUpgrade":1,
 	"CurUpgrade":0,
@@ -244,7 +244,7 @@ var itemInfomation = [
 	"UpgradeIncrease":0,
 	"Owned":false,
 	"Purchased":false,
-	"Cost":100000,
+	"Cost":150000,
 	"ScenePath":"res://technical/items/puppyCrystal.tscn",
 	"Type":"Generic",
 	},
@@ -260,7 +260,7 @@ var itemInfomation = [
 	"UpgradeIncrease":0,
 	"Owned":false,
 	"Purchased":false,
-	"Cost":100000,
+	"Cost":300000,
 	"ScenePath":"res://technical/items/shrilowCrystal.tscn",
 	"Type":"Generic",
 	},
@@ -276,7 +276,7 @@ var itemInfomation = [
 	"UpgradeIncrease":0,
 	"Owned":false,
 	"Purchased":false,
-	"Cost":200000,
+	"Cost":500000,
 	"ScenePath":"res://technical/items/crystal.tscn",
 	"Type":"Generic",
 	},
@@ -292,7 +292,7 @@ var itemInfomation = [
 	"UpgradeIncrease":0,
 	"Owned":false,
 	"Purchased":false,
-	"Cost":300000,
+	"Cost":750000,
 	"ScenePath":"res://technical/items/mineCrystal.tscn",
 	"Type":"Generic",
 	},
@@ -618,6 +618,7 @@ var marketItems = [
 var itemName = "Item Name will show up Here"
 var itemDesc = "Right here, an Item's description will show up."
 var itemExtra = ""
+var total_money = 0
 var money = 0
 var maxMoney = 0
 

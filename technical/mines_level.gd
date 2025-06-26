@@ -310,3 +310,4 @@ func _on_timer_timeout() -> void:
 				outputMonsey += miners[i].optimizeMoney * miners[i].optimizeSpeed
 		Interstate.totalmoney += outputMonsey
 		ItemValues.money += outputMonsey
+		ItemValues.total_money += outputMonsey

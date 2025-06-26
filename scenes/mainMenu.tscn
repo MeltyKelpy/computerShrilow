@@ -1,4 +1,4 @@
-[gd_scene load_steps=98 format=3 uid="uid://ba4g00sxw1ioe"]
+[gd_scene load_steps=99 format=3 uid="uid://ba4g00sxw1ioe"]
 
 [ext_resource type="Texture2D" uid="uid://dajex7cpt7k4p" path="res://assets/images/bg/background.png" id="1_i2qlv"]
 [ext_resource type="Script" uid="uid://du5kurp8y3jde" path="res://scenes/main_menu.gd" id="1_ihte6"]
@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://70jwx6x4rugt" path="res://assets/images/mainMenu/credits/ppl/hekza.png" id="16_3ut01"]
 [ext_resource type="Texture2D" uid="uid://x4tqkgm40s3d" path="res://assets/images/mainMenu/credits/sectionDot.png" id="16_cjgcw"]
 [ext_resource type="Texture2D" uid="uid://cwladsljiqill" path="res://assets/images/ui/backDown.png" id="17_q8ob8"]
+[ext_resource type="Texture2D" uid="uid://eeueiovtunts" path="res://assets/images/mainMenu/credits/ppl/maurquote.PNG" id="20_lu4ia"]
 [ext_resource type="Texture2D" uid="uid://msvb6jrm45iv" path="res://assets/images/ui/backUp.png" id="20_tauat"]
 [ext_resource type="Texture2D" uid="uid://cgtp3wwndtlh5" path="res://assets/images/mainMenu/intro/title1.png" id="21_uwljm"]
 [ext_resource type="Texture2D" uid="uid://do4n3qfp8ibk2" path="res://assets/images/mainMenu/intro/title2.png" id="22_1anpv"]
@@ -1335,7 +1336,7 @@ horizontal_alignment = 2
 autowrap_mode = 3
 
 [node name="Quote" type="RichTextLabel" parent="Credits/Main"]
-offset_left = 424.0
+offset_left = 512.0
 offset_top = 431.0
 offset_right = 1027.0
 offset_bottom = 540.0
@@ -1349,6 +1350,11 @@ bbcode_enabled = true
 text = "Quote"
 scroll_active = false
 horizontal_alignment = 2
+
+[node name="stupid" type="Sprite2D" parent="Credits/Main"]
+visible = false
+position = Vector2(849, 454)
+texture = ExtResource("20_lu4ia")
 
 [node name="Contributers" type="Node2D" parent="Credits"]
 visible = false
@@ -1631,12 +1637,12 @@ show_percentage = false
 
 [node name="SFXCan" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("36_h5ho6")
-volume_db = 6.19
+volume_db = 6.813
 bus = &"SFX"
 
 [node name="SFXPick" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("37_h5ho6")
-volume_db = 6.19
+volume_db = 9.303
 bus = &"SFX"
 
 [node name="SFXScroll" type="AudioStreamPlayer" parent="."]

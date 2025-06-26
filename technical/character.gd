@@ -170,6 +170,7 @@ func _swingTimerEnd():
 		caca.determine(((MoneyGain+(((mineLevelMONEY))*MoneyGain))*adds)*jackBlack)
 		var ammo = ((MoneyGain+(((mineLevelMONEY))*MoneyGain))*adds)*jackBlack
 		Interstate.totalmoney += ammo
+		ItemValues.total_money += ammo
 		ItemValues.money += ammo
 		caca.position.x = -30
 		caca.position.y = -70
@@ -218,6 +219,7 @@ func _on_sell_button_2_pressed() -> void:
 	var hey = get_parent()
 	var ammo = BasePrice + (BasePrice * (Level / 2))
 	Interstate.totalmoney += ammo
+	ItemValues.total_money += ammo
 	ItemValues.money += ammo
 	hey.miners[ID] = null
 	hey.amountOfDwellers -= 1

@@ -3901,7 +3901,7 @@ wait_time = 360.0
 autostart = true
 
 [node name="Timer2" type="Timer" parent="."]
-wait_time = 300.0
+wait_time = 600.0
 one_shot = true
 
 [node name="Timer3" type="Timer" parent="."]

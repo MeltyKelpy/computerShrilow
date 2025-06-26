@@ -41,5 +41,5 @@ func loadMinigame():
 				var cacapoopyGOD3 = preload("res://technical/events/eventIndicator.tscn")
 				var caca2 = cacapoopyGOD3.instantiate()
 				add_child(caca2)
-				caca2.warn("You have played all the events already! no money has been taken from you.")
+				caca2.warn("You've done it all! no money has been taken from you.")
 				queue_free()

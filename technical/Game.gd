@@ -21,6 +21,7 @@ var gameTime = 0.0
 var icon = 0
 var saveFileClicks = 0
 var gameVersion = "00.02.82"
+var market_discovered = false
 
 var rebirthJellyProtocol = []
 
@@ -184,9 +185,11 @@ func loadData():
 		icon = config.get_value("Fiscal", "Icon")
 		FizzyDrink.clicks = config.get_value("Fiscal", "Clicks")
 		ItemValues.money = config.get_value("Fiscal", "Money")
+		ItemValues.total_money = config.get_value("Fiscal", "TotalMoney", ItemValues.total_money)
 		ClothingObjects.equippedClothing = config.get_value("Fiscal", "Clothing")
 		FizzyDrink.jellys = config.get_value("Fiscal", "AmountOfJellies")
 		FizzyDrink.amountOfRooms = config.get_value("Fiscal", "AmountOfRooms", 0)
+		market_discovered = config.get_value("Rebirth", "MarketDiscovered", false)
 		gumballsBought = config.get_value("Fiscal", "ballsBought", 0)
 		platinumGumballsBought = config.get_value("Fiscal", "platBallsBought", 0)
 		if config.get_value("Rebirth", "RebirthBoxTokens") != null:
@@ -355,6 +358,7 @@ func saveData():
 	config.set_value("Rebirth", "Curses", Curses.curses)
 	config.set_value("Rebirth", "RebirthBoxTokens", boxed)
 	config.set_value("Rebirth", "EvilMinesAvaliable", evilMines)
+	config.set_value("Rebirth", "MarketDiscovered", Game.market_discovered)
 	
 	var entryStatsToSave = {}
 	for i in Journal.entriesText.size():
@@ -456,6 +460,7 @@ func saveData():
 	config.set_value("Fiscal", "AmountOfJellies", FizzyDrink.jellys)
 	config.set_value("Fiscal", "AmountOfRooms", FizzyDrink.amountOfRooms)
 	config.set_value("Fiscal", "Money", ItemValues.money)
+	config.set_value("Fiscal", "TotalMoney", ItemValues.total_money)
 	config.set_value("Fiscal", "StoredJellies", Jelly.storedJellys)
 	config.set_value("Fiscal", "Clothing", ClothingObjects.equippedClothing)
 	config.set_value("Stats", "amountOfMines", FizzyDrink.minesLength)

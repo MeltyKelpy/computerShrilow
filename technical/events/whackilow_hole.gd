@@ -36,6 +36,7 @@ func killChar():
 			click = false
 			ItemValues.money += 5
 			Interstate.totalmoney += 5
+			ItemValues.total_money += 5
 			var cacapoopyGOD = load("res://technical/moneyGet.tscn")
 			var caca = cacapoopyGOD.instantiate()
 			add_child(caca)

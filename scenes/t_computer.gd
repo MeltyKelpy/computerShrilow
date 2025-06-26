@@ -217,6 +217,7 @@ var marketIntro = false
 var doctorCalled = false
 var lawsInformed = false
 var shrilowHere = true
+var rebirth1intro = false
 var rebirth2intro = false
 var rebirth3intro = false
 var stupidSetting = "none"
@@ -253,6 +254,23 @@ func manageScenes():
 					$Shop/ItemDescription.text = "this also worked as a test, which is cool"
 				if alongTheDialogue == 2:
 					endDialogue()
+			"REBIRTH1EVENT":
+				if alongTheDialogue == 0:
+					$Shop/ItemDescription.text = "Hey again, nice to see you back."
+				if alongTheDialogue == 1:
+					$Shop/ItemDescription.text = "Just wanted to tell you that i've got some new shop items, CRYSTALS!"
+				if alongTheDialogue == 2:
+					$Shop/ItemDescription.text = "I was talking to the miners and they let me in on it, so now I sell them!"
+				if alongTheDialogue == 3:
+					$Shop/ItemDescription.text = "They kinda work like upgrades for you, in a few different aspects. You can only use one at a time though!"
+				if alongTheDialogue == 4:
+					$Shop/ItemDescription.text = "They'll be at the bottom of the shop, check them out if you have time!"
+				if alongTheDialogue == 5:
+					$Shop/ItemDescription.text = "I'll let us just get back to buisness, but im always willing to talk! if you want to, of course."
+				if alongTheDialogue == 6:
+					rebirth1intro = false
+					endDialogue()
+					melShopToggle()
 			"REBIRTH2EVENT":
 				if alongTheDialogue == 0:
 					var tween = create_tween()
@@ -1005,18 +1023,27 @@ func generateHoes():
 		caca.reparent($ShrilowScreen/cursesDisplay)
 	for i in ItemValues.itemInfomation.size():
 		if ItemValues.itemInfomation[i]["Type"] != "Title":
-			var caca = cacapoopyGOD.instantiate()
-			caca.ItemID = i
-			caca.type = "melanie"
-			add_child(caca)
-			caca.reparent($Shop/Melanie/ScrollContainer/GridContainer)
+			if i < (ItemValues.itemInfomation.size()-7):
+				var caca = cacapoopyGOD.instantiate()
+				caca.ItemID = i
+				caca.type = "melanie"
+				add_child(caca)
+				caca.reparent($Shop/Melanie/ScrollContainer/GridContainer)
+			else:
+				if Game.rebirths > 0:
+					var caca = cacapoopyGOD.instantiate()
+					caca.ItemID = i
+					caca.type = "melanie"
+					add_child(caca)
+					caca.reparent($Shop/Melanie/ScrollContainer/GridContainer)
 		else:
-			var cacapoopyGOD2 = load(ItemValues.itemInfomation[i]["ScenePath"])
-			var caca = cacapoopyGOD2.instantiate()
-			caca.type = ItemValues.itemInfomation[i]["ImgType"]
-			caca.text = ItemValues.itemInfomation[i]["SectionName"]
-			add_child(caca)
-			caca.reparent($Shop/Melanie/ScrollContainer/GridContainer)
+			if i < (ItemValues.itemInfomation.size()-7):
+				var cacapoopyGOD2 = load(ItemValues.itemInfomation[i]["ScenePath"])
+				var caca = cacapoopyGOD2.instantiate()
+				caca.type = ItemValues.itemInfomation[i]["ImgType"]
+				caca.text = ItemValues.itemInfomation[i]["SectionName"]
+				add_child(caca)
+				caca.reparent($Shop/Melanie/ScrollContainer/GridContainer)
 	for i in ItemValues.melvinItems.size():
 		var caca = cacapoopyGOD.instantiate()
 		caca.ItemID = i
@@ -1102,11 +1129,12 @@ func _ready():
 	if Game.rebirths >= 1:
 		Game.unlock_achievement("rebirth")
 	
-	rebirth3intro = (Game.rebirths == 3 and ItemValues.money <= 0)
-	rebirth2intro = (Game.rebirths == 2 and ItemValues.money <= 1000000)
+	rebirth3intro = (Game.rebirths == 3 and ItemValues.total_money == 0)
+	rebirth2intro = (Game.rebirths == 2 and ItemValues.total_money <= 500000)
+	rebirth1intro = (Game.rebirths == 1 and ItemValues.total_money == 0)
 	
 	if Game.rebirths == 1:
-		if Game.achievement_unlocked("rebirth"):
+		if Game.market_discovered == false:
 			$Shrilow.visible = false
 			$ShrilowScreen.visible = false
 			$Shop/Melanie.visible = false
@@ -1119,6 +1147,7 @@ func _ready():
 			$USDText.visible = false
 			$Cutscene.visible = true
 			$Shop/ShopMusic.playing = false
+			$EventTimer.paused = true
 		else:
 			$Shrilow.visible = true
 			$ShrilowScreen.visible = true
@@ -1132,12 +1161,13 @@ func _ready():
 			$USDText.visible = true
 			$Cutscene.visible = false
 			$Shop/ShopMusic.playing = true
+			$EventTimer.paused = false
 	if Game.rebirths >= 5:
 		Game.unlock_achievement("rebirth10")
 	
-	if ItemValues.money >= 10000:
+	if ItemValues.total_money >= 10000:
 		lawsInformed = true
-	if ItemValues.money >= 200000:
+	if ItemValues.total_money >= 200000:
 		doctorCalled = true
 	
 	if Game.contains_curse("gambling"):
@@ -1262,6 +1292,14 @@ func _ready():
 
 func _process(_delta : float) -> void:
 	
+	if area == "melanie":
+		if rebirth1intro == true and Game.market_discovered == true:
+			rebirth1intro = false
+			melShopToggle()
+			dialogKey = "REBIRTH1EVENT"
+			manageScenes()
+			area = "melanie"
+	
 	$Shrilow/Control/ShrilowBorderShitFUCKYOUGODOT.visible = $Shrilow/Control/Shrilow.visible
 	
 	if FizzyDrink.properlySeled == "GPLow":
@@ -1293,7 +1331,7 @@ func _process(_delta : float) -> void:
 		$Shop/Melanie.position.y = 0
 	
 	if can == true:
-		if ItemValues.money >= 200000 and !doctorCalled and Game.rebirths == 1:
+		if ItemValues.total_money >= 200000 and !doctorCalled and Game.rebirths == 1:
 			doctorCalled = true
 			var cacapoopyGOD2 = load("res://technical/events/minerkid.tscn")
 			var caca2 = cacapoopyGOD2.instantiate()
@@ -1301,7 +1339,7 @@ func _process(_delta : float) -> void:
 			caca2.parent = self
 			caca2.swapTo("doctor")
 			Game.warn("Oh? Whats this...")
-		if ItemValues.money >= 10000 and !lawsInformed and Game.rebirths == 1:
+		if ItemValues.total_money >= 10000 and !lawsInformed and Game.rebirths == 1:
 			Game.inform("someone named 'QuickTime-Event' has made some new laws! absolutely despicable. whos this guy think he is? you can find these laws by looking in The Journal!\n\nhopefully none of these become a problem later...")
 			lawsInformed = true
 			Journal._unlock_entry("My QuickTime-Laws!")
@@ -1754,6 +1792,7 @@ func _on_shrilow_squeak_autoclick() -> void:
 		var ammo = FizzyDrink.AUTOclickPower+FizzyDrink.AUTOclickPowerP1+FizzyDrink.AUTOclickPowerP1R+FizzyDrink.AUTOclickPowerAdditions+FizzyDrink.AUTOclickPowerClothingBuffs+FizzyDrink.shrilowPowerAuto
 		Interstate.totalmoney += ammo
 		ItemValues.money += ammo
+		ItemValues.total_money += ammo
 		$Shrilow/Squeak2.play()
 
 func _on_shrilow_squeak_pressed() -> void:
@@ -1775,6 +1814,7 @@ func _on_shrilow_squeak_pressed() -> void:
 				var ammo = FizzyDrink.clickPower+FizzyDrink.clickPowerP1+FizzyDrink.clickPowerP1R+FizzyDrink.clickPowerAdditions+FizzyDrink.clickPowerClothingBuffs+FizzyDrink.shrilowPower
 				Interstate.totalmoney += ammo
 				ItemValues.money += ammo
+				ItemValues.total_money += ammo
 				FizzyDrink.clicks += 1
 				Game.saveFileClicks += 1
 				curClicks += 1
@@ -1795,7 +1835,7 @@ func _on_shop_button_pressed() -> void:
 			melShopToggle()
 			dialogKey = "REBIRTH3"
 			manageScenes()
-		if rebirth2intro == true and ItemValues.money >= 1000000:
+		if rebirth2intro == true and ItemValues.total_money >= 200000:
 			$Shop/Melanie/QTE.visible = true
 			$Shop/Melanie/cutsceneAudios.play()
 			melShopToggle()
@@ -1966,8 +2006,11 @@ func cameraAnimation(Varea, positionX, positionY, allowMove):
 			if FizzyDrink.melDialogue[i]["dialogKey"] == "MELVIN":
 				FizzyDrink.melDialogue[i]["unlocked"] = true
 	if Varea == "market":
+		Game.market_discovered = true
 		if area == "market":
 			area = "melanie"
+			if rebirth1intro == true and Game.market_discovered == false:
+				$EventTimer.paused = false
 		else:
 			area = "market"
 		for i in FizzyDrink.melDialogue.size():
@@ -2608,6 +2651,7 @@ func _on_first_timeout() -> void:
 			ammo = (FizzyDrink.clickPowerP1 + FizzyDrink.clickPowerP1R) * FizzyDrink.greasepuppies
 		ItemValues.money += ammo
 		Interstate.totalmoney += ammo
+		ItemValues.total_money += ammo
 		$ShrilowScreen/AudioListener2D.play()
 		for i in range(0, $ShrilowScreen/puppies.get_child_count()):
 			$ShrilowScreen/puppies.get_child(i)._update(true)
@@ -2720,7 +2764,7 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		var cacapoopyGOD2 = preload("res://technical/clock.tscn")
 		var caca = cacapoopyGOD2.instantiate()
 		add_child(caca)
-		caca.create("Dr's Appointment", 300, "not")
+		caca.create("Dr's Appointment", 600, "not")
 		$Timer2.start()
 	else:
 		$Shrilow/cone.visible = true

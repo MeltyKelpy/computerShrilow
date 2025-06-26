@@ -8,11 +8,11 @@ var creditors = [
 	"Image":"res://assets/images/mainMenu/credits/ppl/mel.png",
 	"Pronouns":"It/Star",
 	"Roles":"Game Creator -\nMain Artist -\nMain Coder -",
-	"Commits":232,
+	"Commits":234,
 	"Quote":"but my [color=#CC8800]g[/color][color=#CA8900]e[/color][color=#C88B00]n[/color][color=#C78C00]i[/color][color=#C58E00]u[/color][color=#C39000]s[/color] [color=#C09300]d[/color][color=#BE9500]a[/color][color=#BD9600]u[/color][color=#BB9800]g[/color][color=#B99A00]h[/color][color=#B89B00]t[/color][color=#B69D00]e[/color][color=#B49F00]r[/color] will know",
 	},
 	{
-	"Name":"kosejumpscare",
+	"Name":"nevermaur_",
 	"Image":"res://assets/images/mainMenu/credits/ppl/kose.png",
 	"Pronouns":"He/Him",
 	"Roles":"Main Musician -",
@@ -23,15 +23,15 @@ var creditors = [
 	"Name":"OJSTheCoder",
 	"Image":"res://assets/images/mainMenu/credits/ppl/OJ.png",
 	"Pronouns":"They/Them",
-	"Roles":"Musician -\nCoder -",
+	"Roles":"Musician -\nCoder -\nVoice Actor (AJS) -",
 	"Commits":2,
-	"Quote":"",
+	"Quote":"i cant trust you sluts",
 	},
 	{
 	"Name":"Jocapelt",
 	"Image":"res://assets/images/mainMenu/credits/ppl/jocaproper.png",
 	"Pronouns":"Any/All",
-	"Roles":"Voice Actor (QTE) -",
+	"Roles":"Voice Actor (QTE, The Doctor) -",
 	"Commits":0,
 	"Quote":"Mah bad teach... ahahahahha...",
 	},
@@ -39,7 +39,7 @@ var creditors = [
 	"Name":"Saayo",
 	"Image":"res://assets/images/mainMenu/credits/ppl/saayo.png",
 	"Pronouns":"She/Her",
-	"Roles":"Artist -",
+	"Roles":"Artist -\nVoice Actor (LGE) -",
 	"Commits":9,
 	"Quote":"kill melty",
 	},
@@ -49,7 +49,7 @@ var creditors = [
 	"Pronouns":"Ghosty/Bricks (he/him)",
 	"Roles":"hads very many coolideas :grin: -",
 	"Commits":0,
-	"Quote":"",
+	"Quote":"cant breed the jellies. 0 stars.",
 	},
 	{
 	"Name":"Shrilow",
@@ -201,6 +201,7 @@ func _process(delta: float) -> void:
 		$Credits/Main/Jobs.text = creditors[selectedCredit]["Roles"]+"\nGithub Commits: "+str(creditors[selectedCredit]["Commits"])+"/"+str(commits)+" -"
 		$Credits/Main/Quote.text = '"'+creditors[selectedCredit]["Quote"]+'"'
 		$Credits/Main/person.texture = load(creditors[selectedCredit]["Image"])
+		$Credits/Main/stupid.visible = (creditors[selectedCredit]["Name"] == "nevermaur_")
 	elif creditors[selectedCredit]["Name"] == "JuiceBoxFactory":
 		$Credits/Main.visible = true
 		$Credits/Contributers.visible = false
