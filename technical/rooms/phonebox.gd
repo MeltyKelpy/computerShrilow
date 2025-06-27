@@ -15,7 +15,7 @@ func _process(delta: float) -> void:
 			$Button.mouse_filter = 0
 
 func _on_button_pressed() -> void:
-	print("uhhmmm hello?")
-	if parent != null:
+	if parent.can == true:
+		print("uhhmmm hello?")
 		parent.caller_id = id
 		parent.make_call()

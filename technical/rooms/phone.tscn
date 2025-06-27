@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dvukb5s3yh445"]
+[gd_scene load_steps=29 format=3 uid="uid://dvukb5s3yh445"]
 
 [ext_resource type="Script" uid="uid://33775urolu74" path="res://technical/rooms/phone.gd" id="1_1ag01"]
 [ext_resource type="Shader" uid="uid://dh2nthr0g3lwr" path="res://technical/blur.gdshader" id="1_efjj3"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://7pklc3qc71xa" path="res://assets/images/ui/phantomsphone/background.png" id="7_vm65o"]
 [ext_resource type="AudioStream" uid="uid://bom474bxixkfb" path="res://assets/sounds/phoneoff.ogg" id="8_c0xdw"]
 [ext_resource type="Texture2D" uid="uid://m4v1cbfrqig1" path="res://assets/images/ui/phantomsphone/minerkidvinyet.png" id="9_6lqgx"]
+[ext_resource type="AudioStream" uid="uid://bo6wprri82isd" path="res://assets/sounds/calling.ogg" id="11_uhoar"]
+[ext_resource type="AudioStream" uid="uid://1goqj4lsv0p6" path="res://assets/sounds/hangupcall.ogg" id="12_jfdeu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1ag01"]
 shader = ExtResource("1_efjj3")
@@ -36,132 +38,6 @@ shader_parameter/lod = 1.0
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7p6na"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ia7mh"]
-
-[sub_resource type="Animation" id="Animation_mmlmx"]
-resource_name = "opening"
-length = 1.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("phanphone:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(0.258816, 1),
-"update": 0,
-"values": [Vector2(-136, 317), Vector2(275, 317)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AudioStreamPlayer:playing")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.13333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("phanphone/lockscreen:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("phanphone/viewfinder/info:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 1.17376),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/4/type = "method"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath(".")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(1.43333),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"make_can"
-}]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("ColorRect:color")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.833333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.188)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Panel:modulate")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0.333333, 1.13333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("phanphone/viewfinder/info:color")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 0.929)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("phanphone/contacts:visible")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [false]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("phanphone/call:visible")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [false]
-}
 
 [sub_resource type="Animation" id="Animation_c0xdw"]
 length = 0.001
@@ -436,6 +312,132 @@ tracks/10/keys = {
 "values": [false]
 }
 
+[sub_resource type="Animation" id="Animation_mmlmx"]
+resource_name = "opening"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("phanphone:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.258816, 1),
+"update": 0,
+"values": [Vector2(-136, 317), Vector2(275, 317)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.13333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("phanphone/lockscreen:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("phanphone/viewfinder/info:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.17376),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.43333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"make_can"
+}]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ColorRect:color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.833333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.188)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Panel:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.333333, 1.13333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("phanphone/viewfinder/info:color")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.929)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("phanphone/contacts:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("phanphone/call:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c0xdw"]
 _data = {
 &"RESET": SubResource("Animation_c0xdw"),
@@ -444,7 +446,6 @@ _data = {
 }
 
 [node name="Phone" type="Node2D"]
-process_mode = 3
 script = ExtResource("1_1ag01")
 
 [node name="Panel" type="Panel" parent="."]
@@ -582,6 +583,324 @@ fit_content = true
 scroll_active = false
 horizontal_alignment = 1
 
+[node name="ColorRect" type="ColorRect" parent="phanphone/contacts"]
+offset_left = -90.0
+offset_top = 130.0
+offset_right = 90.0
+offset_bottom = 132.0
+color = Color(0.788235, 0.788235, 0.788235, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="phanphone/contacts"]
+offset_left = -90.0
+offset_top = -117.0
+offset_right = 90.0
+offset_bottom = -115.0
+color = Color(0.788235, 0.788235, 0.788235, 1)
+
+[node name="manual2" type="RichTextLabel" parent="phanphone/contacts"]
+offset_left = -88.0
+offset_top = 145.0
+offset_right = 88.0
+offset_bottom = 178.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.10748, 0.10748, 0.10748, 1)
+theme_override_fonts/normal_font = ExtResource("5_ksg6d")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "Manual Input"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="manual" type="Button" parent="phanphone/contacts"]
+offset_left = -87.0
+offset_top = 135.0
+offset_right = 89.0
+offset_bottom = 189.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_c0xdw")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_vm65o")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3w842")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_6lqgx")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_uhoar")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_jfdeu")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_e2bl3")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_k5rkj")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ojbwy")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_7p6na")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ia7mh")
+
+[node name="manual" type="Node2D" parent="phanphone"]
+visible = false
+z_as_relative = false
+
+[node name="phanphone" type="Sprite2D" parent="phanphone/manual"]
+texture = ExtResource("5_qcpbu")
+
+[node name="Control" type="Control" parent="phanphone/manual"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="0" type="Button" parent="phanphone/manual/Control"]
+offset_left = -18.0
+offset_top = 73.0
+offset_right = 22.0
+offset_bottom = 106.0
+mouse_filter = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_c0xdw")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_vm65o")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3w842")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_6lqgx")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_uhoar")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_jfdeu")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_e2bl3")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_k5rkj")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ojbwy")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_7p6na")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ia7mh")
+text = "0"
+
+[node name="clear" type="Button" parent="phanphone/manual/Control"]
+offset_left = 28.0
+offset_top = 73.0
+offset_right = 68.0
+offset_bottom = 106.0
+mouse_filter = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_c0xdw")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_vm65o")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3w842")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_6lqgx")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_uhoar")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_jfdeu")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_e2bl3")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_k5rkj")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ojbwy")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_7p6na")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ia7mh")
+text = "clear"
+
+[node name="1" type="Button" parent="phanphone/manual/Control"]
+offset_left = -64.0
+offset_top = -43.0
+offset_right = -24.0
+offset_bottom = -10.0
+mouse_filter = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_c0xdw")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_vm65o")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3w842")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_6lqgx")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_uhoar")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_jfdeu")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_e2bl3")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_k5rkj")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ojbwy")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_7p6na")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ia7mh")
+text = "1"
+
+[node name="2" type="Button" parent="phanphone/manual/Control"]
+offset_left = -18.0
+offset_top = -43.0
+offset_right = 22.0
+offset_bottom = -10.0
+mouse_filter = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_c0xdw")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_vm65o")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3w842")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_6lqgx")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_uhoar")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_jfdeu")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_e2bl3")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_k5rkj")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ojbwy")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_7p6na")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ia7mh")
+text = "2"
+
+[node name="3" type="Button" parent="phanphone/manual/Control"]
+offset_left = 29.0
+offset_top = -43.0
+offset_right = 69.0
+offset_bottom = -10.0
+mouse_filter = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_c0xdw")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_vm65o")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3w842")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_6lqgx")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_uhoar")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_jfdeu")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_e2bl3")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_k5rkj")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ojbwy")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_7p6na")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ia7mh")
+text = "3"
+
+[node name="4" type="Button" parent="phanphone/manual/Control"]
+offset_left = -64.0
+offset_top = -5.0
+offset_right = -24.0
+offset_bottom = 28.0
+mouse_filter = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_c0xdw")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_vm65o")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3w842")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_6lqgx")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_uhoar")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_jfdeu")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_e2bl3")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_k5rkj")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ojbwy")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_7p6na")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ia7mh")
+text = "4"
+
+[node name="5" type="Button" parent="phanphone/manual/Control"]
+offset_left = -18.0
+offset_top = -5.0
+offset_right = 22.0
+offset_bottom = 28.0
+mouse_filter = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_c0xdw")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_vm65o")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3w842")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_6lqgx")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_uhoar")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_jfdeu")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_e2bl3")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_k5rkj")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ojbwy")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_7p6na")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ia7mh")
+text = "5"
+
+[node name="6" type="Button" parent="phanphone/manual/Control"]
+offset_left = 29.0
+offset_top = -5.0
+offset_right = 69.0
+offset_bottom = 28.0
+mouse_filter = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_c0xdw")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_vm65o")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3w842")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_6lqgx")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_uhoar")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_jfdeu")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_e2bl3")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_k5rkj")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ojbwy")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_7p6na")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ia7mh")
+text = "6"
+
+[node name="7" type="Button" parent="phanphone/manual/Control"]
+offset_left = -64.0
+offset_top = 35.0
+offset_right = -24.0
+offset_bottom = 68.0
+mouse_filter = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_c0xdw")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_vm65o")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3w842")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_6lqgx")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_uhoar")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_jfdeu")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_e2bl3")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_k5rkj")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ojbwy")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_7p6na")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ia7mh")
+text = "7"
+
+[node name="8" type="Button" parent="phanphone/manual/Control"]
+offset_left = -18.0
+offset_top = 35.0
+offset_right = 22.0
+offset_bottom = 68.0
+mouse_filter = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_c0xdw")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_vm65o")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3w842")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_6lqgx")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_uhoar")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_jfdeu")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_e2bl3")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_k5rkj")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ojbwy")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_7p6na")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ia7mh")
+text = "8"
+
+[node name="9" type="Button" parent="phanphone/manual/Control"]
+offset_left = 29.0
+offset_top = 35.0
+offset_right = 69.0
+offset_bottom = 68.0
+mouse_filter = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_c0xdw")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_vm65o")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3w842")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_6lqgx")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_uhoar")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_jfdeu")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_e2bl3")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_k5rkj")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ojbwy")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_7p6na")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ia7mh")
+text = "9"
+
+[node name="return" type="Button" parent="phanphone/manual/Control"]
+offset_left = -23.0
+offset_top = 149.0
+offset_right = 27.0
+offset_bottom = 182.0
+mouse_filter = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_c0xdw")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_vm65o")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3w842")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_6lqgx")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_uhoar")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_jfdeu")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_e2bl3")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_k5rkj")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ojbwy")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_7p6na")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ia7mh")
+text = "return"
+
+[node name="call" type="Button" parent="phanphone/manual/Control"]
+offset_left = -18.0
+offset_top = 111.0
+offset_right = 22.0
+offset_bottom = 144.0
+mouse_filter = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_c0xdw")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_vm65o")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3w842")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_6lqgx")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_uhoar")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_jfdeu")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_e2bl3")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_k5rkj")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ojbwy")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_7p6na")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ia7mh")
+text = "call"
+
+[node name="Label" type="Label" parent="phanphone/manual/Control"]
+offset_left = -63.0
+offset_top = -116.0
+offset_right = 68.0
+offset_bottom = -86.0
+mouse_filter = 1
+text = "0000"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
 [node name="call" type="Node2D" parent="phanphone"]
 visible = false
 z_as_relative = false
@@ -672,7 +991,7 @@ bus = &"SFX"
 
 [node name="call" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_c0xdw")
-volume_db = -0.868
+volume_db = 13.0
 bus = &"TalkSounds"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -681,6 +1000,36 @@ libraries = {
 }
 autoplay = "opening"
 
+[node name="calling" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_uhoar")
+volume_db = 16.192
+bus = &"SFX"
+parameters/looping = true
+
+[node name="endcall" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_jfdeu")
+volume_db = 16.192
+bus = &"SFX"
+parameters/looping = false
+
+[node name="calltime" type="Timer" parent="."]
+
 [connection signal="editing_toggled" from="phanphone/lockscreen/pass/LineEdit" to="." method="_on_line_edit_editing_toggled"]
 [connection signal="text_submitted" from="phanphone/lockscreen/pass/LineEdit" to="." method="_on_line_edit_text_submitted"]
 [connection signal="pressed" from="phanphone/lockscreen/open" to="." method="buttons" binds= ["open"]]
+[connection signal="pressed" from="phanphone/contacts/manual" to="." method="buttons" binds= ["manual"]]
+[connection signal="pressed" from="phanphone/manual/Control/0" to="." method="number" binds= [0]]
+[connection signal="pressed" from="phanphone/manual/Control/clear" to="." method="buttons" binds= ["clear"]]
+[connection signal="pressed" from="phanphone/manual/Control/1" to="." method="number" binds= [1]]
+[connection signal="pressed" from="phanphone/manual/Control/2" to="." method="number" binds= [2]]
+[connection signal="pressed" from="phanphone/manual/Control/3" to="." method="number" binds= [3]]
+[connection signal="pressed" from="phanphone/manual/Control/4" to="." method="number" binds= [4]]
+[connection signal="pressed" from="phanphone/manual/Control/5" to="." method="number" binds= [5]]
+[connection signal="pressed" from="phanphone/manual/Control/6" to="." method="number" binds= [6]]
+[connection signal="pressed" from="phanphone/manual/Control/7" to="." method="number" binds= [7]]
+[connection signal="pressed" from="phanphone/manual/Control/8" to="." method="number" binds= [8]]
+[connection signal="pressed" from="phanphone/manual/Control/9" to="." method="number" binds= [9]]
+[connection signal="pressed" from="phanphone/manual/Control/return" to="." method="buttons" binds= ["return"]]
+[connection signal="pressed" from="phanphone/manual/Control/call" to="." method="buttons" binds= ["call"]]
+[connection signal="finished" from="call" to="." method="_on_call_finished"]
+[connection signal="timeout" from="calltime" to="." method="_on_calltime_timeout"]

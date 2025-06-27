@@ -35,11 +35,11 @@ script = ExtResource("2_ra0qw")
 
 [node name="caller" type="Label" parent="."]
 layout_mode = 0
-offset_left = 6.0
+offset_left = 4.0
 offset_top = 7.0
-offset_right = 164.0
+offset_right = 166.0
 offset_bottom = 31.0
-theme_override_colors/font_color = Color(0.788235, 0.788235, 0.788235, 1)
+theme_override_colors/font_color = Color(0.284851, 0.28485, 0.28485, 1)
 theme_override_fonts/font = ExtResource("2_sbynb")
 theme_override_font_sizes/font_size = 20
 text = "Phantom >> 0314"
@@ -48,7 +48,6 @@ text = "Phantom >> 0314"
 layout_mode = 0
 offset_right = 171.0
 offset_bottom = 36.0
-mouse_default_cursor_shape = 1
 theme_override_styles/focus = SubResource("StyleBoxEmpty_d1nfu")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_i8t1a")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_qq8c0")
