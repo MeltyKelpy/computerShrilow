@@ -42,10 +42,6 @@ func _process(delta: float) -> void:
 		$Sprite2D.visible = false
 	
 	if Input.is_action_just_pressed("DebugMode"):
-		print(FizzyDrink.scrollLimitRIGHT)
-		print(FizzyDrink.scrollLimitLEFT)
 		getID(ID)
 		FizzyDrink.scrollLimitLEFT = maxLEFT
-		print(FizzyDrink.scrollLimitLEFT)
 		FizzyDrink.scrollLimitRIGHT = maxRIGHT
-		print(FizzyDrink.scrollLimitRIGHT)

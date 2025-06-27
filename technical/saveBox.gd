@@ -118,9 +118,11 @@ func _load_properly():
 	var config = ConfigFile.new()
 	var err = config.load(Game.files[ID])
 	if $FileName.text == "":
+		Game.loadData()
 		config.set_value("Fiscal", "Name", "UNNAMED FILE")
 		Game.saveData()
 	else:
+		Game.loadData()
 		Game.namee = $FileName.text
 		config.set_value("Fiscal", "Name", $FileName.text)
 		Game.saveData()

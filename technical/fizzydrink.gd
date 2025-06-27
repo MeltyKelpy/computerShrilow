@@ -35,6 +35,13 @@ var melDialogue = [
 	"interacted":false,
 	},
 	{
+	"present":"Crystals?",
+	"dialogKey":"CRYSTALS",
+	"unlocked":false,
+	"interacted":false,
+	"important":true,
+	},
+	{
 	"present":"Interests?",
 	"dialogKey":"INTERESTS",
 	"unlocked":true,
@@ -139,6 +146,13 @@ var marketDialogue = [
 	"dialogKey":"whoAreYall",
 	"unlocked":true,
 	"interacted":false,
+	},
+	{
+	"present":"Can i use your phone lol",
+	"dialogKey":"phone",
+	"unlocked":false,
+	"interacted":false,
+	"important":true,
 	},
 	{
 	"present":"What is this place?",

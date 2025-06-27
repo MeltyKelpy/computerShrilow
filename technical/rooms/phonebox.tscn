@@ -1,0 +1,64 @@
+[gd_scene load_steps=15 format=3 uid="uid://dbyaec5lxduph"]
+
+[ext_resource type="Texture2D" uid="uid://dv1sdywndpj2m" path="res://assets/images/ui/phantomsphone/phonebox.png" id="1_60w1k"]
+[ext_resource type="Script" uid="uid://c1mum60ttufal" path="res://technical/rooms/phonebox.gd" id="2_ra0qw"]
+[ext_resource type="FontFile" uid="uid://brn7smfq0l6ao" path="res://assets/fonts/TwCen.ttf" id="2_sbynb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d1nfu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i8t1a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qq8c0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bcqgn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2dmfn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sshay"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oq3b7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dhfaa"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_04rm7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8syoa"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0j2lf"]
+
+[node name="Phonebox" type="TextureRect"]
+offset_right = 171.0
+offset_bottom = 36.0
+mouse_filter = 2
+texture = ExtResource("1_60w1k")
+script = ExtResource("2_ra0qw")
+
+[node name="caller" type="Label" parent="."]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 7.0
+offset_right = 164.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(0.788235, 0.788235, 0.788235, 1)
+theme_override_fonts/font = ExtResource("2_sbynb")
+theme_override_font_sizes/font_size = 20
+text = "Phantom >> 0314"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 171.0
+offset_bottom = 36.0
+mouse_default_cursor_shape = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_d1nfu")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_i8t1a")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_qq8c0")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_bcqgn")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_2dmfn")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_sshay")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_oq3b7")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_dhfaa")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_04rm7")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_8syoa")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0j2lf")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

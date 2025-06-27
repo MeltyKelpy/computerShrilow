@@ -169,7 +169,6 @@ func _physics_process(delta: float) -> void:
 				"ID":id
 				}
 			Game.rebirthJellyProtocol.append(awesomsmee)
-			print(Game.rebirthJellyProtocol[Game.rebirthJellyProtocol.size()-1])
 			queue_free()
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -198,7 +197,6 @@ func getID(num):
 	ItemValues.itemInfomation[num]["Owned"] = false
 
 func getJelly(num):
-	print(num)
 	jellyNum = num
 	#position.x = 850
 	#position.y = 0
@@ -256,7 +254,6 @@ func _on_death_time_timeout() -> void:
 
 func _on_change_floor_pressed(ID) -> void:
 	rigid_body_2d.transform = Transform2D($/root/computerShrilow/Jelly/rooms.get_child(ID-1).position.x + 100, Vector2(0, 100+((ID * 1300) + 1600)))
-	print(100+((ID * 1300) + 1600))
 	rigid_body_2d.rotation = 0
 
 func _on_storage_pressed(type) -> void:
@@ -277,7 +274,6 @@ func _on_storage_pressed(type) -> void:
 		}
 	Jelly.storedJellys.resize(Jelly.storedJellys.size()+1)
 	Jelly.storedJellys[Jelly.storedJellys.size()-1] = awesomsmee
-	print(Jelly.storedJellys[Jelly.storedJellys.size()-1])
 	queue_free()
 
 func _on_proximity_body_entered(body: Node2D) -> void:

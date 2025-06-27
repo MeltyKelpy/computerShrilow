@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://hxgxav0g81fa"
+path="res://.godot/imported/minerkidout.ogg-58ea0a772ab4c46b442f4471ad332004.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/really funny folder/minerkidout.ogg"
+dest_files=["res://.godot/imported/minerkidout.ogg-58ea0a772ab4c46b442f4471ad332004.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

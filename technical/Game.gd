@@ -25,6 +25,8 @@ var market_discovered = false
 
 var rebirthJellyProtocol = []
 
+var phantom_phone = false
+
 var boxed = false
 
 var curFile = 0
@@ -108,6 +110,11 @@ func _find_achievement(id):
 			break
 	return achievementID
 
+func _unlock_dialogue(id, array):
+	for i in array.size():
+		if array[i]["dialogKey"] == id:
+			return i
+
 func commizeNumber(value: int) -> String:
 	# Convert value to string.
 	var str_value: String = str(value)
@@ -176,6 +183,7 @@ func loadData():
 	var err = config.load(files[curFile])
 	
 	if err == OK:
+		phantom_phone = config.get_value("Story", "phantom_phone", false)
 		config.set_value("Fiscal", "gameVersion", gameVersion)
 		namee = config.get_value("Fiscal", "Name")
 		jellies = config.get_value("Fiscal", "Jellies")
@@ -210,7 +218,10 @@ func loadData():
 							that_one_fucking_array[e]["revealed?"] = config.get_value("Journal", "journalShit")[Journal.entriesText.keys()[i]][that_one_fucking_array[e]["id"]]
 		
 		if typeof(config.get_value("Story", "DialogueDoneMELANIE")) == 19:
+			print(config.get_value("Story", "DialogueUnlockedMELANIE"))
 			for i in config.get_value("Story", "DialogueDoneMELANIE").size():
+				print(FizzyDrink.melDialogue[i]["dialogKey"])
+				print(config.get_value("Story", "DialogueUnlockedMELANIE")[i])
 				FizzyDrink.melDialogue[i]["unlocked"] = config.get_value("Story", "DialogueUnlockedMELANIE")[i]
 				FizzyDrink.melDialogue[i]["interacted"] = config.get_value("Story", "DialogueDoneMELANIE")[i]
 			for i in config.get_value("Story", "DialogueDoneBRICKS").size():
@@ -236,8 +247,6 @@ func loadData():
 			for e in ItemValues.itemInfomation.size():
 				if ItemValues.itemInfomation[e].has("Name"):
 					if ItemValues.itemInfomation[e]["Name"] == i:
-						print(ItemValues.itemInfomation[e]["CurUpgrade"])
-						print(config.get_value("Shop", lazy[i]))
 						ItemValues.itemInfomation[e]["CurUpgrade"] = config.get_value("Shop", lazy[i])
 		FizzyDrink.enabledCrystal = config.get_value("Shop", "selectedCrystal")
 		
@@ -353,6 +362,8 @@ func saveData():
 	config.set_value("Fiscal", "Time", gameTime)
 	config.set_value("Fiscal", "Clicks", FizzyDrink.clicks)
 	config.set_value("Fiscal", "Icon", icon)
+	
+	config.set_value("Story", "phantom_phone", phantom_phone)
 	
 	config.set_value("Rebirth", "RebirthTokens", rebirthTokens)
 	config.set_value("Rebirth", "Curses", Curses.curses)

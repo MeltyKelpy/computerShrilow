@@ -73,8 +73,6 @@ func spawnJelly(ID):
 		Jelly.storedJellys.erase(jellyNum)
 		caca._on_change_floor_pressed(ID)
 		caca.setParent()
-		print(ID)
-		print($/root/computerShrilow/Jelly/rooms.get_child(ID))
 		caca.findRoom($/root/computerShrilow/Jelly/rooms.get_child(ID))
 		$/root/computerShrilow._deleteStorag()
 		Jelly.storedJellys.remove_at(jellyNum)
@@ -103,7 +101,6 @@ func _on_sell_pressed() -> void:
 	if rarity == "Blue":
 		ItemValues.money += 1000000
 	if rarity != "Market":
-		print("hi")
 		$/root/computerShrilow._deleteStorag()
 		Jelly.storedJellys.remove_at(jellyNum)
 		$/root/computerShrilow._spawnStorage()

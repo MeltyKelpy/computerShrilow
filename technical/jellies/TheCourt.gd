@@ -36,10 +36,6 @@ func _process(delta: float) -> void:
 	$ColorRect/Label.text = str(sideOneScore)
 	$ColorRect2/Label.text = str(sideTwoScore)
 	if Input.is_action_just_pressed("DebugMode"):
-		print(FizzyDrink.scrollLimitRIGHT)
-		print(FizzyDrink.scrollLimitLEFT)
 		getID(ID)
 		FizzyDrink.scrollLimitLEFT = maxLEFT
-		print(FizzyDrink.scrollLimitLEFT)
 		FizzyDrink.scrollLimitRIGHT = maxRIGHT
-		print(FizzyDrink.scrollLimitRIGHT)

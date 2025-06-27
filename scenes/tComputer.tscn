@@ -2852,16 +2852,18 @@ theme = ExtResource("8_oskpf")
 theme_override_font_sizes/font_size = 50
 text = "MELANIE:"
 
-[node name="ItemDescription" type="Label" parent="Shop"]
+[node name="ItemDescription" type="RichTextLabel" parent="Shop"]
 offset_left = 48.0
 offset_top = 516.0
 offset_right = 599.0
 offset_bottom = 676.0
 scale = Vector2(1, 0.6)
 theme = ExtResource("8_oskpf")
-theme_override_font_sizes/font_size = 35
+theme_override_colors/default_color = Color(0.121569, 0.0470588, 0, 1)
+bbcode_enabled = true
 text = "oh, sure i got nothing else to do anyways lmao"
-autowrap_mode = 3
+fit_content = true
+scroll_active = false
 
 [node name="ItemExtra" type="Label" parent="Shop"]
 offset_left = 47.0
@@ -3196,17 +3198,18 @@ theme_override_colors/font_color = Color(0.0823529, 0.0823529, 0.0823529, 1)
 theme_override_font_sizes/font_size = 50
 text = "ITEM NAME"
 
-[node name="ItemDescription" type="Label" parent="BlackMarket"]
+[node name="ItemDescription" type="RichTextLabel" parent="BlackMarket"]
 offset_left = -12.0
 offset_top = 226.0
 offset_right = 548.0
 offset_bottom = 323.0
 scale = Vector2(1, 0.6)
 theme = ExtResource("8_oskpf")
-theme_override_colors/font_color = Color(0.0823529, 0.0823529, 0.0823529, 1)
-theme_override_font_sizes/font_size = 35
+theme_override_colors/default_color = Color(0.0823529, 0.0823529, 0.0823529, 1)
+bbcode_enabled = true
 text = "ITEM DESC"
-autowrap_mode = 3
+fit_content = true
+scroll_active = false
 
 [node name="ItemExtra" type="Label" parent="BlackMarket"]
 offset_left = -13.0
@@ -3225,7 +3228,7 @@ autowrap_mode = 3
 visible = false
 texture = ExtResource("56_266nj")
 
-[node name="talk" type="Label" parent="BlackMarket"]
+[node name="talk" type="RichTextLabel" parent="BlackMarket"]
 visible = false
 offset_left = 113.0
 offset_top = 200.0
@@ -3233,10 +3236,11 @@ offset_right = 549.0
 offset_bottom = 368.0
 scale = Vector2(1, 0.6)
 theme = ExtResource("8_oskpf")
-theme_override_colors/font_color = Color(0.0823529, 0.0823529, 0.0823529, 1)
-theme_override_font_sizes/font_size = 35
+theme_override_colors/default_color = Color(0.0823529, 0.0823529, 0.0823529, 1)
+bbcode_enabled = true
 text = "ITEM DESC"
-autowrap_mode = 3
+fit_content = true
+scroll_active = false
 
 [node name="marketinteract" type="Button" parent="BlackMarket"]
 offset_left = -544.0
@@ -3708,7 +3712,6 @@ libraries = {
 
 [node name="EventTimer" type="Timer" parent="."]
 wait_time = 120.0
-autostart = true
 
 [node name="DEBUGVALUES" type="Node2D" parent="."]
 visible = false

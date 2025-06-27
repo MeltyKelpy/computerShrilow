@@ -3,6 +3,7 @@ extends TextureRect
 var present = ""
 var dialogKey = ""
 var interacted = true
+var important = false
 var arrayToUse = ""
 var stupidArray = [{
 	"melanie":FizzyDrink.melDialogue,
@@ -15,6 +16,8 @@ func _ready():
 	$ItemName.text = present
 	if interacted == false:
 		modulate = Color(1,1,0.60392156862)
+		if important == true:
+			modulate = Color(1,0.545,0.51)
 
 func _on_button_pressed():
 	$/root/computerShrilow.dialogKey = dialogKey

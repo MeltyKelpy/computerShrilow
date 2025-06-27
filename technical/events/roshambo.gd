@@ -172,7 +172,6 @@ func _on_pick_choose_pressed() -> void:
 
 func _on_ponder_time_timeout() -> void:
 	var toChoose = rng.randi_range(1, 100)
-	print(toChoose)
 	
 	if toChoose >= 20:
 		hisPick = roChoiceWeight[0][3]

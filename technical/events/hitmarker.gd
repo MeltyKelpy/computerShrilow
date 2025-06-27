@@ -18,11 +18,9 @@ func _process(_delta: float) -> void:
 
 func _on_area_2d_mouse_entered() -> void:
 	mouseOver = true
-	print(mouseOver)
 
 func _on_area_2d_mouse_exited() -> void:
 	mouseOver = false
-	print(mouseOver)
 
 func _on_timer_timeout() -> void:
 	if dead == true:

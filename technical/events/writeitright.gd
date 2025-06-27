@@ -183,15 +183,10 @@ func checkSpelling():
 	var typed = $typeBox/LineEdit.text
 	$typeBox/LineEdit.visible = false
 	$typeBox/Show.visible = true
-	print(full.length()-1)
-	print(letterToCheck)
 	if typed.substr(letterToCheck, 1) == full.substr(letterToCheck, 1):
-		print("Letter is Correct")
-		print(typed.substr(letterToCheck, 1))
 		if lastResultDETERMINE == "Correct":
 			deterministic[section]["sectionOfText"] = deterministic[section]["sectionOfText"]+typed.substr(letterToCheck, 1)
 		else:
-			print("starting new dic")
 			section += 1
 			deterministic.resize(section+1)
 			deterministic[section] = {
@@ -201,14 +196,12 @@ func checkSpelling():
 			deterministic[section]["sectionOfText"]
 			lastResultDETERMINE = "Correct"
 	else:
-		print("Letter is Wrong")
 		stars -= 1
 		Interstate.starslost += 1
 		if lastResultDETERMINE == "Wrong":
 			deterministic[section]["sectionOfText"] = deterministic[section]["sectionOfText"]+typed.substr(letterToCheck, 1)
 			lastResultDETERMINE = "Wrong"
 		else:
-			print("starting new dic")
 			section += 1
 			deterministic.resize(section+1)
 			deterministic[section] = {
@@ -221,8 +214,6 @@ func checkSpelling():
 		checkSpelling()
 	else:
 		if letterToCheck < full.length()-1:
-			print(full.length()-1)
-			print(letterToCheck)
 			stars -= (full.length()-1) - letterToCheck
 		showResults()
 

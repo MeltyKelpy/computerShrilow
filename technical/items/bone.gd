@@ -32,7 +32,6 @@ func _endEffect() -> void:
 	caca2.reparent($/root)
 	caca2.warn("oops! bone effect all gone")
 	FizzyDrink.clickPowerAdditions -= hello
-	print(FizzyDrink.clickPower)
 
 func _kill() -> void:
 	queue_free()

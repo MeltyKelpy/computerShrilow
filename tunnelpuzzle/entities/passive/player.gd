@@ -43,7 +43,6 @@ func _ready() -> void:
 		$CanvasLayer/Boxes.add_child(cFUCK3)
 		hotboxes.append({"box":cFUCK, "box_img":cFUCK2, "amount_img":cFUCK3})
 		Tunnelpuzzle.hotboxes.append({"id":0,"stack":0})
-	print(hotboxes)
 
 func _process(delta: float) -> void:
 	

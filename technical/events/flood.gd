@@ -10,7 +10,6 @@ func _ready() -> void:
 	reparent($/root/computerShrilow/ShrilowScreen)
 	flooding = true
 	clicks = rng.randi_range(3, 6)
-	print(clicks)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

@@ -17,8 +17,6 @@ func _on_button_pressed() -> void:
 		posY = hi.camYpos
 		FizzyDrink.scrollLimitRIGHT = hi.maxRIGHT
 		FizzyDrink.scrollLimitLEFT = hi.maxLEFT
-		print(FizzyDrink.scrollLimitRIGHT)
-		print(FizzyDrink.scrollLimitLEFT)
 	$/root/computerShrilow.cameraAnimation("elevator", posX, posY, true)
 
 #var appendage = []

@@ -1,0 +1,686 @@
+[gd_scene load_steps=27 format=3 uid="uid://dvukb5s3yh445"]
+
+[ext_resource type="Script" uid="uid://33775urolu74" path="res://technical/rooms/phone.gd" id="1_1ag01"]
+[ext_resource type="Shader" uid="uid://dh2nthr0g3lwr" path="res://technical/blur.gdshader" id="1_efjj3"]
+[ext_resource type="Texture2D" uid="uid://ctxda4ycuyx2k" path="res://assets/images/ui/phantomsphone/phone.png" id="3_8ipuq"]
+[ext_resource type="Texture2D" uid="uid://dhd76ifgntgpb" path="res://assets/images/ui/phantomsphone/phantomlockscreenvinyet.png" id="4_ksg6d"]
+[ext_resource type="FontFile" uid="uid://brn7smfq0l6ao" path="res://assets/fonts/TwCen.ttf" id="5_ksg6d"]
+[ext_resource type="Texture2D" uid="uid://dm040bx3xc8w3" path="res://assets/images/ui/phantomsphone/blank.png" id="5_qcpbu"]
+[ext_resource type="AudioStream" uid="uid://bicogqlkd7t8c" path="res://assets/sounds/phoneon.ogg" id="7_mmlmx"]
+[ext_resource type="Texture2D" uid="uid://7pklc3qc71xa" path="res://assets/images/ui/phantomsphone/background.png" id="7_vm65o"]
+[ext_resource type="AudioStream" uid="uid://bom474bxixkfb" path="res://assets/sounds/phoneoff.ogg" id="8_c0xdw"]
+[ext_resource type="Texture2D" uid="uid://m4v1cbfrqig1" path="res://assets/images/ui/phantomsphone/minerkidvinyet.png" id="9_6lqgx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1ag01"]
+shader = ExtResource("1_efjj3")
+shader_parameter/lod = 1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c0xdw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vm65o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3w842"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6lqgx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uhoar"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jfdeu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e2bl3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k5rkj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ojbwy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7p6na"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ia7mh"]
+
+[sub_resource type="Animation" id="Animation_mmlmx"]
+resource_name = "opening"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("phanphone:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.258816, 1),
+"update": 0,
+"values": [Vector2(-136, 317), Vector2(275, 317)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.13333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("phanphone/lockscreen:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("phanphone/viewfinder/info:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.17376),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.43333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"make_can"
+}]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ColorRect:color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.833333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.188)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Panel:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.333333, 1.13333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("phanphone/viewfinder/info:color")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.929)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("phanphone/contacts:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("phanphone/call:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_c0xdw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("phanphone:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(275, 317)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("phanphone/lockscreen:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("phanphone/viewfinder/info:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioStreamPlayer:stream")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_mmlmx")]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.246]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ColorRect:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.188)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Panel:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("phanphone/viewfinder/info:color")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.929)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("phanphone/contacts:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("phanphone/call:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_vm65o"]
+resource_name = "kill me"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("phanphone:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(0.258816, 1),
+"update": 0,
+"values": [Vector2(275, 317), Vector2(-136, 317)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("phanphone/lockscreen:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("phanphone/viewfinder/info:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioStreamPlayer:stream")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("8_c0xdw")]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.266667),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.868]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ColorRect:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.833333, 1.93333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.188), Color(0, 0, 0, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Panel:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.233333, 0.866667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath(".")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_death"
+}]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("phanphone/contacts:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("phanphone/call:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c0xdw"]
+_data = {
+&"RESET": SubResource("Animation_c0xdw"),
+&"kill me": SubResource("Animation_vm65o"),
+&"opening": SubResource("Animation_mmlmx")
+}
+
+[node name="Phone" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_1ag01")
+
+[node name="Panel" type="Panel" parent="."]
+material = SubResource("ShaderMaterial_1ag01")
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1157.0
+offset_bottom = 651.0
+color = Color(0, 0, 0, 0.188)
+
+[node name="phanphone" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(275, 317)
+texture = ExtResource("3_8ipuq")
+
+[node name="blank" type="Sprite2D" parent="phanphone"]
+z_as_relative = false
+texture = ExtResource("5_qcpbu")
+
+[node name="lockscreen" type="Node2D" parent="phanphone"]
+visible = false
+z_as_relative = false
+
+[node name="phanphone" type="Sprite2D" parent="phanphone/lockscreen"]
+texture = ExtResource("4_ksg6d")
+
+[node name="title" type="RichTextLabel" parent="phanphone/lockscreen"]
+offset_left = -88.0
+offset_top = -157.0
+offset_right = 88.0
+offset_bottom = -124.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.847474, 0.847474, 0.847474, 1)
+theme_override_fonts/normal_font = ExtResource("5_ksg6d")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "3:11"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="melisabottom" type="RichTextLabel" parent="phanphone/lockscreen"]
+offset_left = -88.0
+offset_top = 115.0
+offset_right = 87.0
+offset_bottom = 148.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.847474, 0.847474, 0.847474, 1)
+theme_override_fonts/normal_font = ExtResource("5_ksg6d")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "Click Screen to Open"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="pass" type="Node2D" parent="phanphone/lockscreen"]
+visible = false
+
+[node name="LineEdit" type="LineEdit" parent="phanphone/lockscreen/pass"]
+offset_left = -72.0
+offset_top = 115.0
+offset_right = 74.0
+offset_bottom = 146.0
+placeholder_text = "Password"
+alignment = 1
+max_length = 14
+
+[node name="Label" type="Label" parent="phanphone/lockscreen/pass"]
+offset_left = -89.0
+offset_top = 74.0
+offset_right = 89.0
+offset_bottom = 102.0
+theme_override_fonts/font = ExtResource("5_ksg6d")
+theme_override_font_sizes/font_size = 25
+text = "Enter Password:"
+horizontal_alignment = 1
+
+[node name="open" type="Button" parent="phanphone/lockscreen"]
+offset_left = -87.0
+offset_top = -164.0
+offset_right = 89.0
+offset_bottom = 177.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_c0xdw")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_vm65o")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3w842")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_6lqgx")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_uhoar")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_jfdeu")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_e2bl3")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_k5rkj")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ojbwy")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_7p6na")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ia7mh")
+
+[node name="contacts" type="Node2D" parent="phanphone"]
+visible = false
+z_as_relative = false
+
+[node name="phanphone" type="Sprite2D" parent="phanphone/contacts"]
+texture = ExtResource("7_vm65o")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="phanphone/contacts"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -85.0
+offset_top = -107.0
+offset_right = 86.0
+offset_bottom = 123.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="phanphone/contacts/ScrollContainer"]
+layout_mode = 2
+
+[node name="title" type="RichTextLabel" parent="phanphone/contacts"]
+offset_left = -88.0
+offset_top = -157.0
+offset_right = 88.0
+offset_bottom = -124.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.10748, 0.10748, 0.10748, 1)
+theme_override_fonts/normal_font = ExtResource("5_ksg6d")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "Contacts"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="call" type="Node2D" parent="phanphone"]
+visible = false
+z_as_relative = false
+
+[node name="phanphone" type="Sprite2D" parent="phanphone/call"]
+texture = ExtResource("9_6lqgx")
+
+[node name="title" type="RichTextLabel" parent="phanphone/call"]
+offset_left = -88.0
+offset_top = -157.0
+offset_right = 88.0
+offset_bottom = -124.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.93845, 0.93845, 0.93845, 1)
+theme_override_fonts/normal_font = ExtResource("5_ksg6d")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "The Miner Kid"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="title2" type="RichTextLabel" parent="phanphone/call"]
+offset_left = -88.0
+offset_top = -128.0
+offset_right = 88.0
+offset_bottom = -95.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.93845, 0.93845, 0.93845, 1)
+theme_override_fonts/normal_font = ExtResource("5_ksg6d")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "ringing..."
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="viewfinder" type="Control" parent="phanphone"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 96.0
+offset_top = -334.0
+offset_right = 1284.0
+offset_bottom = 337.0
+mouse_filter = 2
+
+[node name="info" type="ColorRect" parent="phanphone/viewfinder"]
+visible = false
+layout_mode = 0
+offset_left = 20.0
+offset_top = 176.0
+offset_right = 615.0
+offset_bottom = 499.0
+color = Color(0, 0, 0, 0.929)
+
+[node name="title" type="RichTextLabel" parent="phanphone/viewfinder/info"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 1.0
+offset_right = 584.0
+offset_bottom = 61.0
+theme_override_colors/default_color = Color(0.847474, 0.847474, 0.847474, 1)
+theme_override_fonts/normal_font = ExtResource("5_ksg6d")
+theme_override_font_sizes/normal_font_size = 55
+bbcode_enabled = true
+text = "PHANTOM'S PHONE"
+fit_content = true
+scroll_active = false
+
+[node name="desc" type="RichTextLabel" parent="phanphone/viewfinder/info"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 57.0
+offset_right = 584.0
+offset_bottom = 95.0
+theme_override_colors/default_color = Color(0.847059, 0.847059, 0.847059, 1)
+theme_override_fonts/normal_font = ExtResource("5_ksg6d")
+theme_override_font_sizes/normal_font_size = 35
+bbcode_enabled = true
+text = "scene description or subtitles"
+fit_content = true
+scroll_active = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_mmlmx")
+volume_db = 3.246
+bus = &"SFX"
+
+[node name="call" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_c0xdw")
+volume_db = -0.868
+bus = &"TalkSounds"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_c0xdw")
+}
+autoplay = "opening"
+
+[connection signal="editing_toggled" from="phanphone/lockscreen/pass/LineEdit" to="." method="_on_line_edit_editing_toggled"]
+[connection signal="text_submitted" from="phanphone/lockscreen/pass/LineEdit" to="." method="_on_line_edit_text_submitted"]
+[connection signal="pressed" from="phanphone/lockscreen/open" to="." method="buttons" binds= ["open"]]

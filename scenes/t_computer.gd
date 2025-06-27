@@ -175,6 +175,7 @@ var ItemDescDisplay = ""
 var selTicket = 0
 var canGamble = true
 
+var phantom_phoned = false
 var talker = "Phantom"
 
 var shitShrilowCanSay = [
@@ -254,11 +255,29 @@ func manageScenes():
 					$Shop/ItemDescription.text = "this also worked as a test, which is cool"
 				if alongTheDialogue == 2:
 					endDialogue()
+			"CRYSTALS":
+				if alongTheDialogue == 0:
+					$Shop/ItemDescription.text = "Oh yeah, those Crystals?"
+				if alongTheDialogue == 1:
+					$Shop/ItemDescription.text = "They're cool, its called [color=#4C00FF]B[/color][color=#3F08FF]e[/color][color=#3211FF]s[/color][color=#2619FF]i[/color][color=#1922FF]t[/color][color=#0C2AFF]e[/color] apparently. The miners said it was a 'crystocurrency' or something like that."
+				if alongTheDialogue == 2:
+					$Shop/ItemDescription.text = "I've kinda been curious why only one of them can be used at a time or whatever, said it was a 'memory' thing?"
+				if alongTheDialogue == 3:
+					$Shop/ItemDescription.text = "Not to put you up to anything, but i've been really curious to see if there was a way to use [color=#B57016]more than one?[/color]"
+				if alongTheDialogue == 4:
+					$Shop/ItemDescription.text = "Maybe theres [color=#B57016]someone you can talk to that knows alot about the mines?[/color]"
+				if alongTheDialogue == 5:
+					$Shop/ItemDescription.text = "realistically you'd probably also need [color=#B57016]someway to contact them[/color] though. maybe you could try asking around?"
+					if FizzyDrink.marketDialogue[Game._unlock_dialogue("phone", FizzyDrink.marketDialogue)]["interacted"] == false:
+						FizzyDrink.marketDialogue[Game._unlock_dialogue("phone", FizzyDrink.marketDialogue)]["unlocked"] = true
+				if alongTheDialogue == 6:
+					endDialogue()
 			"REBIRTH1EVENT":
 				if alongTheDialogue == 0:
 					$Shop/ItemDescription.text = "Hey again, nice to see you back."
 				if alongTheDialogue == 1:
 					$Shop/ItemDescription.text = "Just wanted to tell you that i've got some new shop items, CRYSTALS!"
+					FizzyDrink.melDialogue[Game._unlock_dialogue("CRYSTALS", FizzyDrink.melDialogue)]["unlocked"] = true
 				if alongTheDialogue == 2:
 					$Shop/ItemDescription.text = "I was talking to the miners and they let me in on it, so now I sell them!"
 				if alongTheDialogue == 3:
@@ -664,11 +683,55 @@ func manageScenes():
 		"none":
 			if alongTheDialogue == 0:
 				talker = "Antag"
-				$BlackMarket/talk.text = talker+": "+" u should NOT be seeing this."
+				$BlackMarket/talk.text = talker+": "+"u should NOT be seeing this."
 			if alongTheDialogue == 1:
 				talker = "Phantom"
 				$BlackMarket/talk.text = talker+": "+"this also worked as a test, which is cool"
 			if alongTheDialogue == 2:
+				endDialogue()
+		"phone":
+			if alongTheDialogue == 0:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+"What? No?"
+			if alongTheDialogue == 1:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"I'll give you MY phone"
+			if alongTheDialogue == 2:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+"phantom why would you give them your phone"
+			if alongTheDialogue == 3:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"Sharing is caring! dont you know?"
+			if alongTheDialogue == 4:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"If you do good for the world, the world will do back!"
+			if alongTheDialogue == 5:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+"I dont think thats ever happened to us"
+			if alongTheDialogue == 6:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"And it'll ONLY happen if we try!"
+			if alongTheDialogue == 7:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+"...sure."
+			if alongTheDialogue == 8:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"If you ever wanna use my phone, you can [color=#B57016]press 'P'[/color]! for PHANTOM!"
+			if alongTheDialogue == 9:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"Did you like my awesome [color=#B57016]meta 4th wall break[/color]?"
+			if alongTheDialogue == 10:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+"We're literally on the computer too. that is the least meta a meta 4th wall break could be"
+			if alongTheDialogue == 11:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"awh"
+			if alongTheDialogue == 12:
+				Game.notify("You can now use Phantom's Phone! press P anywhere to use it!", "alert")
+				Game.phantom_phone = true
+				for i in FizzyDrink.marketDialogue.size():
+					if FizzyDrink.marketDialogue[i]["dialogKey"] == "phone":
+						FizzyDrink.marketDialogue[i]["unlocked"] = false
 				endDialogue()
 		"whoAreYall":
 			if alongTheDialogue == 0:
@@ -1044,6 +1107,14 @@ func generateHoes():
 				caca.text = ItemValues.itemInfomation[i]["SectionName"]
 				add_child(caca)
 				caca.reparent($Shop/Melanie/ScrollContainer/GridContainer)
+			else:
+				if Game.rebirths > 0:
+					var cacapoopyGOD2 = load(ItemValues.itemInfomation[i]["ScenePath"])
+					var caca = cacapoopyGOD2.instantiate()
+					caca.type = ItemValues.itemInfomation[i]["ImgType"]
+					caca.text = ItemValues.itemInfomation[i]["SectionName"]
+					add_child(caca)
+					caca.reparent($Shop/Melanie/ScrollContainer/GridContainer)
 	for i in ItemValues.melvinItems.size():
 		var caca = cacapoopyGOD.instantiate()
 		caca.ItemID = i
@@ -1135,6 +1206,7 @@ func _ready():
 	
 	if Game.rebirths == 1:
 		if Game.market_discovered == false:
+			rebirth1intro = true
 			$Shrilow.visible = false
 			$ShrilowScreen.visible = false
 			$Shop/Melanie.visible = false
@@ -1149,6 +1221,7 @@ func _ready():
 			$Shop/ShopMusic.playing = false
 			$EventTimer.paused = true
 		else:
+			rebirth1intro = false
 			$Shrilow.visible = true
 			$ShrilowScreen.visible = true
 			$Shop/Melanie.visible = true
@@ -1161,7 +1234,9 @@ func _ready():
 			$USDText.visible = true
 			$Cutscene.visible = false
 			$Shop/ShopMusic.playing = true
-			$EventTimer.paused = false
+			$EventTimer.start()
+	else:
+		$EventTimer.start()
 	if Game.rebirths >= 5:
 		Game.unlock_achievement("rebirth10")
 	
@@ -1178,14 +1253,10 @@ func _ready():
 	$Shop/ShopMusic.play()
 	
 	if Game.rebirthJellyProtocol.size() > 0:
-		print("Jellies "+str(Jelly.storedJellys))
-		print("Protocol "+str(Game.rebirthJellyProtocol))
 		for i in range(0, Game.rebirthJellyProtocol.size()):
 			if i <= Game.rebirthJellyProtocol.size()-1:
 				Jelly.storedJellys.append(Game.rebirthJellyProtocol[i])
 		Game.rebirthJellyProtocol.resize(0)
-		print("Updated Jellies "+str(Jelly.storedJellys))
-		print("Updated Protocol "+str(Game.rebirthJellyProtocol))
 	
 	$Mines.position.y = 648
 	generateHoes()
@@ -1299,6 +1370,11 @@ func _process(_delta : float) -> void:
 			dialogKey = "REBIRTH1EVENT"
 			manageScenes()
 			area = "melanie"
+	
+	if Input.is_action_just_pressed("phantomphone") and phantom_phoned == false and Game.phantom_phone == true:
+		phantom_phoned = true
+		var phone = preload("res://technical/rooms/phone.tscn").instantiate()
+		add_child(phone)
 	
 	$Shrilow/Control/ShrilowBorderShitFUCKYOUGODOT.visible = $Shrilow/Control/Shrilow.visible
 	
@@ -1900,7 +1976,7 @@ func _on_trophies_button_pressed() -> void:
 	var caca2 = cacapoopyGOD3.instantiate()
 	journal = caca2
 	caca2.parent = self
-	$/root.add_child(caca2)
+	self.add_child(caca2)
 
 func _event() -> void:
 	$Camera2D/bg.visible = false
@@ -2009,8 +2085,9 @@ func cameraAnimation(Varea, positionX, positionY, allowMove):
 		Game.market_discovered = true
 		if area == "market":
 			area = "melanie"
-			if rebirth1intro == true and Game.market_discovered == false:
+			if rebirth1intro == true and Game.market_discovered == true:
 				$EventTimer.paused = false
+				$EventTimer.start()
 		else:
 			area = "market"
 		for i in FizzyDrink.melDialogue.size():
@@ -2066,7 +2143,6 @@ func _buyGumball_pressed() -> void:
 		var type = 0.0
 		var rarityGotten = "Common"
 		type = (rng.randi_range(1, 200))
-		print(type)
 		var jellyTypeToBe
 		
 		if gumballInfo[gumballSelection]["Name"] == "Platinum Coin":
@@ -2086,8 +2162,6 @@ func _buyGumball_pressed() -> void:
 			jellyTypeToBe = gumballInfo[gumballSelection]["2NDOrder"]
 		else:
 			jellyTypeToBe = gumballInfo[gumballSelection]["1STOrder"]
-		
-		print(jellyTypeToBe)
 		
 		var goatedVar
 		var caca
@@ -2181,6 +2255,8 @@ func spawnDialogueOptionsMelanie(char : String):
 				caca.present = FizzyDrink.melDialogue[i]["present"]
 				caca.dialogKey = FizzyDrink.melDialogue[i]["dialogKey"]
 				caca.interacted = FizzyDrink.melDialogue[i]["interacted"]
+				if FizzyDrink.melDialogue[i].has("important"):
+					caca.important = true
 				caca.arrayToUse = "melanie"
 				add_child(caca)
 				caca.reparent($Shop/Melanie/talkOptions/GridContainer)
@@ -2218,6 +2294,8 @@ func spawnDialogueOptionsMelanie(char : String):
 				caca.dialogKey = FizzyDrink.marketDialogue[i]["dialogKey"]
 				caca.interacted = FizzyDrink.marketDialogue[i]["interacted"]
 				caca.arrayToUse = "market"
+				if FizzyDrink.marketDialogue[i].has("important"):
+					caca.important = true
 				add_child(caca)
 				caca.reparent($BlackMarket/talkOptions/GridContainer)
 				dialogueOptionsMarket.append(caca)
@@ -2712,14 +2790,12 @@ func gambleRoll() -> void:
 				var caca = cacaFUCK.instantiate()
 				caca.getID(itemId)
 				add_child(caca)
-			print(ItemValues.itemInfomation[itemId])
 		if usedArray == "gamblecore":
 			cacaFUCK = load(ItemValues.gambleCore[itemId]["ScenePath"])
 			ItemValues.gambleCore[itemId]["CurUpgrade"] += 1
 			var caca = cacaFUCK.instantiate()
 			caca.getID(itemId)
 			add_child(caca)
-			print(ItemValues.gambleCore[itemId])
 		if usedArray == "items":
 			img = ItemValues.itemInfomation[itemId]["Image"]
 			ItemNameDisplay = ItemValues.itemInfomation[itemId]["Name"]

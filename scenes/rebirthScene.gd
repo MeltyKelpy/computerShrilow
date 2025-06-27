@@ -155,8 +155,8 @@ func _process(delta: float) -> void:
 	if canProg == true:
 		if Input.is_action_just_pressed("Click"):
 			if scene == "main":
-				if $Timer2.is_stopped() == false:
-					$Timer2.stop()
+				$Timer2.stop()
+				$Timer2.start()
 				canProg = false
 				var tween = get_tree().create_tween()
 				tween.tween_property($Label, "modulate", Color(1,1,1,0), 1.5)

@@ -45,7 +45,6 @@ func interact():
 	elif lockRequirement == 0:
 		if can == true:
 			state = !state
-			print(state)
 			if state == true:
 				var tweenie = get_tree().create_tween()
 				tweenie.tween_property(self, "rotation", Vector3(rotation.x, deg_to_rad(baseRotation), rotation.z), 1).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
