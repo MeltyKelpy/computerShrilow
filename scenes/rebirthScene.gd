@@ -58,7 +58,7 @@ var spiceLevel = 1
 var dialog = 0
 
 func _ready() -> void:
-	#Game.rebirths = 4
+	Game.rebirths = 4
 	if Game.rebirths == 4:
 		$AnimationPlayer.play("new_animation")
 		_startDialog()
@@ -591,16 +591,16 @@ func _scene2():
 				say("...", "upset")
 				canProg = true
 			16:
-				#say("", "upset")
-				#$rebirth4/QTE.animation = "stomp"
-				#$rebirth4/QTE.stop()
-				#$rebirth4/r4player.play("stomp")
-				canProg = true
+				say("", "upset")
+				$rebirth4/QTE.animation = "stomp"
+				$rebirth4/QTE.stop()
+				$rebirth4/r4player.play("stomp")
+				#canProg = true
 			17:
-				#$rebirth4/QTE.play("percieving")
-				#await get_tree().create_timer(3).timeout
-				#$rebirth4/QTE.play("turn")
-				#await get_tree().create_timer(5).timeout
+				$rebirth4/QTE.play("percieving")
+				await get_tree().create_timer(3).timeout
+				$rebirth4/QTE.play("turn")
+				await get_tree().create_timer(5).timeout
 				say("I'd do. anything.", "headon")
 				canProg = true
 			18:

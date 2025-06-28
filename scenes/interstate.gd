@@ -416,6 +416,10 @@ func code_input(new_text: String) -> void:
 		$/root.add_child(tunnelpuzzle)
 		code_recognized = true
 	
+	if new_text.containsn("eeffoc"):
+		get_tree().change_scene_to_file("res://scenes/whichisfunny.tscn")
+		code_recognized = true
+	
 	if new_text.containsn("joca"):
 		_change_text("faggot")
 		code_recognized = true

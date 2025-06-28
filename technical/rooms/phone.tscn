@@ -644,6 +644,7 @@ offset_bottom = 40.0
 mouse_filter = 2
 
 [node name="0" type="Button" parent="phanphone/manual/Control"]
+layout_mode = 0
 offset_left = -18.0
 offset_top = 73.0
 offset_right = 22.0
@@ -663,6 +664,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_ia7mh")
 text = "0"
 
 [node name="clear" type="Button" parent="phanphone/manual/Control"]
+layout_mode = 0
 offset_left = 28.0
 offset_top = 73.0
 offset_right = 68.0
@@ -682,6 +684,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_ia7mh")
 text = "clear"
 
 [node name="1" type="Button" parent="phanphone/manual/Control"]
+layout_mode = 0
 offset_left = -64.0
 offset_top = -43.0
 offset_right = -24.0
@@ -701,6 +704,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_ia7mh")
 text = "1"
 
 [node name="2" type="Button" parent="phanphone/manual/Control"]
+layout_mode = 0
 offset_left = -18.0
 offset_top = -43.0
 offset_right = 22.0
@@ -720,6 +724,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_ia7mh")
 text = "2"
 
 [node name="3" type="Button" parent="phanphone/manual/Control"]
+layout_mode = 0
 offset_left = 29.0
 offset_top = -43.0
 offset_right = 69.0
@@ -739,6 +744,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_ia7mh")
 text = "3"
 
 [node name="4" type="Button" parent="phanphone/manual/Control"]
+layout_mode = 0
 offset_left = -64.0
 offset_top = -5.0
 offset_right = -24.0
@@ -758,6 +764,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_ia7mh")
 text = "4"
 
 [node name="5" type="Button" parent="phanphone/manual/Control"]
+layout_mode = 0
 offset_left = -18.0
 offset_top = -5.0
 offset_right = 22.0
@@ -777,6 +784,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_ia7mh")
 text = "5"
 
 [node name="6" type="Button" parent="phanphone/manual/Control"]
+layout_mode = 0
 offset_left = 29.0
 offset_top = -5.0
 offset_right = 69.0
@@ -796,6 +804,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_ia7mh")
 text = "6"
 
 [node name="7" type="Button" parent="phanphone/manual/Control"]
+layout_mode = 0
 offset_left = -64.0
 offset_top = 35.0
 offset_right = -24.0
@@ -815,6 +824,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_ia7mh")
 text = "7"
 
 [node name="8" type="Button" parent="phanphone/manual/Control"]
+layout_mode = 0
 offset_left = -18.0
 offset_top = 35.0
 offset_right = 22.0
@@ -834,6 +844,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_ia7mh")
 text = "8"
 
 [node name="9" type="Button" parent="phanphone/manual/Control"]
+layout_mode = 0
 offset_left = 29.0
 offset_top = 35.0
 offset_right = 69.0
@@ -853,6 +864,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_ia7mh")
 text = "9"
 
 [node name="return" type="Button" parent="phanphone/manual/Control"]
+layout_mode = 0
 offset_left = -23.0
 offset_top = 149.0
 offset_right = 27.0
@@ -872,6 +884,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_ia7mh")
 text = "return"
 
 [node name="call" type="Button" parent="phanphone/manual/Control"]
+layout_mode = 0
 offset_left = -18.0
 offset_top = 111.0
 offset_right = 22.0
@@ -891,6 +904,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_ia7mh")
 text = "call"
 
 [node name="Label" type="Label" parent="phanphone/manual/Control"]
+layout_mode = 0
 offset_left = -63.0
 offset_top = -116.0
 offset_right = 68.0
