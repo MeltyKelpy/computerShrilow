@@ -42,6 +42,13 @@ var melDialogue = [
 	"important":true,
 	},
 	{
+	"present":"I need phone numbers",
+	"dialogKey":"NUMBERS",
+	"unlocked":false,
+	"interacted":false,
+	"important":true,
+	},
+	{
 	"present":"Interests?",
 	"dialogKey":"INTERESTS",
 	"unlocked":true,
@@ -150,6 +157,13 @@ var marketDialogue = [
 	{
 	"present":"Can i use your phone lol",
 	"dialogKey":"phone",
+	"unlocked":false,
+	"interacted":false,
+	"important":true,
+	},
+	{
+	"present":"Phantom whats your password",
+	"dialogKey":"password",
 	"unlocked":false,
 	"interacted":false,
 	"important":true,

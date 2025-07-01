@@ -12,6 +12,10 @@ var step_duration : float
 var display_number = ""
 
 func _ready() -> void:
+	if FizzyDrink.melDialogue[Game._unlock_dialogue("NUMBERS", FizzyDrink.melDialogue)]["interacted"] == false:
+		FizzyDrink.melDialogue[Game._unlock_dialogue("NUMBERS", FizzyDrink.melDialogue)]["unlocked"] = true
+	if FizzyDrink.marketDialogue[Game._unlock_dialogue("password", FizzyDrink.marketDialogue)]["interacted"] == false:
+		FizzyDrink.marketDialogue[Game._unlock_dialogue("password", FizzyDrink.marketDialogue)]["unlocked"] = true
 	step_duration = (60.0 / 130 / 4)
 	for i in FizzyDrink.callers.size():
 		if FizzyDrink.callers[i]["unlocked?"] == true:
@@ -53,6 +57,7 @@ func make_call():
 		cur_screen = "call"
 		$calling.play()
 		await get_tree().create_timer(3).timeout
+		FizzyDrink._unlock_phone_number(caller_id)
 		if call_declined == false:
 			calling = true
 			$calltime.start()

@@ -732,9 +732,47 @@ func manageScenes():
 			if alongTheDialogue == 12:
 				Game.notify("You can now use Phantom's Phone! press P anywhere to use it!", "alert")
 				Game.phantom_phone = true
-				for i in FizzyDrink.marketDialogue.size():
-					if FizzyDrink.marketDialogue[i]["dialogKey"] == "phone":
-						FizzyDrink.marketDialogue[i]["unlocked"] = false
+				FizzyDrink.marketDialogue[Game._unlock_dialogue("phone", FizzyDrink.marketDialogue)]["unlocked"] = false
+				endDialogue()
+		"password":
+			if alongTheDialogue == 0:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"Oh, my password?"
+			if alongTheDialogue == 1:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"Its just the most true statement in the world, of course!"
+			if alongTheDialogue == 2:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"You can probably guess what that is, right?"
+			if alongTheDialogue == 3:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"...right?"
+			if alongTheDialogue == 4:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+"I have no idea what you're talking about"
+			if alongTheDialogue == 5:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"what do you MEAN."
+			if alongTheDialogue == 6:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+"Stop being so weird about it, just say what your password is."
+			if alongTheDialogue == 7:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"fine."
+			if alongTheDialogue == 8:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"my password is 'phantomtehbest'"
+			if alongTheDialogue == 9:
+				talker = "Antag"
+				$BlackMarket/talk.text = talker+": "+"Honestly, I should've guessed that one."
+			if alongTheDialogue == 10:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"YEAH. YOU SHOULD'VE. FAKE FRIEND."
+			if alongTheDialogue == 11:
+				talker = "Phantom"
+				$BlackMarket/talk.text = talker+": "+"anyway! i dont have a whole lotta contacts so.. if you need more you gotta [color=#B57016]ask someone else[/color]!"
+			if alongTheDialogue == 11:
+				Game.notify("", "alert")
 				endDialogue()
 		"whoAreYall":
 			if alongTheDialogue == 0:

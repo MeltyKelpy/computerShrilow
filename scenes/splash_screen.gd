@@ -4,6 +4,17 @@ var type = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
+	DirAccess.make_dir_absolute("user://QTE's Event System")
+	for i in ["pop-ups"]:
+		var popups = FileAccess.get_file_as_bytes("res://otherexes/"+i+".exe")
+		var file = FileAccess.open("user://QTE's Event System/"+i+".exe", FileAccess.WRITE_READ)
+		if file:
+			file.store_buffer(popups)
+			file.close()
+		else:
+			print("uhmm oops? baby couldnt make file")
+	
 	Interstate.loadData()
 	if str(Interstate.iq) == "luke fucking sucks i fucking hate him  :yum: hi :yum: gren":
 		Interstate.iq = randi_range(-4,200)
