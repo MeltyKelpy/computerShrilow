@@ -10,8 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://b4m7w5w35g0nl" path="res://technical/settingsScene.tscn" id="8_6xb0h"]
 [ext_resource type="Texture2D" uid="uid://cwladsljiqill" path="res://assets/images/ui/backDown.png" id="9_avaki"]
 [ext_resource type="Texture2D" uid="uid://bf5nxu26qx66x" path="res://assets/images/loadingLow.png" id="9_ue280"]
-[ext_resource type="Texture2D" uid="uid://dhml6kkc1kfmj" path="res://assets/images/logo.png" id="10_1d8aj"]
 [ext_resource type="AudioStream" uid="uid://df6n0e2ffypgv" path="res://assets/music/screensaver.ogg" id="12_hpk77"]
+[ext_resource type="Texture2D" uid="uid://04v5s7r2scmm" path="res://assets/images/newlogo.png" id="12_m7ppn"]
 [ext_resource type="VideoStream" uid="uid://bn4pqqtlhbtl3" path="res://assets/videos/screensaver.ogv" id="13_ury0b"]
 [ext_resource type="AudioStream" uid="uid://l8qig4llw231" path="res://assets/sounds/cancel.ogg" id="14_m7ppn"]
 [ext_resource type="AudioStream" uid="uid://cyqyuiknf31t7" path="res://assets/sounds/confirm.ogg" id="15_m7ppn"]
@@ -529,11 +529,6 @@ show_percentage = false
 position = Vector2(39, 557)
 texture = ExtResource("9_ue280")
 
-[node name="logo" type="Sprite2D" parent="loadingScreen"]
-position = Vector2(1058, 90)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("10_1d8aj")
-
 [node name="littleGuy" type="AnimationPlayer" parent="loadingScreen"]
 libraries = {
 &"": SubResource("AnimationLibrary_pvitt")
@@ -549,6 +544,11 @@ libraries = {
 modulate = Color(1, 1, 1, 0)
 offset_right = 1152.0
 offset_bottom = 648.0
+
+[node name="logo2" type="Sprite2D" parent="loadingScreen"]
+position = Vector2(1063, 75)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("12_m7ppn")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

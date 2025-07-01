@@ -11,5 +11,8 @@ func _ready():
 
 func getID(num) -> void:
 	ItemValues.itemInfomation[num]["Owned"] = false
-	FizzyDrink.stopTheCount += 1800
+	if Game.contains_curse("quicktime"):
+		FizzyDrink.stopTheCount += 60
+	else:
+		FizzyDrink.stopTheCount += 1800
 	queue_free()

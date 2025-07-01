@@ -6,7 +6,7 @@ var exitAllowed = false
 func _ready() -> void:
 	reparent($/root)
 	get_tree().paused = true
-	moneyLost = 600 + (ItemValues.maxMoney / 1000)
+	moneyLost = 600 + (ItemValues.maxMoney / 100)
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept") and exitAllowed == true:

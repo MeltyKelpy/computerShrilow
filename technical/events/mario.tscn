@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cktn1eudx7kue"]
+[gd_scene load_steps=24 format=3 uid="uid://cktn1eudx7kue"]
 
 [ext_resource type="Texture2D" uid="uid://cpl6wlfso3dua" path="res://assets/images/events/goombakillbg.png" id="1_edhcp"]
 [ext_resource type="Script" uid="uid://o4kapgd7k2s1" path="res://technical/catmario.gd" id="1_fjaou"]
@@ -10,6 +10,8 @@
 [ext_resource type="AudioStream" uid="uid://doov5lqi3y5cd" path="res://assets/sounds/fuckyeah.ogg" id="8_syitp"]
 [ext_resource type="Texture2D" uid="uid://6nno2cik65i4" path="res://assets/images/events/fuckYeah.png" id="9_n2y8x"]
 [ext_resource type="AudioStream" uid="uid://cyokqucofnbvt" path="res://assets/music/partyrockers.ogg" id="10_85137"]
+[ext_resource type="Texture2D" uid="uid://cf8qv5no3hcgy" path="res://assets/images/events/death.png" id="11_5nsrl"]
+[ext_resource type="Texture2D" uid="uid://cn8awkomwj4yy" path="res://assets/images/events/death2.png" id="12_uqaot"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o5f5n"]
 radius = 167.443
@@ -68,7 +70,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": ["you have GOT to kill this motherfucki ng goomba"]
+"values": ["you have GOT to kill this motherfucki ng guumba"]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -81,6 +83,30 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(576, 900)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ColorRect2:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ColorRect2/death:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_e3o1v"]
@@ -179,7 +205,7 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
-"method": &"_endEvent"
+"method": &"funniest_shit"
 }]
 }
 tracks/2/type = "value"
@@ -195,9 +221,52 @@ tracks/2/keys = {
 "values": [Vector2(576, 900), Vector2(576, 324)]
 }
 
+[sub_resource type="Animation" id="Animation_5nsrl"]
+resource_name = "fuck"
+length = 2.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_endEvent"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect2/death:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_iiqyl"]
 _data = {
 &"RESET": SubResource("Animation_djedu"),
+&"fuck": SubResource("Animation_5nsrl"),
 &"pop": SubResource("Animation_e3o1v"),
 &"title": SubResource("Animation_fcjxb"),
 &"yes": SubResource("Animation_tlkvl")
@@ -285,7 +354,7 @@ offset_right = 1168.0
 offset_bottom = 969.0
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 30
-text = "you have GOT to kill this motherfucki ng goomba"
+text = "you have GOT to kill this motherfucki ng guumba"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -307,5 +376,21 @@ visible = false
 offset_right = 1177.0
 offset_bottom = 683.0
 color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+visible = false
+offset_right = 1177.0
+offset_bottom = 683.0
+color = Color(0, 0, 0, 1)
+
+[node name="death" type="Sprite2D" parent="ColorRect2"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(214.5, 325)
+texture = ExtResource("11_5nsrl")
+
+[node name="death2" type="Sprite2D" parent="ColorRect2"]
+visible = false
+position = Vector2(437.5, 325)
+texture = ExtResource("12_uqaot")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

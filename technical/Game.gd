@@ -32,8 +32,13 @@ var boxed = false
 var curFile = 0
 
 var evilMines = false
-var RebirthIntroPlayed = false
 var rebirthTokens = 0
+
+func bubble_dialouge(scene : String, parent : Node):
+	var bubble = preload("res://technical/bubbledialogue.tscn").instantiate()
+	bubble.scene = scene
+	bubble.position = Vector2(-576,-324)
+	parent.add_child(bubble)
 
 func reloadGlobals():
 	var s 
@@ -217,6 +222,9 @@ func loadData():
 						else:
 							that_one_fucking_array[e]["revealed?"] = config.get_value("Journal", "journalShit")[Journal.entriesText.keys()[i]][that_one_fucking_array[e]["id"]]
 		
+		for i in FizzyDrink.callers.size():
+			FizzyDrink.callers[i]["unlocked?"] = config.get_value("Story", "callers")[i]
+		
 		if typeof(config.get_value("Story", "DialogueDoneMELANIE")) == 19:
 			print(config.get_value("Story", "DialogueUnlockedMELANIE"))
 			for i in config.get_value("Story", "DialogueDoneMELANIE").size():
@@ -393,6 +401,11 @@ func saveData():
 		minigamePlayed.append(Events.justMinigames[i]["Played?"])
 	config.set_value("Fiscal", "minigamePlayed", minigamePlayed)
 	
+	var callersInfo = []
+	for i in FizzyDrink.callers.size():
+		callersInfo.append(FizzyDrink.callers[i]["unlocked?"])
+	config.set_value("Story", "callers", callersInfo)
+	
 	var lazymarket = {
 		"MARKETCLICKER":"RebirthAutoClickerLevel",
 		"Persistent Plus One":"PresistantPlusOne",
@@ -406,7 +419,6 @@ func saveData():
 				if ItemValues.marketItems[e]["Name"] == i:
 						config.set_value("Rebirth", lazymarket[i], ItemValues.marketItems[e]["CurUpgrade"])
 	config.set_value("Rebirth", "rebirthJellyProtocol", rebirthJellyProtocol)
-	config.set_value("Story", "RebirthIntroPlayed", RebirthIntroPlayed)
 	config.set_value("Fiscal", "ballsBought", gumballsBought)
 	config.set_value("Fiscal", "platBallsBought", platinumGumballsBought)
 	

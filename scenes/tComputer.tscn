@@ -1,4 +1,4 @@
-[gd_scene load_steps=354 format=3 uid="uid://bgw557ttv6noe"]
+[gd_scene load_steps=358 format=3 uid="uid://bgw557ttv6noe"]
 
 [ext_resource type="Script" uid="uid://ddatxm3oli8qs" path="res://scenes/t_computer.gd" id="1_swrb7"]
 [ext_resource type="Texture2D" uid="uid://dajex7cpt7k4p" path="res://assets/images/bg/background.png" id="2_u0da7"]
@@ -261,6 +261,7 @@
 [ext_resource type="Texture2D" uid="uid://c6rh63frjlrmp" path="res://assets/images/areas/melanies/melanie/qtecrash/debris/frame_054_delay-0.03s.png" id="183_75l7l"]
 [ext_resource type="Texture2D" uid="uid://crhbjsw8ltnbo" path="res://assets/images/areas/melanies/melanie/qtecrash/debris/frame_055_delay-0.03s.png" id="184_wewj8"]
 [ext_resource type="Texture2D" uid="uid://8v4f3oqc3qys" path="res://assets/images/areas/melanies/melanie/qtecrash/debris/frame_056_delay-0.03s.png" id="185_4eg44"]
+[ext_resource type="Texture2D" uid="uid://b61neynwjcdlt" path="res://assets/images/areas/blackMarket/opening cutscene/blackmarket.png" id="223_t3xga"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p6f28"]
 
@@ -963,6 +964,43 @@ animations = [{
 "name": &"default",
 "speed": 3.0
 }]
+
+[sub_resource type="Animation" id="Animation_wh7ha"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("logo:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_t3xga"]
+resource_name = "open"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("logo:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2.03333, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kk5lt"]
+_data = {
+&"RESET": SubResource("Animation_wh7ha"),
+&"open": SubResource("Animation_t3xga")
+}
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sp2sb"]
 animations = [{
@@ -2946,7 +2984,7 @@ wait_time = 300.0
 position = Vector2(1923, 1167)
 
 [node name="BG" type="Sprite2D" parent="Market"]
-position = Vector2(1, 0)
+position = Vector2(1.5, 0)
 texture = ExtResource("36_xdb7a")
 
 [node name="PBJDoor" type="Sprite2D" parent="Market"]
@@ -3016,7 +3054,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_kvmat")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iq0t2")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
 
-[node name="openVoid2" type="Button" parent="Market"]
+[node name="box" type="Button" parent="Market"]
 offset_left = -560.0
 offset_top = -36.0
 offset_right = -343.0
@@ -3060,6 +3098,15 @@ parameters/looping = true
 stream = ExtResource("49_3tmq2")
 bus = &"SFX"
 
+[node name="logo" type="Sprite2D" parent="Market"]
+modulate = Color(1, 1, 1, 0)
+texture = ExtResource("223_t3xga")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Market"]
+libraries = {
+&"": SubResource("AnimationLibrary_kk5lt")
+}
+
 [node name="theVoid" type="Node2D" parent="."]
 z_index = -1
 position = Vector2(3117, 1167)
@@ -3096,7 +3143,6 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_vhex2")
 [node name="mus" type="AudioStreamPlayer" parent="theVoid"]
 stream = ExtResource("47_ejbio")
 volume_db = -80.0
-autoplay = true
 bus = &"Music"
 parameters/looping = true
 
@@ -3712,6 +3758,7 @@ libraries = {
 
 [node name="EventTimer" type="Timer" parent="."]
 wait_time = 120.0
+one_shot = true
 
 [node name="DEBUGVALUES" type="Node2D" parent="."]
 visible = false
@@ -3756,9 +3803,9 @@ clip_text = true
 
 [node name="Label" type="Label" parent="."]
 offset_left = 1182.0
-offset_top = -1522.0
-offset_right = 2296.0
-offset_bottom = -805.0
+offset_top = -1669.0
+offset_right = 2306.0
+offset_bottom = -808.0
 theme_override_font_sizes/font_size = 50
 text = "THE GAMBLING UPDATE WILL COME........
 AND IT'LL BE OVER HERE.........
@@ -3769,7 +3816,9 @@ blame ghost.
 
 IT ALREADY FUCKING HAPPENED IDIOT
 - Mel april 2025 >:c
-(curses were not planned at that point okay....)"
+(curses were not planned at that point okay....)
+
+shut up - mel june 29th"
 
 [node name="noEventsTimer" type="Timer" parent="."]
 one_shot = true
@@ -3900,7 +3949,7 @@ one_shot = true
 autostart = true
 
 [node name="autosave" type="Timer" parent="."]
-wait_time = 360.0
+wait_time = 365.0
 autostart = true
 
 [node name="Timer2" type="Timer" parent="."]
@@ -3938,7 +3987,7 @@ one_shot = true
 [connection signal="timeout" from="Shop/Timer" to="." method="smoke_break"]
 [connection signal="pressed" from="Market/LeaveMarket" to="." method="marketState" binds= ["leave"]]
 [connection signal="pressed" from="Market/openVoid" to="." method="marketState" binds= ["void"]]
-[connection signal="pressed" from="Market/openVoid2" to="." method="box"]
+[connection signal="pressed" from="Market/box" to="." method="box"]
 [connection signal="pressed" from="Market/openMarket" to="." method="marketState" binds= ["blackmarket"]]
 [connection signal="pressed" from="theVoid/LeaveVoid" to="." method="marketState" binds= ["voidLeave"]]
 [connection signal="pressed" from="BlackMarket/LeaveBlack" to="." method="marketState" binds= ["blackmarketLeave"]]

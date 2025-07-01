@@ -110,11 +110,11 @@ func _endEvent():
 	var caca = cacapoopyGOD.instantiate()
 	if stars > 0:
 		winOrLose = true
-		money = (100 + (ItemValues.maxMoney / 1000)) * stars
+		money = (100 + (ItemValues.maxMoney / 100)) * stars
 		add_child(caca)
 	if stars <= 0:
 		winOrLose = false
-		money = 300 + (ItemValues.maxMoney / 1000)
+		money = 300 + (ItemValues.maxMoney / 100)
 		add_child(caca)
 	caca.determineResult(winOrLose, stars, money)
 	caca._setId(Events.find_minigame("Whack-ilow"))

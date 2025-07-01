@@ -208,6 +208,7 @@ var shitMelanieCanSay = ["this is BULLSHIT","this sucks i hate quicktime event"]
 
 var cacapoopyGOD = preload("res://technical/MelaniesItem.tscn")
 
+var cachedArea = "notJellies"
 var jellies
 var mines
 var puppies
@@ -285,8 +286,10 @@ func manageScenes():
 				if alongTheDialogue == 4:
 					$Shop/ItemDescription.text = "They'll be at the bottom of the shop, check them out if you have time!"
 				if alongTheDialogue == 5:
-					$Shop/ItemDescription.text = "I'll let us just get back to buisness, but im always willing to talk! if you want to, of course."
+					$Shop/ItemDescription.text = "I'll let us just get back to buisness, but [color=#B57016]im always willing to talk![/color] if you want to, of course. you can talk to anyone by clicking them, if you forgot."
 				if alongTheDialogue == 6:
+					$Shop/ItemDescription.text = "Does that count as a fourth wall break? I mean, I am also on your computer? idk man not my problem"
+				if alongTheDialogue == 7:
 					rebirth1intro = false
 					endDialogue()
 					melShopToggle()
@@ -390,7 +393,7 @@ func manageScenes():
 					$Shop/ItemDescription.text = "Well, guess i own the shop now!"
 				if alongTheDialogue == 17:
 					var tween = create_tween()
-					tween.tween_property($Shop/ShopMusic, "volume_db", 7, 0.75)
+					tween.tween_property($Shop/ShopMusic, "volume_db", -2, 0.75)
 					rebirth2intro = false
 					endDialogue()
 					melShopToggle()
@@ -1190,6 +1193,9 @@ func generateHoes():
 
 func _ready():
 	
+	if Game.contains_curse("quicktime"):
+		$EventTimer.time_left = 20
+	
 	Game.loadData()
 	Interstate.loadData()
 	
@@ -1221,6 +1227,7 @@ func _ready():
 			$Shop/ShopMusic.playing = false
 			$EventTimer.paused = true
 		else:
+			$Market/ShopMusic.play()
 			rebirth1intro = false
 			$Shrilow.visible = true
 			$ShrilowScreen.visible = true
@@ -1236,6 +1243,7 @@ func _ready():
 			$Shop/ShopMusic.playing = true
 			$EventTimer.start()
 	else:
+		$Market/ShopMusic.play()
 		$EventTimer.start()
 	if Game.rebirths >= 5:
 		Game.unlock_achievement("rebirth10")
@@ -1370,6 +1378,15 @@ func _process(_delta : float) -> void:
 			dialogKey = "REBIRTH1EVENT"
 			manageScenes()
 			area = "melanie"
+	
+	if area == "minigame":
+		$ShrilowScreen/AudioListener2D.volume_db = -100
+		$Shrilow/Squeak.volume_db = -100
+		$Shrilow/Squeak2.volume_db = -100
+	else:
+		$ShrilowScreen/AudioListener2D.volume_db = -0.713
+		$Shrilow/Squeak.volume_db = -0.239
+		$Shrilow/Squeak2.volume_db = -0.239
 	
 	if Input.is_action_just_pressed("phantomphone") and phantom_phoned == false and Game.phantom_phone == true:
 		phantom_phoned = true
@@ -1744,7 +1761,7 @@ func _process(_delta : float) -> void:
 	if $Market/ShopMusic.volume_db > -100 and area != "market":
 		$Market/ShopMusic.volume_db -= 1 + (1 * _delta)
 	
-	if $Shop/ShopMusic.volume_db < 0 and area == "melanie" and dialougeMode == false:
+	if $Shop/ShopMusic.volume_db < -2 and area == "melanie" and dialougeMode == false:
 		$Shop/ShopMusic.volume_db += 1 + (1 * _delta)
 	if $Shop/ShopMusic.volume_db > -100 and area != "melanie":
 		$Shop/ShopMusic.volume_db -= 1 + (1 * _delta)
@@ -1828,6 +1845,10 @@ func _process(_delta : float) -> void:
 	
 	if $DEBUGVALUES.visible == true:
 		$DEBUGVALUES/ScrollContainer/Control/Label.text = "DEBUG MODE\n================\nEvent Timer: "+str($EventTimer.time_left)+"\nStop Events Timer: "+str($noEventsTimer.time_left)
+
+func start_black_market():
+	$Market/ShopMusic.play()
+	$Market/AnimationPlayer.play("open")
 
 func loadShrilow():
 	if Settings.setting_state("saayo") == false and Settings.setting_state("4baldi") == false:
@@ -1978,6 +1999,10 @@ func _on_trophies_button_pressed() -> void:
 	caca2.parent = self
 	self.add_child(caca2)
 
+func _begin_event_timer_again():
+	$EventTimer.start()
+	area = cachedArea
+
 func _event() -> void:
 	$Camera2D/bg.visible = false
 	var type = rng.randi_range(0, 1)
@@ -1989,6 +2014,7 @@ func _event() -> void:
 	_startEvent(num, type)
 
 func _startEvent(numberPicked, type) -> void:
+	cachedArea = area
 	var cacapoopyGOD2 
 	if type == 1:
 		cacapoopyGOD2 = load(Events.eventList[numberPicked]["AttachedScene"])
@@ -2005,8 +2031,9 @@ func _startEvent(numberPicked, type) -> void:
 		caca2._is_event()
 		caca2.warn(Events.eventList[numberPicked]["WarningMessage"])
 		Events.eventList[numberPicked]["Played?"] = true
+		_begin_event_timer_again()
 	if type == 0:
-		get_tree().paused = true
+		area = "minigame"
 		Events.justMinigames[numberPicked]["Played?"] = true
 		returnPosCamX = $Camera2D.position.x
 		returnPosCamY = $Camera2D.position.y
@@ -2082,7 +2109,6 @@ func cameraAnimation(Varea, positionX, positionY, allowMove):
 			if FizzyDrink.melDialogue[i]["dialogKey"] == "MELVIN":
 				FizzyDrink.melDialogue[i]["unlocked"] = true
 	if Varea == "market":
-		Game.market_discovered = true
 		if area == "market":
 			area = "melanie"
 			if rebirth1intro == true and Game.market_discovered == true:
@@ -2113,6 +2139,11 @@ func cameraAnimation(Varea, positionX, positionY, allowMove):
 		$Camera2D/bg.visible = false
 		$Camera2D/AnimationPlayer.play("open", -1, 500)
 	allowing = allowMove
+	if Varea == "market":
+		if Game.market_discovered == false:
+			await get_tree().create_timer(1.5).timeout
+			Game.bubble_dialouge("market_intro", $Camera2D)
+			Game.market_discovered = true
 
 func moveCam():
 	can = true
@@ -2592,7 +2623,7 @@ func killPoop() -> void:
 
 func marketState(type : String) -> void:
 	if type == "enter":
-		if $Market/ShopMusic.playing == false:
+		if $Market/ShopMusic.playing == false and Game.market_discovered:
 			$Market/ShopMusic.play()
 		if melShopState != true:
 			melShopToggle()

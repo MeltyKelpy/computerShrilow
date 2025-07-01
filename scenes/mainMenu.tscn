@@ -1,9 +1,8 @@
-[gd_scene load_steps=99 format=3 uid="uid://ba4g00sxw1ioe"]
+[gd_scene load_steps=98 format=3 uid="uid://ba4g00sxw1ioe"]
 
 [ext_resource type="Texture2D" uid="uid://dajex7cpt7k4p" path="res://assets/images/bg/background.png" id="1_i2qlv"]
 [ext_resource type="Script" uid="uid://du5kurp8y3jde" path="res://scenes/main_menu.gd" id="1_ihte6"]
 [ext_resource type="Texture2D" uid="uid://dmejwlv6huvgn" path="res://assets/images/mainMenu/menuThing.png" id="2_nwupt"]
-[ext_resource type="Texture2D" uid="uid://dhml6kkc1kfmj" path="res://assets/images/logo.png" id="3_d2eh3"]
 [ext_resource type="Texture2D" uid="uid://lkr43upikbvy" path="res://assets/images/mainMenu/menulow.png" id="3_h3k78"]
 [ext_resource type="Texture2D" uid="uid://d3yvr0wb7d14s" path="res://assets/images/ui/interstateHover.png" id="5_hib5h"]
 [ext_resource type="FontFile" uid="uid://brn7smfq0l6ao" path="res://assets/fonts/TwCen.ttf" id="6_fvg6h"]
@@ -983,9 +982,9 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_fv6j0")
 [node name="start" type="Button" parent="stuff/Left/shit"]
 custom_minimum_size = Vector2(232, 67)
 offset_left = 121.0
-offset_top = 357.0
+offset_top = 344.0
 offset_right = 353.0
-offset_bottom = 424.0
+offset_bottom = 411.0
 theme_override_colors/font_disabled_color = Color(0.133333, 0.133333, 0.133333, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.0352941, 0.333333, 0.356863, 1)
 theme_override_colors/font_hover_color = Color(0.0352941, 0.333333, 0.356863, 1)
@@ -1008,9 +1007,9 @@ text = "START GAME"
 [node name="tutorial" type="Button" parent="stuff/Left/shit"]
 custom_minimum_size = Vector2(232, 67)
 offset_left = 121.0
-offset_top = 428.0
+offset_top = 415.0
 offset_right = 353.0
-offset_bottom = 495.0
+offset_bottom = 482.0
 theme_override_colors/font_disabled_color = Color(0.133333, 0.133333, 0.133333, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.0352941, 0.333333, 0.356863, 1)
 theme_override_colors/font_hover_color = Color(0.0352941, 0.333333, 0.356863, 1)
@@ -1032,9 +1031,9 @@ text = "TUTORIAL"
 [node name="settings" type="Button" parent="stuff/Left/shit"]
 custom_minimum_size = Vector2(232, 67)
 offset_left = 121.0
-offset_top = 499.0
+offset_top = 486.0
 offset_right = 353.0
-offset_bottom = 566.0
+offset_bottom = 553.0
 theme_override_colors/font_hover_pressed_color = Color(0.0352941, 0.333333, 0.356863, 1)
 theme_override_colors/font_hover_color = Color(0.0352941, 0.333333, 0.356863, 1)
 theme_override_colors/font_outline_color = Color(0.827451, 1, 0, 1)
@@ -1054,9 +1053,9 @@ text = "SETTINGS"
 [node name="credits" type="Button" parent="stuff/Left/shit"]
 custom_minimum_size = Vector2(232, 67)
 offset_left = 121.0
-offset_top = 571.0
+offset_top = 558.0
 offset_right = 353.0
-offset_bottom = 638.0
+offset_bottom = 625.0
 theme_override_colors/font_hover_pressed_color = Color(0.0352941, 0.333333, 0.356863, 1)
 theme_override_colors/font_hover_color = Color(0.0352941, 0.333333, 0.356863, 1)
 theme_override_colors/font_outline_color = Color(0.827451, 1, 0, 1)
@@ -1145,9 +1144,9 @@ position = Vector2(39, 557)
 texture = ExtResource("11_0hksq")
 
 [node name="logo" type="Sprite2D" parent="loadingScreen"]
-position = Vector2(1058, 90)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("3_d2eh3")
+position = Vector2(1063, 75)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("12_2ba43")
 
 [node name="littleGuy" type="AnimationPlayer" parent="loadingScreen"]
 libraries = {

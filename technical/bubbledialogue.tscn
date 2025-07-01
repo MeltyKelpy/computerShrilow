@@ -1,0 +1,179 @@
+[gd_scene load_steps=14 format=3 uid="uid://cn8q1inrbbswm"]
+
+[ext_resource type="Script" uid="uid://d0lh4wke3jmf7" path="res://technical/bubbledialogue.gd" id="1_vf57u"]
+[ext_resource type="Shader" uid="uid://dh2nthr0g3lwr" path="res://technical/blur.gdshader" id="2_1esjd"]
+[ext_resource type="Texture2D" uid="uid://b8xvyi47a0oca" path="res://assets/images/ui/bubblebox2.png" id="2_hleon"]
+[ext_resource type="Texture2D" uid="uid://c1rxxxeeh8iq4" path="res://assets/images/areas/notebook/comics/blank.png" id="3_fj5q3"]
+[ext_resource type="Theme" uid="uid://dr1wna4c2ab2h" path="res://technical/textStyle.tres" id="4_rbb1j"]
+[ext_resource type="AudioStream" uid="uid://1tnj3u0y0scp" path="res://assets/sounds/scroll.ogg" id="5_fj5q3"]
+[ext_resource type="AudioStream" uid="uid://bbvo20dipsvxx" path="res://assets/sounds/lightswitch.ogg" id="6_5idxn"]
+[ext_resource type="AudioStream" uid="uid://cquw41xvj2yne" path="res://assets/sounds/typeSFX.ogg" id="6_rbb1j"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_voexb"]
+shader = ExtResource("2_1esjd")
+shader_parameter/lod = 1.0
+
+[sub_resource type="Animation" id="Animation_fj5q3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ui:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_1esjd"]
+resource_name = "default"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ui:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0.138696),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_hleon"]
+resource_name = "spawn"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ui:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.138696, 0.138696),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fj5q3"]
+_data = {
+&"RESET": SubResource("Animation_fj5q3"),
+&"default": SubResource("Animation_1esjd"),
+&"spawn": SubResource("Animation_hleon")
+}
+
+[node name="Bubbledialogue" type="Node2D"]
+script = ExtResource("1_vf57u")
+
+[node name="Panel" type="Panel" parent="."]
+material = SubResource("ShaderMaterial_voexb")
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="colorbg" type="ColorRect" parent="."]
+visible = false
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="ground" type="Node2D" parent="."]
+position = Vector2(584, 648)
+
+[node name="character" type="Sprite2D" parent="ground"]
+texture = ExtResource("3_fj5q3")
+offset = Vector2(-7, -324)
+
+[node name="character2" type="Sprite2D" parent="ground"]
+texture = ExtResource("3_fj5q3")
+offset = Vector2(-12, -324)
+
+[node name="ui" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+pivot_offset = Vector2(578, 568)
+
+[node name="box" type="Sprite2D" parent="ui"]
+position = Vector2(576, 324)
+texture = ExtResource("2_hleon")
+
+[node name="icon" type="Sprite2D" parent="ui"]
+position = Vector2(29, 316)
+texture = ExtResource("3_fj5q3")
+
+[node name="talk" type="RichTextLabel" parent="ui"]
+layout_mode = 0
+offset_left = 145.0
+offset_top = 524.0
+offset_right = 1117.0
+offset_bottom = 666.0
+scale = Vector2(1, 0.6)
+theme = ExtResource("4_rbb1j")
+theme_override_colors/default_color = Color(0.0823529, 0.0823529, 0.0823529, 1)
+bbcode_enabled = true
+text = "  "
+fit_content = true
+scroll_active = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_fj5q3")
+}
+autoplay = "default"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_fj5q3")
+bus = &"SFX"
+
+[node name="sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_5idxn")
+volume_db = 20.551
+bus = &"SFX"
+
+[node name="talk" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_rbb1j")
+bus = &"SFX"
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

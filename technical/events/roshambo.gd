@@ -118,11 +118,11 @@ func _endEvent():
 	var caca = cacapoopyGOD.instantiate()
 	if stars > 2:
 		winOrLose = true
-		money = (200 + (ItemValues.maxMoney / 1000)) * stars
+		money = (200 + (ItemValues.maxMoney / 100)) * stars
 		add_child(caca)
 	if stars <= 2:
 		winOrLose = false
-		money = 100 + (ItemValues.maxMoney / 1000)
+		money = 100 + (ItemValues.maxMoney / 100)
 		add_child(caca)
 	caca.determineResult(winOrLose, stars, money)
 	caca._setId(Events.find_minigame("Roshambo"))

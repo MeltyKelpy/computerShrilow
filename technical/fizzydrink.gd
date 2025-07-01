@@ -212,6 +212,17 @@ var bricksDialogue = [
 	},
 	]
 
+var callers = [
+	{"name":"Antag","id":0314,"unlocked?":true,"img":"antagvinyet.png", "audio":"minerkid", "maxcalls":999, "timescalled":0},
+	{"name":"The Miner Kid","id":2012,"unlocked?":false,"img":"minerkidvinyet.png", "audio":"minerkid", "maxcalls":2, "timescalled":0},
+	{"name":"QuickTime-Event","id":2006,"unlocked?":false,"img":"qtevinyet.png", "audio":"minerkid", "maxcalls":2, "timescalled":0},
+	{"name":"Melanie","id":0962,"unlocked?":false},
+	{"name":"OJSTheCoder","id":2636,"unlocked?":false},
+	{"name":"KlutzyBugzyx3","id":0222,"unlocked?":false,"img":"spencervinyet.png", "audio":"spencer", "maxcalls":4, "timescalled":0},
+	{"name":"MeltyKelpy","id":0315,"unlocked?":false},
+	{"name":"John Stoner","id":0420,"unlocked?":false,"img":"johnstonervinyet.png", "audio":"johnstoner", "maxcalls":2, "timescalled":0},
+	]
+
 var descriptionSetting = ""
 
 var amountOfHomeCrystals = 0
@@ -220,6 +231,11 @@ var scrollLimitLEFT = 0
 var scrollLimitRIGHT = 0
 
 var properlySeled = ""
+
+func _unlock_phone_number(caller_id):
+	for i in callers.size():
+		if callers[i]["id"] == caller_id:
+			return caller_id
 
 func _ready() -> void:
 	Input.set_custom_mouse_cursor(load("res://assets/images/ibeam.png"), Input.CURSOR_IBEAM)

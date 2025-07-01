@@ -273,7 +273,9 @@ func _pick_a_curse(curseNum):
 					if avaliableCurses[e] == Curses.curses[i]:
 						avaliableCurses.remove_at(e)
 						break
-			curseOutput = Curses.mainCurses[randi_range(0, Curses.mainCurses.size()-1)]
+			var choice = randi_range(0, Curses.mainCurses.size()-1)
+			curseOutput = Curses.mainCurses[choice]
+			Curses.mainCurses[choice]["Known"] = true
 		else:
 			var avaliableCurses : Array = Curses.passiveCurses
 			for i in range(curseNum):
@@ -281,7 +283,9 @@ func _pick_a_curse(curseNum):
 					if avaliableCurses[e] == Curses.curses[i]:
 						avaliableCurses.remove_at(e)
 						break
-			curseOutput = Curses.passiveCurses[randi_range(0, Curses.passiveCurses.size()-1)]
+			var choice = randi_range(0, Curses.passiveCurses.size()-1)
+			curseOutput = Curses.passiveCurses[choice]
+			Curses.passiveCurses[choice]["Known"] = true
 	Journal._unlock_line("Curses", curseOutput["ID"])
 	return curseOutput
 

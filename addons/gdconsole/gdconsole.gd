@@ -62,7 +62,8 @@ func _init() -> void:
 	create_command(_quit, "quit", "Quits the game.")
 	create_command(_spawn_jelly, "spawnJelly", "spawns a specific jelly, first value is rarity, second is rarity ID. for example: 'spawnJelly common 0' for the basic jelly.")
 	create_command(_give_money, "giveMoney", "what do you think? ex: giveMoney 10000")
-	create_command(_give_tokens, "giveRebirthTokens", "again, what do you think? ex: giveRebirthTokens 25")
+	create_command(_give_tokens, "giveTokens", "again, what do you think? ex: giveRebirthTokens 25")
+	create_command(_give_total, "giveTotalMoney", "increases total money ex: giveTotalMoney 10000, total money is used for rebirth event triggers and minigame earnings. does not increase with giveMoney.")
 	create_command(_update_status, "updateStatus", "updates the rich presence status to say you're working on the game, just a neat little feature i added for funsies!")
 	create_command(_minigame, "startMinigame", "starts a minigame. put the ID for the minigame after the function. ex: startMinigame 0 for cat mario")
 	create_command(_screenEvent, "startScreenEvent", "starts a screen event. put the ID for the screen event after the function. ex: startScreenEvent 0 for golden shrilow")
@@ -506,6 +507,9 @@ func _spawn_jelly(jellyTypeToBe : String, goatedVar : int) -> void:
 
 func _give_money(toGive : int) -> void:
 	ItemValues.money += toGive
+
+func _give_total(toGive : int) -> void:
+	ItemValues.total_money += toGive
 
 func _give_tokens(toGive : int) -> void:
 	Game.rebirthTokens += toGive

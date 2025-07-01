@@ -278,8 +278,8 @@ func _on_button_mouse_exited() -> void:
 	$newMine/NewMines.modulate = Color(0,1,0)
 
 func _on_button_pressed() -> void:
-	if ItemValues.money >= 1000+(1000*caveNumber):
-		var ammo = 1000+(1000*caveNumber)
+	if ItemValues.money >= 5000+(5000*caveNumber):
+		var ammo = 5000+(5000*caveNumber)
 		ItemValues.money -= ammo
 		Interstate.totallost -= ammo
 		var cacapoopyGOD = preload("res://technical/minesLevel.tscn")

@@ -38,7 +38,7 @@ var entriesText = {
 		"revealed?":false,
 		},
 		],
-	"Melanie // Melvin":[
+	"Melanie":[
 		false,
 		{
 		"text":"oogly googly",
@@ -131,17 +131,12 @@ var entriesText = {
 	"QuickTime-Event":[
 		true,
 		{
-		"text":"oogly googly",
-		"id":0,
-		"revealed?":false,
-		},
-		{
-		"text":"only this text should be visible",
+		"text":"QuickTime-Event, or QTE, is",
 		"id":1,
 		"revealed?":true,
 		},
 		{
-		"text":"oogly googly",
+		"text":" a PS3 Emulator Virus taken form on your computer, They have extensive access to your computer but mostly use it for good, but who knows what could happen once they realize.",
 		"id":2,
 		"revealed?":false,
 		},
@@ -154,13 +149,63 @@ var entriesText = {
 		"revealed?":false,
 		},
 		{
-		"text":"Curse of No Bank Account:\n",
+		"text":"Curse of Black Lung:\nNo Mines!\n\n",
+		"id":"blacklung",
+		"revealed?":false,
+		},
+		{
+		"text":"Curse of Pet Allergies:\nNo Jellies!\n\n",
+		"id":"jelly",
+		"revealed?":false,
+		},
+		{
+		"text":"Curse of Kindness:\nNo clicking Shrilow!\n\n",
+		"id":"kindness",
+		"revealed?":false,
+		},
+		{
+		"text":"Curse of Mobile Game:\nYou have either pay gems, or watch ads to buy things. its hell. but you can watch an ad to get more minigame money!!... will you have to watch one anyways?.... yes\n\n",
+		"id":"mobilegame",
+		"revealed?":false,
+		},
+		{
+		"text":"Curse of Taxes:\nEvery 5 minutes, the TAXMEN will come to collect 25% of your money! They'll probably fund a golf course with that\n\n",
+		"id":"taxes",
+		"revealed?":false,
+		},
+		{
+		"text":"Curse of Lost Bank Account:\nMoney count only shows the amount of digits, not the actual numbers.\n\n",
 		"id":"bankaccount",
 		"revealed?":false,
 		},
 		{
-		"text":"oogly googly",
-		"id":"",
+		"text":"Curse of Senselessness:\nWarning messages at the bottom dont show up anymore, the sound for a screen event triggering will still play, though.\n\n",
+		"id":"senselessness",
+		"revealed?":false,
+		},
+		{
+		"text":"Curse of Unpaid Labour:\nMiners are cheaper, but can sometimes go on strike!\n\n",
+		"id":"unpaidlabour",
+		"revealed?":false,
+		},
+		{
+		"text":"Curse of Smoke Break:\nMakes melanie go on smoke break every 5 minutes, and has the break last 5 minutes aswell.\n\n",
+		"id":"smokebreak",
+		"revealed?":false,
+		},
+		{
+		"text":"Curse of Capitalism:\nEvery menu becomes a SUBSCRIPTION SERVICE!!! you have to pay a specific amount every few minutes to access an area, if you dont have enough? CANCELLED!!! and the prices DEFINITELY arent going up... what're you talking about?\n\n",
+		"id":"capitalism",
+		"revealed?":false,
+		},
+		{
+		"text":"Curse of Quicktime:\nHEY! THATS ME! Events happen every 30 seconds instead of every 2 minutes,and antiviruses only last 1 minute. I hope you like my minigames!\n\n",
+		"id":"quicktime",
+		"revealed?":false,
+		},
+		{
+		"text":"Curse of :\nHEY! THATS ME! Events happen every 30 seconds instead of every 2 minutes,and antiviruses only last 1 minute. I hope you like my minigames!\n\n",
+		"id":"quicktime",
 		"revealed?":false,
 		},
 		{

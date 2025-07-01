@@ -11,38 +11,27 @@ var caller_pos = 0
 var step_duration : float
 var display_number = ""
 
-var callers = [
-	{"name":"Antag","id":0314,"unlocked?":true,"img":"antagvinyet.png", "audio":"minerkid", "maxcalls":999, "timescalled":0},
-	{"name":"The Miner Kid","id":2012,"unlocked?":true,"img":"minerkidvinyet.png", "audio":"minerkid", "maxcalls":2, "timescalled":0},
-	{"name":"QuickTime-Event","id":2006,"unlocked?":true,"img":"qtevinyet.png", "audio":"minerkid", "maxcalls":2, "timescalled":0},
-	{"name":"Melanie","id":0962,"unlocked?":false},
-	{"name":"OJSTheCoder","id":2636,"unlocked?":false},
-	{"name":"KlutzyBugzyx3","id":0222,"unlocked?":false},
-	{"name":"MeltyKelpy","id":0315,"unlocked?":false},
-	{"name":"John Stoner","id":0420,"unlocked?":false,"img":"johnstonervinyet.png", "audio":"johnstoner", "maxcalls":2, "timescalled":0},
-	]
-
 func _ready() -> void:
 	step_duration = (60.0 / 130 / 4)
-	for i in callers.size():
-		if callers[i]["unlocked?"] == true:
+	for i in FizzyDrink.callers.size():
+		if FizzyDrink.callers[i]["unlocked?"] == true:
 			var callercreate = preload("res://technical/rooms/phonebox.tscn").instantiate()
 			callercreate.parent = self
-			callercreate.id = callers[i]["id"]
-			callercreate.caller = callers[i]["name"]
+			callercreate.id = FizzyDrink.callers[i]["id"]
+			callercreate.caller = FizzyDrink.callers[i]["name"]
 			$phanphone/contacts/ScrollContainer/VBoxContainer.add_child(callercreate)
 
 func make_call():
 	caller_pos = 0
 	var valid_number = false
 	var call_declined = false
-	for i in callers.size():
-		if callers[i]["id"] == caller_id:
+	for i in FizzyDrink.callers.size():
+		if FizzyDrink.callers[i]["id"] == caller_id:
 			valid_number = true
 			caller_pos = i
-			if callers[i].has("maxcalls"):
-				if callers[i]["timescalled"] < callers[i]["maxcalls"]:
-					callers[caller_pos]["timescalled"] += 1
+			if FizzyDrink.callers[i].has("maxcalls"):
+				if FizzyDrink.callers[i]["timescalled"] < FizzyDrink.callers[i]["maxcalls"]:
+					FizzyDrink.callers[caller_pos]["timescalled"] += 1
 					break
 				else:
 					call_declined = true
@@ -52,11 +41,11 @@ func make_call():
 	if valid_number == true:
 		call_time = 0
 		can = false
-		if callers[caller_pos].has("img"):
-			$phanphone/call/phanphone.texture = load("res://assets/images/ui/phantomsphone/"+callers[caller_pos]["img"])
-		$phanphone/call/title.text = callers[caller_pos]["name"]
-		if callers[caller_pos].has("audio"):
-			$call.stream = load("res://assets/images/ui/phantomsphone/calls/"+callers[caller_pos]["audio"]+str(callers[caller_pos]["timescalled"])+".ogg")
+		if FizzyDrink.callers[caller_pos].has("img"):
+			$phanphone/call/phanphone.texture = load("res://assets/images/ui/phantomsphone/"+FizzyDrink.callers[caller_pos]["img"])
+		$phanphone/call/title.text = FizzyDrink.callers[caller_pos]["name"]
+		if FizzyDrink.callers[caller_pos].has("audio"):
+			$call.stream = load("res://assets/images/ui/phantomsphone/calls/"+FizzyDrink.callers[caller_pos]["audio"]+str(FizzyDrink.callers[caller_pos]["timescalled"])+".ogg")
 		else:
 			$call.stream = load("res://assets/images/ui/phantomsphone/calls/minerkid.ogg")
 		$phanphone/call/title2.text = "ringing..."
@@ -91,7 +80,7 @@ func update_call():
 	match caller_id:
 		0420:
 			$phanphone/viewfinder/info/title.text = "IN CALL WITH: John Stoner"
-			if callers[caller_pos]["timescalled"] == 1:
+			if FizzyDrink.callers[caller_pos]["timescalled"] == 1:
 				if current_step == 0:
 					$phanphone/viewfinder/info/desc.text = "hey man"
 				if current_step == 15:
@@ -130,7 +119,7 @@ func update_call():
 			$phanphone/viewfinder/info/title.text = "IN CALL WITH: Antag"
 		2012:
 			$phanphone/viewfinder/info/title.text = "IN CALL WITH: The Miner Kid"
-			if callers[caller_pos]["timescalled"] == 1:
+			if FizzyDrink.callers[caller_pos]["timescalled"] == 1:
 				if current_step == 0:
 					$phanphone/viewfinder/info/desc.text = "Hey its me, The Miner Kid!"
 				if current_step == 20:
@@ -169,7 +158,7 @@ func update_call():
 					$phanphone/viewfinder/info/desc.text = "I'll be in ya minneess"
 				if current_step == 439:
 					$phanphone/viewfinder/info/desc.text = "Miner Kid Out!"
-			if callers[caller_pos]["timescalled"] == 2:
+			if FizzyDrink.callers[caller_pos]["timescalled"] == 2:
 				if current_step == 0:
 					$phanphone/viewfinder/info/desc.text = "Hi!"
 				if current_step == 12:

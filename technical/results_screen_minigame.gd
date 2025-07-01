@@ -30,6 +30,7 @@ func _process(_delta: float) -> void:
 	if allowExiting == true and Input.is_action_just_pressed("Click"):
 		get_tree().paused = false
 		$AnimationPlayer.play("leave")
+		$/root/computerShrilow._begin_event_timer_again()
 	if countingMoney == true:
 		if resultt == "WIN!":
 			if cashh <= 20 or Input.is_action_just_pressed("Click"):
@@ -56,9 +57,10 @@ func _kill():
 	queue_free()
 
 func _killMiniGame():
-	$resultsscreen/AudioStreamPlayer.play()
-	$AnimationPlayer.play("choose")
-	$/root/minigame.queue_free()
+	if get_node_or_null("/root/minigame"):
+		$resultsscreen/AudioStreamPlayer.play()
+		$AnimationPlayer.play("choose")
+		$/root/minigame.queue_free()
 
 func _resultsStart():
 	if resultt == "WIN!":
@@ -99,11 +101,12 @@ func countMoney():
 	countingMoney = true
 
 func allowExit():
-	$/root/computerShrilow/Camera2D.position.x = $/root/computerShrilow.returnPosCamX
-	$/root/computerShrilow/Camera2D.position.y = $/root/computerShrilow.returnPosCamY
-	position.x = $/root/computerShrilow.returnPosCamX - 576
-	position.y = $/root/computerShrilow.returnPosCamY - 324
-	$/root/computerShrilow.visible = true
+	if get_node_or_null("/root/computerShrilow"):
+		$/root/computerShrilow/Camera2D.position.x = $/root/computerShrilow.returnPosCamX
+		$/root/computerShrilow/Camera2D.position.y = $/root/computerShrilow.returnPosCamY
+		position.x = $/root/computerShrilow.returnPosCamX - 576
+		position.y = $/root/computerShrilow.returnPosCamY - 324
+		$/root/computerShrilow.visible = true
 	$resultsscreen/INFO.text = "\n\n\nSTARS:\n"+str(starr)+"/5\n\nTOTAL MONEY:\n"
 	if resultt == "LOSE.":
 		countingMoney = false
