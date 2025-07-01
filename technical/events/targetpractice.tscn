@@ -1,16 +1,41 @@
-[gd_scene load_steps=18 format=3 uid="uid://bb468p2jh4a7n"]
+[gd_scene load_steps=21 format=3 uid="uid://w70khq1ua5pt"]
 
-[ext_resource type="Script" uid="uid://c2und1mjhhba0" path="res://technical/events/whack-ilow.gd" id="1_3ab8d"]
-[ext_resource type="Texture2D" uid="uid://bhlkdyjwexyik" path="res://assets/images/events/whack-a-low/bg.png" id="2_i18ow"]
-[ext_resource type="PackedScene" uid="uid://b3br2qvlsk0m4" path="res://technical/events/whackilowHole.tscn" id="10_66mh6"]
-[ext_resource type="Texture2D" uid="uid://ct4ktp5pdisbg" path="res://assets/images/events/whack-a-low/paper.png" id="16_2r3w4"]
-[ext_resource type="Texture2D" uid="uid://bucepb3oy8gmh" path="res://assets/images/events/minigameTitle.png" id="19_l5vgr"]
-[ext_resource type="Texture2D" uid="uid://sn2vh6yb4153" path="res://assets/images/events/filledStar.png" id="20_y7la5"]
-[ext_resource type="Texture2D" uid="uid://bsjnsxl2xs2j0" path="res://assets/images/events/unfilledStar0.png" id="21_fpsa5"]
-[ext_resource type="Texture2D" uid="uid://n4fjjq8ir18y" path="res://assets/images/events/unfilledStar1.png" id="22_pqyny"]
-[ext_resource type="AudioStream" uid="uid://doov5lqi3y5cd" path="res://assets/sounds/fuckyeah.ogg" id="23_c6bc7"]
-[ext_resource type="Texture2D" uid="uid://6nno2cik65i4" path="res://assets/images/events/fuckYeah.png" id="24_yu3rg"]
-[ext_resource type="AudioStream" uid="uid://cahd8n2qup8t6" path="res://assets/music/roshambo.ogg" id="26_4atho"]
+[ext_resource type="Texture2D" uid="uid://bucepb3oy8gmh" path="res://assets/images/events/minigameTitle.png" id="1_65cok"]
+[ext_resource type="Script" uid="uid://bhvlbwjebxskt" path="res://technical/events/targetpractice.gd" id="1_lidgy"]
+[ext_resource type="Texture2D" uid="uid://sn2vh6yb4153" path="res://assets/images/events/filledStar.png" id="2_p2mlb"]
+[ext_resource type="Texture2D" uid="uid://bsjnsxl2xs2j0" path="res://assets/images/events/unfilledStar0.png" id="3_8xg61"]
+[ext_resource type="Texture2D" uid="uid://n4fjjq8ir18y" path="res://assets/images/events/unfilledStar1.png" id="4_y1xg5"]
+[ext_resource type="AudioStream" uid="uid://doov5lqi3y5cd" path="res://assets/sounds/fuckyeah.ogg" id="5_0jnyw"]
+[ext_resource type="Texture2D" uid="uid://6nno2cik65i4" path="res://assets/images/events/fuckYeah.png" id="6_4th1x"]
+[ext_resource type="Texture2D" uid="uid://sreloa61wfs3" path="res://assets/images/events/target practice/paper.png" id="7_lidgy"]
+[ext_resource type="Texture2D" uid="uid://5ernotw46ogg" path="res://assets/images/events/target practice/thesky.png" id="9_ijknf"]
+[ext_resource type="Texture2D" uid="uid://clohleb4vp4w4" path="res://assets/images/events/target practice/clouds.png" id="10_7cfgx"]
+[ext_resource type="Texture2D" uid="uid://e6y1i5e0hw72" path="res://assets/images/events/target practice/ground2.png" id="11_x27s5"]
+[ext_resource type="Texture2D" uid="uid://cfd1npxpt6jm3" path="res://assets/images/events/target practice/ground1.png" id="12_yc80c"]
+[ext_resource type="Texture2D" uid="uid://crwa1fn33b2sp" path="res://assets/images/events/target practice/fore.png" id="13_g6ecl"]
+[ext_resource type="AudioStream" uid="uid://cahd8n2qup8t6" path="res://assets/music/roshambo.ogg" id="14_ijknf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ijknf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_p2mlb")
+}],
+"loop": true,
+"name": &"star",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_8xg61")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_y1xg5")
+}],
+"loop": false,
+"name": &"unstar",
+"speed": 5.0
+}]
 
 [sub_resource type="Animation" id="Animation_djedu"]
 tracks/0/type = "value"
@@ -364,41 +389,8 @@ _data = {
 &"yes": SubResource("Animation_tlkvl")
 }
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_4s42o"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("20_y7la5")
-}],
-"loop": true,
-"name": &"star",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("21_fpsa5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("22_pqyny")
-}],
-"loop": false,
-"name": &"unstar",
-"speed": 5.0
-}]
-
-[node name="minigame" type="Node2D"]
-process_mode = 3
-z_index = 100
-script = ExtResource("1_3ab8d")
-
-[node name="background" type="Sprite2D" parent="."]
-position = Vector2(576, 324)
-texture = ExtResource("2_i18ow")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_iiqyl")
-}
+[node name="Targetpractice" type="Node2D"]
+script = ExtResource("1_lidgy")
 
 [node name="opening" type="Node2D" parent="."]
 z_index = 30
@@ -410,121 +402,82 @@ color = Color(0, 0, 0, 1)
 
 [node name="minigameLogo" type="Sprite2D" parent="opening"]
 position = Vector2(565, 993)
-texture = ExtResource("19_l5vgr")
+texture = ExtResource("1_65cok")
 
 [node name="Label" type="Label" parent="opening"]
 offset_left = -9.0
-offset_top = 10.0
+offset_top = 900.0
 offset_right = 1152.0
-offset_bottom = 79.0
+offset_bottom = 969.0
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 30
-text = "Whack that stupid dog!!!!!11!!!1"
+text = "Shoot! Shoot!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Star1" type="AnimatedSprite2D" parent="opening"]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(456, 128)
-sprite_frames = SubResource("SpriteFrames_4s42o")
+sprite_frames = SubResource("SpriteFrames_ijknf")
 animation = &"star"
 
 [node name="Star2" type="AnimatedSprite2D" parent="opening"]
 position = Vector2(515, 104)
-sprite_frames = SubResource("SpriteFrames_4s42o")
+sprite_frames = SubResource("SpriteFrames_ijknf")
 animation = &"star"
 
 [node name="Star3" type="AnimatedSprite2D" parent="opening"]
 position = Vector2(574, 104)
-sprite_frames = SubResource("SpriteFrames_4s42o")
+sprite_frames = SubResource("SpriteFrames_ijknf")
 animation = &"star"
 
 [node name="Star4" type="AnimatedSprite2D" parent="opening"]
 position = Vector2(633, 104)
-sprite_frames = SubResource("SpriteFrames_4s42o")
+sprite_frames = SubResource("SpriteFrames_ijknf")
 animation = &"star"
 
 [node name="Star5" type="AnimatedSprite2D" parent="opening"]
 position = Vector2(692, 104)
-sprite_frames = SubResource("SpriteFrames_4s42o")
+sprite_frames = SubResource("SpriteFrames_ijknf")
 animation = &"star"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="opening"]
-stream = ExtResource("23_c6bc7")
+stream = ExtResource("5_0jnyw")
 
 [node name="fuckYeah" type="Sprite2D" parent="opening"]
 position = Vector2(576, 900)
-texture = ExtResource("24_yu3rg")
+texture = ExtResource("6_4th1x")
 
 [node name="paper" type="Sprite2D" parent="opening"]
 position = Vector2(576, 1000)
-texture = ExtResource("16_2r3w4")
+texture = ExtResource("7_lidgy")
 
-[node name="WhackilowHole1" parent="." instance=ExtResource("10_66mh6")]
-offset_left = 259.0
-offset_top = 88.0
-offset_right = 435.0
-offset_bottom = 230.0
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_iiqyl")
+}
 
-[node name="WhackilowHole2" parent="." instance=ExtResource("10_66mh6")]
-offset_left = 486.0
-offset_top = 88.0
-offset_right = 662.0
-offset_bottom = 230.0
+[node name="thesky" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+texture = ExtResource("9_ijknf")
 
-[node name="WhackilowHole3" parent="." instance=ExtResource("10_66mh6")]
-offset_left = 711.0
-offset_top = 88.0
-offset_right = 887.0
-offset_bottom = 230.0
+[node name="clouds" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+texture = ExtResource("10_7cfgx")
 
-[node name="WhackilowHole4" parent="." instance=ExtResource("10_66mh6")]
-offset_left = 244.0
-offset_top = 245.0
-offset_right = 420.0
-offset_bottom = 387.0
+[node name="ground2" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+texture = ExtResource("11_x27s5")
 
-[node name="WhackilowHole5" parent="." instance=ExtResource("10_66mh6")]
-offset_left = 486.0
-offset_top = 245.0
-offset_right = 662.0
-offset_bottom = 387.0
+[node name="ground1" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+texture = ExtResource("12_yc80c")
 
-[node name="WhackilowHole6" parent="." instance=ExtResource("10_66mh6")]
-offset_left = 723.0
-offset_top = 245.0
-offset_right = 899.0
-offset_bottom = 387.0
-
-[node name="WhackilowHole7" parent="." instance=ExtResource("10_66mh6")]
-offset_left = 219.0
-offset_top = 408.0
-offset_right = 395.0
-offset_bottom = 550.0
-
-[node name="WhackilowHole8" parent="." instance=ExtResource("10_66mh6")]
-offset_left = 486.0
-offset_top = 408.0
-offset_right = 662.0
-offset_bottom = 550.0
-
-[node name="WhackilowHole9" parent="." instance=ExtResource("10_66mh6")]
-offset_left = 763.0
-offset_top = 408.0
-offset_right = 939.0
-offset_bottom = 550.0
-
-[node name="gameTimer" type="Timer" parent="."]
-wait_time = 30.0
-one_shot = true
-
-[node name="charTimer" type="Timer" parent="."]
-wait_time = 2.0
-one_shot = true
+[node name="fore" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+texture = ExtResource("13_g6ecl")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("26_4atho")
+stream = ExtResource("14_ijknf")
 autoplay = true
 parameters/looping = true
-
-[connection signal="timeout" from="charTimer" to="." method="_on_char_timer_timeout"]

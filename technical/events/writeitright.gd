@@ -122,7 +122,7 @@ func _process(_delta: float) -> void:
 	if shrilState == "Stupid":
 		$Game/Shrilow.play("win")
 	
-	if state == "contract" and Input.is_action_just_pressed("Enter"):
+	if state == "contract" and Input.is_action_just_pressed("Click"):
 		state = "interactable"
 		$AnimationPlayer.play("title")
 	

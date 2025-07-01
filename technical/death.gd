@@ -9,7 +9,7 @@ func _ready() -> void:
 	moneyLost = 600 + (ItemValues.maxMoney / 100)
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("ui_accept") and exitAllowed == true:
+	if Input.is_action_just_pressed("Click") and exitAllowed == true:
 		FizzyDrink.health = 100
 		get_tree().paused = false
 		ItemValues.money -= moneyLost

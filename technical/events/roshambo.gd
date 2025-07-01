@@ -83,7 +83,7 @@ func _process(_delta: float) -> void:
 	else:
 		$wins.text = "TURN: "+str(turn)+"\n\nWINS:\nROSHAMBO: "+str(winsRo)+"\nYOU: "+str(winsYou)
 	
-	if state == "contract" and Input.is_action_just_pressed("ui_accept"):
+	if state == "contract" and Input.is_action_just_pressed("Click"):
 		state = "interactable"
 		$AnimationPlayer.play("title")
 	

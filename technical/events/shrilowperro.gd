@@ -22,7 +22,7 @@ func _ready() -> void:
 	$AnimationPlayer.play("pop")
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("Enter") and goforth == true:
+	if Input.is_action_just_pressed("Click") and goforth == true:
 		mybellyisready = true
 
 

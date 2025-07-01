@@ -85,14 +85,22 @@ var justMinigames = [
 	"Played?":false,
 	"BestStars":0,
 	},
-	#{
-	#"Event":"Shrilowperro",
-	#"AttachedScene":"res://technical/events/shrilowperro.tscn",
-	#"WarningMessage":"mama always said not the play in the road. shrilow: pshh eah right >:)",
-	#"Type":"Minigame",
-	#"Played?":false,
-	#"BestStars":0,
-	#}
+	{
+	"Event":"Shrilowperro",
+	"AttachedScene":"res://technical/events/shrilowperro.tscn",
+	"WarningMessage":"mama always said not the play in the road. shrilow: pshh eah right >:)",
+	"Type":"Minigame",
+	"Played?":false,
+	"BestStars":0,
+	},
+	{
+	"Event":"Target Practice",
+	"AttachedScene":"res://technical/events/targetpractice.tscn",
+	"WarningMessage":"I love shooting civilians - the police",
+	"Type":"Minigame",
+	"Played?":false,
+	"BestStars":0,
+	},
 	]
 
 func find_minigame(namev):

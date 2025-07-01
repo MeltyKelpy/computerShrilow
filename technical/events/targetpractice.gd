@@ -5,26 +5,11 @@ var stars = 5
 var starsPrev = 5
 var gameOver = false
 var animPlayed = false
-var winsRo = 0
-var winsYou = 0
-var turn = 1
 var rng = RandomNumberGenerator.new()
 var state = "uninteractable"
-var characterAppearTime = 2
-@onready var wackiholes = [
-	$WhackilowHole1,
-	$WhackilowHole2,
-	$WhackilowHole3,
-	$WhackilowHole4,
-	$WhackilowHole5,
-	$WhackilowHole6,
-	$WhackilowHole7,
-	$WhackilowHole8,
-	$WhackilowHole9,
-	]
 
 func _ready() -> void:
-	Events.justMinigames[3]["Played?"] = true
+	Events.justMinigames[6]["Played?"] = true
 	$opening/Label.position.y = 5000
 	$AnimationPlayer.play("pop")
 	$opening/Star1.modulate = Color(1,1,1,0)
@@ -34,8 +19,6 @@ func _ready() -> void:
 	$opening/Star5.modulate = Color(1,1,1,0)
 
 func _allowToMove():
-	$gameTimer.start()
-	$charTimer.start()
 	readyy = true
 
 func starsUpdate():
@@ -63,13 +46,6 @@ func starsUpdate():
 
 func _process(_delta: float) -> void:
 	
-	$charTimer.wait_time = characterAppearTime
-	
-	if readyy == true:
-		$opening/Label.text = "Time left: "+str(int($gameTimer.time_left))
-	else:
-		$opening/Label.text = "Time left: "+str(int($gameTimer.wait_time))
-	
 	if state == "contract" and Input.is_action_just_pressed("Click"):
 		state = "interactable"
 		$AnimationPlayer.play("title")
@@ -86,12 +62,11 @@ func _process(_delta: float) -> void:
 		starsUpdate()
 		starsPrev = stars
 	
-	if $gameTimer.time_left == 0 and gameOver == false and readyy == true:
+	if stars == 0 and gameOver == false and readyy == true:
 		_fuckYeah()
 	
 	if gameOver == true:
 		$AudioStreamPlayer.volume_db -= 1
-	
 
 func _itsToSIGN():
 	state = "contract"
@@ -111,27 +86,10 @@ func _endEvent():
 	if stars > 0:
 		winOrLose = true
 		money = (100 + (ItemValues.maxMoney / 100)) * stars
-		add_child(caca)
 	if stars <= 0:
 		winOrLose = false
 		money = 300 + (ItemValues.maxMoney / 100)
-		add_child(caca)
+	add_child(caca)
 	caca.determineResult(winOrLose, stars, money)
-	caca._setId(Events.find_minigame("Whack-ilow"))
+	caca._setId(Events.find_minigame("Target Practice"))
 	caca.reparent($/root)
-
-func _on_char_timer_timeout() -> void:
-	if gameOver == false:
-		var rrnngg = rng.randi_range(0, wackiholes.size() - 1)
-		var hi
-		characterAppearTime -= 0.090
-		if characterAppearTime < 0.3:
-			characterAppearTime = 0.3
-		wackiholes[rrnngg].time = characterAppearTime
-		if wackiholes[rrnngg].chara == "none":
-			if $gameTimer.time_left <= 20:
-				hi = true
-			else:
-				hi = false
-			wackiholes[rrnngg].characterSpawn(hi)
-		$charTimer.start()
