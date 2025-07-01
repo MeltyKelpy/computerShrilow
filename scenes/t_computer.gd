@@ -228,6 +228,8 @@ var coconut
 
 var textu
 
+var stupid_linux_joke = false
+
 @onready var timer_3 = $Timer3
 
 func manageScenes():
@@ -256,6 +258,34 @@ func manageScenes():
 					$Shop/ItemDescription.text = "this also worked as a test, which is cool"
 				if alongTheDialogue == 2:
 					endDialogue()
+			"NUMBERS":
+				if alongTheDialogue == 0:
+					$Shop/ItemDescription.text = "Oh shit, right, you actually need to get numbers, dont you?"
+				if alongTheDialogue == 1:
+					$Shop/ItemDescription.text = "Hmm... I think your best shot is gonna be your [color=#B57016]appdata files[/color], honestly."
+				if alongTheDialogue == 2:
+					$Shop/ItemDescription.text = "That QuickTime-Event guy [color=#B57016]hid some stuff in there[/color], its used for Screen Event stuff, I think? And assuming I'm remembering correctly theres one for pop-up ads, right?"
+				if alongTheDialogue == 3:
+					$Shop/ItemDescription.text = "Theres gotta be [color=#B57016]an ad with a phone number you can call[/color] or something. Report back to me once you've found it! or not, I guess, up to you."
+				if alongTheDialogue == 4:
+					FizzyDrink.melDialogue[Game._unlock_dialogue("CRYSTALS", FizzyDrink.melDialogue)]["unlocked"] = false
+					FizzyDrink.melDialogue[Game._unlock_dialogue("appdataHelp", FizzyDrink.melDialogue)]["unlocked"] = true
+					endDialogue()
+			"appdataHelp":
+				if OS.get_name() == "Linux" and stupid_linux_joke == false:
+					if alongTheDialogue == 0:
+						$Shop/ItemDescription.text = "you're a linux user. how do you not know this."
+						stupid_linux_joke = true
+						alongTheDialogue = 0
+				else:
+					if alongTheDialogue == 0:
+						$Shop/ItemDescription.text = "If you go to your file explorer, there should be some kind of address bar at the top showing the current folder you're in, click that"
+					if alongTheDialogue == 1:
+						$Shop/ItemDescription.text = "once you've done that, you can type %appdata% and look for a folder named ComputerShrilow, thats where we wanna go"
+					if alongTheDialogue == 2:
+						$Shop/ItemDescription.text = "What? I was a coder before I ended up here, I know how computers work. This shouldnt shock you."
+					if alongTheDialogue == 3:
+						endDialogue()
 			"CRYSTALS":
 				if alongTheDialogue == 0:
 					$Shop/ItemDescription.text = "Oh yeah, those Crystals?"
@@ -733,6 +763,7 @@ func manageScenes():
 				Game.notify("You can now use Phantom's Phone! press P anywhere to use it!", "alert")
 				Game.phantom_phone = true
 				FizzyDrink.marketDialogue[Game._unlock_dialogue("phone", FizzyDrink.marketDialogue)]["unlocked"] = false
+				FizzyDrink.melDialogue[Game._unlock_dialogue("NUMBERS", FizzyDrink.melDialogue)]["unlocked"] = true
 				endDialogue()
 		"password":
 			if alongTheDialogue == 0:
@@ -770,9 +801,8 @@ func manageScenes():
 				$BlackMarket/talk.text = talker+": "+"YEAH. YOU SHOULD'VE. FAKE FRIEND."
 			if alongTheDialogue == 11:
 				talker = "Phantom"
-				$BlackMarket/talk.text = talker+": "+"anyway! i dont have a whole lotta contacts so.. if you need more you gotta [color=#B57016]ask someone else[/color]!"
-			if alongTheDialogue == 11:
-				Game.notify("", "alert")
+				$BlackMarket/talk.text = talker+": "+"anyway! i dont have a whole lotta contacts so.. if you need more you gotta [color=#B57016]ask someone else[/color]! unless you did already.. then uhm. stop beating me to things!"
+			if alongTheDialogue == 12:
 				endDialogue()
 		"whoAreYall":
 			if alongTheDialogue == 0:

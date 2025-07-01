@@ -49,6 +49,13 @@ var melDialogue = [
 	"important":true,
 	},
 	{
+	"present":"How do I get to AppData?",
+	"dialogKey":"appdataHelp",
+	"unlocked":false,
+	"interacted":false,
+	"important":true,
+	},
+	{
 	"present":"Interests?",
 	"dialogKey":"INTERESTS",
 	"unlocked":true,
