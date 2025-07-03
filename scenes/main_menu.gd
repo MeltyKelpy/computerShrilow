@@ -83,11 +83,6 @@ var contributers = [
 	"Text":'hover over a contributer!',
 	},
 	{
-	"Name":"SkyHighSilly",
-	"Image":"res://assets/images/mainMenu/credits/ppl/sky.png",
-	"Text":'Playtester\n\n""',
-	},
-	{
 	"Name":"Hekza",
 	"Image":"res://assets/images/mainMenu/credits/ppl/hekza.png",
 	"Text":'Playtester\n\n""',
