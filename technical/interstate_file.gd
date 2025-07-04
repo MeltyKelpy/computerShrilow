@@ -29,3 +29,5 @@ func _on_pressed() -> void:
 			parent.open_png(fileName, attachedFile)
 		if fileType == ".txt":
 			parent._update_menu(attachedFile, true)
+		if fileType == ".exe":
+			parent._open_exe(attachedFile)

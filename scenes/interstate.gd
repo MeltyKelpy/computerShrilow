@@ -9,6 +9,13 @@ var pageHistory = []
 var pagePlacementHistory = -1
 var files = [
 	{
+	"FILENAME":"pop-up-event",
+	"FILETYPE":".exe",
+	"LOCKED":false,
+	"LOCKEDTEXT":"",
+	"ATTACHMENT":"pop-up",
+	},
+	{
 	"FILENAME":"Gangnum-Style",
 	"FILETYPE":".png",
 	"LOCKED":false,
@@ -195,6 +202,9 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("ui_up") and selectedFile > 0:
 			selectedFile -= 1
 			$AudioStreamPlayer2D.play()
+
+func _open_exe():
+	pass
 
 func _spawn_files(page):
 	var firstFile = (0 + (8 * filePage))

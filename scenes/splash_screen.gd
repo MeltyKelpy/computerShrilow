@@ -5,16 +5,16 @@ var type = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
-	DirAccess.make_dir_absolute("user://QTE's Event System")
-	for i in ["pop-ups"]:
+	#DirAccess.make_dir_absolute("user://QTE's Event System")
+	#for i in ["pop-ups"]:
 		#var resource = ResourceLoader.load("")
-		var file = FileAccess.open("user://QTE's Event System/"+i+".exe", FileAccess.WRITE_READ)
-		if file:
-		#	file.store_buffer(resource)
-			file.close()
-		else:
-			print("uhmm oops? baby couldnt make file")
-			get_tree().reload_current_scene()
+		#var file = FileAccess.open("user://QTE's Event System/"+i+".exe", FileAccess.WRITE_READ)
+		#if file:
+			#file.store_buffer(resource)
+			#file.close()
+		#else:
+			#print("uhmm oops? baby couldnt make file")
+			#get_tree().reload_current_scene()
 	
 	Interstate.loadData()
 	if str(Interstate.iq) == "luke fucking sucks i fucking hate him  :yum: hi :yum: gren":
