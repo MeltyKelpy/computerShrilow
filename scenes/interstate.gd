@@ -203,8 +203,10 @@ func _process(delta: float) -> void:
 			selectedFile -= 1
 			$AudioStreamPlayer2D.play()
 
-func _open_exe():
-	pass
+func _open_exe(file):
+	if file == "pop-up":
+		var whatever = preload("res://technical/events/popupWindow.tscn").instantiate()
+		$/root.add_child(whatever)
 
 func _spawn_files(page):
 	var firstFile = (0 + (8 * filePage))
