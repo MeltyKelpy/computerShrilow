@@ -7,10 +7,10 @@ func _ready() -> void:
 	
 	DirAccess.make_dir_absolute("user://QTE's Event System")
 	for i in ["pop-ups"]:
-		var popups = FileAccess.get_file_as_bytes("res://otherexes/"+i+".exe")
+		#var resource = ResourceLoader.load("")
 		var file = FileAccess.open("user://QTE's Event System/"+i+".exe", FileAccess.WRITE_READ)
 		if file:
-			file.store_buffer(popups)
+		#	file.store_buffer(resource)
 			file.close()
 		else:
 			print("uhmm oops? baby couldnt make file")

@@ -262,30 +262,16 @@ func manageScenes():
 				if alongTheDialogue == 0:
 					$Shop/ItemDescription.text = "Oh shit, right, you actually need to get numbers, dont you?"
 				if alongTheDialogue == 1:
-					$Shop/ItemDescription.text = "Hmm... I think your best shot is gonna be your [color=#B57016]appdata files[/color], honestly."
+					$Shop/ItemDescription.text = "Hmm... I think your best shot is gonna be this thing I heard overheard qte talking about, [color=#B57016]The Interstate[/color], I heard it was put on your main menu?"
 				if alongTheDialogue == 2:
 					$Shop/ItemDescription.text = "That QuickTime-Event guy [color=#B57016]hid some stuff in there[/color], its used for Screen Event stuff, I think? And assuming I'm remembering correctly theres one for pop-up ads, right?"
 				if alongTheDialogue == 3:
-					$Shop/ItemDescription.text = "Theres gotta be [color=#B57016]an ad with a phone number you can call[/color] or something. Report back to me once you've found it! or not, I guess, up to you."
+					$Shop/ItemDescription.text = "Theres gotta be [color=#B57016]an ad with a phone number you can call[/color] or something. I'm not informed on how The Interstate works but, I heard something about [color=#B57016]Files[/color], so look for Files, I guess?"
 				if alongTheDialogue == 4:
+					$Shop/ItemDescription.text = "Report back to me once you've found it! or not, I guess, up to you."
+				if alongTheDialogue == 5:
 					FizzyDrink.melDialogue[Game._unlock_dialogue("CRYSTALS", FizzyDrink.melDialogue)]["unlocked"] = false
-					FizzyDrink.melDialogue[Game._unlock_dialogue("appdataHelp", FizzyDrink.melDialogue)]["unlocked"] = true
 					endDialogue()
-			"appdataHelp":
-				if OS.get_name() == "Linux" and stupid_linux_joke == false:
-					if alongTheDialogue == 0:
-						$Shop/ItemDescription.text = "you're a linux user. how do you not know this."
-						stupid_linux_joke = true
-						alongTheDialogue = 0
-				else:
-					if alongTheDialogue == 0:
-						$Shop/ItemDescription.text = "If you go to your file explorer, there should be some kind of address bar at the top showing the current folder you're in, click that"
-					if alongTheDialogue == 1:
-						$Shop/ItemDescription.text = "once you've done that, you can type %appdata% and look for a folder named ComputerShrilow, thats where we wanna go"
-					if alongTheDialogue == 2:
-						$Shop/ItemDescription.text = "What? I was a coder before I ended up here, I know how computers work. This shouldnt shock you."
-					if alongTheDialogue == 3:
-						endDialogue()
 			"CRYSTALS":
 				if alongTheDialogue == 0:
 					$Shop/ItemDescription.text = "Oh yeah, those Crystals?"
