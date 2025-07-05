@@ -105,7 +105,7 @@ var contributers = [
 	{
 	"Name":"amydoesthings",
 	"Image":"res://assets/images/mainMenu/credits/ppl/aussie.png",
-	"Text":'Menu SFX\n\n"my favorite part of the game was when i was in it"',
+	"Text":'Menu SFX\nGuest Musician\n"my favorite part of the game was when i was in it"',
 	},
 	{
 	"Name":"gurt",

@@ -20,7 +20,7 @@ var rebirths = 0
 var gameTime = 0.0
 var icon = 0
 var saveFileClicks = 0
-var gameVersion = "00.02.82"
+var gameVersion = "00.02.87"
 var market_discovered = false
 
 var rebirthJellyProtocol = []
@@ -30,6 +30,8 @@ var phantom_phone = false
 var boxed = false
 
 var curFile = 0
+
+var votedFor = "QTE"
 
 var evilMines = false
 var rebirthTokens = 0
@@ -212,6 +214,8 @@ func loadData():
 		Curses.curses = []
 		Curses.curses = config.get_value("Rebirth", "Curses", [])
 		
+		votedFor = config.get_value("Story", "votedFor", "QTE")
+		
 		if config.get_value("Journal", "journalShit") != null:
 			if config.get_value("Journal", "journalShit").size() == Journal.entriesText.size():
 				for i in Journal.entriesText.size():
@@ -371,6 +375,7 @@ func saveData():
 	config.set_value("Fiscal", "Clicks", FizzyDrink.clicks)
 	config.set_value("Fiscal", "Icon", icon)
 	
+	config.set_value("Story", "votedFor", votedFor)
 	config.set_value("Story", "phantom_phone", phantom_phone)
 	
 	config.set_value("Rebirth", "RebirthTokens", rebirthTokens)

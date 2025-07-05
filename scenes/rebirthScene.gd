@@ -15,6 +15,14 @@ var windowSY = 0
 var window_controlled = false
 var window_state = "whatever"
 
+var QTEVotes = 0
+var LGEVotes = 7
+var PUZVotes = 0
+
+var votetalkover = false
+
+var news = false
+
 var lines = {
 	0:[
 		"",
@@ -58,7 +66,15 @@ var spiceLevel = 1
 var dialog = 0
 
 func _ready() -> void:
-	#Game.rebirths = 4
+	
+	if Game.votedFor == "QTE":
+		QTEVotes += 1
+	if Game.votedFor == "LGE":
+		LGEVotes += 1
+	if Game.votedFor == "PUZ":
+		PUZVotes += 1
+	
+	#Game.rebirths = 3
 	if Game.rebirths == 4:
 		$AnimationPlayer.play("new_animation")
 		_startDialog()
@@ -79,6 +95,7 @@ func _ready() -> void:
 	recievedTokens = round(recievedTokens)
 	$Label2.text = "You have Recieved "+str(recievedTokens)+" Tokens. Dont go spending it all in one place, now!"
 	$curses/Label3.text = $Label2.text
+	$news/Label3.text = $Label2.text
 
 func _startDialog():
 	if Game.rebirths != 4:
@@ -181,7 +198,19 @@ func _process(delta: float) -> void:
 	
 	if scene == "curses":
 		$curses/talkSounds.pitch_scale = 1.0
-		if Game.rebirths != 4:
+		if news == true:
+			if $news/Dialogue.visible_ratio > 1:
+				$news/Dialogue.visible_ratio = 1
+			if $news/Dialogue.visible_ratio < 1:
+				if $news/Dialogue.visible_ratio < 0.9:
+					$curses/talkSounds.play()
+				var numToUse
+				if delta < 0.03:
+					numToUse = 0.03
+				else:
+					numToUse = delta
+				$news/Dialogue.visible_characters += (50 * numToUse) * dialogue_speed
+		elif Game.rebirths != 4:
 			if $curses/Dialogue.visible_ratio > 1:
 				$curses/Dialogue.visible_ratio = 1
 			if $curses/Dialogue.visible_ratio < 1:
@@ -465,7 +494,28 @@ func _scene2():
 				say("I hope you can understand! Although, who wouldnt be running to fulfill a request like that from me?", "LaughAnim")
 				canProg = true
 			15:
-				say("I have something important to plan for, so i'd say its time we begin your next run-through!", "Default")
+				say("Now, before we continue, I have something to say.", "Default")
+				canProg = true
+			16:
+				say("Many people have found my accqusition of your-stupid-computer-asses(tm) abit unfair,", "Bow")
+				canProg = true
+			17:
+				say("So, I've decided on a new method of asserting myself!", "Annouce")
+				canProg = true
+			18:
+				say("I'm going to be hosting...", "Annouce")
+				canProg = true
+			19:
+				say("an ELECTION!", "Annouce")
+				canProg = true
+			20:
+				say("Once we've finished our dance here, you'll be able to find out more info! i've instructed melanie to give you something that'll explain how this'll play out.", "Default")
+				canProg = true
+			21:
+				say("Be sure to look out for my posters! and dont forget to support me! You're my left hand helper afterall!", "Annouce")
+				canProg = true
+			21:
+				say("I have to get back to planning OUR presidency, so i'd say its time we begin your next run-through!", "Annouce")
 				canProg = true
 			15:
 				say("Are you ready?", "Bow")
@@ -504,40 +554,211 @@ func _scene2():
 				tween2.tween_property($curses/ThemeSong, "volume_db", -80, 2).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN_OUT)
 				$AnimationPlayer2.play("end")
 	if Game.rebirths == 3:
-		amountOfCurses = 3
-		match prog:
-			0:
-				say("this dialgoue is not yet written.", "Default")
-				canProg = true
-			1:
-				say("3", "LaughAnim")
-				await get_tree().create_timer(0.1).timeout
-				say("2", "LaughAnim")
-				await get_tree().create_timer(0.1).timeout
-				say("1", "LaughAnim")
-				await get_tree().create_timer(0.1).timeout
-				say("GO", "LaughAnim")
-				await get_tree().create_timer(0.1).timeout
-				say("", "Look")
-				var tween2 = create_tween()
-				tween2.tween_property($curses/ThemeSong, "volume_db", -20, 2).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN_OUT)
-				var tween = create_tween()
-				tween.tween_property($curses/wheel, "rotation", randi_range(3000, 4000), 7).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN_OUT)
-				$curses/spin.play()
-				await get_tree().create_timer(7).timeout
-				_on_button_pressed()
-				$AnimationPlayer2.play("curse")
-				await get_tree().create_timer(2).timeout
-				var tween3 = create_tween()
-				tween3.tween_property($curses/ThemeSong, "volume_db", 0, 2).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN_OUT)
-				say("Wow! look at them curses!", "Default")
-				canProg = true
-			2:
-				var tween2 = create_tween()
-				tween2.tween_property($curses/ThemeSong, "volume_db", -80, 2).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN_OUT)
-				$AnimationPlayer2.play("end")
+		if news == false:
+			amountOfCurses = 3
+			match prog:
+				0:
+					say("And back we stand, what'd you think of our debate?", "Annouce")
+					canProg = true
+				1:
+					say("Wonderful, Wonderful, I know, I bet you loved the voting form too! (of which you voted for us, of course!)", "Prep")
+					canProg = true
+				2:
+					say("Now I cant talk for long, as I've been tasked with counting the votes and annoucing the results!", "Giddy")
+					canProg = true
+				3:
+					say("So, we should probably get those curses out of the way first, wouldnt you agree?", "Default")
+					canProg = true
+				4:
+					say("Oh! I almost forgot!", "Shock")
+					canProg = true
+				5:
+					say("Before we annouce the results, bring up my SPICE METER!", "Default")
+					canProg = true
+				6:
+					say("", "Bow")
+					var tween2 = create_tween()
+					tween2.tween_property($curses/ThemeSong, "volume_db", -20, 2).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN_OUT)
+					await get_tree().create_timer(1).timeout
+					$curses/ThemeSong.volume_db = -20
+					$curses/hit.play()
+					$curses/Spice.position.y = 85.0
+					await get_tree().create_timer(1).timeout
+					spiceLevel = 3
+					$curses/spiceLevel.play()
+					await get_tree().create_timer(1).timeout
+					var tween3 = create_tween()
+					tween3.tween_property($curses/ThemeSong, "volume_db", 0, 2).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN_OUT)
+					say("3! CURSES!", "Annouce")
+					canProg = true
+				7:
+					say("I loved watching your last run-through, and I know you did too!", "Default")
+					canProg = true
+				8:
+					say("I dont do this out of malice, I just wanna keep the fun going! is that so bad?", "Giddy")
+					canProg = true
+				9:
+					say("Now my left hand helper, we must get to it!", "Laugh")
+					canProg = true
+				10:
+					say("Our time in office awaits, Mx. Co-President!", "Annouce")
+					canProg = true
+				11:
+					say("3", "LaughAnim")
+					await get_tree().create_timer(0.1).timeout
+					say("2", "LaughAnim")
+					await get_tree().create_timer(0.1).timeout
+					say("1", "LaughAnim")
+					await get_tree().create_timer(0.1).timeout
+					say("GO", "LaughAnim")
+					await get_tree().create_timer(0.1).timeout
+					say("", "Look")
+					var tween2 = create_tween()
+					tween2.tween_property($curses/ThemeSong, "volume_db", -20, 2).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN_OUT)
+					var tween = create_tween()
+					tween.tween_property($curses/wheel, "rotation", randi_range(3000, 4000), 7).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN_OUT)
+					$curses/spin.play()
+					await get_tree().create_timer(7).timeout
+					_on_button_pressed()
+					$AnimationPlayer2.play("curse")
+					await get_tree().create_timer(2).timeout
+					var tween3 = create_tween()
+					tween3.tween_property($curses/ThemeSong, "volume_db", 0, 2).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN_OUT)
+					say("There you go! your 3 curses!", "Default")
+					canProg = true
+				12:
+					say("You can check out what they do in the journal, blah blah blah, SNOREEE WHO CARES", "Bored")
+					canProg = true
+				13:
+					say("LETS GET TO THE RESULTS ALREADY!", "Annouce")
+					canProg = true
+				14:
+					$curses/ThemeSong.volume_db = -80
+					$AnimationPlayer2.play("openNews")
+					prog = -1
+					news = true
+		else:
+			match prog:
+				0:
+					$news/AudioStreamPlayer.play()
+					say("Whaddya think of the set-up, viewers? aint it just SNAZZY?", "default")
+					canProg = true
+				1:
+					say("Now, to what you've all been waiting for!", "devious")
+					canProg = true
+				2:
+					say("We had a WONDERFUL debate tonight! and post-debate, you (should've) had the opportunity to vote!", "default")
+					canProg = true
+				3:
+					say("All competitors brought up great points and arguements! but which of them succeeded best at winning the hearts of the masses?", "default")
+					canProg = true
+				4:
+					say("Without further ado... here are the results!", "devious")
+					canProg = true
+				5:
+					say("", "look")
+					for i in QTEVotes:
+						var vote = preload("res://assets/images/areas/rebirth/news/vote.tscn").instantiate()
+						$news/QTEContainer.add_child(vote)
+						await get_tree().create_timer(0.05).timeout
+					for i in LGEVotes:
+						var vote = preload("res://assets/images/areas/rebirth/news/vote.tscn").instantiate()
+						$news/LGEContainer.add_child(vote)
+						await get_tree().create_timer(0.05).timeout
+						if i == 4:
+							say("", "oh")
+					for i in PUZVotes:
+						var vote = preload("res://assets/images/areas/rebirth/news/vote.tscn").instantiate()
+						$news/PUZContainer.add_child(vote)
+						await get_tree().create_timer(0.05).timeout
+					await get_tree().create_timer(2).timeout
+					say("Ah. I see.", "confused")
+					$news/AudioStreamPlayer.stream_paused = true
+					canProg = true
+				6:
+					if Game.votedFor == "QTE":
+						say("(Thanks for having my back, pal!)", "default")
+						votetalkover = true
+					if Game.votedFor == "LGE":
+						say("(Hey uhm. "+Game.namee+"? why did you. vote for LGE? thats like. the opposing party of us.)", "sweat")
+					if Game.votedFor == "PUZ":
+						say("(Hey uhm. "+Game.namee+"? did you. did you vote for Puzzle?)", "confused")
+					canProg = true
+				7:
+					if votetalkover == true:
+						$news/AudioStreamPlayer.stream_paused = false
+						say("Viewers! It appears something has gone... wrong with the votes.", "sweat")
+					else:
+						if Game.votedFor == "LGE":
+							say("(Oh, wait! I get it! it was a pity vote! because you thought everyone would vote for me!)", "default")
+						if Game.votedFor == "PUZ":
+							say("(No hate or anything but uhm. you know i put him in as a joke, right?)", "puzzle")
+					canProg = true
+				8:
+					if votetalkover == true:
+						for i in $news/QTEContainer.get_child_count():
+							$news/QTEContainer.get_child(i).queue_free()
+						for i in $news/LGEContainer.get_child_count():
+							$news/LGEContainer.get_child(i).queue_free()
+						for i in $news/PUZContainer.get_child_count():
+							$news/PUZContainer.get_child(i).queue_free()
+						say("This is not what I counted! lets just uhm. try again, okay?", "sweat")
+					else:
+						if Game.votedFor == "LGE":
+							say("(I commend you, my friend.)", "devious")
+							prog = 6
+							votetalkover = true
+						if Game.votedFor == "PUZ":
+							say("(you aware that guy was just added to piss off LGE, right?? I dont even. know who he is.)", "puzzle")
+							prog = 6
+							votetalkover = true
+					canProg = true
+				9:
+					say("", "look")
+					QTEVotes += LGEVotes
+					QTEVotes += PUZVotes
+					LGEVotes = 0
+					PUZVotes = 0
+					for i in QTEVotes:
+						var vote = preload("res://assets/images/areas/rebirth/news/vote.tscn").instantiate()
+						$news/QTEContainer.add_child(vote)
+						await get_tree().create_timer(0.05).timeout
+					await get_tree().create_timer(1).timeout
+					say("Well, would you look at that, folks!", "default")
+					canProg = true
+				10:
+					say("The Winner.. is ME!", "cheer")
+					canProg = true
+				11:
+					say("I cant thank you all enough, for ALL voting ME!", "cheerFast")
+					canProg = true
+				12:
+					say("I suppose LGE's"+' "Crashout" '+"lost them the win, how disapointing!", "devious")
+					canProg = true
+				13:
+					say("I promise you all, that i will take on this new role with GRACE.", "default")
+					canProg = true
+				14:
+					say("I will be the controller this computer needs! I will make our RED WHITE AND GREEN a PROUD PLACE TO BE!", "cheer")
+					canProg = true
+				15:
+					say("With that, I bid my farewell from this broadcast.", "default")
+					canProg = true
+				16:
+					say("Cheers to a new future! where the computer. will be-", "default")
+					canProg = true
+				17:
+					say("fucking.", "devious")
+					canProg = true
+				18:
+					say("awesome.", "devious")
+					canProg = true
+				19:
+					var tween2 = create_tween()
+					tween2.tween_property($news/AudioStreamPlayer, "volume_db", -80, 2).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN_OUT)
+					$AnimationPlayer2.play("end_2")
 	if Game.rebirths == 4:
-		amountOfCurses = 3
+		amountOfCurses = 5
 		match prog:
 			0:
 				say("...", "discontent")
@@ -794,13 +1015,22 @@ func setCurseDisplay(num : int):
 			$curses/Curses.text += curses[num]["Name"]
 
 func say(texts : String, animation : StringName):
-	if Game.rebirths != 4:
+	if news == true:
+		$news/Dialogue.visible_ratio = 0
+		$news/Dialogue.visible_characters = 0
+		$news/Dialogue.text = texts
+		$news/QTE.play(animation)
+	elif Game.rebirths != 4:
 		$curses/Dialogue.visible_ratio = 0
 		$curses/Dialogue.visible_characters = 0
 		$curses/Dialogue.text = texts
 		$curses/QTE.play(animation)
-	if Game.rebirths == 4:
+	elif Game.rebirths == 4:
 		$rebirth4/Dialogue.visible_ratio = 0
 		$rebirth4/Dialogue.visible_characters = 0
 		$rebirth4/Dialogue.text = texts
 		$rebirth4/QTE.play(animation)
+
+func _on_video_stream_player_finished() -> void:
+	_scene2()
+	$news.visible = true

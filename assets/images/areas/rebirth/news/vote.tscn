@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://ba27f11l54ldt"]
+
+[ext_resource type="Texture2D" uid="uid://b1gc3t1wp2251" path="res://assets/images/areas/rebirth/news/votecheck.png" id="1_jldrf"]
+[ext_resource type="Script" uid="uid://bgwdhejglb0a8" path="res://assets/images/areas/rebirth/news/vote.gd" id="2_a7po0"]
+
+[node name="Vote" type="TextureRect"]
+modulate = Color(1, 1, 1, 0)
+texture = ExtResource("1_jldrf")
+script = ExtResource("2_a7po0")

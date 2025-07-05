@@ -1,4 +1,4 @@
-[gd_scene load_steps=125 format=3 uid="uid://bsaobsf7sfhkj"]
+[gd_scene load_steps=150 format=3 uid="uid://bsaobsf7sfhkj"]
 
 [ext_resource type="Texture2D" uid="uid://d3xwuakjymg2g" path="res://assets/images/ui/rebirth.png" id="1_6xcba"]
 [ext_resource type="Script" uid="uid://d1k6bwxqri7l4" path="res://scenes/rebirthScene.gd" id="1_i0unl"]
@@ -17,11 +17,14 @@
 [ext_resource type="Texture2D" uid="uid://b1jn56k6ronkj" path="res://assets/images/areas/rebirth/QTELaugh.png" id="12_ikk70"]
 [ext_resource type="AudioStream" uid="uid://dptdjtj2athmr" path="res://assets/sounds/poppeer.ogg" id="12_nwc3x"]
 [ext_resource type="Texture2D" uid="uid://3pcgtga8iqyw" path="res://assets/images/areas/rebirth/QTELook.png" id="13_bcfrp"]
+[ext_resource type="Texture2D" uid="uid://bsssk3xxf3e32" path="res://assets/images/areas/rebirth/QTEBored.png" id="14_2dw6f"]
 [ext_resource type="Texture2D" uid="uid://dmdt74ao4ajql" path="res://assets/images/areas/rebirth/QTEBow.png" id="14_8athj"]
 [ext_resource type="Texture2D" uid="uid://cklgdvewskh66" path="res://assets/images/areas/rebirth/QTEPoint.png" id="14_e25hp"]
 [ext_resource type="Texture2D" uid="uid://b7hpe8wsujvcw" path="res://assets/images/areas/rebirth/QTEFeign.png" id="14_o8uot"]
 [ext_resource type="Texture2D" uid="uid://pjobsd5tj0g0" path="res://assets/images/areas/rebirth/QTEGiddy.png" id="15_f0pfj"]
+[ext_resource type="Texture2D" uid="uid://c70jdu6x0daa5" path="res://assets/images/areas/rebirth/QTEClap0.png" id="15_sr062"]
 [ext_resource type="Texture2D" uid="uid://ch3akc5mwd3c0" path="res://assets/images/areas/rebirth/QTELaughAnimated1.png" id="16_e25hp"]
+[ext_resource type="Texture2D" uid="uid://dh8usk5cndbk2" path="res://assets/images/areas/rebirth/QTEClap1.png" id="16_t1dsf"]
 [ext_resource type="Texture2D" uid="uid://bsck5ex54oqu1" path="res://assets/images/ui/curses/gambling.png" id="18_bcfrp"]
 [ext_resource type="AudioStream" uid="uid://dcklskc83vl1l" path="res://assets/sounds/quicktype.ogg" id="20_u8ivg"]
 [ext_resource type="Texture2D" uid="uid://d2tj7nmgjrnuc" path="res://assets/images/areas/rebirth/curses/frame_0_delay-0.05s.png" id="22_m0x6i"]
@@ -29,6 +32,8 @@
 [ext_resource type="Texture2D" uid="uid://b4mui0wnocc51" path="res://assets/images/areas/rebirth/curses/frame_2_delay-0.05s.png" id="24_kf1rl"]
 [ext_resource type="Texture2D" uid="uid://cisly6in2qdj3" path="res://assets/images/areas/rebirth/curses/frame_3_delay-0.05s.png" id="25_t03k1"]
 [ext_resource type="Texture2D" uid="uid://bj3qll701uhc" path="res://assets/images/areas/rebirth/curses/frame_4_delay-0.05s.png" id="26_je5m3"]
+[ext_resource type="Texture2D" uid="uid://dnq38cwhgktqy" path="res://assets/images/areas/rebirth/QTEPrep.png" id="26_myg3p"]
+[ext_resource type="Texture2D" uid="uid://btvtyaoxfyhku" path="res://assets/images/areas/rebirth/QTEShock.png" id="27_3syrf"]
 [ext_resource type="Shader" uid="uid://csehigfpjnq1r" path="res://technical/jellyOutline.gdshader" id="28_a5v0l"]
 [ext_resource type="AudioStream" uid="uid://co2yjbtbpdgm5" path="res://assets/music/wheelspin.ogg" id="29_kf1rl"]
 [ext_resource type="AudioStream" uid="uid://cn4q5sn0n6f4" path="res://assets/sounds/hit.ogg" id="30_0in0p"]
@@ -91,6 +96,23 @@
 [ext_resource type="AudioStream" uid="uid://g5sccau7wf5k" path="res://assets/sounds/impact.ogg" id="83_qlj4j"]
 [ext_resource type="AudioStream" uid="uid://dcv3curd7hg5i" path="res://assets/sounds/drone.ogg" id="84_sk6my"]
 [ext_resource type="AudioStream" uid="uid://bb0dq46kq4e6m" path="res://assets/sounds/stomp0.ogg" id="85_sk6my"]
+[ext_resource type="AudioStream" uid="uid://b4dfjhkb8nvxo" path="res://assets/music/newsic.ogg" id="97_3syrf"]
+[ext_resource type="VideoStream" uid="uid://b1o7ubrscnfff" path="res://assets/videos/watermarked_preview.ogv" id="97_ayhhp"]
+[ext_resource type="VideoStream" uid="uid://dgyi45yup1xey" path="res://assets/videos/fuckingnews.ogv" id="97_myg3p"]
+[ext_resource type="Texture2D" uid="uid://dtp0rx8ikdjyd" path="res://assets/images/areas/rebirth/news/windows.png" id="98_movoi"]
+[ext_resource type="Texture2D" uid="uid://uiljfqcv01dl" path="res://assets/images/areas/rebirth/news/screenbg.png" id="99_l6u4t"]
+[ext_resource type="Texture2D" uid="uid://crb6fl8b7lu6o" path="res://assets/images/areas/rebirth/news/charcolors.png" id="100_gnxm2"]
+[ext_resource type="Texture2D" uid="uid://6rm5nbrt72if" path="res://assets/images/areas/rebirth/news/tvoutline.png" id="101_a7s3n"]
+[ext_resource type="Texture2D" uid="uid://3c4ryu1lgo63" path="res://assets/images/areas/rebirth/news/table.png" id="102_26owk"]
+[ext_resource type="Texture2D" uid="uid://bknobwjgr261k" path="res://assets/images/areas/rebirth/news/QTECheer0.png" id="103_emnyu"]
+[ext_resource type="Texture2D" uid="uid://cbe5yu3er4v3h" path="res://assets/images/areas/rebirth/news/QTECheer1.png" id="104_dvjwf"]
+[ext_resource type="Texture2D" uid="uid://cue2uggfrma21" path="res://assets/images/areas/rebirth/news/QTEConfused.png" id="105_n4b48"]
+[ext_resource type="Texture2D" uid="uid://dncx2vnjpkpn5" path="res://assets/images/areas/rebirth/news/QTEBase.png" id="106_3cmsi"]
+[ext_resource type="Texture2D" uid="uid://ba8l7vqbd1uf8" path="res://assets/images/areas/rebirth/news/QTEDevious.png" id="107_2dvlg"]
+[ext_resource type="Texture2D" uid="uid://c6u44aj15nt0a" path="res://assets/images/areas/rebirth/news/QTELook.png" id="108_a7s3n"]
+[ext_resource type="Texture2D" uid="uid://drhxn0kgw56kk" path="res://assets/images/areas/rebirth/news/QTEPuzzle.png" id="108_a20a7"]
+[ext_resource type="Texture2D" uid="uid://6bd2ntbmwbt8" path="res://assets/images/areas/rebirth/news/QTEOh.png" id="109_26owk"]
+[ext_resource type="Texture2D" uid="uid://b6l33y4g0vpcu" path="res://assets/images/areas/rebirth/news/QTESweat.png" id="109_l6u4t"]
 
 [sub_resource type="Animation" id="Animation_fc60p"]
 length = 0.001
@@ -707,6 +729,66 @@ tracks/23/keys = {
 "update": 0,
 "values": [Color(0, 0, 0, 1)]
 }
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("../news/ColorRect2:color")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("../news/ColorRect2:visible")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("../news:visible")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("../news/Label3:visible")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/28/type = "value"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("../news/Label3:modulate")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_kf1rl"]
 resource_name = "curse"
@@ -1107,12 +1189,255 @@ tracks/3/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_myg3p"]
+resource_name = "openNews"
+length = 3.0
+step = 0.0003
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.133333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BigLight:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ThemeSong:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Camera2D:zoom")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.000299931),
+"transitions": PackedFloat32Array(10809.4),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Camera2D:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(10809.4),
+"update": 0,
+"values": [Vector2(576, 324)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("QTE:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(-0.00150015),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 266)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("QTE:animation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Default"]
+}
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("..")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+tracks/9/type = "method"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../VideoStreamPlayer")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play"
+}]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../news/ColorRect2:color")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("../news/ColorRect2:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(-0.00150015, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("../news:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_a7s3n"]
+resource_name = "end_2"
+length = 7.5
+step = 0.0003
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(6.91149),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"restart"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("money:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../news/ColorRect2:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2, 6.88957, 6.91235),
+"transitions": PackedFloat32Array(1, 1, 61.8199, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0.121569, 0.0470588, 0, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../news/ColorRect2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../news/Label3:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2.494, 6.71467),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../news/Label3:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.939994, 5.0249, 6.40084),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_u8ivg"]
 _data = {
 &"RESET": SubResource("Animation_e25hp"),
 &"curse": SubResource("Animation_kf1rl"),
 &"end": SubResource("Animation_t03k1"),
+&"end_2": SubResource("Animation_a7s3n"),
 &"open": SubResource("Animation_bcfrp"),
+&"openNews": SubResource("Animation_myg3p"),
 &"rebirth4": SubResource("Animation_a5v0l")
 }
 
@@ -1128,10 +1453,29 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("14_2dw6f")
+}],
+"loop": true,
+"name": &"Bored",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("14_8athj")
 }],
 "loop": true,
 "name": &"Bow",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_sr062")
+}, {
+"duration": 1.5,
+"texture": ExtResource("16_t1dsf")
+}],
+"loop": false,
+"name": &"Clap",
 "speed": 5.0
 }, {
 "frames": [{
@@ -1210,6 +1554,22 @@ animations = [{
 }],
 "loop": true,
 "name": &"Point",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("26_myg3p")
+}],
+"loop": true,
+"name": &"Prep",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("27_3syrf")
+}],
+"loop": true,
+"name": &"Shock",
 "speed": 5.0
 }]
 
@@ -2122,6 +2482,87 @@ void fragment() {
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m6ufn"]
 shader = SubResource("Shader_745cg")
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_3wwlt"]
+animations = [{
+"frames": [{
+"duration": 1.5,
+"texture": ExtResource("103_emnyu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("104_dvjwf")
+}],
+"loop": true,
+"name": &"cheer",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.5,
+"texture": ExtResource("103_emnyu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("104_dvjwf")
+}],
+"loop": true,
+"name": &"cheerFast",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("105_n4b48")
+}],
+"loop": true,
+"name": &"confused",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("106_3cmsi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("107_2dvlg")
+}],
+"loop": true,
+"name": &"devious",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("108_a7s3n")
+}],
+"loop": true,
+"name": &"look",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("109_26owk")
+}],
+"loop": true,
+"name": &"oh",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("108_a20a7")
+}],
+"loop": true,
+"name": &"puzzle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("109_l6u4t")
+}],
+"loop": true,
+"name": &"sweat",
+"speed": 5.0
+}]
+
 [node name="RebirthScene" type="Node2D"]
 script = ExtResource("1_i0unl")
 
@@ -2282,22 +2723,18 @@ offset_bottom = 263.0
 texture = ExtResource("18_bcfrp")
 
 [node name="back" type="Sprite2D" parent="curses"]
-visible = false
 position = Vector2(609, 287)
 texture = ExtResource("9_ikk70")
 
 [node name="wheel" type="Sprite2D" parent="curses"]
-visible = false
 position = Vector2(688, 309)
 texture = ExtResource("10_bcfrp")
 
 [node name="front" type="Sprite2D" parent="curses"]
-visible = false
 position = Vector2(609, 287)
 texture = ExtResource("11_e25hp")
 
 [node name="QTE" type="AnimatedSprite2D" parent="curses"]
-visible = false
 position = Vector2(576, 324)
 sprite_frames = SubResource("SpriteFrames_u8ivg")
 animation = &"Default"
@@ -2314,7 +2751,6 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="logo" type="AnimatedSprite2D" parent="curses"]
-visible = false
 position = Vector2(576, 82)
 sprite_frames = SubResource("SpriteFrames_yp200")
 autoplay = "default"
@@ -2346,7 +2782,6 @@ anim_speed_min = 16.0
 anim_speed_max = 82.7
 
 [node name="Spice" type="Sprite2D" parent="curses"]
-visible = false
 material = SubResource("ShaderMaterial_j1bjs")
 position = Vector2(577, 85)
 scale = Vector2(0.7, 0.7)
@@ -2521,10 +2956,129 @@ volume_db = -9.454
 stream = ExtResource("85_sk6my")
 volume_db = 3.439
 
+[node name="news" type="Node2D" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="news"]
+offset_left = -587.0
+offset_top = -227.0
+offset_right = 1738.0
+offset_bottom = 946.0
+color = Color(0, 0, 0, 1)
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="news"]
+offset_right = 1152.0
+offset_bottom = 648.0
+stream = ExtResource("97_ayhhp")
+volume_db = 13.57
+autoplay = true
+expand = true
+loop = true
+
+[node name="window" type="Sprite2D" parent="news"]
+position = Vector2(576, 324)
+texture = ExtResource("98_movoi")
+
+[node name="screenback" type="Sprite2D" parent="news"]
+position = Vector2(576, 324)
+texture = ExtResource("99_l6u4t")
+
+[node name="screen" type="Sprite2D" parent="news"]
+position = Vector2(576, 324)
+texture = ExtResource("100_gnxm2")
+
+[node name="tvoutline" type="Sprite2D" parent="news"]
+position = Vector2(576, 324)
+texture = ExtResource("101_a7s3n")
+
+[node name="desk" type="Sprite2D" parent="news"]
+position = Vector2(576, 324)
+texture = ExtResource("102_26owk")
+
+[node name="QTE" type="AnimatedSprite2D" parent="news"]
+position = Vector2(576, 324)
+sprite_frames = SubResource("SpriteFrames_3wwlt")
+animation = &"oh"
+
+[node name="Dialogue" type="Label" parent="news"]
+offset_left = 15.0
+offset_top = 554.0
+offset_right = 1137.0
+offset_bottom = 643.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("3_c2huh")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="QTEContainer" type="GridContainer" parent="news"]
+offset_left = 225.0
+offset_top = 172.0
+offset_right = 300.0
+offset_bottom = 329.0
+columns = 2
+
+[node name="LGEContainer" type="GridContainer" parent="news"]
+offset_left = 312.0
+offset_top = 172.0
+offset_right = 387.0
+offset_bottom = 329.0
+columns = 2
+
+[node name="PUZContainer" type="GridContainer" parent="news"]
+offset_left = 398.0
+offset_top = 172.0
+offset_right = 473.0
+offset_bottom = 329.0
+columns = 2
+
+[node name="ColorRect2" type="ColorRect" parent="news"]
+offset_left = -581.0
+offset_top = -239.0
+offset_right = 1744.0
+offset_bottom = 934.0
+color = Color(0, 0, 0, 1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="news"]
+stream = ExtResource("97_3syrf")
+volume_db = 1.244
+bus = &"Music"
+parameters/looping = true
+
+[node name="Label3" type="Label" parent="news"]
+visible = false
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 24.0
+offset_top = 291.0
+offset_right = 1125.0
+offset_bottom = 370.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_c2huh")
+theme_override_font_sizes/font_size = 34
+text = "You Got 10 Rebirth Tokens!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 324)
 ignore_rotation = false
 position_smoothing_enabled = true
 
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+stream = ExtResource("97_myg3p")
+volume_db = 13.57
+expand = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]

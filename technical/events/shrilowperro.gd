@@ -25,7 +25,6 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Click") and goforth == true:
 		mybellyisready = true
 
-
 #makes it so that when the player presses enter it waits until the next loop to stay on beat
 func _on_prelude_finished() -> void:
 	if mybellyisready == true:
