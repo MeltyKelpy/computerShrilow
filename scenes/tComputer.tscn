@@ -3960,6 +3960,14 @@ one_shot = true
 wait_time = 600.0
 one_shot = true
 
+[node name="Timer4" type="Timer" parent="."]
+wait_time = 0.8
+one_shot = true
+
+[node name="jellRev" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
 [connection signal="pressed" from="Mines/ScrollContainer/Control/BackButtonWARD" to="." method="_on_back_button_ward2_pressed"]
 [connection signal="pressed" from="Shrilow/ShrilowSqueak" to="." method="_on_shrilow_squeak_pressed"]
 [connection signal="timeout" from="Shrilow/Timer" to="." method="dialogueGoAway" binds= ["shrilow"]]
@@ -4018,3 +4026,5 @@ one_shot = true
 [connection signal="timeout" from="autosave" to="." method="autosave"]
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
 [connection signal="timeout" from="Timer3" to="." method="_on_timer_3_timeout"]
+[connection signal="timeout" from="Timer4" to="." method="_on_timer_4_timeout"]
+[connection signal="timeout" from="jellRev" to="." method="_on_jell_rev_timeout"]

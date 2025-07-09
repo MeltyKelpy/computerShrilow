@@ -44,6 +44,15 @@ var settings = [
 	"min":0,
 	},
 	{
+	"name":"Text Hint Color",
+	"id":"texthint",
+	"type":"multiChoice",
+	"desc":"select hint text color (default is yellow)",
+	"selection":0,
+	"choices":{"Yellow":"yellow", "Red":"red", "Green":"green", "Blue":"blue", "Hints Disabled":"none"},
+	"selectionNum":0,
+	},
+	{
 	"name":"Menu Transitions",
 	"id":"menuTrans",
 	"type":"boolean",
@@ -183,6 +192,7 @@ func loadData():
 		var musicVolume = config.get_value("Settings", "musicVolume", 1)
 		var sfxVolume = config.get_value("Settings", "sfxVolume", 1)
 		var tsVolume = config.get_value("Settings", "tsVolume", 1)
+		var texthint = config.get_value("Settings", "texthint")
 		
 		Settings.settings[get_setting("kiwami")]["enabled?"] = kiwamiState
 		Settings.settings[get_setting("minesOptimization")]["enabled?"] = minesOptimization
@@ -208,6 +218,13 @@ func loadData():
 			Settings.settings[get_setting("seperator")]["selection"] = ","
 			Settings.settings[get_setting("seperator")]["selectionNum"] = 0
 		
+		if texthint != null:
+			Settings.settings[get_setting("texthint")]["selection"] = texthint[0]
+			Settings.settings[get_setting("texthint")]["selectionNum"] = texthint[1]
+		else:
+			Settings.settings[get_setting("texthint")]["selection"] = "yellow"
+			Settings.settings[get_setting("texthint")]["selectionNum"] = 0
+		
 		if ColorblindMode != null:
 			Settings.settings[get_setting("colorblindness")]["selection"] = ColorblindMode[0]
 			Settings.settings[get_setting("colorblindness")]["selectionNum"] = ColorblindMode[1]
@@ -220,6 +237,7 @@ func saveData():
 	
 	config.set_value("Settings", "KiwamiMode", Settings.settings[get_setting("kiwami")]["enabled?"])
 	config.set_value("Settings", "SeperatorType", [Settings.settings[get_setting("seperator")]["selection"],Settings.settings[get_setting("seperator")]["selectionNum"]])
+	config.set_value("Settings", "texthint", [Settings.settings[get_setting("texthint")]["selection"],Settings.settings[get_setting("texthint")]["selectionNum"]])
 	config.set_value("Settings", "Colorblind", [Settings.settings[get_setting("colorblindness")]["selection"],Settings.settings[get_setting("colorblindness")]["selectionNum"]])
 	config.set_value("Settings", "MinesOptimization", Settings.settings[get_setting("minesOptimization")]["enabled?"])
 	config.set_value("Settings", "JelliesOptimization", Settings.settings[get_setting("jelliesOptimization")]["enabled?"])

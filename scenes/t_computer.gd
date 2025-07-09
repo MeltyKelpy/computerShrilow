@@ -228,6 +228,9 @@ var coconut
 
 var textu
 
+var teh_jellies = 0
+var jelly_DPS = 0
+
 var stupid_linux_joke = false
 
 @onready var timer_3 = $Timer3
@@ -262,11 +265,11 @@ func manageScenes():
 				if alongTheDialogue == 0:
 					$Shop/ItemDescription.text = "Oh shit, right, you actually need to get numbers, dont you?"
 				if alongTheDialogue == 1:
-					$Shop/ItemDescription.text = "Hmm... I think your best shot is gonna be this thing I heard overheard qte talking about, [color=#B57016]The Interstate[/color], I heard it was put on your main menu?"
+					$Shop/ItemDescription.text = "Hmm... I think your best shot is gonna be this thing I heard overheard qte talking about, [color=#"+Interstate.hint_color+"]The Interstate[/color], I heard it was put on your main menu?"
 				if alongTheDialogue == 2:
-					$Shop/ItemDescription.text = "That QuickTime-Event guy [color=#B57016]hid some stuff in there[/color], its used for Screen Event stuff, I think? And assuming I'm remembering correctly theres one for pop-up ads, right?"
+					$Shop/ItemDescription.text = "That QuickTime-Event guy [color=#"+Interstate.hint_color+"]hid some stuff in there[/color], its used for Screen Event stuff, I think? And assuming I'm remembering correctly theres one for pop-up ads, right?"
 				if alongTheDialogue == 3:
-					$Shop/ItemDescription.text = "Theres gotta be [color=#B57016]an ad with a phone number you can call[/color] or something. I'm not informed on how The Interstate works but, I heard something about [color=#B57016]Files[/color], so look for Files, I guess?"
+					$Shop/ItemDescription.text = "Theres gotta be [color=#"+Interstate.hint_color+"]an ad with a phone number you can call[/color] or something. I'm not informed on how The Interstate works but, I heard something about [color=#B57016]Files[/color], so look for Files, I guess?"
 				if alongTheDialogue == 4:
 					$Shop/ItemDescription.text = "Report back to me once you've found it! or not, I guess, up to you."
 				if alongTheDialogue == 5:
@@ -280,11 +283,11 @@ func manageScenes():
 				if alongTheDialogue == 2:
 					$Shop/ItemDescription.text = "I've kinda been curious why only one of them can be used at a time or whatever, said it was a 'memory' thing?"
 				if alongTheDialogue == 3:
-					$Shop/ItemDescription.text = "Not to put you up to anything, but i've been really curious to see if there was a way to use [color=#B57016]more than one?[/color]"
+					$Shop/ItemDescription.text = "Not to put you up to anything, but i've been really curious to see if there was a way to use [color=#"+Interstate.hint_color+"]more than one?[/color]"
 				if alongTheDialogue == 4:
-					$Shop/ItemDescription.text = "Maybe theres [color=#B57016]someone you can talk to that knows alot about the mines?[/color]"
+					$Shop/ItemDescription.text = "Maybe theres [color=#"+Interstate.hint_color+"]someone you can talk to that knows alot about the mines?[/color]"
 				if alongTheDialogue == 5:
-					$Shop/ItemDescription.text = "realistically you'd probably also need [color=#B57016]someway to contact them[/color] though. maybe you could try asking around?"
+					$Shop/ItemDescription.text = "realistically you'd probably also need [color=#"+Interstate.hint_color+"]someway to contact them[/color] though. maybe you could try asking around?"
 					if FizzyDrink.marketDialogue[Game._unlock_dialogue("phone", FizzyDrink.marketDialogue)]["interacted"] == false:
 						FizzyDrink.marketDialogue[Game._unlock_dialogue("phone", FizzyDrink.marketDialogue)]["unlocked"] = true
 				if alongTheDialogue == 6:
@@ -302,7 +305,7 @@ func manageScenes():
 				if alongTheDialogue == 4:
 					$Shop/ItemDescription.text = "They'll be at the bottom of the shop, check them out if you have time!"
 				if alongTheDialogue == 5:
-					$Shop/ItemDescription.text = "I'll let us just get back to buisness, but [color=#B57016]im always willing to talk![/color] if you want to, of course. you can talk to anyone by clicking them, if you forgot."
+					$Shop/ItemDescription.text = "I'll let us just get back to buisness, but [color=#"+Interstate.color+"]im always willing to talk![/color] if you want to, of course. you can talk to anyone by clicking them, if you forgot."
 				if alongTheDialogue == 6:
 					$Shop/ItemDescription.text = "Does that count as a fourth wall break? I mean, I am also on your computer? idk man not my problem"
 				if alongTheDialogue == 7:
@@ -735,10 +738,10 @@ func manageScenes():
 				$BlackMarket/talk.text = talker+": "+"...sure."
 			if alongTheDialogue == 8:
 				talker = "Phantom"
-				$BlackMarket/talk.text = talker+": "+"If you ever wanna use my phone, you can [color=#B57016]press 'P'[/color]! for PHANTOM!"
+				$BlackMarket/talk.text = talker+": "+"If you ever wanna use my phone, you can [color=#"+Interstate.hint_color+"]press 'P'[/color]! for PHANTOM!"
 			if alongTheDialogue == 9:
 				talker = "Phantom"
-				$BlackMarket/talk.text = talker+": "+"Did you like my awesome [color=#B57016]meta 4th wall break[/color]?"
+				$BlackMarket/talk.text = talker+": "+"Did you like my awesome [color=#"+Interstate.hint_color+"]meta 4th wall break[/color]?"
 			if alongTheDialogue == 10:
 				talker = "Antag"
 				$BlackMarket/talk.text = talker+": "+"We're literally on the computer too. that is the least meta a meta 4th wall break could be"
@@ -787,7 +790,7 @@ func manageScenes():
 				$BlackMarket/talk.text = talker+": "+"YEAH. YOU SHOULD'VE. FAKE FRIEND."
 			if alongTheDialogue == 11:
 				talker = "Phantom"
-				$BlackMarket/talk.text = talker+": "+"anyway! i dont have a whole lotta contacts so.. if you need more you gotta [color=#B57016]ask someone else[/color]! unless you did already.. then uhm. stop beating me to things!"
+				$BlackMarket/talk.text = talker+": "+"anyway! i dont have a whole lotta contacts so.. if you need more you gotta [color=#"+Interstate.hint_color+"]ask someone else[/color]! unless you did already.. then uhm. stop beating me to things!"
 			if alongTheDialogue == 12:
 				endDialogue()
 		"whoAreYall":
@@ -1424,6 +1427,18 @@ func _ready():
 	Game.saveData()
 
 func _process(_delta : float) -> void:
+	
+	if Settings.setting_state("jelliesOptimization") and ($Timer4.is_stopped() and $jellRev.is_stopped()):
+		$Timer4.start()
+	if !Settings.setting_state("jelliesOptimization"):
+		$Timer4.stop()
+		$jellRev.stop()
+	
+	if $Jelly/Control != null:
+		if $Jelly/Control.get_child_count() != teh_jellies:
+			teh_jellies = $Jelly/Control.get_child_count()
+			for i in teh_jellies:
+				jelly_DPS += $Jelly/Control.get_child(i).money / $Jelly/Control.get_child(i).seconds
 	
 	if area == "melanie":
 		if rebirth1intro == true and Game.market_discovered == true:
@@ -2984,3 +2999,19 @@ func _on_melinteract_pressed() -> void:
 	$ShrilowScreen/melTextBox/box/dialog.text = str(shitMelanieCanSay[rng.randi_range(0, shitMelanieCanSay.size()-1)])
 	var tween = create_tween()
 	tween.tween_property($ShrilowScreen/melTextBox, "scale", Vector2(0.7,0.7), 1).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+
+func _on_timer_4_timeout() -> void:
+	if Settings.setting_state("jelliesOptimization"):
+		ItemValues.money += jelly_DPS
+		ItemValues.total_money += jelly_DPS
+		if Settings.setting_state("animationsOptimization"):
+			for i in teh_jellies:
+				$Jelly/Control.get_child(i).state = 1
+		$jellRev.start()
+
+func _on_jell_rev_timeout() -> void:
+	if Settings.setting_state("jelliesOptimization"):
+		if Settings.setting_state("animationsOptimization"):
+			for i in teh_jellies:
+				$Jelly/Control.get_child(i).state = 0
+		$Timer4.start()

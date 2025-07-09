@@ -16,6 +16,9 @@ var tp_status = ["not","not","not"]
 # in-progress
 @onready var color = $ColorRect
 
+var hint_color = ""
+var hint_colors = {"yellow":"B57016","none":"1f0c00", "red":"B61533", "blue":"1615B6", "green":"20B615"}
+
 func _enter_tree() -> void:
 	loadData()
 
@@ -32,6 +35,8 @@ func _process(delta: float) -> void:
 		$Timer.start()
 	if $autoSaveTimer.is_stopped():
 		$autoSaveTimer.start()
+	
+	hint_color = hint_colors[Settings.settings[Settings.get_setting("texthint")]["selection"]]
 
 func saveData():
 	var config = ConfigFile.new()

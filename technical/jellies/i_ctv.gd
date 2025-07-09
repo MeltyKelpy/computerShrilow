@@ -25,9 +25,7 @@ func repo_management(type):
 			if namie.containsn(search) or search == "":
 				caca.naame = hi.Aname
 				caca.type = hi.type
-				caca.maxJells = hi.maxJel
 				caca.assignedElevator = assignedElevator
-				caca.jelly = hi.jellyCount
 				caca.posX = hi.camXpos
 				caca.posY = hi.camYpos
 				caca.hi = hi

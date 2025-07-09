@@ -30,7 +30,8 @@ func getID(num):
 	caca2.warn("You bought a "+type+" for your jellies!")
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("DebugMode"):
-		getID(ID)
-		FizzyDrink.scrollLimitLEFT = maxLEFT
-		FizzyDrink.scrollLimitRIGHT = maxRIGHT
+	#if Input.is_action_just_pressed("DebugMode"):
+		#getID(ID)
+		#FizzyDrink.scrollLimitLEFT = maxLEFT
+		#FizzyDrink.scrollLimitRIGHT = maxRIGHT
+	pass

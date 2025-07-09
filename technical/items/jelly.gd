@@ -121,10 +121,18 @@ func _physics_process(delta: float) -> void:
 		else:
 			$RigidBody2D/jelly.texture = load("res://assets/images/jellies/Plinker Jelly/jelly0.png")
 	
+	# doubt i'll be keeping this im ngl
+	#if Settings.setting_state("jelliesOptimization"):
+		#rigid_body_2d.set_collision_mask_value(2, false)
+	#else:
+		#rigid_body_2d.set_collision_mask_value(2, true)
+	
+	if !Settings.setting_state("jelliesOptimization") and ($FirstTimer.is_stopped() == true and $SecondTimer.is_stopped() == true):
+		$FirstTimer.start()
+	
 	if Settings.setting_state("jelliesOptimization"):
-		rigid_body_2d.set_collision_mask_value(2, false)
-	else:
-		rigid_body_2d.set_collision_mask_value(2, true)
+		$FirstTimer.stop()
+		$SecondTimer.stop()
 	
 	if visible == false:
 		$RigidBody2D/Squeak.volume_db = -80
@@ -207,11 +215,13 @@ func _on_timer_timeout() -> void:
 	ItemValues.total_money += showMoney
 	$RigidBody2D/Squeak.play()
 	state = 1
-	$SecondTimer.start()
+	if !Settings.setting_state("jelliesOptimization"):
+		$SecondTimer.start()
 
 func _on_second_timer_timeout() -> void:
 	state = 0
-	$FirstTimer.start()
+	if !Settings.setting_state("jelliesOptimization"):
+		$FirstTimer.start()
 
 func _jelly_spawn() -> void:
 	visible = true

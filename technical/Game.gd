@@ -222,9 +222,12 @@ func loadData():
 					for e in Journal.entriesText[Journal.entriesText.keys()[i]].size():
 						var that_one_fucking_array = Journal.entriesText[Journal.entriesText.keys()[i]]
 						if e == 0:
-							that_one_fucking_array[e] = config.get_value("Journal", "journalShit")[Journal.entriesText.keys()[i]]["locked"]
+							if config.get_value("Journal", "journalShit").has(Journal.entriesText.keys()[i]):
+								that_one_fucking_array[e] = config.get_value("Journal", "journalShit")[Journal.entriesText.keys()[i]]["locked"]
 						else:
-							that_one_fucking_array[e]["revealed?"] = config.get_value("Journal", "journalShit")[Journal.entriesText.keys()[i]][that_one_fucking_array[e]["id"]]
+							if config.get_value("Journal", "journalShit").has(Journal.entriesText.keys()[i]):
+								if config.get_value("Journal", "journalShit")[Journal.entriesText.keys()[i]].has([that_one_fucking_array[e]["id"]]):
+									that_one_fucking_array[e]["revealed?"] = config.get_value("Journal", "journalShit")[Journal.entriesText.keys()[i]][that_one_fucking_array[e]["id"]]
 		
 		for i in FizzyDrink.callers.size():
 			FizzyDrink.callers[i]["unlocked?"] = config.get_value("Story", "callers")[i]
