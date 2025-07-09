@@ -1,0 +1,16 @@
+// Game: Generic
+// Format: Standard
+// entity 0
+{
+"classname" "worldspawn"
+"_tb_textures" "textures/ComputerShrilow"
+// brush 0
+{
+( -16 -15 0 ) ( -16 -14.599999999999994 0 ) ( -16 -15 2 ) ComputerShrilow/gold -102 62 0 0.27 0.27
+( -16 -15 0 ) ( -16 -15 2 ) ( -15.5 -15 0 ) ComputerShrilow/gold -102 62 0 0.27 0.27
+( -16 -15 0 ) ( -15.5 -15 0 ) ( -16 -14.599999999999994 0 ) ComputerShrilow/gold -102 62 0 0.27 0.27
+( 16 17 32 ) ( 16 17.399999999999977 32 ) ( 16.5 17 32 ) ComputerShrilow/gold -98 102 0 0.27 0.27
+( 16 17 32 ) ( 16.5 17 32 ) ( 16 17 34 ) ComputerShrilow/gold -102 62 0 0.27 0.27
+( 16 17 32 ) ( 16 17 34 ) ( 16 17.399999999999977 32 ) ComputerShrilow/gold -102 62 0 0.27 0.27
+}
+}

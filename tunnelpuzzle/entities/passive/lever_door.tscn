@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://ym1tuthoxp38"]
+[gd_scene load_steps=23 format=4 uid="uid://ym1tuthoxp38"]
 
 [ext_resource type="Script" uid="uid://wj3hbbjky62n" path="res://tunnelpuzzle/entities/passive/lever_door.gd" id="1_6dh3g"]
 [ext_resource type="Script" uid="uid://cnp3ulm0eugrk" path="res://addons/func_godot/src/map/func_godot_map.gd" id="2_mfqjn"]
@@ -139,9 +139,38 @@ tracks/1/keys = {
 "values": [Vector3(-0.013654, 0.0176262, -0.685038), Vector3(-0.014, 0.018, -2.1)]
 }
 
+[sub_resource type="Animation" id="Animation_jw202"]
+resource_name = "close"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("part2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(0.378929, 1),
+"update": 0,
+"values": [Vector3(-0.014, 0.018, 0.736), Vector3(-0.014, 0.018, -0.685)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("part1:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(0.378929, 1),
+"update": 0,
+"values": [Vector3(-0.014, 0.018, -2.1), Vector3(-0.014, 0.018, -0.685)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jw202"]
 _data = {
 &"RESET": SubResource("Animation_hedwa"),
+&"close": SubResource("Animation_jw202"),
 &"open": SubResource("Animation_sdhvu")
 }
 

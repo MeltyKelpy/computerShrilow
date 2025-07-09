@@ -28,3 +28,12 @@ func _physics_process(delta: float) -> void:
 			
 			if Input.is_action_just_pressed(collider.button_to_interact):
 				collider.interact()
+		
+		if collider is box:
+			collider.hovered = true
+			
+			if Input.is_action_just_pressed("interact"):
+				var hi = get_parent().get_parent()
+				hi.pickedObj = collider 
+			elif !Input.is_action_pressed("interact"):
+				prompt.text = "Hold [E] to Drag"

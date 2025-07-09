@@ -13,6 +13,9 @@ var stamina = 100.0
 var ui_toggled = true
 var ui_toggled2 = true
 
+var pickedObj
+var pullPower = 4
+
 var hotboxes = [
 	]
 
@@ -164,6 +167,15 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 	
+	if pickedObj != null:
+		var a = pickedObj.global_position
+		var b = $Neck/Marker3D.global_position
+		pickedObj.set_linear_velocity((b-a)*pullPower)
+	
+	if Input.is_action_just_released("interact") and pickedObj != null:
+		pickedObj.set_linear_velocity(Vector3(self.velocity.x,3,self.velocity.z))
+		pickedObj = null
+	
 	move_and_slide()
 	
 
@@ -179,11 +191,10 @@ func _unhandled_input(event):
 	elif event.is_action_pressed("ui_cancel"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
-	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-		if event is InputEventMouseMotion:
-			$Neck.rotate_y(-event.relative.x * mouse_sens)
-			$Neck/Vision.rotate_x(-event.relative.y * mouse_sens)
-			$Neck/Vision.rotation.x = clamp($Neck/Vision.rotation.x, deg_to_rad(-70), deg_to_rad(70))
-			$Neck/RayCast3D.rotate_x(-event.relative.y * mouse_sens)
-			$Neck/RayCast3D.rotation.x = clamp($Neck/RayCast3D.rotation.x, deg_to_rad(-70), deg_to_rad(70))
-			$Neck/heldItem.rotation.x = clamp($Neck/RayCast3D.rotation.x, deg_to_rad(-70), deg_to_rad(70))
+	if event is InputEventMouseMotion:
+		$Neck.rotate_y(-event.relative.x * mouse_sens)
+		$Neck/Vision.rotate_x(-event.relative.y * mouse_sens)
+		$Neck/Vision.rotation.x = clamp($Neck/Vision.rotation.x, deg_to_rad(-70), deg_to_rad(70))
+		$Neck/RayCast3D.rotate_x(-event.relative.y * mouse_sens)
+		$Neck/RayCast3D.rotation.x = clamp($Neck/RayCast3D.rotation.x, deg_to_rad(-70), deg_to_rad(70))
+		$Neck/heldItem.rotation.x = clamp($Neck/RayCast3D.rotation.x, deg_to_rad(-70), deg_to_rad(70))

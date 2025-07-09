@@ -23,6 +23,7 @@ func _enter_tree() -> void:
 	loadData()
 
 func _ready() -> void:
+	Settings.loadData()
 	var config = ConfigFile.new()
 	
 	var err = config.load("user://interstate.cfg")

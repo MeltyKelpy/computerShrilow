@@ -55,6 +55,9 @@ texture = ExtResource("6_7o3jg")
 
 [node name="Vision" type="Camera3D" parent="Neck"]
 
+[node name="Marker3D" type="Marker3D" parent="Neck"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00374806, -2.14837)
+
 [node name="Control" type="Control" parent="."]
 clip_contents = true
 layout_mode = 3

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://u8hq0evovhru"]
+
+[ext_resource type="Script" uid="uid://cq64j57lw2u7n" path="res://tunnelpuzzle/technical/eventZone.gd" id="1_ktn3p"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mpsu8"]
+size = Vector3(4.84186, 3.46439, 1)
+
+[node name="EventZone" type="Area3D"]
+script = ExtResource("1_ktn3p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0331116, -0.0162506, 0)
+shape = SubResource("BoxShape3D_mpsu8")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

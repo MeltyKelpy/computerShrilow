@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c534d3g6mk6gc"]
+[gd_scene load_steps=4 format=3 uid="uid://c534d3g6mk6gc"]
 
 [ext_resource type="Script" uid="uid://ctyoe01somiyu" path="res://tunnelpuzzle/scenes/tunnelpuzzle.gd" id="1_ctjyk"]
 [ext_resource type="PackedScene" uid="uid://454ksd0kpxhj" path="res://tunnelpuzzle/scenes/maps/tunnelpuzzle.tscn" id="2_trxhu"]
+[ext_resource type="AudioStream" uid="uid://c8r6j0y8mnyft" path="res://assets/music/corridors.ogg" id="3_7pacw"]
 
 [node name="Tunnelpuzzle" type="Window"]
 transparent_bg = true
@@ -16,3 +17,7 @@ transparent = true
 script = ExtResource("1_ctjyk")
 
 [node name="Tunnelpuzzle" parent="." instance=ExtResource("2_trxhu")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_7pacw")
+volume_db = -4.982

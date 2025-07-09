@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/corridors.ogg-9da2b71d5b07ebe2d3c573a8dbabaca
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

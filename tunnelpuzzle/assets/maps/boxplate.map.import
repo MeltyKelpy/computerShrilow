@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://brucc35kvs7lb"
+path="res://.godot/imported/boxplate.map-7e7c3c953e4c973c489c49193c4ec7b8.tres"
+
+[deps]
+
+source_file="res://tunnelpuzzle/assets/maps/boxplate.map"
+dest_files=["res://.godot/imported/boxplate.map-7e7c3c953e4c973c489c49193c4ec7b8.tres"]
+
+[params]
+

@@ -1,0 +1,97 @@
+// Game: Generic
+// Format: Standard
+// entity 0
+{
+"classname" "worldspawn"
+"_tb_textures" "textures/ComputerShrilow"
+// brush 0
+{
+( -23 -23 6 ) ( -23 -22 6 ) ( -23 -23 7 ) ComputerShrilow/gold 0 0 0 1 1
+( -23 -23 6 ) ( -23 -23 7 ) ( -22 -23 6 ) ComputerShrilow/gold 0 0 0 1 1
+( -23 -23 6 ) ( -22 -23 6 ) ( -23 -22 6 ) ComputerShrilow/gold 0 0 0 1 1
+( 25 25 8 ) ( 25 26 8 ) ( 26 25 8 ) ComputerShrilow/gold 0 0 0 1 1
+( 25 25 8 ) ( 26 25 8 ) ( 25 25 9 ) ComputerShrilow/gold 0 0 0 1 1
+( 25 25 8 ) ( 25 25 9 ) ( 25 26 8 ) ComputerShrilow/gold 0 0 0 1 1
+}
+// brush 1
+{
+( -31 25 6 ) ( -31 25 12 ) ( -31 -23 12 ) ComputerShrilow/metal2 0 0 0 1 1
+( -31 -23 6 ) ( -31 -23 12 ) ( -23 -23 6 ) ComputerShrilow/metal2 0 0 0 1 1
+( -23 25 6 ) ( -31 25 6 ) ( -31 -23 6 ) ComputerShrilow/metal2 0 0 0 1 1
+( -23 25 6 ) ( -31 25 12 ) ( -31 25 6 ) ComputerShrilow/metal2 0 0 0 1 1
+( -31 -23 12 ) ( -31 25 12 ) ( -23 25 6 ) ComputerShrilow/metal2 0 -52.017426 0 1 1
+}
+// brush 2
+{
+( -31 -23 12 ) ( -31 -31 12 ) ( -31 -31 6 ) ComputerShrilow/metal2 0 0 0 1 1
+( -31 -31 6 ) ( -31 -31 12 ) ( -23 -31 12 ) ComputerShrilow/metal2 0 0 0 1 1
+( -31 -23 6 ) ( -31 -31 6 ) ( -23 -31 6 ) ComputerShrilow/metal2 0 0 0 1 1
+( -23 -31 12 ) ( -31 -31 12 ) ( -31 -23 12 ) ComputerShrilow/metal2 0 0 0 1 1
+( -23 -23 6 ) ( -31 -23 12 ) ( -31 -23 6 ) ComputerShrilow/metal2 0 0 0 1 1
+( -23 -31 12 ) ( -31 -23 12 ) ( -23 -23 6 ) ComputerShrilow/metal2 -521.3733 -47.093338 0 1 1
+( -23 -31 6 ) ( -23 -31 12 ) ( -23 -23 6 ) ComputerShrilow/metal2 0 0 0 1 1
+}
+// brush 3
+{
+( -23 -23 6 ) ( -23 -31 12 ) ( -23 -31 6 ) ComputerShrilow/metal2 0 0 0 1 1
+( -23 -31 6 ) ( -23 -31 12 ) ( 25 -31 12 ) ComputerShrilow/metal2 0 0 0 1 1
+( -23 -23 6 ) ( -23 -31 6 ) ( 25 -31 6 ) ComputerShrilow/metal2 0 0 0 1 1
+( 25 -31 12 ) ( -23 -31 12 ) ( -23 -23 6 ) ComputerShrilow/metal2 0 -52.017426 0 1 1
+( 25 -31 6 ) ( 25 -31 12 ) ( 25 -23 6 ) ComputerShrilow/metal2 0 0 0 1 1
+}
+// brush 4
+{
+( 25 -23 6 ) ( 25 -31 12 ) ( 25 -31 6 ) ComputerShrilow/metal2 0 0 0 1 1
+( 33 -23 12 ) ( 25 -31 12 ) ( 25 -23 6 ) ComputerShrilow/metal2 -521.3733 -47.093338 0 1 1
+( 25 -31 12 ) ( 33 -31 12 ) ( 33 -31 6 ) ComputerShrilow/metal2 0 0 0 1 1
+( 25 -31 6 ) ( 33 -31 6 ) ( 33 -23 6 ) ComputerShrilow/metal2 0 0 0 1 1
+( 33 -23 12 ) ( 33 -31 12 ) ( 25 -31 12 ) ComputerShrilow/metal2 0 0 0 1 1
+( 33 -23 6 ) ( 33 -23 12 ) ( 25 -23 6 ) ComputerShrilow/metal2 0 0 0 1 1
+( 33 -31 6 ) ( 33 -31 12 ) ( 33 -23 12 ) ComputerShrilow/metal2 0 0 0 1 1
+}
+// brush 5
+{
+( 33 25 12 ) ( 33 -23 12 ) ( 25 -23 6 ) ComputerShrilow/metal2 0 -52.017426 0 1 1
+( 25 -23 6 ) ( 33 -23 12 ) ( 33 -23 6 ) ComputerShrilow/metal2 0 0 0 1 1
+( 25 -23 6 ) ( 33 -23 6 ) ( 33 25 6 ) ComputerShrilow/metal2 0 0 0 1 1
+( 33 25 6 ) ( 33 25 12 ) ( 25 25 6 ) ComputerShrilow/metal2 0 0 0 1 1
+( 33 -23 6 ) ( 33 -23 12 ) ( 33 25 12 ) ComputerShrilow/metal2 0 0 0 1 1
+}
+// brush 6
+{
+( 25 33 6 ) ( 25 33 12 ) ( 25 25 6 ) ComputerShrilow/metal2 0 0 0 1 1
+( 25 33 12 ) ( 33 25 12 ) ( 25 25 6 ) ComputerShrilow/metal2 -521.3733 -47.093338 0 1 1
+( 25 25 6 ) ( 33 25 12 ) ( 33 25 6 ) ComputerShrilow/metal2 0 0 0 1 1
+( 33 25 6 ) ( 33 33 6 ) ( 25 33 6 ) ComputerShrilow/metal2 0 0 0 1 1
+( 25 33 12 ) ( 33 33 12 ) ( 33 25 12 ) ComputerShrilow/metal2 0 0 0 1 1
+( 33 33 6 ) ( 33 33 12 ) ( 25 33 12 ) ComputerShrilow/metal2 0 0 0 1 1
+( 33 25 12 ) ( 33 33 12 ) ( 33 33 6 ) ComputerShrilow/metal2 0 0 0 1 1
+}
+// brush 7
+{
+( -23 33 6 ) ( -23 33 12 ) ( -23 25 6 ) ComputerShrilow/metal2 0 0 0 1 1
+( -23 33 12 ) ( 25 33 12 ) ( 25 25 6 ) ComputerShrilow/metal2 0 -52.017426 0 1 1
+( 25 25 6 ) ( 25 33 6 ) ( -23 33 6 ) ComputerShrilow/metal2 0 0 0 1 1
+( 25 33 6 ) ( 25 33 12 ) ( -23 33 12 ) ComputerShrilow/metal2 0 0 0 1 1
+( 25 25 6 ) ( 25 33 12 ) ( 25 33 6 ) ComputerShrilow/metal2 0 0 0 1 1
+}
+// brush 8
+{
+( -31 33 6 ) ( -31 33 12 ) ( -31 25 12 ) ComputerShrilow/metal2 0 0 0 1 1
+( -31 25 6 ) ( -31 25 12 ) ( -23 25 6 ) ComputerShrilow/metal2 0 0 0 1 1
+( -23 33 6 ) ( -31 33 6 ) ( -31 25 6 ) ComputerShrilow/metal2 0 0 0 1 1
+( -31 25 12 ) ( -31 33 12 ) ( -23 33 12 ) ComputerShrilow/metal2 0 0 0 1 1
+( -23 33 12 ) ( -31 33 12 ) ( -31 33 6 ) ComputerShrilow/metal2 0 0 0 1 1
+( -31 25 12 ) ( -23 33 12 ) ( -23 25 6 ) ComputerShrilow/metal2 -521.3733 -47.093338 0 1 1
+( -23 25 6 ) ( -23 33 12 ) ( -23 33 6 ) ComputerShrilow/metal2 0 0 0 1 1
+}
+// brush 9
+{
+( -31 -31 0 ) ( -31 -30.19999999999999 0 ) ( -31 -31 0.375 ) ComputerShrilow/metal2 0 0 0 1 1
+( -31 -31 0 ) ( -31 -31 0.375 ) ( -30 -31 0 ) ComputerShrilow/metal2 0 0 0 1 1
+( -31 -31 0 ) ( -30 -31 0 ) ( -31 -30.19999999999999 0 ) ComputerShrilow/metal2 0 0 0 1 1
+( 33 33 6 ) ( 33 33.799999999999955 6 ) ( 34 33 6 ) ComputerShrilow/metal2 0 0 0 1 1
+( 33 33 6 ) ( 34 33 6 ) ( 33 33 6.375 ) ComputerShrilow/metal2 0 0 0 1 1
+( 33 33 6 ) ( 33 33 6.375 ) ( 33 33.799999999999955 6 ) ComputerShrilow/metal2 0 0 0 1 1
+}
+}

@@ -1,0 +1,58 @@
+[gd_scene load_steps=10 format=4 uid="uid://eub2guj6vtiw"]
+
+[ext_resource type="Script" uid="uid://dmkkfdk1wtwvg" path="res://tunnelpuzzle/technical/box.gd" id="1_bvjev"]
+[ext_resource type="Script" uid="uid://cnp3ulm0eugrk" path="res://addons/func_godot/src/map/func_godot_map.gd" id="2_bge1d"]
+[ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="3_sidrc"]
+[ext_resource type="Material" uid="uid://cqw887ncav64t" path="res://tunnelpuzzle/assets/textures/ComputerShrilow/gold.tres" id="4_i8mt1"]
+[ext_resource type="Shader" uid="uid://cuejasmieevy7" path="res://tunnelpuzzle/technical/outline.gdshader" id="4_sidrc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i8mt1"]
+render_priority = 0
+shader = ExtResource("4_sidrc")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/size = 1.05
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ftdtc"]
+_surfaces = [{
+"aabb": AABB(-0.46875, 0, -0.5, 1, 1, 1),
+"attribute_data": PackedByteArray("A92Avm7nuL0D3YC+StbKPalsf71K1so9qWx/vW7nuL1/5IO+bue4vULUi71u57i9QtSLvUrWyj1/5IO+StbKPX/kg74ZoMm6f+SDvpxLQD5C1Iu9nEtAPkLUi70ZoMm6+Z6Avqlsfz1afH29qWx/PVp8fb0D3YA++Z6AvgPdgD5/5IO+bue4vX/kg75K1so9QtSLvUrWyj1C1Iu9bue4vQPdgL5u57i9qWx/vW7nuL2pbH+9StbKPQPdgL5K1so9"),
+"format": 34359742487,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
+"material": ExtResource("4_i8mt1"),
+"name": "ComputerShrilow/gold",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AADwvgAAgD8AAAC/AADwvgAAAAAAAAC/AAAIPwAAAAAAAAC/AAAIPwAAgD8AAAC/AADwvgAAgD8AAAC/AADwvgAAgD8AAAA/AADwvgAAAAAAAAA/AADwvgAAAAAAAAC/AAAIPwAAAAAAAAC/AADwvgAAAAAAAAC/AADwvgAAAAAAAAA/AAAIPwAAAAAAAAA/AAAIPwAAgD8AAAC/AAAIPwAAgD8AAAA/AADwvgAAgD8AAAA/AADwvgAAgD8AAAC/AAAIPwAAgD8AAAC/AAAIPwAAAAAAAAC/AAAIPwAAAAAAAAA/AAAIPwAAgD8AAAA/AADwvgAAgD8AAAA/AAAIPwAAgD8AAAA/AAAIPwAAAAAAAAA/AADwvgAAAAAAAAA//////////z//////////P/////////8//////////z8AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//v/9/AAD/f/8//38AAP9//z//fwAA/3//P/9/AAD/f/8//3////9//7//f////3//v/9/////f/+//3////9//7////9//3//P////3//f/8/////f/9//z////9//3//P/9//3////+//3//f////7//f/9/////v/9//3////+/")
+}]
+
+[sub_resource type="ArrayOccluder3D" id="ArrayOccluder3D_225ji"]
+vertices = PackedVector3Array(-0.46875, 1, -0.5, -0.46875, 0, -0.5, 0.53125, 0, -0.5, 0.53125, 1, -0.5, -0.46875, 1, -0.5, -0.46875, 1, 0.5, -0.46875, 0, 0.5, -0.46875, 0, -0.5, 0.53125, 0, -0.5, -0.46875, 0, -0.5, -0.46875, 0, 0.5, 0.53125, 0, 0.5, 0.53125, 1, -0.5, 0.53125, 1, 0.5, -0.46875, 1, 0.5, -0.46875, 1, -0.5, 0.53125, 1, -0.5, 0.53125, 0, -0.5, 0.53125, 0, 0.5, 0.53125, 1, 0.5, -0.46875, 1, 0.5, 0.53125, 1, 0.5, 0.53125, 0, 0.5, -0.46875, 0, 0.5)
+indices = PackedInt32Array(0, 1, 2, 0, 2, 3, 4, 5, 6, 4, 6, 7, 8, 9, 10, 8, 10, 11, 12, 13, 14, 12, 14, 15, 16, 17, 18, 16, 18, 19, 20, 21, 22, 20, 22, 23)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bge1d"]
+size = Vector3(0.83233, 0.759033, 0.7845)
+
+[node name="PickBox" type="RigidBody3D"]
+script = ExtResource("1_bvjev")
+
+[node name="FuncGodotMap" type="Node3D" parent="."]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, -0.362647, 0)
+script = ExtResource("2_bge1d")
+local_map_file = "uid://dya1m25kaein1"
+map_settings = ExtResource("3_sidrc")
+metadata/_custom_type_script = "uid://cnp3ulm0eugrk"
+
+[node name="entity_0_worldspawn" type="StaticBody3D" parent="FuncGodotMap"]
+
+[node name="entity_0_mesh_instance" type="MeshInstance3D" parent="FuncGodotMap/entity_0_worldspawn"]
+material_overlay = SubResource("ShaderMaterial_i8mt1")
+mesh = SubResource("ArrayMesh_ftdtc")
+
+[node name="entity_0_occluder_instance" type="OccluderInstance3D" parent="FuncGodotMap/entity_0_worldspawn"]
+occluder = SubResource("ArrayOccluder3D_225ji")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0373678, -0.00256348, 0.00720978)
+shape = SubResource("BoxShape3D_bge1d")

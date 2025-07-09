@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://dya1m25kaein1"
+path="res://.godot/imported/box.map-64bfc71b8e3c147aafc8e72fa7174e63.tres"
+
+[deps]
+
+source_file="res://tunnelpuzzle/assets/maps/box.map"
+dest_files=["res://.godot/imported/box.map-64bfc71b8e3c147aafc8e72fa7174e63.tres"]
+
+[params]
+
