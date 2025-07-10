@@ -111,34 +111,6 @@ tracks/1/keys = {
 "values": [Vector3(-0.013654, 0.0176262, -0.685038)]
 }
 
-[sub_resource type="Animation" id="Animation_sdhvu"]
-resource_name = "open"
-length = 5.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("part2:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 5),
-"transitions": PackedFloat32Array(0.378929, 1),
-"update": 0,
-"values": [Vector3(-0.013654, 0.0176262, -0.685038), Vector3(-0.014, 0.018, 0.736)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("part1:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 5),
-"transitions": PackedFloat32Array(0.378929, 1),
-"update": 0,
-"values": [Vector3(-0.013654, 0.0176262, -0.685038), Vector3(-0.014, 0.018, -2.1)]
-}
-
 [sub_resource type="Animation" id="Animation_jw202"]
 resource_name = "close"
 length = 5.0
@@ -165,6 +137,34 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(0.378929, 1),
 "update": 0,
 "values": [Vector3(-0.014, 0.018, -2.1), Vector3(-0.014, 0.018, -0.685)]
+}
+
+[sub_resource type="Animation" id="Animation_sdhvu"]
+resource_name = "open"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("part2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(0.378929, 1),
+"update": 0,
+"values": [Vector3(-0.013654, 0.0176262, -0.685038), Vector3(-0.014, 0.018, 0.736)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("part1:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(0.378929, 1),
+"update": 0,
+"values": [Vector3(-0.013654, 0.0176262, -0.685038), Vector3(-0.014, 0.018, -2.1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jw202"]

@@ -40,7 +40,7 @@ var uncommonJellies = [
 	},
 	{
 	"Name":"Dog Jelly",
-	"Desc":"oh!.. uhm.. woof?\n(Based on the sona of OJSTheCoder)",
+	"Desc":"oh!.. uhm.. woof?\n(Based on the old sona of OJSTheCoder)",
 	"MoneyGain":10,
 	"Seconds":5,
 	"Discovered":false,
@@ -118,13 +118,6 @@ var rareJellies = [
 	"Discovered":false,
 	},
 	{
-	"Name":"Weird Lookin' Cat Jelly",
-	"Desc":"MA! THERE'S A WEIRD FUCKIN CAT OUTSIDE, IT LOOKS LIKE GRANDMA THE FUCKIN THING\n(Based on Sky's sona Token)",
-	"MoneyGain":10,
-	"Seconds":5,
-	"Discovered":false,
-	},
-	{
 	"Name":"Winter Jelly",
 	"Desc":"brrr... so cold!\nHopefully you'll warm up soon!",
 	"MoneyGain":20,
@@ -168,7 +161,7 @@ var rareJellies = [
 	},
 	{
 	"Name":"Crazy Jelly",
-	"Desc":"haha uhmm coocooCRAZY for coocoo puffs\n(Based on the sona of Jocapelt)",
+	"Desc":"haha uhmm coocooCRAZY for coocoo puffs\n(Based on an oc of Jocapelt's)",
 	"MoneyGain":15,
 	"Seconds":3,
 	"Discovered":false,
