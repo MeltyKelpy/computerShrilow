@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://chelpg0b7xaq5"]
+
+[ext_resource type="Texture2D" uid="uid://cvkxgs3cnsgq3" path="res://assets/images/areas/presidentpleasure/donations/0.png" id="1_gb071"]
+
+[node name="DonationBins" type="TextureRect"]
+texture = ExtResource("1_gb071")

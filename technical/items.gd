@@ -615,6 +615,29 @@ var marketItems = [
 	},
 	]
 
+var donationItems = [
+	# added for convenience when making the donation loading system later
+	{"shouldntbehere":"hellosourcecoderumager"},
+	{
+	"Name":"Decorate the Main Area",
+	"Desc":"Funding to Decorate the Main Area! (the one where shrilow is).\n\nIf funded, will add streamers and other silly things to decorate the main area!",
+	"FundingStages":4,
+	"FundingStage":0,
+	"FundMinimum":500000,
+	"CurrentFunding":0,
+	"Img":"",
+	},
+	{
+	"Name":"Improve Mine Conditions",
+	"Desc":"Funding to Increase Miner Working Conditions!\n\nIf funded, it'll uhmmmm give them all construction gear",
+	"FundingStages":1,
+	"FundingStage":0,
+	"FundMinimum":100000,
+	"CurrentFunding":0,
+	"Img":"",
+	},
+	]
+
 var itemName = "Item Name will show up Here"
 var itemDesc = "Right here, an Item's description will show up."
 var itemExtra = ""

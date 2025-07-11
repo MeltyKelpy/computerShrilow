@@ -3,7 +3,7 @@ extends Node
 var commonJellies = [
 	{
 	"Name":"Jelly",
-	"Desc":"The Basic Jelly, a weird species of creature who weirdly resemble a smaller version of MeltyKelpy (Melanie)",
+	"Desc":"The Basic Jelly, a weird species of creature who weirdly resemble a smaller version of Melanie",
 	"MoneyGain":5,
 	"Seconds":8,
 	"Discovered":false,
@@ -105,7 +105,7 @@ var uncommonJellies = [
 var rareJellies = [
 	{
 	"Name":"Gardener Jelly",
-	"Desc":"Cutiepie! go plant some strawberry seeds, love\n(This is my favorite jelly.)",
+	"Desc":"Cutiepie! go plant some strawberry seeds!\n(This is my favorite jelly.)",
 	"MoneyGain":15,
 	"Seconds":4,
 	"Discovered":false,
@@ -205,6 +205,13 @@ var rareJellies = [
 	"Name":"Dude Jelly",
 	"Desc":"you meet your soulmate, the most perfect person you could imagine. however, there's a catch.\n(Jelly based on Dudeman, the hit character.)",
 	"MoneyGain":15,
+	"Seconds":3,
+	"Discovered":false,
+	},
+	{
+	"Name":"Pattern Jelly",
+	"Desc":'"cant even goon without thinking about bro" - MeltyKelpy 2025\n(Based on the sona of MeltyKelpy)',
+	"MoneyGain":20,
 	"Seconds":3,
 	"Discovered":false,
 	},
@@ -332,8 +339,8 @@ var awesomeJellies = [
 	]
 var queerJellies = [
 	{
-	"Name":"JellythatlookslikeMeltyKelpy",
-	"Desc":"Jelly that looks like MeltyKelpy. it looks so different!\n(This uses the normal color palette for MeltyKelpy's sona, rather than the one for the game.)",
+	"Name":"JellythatlookslikeMelanie",
+	"Desc":"Jelly that looks like Melanie. it looks so different!",
 	"MoneyGain":50,
 	"Seconds":1,
 	"Discovered":false,

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3qg1ebsb0coo"
-path="res://.godot/imported/jelly0.png-6d32024cb359b2a4cf0513a66fb82147.ctex"
+uid="uid://cvkxgs3cnsgq3"
+path="res://.godot/imported/0.png-2e44ee4499338b7059fee0bffc904b8a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/jellies/JellythatlookslikeMeltyKelpy/jelly0.png"
-dest_files=["res://.godot/imported/jelly0.png-6d32024cb359b2a4cf0513a66fb82147.ctex"]
+source_file="res://assets/images/areas/presidentpleasure/donations/0.png"
+dest_files=["res://.godot/imported/0.png-2e44ee4499338b7059fee0bffc904b8a.ctex"]
 
 [params]
 

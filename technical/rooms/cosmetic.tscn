@@ -1,0 +1,105 @@
+[gd_scene load_steps=16 format=3 uid="uid://cg71s422b7fo6"]
+
+[ext_resource type="Script" uid="uid://dsqxwaxs3qqtt" path="res://technical/rooms/cosmetic.gd" id="1_fqbi0"]
+[ext_resource type="Texture2D" uid="uid://84prmweq48vd" path="res://assets/images/areas/presidentpleasure/wip.png" id="1_xk7br"]
+[ext_resource type="Texture2D" uid="uid://cemp32xorq8nh" path="res://assets/images/areas/presidentpleasure/box.png" id="2_2hmu8"]
+[ext_resource type="PackedScene" uid="uid://chelpg0b7xaq5" path="res://technical/rooms/donationBins.tscn" id="3_2hmu8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pmdr7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ek433"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3yr3u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y1qkl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a02yg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b78y0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ycaw8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l3hhd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c4ntb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4cwn0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bm1pg"]
+
+[node name="Cosmetic" type="Node2D"]
+script = ExtResource("1_fqbi0")
+
+[node name="bg" type="Sprite2D" parent="."]
+texture = ExtResource("1_xk7br")
+
+[node name="box" type="Sprite2D" parent="."]
+texture = ExtResource("2_2hmu8")
+
+[node name="bins" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 7.0
+offset_top = -174.0
+offset_right = 571.0
+offset_bottom = 86.0
+
+[node name="DonationBins" parent="bins" instance=ExtResource("3_2hmu8")]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 48.0
+offset_right = 218.0
+offset_bottom = 248.0
+
+[node name="DonationBins2" parent="bins" instance=ExtResource("3_2hmu8")]
+layout_mode = 0
+offset_left = 190.0
+offset_top = 48.0
+offset_right = 370.0
+offset_bottom = 248.0
+
+[node name="DonationBins3" parent="bins" instance=ExtResource("3_2hmu8")]
+layout_mode = 0
+offset_left = 341.0
+offset_top = 48.0
+offset_right = 521.0
+offset_bottom = 248.0
+
+[node name="ButtonL" type="Button" parent="."]
+offset_left = 12.0
+offset_top = -162.0
+offset_right = 60.0
+offset_bottom = -78.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pmdr7")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_ek433")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3yr3u")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_y1qkl")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_a02yg")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_b78y0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ycaw8")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_l3hhd")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_c4ntb")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_4cwn0")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bm1pg")
+
+[node name="ButtonR" type="Button" parent="."]
+offset_left = 498.0
+offset_top = -162.0
+offset_right = 546.0
+offset_bottom = -78.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pmdr7")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_ek433")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3yr3u")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_y1qkl")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_a02yg")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_b78y0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ycaw8")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_l3hhd")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_c4ntb")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_4cwn0")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bm1pg")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[connection signal="pressed" from="ButtonL" to="." method="buttons" binds= ["L"]]
+[connection signal="pressed" from="ButtonR" to="." method="buttons" binds= ["R"]]

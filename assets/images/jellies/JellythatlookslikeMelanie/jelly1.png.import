@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7yucomqvgbbw"
-path="res://.godot/imported/jelly0.png-502f7c471b6299698448563e5d7f6920.ctex"
+uid="uid://dq2byglwii6g8"
+path="res://.godot/imported/jelly1.png-cae7dae1bbd5cec8a591577cd2fc5395.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/jellies/Weird Lookin' Cat Jelly/jelly0.png"
-dest_files=["res://.godot/imported/jelly0.png-502f7c471b6299698448563e5d7f6920.ctex"]
+source_file="res://assets/images/jellies/JellythatlookslikeMelanie/jelly1.png"
+dest_files=["res://.godot/imported/jelly1.png-cae7dae1bbd5cec8a591577cd2fc5395.ctex"]
 
 [params]
 

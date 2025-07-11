@@ -1641,7 +1641,7 @@ bus = &"SFX"
 
 [node name="SFXPick" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("37_h5ho6")
-volume_db = 9.303
+volume_db = 9.0
 bus = &"SFX"
 
 [node name="SFXScroll" type="AudioStreamPlayer" parent="."]
